@@ -41,10 +41,6 @@ export default async function Home() {
     <div className="mx-auto max-w-5xl px-4 py-16">
       {/* Hero */}
       <div className="text-center">
-        <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-card)] px-4 py-1.5 text-xs text-[var(--color-muted-foreground)] mb-6">
-          <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)] animate-pulse" />
-          Research Demo
-        </div>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight leading-tight">
           Causal Forecast Lab
         </h1>
@@ -143,15 +139,11 @@ export default async function Home() {
       {/* Metrics overview */}
       <div className="mt-16">
         <h2 className="text-xl font-semibold mb-6">Key Metrics</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             {
               name: "SSR (Structural Sensitivity Ratio)",
-              desc: "Ratio of mean shift from real structurally-targeted probes vs irrelevant controls. SSR > 1 means the model shifts more for causally relevant challenges than noise.",
-            },
-            {
-              name: "Asymmetry Index",
-              desc: "Ratio of negation shift vs strengthening shift across matched importance levels. Values > 1 indicate the model reacts more to challenges than confirmations.",
+              desc: "Ratio of mean shift from high-importance probes vs low-importance probes. SSR > 1 means the model differentiates between structurally important and peripheral challenges.",
             },
             {
               name: "Importance-Sensitivity ρ",
@@ -160,14 +152,6 @@ export default async function Home() {
             {
               name: "Control Sensitivity",
               desc: "Fraction of irrelevant probes that cause a shift > 5pp. Lower is better — indicates the model ignores causally irrelevant information.",
-            },
-            {
-              name: "Critical Path Premium",
-              desc: "Extra sensitivity for nodes/edges on the shortest path to the outcome vs those off-path.",
-            },
-            {
-              name: "SAR (Spurious Acceptance Rate)",
-              desc: "Fraction of spurious/missing-node probes that cause a significant shift. High SAR suggests the model accepts spurious evidence.",
             },
           ].map((m) => (
             <div
