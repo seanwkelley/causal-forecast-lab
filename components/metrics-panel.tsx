@@ -65,7 +65,7 @@ export function MetricsPanel({
       <h3 className="text-sm font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider mt-4">
         Network
       </h3>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 gap-3">
         <MetricCard
           label="Nodes"
           value={network.n_nodes.toString()}
@@ -75,11 +75,6 @@ export function MetricsPanel({
           label="Edges"
           value={network.n_edges.toString()}
           description={`Density: ${network.density.toFixed(3)}`}
-        />
-        <MetricCard
-          label="DAG"
-          value={network.is_dag ? "Valid" : "Invalid"}
-          description={network.is_dag ? "Directed acyclic graph" : "Contains cycles"}
         />
       </div>
     </div>
