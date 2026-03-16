@@ -13,6 +13,13 @@ import { formatProbability, probToColor } from "@/lib/utils";
 
 interface DetailWithMetrics extends QuestionDetail {
   aggregate_metrics: AggregateMetrics;
+  epistemic_ratings?: Array<{
+    factor_id: string;
+    confidence: number;
+    reason: string;
+    betweenness: number;
+    value_of_information: number;
+  }>;
 }
 
 const MODELS = [
