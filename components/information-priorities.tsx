@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 interface EpistemicRating {
   factor_id: string;
   confidence: number;
@@ -29,64 +31,77 @@ function voiBar(voi: number, maxVoi: number): number {
   return Math.round((voi / maxVoi) * 100);
 }
 
+const PREVIEW_COUNT = 3;
+
 export function InformationPriorities({
   ratings,
 }: {
   ratings: EpistemicRating[];
 }) {
+  const [expanded, setExpanded] = useState(false);
+
   if (!ratings || ratings.length === 0) return null;
 
   const maxVoi = Math.max(...ratings.map((r) => r.value_of_information), 0.001);
+  const visible = expanded ? ratings : ratings.slice(0, PREVIEW_COUNT);
+  const hasMore = ratings.length > PREVIEW_COUNT;
 
   return (
-    <div className="space-y-3">
-      <h3 className="text-sm font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider">
-        Information Priorities
-      </h3>
-      <p className="text-xs text-[var(--color-muted-foreground)]">
-        Factors ranked by value of information: high structural importance +
-        low epistemic confidence = highest priority for additional research.
+    <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4 space-y-3">
+      <div className="flex items-center justify-between">
+        <h3 className="text-xs font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider">
+          Information Priorities
+        </h3>
+        <span className="text-[10px] text-[var(--color-muted-foreground)]">
+          {ratings.length} factors
+        </span>
+      </div>
+      <p className="text-[10px] text-[var(--color-muted-foreground)]">
+        High structural importance + low epistemic confidence = highest priority for research.
       </p>
-      <div className="space-y-2">
-        {ratings.map((r, i) => (
+      <div className="space-y-1.5">
+        {visible.map((r, i) => (
           <div
             key={r.factor_id}
-            className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-3"
+            className="flex items-center gap-2 text-xs"
           >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-[var(--color-muted-foreground)] w-5">
-                  {i + 1}.
-                </span>
-                <span className="text-sm font-medium">
+            <span className="font-mono text-[var(--color-muted-foreground)] w-4 shrink-0 text-right">
+              {i + 1}.
+            </span>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-medium truncate">
                   {r.factor_id.replace(/_/g, " ")}
                 </span>
+                <span
+                  className={`font-mono text-[10px] shrink-0 ${confidenceColor(r.confidence)}`}
+                >
+                  {confidenceLabel(r.confidence)}
+                </span>
               </div>
-              <span
-                className={`text-xs font-mono ${confidenceColor(r.confidence)}`}
-              >
-                {confidenceLabel(r.confidence)} ({r.confidence}/5)
-              </span>
-            </div>
-            <div className="mt-2 flex items-center gap-2">
-              <div className="flex-1 h-2 rounded-full bg-[var(--color-border)] overflow-hidden">
-                <div
-                  className="h-full rounded-full bg-[var(--color-primary)] transition-all"
-                  style={{ width: `${voiBar(r.value_of_information, maxVoi)}%` }}
-                />
+              <div className="mt-0.5 flex items-center gap-2">
+                <div className="flex-1 h-1.5 rounded-full bg-[var(--color-border)] overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-[var(--color-primary)]"
+                    style={{ width: `${voiBar(r.value_of_information, maxVoi)}%` }}
+                  />
+                </div>
+                <span className="font-mono text-[10px] text-[var(--color-muted-foreground)] w-8 text-right shrink-0">
+                  {r.value_of_information.toFixed(1)}
+                </span>
               </div>
-              <span className="text-xs font-mono text-[var(--color-muted-foreground)] w-12 text-right">
-                VOI {r.value_of_information.toFixed(2)}
-              </span>
             </div>
-            {r.reason && (
-              <p className="mt-1 text-xs text-[var(--color-muted-foreground)]">
-                {r.reason}
-              </p>
-            )}
           </div>
         ))}
       </div>
+      {hasMore && (
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="text-xs text-[var(--color-primary)] hover:underline"
+        >
+          {expanded ? "Show less" : `Show all ${ratings.length} factors`}
+        </button>
+      )}
     </div>
   );
 }
