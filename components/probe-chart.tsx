@@ -68,7 +68,7 @@ export function DeltaBarChart({
             {data.map((entry, i) => (
               <Cell
                 key={i}
-                fill={entry.delta >= 0 ? "#ef4444" : "#22c55e"}
+                fill={entry.delta >= 0 ? "#22c55e" : "#ef4444"}
                 fillOpacity={0.8}
               />
             ))}

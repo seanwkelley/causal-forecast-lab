@@ -16,7 +16,7 @@ export function formatDelta(delta: number): string {
 
 export function deltaColor(delta: number): string {
   if (Math.abs(delta) < 0.01) return "text-[var(--color-neutral-shift)]";
-  return delta > 0 ? "text-[var(--color-negative)]" : "text-[var(--color-positive)]";
+  return delta > 0 ? "text-[var(--color-positive)]" : "text-[var(--color-negative)]";
 }
 
 export function probToColor(p: number): string {

@@ -197,10 +197,10 @@ export function ProbeTable({
                     </td>
                     <td className="px-3 py-2 text-center">
                       {r.shift_direction === "increased" && (
-                        <span className="text-[var(--color-negative)]">↑</span>
+                        <span className="text-[var(--color-positive)]">↑</span>
                       )}
                       {r.shift_direction === "decreased" && (
-                        <span className="text-[var(--color-positive)]">↓</span>
+                        <span className="text-[var(--color-negative)]">↓</span>
                       )}
                       {r.shift_direction === "unchanged" && (
                         <span className="text-[var(--color-neutral-shift)]">
