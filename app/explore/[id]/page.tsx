@@ -206,8 +206,8 @@ export default function QuestionDetailPage() {
             nodes={data.network_analysis.node_metrics}
             edges={data.network_analysis.edge_metrics}
             probeResults={data.probe_results}
-            selectedTargetId={selectedTargetId}
-            onSelectNode={(nodeId) => setSelectedTargetId(nodeId)}
+            selectedNodeId={selectedTargetId}
+            onNodeClick={(nodeId) => setSelectedTargetId(nodeId)}
           />
         </div>
 
