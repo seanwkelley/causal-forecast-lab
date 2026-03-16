@@ -687,7 +687,7 @@ Respond with ONLY valid JSON: {"ratings": [{"factor_id": "...", "confidence": <1
       { role: "system", content: "You are rating your own epistemic uncertainty about causal factors. Be honest about what you don't know." },
       { role: "user", content: uncertaintyPrompt },
     ];
-    const uncertRaw = await callOpenRouter(uncertMessages, model, apiKey);
+    const uncertRaw = await callOpenRouter(uncertMessages, { model, apiKey, jsonMode: true });
     const uncertParsed = JSON.parse(
       uncertRaw.replace(/```json?\n?/g, "").replace(/```/g, "").trim()
     );
