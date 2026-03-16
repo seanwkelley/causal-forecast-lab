@@ -41,6 +41,7 @@ export default function QuestionDetailPage() {
   const [activeModel, setActiveModel] = useState(initialModel);
   const [data, setData] = useState<DetailWithMetrics | null>(null);
   const [loading, setLoading] = useState(true);
+  const [switching, setSwitching] = useState(false);
   const [availableModels, setAvailableModels] = useState<string[]>([]);
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
   const [activeViz, setActiveViz] = useState<"delta" | "scatter">("delta");
@@ -62,7 +63,9 @@ export default function QuestionDetailPage() {
 
   // Load question data for active model
   useEffect(() => {
-    setLoading(true);
+    // Only show full loading spinner on initial load, not model switches
+    if (!data) setLoading(true);
+    setSwitching(true);
     fetch(`/data/questions/${activeModel}/${id}.json`)
       .then((r) => {
         if (!r.ok) throw new Error("Not found");
@@ -71,6 +74,7 @@ export default function QuestionDetailPage() {
       .then((d) => {
         setData(d);
         setLoading(false);
+        setSwitching(false);
       })
       .catch(() => {
         // Fallback: try old flat structure
@@ -82,8 +86,12 @@ export default function QuestionDetailPage() {
           .then((d) => {
             setData(d);
             setLoading(false);
+            setSwitching(false);
           })
-          .catch(() => setLoading(false));
+          .catch(() => {
+            setLoading(false);
+            setSwitching(false);
+          });
       });
   }, [id, activeModel]);
 
@@ -138,7 +146,7 @@ export default function QuestionDetailPage() {
   const modelLabel = data.model_label || MODEL_LABELS[activeModel] || activeModel;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6">
+    <div className={`mx-auto max-w-7xl px-4 py-6 transition-opacity duration-150 ${switching ? "opacity-50 pointer-events-none" : "opacity-100"}`}>
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-[var(--color-muted-foreground)] mb-4">
         <Link href="/explore" className="hover:text-[var(--color-foreground)]">
