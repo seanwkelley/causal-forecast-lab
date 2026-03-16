@@ -85,6 +85,30 @@ const MODELS: Record<string, { dir: string; label: string }> = {
 };
 
 // ------------------------------------------------------------------
+// Market probabilities from ForecastBench
+// ------------------------------------------------------------------
+
+function loadMarketProbabilities(): Record<string, number> {
+  const fbPath = path.resolve(__dirname, "../../forecast_bench/forecastbench_questions.json");
+  if (!fs.existsSync(fbPath)) {
+    console.log("  ForecastBench data not found, skipping market probabilities");
+    return {};
+  }
+  const fb = JSON.parse(fs.readFileSync(fbPath, "utf-8"));
+  const market: Record<string, number> = {};
+  for (const q of fb.questions) {
+    const val = q.freeze_datetime_value;
+    if (val != null) {
+      const num = Number(val);
+      if (!isNaN(num) && num >= 0 && num <= 1) {
+        market[q.id] = num;
+      }
+    }
+  }
+  return market;
+}
+
+// ------------------------------------------------------------------
 // Metric computation (matches analysis_causal.py)
 // ------------------------------------------------------------------
 
@@ -289,6 +313,9 @@ function main() {
   const outputBase = path.resolve(__dirname, "../public/data");
   console.log(`Output to: ${outputBase}`);
 
+  const marketProbs = loadMarketProbabilities();
+  console.log(`Loaded ${Object.keys(marketProbs).length} market probabilities`);
+
   // Track all questions across models for the summary
   const allQuestionIds = new Set<string>();
   const modelSummaries: Record<
@@ -310,7 +337,13 @@ function main() {
       question_text: string;
       source: string;
       category: string;
+      market_probability: number | null;
       models: string[]; // which models have data for this question
+      // Per-model probabilities for cross-model comparison
+      model_probabilities: Record<string, number>;
+      // Metrics from default model (llama-70b) for card display
+      ssr: number | null;
+      mean_absolute_shift: number | null;
     }
   > = {};
 
@@ -355,10 +388,16 @@ function main() {
 
         const metrics = computeMetrics(q.probe_results);
 
+        // Try matching with and without q_ prefix
+        const mktProb = marketProbs[q.question_id]
+          ?? (q.question_id.startsWith("q_") ? marketProbs[q.question_id.slice(2)] : null)
+          ?? null;
+
         const detail = {
           ...q,
           model: modelKey,
           model_label: modelInfo.label,
+          market_probability: mktProb,
           aggregate_metrics: metrics,
         };
 
@@ -378,10 +417,21 @@ function main() {
             question_text: q.question_text,
             source: q.source,
             category: classifyTopic(q.question_text, q.source),
+            market_probability: mktProb,
             models: [],
+            model_probabilities: {},
+            ssr: null,
+            mean_absolute_shift: null,
           };
         }
         questionIndex[q.question_id].models.push(modelKey);
+        questionIndex[q.question_id].model_probabilities[modelKey] = q.initial_probability;
+
+        // Use llama-70b metrics for card display (or first model if not available)
+        if (modelKey === "llama-70b" || questionIndex[q.question_id].ssr == null) {
+          questionIndex[q.question_id].ssr = metrics.ssr;
+          questionIndex[q.question_id].mean_absolute_shift = q.summary?.mean_absolute_shift ?? null;
+        }
 
         if (metrics.ssr != null) {
           totalSSR += metrics.ssr;

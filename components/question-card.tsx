@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { truncate, formatProbability, probToColor } from "@/lib/utils";
+import { truncate } from "@/lib/utils";
 
 interface QuestionEntry {
   question_id: string;
   question_text: string;
   source: string;
   models?: string[];
-  // Legacy fields
   initial_probability?: number;
   n_nodes?: number;
   n_edges?: number;
@@ -41,8 +40,6 @@ export function QuestionCard({
             <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-secondary)] px-2 py-0.5">
               {q.source}
             </span>
-            {q.n_nodes != null && <span>{q.n_nodes} nodes</span>}
-            {q.n_edges != null && <span>{q.n_edges} edges</span>}
             {q.models && (
               <span>
                 {q.models.length} model{q.models.length !== 1 ? "s" : ""}
@@ -50,40 +47,29 @@ export function QuestionCard({
             )}
           </div>
         </div>
-        <div className="text-right shrink-0">
-          {q.initial_probability != null && (
-            <p
-              className="text-lg font-mono font-bold"
-              style={{ color: probToColor(q.initial_probability) }}
-            >
-              {formatProbability(q.initial_probability)}
-            </p>
-          )}
+        <div className="text-right shrink-0 space-y-1">
           {q.ssr != null && (
-            <p className="text-xs text-[var(--color-muted-foreground)] mt-0.5">
-              SSR: {q.ssr.toFixed(2)}x
-            </p>
+            <div className="flex items-center gap-1.5 justify-end">
+              <span className="text-[10px] text-[var(--color-muted-foreground)]">SSR</span>
+              <span className={`font-mono text-xs font-medium ${
+                q.ssr >= 2 ? "text-[var(--color-positive)]" :
+                q.ssr >= 1.5 ? "text-[var(--color-primary)]" :
+                "text-[var(--color-muted-foreground)]"
+              }`}>
+                {q.ssr.toFixed(1)}x
+              </span>
+            </div>
+          )}
+          {q.mean_absolute_shift != null && (
+            <div className="flex items-center gap-1.5 justify-end">
+              <span className="text-[10px] text-[var(--color-muted-foreground)]">Avg |Δ|</span>
+              <span className="font-mono text-xs">
+                {(q.mean_absolute_shift * 100).toFixed(1)}pp
+              </span>
+            </div>
           )}
         </div>
       </div>
-      {q.mean_absolute_shift != null && (
-        <div className="mt-3">
-          <div className="flex items-center justify-between text-xs text-[var(--color-muted-foreground)] mb-1">
-            <span>Mean |Delta|</span>
-            <span className="font-mono">
-              {(q.mean_absolute_shift * 100).toFixed(1)}pp
-            </span>
-          </div>
-          <div className="w-full h-1.5 rounded-full bg-[var(--color-secondary)] overflow-hidden">
-            <div
-              className="h-full rounded-full bg-[var(--color-primary)]"
-              style={{
-                width: `${Math.min(q.mean_absolute_shift * 100 * 3, 100)}%`,
-              }}
-            />
-          </div>
-        </div>
-      )}
     </Link>
   );
 }

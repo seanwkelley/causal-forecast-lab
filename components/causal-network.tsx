@@ -261,9 +261,9 @@ export function CausalNetwork({
           .id((d) => d.id)
           .distance(80)
       )
-      .force("charge", d3.forceManyBody().strength(-300))
+      .force("charge", d3.forceManyBody().strength(-500))
       .force("center", d3.forceCenter(width / 2, height / 2))
-      .force("collision", d3.forceCollide<SimNode>().radius((d) => nodeRadius(d) + 5))
+      .force("collision", d3.forceCollide<SimNode>().radius((d) => nodeRadius(d) + 25))
       .alphaDecay(0.05)
       .on("tick", () => {
         link
@@ -334,22 +334,10 @@ export function CausalNetwork({
           </p>
           <div className="mt-2 grid grid-cols-2 gap-x-3 gap-y-0.5 text-[10px]">
             <span className="text-[var(--color-muted-foreground)]">
-              Importance:
-            </span>
-            <span className="font-mono">
-              {tooltip.node.betweenness.toFixed(3)}
-            </span>
-            <span className="text-[var(--color-muted-foreground)]">
               Betweenness:
             </span>
             <span className="font-mono">
               {tooltip.node.betweenness.toFixed(3)}
-            </span>
-            <span className="text-[var(--color-muted-foreground)]">
-              PageRank:
-            </span>
-            <span className="font-mono">
-              {tooltip.node.pagerank.toFixed(3)}
             </span>
             {tooltip.node.sensitivity > 0 && (
               <>

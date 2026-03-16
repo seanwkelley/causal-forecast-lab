@@ -43,6 +43,7 @@ export default function QuestionDetailPage() {
   const [loading, setLoading] = useState(true);
   const [switching, setSwitching] = useState(false);
   const [availableModels, setAvailableModels] = useState<string[]>([]);
+  const [modelProbabilities, setModelProbabilities] = useState<Record<string, number>>({});
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
 
   // Load available models for this question
@@ -55,6 +56,9 @@ export default function QuestionDetailPage() {
         );
         if (q?.models) {
           setAvailableModels(q.models);
+        }
+        if (q?.model_probabilities) {
+          setModelProbabilities(q.model_probabilities);
         }
       })
       .catch(() => {});
@@ -195,16 +199,30 @@ export default function QuestionDetailPage() {
         )}
       </div>
 
-      {/* Probability Estimate */}
-      <div className="mb-4 flex items-center gap-3">
-        <span className="text-sm text-[var(--color-muted-foreground)]">Probability Estimate:</span>
-        <div
-          className="flex items-center gap-1.5 text-2xl font-mono font-bold"
-          style={{ color: probToColor(data.initial_probability) }}
-        >
-          <ProbabilityBar probability={data.initial_probability} />
-          {formatProbability(data.initial_probability)}
+      {/* Probability Estimate + Cross-Model Comparison */}
+      <div className="mb-4">
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-[var(--color-muted-foreground)]">Probability Estimate:</span>
+          <div
+            className="flex items-center gap-1.5 text-2xl font-mono font-bold"
+            style={{ color: probToColor(data.initial_probability) }}
+          >
+            <ProbabilityBar probability={data.initial_probability} />
+            {formatProbability(data.initial_probability)}
+          </div>
         </div>
+        {Object.keys(modelProbabilities).length > 1 && (
+          <div className="mt-2 flex items-center gap-4 text-xs text-[var(--color-muted-foreground)]">
+            {Object.entries(modelProbabilities).map(([m, prob]) => (
+              <span
+                key={m}
+                className={`font-mono ${m === activeModel ? "text-[var(--color-foreground)] font-medium" : ""}`}
+              >
+                {MODEL_LABELS[m] || m}: {formatProbability(prob)}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Reasoning */}
@@ -229,7 +247,12 @@ export default function QuestionDetailPage() {
             edges={data.network_analysis.edge_metrics}
             probeResults={data.probe_results}
             selectedNodeId={selectedTargetId}
-            onNodeClick={(nodeId) => setSelectedTargetId(nodeId)}
+            onNodeClick={(nodeId) => {
+              // Don't allow selecting the outcome node as a probe target
+              const node = data.network_analysis.node_metrics.find((n) => n.node_id === nodeId);
+              if (node?.role === "outcome") return;
+              setSelectedTargetId(nodeId);
+            }}
           />
         </div>
 
