@@ -700,7 +700,12 @@ Respond with ONLY valid JSON: {"ratings": [{"factor_id": "...", "confidence": <1
       );
       epistemicRatings = uncertParsed.ratings.map(
         (r: { factor_id: string; confidence: number; reason: string }) => {
-          const node = nodeMetrics.find((n) => n.node_id === r.factor_id);
+          const normalizedId = r.factor_id.replace(/\s+/g, "_").toLowerCase();
+          const node = nodeMetrics.find(
+            (n) => n.node_id === r.factor_id ||
+                   n.node_id === normalizedId ||
+                   n.node_id.replace(/\s+/g, "_").toLowerCase() === normalizedId
+          );
           const betweenness = node?.betweenness ?? 0;
           const normImportance = betweenness / maxBetweenness;
           const uncertainty = (5 - r.confidence) / 4; // normalize to 0-1
