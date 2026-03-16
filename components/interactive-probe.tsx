@@ -119,7 +119,12 @@ export function InteractiveProbe({
         </p>
       )}
 
-      {/* API key (persists in component state) */}
+      {/* API key (persisted in localStorage) */}
+      <p className="text-[10px] text-[var(--color-muted-foreground)]">
+        Your key is stored locally in your browser. We recommend regenerating it on{" "}
+        <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">OpenRouter</a>{" "}
+        when you&apos;re done.
+      </p>
       <div className="grid grid-cols-[1fr_auto] gap-2">
         <input
           type="password"
