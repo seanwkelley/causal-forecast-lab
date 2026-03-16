@@ -45,7 +45,7 @@ export function CausalNetwork({
   const containerRef = useRef<HTMLDivElement>(null);
   const nodeSelRef = useRef<d3.Selection<SVGCircleElement, SimNode, SVGGElement, unknown> | null>(null);
   const onNodeClickRef = useRef(onNodeClick);
-  const [dimensions, setDimensions] = useState({ width: propWidth || 700, height: propHeight || 500 });
+  const [dimensions, setDimensions] = useState({ width: propWidth || 700, height: propHeight || 650 });
   const [tooltip, setTooltip] = useState<{
     x: number;
     y: number;
@@ -75,7 +75,7 @@ export function CausalNetwork({
     if (!el) return;
     const ro = new ResizeObserver((entries) => {
       const { width, height } = entries[0].contentRect;
-      setDimensions({ width: width || 700, height: height || 500 });
+      setDimensions({ width: width || 700, height: height || 650 });
     });
     ro.observe(el);
     return () => ro.disconnect();
@@ -290,7 +290,7 @@ export function CausalNetwork({
   }, [nodes, edges, dimensions, nodeSensitivity]);
 
   return (
-    <div ref={containerRef} className="relative w-full" style={{ minHeight: propHeight || 500 }}>
+    <div ref={containerRef} className="relative w-full" style={{ minHeight: propHeight || 650 }}>
       <svg
         ref={svgRef}
         width={dimensions.width}
