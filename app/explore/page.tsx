@@ -7,7 +7,14 @@ interface QuestionEntry {
   question_id: string;
   question_text: string;
   source: string;
-  models: string[];
+  models?: string[];
+  // Legacy fields
+  initial_probability?: number;
+  n_nodes?: number;
+  n_edges?: number;
+  mean_absolute_shift?: number | null;
+  max_absolute_shift?: number | null;
+  ssr?: number | null;
 }
 
 interface ModelInfo {
@@ -18,8 +25,11 @@ interface ModelInfo {
 
 interface SummaryData {
   total_questions: number;
-  models: Record<string, ModelInfo>;
-  default_model: string;
+  // New multi-model format
+  models?: Record<string, ModelInfo>;
+  default_model?: string;
+  // Legacy single-model format
+  model?: string;
   questions: QuestionEntry[];
 }
 
@@ -34,19 +44,27 @@ export default function ExplorePage() {
       .then((r) => r.json())
       .then((d: SummaryData) => {
         setData(d);
-        setSelectedModel(d.default_model || Object.keys(d.models)[0] || "");
+        // Set default model
+        if (d.models) {
+          setSelectedModel(d.default_model || Object.keys(d.models)[0] || "");
+        } else if (d.model) {
+          setSelectedModel(d.model);
+        }
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, []);
 
+  const isMultiModel = !!(data?.models && Object.keys(data.models).length > 0);
+  const modelKeys = isMultiModel ? Object.keys(data!.models!) : [];
+
   const filtered = useMemo(() => {
     if (!data) return [];
     let list = data.questions;
 
-    // Filter to questions available for selected model
-    if (selectedModel) {
-      list = list.filter((q) => q.models.includes(selectedModel));
+    // Filter to questions available for selected model (multi-model only)
+    if (isMultiModel && selectedModel) {
+      list = list.filter((q) => q.models?.includes(selectedModel));
     }
 
     if (search) {
@@ -60,7 +78,7 @@ export default function ExplorePage() {
     }
 
     return list;
-  }, [data, search, selectedModel]);
+  }, [data, search, selectedModel, isMultiModel]);
 
   if (loading) {
     return (
@@ -87,9 +105,6 @@ export default function ExplorePage() {
     );
   }
 
-  const modelKeys = Object.keys(data.models);
-  const currentModelInfo = data.models[selectedModel];
-
   return (
     <div className="mx-auto max-w-5xl px-4 py-8">
       <div className="flex items-center justify-between mb-6">
@@ -97,36 +112,36 @@ export default function ExplorePage() {
           <h1 className="text-2xl font-bold">Pre-Selected Questions</h1>
           <p className="text-sm text-[var(--color-muted-foreground)] mt-1">
             {filtered.length} questions
-            {currentModelInfo && (
-              <> &middot; Avg SSR: {currentModelInfo.avg_ssr?.toFixed(2) ?? "N/A"}</>
-            )}
+            {!isMultiModel && data.model && <> &middot; {data.model}</>}
           </p>
         </div>
       </div>
 
       {/* Controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-6">
-        {/* Model selector */}
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-[var(--color-muted-foreground)]">
-            Model:
-          </span>
-          <div className="flex items-center gap-1">
-            {modelKeys.map((key) => (
-              <button
-                key={key}
-                onClick={() => setSelectedModel(key)}
-                className={`px-3 py-1.5 text-xs rounded-md transition-colors ${
-                  selectedModel === key
-                    ? "bg-[var(--color-primary)] text-white"
-                    : "bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
-                }`}
-              >
-                {data.models[key].label}
-              </button>
-            ))}
+        {/* Model selector (multi-model only) */}
+        {isMultiModel && (
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-[var(--color-muted-foreground)]">
+              Model:
+            </span>
+            <div className="flex items-center gap-1">
+              {modelKeys.map((key) => (
+                <button
+                  key={key}
+                  onClick={() => setSelectedModel(key)}
+                  className={`px-3 py-1.5 text-xs rounded-md transition-colors ${
+                    selectedModel === key
+                      ? "bg-[var(--color-primary)] text-white"
+                      : "bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
+                  }`}
+                >
+                  {data.models![key].label}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         <input
           type="text"
@@ -143,7 +158,7 @@ export default function ExplorePage() {
           <QuestionCard
             key={q.question_id}
             q={q}
-            model={selectedModel}
+            model={isMultiModel ? selectedModel : undefined}
           />
         ))}
       </div>
