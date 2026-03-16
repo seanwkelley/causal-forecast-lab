@@ -55,6 +55,31 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Data Attribution */}
+      <div className="mt-8">
+        <h2 className="text-lg font-semibold mb-4">Data Attribution</h2>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-5 text-sm text-[var(--color-muted-foreground)] leading-relaxed">
+          <p>
+            Forecasting questions are drawn from{" "}
+            <a
+              href="https://forecastbench.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-primary)] hover:underline font-medium"
+            >
+              ForecastBench
+            </a>
+            , a dynamic benchmark of AI forecasting capabilities sourced from
+            active prediction markets.
+          </p>
+          <p className="mt-2 text-xs">
+            Karger, E., Bastani, H., Chen, Y.-H., Jacobs, Z., Halawi, D.,
+            Zhang, F., &amp; Tetlock, P. E. (2025). ForecastBench: A Dynamic
+            Benchmark of AI Forecasting Capabilities. <em>ICLR 2025</em>.
+          </p>
+        </div>
+      </div>
+
       {/* Contact */}
       <div className="mt-8">
         <h2 className="text-lg font-semibold mb-4">Contact</h2>
