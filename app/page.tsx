@@ -96,7 +96,7 @@ export default function Home() {
             {
               step: "2",
               title: "Network Analysis",
-              desc: "Graph metrics (betweenness, PageRank, path relevance) identify which nodes and edges are structurally most important to the reasoning.",
+              desc: "Betweenness centrality ranks which nodes and edges are structurally most important; path relevance flags elements on the critical path to the outcome.",
             },
             {
               step: "3",
