@@ -8,10 +8,11 @@ export default function AboutPage() {
       <div className="mt-8 space-y-6 text-sm text-[var(--color-muted-foreground)] leading-relaxed">
         <p>
           <strong className="text-[var(--color-foreground)]">Causal Forecast Lab</strong> is
-          an interactive companion to our research on belief sensitivity in large
-          language model forecasting. It lets you explore how LLM probability
-          estimates shift when assumptions about causal structure are
-          systematically challenged through targeted counterfactual probes.
+          an interactive companion to our research examining the underlying
+          causal factors that contribute to LLM probability estimates. It lets
+          you explore how those estimates shift when assumptions about causal
+          structure are systematically challenged through targeted
+          counterfactual probes.
         </p>
 
         <p>
