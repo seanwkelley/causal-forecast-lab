@@ -51,7 +51,12 @@ export default function LivePage() {
   const [question, setQuestion] = useState("");
   const [background, setBackground] = useState("");
   const [selectedModels, setSelectedModels] = useState<string[]>([]);
-  const [apiKey, setApiKey] = useState("");
+  const [apiKey, setApiKey] = useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("openrouter_api_key") ?? "";
+    }
+    return "";
+  });
   const [runs, setRuns] = useState<ModelRun[]>([]);
 
   function toggleModel(value: string) {
@@ -266,10 +271,18 @@ export default function LivePage() {
             <input
               type="password"
               value={apiKey}
-              onChange={(e) => setApiKey(e.target.value)}
+              onChange={(e) => {
+                setApiKey(e.target.value);
+                localStorage.setItem("openrouter_api_key", e.target.value);
+              }}
               placeholder="sk-or-..."
               className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
             />
+            <p className="mt-1 text-[10px] text-[var(--color-muted-foreground)]">
+              Stored locally in your browser. We recommend regenerating it on{" "}
+              <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">OpenRouter</a>{" "}
+              when you&apos;re done.
+            </p>
           </div>
 
           {/* Model selection */}
