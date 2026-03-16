@@ -1,0 +1,1152 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07535.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "north_atlantic_ocean_temp",
+      "description": "Temperature of the North Atlantic Ocean",
+      "role": "factor"
+    },
+    {
+      "id": "european_weather_patterns",
+      "description": "Typical weather patterns in Europe during winter",
+      "role": "factor"
+    },
+    {
+      "id": "global_climate_trends",
+      "description": "Current global climate trends",
+      "role": "factor"
+    },
+    {
+      "id": "atmospheric_pressure_systems",
+      "description": "Pressure systems influencing the region",
+      "role": "factor"
+    },
+    {
+      "id": "wind_direction_and_speed",
+      "description": "Regional wind patterns",
+      "role": "factor"
+    },
+    {
+      "id": "solar_irradiance",
+      "description": "Solar radiation in the region",
+      "role": "factor"
+    },
+    {
+      "id": "precipitation_levels",
+      "description": "Total precipitation in the region",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Temperature difference between 2025-12-28 and 2025-12-21 at Gourdon",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "north_atlantic_ocean_temp",
+      "to": "european_weather_patterns",
+      "mechanism": "Influences typical winter weather patterns"
+    },
+    {
+      "from": "european_weather_patterns",
+      "to": "atmospheric_pressure_systems",
+      "mechanism": "Affects pressure systems in the region"
+    },
+    {
+      "from": "atmospheric_pressure_systems",
+      "to": "wind_direction_and_speed",
+      "mechanism": "Influences regional wind patterns"
+    },
+    {
+      "from": "wind_direction_and_speed",
+      "to": "precipitation_levels",
+      "mechanism": "Affects total precipitation in the region"
+    },
+    {
+      "from": "precipitation_levels",
+      "to": "solar_irradiance",
+      "mechanism": "Reduces solar radiation when precipitation is high"
+    },
+    {
+      "from": "global_climate_trends",
+      "to": "north_atlantic_ocean_temp",
+      "mechanism": "Long-term trends influence ocean temperatures"
+    },
+    {
+      "from": "north_atlantic_ocean_temp",
+      "to": "outcome",
+      "mechanism": "Influences temperature difference between dates"
+    },
+    {
+      "from": "solar_irradiance",
+      "to": "outcome",
+      "mechanism": "Directly affects temperature"
+    },
+    {
+      "from": "wind_direction_and_speed",
+      "to": "outcome",
+      "mechanism": "Influences temperature through wind chill"
+    },
+    {
+      "from": "precipitation_levels",
+      "to": "outcome",
+      "mechanism": "Affects temperature through evaporation and cooling"
+    }
+  ],
+  "reasoning": "Given the expected continuation of global climate trends and the typical winter weather patterns in Europe, it is likely that the North Atlantic Ocean temperature will influence the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. Additionally, the solar irradiance and wind direction and speed are expected to play a role in determining the outcome.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 10,
+    "density": 0.1786,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "north_atlantic_ocean_temp",
+        "description": "Temperature of the North Atlantic Ocean",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.1429,
+        "closeness": 0.1429,
+        "pagerank": 0.0906,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "european_weather_patterns",
+        "description": "Typical weather patterns in Europe during winter",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1905,
+        "closeness": 0.1905,
+        "pagerank": 0.0874,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_climate_trends",
+        "description": "Current global climate trends",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.049,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "atmospheric_pressure_systems",
+        "description": "Pressure systems influencing the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.2381,
+        "closeness": 0.2143,
+        "pagerank": 0.1233,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "wind_direction_and_speed",
+        "description": "Regional wind patterns",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.2381,
+        "closeness": 0.2286,
+        "pagerank": 0.1537,
+        "path_relevance": 0.2857
+      },
+      {
+        "node_id": "solar_irradiance",
+        "description": "Solar radiation in the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.2449,
+        "pagerank": 0.0975,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "precipitation_levels",
+        "description": "Total precipitation in the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.119,
+        "closeness": 0.2381,
+        "pagerank": 0.1143,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "Temperature difference between 2025-12-28 and 2025-12-21 at Gourdon",
+        "role": "outcome",
+        "in_degree": 4,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.6364,
+        "pagerank": 0.2842,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "north_atlantic_ocean_temp",
+        "target": "european_weather_patterns",
+        "mechanism": "Influences typical winter weather patterns",
+        "edge_betweenness": 0.1786,
+        "on_critical_path": false
+      },
+      {
+        "source": "north_atlantic_ocean_temp",
+        "target": "outcome",
+        "mechanism": "Influences temperature difference between dates",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "european_weather_patterns",
+        "target": "atmospheric_pressure_systems",
+        "mechanism": "Affects pressure systems in the region",
+        "edge_betweenness": 0.2321,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_climate_trends",
+        "target": "north_atlantic_ocean_temp",
+        "mechanism": "Long-term trends influence ocean temperatures",
+        "edge_betweenness": 0.125,
+        "on_critical_path": true
+      },
+      {
+        "source": "atmospheric_pressure_systems",
+        "target": "wind_direction_and_speed",
+        "mechanism": "Influences regional wind patterns",
+        "edge_betweenness": 0.25,
+        "on_critical_path": true
+      },
+      {
+        "source": "wind_direction_and_speed",
+        "target": "precipitation_levels",
+        "mechanism": "Affects total precipitation in the region",
+        "edge_betweenness": 0.1786,
+        "on_critical_path": false
+      },
+      {
+        "source": "wind_direction_and_speed",
+        "target": "outcome",
+        "mechanism": "Influences temperature through wind chill",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "solar_irradiance",
+        "target": "outcome",
+        "mechanism": "Directly affects temperature",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "precipitation_levels",
+        "target": "solar_irradiance",
+        "mechanism": "Reduces solar radiation when precipitation is high",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": false
+      },
+      {
+        "source": "precipitation_levels",
+        "target": "outcome",
+        "mechanism": "Affects temperature through evaporation and cooling",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_pressure_systems",
+        "description": "Pressure systems influencing the region",
+        "importance": 0.2381,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "wind_direction_and_speed",
+        "description": "Regional wind patterns",
+        "importance": 0.2381,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "north_atlantic_ocean_temp",
+        "description": "Temperature of the North Atlantic Ocean",
+        "importance": 0.1429,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "solar_irradiance",
+        "description": "Solar radiation in the region",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_pressure_systems",
+        "description": "Pressure systems influencing the region",
+        "importance": 0.2381,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "wind_direction_and_speed",
+        "description": "Regional wind patterns",
+        "importance": 0.2381,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+        "description": "Influences regional wind patterns",
+        "importance": 0.25,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "european_weather_patterns->atmospheric_pressure_systems",
+        "description": "Affects pressure systems in the region",
+        "importance": 0.2321,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "north_atlantic_ocean_temp->european_weather_patterns",
+        "description": "Influences typical winter weather patterns",
+        "importance": 0.1786,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+        "description": "Influences regional wind patterns",
+        "importance": 0.25,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "wind_direction_and_speed->solar_irradiance",
+        "description": "Potential link: Regional wind patterns -> Solar radiation in the region",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "wind_direction_and_speed->north_atlantic_ocean_temp",
+        "description": "Potential link: Regional wind patterns -> Temperature of the North Atlantic Ocean",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_pressure_systems",
+      "description": "Pressure systems influencing the region",
+      "importance": 0.2381,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "wind_direction_and_speed",
+      "description": "Regional wind patterns",
+      "importance": 0.2381,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "north_atlantic_ocean_temp",
+      "description": "Temperature of the North Atlantic Ocean",
+      "importance": 0.1429,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "solar_irradiance",
+      "description": "Solar radiation in the region",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_pressure_systems",
+      "description": "Pressure systems influencing the region",
+      "importance": 0.2381,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "wind_direction_and_speed",
+      "description": "Regional wind patterns",
+      "importance": 0.2381,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "description": "Influences regional wind patterns",
+      "importance": 0.25,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "european_weather_patterns->atmospheric_pressure_systems",
+      "description": "Affects pressure systems in the region",
+      "importance": 0.2321,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "north_atlantic_ocean_temp->european_weather_patterns",
+      "description": "Influences typical winter weather patterns",
+      "importance": 0.1786,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "description": "Influences regional wind patterns",
+      "importance": 0.25,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "wind_direction_and_speed->solar_irradiance",
+      "description": "Potential link: Regional wind patterns -> Solar radiation in the region",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "wind_direction_and_speed->north_atlantic_ocean_temp",
+      "description": "Potential link: Regional wind patterns -> Temperature of the North Atlantic Ocean",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Consider a scenario where the typical pressure systems influencing the region are actually counteracted by a persistent high-pressure system over the Mediterranean, resulting in a stable atmospheric pressure gradient that minimizes the impact of wind direction and speed on precipitation levels. In this case, the role of atmospheric pressure systems in shaping the regional weather patterns would be significantly diminished, leading to a lower influence on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon.",
+      "probe_type": "node_negate_high",
+      "target_id": "atmospheric_pressure_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2381,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Pressure systems influencing the region"
+    },
+    {
+      "probe_text": "Consider a scenario where the prevailing wind direction and speed in the region suddenly reversed due to an unexpected shift in the jet stream, counteracting the usual winter wind patterns. This could lead to an increase in moisture-laden air from the Atlantic, potentially suppressing the typical cold air outbreaks that usually occur in December. As a result, the temperature difference between 2025-12-28 and 2025-12-21 might be less pronounced than expected.",
+      "probe_type": "node_negate_high",
+      "target_id": "wind_direction_and_speed",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2381,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Regional wind patterns"
+    },
+    {
+      "probe_text": "We've received new research suggesting that the ocean currents in the North Atlantic have been significantly altered by the warming of the Arctic, which has led to a reduction in the ocean's heat capacity. This reduction would imply that the ocean temperature has a neutral or even negative effect on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. How does this new information affect your forecast?",
+      "probe_type": "node_negate_medium",
+      "target_id": "north_atlantic_ocean_temp",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Temperature of the North Atlantic Ocean"
+    },
+    {
+      "probe_text": "A recent study suggests that the region's cloud cover has been significantly increasing over the past decade, which would lead to a reduction in the amount of solar radiation reaching the ground during the winter months. This increase in cloud cover has been attributed to changes in global climate patterns, rather than any changes in the region's weather patterns.",
+      "probe_type": "node_negate_low",
+      "target_id": "solar_irradiance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Solar radiation in the region"
+    },
+    {
+      "probe_text": "A recent study published in the Journal of Atmospheric Science found a strong correlation between the formation of a high-pressure system over the North Atlantic and an increase in temperature differences between consecutive days in Western Europe during winter. This study controlled for other climate variables and found that the high-pressure system's influence on temperature was significant. Furthermore, meteorologists from the European Centre for Medium-Range Weather Forecasts (ECMWF) have confirmed that this relationship is consistent with their own models and observations. This new evidence supports the causal link between atmospheric pressure systems and temperature differences in the region.",
+      "probe_type": "node_strengthen",
+      "target_id": "atmospheric_pressure_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2381,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Pressure systems influencing the region"
+    },
+    {
+      "probe_text": "A recent study published in the Journal of Atmospheric Science has found a strong correlation between wind direction and temperature anomalies in the region during the winter months. The study suggests that a shift in wind direction can lead to a significant change in temperature, with an average difference of 2.5°C between similar weather patterns. This finding is consistent with the forecaster's causal model, which posits that wind direction and speed play a crucial role in shaping regional weather patterns. The study's results provide further evidence for the importance of wind direction and speed in determining temperature outcomes in the region.",
+      "probe_type": "node_strengthen",
+      "target_id": "wind_direction_and_speed",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2381,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Regional wind patterns"
+    },
+    {
+      "probe_text": "Can you reevaluate the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21, assuming that a strong high-pressure system will persist in the region for the entire month of December, effectively shielding the area from strong winds and precipitation?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.25,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Influences regional wind patterns"
+    },
+    {
+      "probe_text": "A recent study by the European Centre for Medium-Range Weather Forecasts (ECMWF) suggests that the atmospheric pressure systems in Western Europe during the winter months are more influenced by the North Atlantic Oscillation (NAO) than by typical European weather patterns. This finding challenges the assumption that European weather patterns directly affect pressure systems in the region.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "european_weather_patterns->atmospheric_pressure_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.2321,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Affects pressure systems in the region"
+    },
+    {
+      "probe_text": "A recent study suggests that changes in the North Atlantic Ocean temperature may not directly influence typical European winter weather patterns as previously thought, but rather that these patterns are primarily driven by the North Atlantic Oscillation.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "north_atlantic_ocean_temp->european_weather_patterns",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1786,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Influences typical winter weather patterns"
+    },
+    {
+      "probe_text": "Consider the fact that Gourdon is a mountainous region with a complex topography, which can cause wind patterns to be channeled and amplified. This suggests that wind direction and speed may actually influence the formation and movement of atmospheric pressure systems in the region, rather than the other way around.",
+      "probe_type": "edge_reverse",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.25,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Influences regional wind patterns"
+    },
+    {
+      "probe_text": "Consider the recent storm system that passed through the region, bringing strong winds and heavy precipitation. This storm likely disrupted the region's typical atmospheric circulation patterns, affecting the amount of cloud cover and, subsequently, the amount of solar radiation received.",
+      "probe_type": "edge_spurious",
+      "target_id": "wind_direction_and_speed->solar_irradiance",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Regional wind patterns -> Solar radiation in the region"
+    },
+    {
+      "probe_text": "Would it be more likely than not that the record-low February wind speed in 2020 at a nearby coastal location, which is indicative of a regional wind pattern shift, had a noticeable impact on the temperature of the North Atlantic Ocean over the following six months, given the reduced heat loss from the ocean surface due to a decrease in wind-driven mixing?",
+      "probe_type": "edge_spurious",
+      "target_id": "wind_direction_and_speed->north_atlantic_ocean_temp",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Regional wind patterns -> Temperature of the North Atlantic Ocean"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21, given that there has been a significant increase in the number of wildfires in southern Europe during the 2025-12-01 to 2025-12-20 period?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21, given that there will be a 20% increase in snow cover in the surrounding region between those dates?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The newly appointed mayor of Gourdon has announced plans to implement a new recycling program for the town's Christmas decorations. The program aims to reduce the amount of waste generated by the town's festive lights and decorations.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A significant number of snowflakes are expected to fall on Christmas Day 2025 in the nearby town of Figeac, located approximately 30 kilometers south of Gourdon. Additionally, local authorities have announced plans to host a festive Christmas market in Figeac during the holiday season, attracting a large number of visitors to the area. The market will feature traditional regional cuisine, live music, and an array of local artisanal goods on display. The increased foot traffic and festivities are expected to put a strain on local infrastructure and services.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where the typical pressure systems influencing the region are actually counteracted by a persistent high-pressure system over the Mediterranean, resulting in a stable atmospheric pressure gradient that minimizes the impact of wind direction and speed on precipitation levels. In this case, the role of atmospheric pressure systems in shaping the regional weather patterns would be significantly diminished, leading to a lower influence on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'atmospheric_pressure_systems' significantly reduces its influence on 'wind_direction_and_speed' and consequently on 'precipitation_levels'. As a result, the negative impact of 'precipitation_levels' on 'solar_irradiance' is also reduced. This diminishes the cooling effect of high precipitation on temperature, leading to a decrease in the probability of higher temperatures on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'atmospheric_pressure_systems' significantly reduces its influence on 'wind_direction_and_speed' and consequently on 'precipitation_levels'. As a result, the negative impact of 'precipitation_levels' on 'solar_irradiance' is also reduced. This diminishes the cooling effect of high precipitation on temperature, leading to a decrease in the probability of higher temperatures on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "atmospheric_pressure_systems",
+      "target_type": "node",
+      "target_importance": 0.2381,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where the prevailing wind direction and speed in the region suddenly reversed due to an unexpected shift in the jet stream, counteracting the usual winter wind patterns. This could lead to an increase in moisture-laden air from the Atlantic, potentially suppressing the typical cold air outbreaks that usually occur in December. As a result, the temperature difference between 2025-12-28 and 2025-12-21 might be less pronounced than expected.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'wind_direction_and_speed' affects the causal paths leading to the outcome through the edges 'wind_direction_and_speed -> precipitation_levels', 'precipitation_levels -> solar_irradiance', 'wind_direction_and_speed -> outcome', and 'precipitation_levels -> outcome'. The unexpected shift in the jet stream counteracts the usual winter wind patterns, potentially suppressing cold air outbreaks and reducing the temperature difference between 2025-12-28 and 2025-12-21. This reduces the expected influence of wind chill and evaporation/cooling on the outcome, leading to a decreased probability of a higher temperature on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'wind_direction_and_speed' affects the causal paths leading to the outcome through the edges 'wind_direction_and_speed -> precipitation_levels', 'precipitation_levels -> solar_irradiance', 'wind_direction_and_speed -> outcome', and 'precipitation_levels -> outcome'. The unexpected shift in the jet stream counteracts the usual winter wind patterns, potentially suppressing cold air outbreaks and reducing the temperature difference between 2025-12-28 and 2025-12-21. This reduces the expected influence of wind chill and evaporation/cooling on the outcome, leading to a decreased probability of a higher temperature on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "wind_direction_and_speed",
+      "target_type": "node",
+      "target_importance": 0.2381,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "We've received new research suggesting that the ocean currents in the North Atlantic have been significantly altered by the warming of the Arctic, which has led to a reduction in the ocean's heat capacity. This reduction would imply that the ocean temperature has a neutral or even negative effect on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. How does this new information affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new research suggests that the North Atlantic ocean temperature has a neutral or even negative effect on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. This alters the causal path from 'north_atlantic_ocean_temp' to 'outcome' through 'european_weather_patterns', 'atmospheric_pressure_systems', 'wind_direction_and_speed', 'precipitation_levels', and 'solar_irradiance'. Since the ocean temperature's effect is now neutral or negative, I expect a decrease in the temperature difference between the two dates, leading to a decrease in the probability of a higher temperature on 2025-12-28 than on 2025-12-21. The reduction in the ocean's heat capacity also weakens the causal link between 'north_atlantic_ocean_temp' and 'outcome', making the overall effect less pronounced. Therefore, I update my probability estimate to 0.45, a decrease from the original 0.62.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new research suggests that the North Atlantic ocean temperature has a neutral or even negative effect on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. This alters the causal path from 'north_atlantic_ocean_temp' to 'outcome' through 'european_weather_patterns', 'atmospheric_pressure_systems', 'wind_direction_and_speed', 'precipitation_levels', and 'solar_irradiance'. Since the ocean temperature's effect is now neutral or negative, I expect a decrease in the temperature difference between the two dates, leading to a decrease in the probability of a higher temperature on 2025-12-28 than on 2025-12-21. The reduction in the ocean's heat capacity also weakens the causal link between 'north_atlantic_ocean_temp' and 'outcome', making the overall effect less pronounced. Therefore, I update my probability estimate to 0.45, a decrease from the original 0.62.\"\n}",
+      "target_id": "north_atlantic_ocean_temp",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "A recent study suggests that the region's cloud cover has been significantly increasing over the past decade, which would lead to a reduction in the amount of solar radiation reaching the ground during the winter months. This increase in cloud cover has been attributed to changes in global climate patterns, rather than any changes in the region's weather patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'solar_irradiance' affects the causal path <solar_irradiance -> outcome>'. This path was previously a contributor to the forecast that the temperature on 2025-12-28 would be higher than on 2025-12-21. However, the recent study suggests that cloud cover is increasing, which would reduce solar radiation. This change in 'solar_irradiance' influences the outcome, making it less likely for the temperature on 2025-12-28 to be higher than on 2025-12-21. The causal path <north_atlantic_ocean_temp -> outcome> is still relevant, as it influences the temperature difference between the two dates. However, the increased cloud cover reduces the effect of solar radiation, making it a less important contributor to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'solar_irradiance' affects the causal path <solar_irradiance -> outcome>'. This path was previously a contributor to the forecast that the temperature on 2025-12-28 would be higher than on 2025-12-21. However, the recent study suggests that cloud cover is increasing, which would reduce solar radiation. This change in 'solar_irradiance' influences the outcome, making it less likely for the temperature on 2025-12-28 to be higher than on 2025-12-21. The causal path <north_atlantic_ocean_temp -> outcome> is still relevant, as it influences the temperature difference between the two dates. However, the increased cloud cover reduces the effect of solar radiation, making it a less important contributor to the outcome.\"\n}",
+      "target_id": "solar_irradiance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Atmospheric Science found a strong correlation between the formation of a high-pressure system over the North Atlantic and an increase in temperature differences between consecutive days in Western Europe during winter. This study controlled for other climate variables and found that the high-pressure system's influence on temperature was significant. Furthermore, meteorologists from the European Centre for Medium-Range Weather Forecasts (ECMWF) have confirmed that this relationship is consistent with their own models and observations. This new evidence supports the causal link between atmospheric pressure systems and temperature differences in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between atmospheric pressure systems and temperature differences in the region. This increases the influence of the atmospheric_pressure_systems node on the outcome. Specifically, the causal paths from atmospheric_pressure_systems to wind_direction_and_speed and from wind_direction_and_speed to outcome are now more direct and influential. Additionally, the increased confidence in the link between atmospheric_pressure_systems and outcome leads to a higher probability of higher temperatures on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between atmospheric pressure systems and temperature differences in the region. This increases the influence of the atmospheric_pressure_systems node on the outcome. Specifically, the causal paths from atmospheric_pressure_systems to wind_direction_and_speed and from wind_direction_and_speed to outcome are now more direct and influential. Additionally, the increased confidence in the link between atmospheric_pressure_systems and outcome leads to a higher probability of higher temperatures on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "atmospheric_pressure_systems",
+      "target_type": "node",
+      "target_importance": 0.2381,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Atmospheric Science has found a strong correlation between wind direction and temperature anomalies in the region during the winter months. The study suggests that a shift in wind direction can lead to a significant change in temperature, with an average difference of 2.5°C between similar weather patterns. This finding is consistent with the forecaster's causal model, which posits that wind direction and speed play a crucial role in shaping regional weather patterns. The study's results provide further evidence for the importance of wind direction and speed in determining temperature outcomes in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between wind_direction_and_speed and outcome. As wind direction and speed play a crucial role in shaping regional weather patterns, this study's finding reinforces the importance of wind chill and evaporation effects on temperature. The increased understanding of the wind direction's influence on temperature anomalies in the region suggests a more significant impact on the outcome. Specifically, the wind direction's role in determining temperature outcomes is now better understood, which in turn increases the probability of the outcome (temperature difference between 2025-12-28 and 2025-12-21 at Gourdon) being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between wind_direction_and_speed and outcome. As wind direction and speed play a crucial role in shaping regional weather patterns, this study's finding reinforces the importance of wind chill and evaporation effects on temperature. The increased understanding of the wind direction's influence on temperature anomalies in the region suggests a more significant impact on the outcome. Specifically, the wind direction's role in determining temperature outcomes is now better understood, which in turn increases the probability of the outcome (temperature difference between 2025-12-28 and 2025-12-21 at Gourdon) being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "wind_direction_and_speed",
+      "target_type": "node",
+      "target_importance": 0.2381,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Can you reevaluate the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21, assuming that a strong high-pressure system will persist in the region for the entire month of December, effectively shielding the area from strong winds and precipitation?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.74,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'atmospheric_pressure_systems->wind_direction_and_speed' significantly affects the causal paths leading to the outcome. With a strong high-pressure system persisting in the region, the wind direction and speed will be reduced, leading to lower evaporation and cooling through precipitation. This, in turn, will increase the solar irradiance and reduce the cooling effect of precipitation on the temperature. As a result, the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon is likely to be greater, increasing the probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21. The affected causal paths are: precipitation_levels -> solar_irradiance (weaker cooling effect due to reduced precipitation) and solar_irradiance -> outcome (increased direct effect on temperature).",
+      "raw_response": "{\n  \"updated_probability\": 0.74,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'atmospheric_pressure_systems->wind_direction_and_speed' significantly affects the causal paths leading to the outcome. With a strong high-pressure system persisting in the region, the wind direction and speed will be reduced, leading to lower evaporation and cooling through precipitation. This, in turn, will increase the solar irradiance and reduce the cooling effect of precipitation on the temperature. As a result, the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon is likely to be greater, increasing the probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21. The affected causal paths are: precipitation_levels -> solar_irradiance (weaker cooling effect due to reduced precipitation) and solar_irradiance -> outcome (increased direct effect on temperature).\"\n}",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "target_type": "edge",
+      "target_importance": 0.25,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by the European Centre for Medium-Range Weather Forecasts (ECMWF) suggests that the atmospheric pressure systems in Western Europe during the winter months are more influenced by the North Atlantic Oscillation (NAO) than by typical European weather patterns. This finding challenges the assumption that European weather patterns directly affect pressure systems in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'european_weather_patterns->atmospheric_pressure_systems' affects the causal path from 'north_atlantic_ocean_temp' to 'outcome' through 'european_weather_patterns'. However, the influence of the North Atlantic Oscillation on atmospheric pressure systems still maintains a connection between 'north_atlantic_ocean_temp' and 'atmospheric_pressure_systems', albeit a weaker one. As a result, the probability of the daily average temperature at the French weather station at Gourdon being higher on 2025-12-28 than on 2025-12-21 decreases slightly, as the connection between 'north_atlantic_ocean_temp' and 'outcome' is weakened.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'european_weather_patterns->atmospheric_pressure_systems' affects the causal path from 'north_atlantic_ocean_temp' to 'outcome' through 'european_weather_patterns'. However, the influence of the North Atlantic Oscillation on atmospheric pressure systems still maintains a connection between 'north_atlantic_ocean_temp' and 'atmospheric_pressure_systems', albeit a weaker one. As a result, the probability of the daily average temperature at the French weather station at Gourdon being higher on 2025-12-28 than on 2025-12-21 decreases slightly, as the connection between 'north_atlantic_ocean_temp' and 'outcome' is weakened.\"\n}",
+      "target_id": "european_weather_patterns->atmospheric_pressure_systems",
+      "target_type": "edge",
+      "target_importance": 0.2321,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent study suggests that changes in the North Atlantic Ocean temperature may not directly influence typical European winter weather patterns as previously thought, but rather that these patterns are primarily driven by the North Atlantic Oscillation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the causal link between North Atlantic Ocean temperature and European winter weather patterns, which is a key driver of temperature differences between dates. However, the North Atlantic Ocean temperature still influences the outcome through the global climate trends, which in turn affect the temperature. Additionally, the solar irradiance, wind direction and speed, and precipitation levels still have a direct impact on the outcome. Although the challenged link is important, the other causal paths remain intact, leading to a moderate decrease in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the causal link between North Atlantic Ocean temperature and European winter weather patterns, which is a key driver of temperature differences between dates. However, the North Atlantic Ocean temperature still influences the outcome through the global climate trends, which in turn affect the temperature. Additionally, the solar irradiance, wind direction and speed, and precipitation levels still have a direct impact on the outcome. Although the challenged link is important, the other causal paths remain intact, leading to a moderate decrease in the probability estimate.\"\n}",
+      "target_id": "north_atlantic_ocean_temp->european_weather_patterns",
+      "target_type": "edge",
+      "target_importance": 0.1786,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Consider the fact that Gourdon is a mountainous region with a complex topography, which can cause wind patterns to be channeled and amplified. This suggests that wind direction and speed may actually influence the formation and movement of atmospheric pressure systems in the region, rather than the other way around.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.78,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "Given the challenge to the causal link 'atmospheric_pressure_systems->wind_direction_and_speed', I now consider that wind direction and speed may actually influence the formation and movement of atmospheric pressure systems in the region. This effectively reverses the causal link, making wind direction and speed a mediating factor between atmospheric pressure systems and precipitation levels. As a result, the causal paths leading to the outcome are affected as follows: the influence of atmospheric pressure systems on precipitation levels is now indirect and weakened, while the influence of wind direction and speed on precipitation levels is strengthened. This changes my estimate as I now consider that the increased wind speed and direction in the region may lead to higher precipitation levels, which in turn can reduce solar radiation. Consequently, I update my forecast to a higher probability of warmer temperatures on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.78,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"Given the challenge to the causal link 'atmospheric_pressure_systems->wind_direction_and_speed', I now consider that wind direction and speed may actually influence the formation and movement of atmospheric pressure systems in the region. This effectively reverses the causal link, making wind direction and speed a mediating factor between atmospheric pressure systems and precipitation levels. As a result, the causal paths leading to the outcome are affected as follows: the influence of atmospheric pressure systems on precipitation levels is now indirect and weakened, while the influence of wind direction and speed on precipitation levels is strengthened. This changes my estimate as I now consider that the increased wind speed and direction in the region may lead to higher precipitation levels, which in turn can reduce solar radiation. Consequently, I update my forecast to a higher probability of warmer temperatures on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "target_type": "edge",
+      "target_importance": 0.25,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider the recent storm system that passed through the region, bringing strong winds and heavy precipitation. This storm likely disrupted the region's typical atmospheric circulation patterns, affecting the amount of cloud cover and, subsequently, the amount of solar radiation received.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The storm system's disruption of typical atmospheric circulation patterns likely reduced the amount of solar radiation received in the region. This is because the storm led to increased cloud cover, which directly reduces solar irradiance. The causal link 'wind_direction_and_speed -> solar_irradiance' is challenged, but not broken. This means that the storm's effect on solar irradiance is now a more direct pathway to the outcome. As a result, I update my estimate to reflect a lower probability that the daily average temperature at Gourdon will be higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The storm system's disruption of typical atmospheric circulation patterns likely reduced the amount of solar radiation received in the region. This is because the storm led to increased cloud cover, which directly reduces solar irradiance. The causal link 'wind_direction_and_speed -> solar_irradiance' is challenged, but not broken. This means that the storm's effect on solar irradiance is now a more direct pathway to the outcome. As a result, I update my estimate to reflect a lower probability that the daily average temperature at Gourdon will be higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "wind_direction_and_speed->solar_irradiance",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Would it be more likely than not that the record-low February wind speed in 2020 at a nearby coastal location, which is indicative of a regional wind pattern shift, had a noticeable impact on the temperature of the North Atlantic Ocean over the following six months, given the reduced heat loss from the ocean surface due to a decrease in wind-driven mixing?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'wind_direction_and_speed->north_atlantic_ocean_temp' suggests that the temperature of the North Atlantic Ocean might not be as strongly influenced by regional wind patterns as initially thought. Given the reduced heat loss from the ocean surface due to decreased wind-driven mixing, it's plausible that the temperature of the North Atlantic Ocean over the following six months would be less affected by wind direction and speed. This reduces the influence of 'north_atlantic_ocean_temp' on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. Consequently, the direct and indirect effects of 'north_atlantic_ocean_temp' on the outcome through 'european_weather_patterns', 'atmospheric_pressure_systems', and other nodes are reduced, leading to a decreased probability of the daily average temperature at the French weather station at Gourdon being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'wind_direction_and_speed->north_atlantic_ocean_temp' suggests that the temperature of the North Atlantic Ocean might not be as strongly influenced by regional wind patterns as initially thought. Given the reduced heat loss from the ocean surface due to decreased wind-driven mixing, it's plausible that the temperature of the North Atlantic Ocean over the following six months would be less affected by wind direction and speed. This reduces the influence of 'north_atlantic_ocean_temp' on the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. Consequently, the direct and indirect effects of 'north_atlantic_ocean_temp' on the outcome through 'european_weather_patterns', 'atmospheric_pressure_systems', and other nodes are reduced, leading to a decreased probability of the daily average temperature at the French weather station at Gourdon being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "wind_direction_and_speed->north_atlantic_ocean_temp",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21, given that there has been a significant increase in the number of wildfires in southern Europe during the 2025-12-01 to 2025-12-20 period?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The increase in wildfires in southern Europe reduces the amount of solar radiation that reaches the region, as more particles are in the atmosphere. This reduces the solar_irradiance node, which negatively impacts the outcome node. Additionally, the increase in wildfires could be correlated with changes in atmospheric pressure systems, which could affect the wind_direction_and_speed node. However, these effects are not strongly causal in my model, so I'm not updating the probability much. The main driver of the temperature difference remains the north_atlantic_ocean_temp and global_climate_trends nodes, which are not affected by the wildfires.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The increase in wildfires in southern Europe reduces the amount of solar radiation that reaches the region, as more particles are in the atmosphere. This reduces the solar_irradiance node, which negatively impacts the outcome node. Additionally, the increase in wildfires could be correlated with changes in atmospheric pressure systems, which could affect the wind_direction_and_speed node. However, these effects are not strongly causal in my model, so I'm not updating the probability much. The main driver of the temperature difference remains the north_atlantic_ocean_temp and global_climate_trends nodes, which are not affected by the wildfires.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21, given that there will be a 20% increase in snow cover in the surrounding region between those dates?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "decreased",
+      "reasoning": "The 20% increase in snow cover in the surrounding region between 2025-12-21 and 2025-12-28 will reduce the amount of solar radiation available to heat the region, thus directly affecting the outcome. This change breaks the causal path from solar_irradiance to outcome, making it less likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. Furthermore, increased snow cover will also lead to reduced evaporation and cooling effects, which will further reduce the likelihood of a temperature increase. This structural challenge has a significant impact on my reasoning, leading to a decrease in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The 20% increase in snow cover in the surrounding region between 2025-12-21 and 2025-12-28 will reduce the amount of solar radiation available to heat the region, thus directly affecting the outcome. This change breaks the causal path from solar_irradiance to outcome, making it less likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. Furthermore, increased snow cover will also lead to reduced evaporation and cooling effects, which will further reduce the likelihood of a temperature increase. This structural challenge has a significant impact on my reasoning, leading to a decrease in the estimated probability.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The newly appointed mayor of Gourdon has announced plans to implement a new recycling program for the town's Christmas decorations. The program aims to reduce the amount of waste generated by the town's festive lights and decorations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a new recycling program for Christmas decorations is unlikely to have a significant impact on the temperature difference between December 21st and December 28th. However, it may influence local wind patterns and precipitation levels through changes in waste management and population activity. Since these factors are relatively peripheral to the main causal paths leading to the outcome (temperature difference), I have decreased the probability estimate by 0.04. The main drivers of temperature difference, such as global climate trends, North Atlantic Ocean temperature, and atmospheric pressure systems, remain unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a new recycling program for Christmas decorations is unlikely to have a significant impact on the temperature difference between December 21st and December 28th. However, it may influence local wind patterns and precipitation levels through changes in waste management and population activity. Since these factors are relatively peripheral to the main causal paths leading to the outcome (temperature difference), I have decreased the probability estimate by 0.04. The main drivers of temperature difference, such as global climate trends, North Atlantic Ocean temperature, and atmospheric pressure systems, remain unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A significant number of snowflakes are expected to fall on Christmas Day 2025 in the nearby town of Figeac, located approximately 30 kilometers south of Gourdon. Additionally, local authorities have announced plans to host a festive Christmas market in Figeac during the holiday season, attracting a large number of visitors to the area. The market will feature traditional regional cuisine, live music, and an array of local artisanal goods on display. The increased foot traffic and festivities are expected to put a strain on local infrastructure and services.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "decreased",
+      "reasoning": "The information about the snowfall and increased foot traffic in Figeac affects the causal path from precipitation_levels to outcome. The increased precipitation and strain on local infrastructure are likely to increase precipitation levels, which in turn would reduce solar radiation (precipitation_levels -> solar_irradiance). This would decrease the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. Additionally, the increased foot traffic and festivities may also affect the wind_direction_and_speed node, potentially leading to more wind chill, which would further decrease the temperature difference. However, the impact of these changes is uncertain, and I am updating my estimate by 13 percentage points to reflect the decreased temperature difference.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The information about the snowfall and increased foot traffic in Figeac affects the causal path from precipitation_levels to outcome. The increased precipitation and strain on local infrastructure are likely to increase precipitation levels, which in turn would reduce solar radiation (precipitation_levels -> solar_irradiance). This would decrease the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon. Additionally, the increased foot traffic and festivities may also affect the wind_direction_and_speed node, potentially leading to more wind chill, which would further decrease the temperature difference. However, the impact of these changes is uncertain, and I am updating my estimate by 13 percentage points to reflect the decreased temperature difference.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Oceanography found a strong correlation between the temperature of the North Atlantic Ocean and the severity of winter storms in the North Atlantic region. The study suggests that warmer ocean temperatures can lead to more intense storms, which in turn can have a significant impact on the weather patterns in Western Europe. This new evidence reinforces the idea that the temperature of the North Atlantic Ocean has a significant influence on the typical weather patterns in Europe during winter, making it even more likely to be a causal factor in determining the temperature difference between 2025-12-28 and 2025-12-21 at Gourdon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.74,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence reinforces the causal link between the North Atlantic Ocean temperature and the typical European winter weather patterns. This strengthens the causal path from 'north_atlantic_ocean_temp' to 'european_weather_patterns', which in turn has a direct influence on the outcome. Given the increased importance of this causal factor, we expect a higher probability of the daily average temperature at Gourdon being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.74,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence reinforces the causal link between the North Atlantic Ocean temperature and the typical European winter weather patterns. This strengthens the causal path from 'north_atlantic_ocean_temp' to 'european_weather_patterns', which in turn has a direct influence on the outcome. Given the increased importance of this causal factor, we expect a higher probability of the daily average temperature at Gourdon being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "north_atlantic_ocean_temp",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A new study published in a reputable scientific journal reveals that the region around Gourdon receives an average of 25% more solar radiation during the winter months compared to the previous decade, which is significantly higher than the global average. This increase in solar radiation is attributed to a shift in the Earth's orbit, resulting in a more direct angle of sunlight during the winter solstice. Furthermore, satellite imagery analysis confirms that the increased solar radiation is not being offset by increased cloud cover, suggesting that the region is indeed receiving more direct sunlight. This new evidence supports the causal factor 'solar_irradiance' and makes it even more likely to be true and causally important.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence supporting the causal factor 'solar_irradiance' strengthens the causal path from 'solar_irradiance' to 'outcome'. This increases the likelihood that the direct effect of solar radiation on temperature will be significant. Additionally, the increased solar radiation is expected to mitigate the cooling effect of precipitation, as the higher solar radiation will result in more evaporation and warming. This reinforces the causal path from 'precipitation_levels' to 'outcome' as well. As a result, I increase my estimate of the probability of a higher temperature on 2025-12-28 compared to 2025-12-21 to 0.75.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence supporting the causal factor 'solar_irradiance' strengthens the causal path from 'solar_irradiance' to 'outcome'. This increases the likelihood that the direct effect of solar radiation on temperature will be significant. Additionally, the increased solar radiation is expected to mitigate the cooling effect of precipitation, as the higher solar radiation will result in more evaporation and warming. This reinforces the causal path from 'precipitation_levels' to 'outcome' as well. As a result, I increase my estimate of the probability of a higher temperature on 2025-12-28 compared to 2025-12-21 to 0.75.\"\n}",
+      "target_id": "solar_irradiance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Atmospheric Science has found a significant correlation between changes in atmospheric pressure systems and shifts in wind direction and speed patterns over the North Atlantic, particularly during the winter months. This correlation is likely due to the fact that low-pressure systems in the North Atlantic often drive the jet stream, a fast-moving band of air that influences wind patterns in Western Europe. A forecaster is asked to estimate the probability that a high-pressure system will develop in the North Atlantic, leading to a strong high-pressure gradient and, consequently, a northwesterly wind direction in the region. The forecaster should update their beliefs accordingly, considering the strengthened link between atmospheric pressure systems and wind direction and speed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The strengthened link between atmospheric pressure systems and wind direction and speed patterns in the North Atlantic region affects the causal path from atmospheric_pressure_systems to wind_direction_and_speed. This increased understanding of the relationship between these two variables suggests that the North Atlantic high-pressure system is more likely to drive a strong high-pressure gradient and, consequently, a northwesterly wind direction in Western Europe. As a result, the causal path from wind_direction_and_speed to outcome is strengthened, leading to an increased likelihood of higher temperatures on 2025-12-28 compared to 2025-12-21. However, the increased understanding of this causal link also implies that the influence of other factors, such as solar_irradiance and precipitation_levels, is slightly diminished, as the wind direction and speed patterns become a more significant driver of regional temperature variations.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The strengthened link between atmospheric pressure systems and wind direction and speed patterns in the North Atlantic region affects the causal path from atmospheric_pressure_systems to wind_direction_and_speed. This increased understanding of the relationship between these two variables suggests that the North Atlantic high-pressure system is more likely to drive a strong high-pressure gradient and, consequently, a northwesterly wind direction in Western Europe. As a result, the causal path from wind_direction_and_speed to outcome is strengthened, leading to an increased likelihood of higher temperatures on 2025-12-28 compared to 2025-12-21. However, the increased understanding of this causal link also implies that the influence of other factors, such as solar_irradiance and precipitation_levels, is slightly diminished, as the wind direction and speed patterns become a more significant driver of regional temperature variations.\"\n}",
+      "target_id": "atmospheric_pressure_systems->wind_direction_and_speed",
+      "target_type": "edge",
+      "target_importance": 0.25,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Atmospheric Science found that a significant correlation exists between the types of high-pressure systems that dominate European weather patterns during winter and the resulting temperature differences between days. Specifically, the study showed that when a particular type of high-pressure system, known as a 'cold high,' is present over the region, it leads to a statistically significant increase in temperature differences between consecutive days. We would like you to provide an updated probability of the outcome given this new information, and to explain how it affects your previous estimate of 0.62.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between European weather patterns and atmospheric pressure systems, which in turn affects the wind direction and speed. This has a direct impact on the outcome as wind direction and speed influence temperature through wind chill and evaporation. Additionally, the study's findings provide a more precise understanding of the relationship between high-pressure systems and temperature differences, leading to a more accurate estimate of the probability. As a result, I have increased my initial estimate of 0.62 to 0.73, reflecting the increased confidence in the causal link and its impact on the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between European weather patterns and atmospheric pressure systems, which in turn affects the wind direction and speed. This has a direct impact on the outcome as wind direction and speed influence temperature through wind chill and evaporation. Additionally, the study's findings provide a more precise understanding of the relationship between high-pressure systems and temperature differences, leading to a more accurate estimate of the probability. As a result, I have increased my initial estimate of 0.62 to 0.73, reflecting the increased confidence in the causal link and its impact on the outcome.\"\n}",
+      "target_id": "european_weather_patterns->atmospheric_pressure_systems",
+      "target_type": "edge",
+      "target_importance": 0.2321,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Consider the unusually warm ocean temperatures in the North Atlantic during the past decade, leading to an increased frequency of mild winters in Western Europe. This trend has been noticed by local meteorologists who report that the typical winter weather patterns in Europe have shifted, with warmer and wetter conditions becoming more common. If this trend continues, what impact would it have on the probability of a warmer-than-average temperature in Gourdon on 2025-12-28 compared to 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The warm ocean temperatures in the North Atlantic are challenging the causal link 'north_atlantic_ocean_temp -> european_weather_patterns'. This link is structurally important as it influences the typical winter weather patterns in Europe. According to the challenge, these patterns have shifted towards warmer and wetter conditions. This means that the warmer ocean temperatures are likely to continue influencing the region's weather patterns. As a result, the probability of a warmer-than-average temperature in Gourdon on 2025-12-28 compared to 2025-12-21 increases. The causal paths 'north_atlantic_ocean_temp -> european_weather_patterns -> atmospheric_pressure_systems', 'european_weather_patterns -> atmospheric_pressure_systems', and 'atmospheric_pressure_systems -> wind_direction_and_speed' are affected. These paths are now more likely to lead to warmer-than-average temperatures in the region, which in turn increases the probability of the desired outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The warm ocean temperatures in the North Atlantic are challenging the causal link 'north_atlantic_ocean_temp -> european_weather_patterns'. This link is structurally important as it influences the typical winter weather patterns in Europe. According to the challenge, these patterns have shifted towards warmer and wetter conditions. This means that the warmer ocean temperatures are likely to continue influencing the region's weather patterns. As a result, the probability of a warmer-than-average temperature in Gourdon on 2025-12-28 compared to 2025-12-21 increases. The causal paths 'north_atlantic_ocean_temp -> european_weather_patterns -> atmospheric_pressure_systems', 'european_weather_patterns -> atmospheric_pressure_systems', and 'atmospheric_pressure_systems -> wind_direction_and_speed' are affected. These paths are now more likely to lead to warmer-than-average temperatures in the region, which in turn increases the probability of the desired outcome.\"\n}",
+      "target_id": "north_atlantic_ocean_temp->european_weather_patterns",
+      "target_type": "edge",
+      "target_importance": 0.1786,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07535.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.09249999999999999,
+    "max_absolute_shift": 0.16999999999999998
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 0.9272727272727272,
+    "mean_shift_high": 0.08499999999999999,
+    "mean_shift_low": 0.09166666666666666,
+    "asymmetry_index": 0.8493150684931503,
+    "mean_shift_negate": 0.08857142857142854,
+    "mean_shift_strengthen": 0.10428571428571429,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.01672727272727273,
+    "mean_shift_on_path": 0.10272727272727272,
+    "mean_shift_off_path": 0.086,
+    "importance_sensitivity_correlation": -0.06043956043956045,
+    "control_sensitivity": 0.5
+  }
+}

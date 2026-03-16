@@ -1,0 +1,1023 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07535.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends",
+      "role": "factor"
+    },
+    {
+      "id": "weather_systems",
+      "description": "Short-term atmospheric patterns such as high/low pressure systems that influence temperature in the region",
+      "role": "factor"
+    },
+    {
+      "id": "elevation_effect",
+      "description": "Gourdon's high elevation (~650m) which amplifies temperature variability, especially in winter",
+      "role": "factor"
+    },
+    {
+      "id": "climate_change_trend",
+      "description": "Long-term warming trend in southern France due to global climate change",
+      "role": "factor"
+    },
+    {
+      "id": "interannual_variability",
+      "description": "Natural year-to-year fluctuations in winter temperatures due to factors like North Atlantic Oscillation",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_volatility",
+      "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The daily average temperature at Gourdon is higher on 2025-12-28 than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_trend",
+      "to": "temperature_volatility",
+      "mechanism": "Late December often has stable cold patterns, but deviations can increase volatility"
+    },
+    {
+      "from": "elevation_effect",
+      "to": "temperature_volatility",
+      "mechanism": "Higher elevation increases radiative cooling and diurnal swings, boosting daily variability"
+    },
+    {
+      "from": "temperature_volatility",
+      "to": "outcome",
+      "mechanism": "Higher volatility increases the chance of a warmer day later in the week"
+    },
+    {
+      "from": "weather_systems",
+      "to": "outcome",
+      "mechanism": "An incoming warm air mass between Dec 21 and 28 could raise temperatures"
+    },
+    {
+      "from": "climate_change_trend",
+      "to": "seasonal_trend",
+      "mechanism": "Long-term warming shifts baseline winter temperatures slightly upward"
+    },
+    {
+      "from": "interannual_variability",
+      "to": "weather_systems",
+      "mechanism": "Large-scale climate modes influence the frequency and intensity of warm/cold spells"
+    }
+  ],
+  "reasoning": "Gourdon's high elevation and inland location lead to significant winter temperature variability. While late December typically shows stable or cooling trends, short-term weather systems and elevation-driven volatility make week-to-week fluctuations common. Climate change slightly increases baseline temperatures, but interannual variability dominates. Given the lack of specific weather forecasts for 2025, the probability is only slightly above 50% due to the inherent randomness of winter weather in mountainous southern France.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1186,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "weather_systems",
+        "description": "Short-term atmospheric patterns such as high/low pressure systems that influence temperature in the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.1186,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "elevation_effect",
+        "description": "Gourdon's high elevation (~650m) which amplifies temperature variability, especially in winter",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0641,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "climate_change_trend",
+        "description": "Long-term warming trend in southern France due to global climate change",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0641,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "interannual_variability",
+        "description": "Natural year-to-year fluctuations in winter temperatures due to factors like North Atlantic Oscillation",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0641,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "temperature_volatility",
+        "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.375,
+        "pagerank": 0.2193,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "outcome",
+        "description": "The daily average temperature at Gourdon is higher on 2025-12-28 than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.3513,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "temperature_volatility",
+        "mechanism": "Late December often has stable cold patterns, but deviations can increase volatility",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "outcome",
+        "mechanism": "An incoming warm air mass between Dec 21 and 28 could raise temperatures",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "elevation_effect",
+        "target": "temperature_volatility",
+        "mechanism": "Higher elevation increases radiative cooling and diurnal swings, boosting daily variability",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "climate_change_trend",
+        "target": "seasonal_trend",
+        "mechanism": "Long-term warming shifts baseline winter temperatures slightly upward",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "interannual_variability",
+        "target": "weather_systems",
+        "mechanism": "Large-scale climate modes influence the frequency and intensity of warm/cold spells",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "temperature_volatility",
+        "target": "outcome",
+        "mechanism": "Higher volatility increases the chance of a warmer day later in the week",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "temperature_volatility",
+        "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter",
+        "importance": 0.1,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_trend",
+        "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "elevation_effect",
+        "description": "Gourdon's high elevation (~650m) which amplifies temperature variability, especially in winter",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "interannual_variability",
+        "description": "Natural year-to-year fluctuations in winter temperatures due to factors like North Atlantic Oscillation",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "temperature_volatility",
+        "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter",
+        "importance": 0.1,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_trend",
+        "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_trend->temperature_volatility",
+        "description": "Late December often has stable cold patterns, but deviations can increase volatility",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "temperature_volatility->outcome",
+        "description": "Higher volatility increases the chance of a warmer day later in the week",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "interannual_variability->weather_systems",
+        "description": "Large-scale climate modes influence the frequency and intensity of warm/cold spells",
+        "importance": 0.0476,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_trend->temperature_volatility",
+        "description": "Late December often has stable cold patterns, but deviations can increase volatility",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "temperature_volatility->weather_systems",
+        "description": "Potential link: The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter -> Short-term atmospheric patterns such as high/low pressure systems that influence temperature in the region",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "temperature_volatility",
+      "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_trend",
+      "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "elevation_effect",
+      "description": "Gourdon's high elevation (~650m) which amplifies temperature variability, especially in winter",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "interannual_variability",
+      "description": "Natural year-to-year fluctuations in winter temperatures due to factors like North Atlantic Oscillation",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "temperature_volatility",
+      "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_trend",
+      "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "description": "Late December often has stable cold patterns, but deviations can increase volatility",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "temperature_volatility->outcome",
+      "description": "Higher volatility increases the chance of a warmer day later in the week",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "interannual_variability->weather_systems",
+      "description": "Large-scale climate modes influence the frequency and intensity of warm/cold spells",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "description": "Late December often has stable cold patterns, but deviations can increase volatility",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "temperature_volatility->weather_systems",
+      "description": "Potential link: The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter -> Short-term atmospheric patterns such as high/low pressure systems that influence temperature in the region",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if Gourdon's high elevation does not actually lead to increased daily temperature fluctuations in late December? In some winter periods, persistent snow cover and stable high-pressure systems can suppress surface heating variations, effectively damping daily temperature swings despite the elevation, making short-term weather systems a more dominant driver than local topography-driven volatility.",
+      "probe_type": "node_negate_high",
+      "target_id": "temperature_volatility",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter"
+    },
+    {
+      "probe_text": "What if the typical seasonal temperature pattern in southern France during late December has no predictive power for 2025, because an unprecedented shift in the North Atlantic Oscillation is causing complete disruption of historical winter trends? In this scenario, multi-decadal climate stability underlying seasonal averages breaks down, making past patterns irrelevant and rendering the expected gradual cooling or warming trend meaningless for forecasting week-to-week temperature changes at Gourdon.",
+      "probe_type": "node_negate_high",
+      "target_id": "seasonal_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends"
+    },
+    {
+      "probe_text": "Recent microclimate studies in the Grands Causses region show that elevations around 600–700m experience reduced temperature volatility in winter compared to lower valleys, due to consistent cold air drainage and stable inversion layers. This suggests Gourdon’s elevation may dampen rather than amplify daily temperature swings during December, weakening the assumed link between elevation and increased volatility.",
+      "probe_type": "node_negate_medium",
+      "target_id": "elevation_effect",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Gourdon's high elevation (~650m) which amplifies temperature variability, especially in winter"
+    },
+    {
+      "probe_text": "Recent research indicates that the North Atlantic Oscillation has had negligible influence on winter temperature patterns in southern France over the past two decades, with regional weather instead being dominated by Mediterranean cyclonic activity. Given this, interannual variability driven by large-scale oscillations may not meaningfully affect weather systems near Gourdon during late December.",
+      "probe_type": "node_negate_low",
+      "target_id": "interannual_variability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Natural year-to-year fluctuations in winter temperatures due to factors like North Atlantic Oscillation"
+    },
+    {
+      "probe_text": "A recent 10-year observational study from Météo-France shows that high-elevation stations like Gourdon experience 40% greater day-to-day temperature variance in December than lowland stations in southern France, with frequent swings of over 8°C within 48 hours due to rapid changes in cloud cover and cold air drainage. This effect is especially pronounced during high-pressure regimes, which are common in late December and amplify radiative cooling at night followed by strong solar warming during clear days.",
+      "probe_type": "node_strengthen",
+      "target_id": "temperature_volatility",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter"
+    },
+    {
+      "probe_text": "A recent analysis by Météo-France shows that over the past 30 years, southern France has experienced a consistent warming trend in late December, with average temperatures increasing by 0.8°C per decade. This warming is most pronounced between the third and fourth weeks of December, aligning with a persistent shift in regional atmospheric circulation patterns that favor milder air masses reaching the Midi-Pyrénées region, including Gourdon.",
+      "probe_type": "node_strengthen",
+      "target_id": "seasonal_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The typical temperature pattern in southern France during late December, including gradual cooling or warming trends"
+    },
+    {
+      "probe_text": "Late December in southern France typically experiences high atmospheric stability due to frequent high-pressure inversions, which suppress convective activity and wind shear, thereby reducing temperature volatility regardless of seasonal trends. Historical data from mountain stations like Gourdon show that temperature swings during this period are minimal unless disrupted by advection from Mediterranean cyclones, which are driven by weather_systems rather than seasonal_trend. This suggests the link between seasonal_trend and temperature_volatility may be spurious or mediated entirely by external weather dynamics.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Late December often has stable cold patterns, but deviations can increase volatility"
+    },
+    {
+      "probe_text": "High temperature volatility in mountainous regions like Gourdon during winter often stems from cold-air pooling and radiative cooling at night, which disproportionately lowers minimum temperatures. This means increased volatility is more likely to result from colder anomalies rather than warmer ones, potentially making a warmer day on 2025-12-28 less probable despite higher swings.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "temperature_volatility->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher volatility increases the chance of a warmer day later in the week"
+    },
+    {
+      "probe_text": "Recent studies suggest that in late December, the influence of large-scale climate modes like the North Atlantic Oscillation on regional weather systems in southern France is weak and inconsistent, with local topographic effects dominating short-term temperature patterns. Over the past two decades, the correlation between interannual variability indices and actual warm/cold spell occurrences at high-elevation stations like Gourdon has been statistically insignificant, raising doubts about this causal link.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "interannual_variability->weather_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "Large-scale climate modes influence the frequency and intensity of warm/cold spells"
+    },
+    {
+      "probe_text": "Suppose that in years with unusually high temperature volatility during late December at Gourdon, the resulting erratic daily swings—such as sudden warm spells disrupting otherwise stable cold conditions—effectively redefine the observed seasonal trend, making it appear less stable and more variable. In this way, high temperature volatility directly shapes the perceived seasonal trend rather than being solely a consequence of it. Could the dominant direction of causality actually be from temperature_volatility to seasonal_trend?",
+      "probe_type": "edge_reverse",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Late December often has stable cold patterns, but deviations can increase volatility"
+    },
+    {
+      "probe_text": "Suppose a period of high temperature volatility at Gourdon in late December 2025 leads to unusually large diurnal temperature swings, causing localized instability in the lower atmosphere. Could this enhanced thermal contrast between valley and plateau areas trigger or amplify small-scale cyclogenesis, thereby influencing the formation or trajectory of short-term weather systems such as cold fronts or warm air intrusions?",
+      "probe_type": "edge_spurious",
+      "target_id": "temperature_volatility->weather_systems",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The tendency for daily temperatures in mountainous regions to fluctuate significantly in winter -> Short-term atmospheric patterns such as high/low pressure systems that influence temperature in the region"
+    },
+    {
+      "probe_text": "Consider the influence of snow cover on local temperature patterns. If snow accumulates at Gourdon's elevation after December 21, it increases surface albedo and enhances radiative cooling, which could suppress daytime temperatures on December 28. This effect is especially relevant in elevated regions with clear winter nights and could reduce the likelihood of a warmer day later in the week.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the influence of snow cover feedback: if significant snowfall occurs at Gourdon between December 21 and December 28, the resulting snow cover could increase surface albedo and enhance radiative cooling, suppressing daytime temperatures and reducing the likelihood that December 28 is warmer than December 21. This effect is especially relevant at high elevations where snowpack persists, and it interacts with elevation_effect and temperature_volatility by amplifying cooling during clear, dry conditions.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent study found that the number of sunny days in southern France during December 2024 was 10% higher than the 2000–2020 average. This increase in sunshine has been linked to improved solar panel efficiency in rural areas around Gourdon.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent study found that the number of tourist visits to the nearby village of Marcenat has increased by 15% compared to the same week last year, likely due to expanded winter hiking trails and improved local accommodations.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Gourdon's high elevation does not actually lead to increased daily temperature fluctuations in late December? In some winter periods, persistent snow cover and stable high-pressure systems can suppress surface heating variations, effectively damping daily temperature swings despite the elevation, making short-term weather systems a more dominant driver than local topography-driven volatility.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link between elevation_effect and temperature_volatility, suggesting that in late December, stable winter conditions (e.g., snow cover, high pressure) may suppress the expected elevation-driven temperature volatility. This weakens the path from elevation_effect → temperature_volatility → outcome, reducing the influence of local topography on daily fluctuations. However, temperature_volatility still receives support from seasonal_trend and is not entirely eliminated. The dominant drivers of the outcome remain weather_systems and interannual_variability, which are unaffected. Since the challenged link is partially offset by other sources of volatility and the core drivers of short-term weather changes remain intact, the effect on the overall probability is small. The slight decrease reflects modestly lower expected volatility due to potentially damped elevation effects, slightly reducing the chance of a warm spike by 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link between elevation_effect and temperature_volatility, suggesting that in late December, stable winter conditions (e.g., snow cover, high pressure) may suppress the expected elevation-driven temperature volatility. This weakens the path from elevation_effect → temperature_volatility → outcome, reducing the influence of local topography on daily fluctuations. However, temperature_volatility still receives support from seasonal_trend and is not entirely eliminated. The dominant drivers of the outcome remain weather_systems and interannual_variability, which are unaffected. Since the challenged link is partially offset by other sources of volatility and the core drivers of short-term weather changes remain intact, the effect on the overall probability is small. The slight decrease reflects modestly lower expected volatility due to potentially damped elevation effects, slightly reducing the chance of a warm spike by 2025-12-28.\"\n}",
+      "target_id": "temperature_volatility",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the typical seasonal temperature pattern in southern France during late December has no predictive power for 2025, because an unprecedented shift in the North Atlantic Oscillation is causing complete disruption of historical winter trends? In this scenario, multi-decadal climate stability underlying seasonal averages breaks down, making past patterns irrelevant and rendering the expected gradual cooling or warming trend meaningless for forecasting week-to-week temperature changes at Gourdon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge undermines the 'seasonal_trend' node by asserting that historical late-December temperature patterns in southern France are no longer predictive due to an unprecedented disruption in the North Atlantic Oscillation (NAO). This affects two causal paths: (1) climate_change_trend -> seasonal_trend -> temperature_volatility, which weakens the influence of long-term warming on expected winter volatility; and (2) seasonal_trend -> temperature_volatility -> outcome, reducing the reliability of volatility expectations based on seasonal norms. While elevation_effect and weather_systems remain intact, the breakdown of multi-decadal stability diminishes the utility of seasonal averages in anchoring the forecast. However, since the outcome still depends heavily on short-term weather_systems and elevation-driven temperature_volatility—both of which are partially independent of seasonal trends—the impact, while meaningful, is not catastrophic to the overall causal model. Thus, the probability shifts slightly downward from 0.52 to 0.48, reflecting increased uncertainty and reduced confidence in a warming tendency during the week, but not a reversal of the baseline expectation.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge undermines the 'seasonal_trend' node by asserting that historical late-December temperature patterns in southern France are no longer predictive due to an unprecedented disruption in the North Atlantic Oscillation (NAO). This affects two causal paths: (1) climate_change_trend -> seasonal_trend -> temperature_volatility, which weakens the influence of long-term warming on expected winter volatility; and (2) seasonal_trend -> temperature_volatility -> outcome, reducing the reliability of volatility expectations based on seasonal norms. While elevation_effect and weather_systems remain intact, the breakdown of multi-decadal stability diminishes the utility of seasonal averages in anchoring the forecast. However, since the outcome still depends heavily on short-term weather_systems and elevation-driven temperature_volatility—both of which are partially independent of seasonal trends—the impact, while meaningful, is not catastrophic to the overall causal model. Thus, the probability shifts slightly downward from 0.52 to 0.48, reflecting increased uncertainty and reduced confidence in a warming tendency during the week, but not a reversal of the baseline expectation.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent microclimate studies in the Grands Causses region show that elevations around 600–700m experience reduced temperature volatility in winter compared to lower valleys, due to consistent cold air drainage and stable inversion layers. This suggests Gourdon’s elevation may dampen rather than amplify daily temperature swings during December, weakening the assumed link between elevation and increased volatility.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.49,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'elevation_effect' directly undermines a key causal path: elevation_effect -> temperature_volatility. If Gourdon's elevation (650m) is associated with *reduced* temperature volatility due to stable cold air drainage and inversion layers, then the assumption that elevation amplifies daily swings is incorrect. This weakens the link between elevation and increased temperature_volatility, which in turn reduces the contribution of temperature_volatility to the outcome. Since higher volatility previously increased the probability of a warmer day on the 28th, reducing that effect slightly tilts the balance toward stability—favoring no change or a cooling trend typical of late December. This weakens the upward bias from volatility, leading to a modest downward revision. However, the effect is moderate because weather_systems and interannual_variability remain dominant proximate drivers, and the seasonal_trend and climate_change_trend still exert baseline influences. Thus, the probability shifts slightly downward but remains close to 0.5.",
+      "raw_response": "{\n  \"updated_probability\": 0.49,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'elevation_effect' directly undermines a key causal path: elevation_effect -> temperature_volatility. If Gourdon's elevation (650m) is associated with *reduced* temperature volatility due to stable cold air drainage and inversion layers, then the assumption that elevation amplifies daily swings is incorrect. This weakens the link between elevation and increased temperature_volatility, which in turn reduces the contribution of temperature_volatility to the outcome. Since higher volatility previously increased the probability of a warmer day on the 28th, reducing that effect slightly tilts the balance toward stability—favoring no change or a cooling trend typical of late December. This weakens the upward bias from volatility, leading to a modest downward revision. However, the effect is moderate because weather_systems and interannual_variability remain dominant proximate drivers, and the seasonal_trend and climate_change_trend still exert baseline influences. Thus, the probability shifts slightly downward but remains close to 0.5.\"\n}",
+      "target_id": "elevation_effect",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent research indicates that the North Atlantic Oscillation has had negligible influence on winter temperature patterns in southern France over the past two decades, with regional weather instead being dominated by Mediterranean cyclonic activity. Given this, interannual variability driven by large-scale oscillations may not meaningfully affect weather systems near Gourdon during late December.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between interannual_variability and weather_systems, as it suggests that the North Atlantic Oscillation — a key driver of interannual variability — has negligible influence on winter temperatures in southern France. This reduces the importance of interannual_variability in shaping short-term weather patterns near Gourdon in late December. However, weather_systems remains influenced by other factors (e.g., Mediterranean cyclonic activity), and the dominant drivers of the outcome — temperature_volatility and elevation_effect — are largely unaffected. The climate_change_trend and seasonal_trend also remain intact. Since interannual_variability was a secondary, indirect input into weather_systems and not a core driver of the outcome, its diminished role results in only a small downward adjustment in the probability, reflecting slightly reduced uncertainty from large-scale variability.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between interannual_variability and weather_systems, as it suggests that the North Atlantic Oscillation — a key driver of interannual variability — has negligible influence on winter temperatures in southern France. This reduces the importance of interannual_variability in shaping short-term weather patterns near Gourdon in late December. However, weather_systems remains influenced by other factors (e.g., Mediterranean cyclonic activity), and the dominant drivers of the outcome — temperature_volatility and elevation_effect — are largely unaffected. The climate_change_trend and seasonal_trend also remain intact. Since interannual_variability was a secondary, indirect input into weather_systems and not a core driver of the outcome, its diminished role results in only a small downward adjustment in the probability, reflecting slightly reduced uncertainty from large-scale variability.\"\n}",
+      "target_id": "interannual_variability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent 10-year observational study from Météo-France shows that high-elevation stations like Gourdon experience 40% greater day-to-day temperature variance in December than lowland stations in southern France, with frequent swings of over 8°C within 48 hours due to rapid changes in cloud cover and cold air drainage. This effect is especially pronounced during high-pressure regimes, which are common in late December and amplify radiative cooling at night followed by strong solar warming during clear days.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the 'elevation_effect -> temperature_volatility' link and confirms the significance of 'temperature_volatility' as a driver of short-term temperature changes in late December at Gourdon. The 10-year observational data show that high-elevation stations experience substantially greater day-to-day variance, especially under common high-pressure conditions, which amplifies both radiative cooling and daytime warming. This directly reinforces the 'temperature_volatility -> outcome' path, increasing the likelihood that a later date (2025-12-28) could be warmer than an earlier one (2025-12-21) due to these pronounced swings. While the base seasonal trend in late December is slightly downward or flat, the observed volatility dominates short-term outcomes. Thus, the increased support for temperature_volatility as a key mechanism justifies raising the probability from 0.52 to 0.58, reflecting a heightened chance of a warmer end-of-week outcome due to this amplified variability.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the 'elevation_effect -> temperature_volatility' link and confirms the significance of 'temperature_volatility' as a driver of short-term temperature changes in late December at Gourdon. The 10-year observational data show that high-elevation stations experience substantially greater day-to-day variance, especially under common high-pressure conditions, which amplifies both radiative cooling and daytime warming. This directly reinforces the 'temperature_volatility -> outcome' path, increasing the likelihood that a later date (2025-12-28) could be warmer than an earlier one (2025-12-21) due to these pronounced swings. While the base seasonal trend in late December is slightly downward or flat, the observed volatility dominates short-term outcomes. Thus, the increased support for temperature_volatility as a key mechanism justifies raising the probability from 0.52 to 0.58, reflecting a heightened chance of a warmer end-of-week outcome due to this amplified variability.\"\n}",
+      "target_id": "temperature_volatility",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent analysis by Météo-France shows that over the past 30 years, southern France has experienced a consistent warming trend in late December, with average temperatures increasing by 0.8°C per decade. This warming is most pronounced between the third and fourth weeks of December, aligning with a persistent shift in regional atmospheric circulation patterns that favor milder air masses reaching the Midi-Pyrénées region, including Gourdon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the 'climate_change_trend -> seasonal_trend' causal link by showing a robust, accelerating warming trend in late December, particularly between Dec 21 and 28. This directly enhances the 'seasonal_trend' node, making warmer temperatures more likely on 2025-12-28 relative to 2025-12-21. The regional atmospheric shift favoring milder air masses also indirectly reinforces 'weather_systems -> outcome' by increasing the baseline likelihood of warm air advection during that period. Since 'seasonal_trend' feeds into 'temperature_volatility' (via increased deviations from historical norms) and directly influences the outcome through expected warming, the overall probability shifts meaningfully upward. Given Gourdon's elevation amplifying sensitivity to air mass changes, the effect is more pronounced than in lower areas. The update reflects greater confidence in a warming trajectory during that week due to both long-term trends and emerging circulation patterns.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the 'climate_change_trend -> seasonal_trend' causal link by showing a robust, accelerating warming trend in late December, particularly between Dec 21 and 28. This directly enhances the 'seasonal_trend' node, making warmer temperatures more likely on 2025-12-28 relative to 2025-12-21. The regional atmospheric shift favoring milder air masses also indirectly reinforces 'weather_systems -> outcome' by increasing the baseline likelihood of warm air advection during that period. Since 'seasonal_trend' feeds into 'temperature_volatility' (via increased deviations from historical norms) and directly influences the outcome through expected warming, the overall probability shifts meaningfully upward. Given Gourdon's elevation amplifying sensitivity to air mass changes, the effect is more pronounced than in lower areas. The update reflects greater confidence in a warming trajectory during that week due to both long-term trends and emerging circulation patterns.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Late December in southern France typically experiences high atmospheric stability due to frequent high-pressure inversions, which suppress convective activity and wind shear, thereby reducing temperature volatility regardless of seasonal trends. Historical data from mountain stations like Gourdon show that temperature swings during this period are minimal unless disrupted by advection from Mediterranean cyclones, which are driven by weather_systems rather than seasonal_trend. This suggests the link between seasonal_trend and temperature_volatility may be spurious or mediated entirely by external weather dynamics.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between seasonal_trend and temperature_volatility, arguing that late December atmospheric stability in southern France suppresses temperature volatility independently of the seasonal trend, with volatility primarily driven instead by exogenous weather_systems (e.g., Mediterranean cyclones). This reduces the influence of seasonal_trend on temperature_volatility and thereby weakens one indirect path (seasonal_trend → temperature_volatility → outcome). However, this path was already minor in the overall network, and temperature_volatility is still strongly influenced by elevation_effect and weather_systems, which remain intact. The dominant drivers of the outcome—weather_systems and elevation_effect—remain unaffected. The climate_change_trend still exerts a small upward pressure on baseline temperatures via seasonal_trend, but this operates independently of volatility. Since the challenged link was peripheral and the core mechanisms (especially weather_systems and elevation-driven volatility) are unchallenged, the impact on the outcome is minimal. Thus, the probability decreases only slightly due to marginally reduced expected volatility from seasonal factors, but remains near 50% due to inherent unpredictability of short-term temperature ordering in a volatile setting.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between seasonal_trend and temperature_volatility, arguing that late December atmospheric stability in southern France suppresses temperature volatility independently of the seasonal trend, with volatility primarily driven instead by exogenous weather_systems (e.g., Mediterranean cyclones). This reduces the influence of seasonal_trend on temperature_volatility and thereby weakens one indirect path (seasonal_trend → temperature_volatility → outcome). However, this path was already minor in the overall network, and temperature_volatility is still strongly influenced by elevation_effect and weather_systems, which remain intact. The dominant drivers of the outcome—weather_systems and elevation_effect—remain unaffected. The climate_change_trend still exerts a small upward pressure on baseline temperatures via seasonal_trend, but this operates independently of volatility. Since the challenged link was peripheral and the core mechanisms (especially weather_systems and elevation-driven volatility) are unchallenged, the impact on the outcome is minimal. Thus, the probability decreases only slightly due to marginally reduced expected volatility from seasonal factors, but remains near 50% due to inherent unpredictability of short-term temperature ordering in a volatile setting.\"\n}",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "High temperature volatility in mountainous regions like Gourdon during winter often stems from cold-air pooling and radiative cooling at night, which disproportionately lowers minimum temperatures. This means increased volatility is more likely to result from colder anomalies rather than warmer ones, potentially making a warmer day on 2025-12-28 less probable despite higher swings.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'temperature_volatility -> outcome' is significant because it reinterprets the nature of temperature volatility in mountainous winter climates. Previously, I assumed higher volatility symmetrically increased the chance of a warmer day later in the period. However, the new information suggests that volatility at Gourdon in December is driven more by cold extremes (via cold-air pooling and radiative cooling) than warm swings. This means that high volatility may actually increase the likelihood of a colder day on the 28th relative to the 21st, especially if the 21st occurs during a milder phase and the 28th falls in a cold pool. This weakens the positive influence of temperature_volatility on the outcome and may even reverse its direction. While other factors (e.g., weather_systems, climate_change_trend) still support a slight warming tendency, the revised understanding of volatility—a key mediator of short-term temperature differences—reduces confidence in a higher temperature on the 28th. Thus, the probability is lowered from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'temperature_volatility -> outcome' is significant because it reinterprets the nature of temperature volatility in mountainous winter climates. Previously, I assumed higher volatility symmetrically increased the chance of a warmer day later in the period. However, the new information suggests that volatility at Gourdon in December is driven more by cold extremes (via cold-air pooling and radiative cooling) than warm swings. This means that high volatility may actually increase the likelihood of a colder day on the 28th relative to the 21st, especially if the 21st occurs during a milder phase and the 28th falls in a cold pool. This weakens the positive influence of temperature_volatility on the outcome and may even reverse its direction. While other factors (e.g., weather_systems, climate_change_trend) still support a slight warming tendency, the revised understanding of volatility—a key mediator of short-term temperature differences—reduces confidence in a higher temperature on the 28th. Thus, the probability is lowered from 0.52 to 0.48.\"\n}",
+      "target_id": "temperature_volatility->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that in late December, the influence of large-scale climate modes like the North Atlantic Oscillation on regional weather systems in southern France is weak and inconsistent, with local topographic effects dominating short-term temperature patterns. Over the past two decades, the correlation between interannual variability indices and actual warm/cold spell occurrences at high-elevation stations like Gourdon has been statistically insignificant, raising doubts about this causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenged causal link 'interannual_variability -> weather_systems' was a secondary pathway through which large-scale climate modes could influence short-term temperature patterns. However, given the evidence that this link is weak or statistically insignificant at high-elevation stations like Gourdon in late December, its removal slightly weakens the network's support for predictable warm/cold spells driven by modes like the NAO. This reduces confidence in systematic drivers of weather_systems, leaving more weight on noise and local volatility. Since the primary drivers of the outcome—temperature_volatility, elevation_effect, and weather_systems—remain intact, and the seasonal_trend and climate_change_trend still provide a slight warming bias, the overall probability shifts only marginally downward. The outcome remains close to 0.5 due to the inherent unpredictability of short-term temperature changes over a one-week period, so the update is small.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenged causal link 'interannual_variability -> weather_systems' was a secondary pathway through which large-scale climate modes could influence short-term temperature patterns. However, given the evidence that this link is weak or statistically insignificant at high-elevation stations like Gourdon in late December, its removal slightly weakens the network's support for predictable warm/cold spells driven by modes like the NAO. This reduces confidence in systematic drivers of weather_systems, leaving more weight on noise and local volatility. Since the primary drivers of the outcome—temperature_volatility, elevation_effect, and weather_systems—remain intact, and the seasonal_trend and climate_change_trend still provide a slight warming bias, the overall probability shifts only marginally downward. The outcome remains close to 0.5 due to the inherent unpredictability of short-term temperature changes over a one-week period, so the update is small.\"\n}",
+      "target_id": "interannual_variability->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Suppose that in years with unusually high temperature volatility during late December at Gourdon, the resulting erratic daily swings—such as sudden warm spells disrupting otherwise stable cold conditions—effectively redefine the observed seasonal trend, making it appear less stable and more variable. In this way, high temperature volatility directly shapes the perceived seasonal trend rather than being solely a consequence of it. Could the dominant direction of causality actually be from temperature_volatility to seasonal_trend?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge suggests a potential reversal or bidirectional relationship between temperature_volatility and seasonal_trend, implying that high volatility could reshape the observed seasonal trend rather than merely being influenced by it. However, in the context of forecasting a single pairwise temperature comparison in 2025, the dominant drivers remain weather_systems and temperature_volatility acting directly on the outcome. The seasonal_trend node primarily serves as a background modulator of baseline conditions and volatility, but is not a strong direct cause of the week-to-week difference. Even if the causal direction between seasonal_trend and temperature_volatility is ambiguous or bidirectional, the key pathways leading to the outcome—via weather_systems and elevation-driven temperature_volatility—remain intact. Since this reversal does not significantly alter the flow of causality to the outcome and the original model did not heavily weight seasonal_trend as a determinant of the short-term comparison, the overall probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge suggests a potential reversal or bidirectional relationship between temperature_volatility and seasonal_trend, implying that high volatility could reshape the observed seasonal trend rather than merely being influenced by it. However, in the context of forecasting a single pairwise temperature comparison in 2025, the dominant drivers remain weather_systems and temperature_volatility acting directly on the outcome. The seasonal_trend node primarily serves as a background modulator of baseline conditions and volatility, but is not a strong direct cause of the week-to-week difference. Even if the causal direction between seasonal_trend and temperature_volatility is ambiguous or bidirectional, the key pathways leading to the outcome—via weather_systems and elevation-driven temperature_volatility—remain intact. Since this reversal does not significantly alter the flow of causality to the outcome and the original model did not heavily weight seasonal_trend as a determinant of the short-term comparison, the overall probability remains unchanged.\"\n}",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a period of high temperature volatility at Gourdon in late December 2025 leads to unusually large diurnal temperature swings, causing localized instability in the lower atmosphere. Could this enhanced thermal contrast between valley and plateau areas trigger or amplify small-scale cyclogenesis, thereby influencing the formation or trajectory of short-term weather systems such as cold fronts or warm air intrusions?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a plausible feedback mechanism in which temperature_volatility, previously seen as a passive outcome of seasonal_trend and elevation_effect, could actively influence weather_systems through localized atmospheric instability and small-scale cyclogenesis. This creates a new reverse causal path: temperature_volatility -> weather_systems. If high volatility enhances thermal contrasts that trigger or redirect weather systems (e.g., warm air intrusions), then periods of high volatility not only increase day-to-day fluctuations directly but also raise the probability of sustained warming events between Dec 21 and Dec 28. This strengthens the overall influence of volatility on the outcome, reinforcing the existing path through temperature_volatility -> outcome and adding indirect support via weather_systems -> outcome. While this feedback is likely weak compared to large-scale weather drivers, it increases the sensitivity of the system to local topoclimatic effects. Given Gourdon's elevation and terrain, this mechanism is plausible and slightly increases the likelihood of a warmer Dec 28. The update is modest because the effect is localized and uncertain, but non-negligible given the mountainous setting.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a plausible feedback mechanism in which temperature_volatility, previously seen as a passive outcome of seasonal_trend and elevation_effect, could actively influence weather_systems through localized atmospheric instability and small-scale cyclogenesis. This creates a new reverse causal path: temperature_volatility -> weather_systems. If high volatility enhances thermal contrasts that trigger or redirect weather systems (e.g., warm air intrusions), then periods of high volatility not only increase day-to-day fluctuations directly but also raise the probability of sustained warming events between Dec 21 and Dec 28. This strengthens the overall influence of volatility on the outcome, reinforcing the existing path through temperature_volatility -> outcome and adding indirect support via weather_systems -> outcome. While this feedback is likely weak compared to large-scale weather drivers, it increases the sensitivity of the system to local topoclimatic effects. Given Gourdon's elevation and terrain, this mechanism is plausible and slightly increases the likelihood of a warmer Dec 28. The update is modest because the effect is localized and uncertain, but non-negligible given the mountainous setting.\"\n}",
+      "target_id": "temperature_volatility->weather_systems",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the influence of snow cover on local temperature patterns. If snow accumulates at Gourdon's elevation after December 21, it increases surface albedo and enhances radiative cooling, which could suppress daytime temperatures on December 28. This effect is especially relevant in elevated regions with clear winter nights and could reduce the likelihood of a warmer day later in the week.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.47,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of snow cover as a factor adds a new causal pathway through which elevation_effect and weather_systems can influence the outcome. Specifically, if snow accumulates after December 21, it enhances surface albedo and promotes radiative cooling—particularly effective at Gourdon's elevation with clear winter nights—thereby suppressing temperatures on December 28. This creates a negative feedback that counteracts both the baseline seasonal trend and potential warming from weather systems. The new path elevation_effect -> snow_accumulation -> radiative_cooling -> outcome (negative link) introduces a previously unmodeled cooling bias in the final week of December. This interacts strongly with temperature_volatility, potentially increasing overnight lows but suppressing daytime highs, thereby reducing the chance that the average temperature on the 28th exceeds that of the 21st. Since Gourdon's elevation already amplifies cold extremes, snow-albedo feedback is a structurally important omission. Accounting for this cooling mechanism meaningfully reduces the probability of a warmer December 28, warranting a downward adjustment from 0.52 to 0.47.",
+      "raw_response": "{\n  \"updated_probability\": 0.47,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of snow cover as a factor adds a new causal pathway through which elevation_effect and weather_systems can influence the outcome. Specifically, if snow accumulates after December 21, it enhances surface albedo and promotes radiative cooling—particularly effective at Gourdon's elevation with clear winter nights—thereby suppressing temperatures on December 28. This creates a negative feedback that counteracts both the baseline seasonal trend and potential warming from weather systems. The new path elevation_effect -> snow_accumulation -> radiative_cooling -> outcome (negative link) introduces a previously unmodeled cooling bias in the final week of December. This interacts strongly with temperature_volatility, potentially increasing overnight lows but suppressing daytime highs, thereby reducing the chance that the average temperature on the 28th exceeds that of the 21st. Since Gourdon's elevation already amplifies cold extremes, snow-albedo feedback is a structurally important omission. Accounting for this cooling mechanism meaningfully reduces the probability of a warmer December 28, warranting a downward adjustment from 0.52 to 0.47.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the influence of snow cover feedback: if significant snowfall occurs at Gourdon between December 21 and December 28, the resulting snow cover could increase surface albedo and enhance radiative cooling, suppressing daytime temperatures and reducing the likelihood that December 28 is warmer than December 21. This effect is especially relevant at high elevations where snowpack persists, and it interacts with elevation_effect and temperature_volatility by amplifying cooling during clear, dry conditions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of snow cover feedback adds a new causal pathway that can suppress temperatures on December 28 if snow accumulates after December 21. This effect is particularly relevant given Gourdon's elevation_effect, which promotes persistent snowpack, and interacts with temperature_volatility by enhancing radiative cooling during clear post-snowfall conditions. This creates a cooling bias in the week following snowfall, counteracting the influence of weather_systems that might otherwise bring warming. The feedback also indirectly reinforces seasonal_trend toward colder outcomes in late December. As a result, the net probability of December 28 being warmer decreases. The outcome node is thus influenced by an additional cooling-prone mechanism, particularly under plausible winter conditions at high elevation, warranting a modest downward adjustment from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of snow cover feedback adds a new causal pathway that can suppress temperatures on December 28 if snow accumulates after December 21. This effect is particularly relevant given Gourdon's elevation_effect, which promotes persistent snowpack, and interacts with temperature_volatility by enhancing radiative cooling during clear post-snowfall conditions. This creates a cooling bias in the week following snowfall, counteracting the influence of weather_systems that might otherwise bring warming. The feedback also indirectly reinforces seasonal_trend toward colder outcomes in late December. As a result, the net probability of December 28 being warmer decreases. The outcome node is thus influenced by an additional cooling-prone mechanism, particularly under plausible winter conditions at high elevation, warranting a modest downward adjustment from 0.52 to 0.48.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the number of sunny days in southern France during December 2024 was 10% higher than the 2000–2020 average. This increase in sunshine has been linked to improved solar panel efficiency in rural areas around Gourdon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The information about increased sunny days in December 2024 and its effect on solar panel efficiency does not meaningfully affect any causal path leading to the outcome. The observed solar anomaly is from a prior year (2024), which does not directly inform the specific week-to-week temperature comparison in 2025. Additionally, sunshine duration is only one component of daily average temperature, and the causal network already accounts for relevant drivers such as weather systems, seasonal trends, and elevation-driven volatility. The fact that solar panel efficiency improved is irrelevant to the meteorological outcome. No key causal links are altered or invalidated by this information, and interannual variability already captures year-to-year fluctuations in solar conditions. Therefore, the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The information about increased sunny days in December 2024 and its effect on solar panel efficiency does not meaningfully affect any causal path leading to the outcome. The observed solar anomaly is from a prior year (2024), which does not directly inform the specific week-to-week temperature comparison in 2025. Additionally, sunshine duration is only one component of daily average temperature, and the causal network already accounts for relevant drivers such as weather systems, seasonal trends, and elevation-driven volatility. The fact that solar panel efficiency improved is irrelevant to the meteorological outcome. No key causal links are altered or invalidated by this information, and interannual variability already captures year-to-year fluctuations in solar conditions. Therefore, the probability remains unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the number of tourist visits to the nearby village of Marcenat has increased by 15% compared to the same week last year, likely due to expanded winter hiking trails and improved local accommodations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The increase in tourist visits to Marcenat due to expanded hiking trails and improved accommodations does not affect any of the causal paths leading to the temperature outcome at Gourdon. Tourism activity, while potentially influencing local economic or land-use patterns over the long term, has no plausible direct or indirect effect on daily average temperatures, especially over a one-week timescale. None of the nodes in the causal network—seasonal_trend, weather_systems, elevation_effect, climate_change_trend, interannual_variability, or temperature_volatility—are meaningfully influenced by short-term changes in tourism. Therefore, the structural integrity of the causal model remains intact, and no update to the probability estimate is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The increase in tourist visits to Marcenat due to expanded hiking trails and improved accommodations does not affect any of the causal paths leading to the temperature outcome at Gourdon. Tourism activity, while potentially influencing local economic or land-use patterns over the long term, has no plausible direct or indirect effect on daily average temperatures, especially over a one-week timescale. None of the nodes in the causal network—seasonal_trend, weather_systems, elevation_effect, climate_change_trend, interannual_variability, or temperature_volatility—are meaningfully influenced by short-term changes in tourism. Therefore, the structural integrity of the causal model remains intact, and no update to the probability estimate is warranted.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A recent microclimate study of the Grands Causses region confirms that stations above 600m elevation, including Gourdon, experience 30–50% greater daily temperature swings in winter compared to nearby low-elevation sites, due to enhanced radiative cooling and thin air mass responsiveness. This effect is especially pronounced under clear, calm conditions, which occur frequently in late December.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the 'elevation_effect' node, confirming that high-elevation stations like Gourdon experience significantly greater daily temperature swings in winter due to enhanced radiative cooling. This reinforces the causal path from elevation_effect -> temperature_volatility, making temperature_volatility more likely to be high. In turn, this increases the influence along the path temperature_volatility -> outcome, as greater daily swings raise the probability that one day (especially the later date, 2025-12-28) could be warmer than the earlier one (2025-12-21). While seasonal_trend still favors slight cooling through late December, the amplified volatility introduces more uncertainty and increases the chances of a temperature rise over the 7-day window. Thus, the outcome becomes slightly more likely, shifting the probability from 0.52 to 0.56.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the 'elevation_effect' node, confirming that high-elevation stations like Gourdon experience significantly greater daily temperature swings in winter due to enhanced radiative cooling. This reinforces the causal path from elevation_effect -> temperature_volatility, making temperature_volatility more likely to be high. In turn, this increases the influence along the path temperature_volatility -> outcome, as greater daily swings raise the probability that one day (especially the later date, 2025-12-28) could be warmer than the earlier one (2025-12-21). While seasonal_trend still favors slight cooling through late December, the amplified volatility introduces more uncertainty and increases the chances of a temperature rise over the 7-day window. Thus, the outcome becomes slightly more likely, shifting the probability from 0.52 to 0.56.\"\n}",
+      "target_id": "elevation_effect",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of winter temperature records from 2000 to 2024 at Gourdon shows that year-to-year variability in late December temperatures exceeds 3°C standard deviation, with strong correlation to the North Atlantic Oscillation index. In years with a negative NAO phase, such as 2012 and 2017, persistent cold northerly flows reduced temperatures by 4–6°C below the 30-year average. This pattern suggests that interannual variability driven by large-scale atmospheric modes significantly modulates the regional weather systems during the target period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between interannual_variability and weather_systems by providing empirical evidence that the North Atlantic Oscillation (NAO) significantly modulates late December temperatures at Gourdon. The high interannual variability (3°C standard deviation) and strong NAO correlation imply that large-scale climate modes can override typical short-term weather patterns, increasing the likelihood of anomalous warmth or cold. Since a negative NAO brings persistent cold, the converse—neutral or positive NAO—could allow warmer air masses to penetrate the region between Dec 21 and 28. Given that climate_change_trend is already warming the baseline and elevation_effect amplifies volatility, the added evidence of strong interannual modulation via NAO increases the chance of a warm excursion. This reinforces the path interannual_variability -> weather_systems -> outcome, making a warmer Dec 28 more probable. Thus, the outcome probability increases from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between interannual_variability and weather_systems by providing empirical evidence that the North Atlantic Oscillation (NAO) significantly modulates late December temperatures at Gourdon. The high interannual variability (3°C standard deviation) and strong NAO correlation imply that large-scale climate modes can override typical short-term weather patterns, increasing the likelihood of anomalous warmth or cold. Since a negative NAO brings persistent cold, the converse—neutral or positive NAO—could allow warmer air masses to penetrate the region between Dec 21 and 28. Given that climate_change_trend is already warming the baseline and elevation_effect amplifies volatility, the added evidence of strong interannual modulation via NAO increases the chance of a warm excursion. This reinforces the path interannual_variability -> weather_systems -> outcome, making a warmer Dec 28 more probable. Thus, the outcome probability increases from 0.52 to 0.58.\"\n}",
+      "target_id": "interannual_variability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent meteorological data from southern France shows that in late December, multi-day cold spells are becoming more persistent due to weakening zonal winds, but when these spells are interrupted—such as by a sudden influx of moist air from the Mediterranean—the resulting temperature swings are more extreme than in past decades. This amplification of volatility during breaks in the seasonal cold pattern confirms that the seasonal trend not only sets the baseline but actively modulates short-term variability. As Gourdon's high elevation enhances sensitivity to such disruptions, the link between seasonal trend and temperature volatility is stronger than previously modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between seasonal_trend and temperature_volatility, indicating that the seasonal pattern in late December not only sets the baseline temperature but actively modulates short-term variability—particularly through the increasing persistence of cold spells and more extreme temperature swings when they break. This enhanced link means that seasonal_trend has a greater influence on temperature_volatility than previously modeled. Since temperature_volatility directly affects the outcome by increasing the chance of a warmer day later in the week, and given that Gourdon's elevation amplifies sensitivity to these disruptions, the overall likelihood of a higher average temperature on 2025-12-28 compared to 2025-12-21 increases. The strengthened pathway from seasonal_trend → temperature_volatility → outcome, combined with known elevation effects, justifies a moderate upward revision in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between seasonal_trend and temperature_volatility, indicating that the seasonal pattern in late December not only sets the baseline temperature but actively modulates short-term variability—particularly through the increasing persistence of cold spells and more extreme temperature swings when they break. This enhanced link means that seasonal_trend has a greater influence on temperature_volatility than previously modeled. Since temperature_volatility directly affects the outcome by increasing the chance of a warmer day later in the week, and given that Gourdon's elevation amplifies sensitivity to these disruptions, the overall likelihood of a higher average temperature on 2025-12-28 compared to 2025-12-21 increases. The strengthened pathway from seasonal_trend → temperature_volatility → outcome, combined with known elevation effects, justifies a moderate upward revision in the probability estimate.\"\n}",
+      "target_id": "seasonal_trend->temperature_volatility",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A 2024 study analyzing high-elevation European weather stations found that winter temperature volatility has increased by 15% over the past decade, with days of sharp warming spikes (≥5°C in 48 hours) becoming more frequent in mountainous regions like the Grands Causses where Gourdon is located. This heightened volatility directly increases the probability that a later date in a weekly period will exceed an earlier one, especially during climatologically unstable windows in late December.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between temperature_volatility and the outcome. The 2024 study shows that winter temperature volatility has increased significantly in high-elevation European regions, including areas like Gourdon, with more frequent sharp warming spikes. This directly enhances the likelihood that a later date (2025-12-28) will be warmer than an earlier one (2025-12-21), particularly in late December when climatological instability is already present. The path from elevation_effect → temperature_volatility → outcome is now more potent due to observed trends, and the pathway from climate_change_trend → seasonal_trend → temperature_volatility → outcome gains indirect support through increased volatility. As a result, the probability of a higher temperature on the later date increases from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between temperature_volatility and the outcome. The 2024 study shows that winter temperature volatility has increased significantly in high-elevation European regions, including areas like Gourdon, with more frequent sharp warming spikes. This directly enhances the likelihood that a later date (2025-12-28) will be warmer than an earlier one (2025-12-21), particularly in late December when climatological instability is already present. The path from elevation_effect → temperature_volatility → outcome is now more potent due to observed trends, and the pathway from climate_change_trend → seasonal_trend → temperature_volatility → outcome gains indirect support through increased volatility. As a result, the probability of a higher temperature on the later date increases from 0.52 to 0.58.\"\n}",
+      "target_id": "temperature_volatility->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07535.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Gourdon will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.02733333333333334,
+    "max_absolute_shift": 0.08999999999999997
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.734375000000001,
+    "mean_shift_high": 0.04375,
+    "mean_shift_low": 0.015999999999999993,
+    "asymmetry_index": 0.3673469387755106,
+    "mean_shift_negate": 0.021428571428571446,
+    "mean_shift_strengthen": 0.05833333333333331,
+    "fnar": 0.3333333333333333,
+    "n_accepted": 1,
+    "n_spurious": 3,
+    "critical_path_premium": 0.008222222222222207,
+    "mean_shift_on_path": 0.036,
+    "mean_shift_off_path": 0.02777777777777779,
+    "importance_sensitivity_correlation": 0.06060606060606055,
+    "control_sensitivity": 0
+  }
+}

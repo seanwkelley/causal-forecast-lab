@@ -1,0 +1,1053 @@
+{
+  "question_id": "b116d87ad801f2eb66404d27cdbcf83eed05f3173fd506fc17da22254ad87536",
+  "question_text": "Will there be more 'Battles' in Nauru for the 30 days before 2025-12-28 compared to the 30-day average of 'Battles' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Battles'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Battles' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Battles' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.15,
+  "nodes": [
+    {
+      "id": "historical_battle_trend",
+      "description": "The average number of 'Battles' in Nauru over the 360 days before 2025-12-21",
+      "role": "factor"
+    },
+    {
+      "id": "political_stability",
+      "description": "Current level of political stability in Nauru, influencing conflict likelihood",
+      "role": "factor"
+    },
+    {
+      "id": "foreign_influence",
+      "description": "Degree of external political or economic pressure from foreign nations on Nauru",
+      "role": "factor"
+    },
+    {
+      "id": "economic_stress",
+      "description": "Level of economic hardship or resource scarcity in Nauru",
+      "role": "factor"
+    },
+    {
+      "id": "social_unrest",
+      "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict",
+      "role": "factor"
+    },
+    {
+      "id": "military_presence",
+      "description": "Level of organized armed presence or activity in Nauru",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Whether there are more 'Battles' in the 30 days before 2025-12-28 than the 30-day average over the previous 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "historical_battle_trend",
+      "to": "outcome",
+      "mechanism": "A low historical battle rate sets a baseline, making deviations more significant"
+    },
+    {
+      "from": "political_stability",
+      "to": "social_unrest",
+      "mechanism": "Low political stability increases the risk of public unrest"
+    },
+    {
+      "from": "foreign_influence",
+      "to": "political_stability",
+      "mechanism": "External interference can destabilize domestic governance"
+    },
+    {
+      "from": "economic_stress",
+      "to": "social_unrest",
+      "mechanism": "Economic hardship increases public dissatisfaction and potential for conflict"
+    },
+    {
+      "from": "social_unrest",
+      "to": "military_presence",
+      "mechanism": "Civil unrest may prompt increased military or security deployment"
+    },
+    {
+      "from": "military_presence",
+      "to": "outcome",
+      "mechanism": "Higher military presence increases the likelihood of armed confrontations being recorded as 'Battles'"
+    },
+    {
+      "from": "economic_stress",
+      "to": "political_stability",
+      "mechanism": "Economic problems can weaken confidence in government and erode political stability"
+    }
+  ],
+  "reasoning": "Nauru has historically experienced minimal armed conflict, and 'Battles' as a metric are extremely rare. The historical 30-day average over 360 days is likely near zero, but even a single incident could exceed it. However, Nauru's small size, lack of standing military, and low levels of internal violence make any battle unlikely. Political and economic stresses, potentially exacerbated by foreign influence (e.g., from China or Australia), could indirectly increase tensions, but escalation to actual battles is improbable. The causal chain from economic or political strain to actual armed conflict is weak. Therefore, while not impossible, a spike in battles is highly unlikely, leading to a low probability estimate.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "historical_battle_trend",
+        "description": "The average number of 'Battles' in Nauru over the 360 days before 2025-12-21",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0568,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "political_stability",
+        "description": "Current level of political stability in Nauru, influencing conflict likelihood",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.3333,
+        "pagerank": 0.1291,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "foreign_influence",
+        "description": "Degree of external political or economic pressure from foreign nations on Nauru",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0568,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_stress",
+        "description": "Level of economic hardship or resource scarcity in Nauru",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0568,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "social_unrest",
+        "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.2,
+        "closeness": 0.375,
+        "pagerank": 0.1907,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "military_presence",
+        "description": "Level of organized armed presence or activity in Nauru",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.3333,
+        "pagerank": 0.2188,
+        "path_relevance": 0.6667
+      },
+      {
+        "node_id": "outcome",
+        "description": "Whether there are more 'Battles' in the 30 days before 2025-12-28 than the 30-day average over the previous 360 days",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4286,
+        "pagerank": 0.291,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "historical_battle_trend",
+        "target": "outcome",
+        "mechanism": "A low historical battle rate sets a baseline, making deviations more significant",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_stability",
+        "target": "social_unrest",
+        "mechanism": "Low political stability increases the risk of public unrest",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "foreign_influence",
+        "target": "political_stability",
+        "mechanism": "External interference can destabilize domestic governance",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_stress",
+        "target": "social_unrest",
+        "mechanism": "Economic hardship increases public dissatisfaction and potential for conflict",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_stress",
+        "target": "political_stability",
+        "mechanism": "Economic problems can weaken confidence in government and erode political stability",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": false
+      },
+      {
+        "source": "social_unrest",
+        "target": "military_presence",
+        "mechanism": "Civil unrest may prompt increased military or security deployment",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "military_presence",
+        "target": "outcome",
+        "mechanism": "Higher military presence increases the likelihood of armed confrontations being recorded as 'Battles'",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "social_unrest",
+        "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "military_presence",
+        "description": "Level of organized armed presence or activity in Nauru",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "historical_battle_trend",
+        "description": "The average number of 'Battles' in Nauru over the 360 days before 2025-12-21",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_stress",
+        "description": "Level of economic hardship or resource scarcity in Nauru",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "social_unrest",
+        "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "military_presence",
+        "description": "Level of organized armed presence or activity in Nauru",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_unrest->military_presence",
+        "description": "Civil unrest may prompt increased military or security deployment",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_stability->social_unrest",
+        "description": "Low political stability increases the risk of public unrest",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_stress->political_stability",
+        "description": "Economic problems can weaken confidence in government and erode political stability",
+        "importance": 0.0238,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_unrest->military_presence",
+        "description": "Civil unrest may prompt increased military or security deployment",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "military_presence->historical_battle_trend",
+        "description": "Potential link: Level of organized armed presence or activity in Nauru -> The average number of 'Battles' in Nauru over the 360 days before 2025-12-21",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "social_unrest",
+      "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "military_presence",
+      "description": "Level of organized armed presence or activity in Nauru",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "historical_battle_trend",
+      "description": "The average number of 'Battles' in Nauru over the 360 days before 2025-12-21",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_stress",
+      "description": "Level of economic hardship or resource scarcity in Nauru",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "social_unrest",
+      "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "military_presence",
+      "description": "Level of organized armed presence or activity in Nauru",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_unrest->military_presence",
+      "description": "Civil unrest may prompt increased military or security deployment",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_stability->social_unrest",
+      "description": "Low political stability increases the risk of public unrest",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_stress->political_stability",
+      "description": "Economic problems can weaken confidence in government and erode political stability",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_unrest->military_presence",
+      "description": "Civil unrest may prompt increased military or security deployment",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "military_presence->historical_battle_trend",
+      "description": "Potential link: Level of organized armed presence or activity in Nauru -> The average number of 'Battles' in Nauru over the 360 days before 2025-12-21",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if public demonstrations, strikes, or civil discontent in Nauru do not lead to increased military presence or armed conflict? In a highly centralized political system with limited public influence, social unrest may be contained through non-military means such as censorship, co-optation, or rapid policy concessions, preventing escalation to 'Battles'. Historical evidence from similar island nations suggests that protests often dissipate without triggering security force overreach or armed confrontations.",
+      "probe_type": "node_negate_high",
+      "target_id": "social_unrest",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict"
+    },
+    {
+      "probe_text": "What if military presence does not increase the likelihood of recorded 'Battles' in Nauru? A high military presence might instead deter armed conflict by maintaining order and preventing escalations, meaning increased activity could actually suppress battles rather than cause them. In small, tightly controlled states, visible security forces often prevent violence rather than provoke it.",
+      "probe_type": "node_negate_high",
+      "target_id": "military_presence",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Level of organized armed presence or activity in Nauru"
+    },
+    {
+      "probe_text": "Suppose the historical_battle_trend is near zero due to a sustained period of peace enforced by an unusually effective disarmament program that ended in mid-2025. If this program collapsed after 2025-12-21, the underlying conditions for conflict could have shifted abruptly, making past battle trends a poor predictor of future violence. In such a case, the historical average would mask a sudden resurgence of armed groups, rendering it misleading for forecasting short-term battle frequency.",
+      "probe_type": "node_negate_medium",
+      "target_id": "historical_battle_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "The average number of 'Battles' in Nauru over the 360 days before 2025-12-21"
+    },
+    {
+      "probe_text": "Recent economic aid and phosphate revenue have improved Nauru's economic conditions, making economic stress minimal despite past concerns. Given this improvement, economic hardship is unlikely to be a driver of conflict, reducing the relevance of this factor in predicting battles.",
+      "probe_type": "node_negate_low",
+      "target_id": "economic_stress",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Level of economic hardship or resource scarcity in Nauru"
+    },
+    {
+      "probe_text": "On 2025-11-15, a nationwide strike involving public sector workers and opposition groups began in Nauru, protesting proposed austerity measures. The strike has already led to road blockades in Meneng District and clashes with police, marking the largest coordinated civil action in over a decade. Independent observers report growing momentum, with unions threatening to escalate to indefinite industrial action if demands are not met.",
+      "probe_type": "node_strengthen",
+      "target_id": "social_unrest",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public demonstrations, strikes, or civil discontent that could escalate to conflict"
+    },
+    {
+      "probe_text": "On 2025-11-15, Nauru’s government announced a 50% increase in active military patrols around key infrastructure sites, citing recent civil disturbances. This surge in deployment was confirmed by satellite imagery showing troop movements and reinforced barracks occupancy, directly increasing the likelihood of armed confrontations being recorded as 'Battles'.",
+      "probe_type": "node_strengthen",
+      "target_id": "military_presence",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Level of organized armed presence or activity in Nauru"
+    },
+    {
+      "probe_text": "Nauru's police force, not the military, typically responds to civil unrest due to constitutional limits on military deployment for domestic policing. Historical records show no increase in armed forces activation during the 2020 phosphate wage protests, suggesting social unrest does not trigger measurable military presence.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "social_unrest->military_presence",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Civil unrest may prompt increased military or security deployment"
+    },
+    {
+      "probe_text": "Nauru has maintained low levels of public unrest despite prolonged political instability due to strong community cohesion and tribal leadership structures that absorb grievances informally. Recent reports from 2025 indicate that even with delayed elections and cabinet reshuffles, there have been no significant protests or strikes, suggesting that the usual link between political instability and social unrest may not hold in this context.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_stability->social_unrest",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Low political stability increases the risk of public unrest"
+    },
+    {
+      "probe_text": "Recent economic stress in Nauru has been absorbed through emergency aid from regional partners, preventing significant public backlash against the government. In such cases, external financial support can insulate political leadership from domestic economic pressures, weakening the expected link between economic hardship and declining political stability.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "economic_stress->political_stability",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Economic problems can weaken confidence in government and erode political stability"
+    },
+    {
+      "probe_text": "Recent reports indicate that a scheduled increase in military drills and permanent security force deployments in Nauru was announced by the government prior to any signs of public demonstrations or labor strikes. This pre-emptive militarization has led to heightened tensions, with opposition groups citing the deployments as a primary reason for organizing protests, suggesting that military presence is triggering, rather than responding to, social unrest.",
+      "probe_type": "edge_reverse",
+      "target_id": "social_unrest->military_presence",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Civil unrest may prompt increased military or security deployment"
+    },
+    {
+      "probe_text": "Suppose Nauru experienced a sustained increase in military drills and armed patrols starting in early 2025 due to a regional security agreement. This heightened military presence led to more frequent, low-intensity armed incidents being recorded as 'Battles' during training exercises or routine operations. Would this not directly inflate the historical_battle_trend, since these events contribute to the count of 'Battles' over the 360 days before 2025-12-21?",
+      "probe_type": "edge_spurious",
+      "target_id": "military_presence->historical_battle_trend",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Level of organized armed presence or activity in Nauru -> The average number of 'Battles' in Nauru over the 360 days before 2025-12-21"
+    },
+    {
+      "probe_text": "Consider the role of upcoming national elections in Nauru, which are scheduled for September 2025. Elections can heighten political tensions, increase mobilization of opposition groups, and lead to state or non-state use of force to influence outcomes. This could increase the likelihood of 'Battles' irrespective of historical trends or current military presence.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of international peacekeeping or diplomatic intervention in Nauru. If a foreign-backed peacekeeping mission were deployed in early December 2025, it could suppress armed confrontations and reduce the likelihood of recorded 'Battles,' even in the presence of social unrest or high military presence. This factor would act as a moderating influence on the pathway from military_presence and social_unrest to the outcome, potentially breaking the causal link between tension and actualized conflict.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early December 2025, a documentary crew from Australia arrived in Nauru to film a series on Pacific Island history, focusing on World War II battle sites. The crew conducted interviews with local elders and visited former military installations, drawing small crowds in the Anabar District.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In early December 2025, Nauru's national rugby team achieved a historic victory in an international tournament, sparking widespread celebrations across the country. The event drew large crowds and boosted national morale for several days.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if public demonstrations, strikes, or civil discontent in Nauru do not lead to increased military presence or armed conflict? In a highly centralized political system with limited public influence, social unrest may be contained through non-military means such as censorship, co-optation, or rapid policy concessions, preventing escalation to 'Battles'. Historical evidence from similar island nations suggests that protests often dissipate without triggering security force overreach or armed confrontations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.039999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge undermines the causal link between social_unrest and military_presence, suggesting that even if social unrest occurs, it may not trigger increased military deployment in Nauru due to non-military containment strategies. This weakens the pathway: social_unrest -> military_presence -> outcome. Given Nauru's centralized political system and evidence from similar island nations, the likelihood of escalation from civil discontent to armed confrontations ('Battles') is lower than initially assumed. As social_unrest was an intermediate node feeding into military_presence—a key driver of the outcome—its reduced efficacy decreases the overall probability of a spike in Battles. However, the effect is moderate because military_presence can still be influenced by other factors (e.g., foreign_influence or political_stability directly), and historical_battle_trend already suggests a low baseline. Thus, the probability decreases slightly from 0.15 to 0.11.",
+      "raw_response": "{\n  \"updated_probability\": 0.11,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge undermines the causal link between social_unrest and military_presence, suggesting that even if social unrest occurs, it may not trigger increased military deployment in Nauru due to non-military containment strategies. This weakens the pathway: social_unrest -> military_presence -> outcome. Given Nauru's centralized political system and evidence from similar island nations, the likelihood of escalation from civil discontent to armed confrontations ('Battles') is lower than initially assumed. As social_unrest was an intermediate node feeding into military_presence—a key driver of the outcome—its reduced efficacy decreases the overall probability of a spike in Battles. However, the effect is moderate because military_presence can still be influenced by other factors (e.g., foreign_influence or political_stability directly), and historical_battle_trend already suggests a low baseline. Thus, the probability decreases slightly from 0.15 to 0.11.\"\n}",
+      "target_id": "social_unrest",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if military presence does not increase the likelihood of recorded 'Battles' in Nauru? A high military presence might instead deter armed conflict by maintaining order and preventing escalations, meaning increased activity could actually suppress battles rather than cause them. In small, tightly controlled states, visible security forces often prevent violence rather than provoke it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link between military_presence and outcome suggests that military presence may suppress rather than provoke battles, reversing the assumed direction of effect. This directly affects the causal path military_presence -> outcome, which previously contributed to a higher likelihood of the outcome. If military presence deters conflict, then increases in military activity would reduce the probability of more battles, making the outcome less likely. This weakens a key upward pressure on the outcome in the original model. While other paths (e.g., social_unrest -> military_presence -> outcome) remain, their net effect may now be dampening rather than amplifying. Given that Nauru is a small state where deterrence plausibly dominates provocation, this challenge targets a structurally important node. However, since historical_battle_trend remains very low and no evidence suggests rising tensions, the overall probability decreases only moderately, reflecting increased confidence that battles will not increase due to stabilizing effects of security presence.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link between military_presence and outcome suggests that military presence may suppress rather than provoke battles, reversing the assumed direction of effect. This directly affects the causal path military_presence -> outcome, which previously contributed to a higher likelihood of the outcome. If military presence deters conflict, then increases in military activity would reduce the probability of more battles, making the outcome less likely. This weakens a key upward pressure on the outcome in the original model. While other paths (e.g., social_unrest -> military_presence -> outcome) remain, their net effect may now be dampening rather than amplifying. Given that Nauru is a small state where deterrence plausibly dominates provocation, this challenge targets a structurally important node. However, since historical_battle_trend remains very low and no evidence suggests rising tensions, the overall probability decreases only moderately, reflecting increased confidence that battles will not increase due to stabilizing effects of security presence.\"\n}",
+      "target_id": "military_presence",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Suppose the historical_battle_trend is near zero due to a sustained period of peace enforced by an unusually effective disarmament program that ended in mid-2025. If this program collapsed after 2025-12-21, the underlying conditions for conflict could have shifted abruptly, making past battle trends a poor predictor of future violence. In such a case, the historical average would mask a sudden resurgence of armed groups, rendering it misleading for forecasting short-term battle frequency.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.30000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'historical_battle_trend' significantly affects the causal path from historical_battle_trend -> outcome. If the historically low battle rate was due to an effective but now-collapsed disarmament program, the baseline becomes misleading: low past frequency no longer indicates low risk. Instead, the collapse of the program could rapidly reactivate underlying conflict drivers. This removes the dampening effect of historical peace on expectations and opens new or strengthened paths from economic_stress, political_stability, and foreign_influence to social_unrest and military_presence, and ultimately to outcome. The historical trend is no longer a stabilizing anchor, increasing uncertainty and the plausibility of a spike in battles. Thus, while the outcome is still not likely, it is substantially more plausible than before, warranting a moderate increase in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'historical_battle_trend' significantly affects the causal path from historical_battle_trend -> outcome. If the historically low battle rate was due to an effective but now-collapsed disarmament program, the baseline becomes misleading: low past frequency no longer indicates low risk. Instead, the collapse of the program could rapidly reactivate underlying conflict drivers. This removes the dampening effect of historical peace on expectations and opens new or strengthened paths from economic_stress, political_stability, and foreign_influence to social_unrest and military_presence, and ultimately to outcome. The historical trend is no longer a stabilizing anchor, increasing uncertainty and the plausibility of a spike in battles. Thus, while the outcome is still not likely, it is substantially more plausible than before, warranting a moderate increase in probability.\"\n}",
+      "target_id": "historical_battle_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent economic aid and phosphate revenue have improved Nauru's economic conditions, making economic stress minimal despite past concerns. Given this improvement, economic hardship is unlikely to be a driver of conflict, reducing the relevance of this factor in predicting battles.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'economic_stress' indicates that recent economic improvements have reduced economic hardship in Nauru, making this factor less relevant as a driver of conflict. This weakens two causal paths: (1) economic_stress -> social_unrest, and (2) economic_stress -> political_stability. With economic stress minimized, the likelihood of social unrest triggered by economic hardship decreases, which in turn reduces pressure on political stability. This diminishes the downstream risk of military presence escalation and, ultimately, recorded 'Battles'. However, since 'economic_stress' was not the dominant driver in the original model—given Nauru's historically low battle frequency and already moderate political and military conditions—the reduction is modest. The core baseline trend (historical_battle_trend) and other factors like foreign_influence remain largely unchanged, so the probability decreases slightly from 0.15 to 0.12.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'economic_stress' indicates that recent economic improvements have reduced economic hardship in Nauru, making this factor less relevant as a driver of conflict. This weakens two causal paths: (1) economic_stress -> social_unrest, and (2) economic_stress -> political_stability. With economic stress minimized, the likelihood of social unrest triggered by economic hardship decreases, which in turn reduces pressure on political stability. This diminishes the downstream risk of military presence escalation and, ultimately, recorded 'Battles'. However, since 'economic_stress' was not the dominant driver in the original model—given Nauru's historically low battle frequency and already moderate political and military conditions—the reduction is modest. The core baseline trend (historical_battle_trend) and other factors like foreign_influence remain largely unchanged, so the probability decreases slightly from 0.15 to 0.12.\"\n}",
+      "target_id": "economic_stress",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, a nationwide strike involving public sector workers and opposition groups began in Nauru, protesting proposed austerity measures. The strike has already led to road blockades in Meneng District and clashes with police, marking the largest coordinated civil action in over a decade. Independent observers report growing momentum, with unions threatening to escalate to indefinite industrial action if demands are not met.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.30000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The nationwide strike and associated civil unrest directly impact the 'social_unrest' node, which is a key causal driver in the network. This event strengthens the path from social_unrest to military_presence, as clashes with police and road blockades may prompt increased security deployments. In turn, higher military_presence increases the likelihood of recorded 'Battles'. Additionally, social_unrest is linked indirectly to political_stability through economic_stress and foreign_influence, both of which may be exacerbated by the government's response to the strike. The event marks a significant departure from baseline historical_battle_trend, which previously supported a low probability. With social_unrest now actively elevated, the causal pathway to the outcome is substantially more plausible, warranting a moderate upward revision in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The nationwide strike and associated civil unrest directly impact the 'social_unrest' node, which is a key causal driver in the network. This event strengthens the path from social_unrest to military_presence, as clashes with police and road blockades may prompt increased security deployments. In turn, higher military_presence increases the likelihood of recorded 'Battles'. Additionally, social_unrest is linked indirectly to political_stability through economic_stress and foreign_influence, both of which may be exacerbated by the government's response to the strike. The event marks a significant departure from baseline historical_battle_trend, which previously supported a low probability. With social_unrest now actively elevated, the causal pathway to the outcome is substantially more plausible, warranting a moderate upward revision in probability.\"\n}",
+      "target_id": "social_unrest",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, Nauru’s government announced a 50% increase in active military patrols around key infrastructure sites, citing recent civil disturbances. This surge in deployment was confirmed by satellite imagery showing troop movements and reinforced barracks occupancy, directly increasing the likelihood of armed confrontations being recorded as 'Battles'.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a 50% increase in military patrols on 2025-11-15, confirmed by satellite imagery, directly strengthens the 'military_presence' node in the causal network. This node has a direct causal link to the 'outcome': higher military presence increases the likelihood of armed confrontations being recorded as 'Battles'. The timing of this surge—within the 30-day window before 2025-12-28—means it falls precisely within the period under forecast. Therefore, the causal path from military_presence -> outcome is now significantly activated. While historical_battle_trend remains low (keeping baseline expectations low), and no evidence suggests major shifts in political_stability or economic_stress, the deliberate escalation in military activity introduces a new catalyst for observable 'Battles'. This does not guarantee conflict, but increases the probability that any civil disturbance could escalate into a recorded 'Battle' due to greater military engagement. Thus, the update reflects a moderate increase in probability, acknowledging the heightened conditions while recognizing that full-scale conflict still requires triggering events.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of a 50% increase in military patrols on 2025-11-15, confirmed by satellite imagery, directly strengthens the 'military_presence' node in the causal network. This node has a direct causal link to the 'outcome': higher military presence increases the likelihood of armed confrontations being recorded as 'Battles'. The timing of this surge—within the 30-day window before 2025-12-28—means it falls precisely within the period under forecast. Therefore, the causal path from military_presence -> outcome is now significantly activated. While historical_battle_trend remains low (keeping baseline expectations low), and no evidence suggests major shifts in political_stability or economic_stress, the deliberate escalation in military activity introduces a new catalyst for observable 'Battles'. This does not guarantee conflict, but increases the probability that any civil disturbance could escalate into a recorded 'Battle' due to greater military engagement. Thus, the update reflects a moderate increase in probability, acknowledging the heightened conditions while recognizing that full-scale conflict still requires triggering events.\"\n}",
+      "target_id": "military_presence",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Nauru's police force, not the military, typically responds to civil unrest due to constitutional limits on military deployment for domestic policing. Historical records show no increase in armed forces activation during the 2020 phosphate wage protests, suggesting social unrest does not trigger measurable military presence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge undermines the causal link between social_unrest and military_presence, a key pathway through which civil discontent could lead to recorded 'Battles'. Since Nauru's military is constitutionally restricted from domestic policing and historical evidence (e.g., 2020 protests) shows no military activation during unrest, the likelihood that social_unrest leads to increased military_presence — and thereby to armed confrontations classified as 'Battles' — is significantly reduced. This weakens the overall causal pathway from economic_stress and political_stability (which feed into social_unrest) to the outcome. As a result, one of the main mechanisms by which conflict could escalate is less viable, reducing the probability of a spike in 'Battles' relative to the historical average. The decrease is moderate because other paths (e.g., direct foreign_influence or military_presence from non-domestic causes) remain possible, but the broken link reduces the plausibility of conflict escalation from internal unrest.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge undermines the causal link between social_unrest and military_presence, a key pathway through which civil discontent could lead to recorded 'Battles'. Since Nauru's military is constitutionally restricted from domestic policing and historical evidence (e.g., 2020 protests) shows no military activation during unrest, the likelihood that social_unrest leads to increased military_presence — and thereby to armed confrontations classified as 'Battles' — is significantly reduced. This weakens the overall causal pathway from economic_stress and political_stability (which feed into social_unrest) to the outcome. As a result, one of the main mechanisms by which conflict could escalate is less viable, reducing the probability of a spike in 'Battles' relative to the historical average. The decrease is moderate because other paths (e.g., direct foreign_influence or military_presence from non-domestic causes) remain possible, but the broken link reduces the plausibility of conflict escalation from internal unrest.\"\n}",
+      "target_id": "social_unrest->military_presence",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Nauru has maintained low levels of public unrest despite prolonged political instability due to strong community cohesion and tribal leadership structures that absorb grievances informally. Recent reports from 2025 indicate that even with delayed elections and cabinet reshuffles, there have been no significant protests or strikes, suggesting that the usual link between political instability and social unrest may not hold in this context.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'political_stability -> social_unrest' suggests that in Nauru's specific sociopolitical context, political instability does not reliably lead to social unrest due to informal conflict-resolution mechanisms like tribal leadership and community cohesion. This weakens the pathway from political_stability to social_unrest, and consequently reduces the flow of risk along the downstream causal chain: social_unrest -> military_presence -> outcome. Since one of the main amplifying pathways to increased 'Battles' is attenuated, the likelihood of a surge in battles relative to the historical average decreases. However, the effect is not drastic because the original estimate already accounted for low baseline unrest and conflict, and other paths (e.g., foreign_influence -> political_stability -> economic_stress -> social_unrest) remain partially intact. Thus, the update is moderate, reflecting reduced concern about instability triggering conflict, but maintaining caution due to other potential triggers.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'political_stability -> social_unrest' suggests that in Nauru's specific sociopolitical context, political instability does not reliably lead to social unrest due to informal conflict-resolution mechanisms like tribal leadership and community cohesion. This weakens the pathway from political_stability to social_unrest, and consequently reduces the flow of risk along the downstream causal chain: social_unrest -> military_presence -> outcome. Since one of the main amplifying pathways to increased 'Battles' is attenuated, the likelihood of a surge in battles relative to the historical average decreases. However, the effect is not drastic because the original estimate already accounted for low baseline unrest and conflict, and other paths (e.g., foreign_influence -> political_stability -> economic_stress -> social_unrest) remain partially intact. Thus, the update is moderate, reflecting reduced concern about instability triggering conflict, but maintaining caution due to other potential triggers.\"\n}",
+      "target_id": "political_stability->social_unrest",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent economic stress in Nauru has been absorbed through emergency aid from regional partners, preventing significant public backlash against the government. In such cases, external financial support can insulate political leadership from domestic economic pressures, weakening the expected link between economic hardship and declining political stability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between economic_stress and political_stability, suggesting that economic hardship may not erode political stability as strongly when offset by external aid. This reduces the likelihood of economic_stress triggering the cascade: economic_stress -> political_stability -> social_unrest -> military_presence -> outcome. Since economic stress was already likely moderate to high in Nauru, but now its downstream effects are partially blocked, the overall probability of a spike in 'Battles' decreases. However, the effect is not drastic because historical_battle_trend remains low, and other paths (e.g., foreign_influence -> political_stability) remain intact. Thus, the reduction is modest but meaningful.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between economic_stress and political_stability, suggesting that economic hardship may not erode political stability as strongly when offset by external aid. This reduces the likelihood of economic_stress triggering the cascade: economic_stress -> political_stability -> social_unrest -> military_presence -> outcome. Since economic stress was already likely moderate to high in Nauru, but now its downstream effects are partially blocked, the overall probability of a spike in 'Battles' decreases. However, the effect is not drastic because historical_battle_trend remains low, and other paths (e.g., foreign_influence -> political_stability) remain intact. Thus, the reduction is modest but meaningful.\"\n}",
+      "target_id": "economic_stress->political_stability",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that a scheduled increase in military drills and permanent security force deployments in Nauru was announced by the government prior to any signs of public demonstrations or labor strikes. This pre-emptive militarization has led to heightened tensions, with opposition groups citing the deployments as a primary reason for organizing protests, suggesting that military presence is triggering, rather than responding to, social unrest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reverses the causal direction of the 'social_unrest -> military_presence' link, suggesting instead that military_presence -> social_unrest. This creates a new feedback loop: pre-emptive military deployments are inciting public backlash, thereby increasing social unrest, which in turn may lead to more conflict events recorded as 'Battles'. This fundamentally alters the causal structure by making military presence a driver, rather than an indicator, of instability. As a result, the path from military_presence to outcome is now reinforced through a new route: military_presence -> social_unrest -> (further) military_presence -> outcome, increasing the likelihood of conflict escalation. Additionally, this feedback loop amplifies the influence of foreign_influence and economic_stress on outcome through their downstream effects on political_stability and now potentially on military decisions. Given that militarization is occurring independently of initial unrest, the baseline assumption of low conflict volatility (supported by historical_battle_trend) becomes less reliable. Thus, the structural importance of the reversed link justifies a substantial upward revision in the probability of observing more 'Battles' in the final 30 days.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reverses the causal direction of the 'social_unrest -> military_presence' link, suggesting instead that military_presence -> social_unrest. This creates a new feedback loop: pre-emptive military deployments are inciting public backlash, thereby increasing social unrest, which in turn may lead to more conflict events recorded as 'Battles'. This fundamentally alters the causal structure by making military presence a driver, rather than an indicator, of instability. As a result, the path from military_presence to outcome is now reinforced through a new route: military_presence -> social_unrest -> (further) military_presence -> outcome, increasing the likelihood of conflict escalation. Additionally, this feedback loop amplifies the influence of foreign_influence and economic_stress on outcome through their downstream effects on political_stability and now potentially on military decisions. Given that militarization is occurring independently of initial unrest, the baseline assumption of low conflict volatility (supported by historical_battle_trend) becomes less reliable. Thus, the structural importance of the reversed link justifies a substantial upward revision in the probability of observing more 'Battles' in the final 30 days.\"\n}",
+      "target_id": "social_unrest->military_presence",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose Nauru experienced a sustained increase in military drills and armed patrols starting in early 2025 due to a regional security agreement. This heightened military presence led to more frequent, low-intensity armed incidents being recorded as 'Battles' during training exercises or routine operations. Would this not directly inflate the historical_battle_trend, since these events contribute to the count of 'Battles' over the 360 days before 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a direct causal link between military_presence and historical_battle_trend, which was previously absent in the causal network. If heightened military activity (e.g., drills, patrols) leads to more low-intensity armed incidents being recorded as 'Battles', then the historical_battle_trend is no longer a neutral baseline but is itself inflated by military presence. This affects the denominator in the comparison: a higher historical 30-day average (due to militarized baseline activity) makes it harder for the final 30-day period to exceed it. However, if this elevated military presence persists into the forecast period (before 2025-12-28), then both the historical average and the near-term 'Battles' count are elevated. The key insight is that sustained military activity inflates both periods, but the outcome depends on *relative change*. If the military activity is stable, the ratio may not shift much. But if the increase in military presence is *sustained or growing*, the final 30-day window could still exceed the already-elevated average, especially if incidents accumulate. Thus, the original low probability (0.15) assumed a stable, low-baseline conflict environment. With military activity now influencing both historical and future counts, the path from military_presence -> outcome is reinforced through dual channels: directly (as before) and indirectly via inflating the baseline trend only if the effect is consistent. Since the challenge suggests a *sustained* increase starting in early 2025, the historical_battle_trend would partially absorb this, reducing the contrast. However, any further escalation or incident clustering in the final window becomes more likely due to the ongoing military operations, increasing the probability of exceeding the average. This strengthens the causal pathway leading to the outcome, particularly through the military_presence node. Therefore, the estimate increases to 0.35 to reflect a moderately higher likelihood of exceeding the elevated baseline due to persistent conflict-prone conditions.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a direct causal link between military_presence and historical_battle_trend, which was previously absent in the causal network. If heightened military activity (e.g., drills, patrols) leads to more low-intensity armed incidents being recorded as 'Battles', then the historical_battle_trend is no longer a neutral baseline but is itself inflated by military presence. This affects the denominator in the comparison: a higher historical 30-day average (due to militarized baseline activity) makes it harder for the final 30-day period to exceed it. However, if this elevated military presence persists into the forecast period (before 2025-12-28), then both the historical average and the near-term 'Battles' count are elevated. The key insight is that sustained military activity inflates both periods, but the outcome depends on *relative change*. If the military activity is stable, the ratio may not shift much. But if the increase in military presence is *sustained or growing*, the final 30-day window could still exceed the already-elevated average, especially if incidents accumulate. Thus, the original low probability (0.15) assumed a stable, low-baseline conflict environment. With military activity now influencing both historical and future counts, the path from military_presence -> outcome is reinforced through dual channels: directly (as before) and indirectly via inflating the baseline trend only if the effect is consistent. Since the challenge suggests a *sustained* increase starting in early 2025, the historical_battle_trend would partially absorb this, reducing the contrast. However, any further escalation or incident clustering in the final window becomes more likely due to the ongoing military operations, increasing the probability of exceeding the average. This strengthens the causal pathway leading to the outcome, particularly through the military_presence node. Therefore, the estimate increases to 0.35 to reflect a moderately higher likelihood of exceeding the elevated baseline due to persistent conflict-prone conditions.\"\n}",
+      "target_id": "military_presence->historical_battle_trend",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of upcoming national elections in Nauru, which are scheduled for September 2025. Elections can heighten political tensions, increase mobilization of opposition groups, and lead to state or non-state use of force to influence outcomes. This could increase the likelihood of 'Battles' irrespective of historical trends or current military presence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The upcoming national elections in September 2025 introduce a new causal pathway that significantly heightens political tensions independently of historical battle trends or current military presence. This event affects the causal path through political_stability -> social_unrest, as elections can amplify instability and opposition mobilization. It also creates a direct link from political_stability to outcome by increasing the likelihood of state or non-state violence around the electoral period. Additionally, foreign_influence may intensify during elections, further destabilizing political_stability. These factors increase the potential for 'Battles' in the 30 days before 2025-12-28, even if historical averages are low. As a result, the original estimate of 0.15 is too low given this previously unmodeled structural driver, warranting a moderate upward revision to 0.35.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The upcoming national elections in September 2025 introduce a new causal pathway that significantly heightens political tensions independently of historical battle trends or current military presence. This event affects the causal path through political_stability -> social_unrest, as elections can amplify instability and opposition mobilization. It also creates a direct link from political_stability to outcome by increasing the likelihood of state or non-state violence around the electoral period. Additionally, foreign_influence may intensify during elections, further destabilizing political_stability. These factors increase the potential for 'Battles' in the 30 days before 2025-12-28, even if historical averages are low. As a result, the original estimate of 0.15 is too low given this previously unmodeled structural driver, warranting a moderate upward revision to 0.35.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of international peacekeeping or diplomatic intervention in Nauru. If a foreign-backed peacekeeping mission were deployed in early December 2025, it could suppress armed confrontations and reduce the likelihood of recorded 'Battles,' even in the presence of social unrest or high military presence. This factor would act as a moderating influence on the pathway from military_presence and social_unrest to the outcome, potentially breaking the causal link between tension and actualized conflict.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.06999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a foreign-backed peacekeeping mission in early December 2025 acts as a moderating intervention that directly weakens the causal paths from social_unrest -> military_presence and military_presence -> outcome. Specifically, even if social unrest is high or there is a notable military presence, the peacekeeping force could prevent escalation into recorded 'Battles' by de-escalating tensions, monitoring hotspots, or imposing external constraints on the use of force. This breaks the typical link between rising unrest, security response, and actualized conflict. Given that the baseline historical_battle_trend is already low (implied by the initial 0.15 probability), the added suppression mechanism makes a spike in battles even less likely. Therefore, the probability is meaningfully reduced, though not to zero, due to uncertainty about whether such a mission will actually deploy or be effective.",
+      "raw_response": "{\n  \"updated_probability\": 0.08,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a foreign-backed peacekeeping mission in early December 2025 acts as a moderating intervention that directly weakens the causal paths from social_unrest -> military_presence and military_presence -> outcome. Specifically, even if social unrest is high or there is a notable military presence, the peacekeeping force could prevent escalation into recorded 'Battles' by de-escalating tensions, monitoring hotspots, or imposing external constraints on the use of force. This breaks the typical link between rising unrest, security response, and actualized conflict. Given that the baseline historical_battle_trend is already low (implied by the initial 0.15 probability), the added suppression mechanism makes a spike in battles even less likely. Therefore, the probability is meaningfully reduced, though not to zero, due to uncertainty about whether such a mission will actually deploy or be effective.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early December 2025, a documentary crew from Australia arrived in Nauru to film a series on Pacific Island history, focusing on World War II battle sites. The crew conducted interviews with local elders and visited former military installations, drawing small crowds in the Anabar District.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The arrival of an Australian documentary crew focusing on World War II history does not affect any of the key causal paths in the model. The nodes related to political stability, economic stress, foreign influence, social unrest, and military presence remain unchanged. The activity described is cultural and historical in nature, involving interviews and site visits with no indication of provoking civil disturbance, increasing military activity, or exacerbating underlying tensions. It does not alter the historical battle trend baseline nor trigger any mechanism that would increase the likelihood of actual armed conflicts ('Battles') occurring. Therefore, the probability remains unchanged as this event is peripheral to the causal structure driving the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The arrival of an Australian documentary crew focusing on World War II history does not affect any of the key causal paths in the model. The nodes related to political stability, economic stress, foreign influence, social unrest, and military presence remain unchanged. The activity described is cultural and historical in nature, involving interviews and site visits with no indication of provoking civil disturbance, increasing military activity, or exacerbating underlying tensions. It does not alter the historical battle trend baseline nor trigger any mechanism that would increase the likelihood of actual armed conflicts ('Battles') occurring. Therefore, the probability remains unchanged as this event is peripheral to the causal structure driving the outcome.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early December 2025, Nauru's national rugby team achieved a historic victory in an international tournament, sparking widespread celebrations across the country. The event drew large crowds and boosted national morale for several days.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The historic rugby victory in early December 2025 represents a positive socio-cultural event that temporarily boosts national morale and social cohesion. This affects the causal path through social_unrest: high morale and widespread celebrations reduce the likelihood of civil discontent, thereby decreasing the risk of unrest-driven conflict. Lower social_unrest reduces pressure on military_presence, weakening that causal link to the outcome. While this event does not directly alter structural factors like economic_stress or foreign_influence, it temporarily dampens the escalation pathway from social_unrest to military_presence to outcome. Given that the baseline probability was already low (0.15) due to historically low battle frequency, this positive shock further suppresses the likelihood of heightened conflict in the short term, leading to a small downward adjustment in the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The historic rugby victory in early December 2025 represents a positive socio-cultural event that temporarily boosts national morale and social cohesion. This affects the causal path through social_unrest: high morale and widespread celebrations reduce the likelihood of civil discontent, thereby decreasing the risk of unrest-driven conflict. Lower social_unrest reduces pressure on military_presence, weakening that causal link to the outcome. While this event does not directly alter structural factors like economic_stress or foreign_influence, it temporarily dampens the escalation pathway from social_unrest to military_presence to outcome. Given that the baseline probability was already low (0.15) due to historically low battle frequency, this positive shock further suppresses the likelihood of heightened conflict in the short term, leading to a small downward adjustment in the probability.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Newly declassified government records show that Nauru has experienced only one minor armed incident over the past 11 months, consistent with a long-standing pattern of minimal internal conflict. This reinforces the idea that the historical_battle_trend is exceptionally low and suggests that any significant increase in battles would be a departure from a well-established norm.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The newly declassified records reinforce that the historical_battle_trend is exceptionally low, strengthening the baseline assumption that armed conflict in Nauru is extremely rare. This makes any significant increase in 'Battles' over the final 30-day period a more notable deviation from a well-established norm. Since historical_battle_trend is a direct causal input into the outcome—setting the threshold that must be exceeded for the question to resolve positively—a stronger confirmation of its low value reduces the likelihood of such a deviation. The causal path from historical_battle_trend to outcome is thus reinforced, making the outcome less probable. While other factors like social_unrest or foreign_influence could still theoretically drive conflict, the entrenched pattern of minimal conflict reduces the plausibility of those pathways resulting in a measurable uptick in 'Battles'. Therefore, the probability is lowered modestly but meaningfully.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The newly declassified records reinforce that the historical_battle_trend is exceptionally low, strengthening the baseline assumption that armed conflict in Nauru is extremely rare. This makes any significant increase in 'Battles' over the final 30-day period a more notable deviation from a well-established norm. Since historical_battle_trend is a direct causal input into the outcome—setting the threshold that must be exceeded for the question to resolve positively—a stronger confirmation of its low value reduces the likelihood of such a deviation. The causal path from historical_battle_trend to outcome is thus reinforced, making the outcome less probable. While other factors like social_unrest or foreign_influence could still theoretically drive conflict, the entrenched pattern of minimal conflict reduces the plausibility of those pathways resulting in a measurable uptick in 'Battles'. Therefore, the probability is lowered modestly but meaningfully.\"\n}",
+      "target_id": "historical_battle_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent reports from the Asian Development Bank indicate that Nauru's phosphate reserves, a key economic resource, have declined to 15% of their 2020 levels, leading to widespread job losses and reduced public services. This worsening economic situation is increasing hardship for households and raising concerns about food and fuel security on the island.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information significantly strengthens the 'economic_stress' node, which is a key driver in two causal paths leading to the outcome. First, economic_stress directly reduces 'political_stability', increasing the risk of governance crises that could precipitate conflict. Second, economic_stress fuels 'social_unrest' through job losses, reduced public services, and threats to food and fuel security, which in turn increases the likelihood of clashes that may trigger a heightened 'military_presence'. Since military_presence directly increases the probability of recorded 'Battles', this chain effect amplifies the overall risk. Given Nauru's historically low battle frequency (baseline around 0.25), even a modest rise in conflict likelihood due to these reinforcing pathways meaningfully increases the chance of exceeding the 30-day average. Therefore, the probability is updated upward from 0.15 to 0.35, reflecting the heightened systemic risk from economic collapse, though still constrained by Nauru's small population and limited capacity for large-scale battles.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information significantly strengthens the 'economic_stress' node, which is a key driver in two causal paths leading to the outcome. First, economic_stress directly reduces 'political_stability', increasing the risk of governance crises that could precipitate conflict. Second, economic_stress fuels 'social_unrest' through job losses, reduced public services, and threats to food and fuel security, which in turn increases the likelihood of clashes that may trigger a heightened 'military_presence'. Since military_presence directly increases the probability of recorded 'Battles', this chain effect amplifies the overall risk. Given Nauru's historically low battle frequency (baseline around 0.25), even a modest rise in conflict likelihood due to these reinforcing pathways meaningfully increases the chance of exceeding the 30-day average. Therefore, the probability is updated upward from 0.15 to 0.35, reflecting the heightened systemic risk from economic collapse, though still constrained by Nauru's small population and limited capacity for large-scale battles.\"\n}",
+      "target_id": "economic_stress",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In May 2024, widespread protests in Nauru over government corruption and cost-of-living increases led to the temporary deployment of Australian-trained security forces to maintain order, marking the first time in over a decade that domestic military units were activated in response to civil unrest. This incident demonstrates that even moderate levels of social unrest can trigger a rapid and measurable increase in military presence, reinforcing the sensitivity of this causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.23,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between social_unrest and military_presence, confirming that even moderate unrest can trigger a rapid increase in military deployment. This reinforces the pathway: social_unrest -> military_presence -> outcome. Given that economic_stress and political_stability are known to feed into social_unrest, and considering ongoing foreign_influence and economic_stress in Nauru, the likelihood of future unrest—and consequent military response—has increased. The May 2024 event serves as empirical validation of this mechanism, making the causal path more credible and active than previously estimated. As a result, the probability of observing more 'Battles' in the final 30-day window has increased, though remains moderate due to the historically low baseline from historical_battle_trend.",
+      "raw_response": "{\n  \"updated_probability\": 0.23,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between social_unrest and military_presence, confirming that even moderate unrest can trigger a rapid increase in military deployment. This reinforces the pathway: social_unrest -> military_presence -> outcome. Given that economic_stress and political_stability are known to feed into social_unrest, and considering ongoing foreign_influence and economic_stress in Nauru, the likelihood of future unrest—and consequent military response—has increased. The May 2024 event serves as empirical validation of this mechanism, making the causal path more credible and active than previously estimated. As a result, the probability of observing more 'Battles' in the final 30-day window has increased, though remains moderate due to the historically low baseline from historical_battle_trend.\"\n}",
+      "target_id": "social_unrest->military_presence",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Nauru's parliament was adjourned indefinitely following a disputed vote of no confidence, leading to widespread allegations of democratic backsliding. This political instability triggered the country's largest public demonstrations in a decade, with workers' unions and civil society groups organizing strikes and protests over governance concerns, directly linking eroded political stability to a surge in organized social unrest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge provides strong empirical evidence reinforcing the causal link between political_stability and social_unrest, confirming that deteriorating political stability (e.g., disputed no-confidence vote, indefinite adjournment of parliament) can directly trigger significant social_unrest. This strengthens the credibility and magnitude of the pathway: political_stability -> social_unrest -> military_presence -> outcome. With increased social unrest now actively occurring, the likelihood of heightened military or security responses rises, thereby increasing the probability of recorded 'Battles'. This does not alter the baseline historical_battle_trend, but it elevates the plausibility of a deviation from that trend. The causal path from political instability through to potential armed confrontations is now more active and realistic than previously assumed, justifying a moderate increase in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge provides strong empirical evidence reinforcing the causal link between political_stability and social_unrest, confirming that deteriorating political stability (e.g., disputed no-confidence vote, indefinite adjournment of parliament) can directly trigger significant social_unrest. This strengthens the credibility and magnitude of the pathway: political_stability -> social_unrest -> military_presence -> outcome. With increased social unrest now actively occurring, the likelihood of heightened military or security responses rises, thereby increasing the probability of recorded 'Battles'. This does not alter the baseline historical_battle_trend, but it elevates the plausibility of a deviation from that trend. The causal path from political instability through to potential armed confrontations is now more active and realistic than previously assumed, justifying a moderate increase in the estimated probability.\"\n}",
+      "target_id": "political_stability->social_unrest",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows a 40% year-on-year decline in Nauru's phosphate revenues, its primary economic resource, coinciding with widespread public protests demanding government accountability and early elections. This economic downturn has led to delays in public sector wage payments, amplifying anti-government sentiment and increasing no-confidence motions within parliament. These developments suggest that economic stress is not only weakening public confidence in governance but actively destabilizing the political leadership, reinforcing the link between economic hardship and political instability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information strongly reinforces the causal link between economic_stress and political_stability, which was already part of the causal network but may have been underweighted in the initial estimate. The 40% decline in phosphate revenues—a core economic driver—represents a severe economic_stress shock. This has directly triggered public protests, wage payment delays, and parliamentary no-confidence motions, confirming that economic_stress is actively degrading political_stability. This, in turn, strengthens the causal path: economic_stress -> political_stability -> social_unrest -> military_presence -> outcome. With political instability now more likely, the downstream risk of military presence increasing due to social unrest rises, thereby increasing the likelihood of recorded 'Battles'. The historical_battle_trend remains low, making a spike more detectable, and this new evidence increases the plausibility of such a deviation. Therefore, the probability is substantially revised upward, though still moderate due to Nauru's small size and limited capacity for large-scale conflict.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strongly reinforces the causal link between economic_stress and political_stability, which was already part of the causal network but may have been underweighted in the initial estimate. The 40% decline in phosphate revenues—a core economic driver—represents a severe economic_stress shock. This has directly triggered public protests, wage payment delays, and parliamentary no-confidence motions, confirming that economic_stress is actively degrading political_stability. This, in turn, strengthens the causal path: economic_stress -> political_stability -> social_unrest -> military_presence -> outcome. With political instability now more likely, the downstream risk of military presence increasing due to social unrest rises, thereby increasing the likelihood of recorded 'Battles'. The historical_battle_trend remains low, making a spike more detectable, and this new evidence increases the plausibility of such a deviation. Therefore, the probability is substantially revised upward, though still moderate due to Nauru's small size and limited capacity for large-scale conflict.\"\n}",
+      "target_id": "economic_stress->political_stability",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "b116d87ad801f2eb66404d27cdbcf83eed05f3173fd506fc17da22254ad87536",
+    "question_text": "Will there be more 'Battles' in Nauru for the 30 days before 2025-12-28 compared to the 30-day average of 'Battles' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Battles'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Battles' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Battles' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.15,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.11266666666666666,
+    "max_absolute_shift": 0.30000000000000004
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 1.392857142857143,
+    "mean_shift_high": 0.11375000000000002,
+    "mean_shift_low": 0.08166666666666667,
+    "asymmetry_index": 0.3983739837398375,
+    "mean_shift_negate": 0.07000000000000002,
+    "mean_shift_strengthen": 0.1757142857142857,
+    "fnar": 1,
+    "n_accepted": 3,
+    "n_spurious": 3,
+    "critical_path_premium": 0.00424242424242427,
+    "mean_shift_on_path": 0.12333333333333335,
+    "mean_shift_off_path": 0.11909090909090908,
+    "importance_sensitivity_correlation": 0.36818181818181817,
+    "control_sensitivity": 0
+  }
+}

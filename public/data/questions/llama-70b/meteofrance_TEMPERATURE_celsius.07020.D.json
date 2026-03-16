@@ -1,0 +1,1100 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07020.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "solar_irradiance",
+      "description": "Amount of solar energy received at Pointe De La Hague",
+      "role": "factor"
+    },
+    {
+      "id": "atmospheric_circulation",
+      "description": "Large-scale movement of air in the atmosphere",
+      "role": "factor"
+    },
+    {
+      "id": "ocean_temperature",
+      "description": "Temperature of the ocean surrounding Pointe De La Hague",
+      "role": "factor"
+    },
+    {
+      "id": "weather_patterns",
+      "description": "Prevailing weather conditions in the region",
+      "role": "factor"
+    },
+    {
+      "id": "seasonal_variation",
+      "description": "Changes in temperature due to the time of year",
+      "role": "factor"
+    },
+    {
+      "id": "local_microclimate",
+      "description": "Unique environmental conditions at Pointe De La Hague",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_comparison",
+      "description": "The forecasted event",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "solar_irradiance",
+      "to": "atmospheric_circulation",
+      "mechanism": "Solar irradiance influences atmospheric circulation patterns"
+    },
+    {
+      "from": "atmospheric_circulation",
+      "to": "weather_patterns",
+      "mechanism": "Atmospheric circulation drives weather patterns"
+    },
+    {
+      "from": "ocean_temperature",
+      "to": "local_microclimate",
+      "mechanism": "Ocean temperature affects the local microclimate"
+    },
+    {
+      "from": "local_microclimate",
+      "to": "temperature_comparison",
+      "mechanism": "Local microclimate influences temperature at Pointe De La Hague"
+    },
+    {
+      "from": "seasonal_variation",
+      "to": "temperature_comparison",
+      "mechanism": "Seasonal variation affects temperature comparisons"
+    },
+    {
+      "from": "weather_patterns",
+      "to": "temperature_comparison",
+      "mechanism": "Prevailing weather patterns influence temperature"
+    },
+    {
+      "from": "solar_irradiance",
+      "to": "temperature_comparison",
+      "mechanism": "Solar irradiance has a direct impact on temperature"
+    }
+  ],
+  "reasoning": "The probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21 is estimated based on factors such as solar irradiance, atmospheric circulation, ocean temperature, weather patterns, seasonal variation, and local microclimate. These factors interact and influence each other, ultimately affecting the temperature comparison. Given the time of year and typical weather patterns, it is slightly more likely that the temperature will be higher on the later date, but there is still uncertainty due to the complex interactions of these factors.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "temperature_comparison",
+    "node_metrics": [
+      {
+        "node_id": "solar_irradiance",
+        "description": "Amount of solar energy received at Pointe De La Hague",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0704,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "atmospheric_circulation",
+        "description": "Large-scale movement of air in the atmosphere",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.1003,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "ocean_temperature",
+        "description": "Temperature of the ocean surrounding Pointe De La Hague",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0704,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_patterns",
+        "description": "Prevailing weather conditions in the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.2222,
+        "pagerank": 0.1556,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "seasonal_variation",
+        "description": "Changes in temperature due to the time of year",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0704,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "local_microclimate",
+        "description": "Unique environmental conditions at Pointe De La Hague",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.1302,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "temperature_comparison",
+        "description": "The forecasted event",
+        "role": "outcome",
+        "in_degree": 4,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.75,
+        "pagerank": 0.4029,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "solar_irradiance",
+        "target": "atmospheric_circulation",
+        "mechanism": "Solar irradiance influences atmospheric circulation patterns",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": false
+      },
+      {
+        "source": "solar_irradiance",
+        "target": "temperature_comparison",
+        "mechanism": "Solar irradiance has a direct impact on temperature",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "atmospheric_circulation",
+        "target": "weather_patterns",
+        "mechanism": "Atmospheric circulation drives weather patterns",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "ocean_temperature",
+        "target": "local_microclimate",
+        "mechanism": "Ocean temperature affects the local microclimate",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_patterns",
+        "target": "temperature_comparison",
+        "mechanism": "Prevailing weather patterns influence temperature",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_variation",
+        "target": "temperature_comparison",
+        "mechanism": "Seasonal variation affects temperature comparisons",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "local_microclimate",
+        "target": "temperature_comparison",
+        "mechanism": "Local microclimate influences temperature at Pointe De La Hague",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_circulation",
+        "description": "Large-scale movement of air in the atmosphere",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_patterns",
+        "description": "Prevailing weather conditions in the region",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "solar_irradiance",
+        "description": "Amount of solar energy received at Pointe De La Hague",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_variation",
+        "description": "Changes in temperature due to the time of year",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_circulation",
+        "description": "Large-scale movement of air in the atmosphere",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_patterns",
+        "description": "Prevailing weather conditions in the region",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atmospheric_circulation->weather_patterns",
+        "description": "Atmospheric circulation drives weather patterns",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ocean_temperature->local_microclimate",
+        "description": "Ocean temperature affects the local microclimate",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "solar_irradiance->atmospheric_circulation",
+        "description": "Solar irradiance influences atmospheric circulation patterns",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atmospheric_circulation->weather_patterns",
+        "description": "Atmospheric circulation drives weather patterns",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "solar_irradiance->seasonal_variation",
+        "description": "Potential link: Amount of solar energy received at Pointe De La Hague -> Changes in temperature due to the time of year",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "solar_irradiance->weather_patterns",
+        "description": "Potential link: Amount of solar energy received at Pointe De La Hague -> Prevailing weather conditions in the region",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_circulation",
+      "description": "Large-scale movement of air in the atmosphere",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_patterns",
+      "description": "Prevailing weather conditions in the region",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "solar_irradiance",
+      "description": "Amount of solar energy received at Pointe De La Hague",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_variation",
+      "description": "Changes in temperature due to the time of year",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_circulation",
+      "description": "Large-scale movement of air in the atmosphere",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_patterns",
+      "description": "Prevailing weather conditions in the region",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "description": "Atmospheric circulation drives weather patterns",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ocean_temperature->local_microclimate",
+      "description": "Ocean temperature affects the local microclimate",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "solar_irradiance->atmospheric_circulation",
+      "description": "Solar irradiance influences atmospheric circulation patterns",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "description": "Atmospheric circulation drives weather patterns",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "solar_irradiance->seasonal_variation",
+      "description": "Potential link: Amount of solar energy received at Pointe De La Hague -> Changes in temperature due to the time of year",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "solar_irradiance->weather_patterns",
+      "description": "Potential link: Amount of solar energy received at Pointe De La Hague -> Prevailing weather conditions in the region",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if recent studies have found that the large-scale movement of air in the atmosphere has a negligible effect on local weather patterns in Northern France, and instead, regional topography plays a much more significant role in shaping the weather at Pointe De La Hague? This could be due to the unique geography of the region, which creates microclimates that are relatively isolated from broader atmospheric circulation patterns. As a result, the temperature comparison between December 21 and December 28 might be more influenced by local factors than by the large-scale movement of air. Could it be that the forecaster's emphasis on atmospheric circulation is misplaced?",
+      "probe_type": "node_negate_high",
+      "target_id": "atmospheric_circulation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "Large-scale movement of air in the atmosphere"
+    },
+    {
+      "probe_text": "What if prevailing weather patterns in the region have no significant impact on the daily average temperature at Pointe De La Hague due to the dominant influence of the oceanic climate, making the usual weather patterns less relevant? Recent studies suggest that the temperature at coastal locations like Pointe De La Hague is more closely tied to ocean temperatures than to large-scale weather patterns. This could render the typical weather patterns ineffective in predicting temperature comparisons. Considering this, how would you update your probability estimate?",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_patterns",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Prevailing weather conditions in the region"
+    },
+    {
+      "probe_text": "Recent studies have shown that the amount of solar energy received at Pointe De La Hague during the winter months has a negligible impact on the daily average temperature due to the low angle of the sun and increased cloud cover. In fact, research suggests that the temperature at this location is more strongly influenced by the warmth of the Gulf Stream and the resulting ocean temperature. This raises questions about the significance of solar irradiance in predicting temperature comparisons. Given this new information, how would you update your forecast?",
+      "probe_type": "node_negate_medium",
+      "target_id": "solar_irradiance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Amount of solar energy received at Pointe De La Hague"
+    },
+    {
+      "probe_text": "New research suggests that the North Atlantic region, where Pointe De La Hague is located, is experiencing a unusually stable seasonal pattern this year due to a persistent high-pressure system, potentially minimizing the typical effects of seasonal variation on temperature. This stability might render the usual seasonal temperature changes less relevant. As a result, the temperature difference between December 21 and 28 could be less influenced by the time of year than normally expected. Could this abnormal stability affect your forecast?",
+      "probe_type": "node_negate_low",
+      "target_id": "seasonal_variation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Changes in temperature due to the time of year"
+    },
+    {
+      "probe_text": "A new study published by the European Centre for Medium-Range Weather Forecasts reveals a strong correlation between atmospheric circulation patterns and temperature fluctuations in Northern Europe, with a specific focus on the Pointe De La Hague region. The research highlights the dominant role of atmospheric circulation in shaping local weather conditions, particularly during the winter months. This finding is endorsed by several leading meteorologists, who emphasize the importance of considering large-scale atmospheric movement when forecasting temperature trends. As a result, the study's lead author suggests that atmospheric circulation should be a primary consideration for forecasters.",
+      "probe_type": "node_strengthen",
+      "target_id": "atmospheric_circulation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "Large-scale movement of air in the atmosphere"
+    },
+    {
+      "probe_text": "According to a recent study published in the Journal of Meteorology, a high-pressure system is expected to dominate the region surrounding Pointe De La Hague during the last week of December 2025, leading to a significant increase in prevailing westerly winds that will bring warmer air masses from the Atlantic. This pattern is consistent with historical data showing that similar high-pressure systems have resulted in temperature increases of up to 2°C in the area. Experts from the French Meteorological Society have endorsed these findings, highlighting the crucial role of weather patterns in shaping local temperature conditions. As a result, the prevailing weather conditions are likely to play a more substantial role in determining the temperature comparison between December 21 and 28.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_patterns",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Prevailing weather conditions in the region"
+    },
+    {
+      "probe_text": "Recent studies have shown that the North Atlantic Oscillation, a major driver of atmospheric circulation patterns in the region, has been experiencing unprecedented variability, potentially decoupling its typical influence on weather patterns. Moreover, localized weather phenomena, such as sea breezes and coastal fog, may play a more significant role in shaping the weather at Pointe De La Hague than previously thought, weakening the causal link between atmospheric circulation and weather patterns. This suggests that the relationship between atmospheric circulation and weather patterns may be more complex and nuanced than assumed. As a result, the forecaster should reconsider the strength of this causal link in their model.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Atmospheric circulation drives weather patterns"
+    },
+    {
+      "probe_text": "Recent research suggests that the local microclimate at Pointe De La Hague is more influenced by the shape and elevation of the surrounding landmass than by the ocean temperature, potentially weakening the link between ocean temperature and local microclimate. Additionally, the presence of a strong coastal current may insulate the local microclimate from the broader ocean temperature trends. This could mean that the ocean temperature has a negligible effect on the local microclimate, contrary to the assumed causal link. New data on coastal currents and landmass geometry may be necessary to reassess this relationship.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "ocean_temperature->local_microclimate",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Ocean temperature affects the local microclimate"
+    },
+    {
+      "probe_text": "Recent research suggests that the influence of solar irradiance on atmospheric circulation patterns may be overestimated, particularly in regions with complex coastlines like Pointe De La Hague. In fact, studies have shown that other factors such as volcanic eruptions and human-induced aerosol emissions may have a more significant impact on atmospheric circulation. Furthermore, the specific geography of Pointe De La Hague, with its unique blend of maritime and terrestrial influences, may reduce the effectiveness of solar irradiance in shaping atmospheric circulation. Does this new information change your assessment of the probability that the daily average temperature will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "solar_irradiance->atmospheric_circulation",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Solar irradiance influences atmospheric circulation patterns"
+    },
+    {
+      "probe_text": "Research suggests that certain weather patterns, such as high-pressure systems, can influence the formation of atmospheric circulation patterns by altering the distribution of air masses and pressure gradients. This implies that the relationship between atmospheric circulation and weather patterns may be more complex than initially thought, with weather patterns potentially driving changes in atmospheric circulation. For instance, a persistent high-pressure system can lead to the development of a specific atmospheric circulation pattern. Can you reconsider your forecast in light of this new information?",
+      "probe_type": "edge_reverse",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Atmospheric circulation drives weather patterns"
+    },
+    {
+      "probe_text": "Research has shown that variations in solar irradiance throughout the year, due to Earth's elliptical orbit and axial tilt, significantly impact the severity of seasonal temperature changes. For instance, the increased solar irradiance during summer months can amplify the warming effect, while decreased irradiance in winter months can exacerbate cooling. If solar irradiance indeed influences seasonal variation, then understanding this relationship could refine temperature forecasts. Does the forecaster's model account for this potential interaction?",
+      "probe_type": "edge_spurious",
+      "target_id": "solar_irradiance->seasonal_variation",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Amount of solar energy received at Pointe De La Hague -> Changes in temperature due to the time of year"
+    },
+    {
+      "probe_text": "Research has shown that increased solar irradiance can lead to the formation of high-pressure systems, which in turn influence the prevailing weather patterns in a region. For instance, a study on the North Atlantic Oscillation suggests that variations in solar irradiance can impact the trajectory of weather systems, affecting the likelihood of certain weather patterns. Given this, it's plausible that the amount of solar energy received at Pointe De La Hague could have a direct influence on the region's prevailing weather conditions, potentially altering the forecasted temperature comparison. How would this new information affect your estimated probability?",
+      "probe_type": "edge_spurious",
+      "target_id": "solar_irradiance->weather_patterns",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Amount of solar energy received at Pointe De La Hague -> Prevailing weather conditions in the region"
+    },
+    {
+      "probe_text": "A recent study suggests that human activities such as agriculture and urbanization in the region surrounding Pointe De La Hague could lead to changes in land use, which in turn may affect local temperature readings. The introduction of new agricultural practices or the expansion of urban areas could alter the local energy balance, potentially influencing temperature comparisons. How would you update your probability estimate if you were to consider the impact of land use changes on the local microclimate? This new information could reveal a previously overlooked factor in your causal network.",
+      "probe_type": "missing_node",
+      "target_id": "land_use_changes",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What if a strong high-pressure system develops over the English Channel around 2025-12-25, potentially altering wind patterns and temperature distributions in the region? This could be influenced by the North Atlantic Oscillation (NAO), a factor not included in the original network. The NAO's impact on atmospheric circulation and weather patterns could significantly affect temperature comparisons between the two dates. How would this new information update your probability estimate?",
+      "probe_type": "missing_node",
+      "target_id": "north_atlantic_oscillation",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Researchers have discovered a unique species of seaweed near Pointe De La Hague that has the ability to absorb and store carbon dioxide at a higher rate than previously known species. This finding has sparked interest in the potential for large-scale seaweed cultivation to mitigate climate change. However, the current seaweed growth in the area is still in its natural state and has not been subjected to any large-scale harvesting or cultivation efforts. The local community is excited about the potential economic benefits of sustainable seaweed farming.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Researchers at a nearby university have been studying the impact of climate change on the local flora of Pointe De La Hague, and have discovered a significant shift in the types of seaweed that are thriving in the area. This shift is believed to be related to changes in the ocean's chemistry, but not directly related to temperature fluctuations. The study's findings have garnered significant attention in the scientific community, with many experts speculating about the potential long-term consequences for the region's ecosystem. However, the study did not investigate any potential links between seaweed populations and local temperature patterns.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if recent studies have found that the large-scale movement of air in the atmosphere has a negligible effect on local weather patterns in Northern France, and instead, regional topography plays a much more significant role in shaping the weather at Pointe De La Hague? This could be due to the unique geography of the region, which creates microclimates that are relatively isolated from broader atmospheric circulation patterns. As a result, the temperature comparison between December 21 and December 28 might be more influenced by local factors than by the large-scale movement of air. Could it be that the forecaster's emphasis on atmospheric circulation is misplaced?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to atmospheric_circulation suggests that its influence on weather_patterns, and subsequently on temperature_comparison, is negligible. This breaks a causal path from solar_irradiance to temperature_comparison through atmospheric_circulation and weather_patterns. However, other causal paths such as solar_irradiance -> temperature_comparison, ocean_temperature -> local_microclimate -> temperature_comparison, and seasonal_variation -> temperature_comparison remain intact. Given that atmospheric_circulation was not the sole or most critical factor influencing temperature_comparison, the decrease in probability is moderate, reflecting a reduced reliance on a previously considered factor without eliminating the overall positive trend expected due to other influences like seasonal_variation and direct solar_irradiance effects.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to atmospheric_circulation suggests that its influence on weather_patterns, and subsequently on temperature_comparison, is negligible. This breaks a causal path from solar_irradiance to temperature_comparison through atmospheric_circulation and weather_patterns. However, other causal paths such as solar_irradiance -> temperature_comparison, ocean_temperature -> local_microclimate -> temperature_comparison, and seasonal_variation -> temperature_comparison remain intact. Given that atmospheric_circulation was not the sole or most critical factor influencing temperature_comparison, the decrease in probability is moderate, reflecting a reduced reliance on a previously considered factor without eliminating the overall positive trend expected due to other influences like seasonal_variation and direct solar_irradiance effects.\"\n}",
+      "target_id": "atmospheric_circulation",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if prevailing weather patterns in the region have no significant impact on the daily average temperature at Pointe De La Hague due to the dominant influence of the oceanic climate, making the usual weather patterns less relevant? Recent studies suggest that the temperature at coastal locations like Pointe De La Hague is more closely tied to ocean temperatures than to large-scale weather patterns. This could render the typical weather patterns ineffective in predicting temperature comparisons. Considering this, how would you update your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'weather_patterns' suggests that its influence on 'temperature_comparison' is diminished due to the dominant oceanic climate. This affects the causal path 'atmospheric_circulation -> weather_patterns -> temperature_comparison', reducing its significance. However, other paths such as 'solar_irradiance -> temperature_comparison', 'ocean_temperature -> local_microclimate -> temperature_comparison', and 'seasonal_variation -> temperature_comparison' remain intact. Given that 'weather_patterns' was not the sole or most critical factor influencing 'temperature_comparison', the update to the probability is moderate. The increase in probability reflects the potential for more stable, ocean-driven temperatures, which could lead to a higher likelihood of the daily average temperature being higher on 2025-12-28 than on 2025-12-21, especially if seasonal variation and solar irradiance are favorable.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'weather_patterns' suggests that its influence on 'temperature_comparison' is diminished due to the dominant oceanic climate. This affects the causal path 'atmospheric_circulation -> weather_patterns -> temperature_comparison', reducing its significance. However, other paths such as 'solar_irradiance -> temperature_comparison', 'ocean_temperature -> local_microclimate -> temperature_comparison', and 'seasonal_variation -> temperature_comparison' remain intact. Given that 'weather_patterns' was not the sole or most critical factor influencing 'temperature_comparison', the update to the probability is moderate. The increase in probability reflects the potential for more stable, ocean-driven temperatures, which could lead to a higher likelihood of the daily average temperature being higher on 2025-12-28 than on 2025-12-21, especially if seasonal variation and solar irradiance are favorable.\"\n}",
+      "target_id": "weather_patterns",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the amount of solar energy received at Pointe De La Hague during the winter months has a negligible impact on the daily average temperature due to the low angle of the sun and increased cloud cover. In fact, research suggests that the temperature at this location is more strongly influenced by the warmth of the Gulf Stream and the resulting ocean temperature. This raises questions about the significance of solar irradiance in predicting temperature comparisons. Given this new information, how would you update your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'solar_irradiance' affects two causal paths: 'solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison' and 'solar_irradiance -> temperature_comparison'. Given that solar irradiance has a negligible impact on daily average temperature during winter months, the influence of these paths is reduced. However, 'solar_irradiance' is not the only factor influencing 'temperature_comparison'. The paths 'ocean_temperature -> local_microclimate -> temperature_comparison' and 'seasonal_variation -> temperature_comparison' remain unaffected. Since 'solar_irradiance' was initially considered to have a direct impact on 'temperature_comparison', its diminished role leads to a decrease in the estimated probability, but the update is moderate because other causal factors continue to influence the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'solar_irradiance' affects two causal paths: 'solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison' and 'solar_irradiance -> temperature_comparison'. Given that solar irradiance has a negligible impact on daily average temperature during winter months, the influence of these paths is reduced. However, 'solar_irradiance' is not the only factor influencing 'temperature_comparison'. The paths 'ocean_temperature -> local_microclimate -> temperature_comparison' and 'seasonal_variation -> temperature_comparison' remain unaffected. Since 'solar_irradiance' was initially considered to have a direct impact on 'temperature_comparison', its diminished role leads to a decrease in the estimated probability, but the update is moderate because other causal factors continue to influence the outcome.\"\n}",
+      "target_id": "solar_irradiance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "New research suggests that the North Atlantic region, where Pointe De La Hague is located, is experiencing a unusually stable seasonal pattern this year due to a persistent high-pressure system, potentially minimizing the typical effects of seasonal variation on temperature. This stability might render the usual seasonal temperature changes less relevant. As a result, the temperature difference between December 21 and 28 could be less influenced by the time of year than normally expected. Could this abnormal stability affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'seasonal_variation' affects the causal path from 'seasonal_variation' to 'temperature_comparison'. Given the unusual stability in the North Atlantic region, the typical effects of seasonal variation on temperature are minimized. This means that the temperature difference between December 21 and 28 is less influenced by the time of year, making the outcome less predictable based on seasonal patterns alone. As 'seasonal_variation' is a significant factor in the original forecast, its reduced impact decreases the confidence in the initial probability estimate. However, other factors such as 'solar_irradiance', 'atmospheric_circulation', 'ocean_temperature', 'weather_patterns', and 'local_microclimate' still contribute to the temperature comparison, thus the update is moderate rather than extreme.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'seasonal_variation' affects the causal path from 'seasonal_variation' to 'temperature_comparison'. Given the unusual stability in the North Atlantic region, the typical effects of seasonal variation on temperature are minimized. This means that the temperature difference between December 21 and 28 is less influenced by the time of year, making the outcome less predictable based on seasonal patterns alone. As 'seasonal_variation' is a significant factor in the original forecast, its reduced impact decreases the confidence in the initial probability estimate. However, other factors such as 'solar_irradiance', 'atmospheric_circulation', 'ocean_temperature', 'weather_patterns', and 'local_microclimate' still contribute to the temperature comparison, thus the update is moderate rather than extreme.\"\n}",
+      "target_id": "seasonal_variation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study published by the European Centre for Medium-Range Weather Forecasts reveals a strong correlation between atmospheric circulation patterns and temperature fluctuations in Northern Europe, with a specific focus on the Pointe De La Hague region. The research highlights the dominant role of atmospheric circulation in shaping local weather conditions, particularly during the winter months. This finding is endorsed by several leading meteorologists, who emphasize the importance of considering large-scale atmospheric movement when forecasting temperature trends. As a result, the study's lead author suggests that atmospheric circulation should be a primary consideration for forecasters.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The new study reinforces the importance of atmospheric_circulation in shaping local weather conditions, particularly during winter months. This strengthens the causal path from atmospheric_circulation to weather_patterns, and subsequently to temperature_comparison. As a result, the influence of solar_irradiance on temperature_comparison through atmospheric_circulation is more pronounced. Given the study's focus on the Pointe De La Hague region and its emphasis on winter months, the update to the causal network suggests that atmospheric circulation patterns will have a more significant impact on the temperature comparison between 2025-12-21 and 2025-12-28. This leads to an increased confidence in the initial estimate, as the role of atmospheric circulation in determining temperature fluctuations is now more firmly established.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study reinforces the importance of atmospheric_circulation in shaping local weather conditions, particularly during winter months. This strengthens the causal path from atmospheric_circulation to weather_patterns, and subsequently to temperature_comparison. As a result, the influence of solar_irradiance on temperature_comparison through atmospheric_circulation is more pronounced. Given the study's focus on the Pointe De La Hague region and its emphasis on winter months, the update to the causal network suggests that atmospheric circulation patterns will have a more significant impact on the temperature comparison between 2025-12-21 and 2025-12-28. This leads to an increased confidence in the initial estimate, as the role of atmospheric circulation in determining temperature fluctuations is now more firmly established.\"\n}",
+      "target_id": "atmospheric_circulation",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "According to a recent study published in the Journal of Meteorology, a high-pressure system is expected to dominate the region surrounding Pointe De La Hague during the last week of December 2025, leading to a significant increase in prevailing westerly winds that will bring warmer air masses from the Atlantic. This pattern is consistent with historical data showing that similar high-pressure systems have resulted in temperature increases of up to 2°C in the area. Experts from the French Meteorological Society have endorsed these findings, highlighting the crucial role of weather patterns in shaping local temperature conditions. As a result, the prevailing weather conditions are likely to play a more substantial role in determining the temperature comparison between December 21 and 28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'weather_patterns' node indicates a significant increase in the prevailing westerly winds, bringing warmer air masses from the Atlantic. This affects the causal paths from 'weather_patterns' to 'temperature_comparison' and indirectly from 'atmospheric_circulation' to 'temperature_comparison' through 'weather_patterns'. Given the endorsement by experts and historical data supporting temperature increases under similar conditions, the role of 'weather_patterns' in shaping the local temperature is strengthened. This leads to an increased probability that the temperature on December 28 will be higher than on December 21, as the warmer air masses are expected to have a direct and positive impact on the temperature comparison.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'weather_patterns' node indicates a significant increase in the prevailing westerly winds, bringing warmer air masses from the Atlantic. This affects the causal paths from 'weather_patterns' to 'temperature_comparison' and indirectly from 'atmospheric_circulation' to 'temperature_comparison' through 'weather_patterns'. Given the endorsement by experts and historical data supporting temperature increases under similar conditions, the role of 'weather_patterns' in shaping the local temperature is strengthened. This leads to an increased probability that the temperature on December 28 will be higher than on December 21, as the warmer air masses are expected to have a direct and positive impact on the temperature comparison.\"\n}",
+      "target_id": "weather_patterns",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the North Atlantic Oscillation, a major driver of atmospheric circulation patterns in the region, has been experiencing unprecedented variability, potentially decoupling its typical influence on weather patterns. Moreover, localized weather phenomena, such as sea breezes and coastal fog, may play a more significant role in shaping the weather at Pointe De La Hague than previously thought, weakening the causal link between atmospheric circulation and weather patterns. This suggests that the relationship between atmospheric circulation and weather patterns may be more complex and nuanced than assumed. As a result, the forecaster should reconsider the strength of this causal link in their model.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.59,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'atmospheric_circulation->weather_patterns' affects the path from solar_irradiance to temperature_comparison through atmospheric_circulation and weather_patterns. Given that this link is now considered more complex and potentially weaker due to unprecedented variability in the North Atlantic Oscillation and the influence of localized weather phenomena, the reliability of this path in predicting temperature comparisons is reduced. However, this path is not the only influence on temperature_comparison, as seasonal_variation, solar_irradiance, and local_microclimate also play roles. The decrease in the probability estimate reflects a moderate adjustment to account for the reduced certainty in the atmospheric_circulation->weather_patterns link, without completely dismissing its influence. The updated probability remains above 0.5, indicating that other factors, such as seasonal variation and direct solar irradiance effects, still support the initial forecast direction, albeit with less confidence.",
+      "raw_response": "{\n  \"updated_probability\": 0.59,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'atmospheric_circulation->weather_patterns' affects the path from solar_irradiance to temperature_comparison through atmospheric_circulation and weather_patterns. Given that this link is now considered more complex and potentially weaker due to unprecedented variability in the North Atlantic Oscillation and the influence of localized weather phenomena, the reliability of this path in predicting temperature comparisons is reduced. However, this path is not the only influence on temperature_comparison, as seasonal_variation, solar_irradiance, and local_microclimate also play roles. The decrease in the probability estimate reflects a moderate adjustment to account for the reduced certainty in the atmospheric_circulation->weather_patterns link, without completely dismissing its influence. The updated probability remains above 0.5, indicating that other factors, such as seasonal variation and direct solar irradiance effects, still support the initial forecast direction, albeit with less confidence.\"\n}",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that the local microclimate at Pointe De La Hague is more influenced by the shape and elevation of the surrounding landmass than by the ocean temperature, potentially weakening the link between ocean temperature and local microclimate. Additionally, the presence of a strong coastal current may insulate the local microclimate from the broader ocean temperature trends. This could mean that the ocean temperature has a negligible effect on the local microclimate, contrary to the assumed causal link. New data on coastal currents and landmass geometry may be necessary to reassess this relationship.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'ocean_temperature->local_microclimate' suggests that the influence of ocean temperature on the local microclimate might be weaker than initially assumed. This primarily affects the causal path 'ocean_temperature -> local_microclimate -> temperature_comparison'. Given that the local microclimate's influence on temperature comparisons is now considered to be less dependent on ocean temperature, other factors such as solar irradiance, atmospheric circulation, and seasonal variation might have a relatively greater impact on the temperature comparison. Since the initial estimate already considered multiple factors influencing the outcome, and the weakening of one link does not necessarily diminish the overall positive trend expected from other factors like seasonal variation and solar irradiance, the update to the probability is moderate. The increased probability reflects a slight reduction in the complexity of factors influencing the local microclimate, potentially making the forecast slightly more predictable based on the remaining stronger causal links.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'ocean_temperature->local_microclimate' suggests that the influence of ocean temperature on the local microclimate might be weaker than initially assumed. This primarily affects the causal path 'ocean_temperature -> local_microclimate -> temperature_comparison'. Given that the local microclimate's influence on temperature comparisons is now considered to be less dependent on ocean temperature, other factors such as solar irradiance, atmospheric circulation, and seasonal variation might have a relatively greater impact on the temperature comparison. Since the initial estimate already considered multiple factors influencing the outcome, and the weakening of one link does not necessarily diminish the overall positive trend expected from other factors like seasonal variation and solar irradiance, the update to the probability is moderate. The increased probability reflects a slight reduction in the complexity of factors influencing the local microclimate, potentially making the forecast slightly more predictable based on the remaining stronger causal links.\"\n}",
+      "target_id": "ocean_temperature->local_microclimate",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that the influence of solar irradiance on atmospheric circulation patterns may be overestimated, particularly in regions with complex coastlines like Pointe De La Hague. In fact, studies have shown that other factors such as volcanic eruptions and human-induced aerosol emissions may have a more significant impact on atmospheric circulation. Furthermore, the specific geography of Pointe De La Hague, with its unique blend of maritime and terrestrial influences, may reduce the effectiveness of solar irradiance in shaping atmospheric circulation. Does this new information change your assessment of the probability that the daily average temperature will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.59,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'solar_irradiance->atmospheric_circulation' affects one of the pathways influencing 'temperature_comparison'. However, this link is not the sole or most direct influence on 'temperature_comparison'. Other factors such as 'seasonal_variation', 'weather_patterns', and 'local_microclimate' also play significant roles. Given that the research suggests the influence of solar irradiance on atmospheric circulation might be overestimated, especially in complex regions like Pointe De La Hague, the impact on the overall probability is moderate. The direct link 'solar_irradiance->temperature_comparison' still exists, and other causal paths remain unaffected. Thus, while the new information does decrease the estimated probability, the change is not drastic due to the redundancy and complexity of the causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.59,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'solar_irradiance->atmospheric_circulation' affects one of the pathways influencing 'temperature_comparison'. However, this link is not the sole or most direct influence on 'temperature_comparison'. Other factors such as 'seasonal_variation', 'weather_patterns', and 'local_microclimate' also play significant roles. Given that the research suggests the influence of solar irradiance on atmospheric circulation might be overestimated, especially in complex regions like Pointe De La Hague, the impact on the overall probability is moderate. The direct link 'solar_irradiance->temperature_comparison' still exists, and other causal paths remain unaffected. Thus, while the new information does decrease the estimated probability, the change is not drastic due to the redundancy and complexity of the causal network.\"\n}",
+      "target_id": "solar_irradiance->atmospheric_circulation",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Research suggests that certain weather patterns, such as high-pressure systems, can influence the formation of atmospheric circulation patterns by altering the distribution of air masses and pressure gradients. This implies that the relationship between atmospheric circulation and weather patterns may be more complex than initially thought, with weather patterns potentially driving changes in atmospheric circulation. For instance, a persistent high-pressure system can lead to the development of a specific atmospheric circulation pattern. Can you reconsider your forecast in light of this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'atmospheric_circulation->weather_patterns' suggests a more complex relationship between atmospheric circulation and weather patterns, with potential bidirectional influence. This affects the causal path 'solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison'. However, since the link is not entirely broken but rather nuanced, the update to the probability estimate is moderate. The direct links 'solar_irradiance -> temperature_comparison' and 'seasonal_variation -> temperature_comparison' remain unchanged, limiting the extent of the update. The complexity introduced by the potential for weather patterns to influence atmospheric circulation slightly reduces the confidence in the initial forecast, thus decreasing the probability estimate from 0.62 to 0.60.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'atmospheric_circulation->weather_patterns' suggests a more complex relationship between atmospheric circulation and weather patterns, with potential bidirectional influence. This affects the causal path 'solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison'. However, since the link is not entirely broken but rather nuanced, the update to the probability estimate is moderate. The direct links 'solar_irradiance -> temperature_comparison' and 'seasonal_variation -> temperature_comparison' remain unchanged, limiting the extent of the update. The complexity introduced by the potential for weather patterns to influence atmospheric circulation slightly reduces the confidence in the initial forecast, thus decreasing the probability estimate from 0.62 to 0.60.\"\n}",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Research has shown that variations in solar irradiance throughout the year, due to Earth's elliptical orbit and axial tilt, significantly impact the severity of seasonal temperature changes. For instance, the increased solar irradiance during summer months can amplify the warming effect, while decreased irradiance in winter months can exacerbate cooling. If solar irradiance indeed influences seasonal variation, then understanding this relationship could refine temperature forecasts. Does the forecaster's model account for this potential interaction?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a potential interaction between solar irradiance and seasonal variation, which could amplify the warming effect during certain times of the year. Although the original causal network did not explicitly include a direct link between solar irradiance and seasonal variation, this new information suggests that solar irradiance could have an indirect impact on temperature comparisons through its influence on seasonal variation. The primary causal paths affected are those involving seasonal_variation -> temperature_comparison and solar_irradiance -> temperature_comparison. Given that the original estimate already accounted for the direct influence of solar irradiance on temperature, the update primarily reflects a refinement in understanding the potential for solar irradiance to exacerbate seasonal warming trends, thereby slightly increasing the probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a potential interaction between solar irradiance and seasonal variation, which could amplify the warming effect during certain times of the year. Although the original causal network did not explicitly include a direct link between solar irradiance and seasonal variation, this new information suggests that solar irradiance could have an indirect impact on temperature comparisons through its influence on seasonal variation. The primary causal paths affected are those involving seasonal_variation -> temperature_comparison and solar_irradiance -> temperature_comparison. Given that the original estimate already accounted for the direct influence of solar irradiance on temperature, the update primarily reflects a refinement in understanding the potential for solar irradiance to exacerbate seasonal warming trends, thereby slightly increasing the probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "solar_irradiance->seasonal_variation",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Research has shown that increased solar irradiance can lead to the formation of high-pressure systems, which in turn influence the prevailing weather patterns in a region. For instance, a study on the North Atlantic Oscillation suggests that variations in solar irradiance can impact the trajectory of weather systems, affecting the likelihood of certain weather patterns. Given this, it's plausible that the amount of solar energy received at Pointe De La Hague could have a direct influence on the region's prevailing weather conditions, potentially altering the forecasted temperature comparison. How would this new information affect your estimated probability?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between solar irradiance and weather patterns, suggesting a more direct influence of solar energy on prevailing weather conditions. This affects the causal path solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison, making it more plausible that increased solar irradiance could lead to higher temperatures on 2025-12-28 compared to 2025-12-21. Although the original network already accounted for solar irradiance's impact on temperature through other paths, this additional direct influence on weather patterns reinforces the potential for warmer temperatures, thus slightly increasing the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between solar irradiance and weather patterns, suggesting a more direct influence of solar energy on prevailing weather conditions. This affects the causal path solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison, making it more plausible that increased solar irradiance could lead to higher temperatures on 2025-12-28 compared to 2025-12-21. Although the original network already accounted for solar irradiance's impact on temperature through other paths, this additional direct influence on weather patterns reinforces the potential for warmer temperatures, thus slightly increasing the estimated probability.\"\n}",
+      "target_id": "solar_irradiance->weather_patterns",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A recent study suggests that human activities such as agriculture and urbanization in the region surrounding Pointe De La Hague could lead to changes in land use, which in turn may affect local temperature readings. The introduction of new agricultural practices or the expansion of urban areas could alter the local energy balance, potentially influencing temperature comparisons. How would you update your probability estimate if you were to consider the impact of land use changes on the local microclimate? This new information could reveal a previously overlooked factor in your causal network.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of land use changes as a factor affecting the local microclimate adds a new causal path to the outcome. This path would likely interact with the existing path from ocean_temperature to local_microclimate, potentially modifying the influence of ocean temperature on the local microclimate and, by extension, on the temperature_comparison. However, the impact of land use changes on temperature comparisons is uncertain and may vary depending on the specifics of the changes. Given the indirect nature of this influence and the existing dominant causal paths (such as seasonal_variation and solar_irradiance directly influencing temperature_comparison), the update to the probability estimate is moderate. The decrease reflects the potential for land use changes to introduce variability or unpredictability in temperature comparisons, which could slightly reduce the likelihood of the temperature being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of land use changes as a factor affecting the local microclimate adds a new causal path to the outcome. This path would likely interact with the existing path from ocean_temperature to local_microclimate, potentially modifying the influence of ocean temperature on the local microclimate and, by extension, on the temperature_comparison. However, the impact of land use changes on temperature comparisons is uncertain and may vary depending on the specifics of the changes. Given the indirect nature of this influence and the existing dominant causal paths (such as seasonal_variation and solar_irradiance directly influencing temperature_comparison), the update to the probability estimate is moderate. The decrease reflects the potential for land use changes to introduce variability or unpredictability in temperature comparisons, which could slightly reduce the likelihood of the temperature being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "land_use_changes",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a strong high-pressure system develops over the English Channel around 2025-12-25, potentially altering wind patterns and temperature distributions in the region? This could be influenced by the North Atlantic Oscillation (NAO), a factor not included in the original network. The NAO's impact on atmospheric circulation and weather patterns could significantly affect temperature comparisons between the two dates. How would this new information update your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a strong high-pressure system over the English Channel, potentially influenced by the North Atlantic Oscillation (NAO), affects the causal paths involving atmospheric circulation and weather patterns. This specifically impacts the edges 'solar_irradiance -> atmospheric_circulation' and 'atmospheric_circulation -> weather_patterns', as the NAO's influence on atmospheric circulation could alter wind patterns and temperature distributions. The NAO's effect on weather patterns would then directly influence the 'weather_patterns -> temperature_comparison' path. Given that the NAO is not originally accounted for, its potential to significantly alter temperature comparisons between the two dates introduces uncertainty and decreases the confidence in the original probability estimate. The decrease reflects the potential disruption in the expected temperature comparison due to the altered atmospheric conditions, without completely overturning the initial assessment due to the persistence of other influencing factors like seasonal variation and local microclimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a strong high-pressure system over the English Channel, potentially influenced by the North Atlantic Oscillation (NAO), affects the causal paths involving atmospheric circulation and weather patterns. This specifically impacts the edges 'solar_irradiance -> atmospheric_circulation' and 'atmospheric_circulation -> weather_patterns', as the NAO's influence on atmospheric circulation could alter wind patterns and temperature distributions. The NAO's effect on weather patterns would then directly influence the 'weather_patterns -> temperature_comparison' path. Given that the NAO is not originally accounted for, its potential to significantly alter temperature comparisons between the two dates introduces uncertainty and decreases the confidence in the original probability estimate. The decrease reflects the potential disruption in the expected temperature comparison due to the altered atmospheric conditions, without completely overturning the initial assessment due to the persistence of other influencing factors like seasonal variation and local microclimate.\"\n}",
+      "target_id": "north_atlantic_oscillation",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Researchers have discovered a unique species of seaweed near Pointe De La Hague that has the ability to absorb and store carbon dioxide at a higher rate than previously known species. This finding has sparked interest in the potential for large-scale seaweed cultivation to mitigate climate change. However, the current seaweed growth in the area is still in its natural state and has not been subjected to any large-scale harvesting or cultivation efforts. The local community is excited about the potential economic benefits of sustainable seaweed farming.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The discovery of the unique seaweed species and its potential for carbon sequestration has a minor indirect effect on the local microclimate, which in turn could slightly influence the temperature comparison. However, since the seaweed growth is currently in its natural state and not subjected to large-scale harvesting or cultivation, the impact on the local microclimate and subsequently on the temperature comparison is minimal. The causal path from ocean_temperature to local_microclimate to temperature_comparison is slightly strengthened due to the potential long-term effects of increased carbon sequestration, but this effect is not significant enough to substantially alter the probability estimate. The update is small, reflecting the peripheral nature of this challenge to the overall causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The discovery of the unique seaweed species and its potential for carbon sequestration has a minor indirect effect on the local microclimate, which in turn could slightly influence the temperature comparison. However, since the seaweed growth is currently in its natural state and not subjected to large-scale harvesting or cultivation, the impact on the local microclimate and subsequently on the temperature comparison is minimal. The causal path from ocean_temperature to local_microclimate to temperature_comparison is slightly strengthened due to the potential long-term effects of increased carbon sequestration, but this effect is not significant enough to substantially alter the probability estimate. The update is small, reflecting the peripheral nature of this challenge to the overall causal network.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Researchers at a nearby university have been studying the impact of climate change on the local flora of Pointe De La Hague, and have discovered a significant shift in the types of seaweed that are thriving in the area. This shift is believed to be related to changes in the ocean's chemistry, but not directly related to temperature fluctuations. The study's findings have garnered significant attention in the scientific community, with many experts speculating about the potential long-term consequences for the region's ecosystem. However, the study did not investigate any potential links between seaweed populations and local temperature patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about the shift in seaweed populations due to changes in the ocean's chemistry does not directly impact any of the causal paths leading to the temperature comparison outcome. The ocean_temperature node, which could be indirectly related, is already considered in the model, but the change in seaweed populations is not directly linked to temperature fluctuations. Therefore, the update to the probability is minimal, reflecting the peripheral nature of the challenge to the causal model.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about the shift in seaweed populations due to changes in the ocean's chemistry does not directly impact any of the causal paths leading to the temperature comparison outcome. The ocean_temperature node, which could be indirectly related, is already considered in the model, but the change in seaweed populations is not directly linked to temperature fluctuations. Therefore, the update to the probability is minimal, reflecting the peripheral nature of the challenge to the causal model.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "New satellite data reveals that the North Atlantic region, including Pointe De La Hague, is expected to experience a higher-than-average amount of solar irradiance during the winter months of 2025 due to a weaker-than-expected polar vortex. This unusual pattern is predicted to lead to increased sunshine duration and intensity, which in turn should elevate the daily average temperature. Historical records show that similar solar irradiance patterns in the past have resulted in notable temperature increases in the region. As a result, the French meteorological agency has issued a statement highlighting the potential for warmer-than-average temperatures in the area.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.82,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'solar_irradiance' significantly affects the causal paths leading to 'temperature_comparison'. With increased solar irradiance, both the direct link from 'solar_irradiance' to 'temperature_comparison' and the indirect link through 'atmospheric_circulation' and 'weather_patterns' to 'temperature_comparison' are strengthened. This increase in solar irradiance is expected to elevate the daily average temperature, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. Given the historical records and the statement from the French meteorological agency, the positive impact on temperature is plausible, thus increasing the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.82,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'solar_irradiance' significantly affects the causal paths leading to 'temperature_comparison'. With increased solar irradiance, both the direct link from 'solar_irradiance' to 'temperature_comparison' and the indirect link through 'atmospheric_circulation' and 'weather_patterns' to 'temperature_comparison' are strengthened. This increase in solar irradiance is expected to elevate the daily average temperature, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. Given the historical records and the statement from the French meteorological agency, the positive impact on temperature is plausible, thus increasing the probability estimate.\"\n}",
+      "target_id": "solar_irradiance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the North Atlantic Oscillation, a major driver of seasonal weather patterns in the region, is expected to be in a positive phase during the winter of 2025, leading to a more pronounced seasonal variation in temperature. Historical climate data for Pointe De La Hague also indicates a consistent temperature increase from December 21 to December 28, with an average rise of 1.5°C over the past decade. This increase is attributed to the typical warming trend observed during this period due to the Earth's axial tilt and orbit around the sun. As a result, it is likely that the seasonal variation will have a more significant impact on the temperature comparison between these two dates.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'seasonal_variation' element indicates a more pronounced impact on temperature comparisons due to the North Atlantic Oscillation's positive phase and historical climate data showing a consistent temperature increase from December 21 to December 28. This affects the causal path 'seasonal_variation -> temperature_comparison', making it more likely that the temperature will be higher on December 28 than on December 21. The increased significance of seasonal variation reinforces the initial estimate, leading to a moderate increase in the updated probability. The direct influence of solar irradiance and the effects of weather patterns and local microclimate on temperature comparisons remain relevant but are secondary to the strengthened seasonal variation impact.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'seasonal_variation' element indicates a more pronounced impact on temperature comparisons due to the North Atlantic Oscillation's positive phase and historical climate data showing a consistent temperature increase from December 21 to December 28. This affects the causal path 'seasonal_variation -> temperature_comparison', making it more likely that the temperature will be higher on December 28 than on December 21. The increased significance of seasonal variation reinforces the initial estimate, leading to a moderate increase in the updated probability. The direct influence of solar irradiance and the effects of weather patterns and local microclimate on temperature comparisons remain relevant but are secondary to the strengthened seasonal variation impact.\"\n}",
+      "target_id": "seasonal_variation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that changes in atmospheric circulation patterns over the North Atlantic have led to more persistent and extreme weather patterns in Western Europe, with a notable increase in blocking events that can significantly impact regional temperature variations. This suggests that the relationship between atmospheric circulation and weather patterns may be even stronger than previously thought, particularly during winter months. Furthermore, the latest climate models indicate that this trend is expected to continue, potentially amplifying the effects of atmospheric circulation on weather patterns. This development reinforces the importance of considering atmospheric circulation in forecasting temperature comparisons.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between atmospheric_circulation and weather_patterns, particularly during winter months. This affects the causal path: solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison. With a stronger relationship between atmospheric circulation and weather patterns, the influence of solar irradiance on temperature comparison through this path is amplified. Additionally, the impact of atmospheric circulation on temperature comparison is also reinforced, suggesting that the initial estimate may have underestimated the role of atmospheric circulation in determining temperature variations. Therefore, the probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21 is increased, reflecting the enhanced importance of atmospheric circulation in shaping weather patterns and, by extension, temperature comparisons.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between atmospheric_circulation and weather_patterns, particularly during winter months. This affects the causal path: solar_irradiance -> atmospheric_circulation -> weather_patterns -> temperature_comparison. With a stronger relationship between atmospheric circulation and weather patterns, the influence of solar irradiance on temperature comparison through this path is amplified. Additionally, the impact of atmospheric circulation on temperature comparison is also reinforced, suggesting that the initial estimate may have underestimated the role of atmospheric circulation in determining temperature variations. Therefore, the probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21 is increased, reflecting the enhanced importance of atmospheric circulation in shaping weather patterns and, by extension, temperature comparisons.\"\n}",
+      "target_id": "atmospheric_circulation->weather_patterns",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the warming of the Gulf Stream, which runs along the coast of Pointe De La Hague, has accelerated over the past decade, leading to increased heat transfer to the surrounding environment, thus amplifying the effect of ocean temperature on the local microclimate. This trend is expected to continue through 2025, potentially enhancing the influence of ocean temperature on local weather patterns. Furthermore, new data indicates that the thermal conductivity of the coastal soil at Pointe De La Hague is higher than previously thought, allowing for more efficient heat transfer from the ocean to the land. This suggests that the causal link between ocean temperature and local microclimate may be even stronger than initially assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between ocean_temperature and local_microclimate, which in turn affects temperature_comparison. This amplifies the influence of ocean temperature on the local weather patterns at Pointe De La Hague. Given that the ocean temperature is expected to continue its warming trend through 2025, and the higher thermal conductivity of the coastal soil enhances heat transfer, the probability that the daily average temperature will be higher on 2025-12-28 than on 2025-12-21 increases. The causal paths affected are ocean_temperature -> local_microclimate -> temperature_comparison and indirectly weather_patterns -> temperature_comparison, as the enhanced ocean temperature influence could lead to more pronounced weather patterns favorable to higher temperatures in late December.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between ocean_temperature and local_microclimate, which in turn affects temperature_comparison. This amplifies the influence of ocean temperature on the local weather patterns at Pointe De La Hague. Given that the ocean temperature is expected to continue its warming trend through 2025, and the higher thermal conductivity of the coastal soil enhances heat transfer, the probability that the daily average temperature will be higher on 2025-12-28 than on 2025-12-21 increases. The causal paths affected are ocean_temperature -> local_microclimate -> temperature_comparison and indirectly weather_patterns -> temperature_comparison, as the enhanced ocean temperature influence could lead to more pronounced weather patterns favorable to higher temperatures in late December.\"\n}",
+      "target_id": "ocean_temperature->local_microclimate",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent research has shown that variations in solar irradiance have a more significant impact on atmospheric circulation patterns than previously thought, particularly during the winter months when differences in temperature between the equator and poles are more pronounced. This increased effect is due to changes in the jet stream and other high-altitude wind patterns. As a result, the influence of solar irradiance on atmospheric circulation may be stronger than initially estimated, potentially altering the temperature comparison on 2025-12-28 and 2025-12-21. How does this new information affect your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'solar_irradiance->atmospheric_circulation', which in turn affects 'atmospheric_circulation->weather_patterns' and subsequently 'weather_patterns->temperature_comparison'. This increased influence of solar irradiance on atmospheric circulation, particularly during winter months, suggests a potentially greater impact on temperature patterns. Given that solar irradiance is expected to be higher on 2025-12-28 than on 2025-12-21 due to the Earth's axial tilt, the strengthened link supports a higher probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28. The direct link 'solar_irradiance->temperature_comparison' also contributes to this increase. However, the update is moderate because other factors like 'ocean_temperature->local_microclimate' and 'seasonal_variation->temperature_comparison' still play significant roles in determining the temperature comparison.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'solar_irradiance->atmospheric_circulation', which in turn affects 'atmospheric_circulation->weather_patterns' and subsequently 'weather_patterns->temperature_comparison'. This increased influence of solar irradiance on atmospheric circulation, particularly during winter months, suggests a potentially greater impact on temperature patterns. Given that solar irradiance is expected to be higher on 2025-12-28 than on 2025-12-21 due to the Earth's axial tilt, the strengthened link supports a higher probability that the daily average temperature at Pointe De La Hague will be higher on 2025-12-28. The direct link 'solar_irradiance->temperature_comparison' also contributes to this increase. However, the update is moderate because other factors like 'ocean_temperature->local_microclimate' and 'seasonal_variation->temperature_comparison' still play significant roles in determining the temperature comparison.\"\n}",
+      "target_id": "solar_irradiance->atmospheric_circulation",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07020.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.03875000000000002,
+    "max_absolute_shift": 0.09999999999999998
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 1.3200000000000003,
+    "mean_shift_high": 0.055000000000000035,
+    "mean_shift_low": 0.041666666666666685,
+    "asymmetry_index": 0.4218750000000003,
+    "mean_shift_negate": 0.038571428571428604,
+    "mean_shift_strengthen": 0.09142857142857144,
+    "fnar": 0.25,
+    "n_accepted": 1,
+    "n_spurious": 4,
+    "critical_path_premium": -0.001428571428571418,
+    "mean_shift_on_path": 0.051428571428571455,
+    "mean_shift_off_path": 0.05285714285714287,
+    "importance_sensitivity_correlation": -0.3999999999999999,
+    "control_sensitivity": 0
+  }
+}

@@ -1,0 +1,1082 @@
+{
+  "question_id": "LOW",
+  "question_text": "Will LOW's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.58,
+  "nodes": [
+    {
+      "id": "market_trend",
+      "description": "Overall direction of the market",
+      "role": "factor"
+    },
+    {
+      "id": "company_performance",
+      "description": "LOW's financial health and performance",
+      "role": "factor"
+    },
+    {
+      "id": "sector_sentiment",
+      "description": "Investor sentiment towards LOW's sector",
+      "role": "factor"
+    },
+    {
+      "id": "economic_growth",
+      "description": "State of the overall economy",
+      "role": "factor"
+    },
+    {
+      "id": "interest_rates",
+      "description": "Level of interest rates set by the Fed",
+      "role": "factor"
+    },
+    {
+      "id": "global_events",
+      "description": "Impact of global events on the market",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "LOW's market close price on 2025-12-28 being higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "market_trend",
+      "to": "sector_sentiment",
+      "mechanism": "Market trend influences sector sentiment"
+    },
+    {
+      "from": "company_performance",
+      "to": "sector_sentiment",
+      "mechanism": "Company performance affects sector sentiment"
+    },
+    {
+      "from": "sector_sentiment",
+      "to": "outcome",
+      "mechanism": "Sector sentiment impacts stock price"
+    },
+    {
+      "from": "economic_growth",
+      "to": "market_trend",
+      "mechanism": "Economic growth drives market trend"
+    },
+    {
+      "from": "interest_rates",
+      "to": "market_trend",
+      "mechanism": "Interest rates influence market trend"
+    },
+    {
+      "from": "global_events",
+      "to": "economic_growth",
+      "mechanism": "Global events impact economic growth"
+    },
+    {
+      "from": "economic_growth",
+      "to": "company_performance",
+      "mechanism": "Economic growth affects company performance"
+    }
+  ],
+  "reasoning": "The forecasted probability is based on the interplay of various factors influencing LOW's stock price. A positive market trend, driven by economic growth and low interest rates, can lead to improved sector sentiment, which in turn can drive up LOW's stock price. Additionally, the company's performance, affected by economic growth, plays a crucial role in determining its stock price. Global events can also impact the economy and subsequently the market trend, making the outcome uncertain. Considering these factors, the probability of LOW's market close price being higher on 2025-12-28 than on 2025-12-21 is estimated to be 0.58.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "market_trend",
+        "description": "Overall direction of the market",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.375,
+        "pagerank": 0.1458,
+        "path_relevance": 0.375
+      },
+      {
+        "node_id": "company_performance",
+        "description": "LOW's financial health and performance",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.2222,
+        "pagerank": 0.0988,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "sector_sentiment",
+        "description": "Investor sentiment towards LOW's sector",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1667,
+        "closeness": 0.463,
+        "pagerank": 0.2633,
+        "path_relevance": 0.875
+      },
+      {
+        "node_id": "economic_growth",
+        "description": "State of the overall economy",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.1333,
+        "closeness": 0.1667,
+        "pagerank": 0.1023,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "interest_rates",
+        "description": "Level of interest rates set by the Fed",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0553,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_events",
+        "description": "Impact of global events on the market",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0553,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "LOW's market close price on 2025-12-28 being higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4,
+        "pagerank": 0.2791,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "market_trend",
+        "target": "sector_sentiment",
+        "mechanism": "Market trend influences sector sentiment",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "company_performance",
+        "target": "sector_sentiment",
+        "mechanism": "Company performance affects sector sentiment",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "sector_sentiment",
+        "target": "outcome",
+        "mechanism": "Sector sentiment impacts stock price",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "market_trend",
+        "mechanism": "Economic growth drives market trend",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "company_performance",
+        "mechanism": "Economic growth affects company performance",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "interest_rates",
+        "target": "market_trend",
+        "mechanism": "Interest rates influence market trend",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_events",
+        "target": "economic_growth",
+        "mechanism": "Global events impact economic growth",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "sector_sentiment",
+        "description": "Investor sentiment towards LOW's sector",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_trend",
+        "description": "Overall direction of the market",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "company_performance",
+        "description": "LOW's financial health and performance",
+        "importance": 0.0667,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_events",
+        "description": "Impact of global events on the market",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "sector_sentiment",
+        "description": "Investor sentiment towards LOW's sector",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_trend",
+        "description": "Overall direction of the market",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_trend->sector_sentiment",
+        "description": "Market trend influences sector sentiment",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "sector_sentiment->outcome",
+        "description": "Sector sentiment impacts stock price",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "interest_rates->market_trend",
+        "description": "Interest rates influence market trend",
+        "importance": 0.0714,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_trend->sector_sentiment",
+        "description": "Market trend influences sector sentiment",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->interest_rates",
+        "description": "Potential link: State of the overall economy -> Level of interest rates set by the Fed",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->global_events",
+        "description": "Potential link: State of the overall economy -> Impact of global events on the market",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "sector_sentiment",
+      "description": "Investor sentiment towards LOW's sector",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_trend",
+      "description": "Overall direction of the market",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "company_performance",
+      "description": "LOW's financial health and performance",
+      "importance": 0.0667,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_events",
+      "description": "Impact of global events on the market",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "sector_sentiment",
+      "description": "Investor sentiment towards LOW's sector",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_trend",
+      "description": "Overall direction of the market",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_trend->sector_sentiment",
+      "description": "Market trend influences sector sentiment",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "sector_sentiment->outcome",
+      "description": "Sector sentiment impacts stock price",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "interest_rates->market_trend",
+      "description": "Interest rates influence market trend",
+      "importance": 0.0714,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_trend->sector_sentiment",
+      "description": "Market trend influences sector sentiment",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->interest_rates",
+      "description": "Potential link: State of the overall economy -> Level of interest rates set by the Fed",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->global_events",
+      "description": "Potential link: State of the overall economy -> Impact of global events on the market",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if investor sentiment towards LOW's sector is actually a lagging indicator, and recent changes in the sector have already been priced into the stock, making sector sentiment irrelevant to the stock's short-term price movement? Alternatively, what if a major sector-wide announcement is imminent, which would render current sector sentiment obsolete? This could potentially decouple LOW's stock price from sector sentiment, making it a non-factor in determining the outcome. As a result, the current sector sentiment might not have a significant impact on LOW's market close price on 2025-12-28.",
+      "probe_type": "node_negate_high",
+      "target_id": "sector_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Investor sentiment towards LOW's sector"
+    },
+    {
+      "probe_text": "What if the overall market trend has a negligible impact on LOW's stock price due to the company's strong brand loyalty and consistent customer demand, making it resilient to broader market fluctuations? Alternatively, what if the current market trend is actually a reversal of the typical pattern, where a bearish market trend unexpectedly boosts LOW's stock price due to its perceived safety as a consumer staples company? This could render the market trend factor irrelevant or even opposite in its effect. As a result, the market trend might not be the decisive factor in determining LOW's market close price on 2025-12-28.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Overall direction of the market"
+    },
+    {
+      "probe_text": "According to recent filings, LOW's financial health has been negatively impacted by a significant increase in debt-to-equity ratio, indicating potential cash flow issues and decreased investor confidence. This suggests that the company's financial performance may not be as strong as previously thought, which could lead to a decrease in sector sentiment. Furthermore, LOW's reliance on a single major supplier has been highlighted as a key risk factor, making the company more vulnerable to supply chain disruptions. This new information challenges the initial assessment of LOW's financial health and performance.",
+      "probe_type": "node_negate_medium",
+      "target_id": "company_performance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "LOW's financial health and performance"
+    },
+    {
+      "probe_text": "Recent diplomatic efforts have led to a significant decrease in global tensions, and multiple international trade agreements are expected to be signed in the coming months, potentially rendering global events a non-factor in the market's performance. As a result, it's possible that global events will have a negligible impact on economic growth. This development might make the forecaster's consideration of global events unnecessary. With global cooperation on the rise, the market may become less sensitive to global events.",
+      "probe_type": "node_negate_low",
+      "target_id": "global_events",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Impact of global events on the market"
+    },
+    {
+      "probe_text": "A recent survey of institutional investors revealed a significant increase in bullish sentiment towards the home improvement sector, with 75% of respondents expecting strong growth in the next quarter. This shift in sentiment is largely attributed to the sector's resilience during economic downturns and its potential for long-term growth. Additionally, several high-profile analysts have upgraded their ratings for companies in this sector, citing improved fundamentals and increased consumer spending. As a result, investor confidence in LOW's sector has surged, with many expecting the company to outperform its peers in the coming months.",
+      "probe_type": "node_strengthen",
+      "target_id": "sector_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Investor sentiment towards LOW's sector"
+    },
+    {
+      "probe_text": "A recent survey of chief investment officers from major financial institutions reported a significant increase in bullish sentiment towards the market, with 75% of respondents expecting the S&P 500 to rise by at least 10% in the next quarter. This shift in sentiment is largely attributed to the Federal Reserve's decision to maintain low interest rates, coupled with promising economic indicators such as low unemployment and rising consumer spending. As a result, market analysts are now forecasting a strong market trend for the remainder of the year, which is expected to have a positive impact on stocks like LOW. This news has led to a surge in market activity, with many investors reallocating their portfolios to take advantage of the anticipated upswing.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Overall direction of the market"
+    },
+    {
+      "probe_text": "Recent studies have shown that sector-specific news and developments have a more significant impact on sector sentiment than the overall market trend, suggesting that the causal link between market trend and sector sentiment may be weaker than assumed. Furthermore, the rise of sector-agnostic investing strategies has decoupled sector performance from broader market movements, potentially breaking this causal mechanism. For instance, the technology sector has recently outperformed the overall market despite a downturn in market trend. This evidence challenges the notion that market trend is a primary driver of sector sentiment.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "market_trend->sector_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Market trend influences sector sentiment"
+    },
+    {
+      "probe_text": "However, recent analysis suggests that LOW's stock price has been largely driven by insider trading and institutional investors, rather than general sector sentiment. In fact, despite positive sector sentiment, LOW's stock price has been volatile due to internal company issues. This implies that sector sentiment may have a weaker impact on LOW's stock price than previously thought. A recent study found that insider trading activity is a stronger predictor of LOW's stock price movements than sector sentiment.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "sector_sentiment->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Sector sentiment impacts stock price"
+    },
+    {
+      "probe_text": "Recent studies have shown that the historically strong correlation between interest rates and market trends may be weakening due to shifts in investor behavior and the increasing influence of global economic factors. As a result, changes in interest rates may no longer reliably predict market trend movements. The current market environment, characterized by high liquidity and diverse investment portfolios, might be less sensitive to interest rate adjustments. Does this newfound resilience of the market to interest rate changes alter your forecast for LOW's market close price on 2025-12-28 being higher than on 2025-12-21?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "interest_rates->market_trend",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Interest rates influence market trend"
+    },
+    {
+      "probe_text": "Recent studies have shown that sector-specific news and developments can significantly impact overall market trends, as investors often use sector performance as a bellwether for broader market health. For instance, a surge in technology stocks can lead to increased investor confidence and a subsequent rise in the overall market trend. This suggests that sector sentiment may actually drive market trend, rather than the other way around. If this is the case, then a strong performance by LOW's sector could be a leading indicator of a positive market trend.",
+      "probe_type": "edge_reverse",
+      "target_id": "market_trend->sector_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Market trend influences sector sentiment"
+    },
+    {
+      "probe_text": "Recent research suggests that a strong economy often leads to higher interest rates as the Federal Reserve aims to mitigate inflationary pressures and prevent the economy from overheating. In light of this, it's possible that the current economic growth will prompt the Fed to increase interest rates, which in turn could impact LOW's market close price. Consider how this potential relationship between economic growth and interest rates might influence your forecast. Does this new information alter your probability assessment?",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->interest_rates",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: State of the overall economy -> Level of interest rates set by the Fed"
+    },
+    {
+      "probe_text": "Recent studies have shown that a strong overall economy can increase a country's trade volumes and foreign investments, making it more vulnerable to global events such as trade wars, pandemics, and geopolitical tensions. For instance, during the 2020 COVID-19 pandemic, countries with robust economies were more severely impacted by global supply chain disruptions. This suggests that economic growth can amplify the effects of global events on the market. If this is true, then the forecaster's model may be underestimating the potential risks to LOW's stock price.",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->global_events",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: State of the overall economy -> Impact of global events on the market"
+    },
+    {
+      "probe_text": "Consider the impact of regulatory changes on LOW's industry, particularly those affecting its operational costs or competitive landscape. Such changes could significantly influence investor sentiment and, consequently, the stock price. For instance, new environmental regulations might increase costs for companies in LOW's sector, potentially lowering their stock prices. How would you update your forecast if a major regulatory change were announced on 2025-12-25?",
+      "probe_type": "missing_node",
+      "target_id": "regulatory_changes",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "A new trade agreement is expected to be signed between major economies, which could significantly boost international trade and subsequently impact LOW's revenue and stock price. However, the forecaster's network does not account for the effect of trade policies on the company's performance. The signing of this agreement could lead to increased demand for LOW's products, influencing its market close price. How would this new information affect the forecaster's probability estimate?",
+      "probe_type": "missing_node",
+      "target_id": "trade_policies",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The company's headquarters is planning to install a new, state-of-the-art cafeteria for its employees, which is expected to improve workplace morale and provide healthier food options. This renovation is scheduled to be completed by the end of 2025. The new cafeteria will feature a rooftop garden and a wellness center. This development has been welcomed by the employees, who are looking forward to the improved amenities.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent study found that the average color palette used in LOW's advertising campaigns has a noticeable impact on customer engagement on social media platforms. The study suggests that a shift towards a more vibrant color scheme could lead to increased brand recognition. However, the study focused solely on the company's social media presence and did not explore any connections to the company's financial performance or market trends. This discovery has been met with interest from marketing teams across various industries.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if investor sentiment towards LOW's sector is actually a lagging indicator, and recent changes in the sector have already been priced into the stock, making sector sentiment irrelevant to the stock's short-term price movement? Alternatively, what if a major sector-wide announcement is imminent, which would render current sector sentiment obsolete? This could potentially decouple LOW's stock price from sector sentiment, making it a non-factor in determining the outcome. As a result, the current sector sentiment might not have a significant impact on LOW's market close price on 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that sector sentiment might be a lagging indicator or could be rendered obsolete by an imminent sector-wide announcement, potentially decoupling LOW's stock price from sector sentiment. This affects the causal path 'sector_sentiment -> outcome' and indirectly 'market_trend -> sector_sentiment' and 'company_performance -> sector_sentiment'. Given that sector sentiment's influence on the outcome is questioned, the reliability of the paths leading through sector sentiment to the outcome is diminished. However, the impact is not considered critical enough to completely negate the influence of sector sentiment, as other factors like economic growth, interest rates, and global events still contribute to the market trend and company performance. Thus, the update reflects a moderation in the estimated probability, acknowledging some but not complete diminishment of sector sentiment's role.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that sector sentiment might be a lagging indicator or could be rendered obsolete by an imminent sector-wide announcement, potentially decoupling LOW's stock price from sector sentiment. This affects the causal path 'sector_sentiment -> outcome' and indirectly 'market_trend -> sector_sentiment' and 'company_performance -> sector_sentiment'. Given that sector sentiment's influence on the outcome is questioned, the reliability of the paths leading through sector sentiment to the outcome is diminished. However, the impact is not considered critical enough to completely negate the influence of sector sentiment, as other factors like economic growth, interest rates, and global events still contribute to the market trend and company performance. Thus, the update reflects a moderation in the estimated probability, acknowledging some but not complete diminishment of sector sentiment's role.\"\n}",
+      "target_id": "sector_sentiment",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the overall market trend has a negligible impact on LOW's stock price due to the company's strong brand loyalty and consistent customer demand, making it resilient to broader market fluctuations? Alternatively, what if the current market trend is actually a reversal of the typical pattern, where a bearish market trend unexpectedly boosts LOW's stock price due to its perceived safety as a consumer staples company? This could render the market trend factor irrelevant or even opposite in its effect. As a result, the market trend might not be the decisive factor in determining LOW's market close price on 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'market_trend' factor suggests that its impact on LOW's stock price might be negligible or even opposite due to the company's strong brand loyalty and perceived safety as a consumer staples company. This affects the causal paths 'market_trend -> sector_sentiment' and 'economic_growth -> market_trend -> sector_sentiment', potentially rendering them less significant. However, since 'company_performance' directly influences 'sector_sentiment' and 'economic_growth' affects 'company_performance', these paths remain relevant. The update is moderate because while the challenge alters the importance of 'market_trend', it does not eliminate the influence of other factors like 'company_performance' and 'economic_growth' on the outcome. The increased probability reflects a reduced reliance on market trend as a decisive factor, potentially making LOW's stock price more resilient or even benefiting from a bearish market trend, thus slightly increasing the likelihood of its market close price on 2025-12-28 being higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'market_trend' factor suggests that its impact on LOW's stock price might be negligible or even opposite due to the company's strong brand loyalty and perceived safety as a consumer staples company. This affects the causal paths 'market_trend -> sector_sentiment' and 'economic_growth -> market_trend -> sector_sentiment', potentially rendering them less significant. However, since 'company_performance' directly influences 'sector_sentiment' and 'economic_growth' affects 'company_performance', these paths remain relevant. The update is moderate because while the challenge alters the importance of 'market_trend', it does not eliminate the influence of other factors like 'company_performance' and 'economic_growth' on the outcome. The increased probability reflects a reduced reliance on market trend as a decisive factor, potentially making LOW's stock price more resilient or even benefiting from a bearish market trend, thus slightly increasing the likelihood of its market close price on 2025-12-28 being higher than on 2025-12-21.\"\n}",
+      "target_id": "market_trend",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "According to recent filings, LOW's financial health has been negatively impacted by a significant increase in debt-to-equity ratio, indicating potential cash flow issues and decreased investor confidence. This suggests that the company's financial performance may not be as strong as previously thought, which could lead to a decrease in sector sentiment. Furthermore, LOW's reliance on a single major supplier has been highlighted as a key risk factor, making the company more vulnerable to supply chain disruptions. This new information challenges the initial assessment of LOW's financial health and performance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'company_performance' affects the causal path 'company_performance -> sector_sentiment -> outcome', which is a key driver of the outcome. The new information about LOW's increased debt-to-equity ratio and reliance on a single major supplier suggests a decrease in company performance, leading to decreased sector sentiment and ultimately a lower probability of LOW's market close price being higher on 2025-12-28. Additionally, the path 'economic_growth -> company_performance' is also impacted, as decreased economic growth could further exacerbate LOW's financial health issues. The update is substantial due to the critical nature of company performance in influencing sector sentiment and the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'company_performance' affects the causal path 'company_performance -> sector_sentiment -> outcome', which is a key driver of the outcome. The new information about LOW's increased debt-to-equity ratio and reliance on a single major supplier suggests a decrease in company performance, leading to decreased sector sentiment and ultimately a lower probability of LOW's market close price being higher on 2025-12-28. Additionally, the path 'economic_growth -> company_performance' is also impacted, as decreased economic growth could further exacerbate LOW's financial health issues. The update is substantial due to the critical nature of company performance in influencing sector sentiment and the outcome.\"\n}",
+      "target_id": "company_performance",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic efforts have led to a significant decrease in global tensions, and multiple international trade agreements are expected to be signed in the coming months, potentially rendering global events a non-factor in the market's performance. As a result, it's possible that global events will have a negligible impact on economic growth. This development might make the forecaster's consideration of global events unnecessary. With global cooperation on the rise, the market may become less sensitive to global events.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.59,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'global_events' suggests its impact on 'economic_growth' may be diminished. Given 'global_events' is a peripheral element in the network, influencing 'economic_growth' which in turn affects 'market_trend' and 'company_performance', the reduction in its importance does not drastically alter the overall structure of the causal network. The primary paths influencing the outcome, such as 'market_trend' to 'sector_sentiment' and 'company_performance' to 'sector_sentiment', remain intact. The decrease in global tensions and increase in international cooperation may slightly boost 'economic_growth', which could positively influence 'market_trend' and 'company_performance', thereby slightly increasing the likelihood of LOW's market close price on 2025-12-28 being higher than on 2025-12-21. However, the update is modest because 'global_events' is not a critical link in the causal chain leading to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.59,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'global_events' suggests its impact on 'economic_growth' may be diminished. Given 'global_events' is a peripheral element in the network, influencing 'economic_growth' which in turn affects 'market_trend' and 'company_performance', the reduction in its importance does not drastically alter the overall structure of the causal network. The primary paths influencing the outcome, such as 'market_trend' to 'sector_sentiment' and 'company_performance' to 'sector_sentiment', remain intact. The decrease in global tensions and increase in international cooperation may slightly boost 'economic_growth', which could positively influence 'market_trend' and 'company_performance', thereby slightly increasing the likelihood of LOW's market close price on 2025-12-28 being higher than on 2025-12-21. However, the update is modest because 'global_events' is not a critical link in the causal chain leading to the outcome.\"\n}",
+      "target_id": "global_events",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of institutional investors revealed a significant increase in bullish sentiment towards the home improvement sector, with 75% of respondents expecting strong growth in the next quarter. This shift in sentiment is largely attributed to the sector's resilience during economic downturns and its potential for long-term growth. Additionally, several high-profile analysts have upgraded their ratings for companies in this sector, citing improved fundamentals and increased consumer spending. As a result, investor confidence in LOW's sector has surged, with many expecting the company to outperform its peers in the coming months.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'sector_sentiment' significantly strengthens the causal path 'sector_sentiment -> outcome', as increased bullish sentiment and analyst upgrades directly impact investor confidence and, consequently, LOW's stock price. This, in turn, affects the overall outcome. The causal paths 'market_trend -> sector_sentiment' and 'company_performance -> sector_sentiment' are also indirectly strengthened due to the improved sentiment and fundamentals. Given the substantial increase in bullish sentiment and the potential for long-term growth, I have updated my probability estimate to reflect a higher likelihood of LOW's market close price on 2025-12-28 being higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'sector_sentiment' significantly strengthens the causal path 'sector_sentiment -> outcome', as increased bullish sentiment and analyst upgrades directly impact investor confidence and, consequently, LOW's stock price. This, in turn, affects the overall outcome. The causal paths 'market_trend -> sector_sentiment' and 'company_performance -> sector_sentiment' are also indirectly strengthened due to the improved sentiment and fundamentals. Given the substantial increase in bullish sentiment and the potential for long-term growth, I have updated my probability estimate to reflect a higher likelihood of LOW's market close price on 2025-12-28 being higher than on 2025-12-21.\"\n}",
+      "target_id": "sector_sentiment",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of chief investment officers from major financial institutions reported a significant increase in bullish sentiment towards the market, with 75% of respondents expecting the S&P 500 to rise by at least 10% in the next quarter. This shift in sentiment is largely attributed to the Federal Reserve's decision to maintain low interest rates, coupled with promising economic indicators such as low unemployment and rising consumer spending. As a result, market analysts are now forecasting a strong market trend for the remainder of the year, which is expected to have a positive impact on stocks like LOW. This news has led to a surge in market activity, with many investors reallocating their portfolios to take advantage of the anticipated upswing.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'market_trend' node has a positive impact on the outcome, as a strong market trend is expected to increase sector sentiment, which in turn affects the stock price. The causal path from 'market_trend' to 'sector_sentiment' to 'outcome' is strengthened. Additionally, the low interest rates and promising economic indicators also positively influence 'economic_growth', which affects 'company_performance' and 'market_trend', further supporting a positive outcome. The significant increase in bullish sentiment and anticipated upswing in the market leads to a substantial update in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'market_trend' node has a positive impact on the outcome, as a strong market trend is expected to increase sector sentiment, which in turn affects the stock price. The causal path from 'market_trend' to 'sector_sentiment' to 'outcome' is strengthened. Additionally, the low interest rates and promising economic indicators also positively influence 'economic_growth', which affects 'company_performance' and 'market_trend', further supporting a positive outcome. The significant increase in bullish sentiment and anticipated upswing in the market leads to a substantial update in the probability estimate.\"\n}",
+      "target_id": "market_trend",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that sector-specific news and developments have a more significant impact on sector sentiment than the overall market trend, suggesting that the causal link between market trend and sector sentiment may be weaker than assumed. Furthermore, the rise of sector-agnostic investing strategies has decoupled sector performance from broader market movements, potentially breaking this causal mechanism. For instance, the technology sector has recently outperformed the overall market despite a downturn in market trend. This evidence challenges the notion that market trend is a primary driver of sector sentiment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'market_trend->sector_sentiment' affects the path from 'economic_growth' and 'interest_rates' to 'outcome' through 'market_trend' and 'sector_sentiment'. Since this link is now considered weaker, the influence of 'economic_growth' and 'interest_rates' on 'outcome' via 'market_trend' is reduced. However, 'company_performance' still directly influences 'sector_sentiment', maintaining a significant causal path to 'outcome'. Given the reduced impact of 'market_trend' on 'sector_sentiment', the overall probability of 'outcome' decreases, reflecting the diminished role of broader market factors in determining sector sentiment and, by extension, LOW's stock price. The decrease is moderate because 'company_performance' and other factors continue to play a role in determining 'outcome'.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'market_trend->sector_sentiment' affects the path from 'economic_growth' and 'interest_rates' to 'outcome' through 'market_trend' and 'sector_sentiment'. Since this link is now considered weaker, the influence of 'economic_growth' and 'interest_rates' on 'outcome' via 'market_trend' is reduced. However, 'company_performance' still directly influences 'sector_sentiment', maintaining a significant causal path to 'outcome'. Given the reduced impact of 'market_trend' on 'sector_sentiment', the overall probability of 'outcome' decreases, reflecting the diminished role of broader market factors in determining sector sentiment and, by extension, LOW's stock price. The decrease is moderate because 'company_performance' and other factors continue to play a role in determining 'outcome'.\"\n}",
+      "target_id": "market_trend->sector_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "However, recent analysis suggests that LOW's stock price has been largely driven by insider trading and institutional investors, rather than general sector sentiment. In fact, despite positive sector sentiment, LOW's stock price has been volatile due to internal company issues. This implies that sector sentiment may have a weaker impact on LOW's stock price than previously thought. A recent study found that insider trading activity is a stronger predictor of LOW's stock price movements than sector sentiment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'sector_sentiment->outcome' indicates that sector sentiment has a weaker impact on LOW's stock price than previously thought. This affects the causal path 'market_trend -> sector_sentiment -> outcome' and 'company_performance -> sector_sentiment -> outcome', reducing their influence on the outcome. As a result, the overall probability of LOW's market close price on 2025-12-28 being higher than on 2025-12-21 decreases, since the sector sentiment is no longer a strong driver of the stock price. The updated probability reflects a reduced reliance on sector sentiment and acknowledges the stronger role of insider trading and institutional investors in determining LOW's stock price movements.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'sector_sentiment->outcome' indicates that sector sentiment has a weaker impact on LOW's stock price than previously thought. This affects the causal path 'market_trend -> sector_sentiment -> outcome' and 'company_performance -> sector_sentiment -> outcome', reducing their influence on the outcome. As a result, the overall probability of LOW's market close price on 2025-12-28 being higher than on 2025-12-21 decreases, since the sector sentiment is no longer a strong driver of the stock price. The updated probability reflects a reduced reliance on sector sentiment and acknowledges the stronger role of insider trading and institutional investors in determining LOW's stock price movements.\"\n}",
+      "target_id": "sector_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the historically strong correlation between interest rates and market trends may be weakening due to shifts in investor behavior and the increasing influence of global economic factors. As a result, changes in interest rates may no longer reliably predict market trend movements. The current market environment, characterized by high liquidity and diverse investment portfolios, might be less sensitive to interest rate adjustments. Does this newfound resilience of the market to interest rate changes alter your forecast for LOW's market close price on 2025-12-28 being higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.019999999999999907,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'interest_rates->market_trend' suggests that interest rates may have a reduced impact on the market trend. This affects the causal path 'interest_rates -> market_trend -> sector_sentiment -> outcome' and 'interest_rates -> market_trend -> outcome' indirectly through its influence on sector sentiment. Given that interest rates are now considered less predictive of market trends, the overall uncertainty in forecasting the market's direction increases. However, since the link is not completely severed and other factors like economic growth, company performance, and global events still influence the market, the update to the forecast is moderate. The decrease in probability reflects the reduced confidence in the market's upward trend due to the diminished reliability of interest rates as a predictor, but it does not drastically alter the overall outlook because other causal paths remain unaffected.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'interest_rates->market_trend' suggests that interest rates may have a reduced impact on the market trend. This affects the causal path 'interest_rates -> market_trend -> sector_sentiment -> outcome' and 'interest_rates -> market_trend -> outcome' indirectly through its influence on sector sentiment. Given that interest rates are now considered less predictive of market trends, the overall uncertainty in forecasting the market's direction increases. However, since the link is not completely severed and other factors like economic growth, company performance, and global events still influence the market, the update to the forecast is moderate. The decrease in probability reflects the reduced confidence in the market's upward trend due to the diminished reliability of interest rates as a predictor, but it does not drastically alter the overall outlook because other causal paths remain unaffected.\"\n}",
+      "target_id": "interest_rates->market_trend",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that sector-specific news and developments can significantly impact overall market trends, as investors often use sector performance as a bellwether for broader market health. For instance, a surge in technology stocks can lead to increased investor confidence and a subsequent rise in the overall market trend. This suggests that sector sentiment may actually drive market trend, rather than the other way around. If this is the case, then a strong performance by LOW's sector could be a leading indicator of a positive market trend.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'market_trend->sector_sentiment' suggests that sector sentiment may drive market trend, rather than the other way around. This reversal of the causal link affects the path 'sector_sentiment -> outcome' indirectly, as sector sentiment now has a potential additional influence on the market trend, which in turn could impact the outcome. The original path 'market_trend -> sector_sentiment -> outcome' is altered, but the influence of sector sentiment on the outcome remains. Given that a strong performance by LOW's sector could be a leading indicator of a positive market trend, this increases the likelihood of the outcome being positive, hence the updated probability is increased. However, the update is moderate because the direct link 'sector_sentiment -> outcome' remains unchanged, and other causal paths like 'company_performance -> sector_sentiment' and 'economic_growth -> market_trend' continue to influence the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'market_trend->sector_sentiment' suggests that sector sentiment may drive market trend, rather than the other way around. This reversal of the causal link affects the path 'sector_sentiment -> outcome' indirectly, as sector sentiment now has a potential additional influence on the market trend, which in turn could impact the outcome. The original path 'market_trend -> sector_sentiment -> outcome' is altered, but the influence of sector sentiment on the outcome remains. Given that a strong performance by LOW's sector could be a leading indicator of a positive market trend, this increases the likelihood of the outcome being positive, hence the updated probability is increased. However, the update is moderate because the direct link 'sector_sentiment -> outcome' remains unchanged, and other causal paths like 'company_performance -> sector_sentiment' and 'economic_growth -> market_trend' continue to influence the outcome.\"\n}",
+      "target_id": "market_trend->sector_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that a strong economy often leads to higher interest rates as the Federal Reserve aims to mitigate inflationary pressures and prevent the economy from overheating. In light of this, it's possible that the current economic growth will prompt the Fed to increase interest rates, which in turn could impact LOW's market close price. Consider how this potential relationship between economic growth and interest rates might influence your forecast. Does this new information alter your probability assessment?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The new information suggests a potential relationship between economic growth and interest rates, which could impact the market trend and subsequently the sector sentiment and outcome. However, this link is not directly part of my initial causal network, but rather an external factor that could influence the 'interest_rates' node. Given that the initial network does not explicitly include a link from 'economic_growth' to 'interest_rates', the update is moderate. The introduction of this relationship indicates that strong economic growth could lead to higher interest rates, potentially dampening market trend and sector sentiment, thus slightly decreasing the likelihood of LOW's market close price being higher on 2025-12-28 compared to 2025-12-21. The decrease in probability reflects the potential for increased interest rates to negatively impact the market, but the effect is not drastic since the direct causal links in my network are not fundamentally altered.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information suggests a potential relationship between economic growth and interest rates, which could impact the market trend and subsequently the sector sentiment and outcome. However, this link is not directly part of my initial causal network, but rather an external factor that could influence the 'interest_rates' node. Given that the initial network does not explicitly include a link from 'economic_growth' to 'interest_rates', the update is moderate. The introduction of this relationship indicates that strong economic growth could lead to higher interest rates, potentially dampening market trend and sector sentiment, thus slightly decreasing the likelihood of LOW's market close price being higher on 2025-12-28 compared to 2025-12-21. The decrease in probability reflects the potential for increased interest rates to negatively impact the market, but the effect is not drastic since the direct causal links in my network are not fundamentally altered.\"\n}",
+      "target_id": "economic_growth->interest_rates",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that a strong overall economy can increase a country's trade volumes and foreign investments, making it more vulnerable to global events such as trade wars, pandemics, and geopolitical tensions. For instance, during the 2020 COVID-19 pandemic, countries with robust economies were more severely impacted by global supply chain disruptions. This suggests that economic growth can amplify the effects of global events on the market. If this is true, then the forecaster's model may be underestimating the potential risks to LOW's stock price.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that economic growth can amplify the effects of global events on the market, which was not considered in the original model. This means that the causal link 'global_events -> economic_growth' should be bidirectional, with economic growth also influencing global events. However, this new information primarily affects the 'global_events -> economic_growth' path, which is relatively peripheral to the outcome. The main causal paths 'sector_sentiment -> outcome', 'market_trend -> sector_sentiment', and 'company_performance -> sector_sentiment' remain intact. Given the indirect impact of this challenge on the outcome, a modest decrease in the probability estimate is warranted to reflect the potential increased risk to LOW's stock price due to amplified global events.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that economic growth can amplify the effects of global events on the market, which was not considered in the original model. This means that the causal link 'global_events -> economic_growth' should be bidirectional, with economic growth also influencing global events. However, this new information primarily affects the 'global_events -> economic_growth' path, which is relatively peripheral to the outcome. The main causal paths 'sector_sentiment -> outcome', 'market_trend -> sector_sentiment', and 'company_performance -> sector_sentiment' remain intact. Given the indirect impact of this challenge on the outcome, a modest decrease in the probability estimate is warranted to reflect the potential increased risk to LOW's stock price due to amplified global events.\"\n}",
+      "target_id": "economic_growth->global_events",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the impact of regulatory changes on LOW's industry, particularly those affecting its operational costs or competitive landscape. Such changes could significantly influence investor sentiment and, consequently, the stock price. For instance, new environmental regulations might increase costs for companies in LOW's sector, potentially lowering their stock prices. How would you update your forecast if a major regulatory change were announced on 2025-12-25?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The announcement of a major regulatory change on 2025-12-25 introduces a new variable that affects the causal paths leading to the outcome. Specifically, this change impacts the sector_sentiment node, as regulatory changes can significantly influence investor sentiment. The causal path from regulatory_change to sector_sentiment to outcome is a new consideration that was not initially accounted for. Given the potential for increased operational costs or a altered competitive landscape due to the regulatory change, it's plausible that investor sentiment could become more negative, thus decreasing the likelihood of LOW's market close price on 2025-12-28 being higher than on 2025-12-21. This update reflects the incorporation of this new information into the causal model, acknowledging the potential downside risk introduced by the regulatory change.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announcement of a major regulatory change on 2025-12-25 introduces a new variable that affects the causal paths leading to the outcome. Specifically, this change impacts the sector_sentiment node, as regulatory changes can significantly influence investor sentiment. The causal path from regulatory_change to sector_sentiment to outcome is a new consideration that was not initially accounted for. Given the potential for increased operational costs or a altered competitive landscape due to the regulatory change, it's plausible that investor sentiment could become more negative, thus decreasing the likelihood of LOW's market close price on 2025-12-28 being higher than on 2025-12-21. This update reflects the incorporation of this new information into the causal model, acknowledging the potential downside risk introduced by the regulatory change.\"\n}",
+      "target_id": "regulatory_changes",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A new trade agreement is expected to be signed between major economies, which could significantly boost international trade and subsequently impact LOW's revenue and stock price. However, the forecaster's network does not account for the effect of trade policies on the company's performance. The signing of this agreement could lead to increased demand for LOW's products, influencing its market close price. How would this new information affect the forecaster's probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of a new trade agreement that could boost international trade and subsequently increase demand for LOW's products affects the causal path through 'company_performance' and 'sector_sentiment'. Although the original network does not directly account for trade policies, the expected positive impact on LOW's revenue due to increased demand can be inferred to strengthen the 'economic_growth' node's positive influence on 'company_performance'. This, in turn, would enhance the 'company_performance' to 'sector_sentiment' and ultimately to 'outcome' path, suggesting a higher likelihood of LOW's market close price being higher on 2025-12-28 than on 2025-12-21. Thus, the updated probability reflects an increased confidence in this outcome due to the anticipated beneficial effects of the trade agreement on LOW's financial health and sector sentiment.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of a new trade agreement that could boost international trade and subsequently increase demand for LOW's products affects the causal path through 'company_performance' and 'sector_sentiment'. Although the original network does not directly account for trade policies, the expected positive impact on LOW's revenue due to increased demand can be inferred to strengthen the 'economic_growth' node's positive influence on 'company_performance'. This, in turn, would enhance the 'company_performance' to 'sector_sentiment' and ultimately to 'outcome' path, suggesting a higher likelihood of LOW's market close price being higher on 2025-12-28 than on 2025-12-21. Thus, the updated probability reflects an increased confidence in this outcome due to the anticipated beneficial effects of the trade agreement on LOW's financial health and sector sentiment.\"\n}",
+      "target_id": "trade_policies",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The company's headquarters is planning to install a new, state-of-the-art cafeteria for its employees, which is expected to improve workplace morale and provide healthier food options. This renovation is scheduled to be completed by the end of 2025. The new cafeteria will feature a rooftop garden and a wellness center. This development has been welcomed by the employees, who are looking forward to the improved amenities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.59,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of a new cafeteria and wellness center is expected to improve workplace morale, which could have a positive impact on company_performance. This, in turn, could slightly improve sector_sentiment, as better employee morale might lead to increased productivity and better decision-making. However, the effect is likely to be small and indirect, as the primary drivers of stock price (market_trend, economic_growth, interest_rates, and global_events) remain unchanged. Therefore, the update to the probability estimate is minimal, reflecting the peripheral nature of this development in the overall causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.59,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of a new cafeteria and wellness center is expected to improve workplace morale, which could have a positive impact on company_performance. This, in turn, could slightly improve sector_sentiment, as better employee morale might lead to increased productivity and better decision-making. However, the effect is likely to be small and indirect, as the primary drivers of stock price (market_trend, economic_growth, interest_rates, and global_events) remain unchanged. Therefore, the update to the probability estimate is minimal, reflecting the peripheral nature of this development in the overall causal network.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the average color palette used in LOW's advertising campaigns has a noticeable impact on customer engagement on social media platforms. The study suggests that a shift towards a more vibrant color scheme could lead to increased brand recognition. However, the study focused solely on the company's social media presence and did not explore any connections to the company's financial performance or market trends. This discovery has been met with interest from marketing teams across various industries.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The new information about the impact of LOW's advertising color palette on customer engagement does not directly challenge or modify any of the existing causal paths in the network. The study's focus on social media presence and brand recognition, without exploring connections to financial performance or market trends, means it does not provide substantial evidence to alter the probability estimate regarding LOW's market close price on 2025-12-28 being higher than on 2025-12-21. Therefore, no significant update to the forecast is warranted based on this peripheral information.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The new information about the impact of LOW's advertising color palette on customer engagement does not directly challenge or modify any of the existing causal paths in the network. The study's focus on social media presence and brand recognition, without exploring connections to financial performance or market trends, means it does not provide substantial evidence to alter the probability estimate regarding LOW's market close price on 2025-12-28 being higher than on 2025-12-21. Therefore, no significant update to the forecast is warranted based on this peripheral information.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "LOW recently announced a significant increase in quarterly earnings, exceeding analyst expectations by 15%. This surge in profits was driven by successful implementation of a new operational efficiency program and growing demand for their products. As a result, LOW's management has raised their full-year guidance, citing improved market conditions and strong internal performance. This development suggests that LOW's financial health and performance are on a solid upward trajectory.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'company_performance' significantly strengthens the causal path from 'company_performance' to 'sector_sentiment' and subsequently to 'outcome'. Since LOW's recent announcement of increased quarterly earnings and raised full-year guidance directly impacts their financial health and performance, it positively affects investor sentiment towards their sector. This, in turn, supports a higher market close price on 2025-12-28 compared to 2025-12-21. Additionally, the improved 'company_performance' may also indirectly influence 'economic_growth' and 'market_trend' through its positive impact on 'sector_sentiment', further reinforcing the likelihood of the outcome. Given the structural importance of 'company_performance' in the causal network, this update substantially increases the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'company_performance' significantly strengthens the causal path from 'company_performance' to 'sector_sentiment' and subsequently to 'outcome'. Since LOW's recent announcement of increased quarterly earnings and raised full-year guidance directly impacts their financial health and performance, it positively affects investor sentiment towards their sector. This, in turn, supports a higher market close price on 2025-12-28 compared to 2025-12-21. Additionally, the improved 'company_performance' may also indirectly influence 'economic_growth' and 'market_trend' through its positive impact on 'sector_sentiment', further reinforcing the likelihood of the outcome. Given the structural importance of 'company_performance' in the causal network, this update substantially increases the probability estimate.\"\n}",
+      "target_id": "company_performance",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A recent meeting of the G20 nations resulted in a surprise agreement to reduce trade tariffs, easing global tensions and potentially boosting international trade. This development is expected to have a positive impact on the global economy, with many experts predicting increased economic cooperation and stability. As a result, the likelihood of global events negatively impacting the market has decreased, making it more probable that global events will have a supportive effect on the market. This new information suggests that the influence of global events on the economy and, by extension, the market trend, is more significant than initially thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'global_events' suggests a more positive impact on the economy and market trend. This affects the causal path 'global_events -> economic_growth -> market_trend', making it more likely that the market trend will be positive. Additionally, the path 'global_events -> economic_growth -> company_performance' is also strengthened, potentially improving company performance. As sector sentiment is influenced by both market trend and company performance, the overall effect is an increased likelihood of a higher market close price for LOW on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'global_events' suggests a more positive impact on the economy and market trend. This affects the causal path 'global_events -> economic_growth -> market_trend', making it more likely that the market trend will be positive. Additionally, the path 'global_events -> economic_growth -> company_performance' is also strengthened, potentially improving company performance. As sector sentiment is influenced by both market trend and company performance, the overall effect is an increased likelihood of a higher market close price for LOW on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "global_events",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by a leading financial research firm found that in the last quarter, sector sentiment closely followed market trend, with a statistically significant correlation coefficient of 0.85, indicating that market trend has a profound influence on sector sentiment. This correlation was particularly pronounced in the retail sector, to which LOW belongs. Furthermore, the study revealed that this relationship has strengthened over the past year, with market trend accounting for over 70% of the variance in sector sentiment. This suggests that the causal link between market trend and sector sentiment may be even stronger than initially assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'market_trend->sector_sentiment' suggests that this relationship is stronger than initially assumed, particularly in the retail sector. This affects the causal path 'economic_growth -> market_trend -> sector_sentiment -> outcome' and 'interest_rates -> market_trend -> sector_sentiment -> outcome', making them more influential on the outcome. As a result, the updated forecast increases the probability that LOW's market close price on 2025-12-28 will be higher than on 2025-12-21, given the strengthened connection between market trend and sector sentiment. The increase is moderate, reflecting the robustness of the initial forecast and the specific strengthening of one causal link.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'market_trend->sector_sentiment' suggests that this relationship is stronger than initially assumed, particularly in the retail sector. This affects the causal path 'economic_growth -> market_trend -> sector_sentiment -> outcome' and 'interest_rates -> market_trend -> sector_sentiment -> outcome', making them more influential on the outcome. As a result, the updated forecast increases the probability that LOW's market close price on 2025-12-28 will be higher than on 2025-12-21, given the strengthened connection between market trend and sector sentiment. The increase is moderate, reflecting the robustness of the initial forecast and the specific strengthening of one causal link.\"\n}",
+      "target_id": "market_trend->sector_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recently, a survey of institutional investors revealed that 75% of respondents consider sector sentiment a key factor in their investment decisions, with 60% stating they would increase their holdings in a company like LOW if the sector sentiment improves, even if the company's financials remain unchanged. This suggests that sector sentiment has a more significant impact on stock prices than previously thought. Furthermore, a similar survey conducted last quarter showed a strong correlation between sector sentiment and stock price movements in LOW's sector. This increased sensitivity of investors to sector sentiment reinforces the importance of this causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.10000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reinforces the importance of the causal link 'sector_sentiment->outcome', indicating that sector sentiment has a more significant impact on stock prices than previously thought. This affects the causal paths leading to the outcome through 'sector_sentiment', which is influenced by 'market_trend' and 'company_performance'. Given the increased sensitivity of investors to sector sentiment, the survey results suggest a stronger correlation between sector sentiment and stock price movements. As a result, the probability of LOW's market close price on 2025-12-28 being higher than on 2025-12-21 increases, reflecting the heightened influence of sector sentiment on the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The challenge reinforces the importance of the causal link 'sector_sentiment->outcome', indicating that sector sentiment has a more significant impact on stock prices than previously thought. This affects the causal paths leading to the outcome through 'sector_sentiment', which is influenced by 'market_trend' and 'company_performance'. Given the increased sensitivity of investors to sector sentiment, the survey results suggest a stronger correlation between sector sentiment and stock price movements. As a result, the probability of LOW's market close price on 2025-12-28 being higher than on 2025-12-21 increases, reflecting the heightened influence of sector sentiment on the outcome.\"\n}",
+      "target_id": "sector_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "LOW",
+    "question_text": "Will LOW's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.58,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.07437499999999998,
+    "max_absolute_shift": 0.15999999999999998
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 4.261363636363637,
+    "mean_shift_high": 0.09375,
+    "mean_shift_low": 0.022,
+    "asymmetry_index": 0.6593406593406588,
+    "mean_shift_negate": 0.0714285714285714,
+    "mean_shift_strengthen": 0.10833333333333338,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.038750000000000014,
+    "mean_shift_on_path": 0.09250000000000001,
+    "mean_shift_off_path": 0.05375,
+    "importance_sensitivity_correlation": 0.05594405594405594,
+    "control_sensitivity": 0
+  }
+}

@@ -1,0 +1,1081 @@
+{
+  "question_id": "SP500",
+  "question_text": "Will the S&P 500, which represents the daily index value at market close have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+  "source": "fred",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "economic_growth",
+      "description": "Future economic growth rate",
+      "role": "factor"
+    },
+    {
+      "id": "inflation_rate",
+      "description": "Future inflation rate",
+      "role": "factor"
+    },
+    {
+      "id": "fed_policy",
+      "description": "Future monetary policy decisions by the Federal Reserve",
+      "role": "factor"
+    },
+    {
+      "id": "interest_rates",
+      "description": "Future interest rates set by the Federal Reserve",
+      "role": "factor"
+    },
+    {
+      "id": "geopolitical_tensions",
+      "description": "Future geopolitical tensions",
+      "role": "factor"
+    },
+    {
+      "id": "global_growth",
+      "description": "Future global economic growth rate",
+      "role": "factor"
+    },
+    {
+      "id": "valuations",
+      "description": "Future valuations of the S&P 500",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Will the S&P 500 have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_growth",
+      "to": "valuations",
+      "mechanism": "Stronger economic growth leads to higher valuations"
+    },
+    {
+      "from": "inflation_rate",
+      "to": "interest_rates",
+      "mechanism": "Higher inflation leads to higher interest rates"
+    },
+    {
+      "from": "fed_policy",
+      "to": "interest_rates",
+      "mechanism": "Monetary policy decisions directly influence interest rates"
+    },
+    {
+      "from": "interest_rates",
+      "to": "valuations",
+      "mechanism": "Higher interest rates make stocks more attractive"
+    },
+    {
+      "from": "geopolitical_tensions",
+      "to": "global_growth",
+      "mechanism": "Higher geopolitical tensions lead to slower global growth"
+    },
+    {
+      "from": "global_growth",
+      "to": "economic_growth",
+      "mechanism": "Global growth influences domestic economic growth"
+    },
+    {
+      "from": "valuations",
+      "to": "outcome",
+      "mechanism": "Higher valuations lead to stock price increases"
+    },
+    {
+      "from": "fed_policy",
+      "to": "outcome",
+      "mechanism": "Monetary policy decisions influence stock market performance"
+    }
+  ],
+  "reasoning": "I forecast a 62% probability of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21, based on a combination of factors including economic growth, inflation rate, Federal Reserve policy, interest rates, geopolitical tensions, and global growth. I believe these factors will drive stock valuations higher, leading to an increase in the S&P 500.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 8,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "economic_growth",
+        "description": "Future economic growth rate",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0952,
+        "closeness": 0.1905,
+        "pagerank": 0.1249,
+        "path_relevance": 0.2857
+      },
+      {
+        "node_id": "inflation_rate",
+        "description": "Future inflation rate",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0486,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "fed_policy",
+        "description": "Future monetary policy decisions by the Federal Reserve",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0486,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "interest_rates",
+        "description": "Future interest rates set by the Federal Reserve",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.2857,
+        "pagerank": 0.1105,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "geopolitical_tensions",
+        "description": "Future geopolitical tensions",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0486,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_growth",
+        "description": "Future global economic growth rate",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.1429,
+        "pagerank": 0.0898,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "valuations",
+        "description": "Future valuations of the S&P 500",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.119,
+        "closeness": 0.4675,
+        "pagerank": 0.2486,
+        "path_relevance": 0.7143
+      },
+      {
+        "node_id": "outcome",
+        "description": "Will the S&P 500 have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4375,
+        "pagerank": 0.2805,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "economic_growth",
+        "target": "valuations",
+        "mechanism": "Stronger economic growth leads to higher valuations",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "inflation_rate",
+        "target": "interest_rates",
+        "mechanism": "Higher inflation leads to higher interest rates",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "fed_policy",
+        "target": "interest_rates",
+        "mechanism": "Monetary policy decisions directly influence interest rates",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "fed_policy",
+        "target": "outcome",
+        "mechanism": "Monetary policy decisions influence stock market performance",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "interest_rates",
+        "target": "valuations",
+        "mechanism": "Higher interest rates make stocks more attractive",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": true
+      },
+      {
+        "source": "geopolitical_tensions",
+        "target": "global_growth",
+        "mechanism": "Higher geopolitical tensions lead to slower global growth",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_growth",
+        "target": "economic_growth",
+        "mechanism": "Global growth influences domestic economic growth",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "valuations",
+        "target": "outcome",
+        "mechanism": "Higher valuations lead to stock price increases",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "valuations",
+        "description": "Future valuations of the S&P 500",
+        "importance": 0.119,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "Future economic growth rate",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_growth",
+        "description": "Future global economic growth rate",
+        "importance": 0.0714,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "geopolitical_tensions",
+        "description": "Future geopolitical tensions",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "valuations",
+        "description": "Future valuations of the S&P 500",
+        "importance": 0.119,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "Future economic growth rate",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_growth->valuations",
+        "description": "Stronger economic growth leads to higher valuations",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "global_growth->economic_growth",
+        "description": "Global growth influences domestic economic growth",
+        "importance": 0.1071,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fed_policy->interest_rates",
+        "description": "Monetary policy decisions directly influence interest rates",
+        "importance": 0.0357,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_growth->valuations",
+        "description": "Stronger economic growth leads to higher valuations",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "fed_policy->valuations",
+        "description": "Potential link: Future monetary policy decisions by the Federal Reserve -> Future valuations of the S&P 500",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "valuations",
+      "description": "Future valuations of the S&P 500",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "Future economic growth rate",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_growth",
+      "description": "Future global economic growth rate",
+      "importance": 0.0714,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "geopolitical_tensions",
+      "description": "Future geopolitical tensions",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "valuations",
+      "description": "Future valuations of the S&P 500",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "Future economic growth rate",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_growth->valuations",
+      "description": "Stronger economic growth leads to higher valuations",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "global_growth->economic_growth",
+      "description": "Global growth influences domestic economic growth",
+      "importance": 0.1071,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fed_policy->interest_rates",
+      "description": "Monetary policy decisions directly influence interest rates",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_growth->valuations",
+      "description": "Stronger economic growth leads to higher valuations",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "fed_policy->valuations",
+      "description": "Potential link: Future monetary policy decisions by the Federal Reserve -> Future valuations of the S&P 500",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "A new study suggests that valuations are no longer a reliable indicator of future stock market performance due to the emergence of new, non-traditional investment vehicles that allow investors to bypass traditional stock markets, making valuations less relevant to stock price increases. This shift in investor behavior could potentially eliminate the causal link between valuations and the S&P 500 outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "valuations",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Future valuations of the S&P 500"
+    },
+    {
+      "probe_text": "A recent study suggests that the relationship between economic growth and stock market valuations may be overstated, as the causality could be reversed: strong stock market valuations can actually drive economic growth through increased consumer confidence and investment. If this is true, what would be the impact on the probability of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21, assuming economic growth has a negligible effect on valuations? In other words, if valuations drive economic growth rather than the other way around, how would this change the estimate of the outcome probability from 0.62 to one of 0 or 1, and vice versa.",
+      "probe_type": "node_negate_high",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Future economic growth rate"
+    },
+    {
+      "probe_text": "Consider that the global economic growth rate is expected to be negatively impacted by the recent G20 summit's agreement on stricter trade regulations, which could limit global exports and hinder economic growth. How does this new information affect your estimate of the S&P 500's increase from 2025-12-21 to 2025-12-28?",
+      "probe_type": "node_negate_medium",
+      "target_id": "global_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Future global economic growth rate"
+    },
+    {
+      "probe_text": "You have been informed that a breakthrough in international diplomacy has led to a significant reduction in global tensions, resulting in a 30% decrease in the likelihood of military conflicts over the next 12 months. Assuming this reduction in tensions persists, how does this affect your estimate of the S&P 500's performance by 2025-12-28 compared to 2025-12-21?",
+      "probe_type": "node_negate_low",
+      "target_id": "geopolitical_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Future geopolitical tensions"
+    },
+    {
+      "probe_text": "A leading equity analyst at a top investment bank releases a report citing a thorough review of historical data, which confirms a strong positive correlation between the S&P 500's price-to-earnings ratio and future stock price growth over the next three years. This analysis, which controls for various macroeconomic factors, suggests that the valuations of the S&P 500 are a robust predictor of future stock market performance. The analyst attributes the persistence of this relationship to the S&P 500's role as a bellwether for the overall health of the US economy.",
+      "probe_type": "node_strengthen",
+      "target_id": "valuations",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Future valuations of the S&P 500"
+    },
+    {
+      "probe_text": "The International Monetary Fund (IMF) has announced its latest forecast, indicating a 0.5% increase in the global economic growth rate for 2025, citing a surge in technological advancements and rising consumer spending in major economies. This development is seen as a strong indicator of a continued upward trend in economic growth rates worldwide.",
+      "probe_type": "node_strengthen",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Future economic growth rate"
+    },
+    {
+      "probe_text": "Consider a hypothetical scenario where the S&P 500 experiences a surge in valuations despite a slowing economy due to a significant increase in foreign institutional investment, which is attracted to the US market by a weak dollar. This influx of capital drives up valuations, but does not reflect a strengthening economic growth. In this case, the causal link 'economic_growth->valuations' appears to be broken, as valuations increase despite a weakening economy.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "economic_growth->valuations",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Stronger economic growth leads to higher valuations"
+    },
+    {
+      "probe_text": "Consider a scenario where the US imposes stricter trade policies, leading to a decline in global growth, but domestic economic growth is boosted by increased inward investment from countries looking to diversify their portfolios, thereby preserving economic growth despite the decline in global growth.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "global_growth->economic_growth",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Global growth influences domestic economic growth"
+    },
+    {
+      "probe_text": "The Federal Reserve announces that it will maintain its current interest rate policy despite upcoming economic indicators suggesting a potential need for rate adjustment, and then unexpectedly receives a new report that casts doubt on the accuracy of those indicators.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "fed_policy->interest_rates",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Monetary policy decisions directly influence interest rates"
+    },
+    {
+      "probe_text": "Imagine that a significant portion of the S&P 500's value is comprised of tech stocks that have experienced a recent surge in market value due to the anticipation of future economic growth. If this is the case, would the increase in valuations (driven by the speculative bubble in tech stocks) not, in fact, be a precursor to future economic growth, rather than the other way around?",
+      "probe_type": "edge_reverse",
+      "target_id": "economic_growth->valuations",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Stronger economic growth leads to higher valuations"
+    },
+    {
+      "probe_text": "Consider a hypothetical scenario where the Federal Reserve unexpectedly announces that it will maintain its current monetary policy stance, despite growing concerns about rising inflation. How does this surprise decision influence your prediction about the future valuations of the S&P 500, and consequently, the outcome of whether the index will have increased by 2025-12-28 compared to its value on 2025-12-21? Does this new information lead you to revise your original probability estimate of 0.62, and if so, by how much? Please provide a revised probability estimate, along with a clear explanation of your reasoning.",
+      "probe_type": "edge_spurious",
+      "target_id": "fed_policy->valuations",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Future monetary policy decisions by the Federal Reserve -> Future valuations of the S&P 500"
+    },
+    {
+      "probe_text": "Will a significant increase in crude oil prices by 2025-12-21 influence the forecaster's estimate of the S&P 500's performance by 2025-12-28?",
+      "probe_type": "missing_node",
+      "target_id": "oil_prices",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Will the S&P 500's earnings growth outperform the overall market's earnings growth between 2025-12-21 and 2025-12-28, potentially driving stock price increases?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A new, sustainable energy technology has been announced that could potentially power 50% of the world's data centers by 2030. This breakthrough has significant implications for the tech industry's carbon footprint, but its near-term impact on the S&P 500's valuation is unclear.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The S&P 500's sector allocation to renewable energy will increase by 15% over the next 6 months.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "A new study suggests that valuations are no longer a reliable indicator of future stock market performance due to the emergence of new, non-traditional investment vehicles that allow investors to bypass traditional stock markets, making valuations less relevant to stock price increases. This shift in investor behavior could potentially eliminate the causal link between valuations and the S&P 500 outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'valuations' significantly decreases the probability of the outcome. The causal link between valuations and the outcome is a critical path leading to the outcome, and breaking this link reduces the overall probability. With valuations no longer a reliable indicator, the path from economic_growth -> valuations -> outcome is diminished, and the path from fed_policy -> outcome also becomes less direct. Although the paths from economic_growth and fed_policy still exist, they are now more indirect and less influential. As a result, I update my probability estimate from 0.62 to 0.55.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'valuations' significantly decreases the probability of the outcome. The causal link between valuations and the outcome is a critical path leading to the outcome, and breaking this link reduces the overall probability. With valuations no longer a reliable indicator, the path from economic_growth -> valuations -> outcome is diminished, and the path from fed_policy -> outcome also becomes less direct. Although the paths from economic_growth and fed_policy still exist, they are now more indirect and less influential. As a result, I update my probability estimate from 0.62 to 0.55.\"\n}",
+      "target_id": "valuations",
+      "target_type": "node",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "A recent study suggests that the relationship between economic growth and stock market valuations may be overstated, as the causality could be reversed: strong stock market valuations can actually drive economic growth through increased consumer confidence and investment. If this is true, what would be the impact on the probability of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21, assuming economic growth has a negligible effect on valuations? In other words, if valuations drive economic growth rather than the other way around, how would this change the estimate of the outcome probability from 0.62 to one of 0 or 1, and vice versa.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'economic_growth' has a significant impact on the causal paths leading to the outcome. If valuations drive economic growth rather than the other way around, the causal link 'economic_growth -> valuations' is broken. However, the causal link 'valuations -> outcome' remains intact, as higher valuations can still lead to stock price increases. Additionally, the new information suggests that strong stock market valuations can drive economic growth, which can then lead to higher valuations and stock price increases. This creates a positive feedback loop, increasing the probability of the outcome. As a result, I update my probability estimate from 0.62 to 0.85.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'economic_growth' has a significant impact on the causal paths leading to the outcome. If valuations drive economic growth rather than the other way around, the causal link 'economic_growth -> valuations' is broken. However, the causal link 'valuations -> outcome' remains intact, as higher valuations can still lead to stock price increases. Additionally, the new information suggests that strong stock market valuations can drive economic growth, which can then lead to higher valuations and stock price increases. This creates a positive feedback loop, increasing the probability of the outcome. As a result, I update my probability estimate from 0.62 to 0.85.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Consider that the global economic growth rate is expected to be negatively impacted by the recent G20 summit's agreement on stricter trade regulations, which could limit global exports and hinder economic growth. How does this new information affect your estimate of the S&P 500's increase from 2025-12-21 to 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about stricter trade regulations negatively impacting global economic growth affects the causal paths leading to the outcome. The connection between global_growth and economic_growth is a critical link in the network, and the expected decline in global economic growth will likely lead to a weaker domestic economic growth. This, in turn, will negatively impact valuations and the outcome. The challenged element is structurally important to our reasoning, as it influences the underlying drivers of the S&P 500's performance. As a result, we are decreasing our estimate of the S&P 500's increase from 2025-12-21 to 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about stricter trade regulations negatively impacting global economic growth affects the causal paths leading to the outcome. The connection between global_growth and economic_growth is a critical link in the network, and the expected decline in global economic growth will likely lead to a weaker domestic economic growth. This, in turn, will negatively impact valuations and the outcome. The challenged element is structurally important to our reasoning, as it influences the underlying drivers of the S&P 500's performance. As a result, we are decreasing our estimate of the S&P 500's increase from 2025-12-21 to 2025-12-28.\"\n}",
+      "target_id": "global_growth",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "You have been informed that a breakthrough in international diplomacy has led to a significant reduction in global tensions, resulting in a 30% decrease in the likelihood of military conflicts over the next 12 months. Assuming this reduction in tensions persists, how does this affect your estimate of the S&P 500's performance by 2025-12-28 compared to 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The reduction in geopolitical tensions leads to a decrease in the likelihood of military conflicts, which in turn reduces the negative impact on global growth. With global growth increasing, economic growth is likely to follow suit, leading to higher valuations and ultimately, a higher probability of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21. The causal path 'geopolitical_tensions -> global_growth -> economic_growth -> valuations -> outcome' is affected, increasing the likelihood of a positive outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reduction in geopolitical tensions leads to a decrease in the likelihood of military conflicts, which in turn reduces the negative impact on global growth. With global growth increasing, economic growth is likely to follow suit, leading to higher valuations and ultimately, a higher probability of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21. The causal path 'geopolitical_tensions -> global_growth -> economic_growth -> valuations -> outcome' is affected, increasing the likelihood of a positive outcome.\"\n}",
+      "target_id": "geopolitical_tensions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A leading equity analyst at a top investment bank releases a report citing a thorough review of historical data, which confirms a strong positive correlation between the S&P 500's price-to-earnings ratio and future stock price growth over the next three years. This analysis, which controls for various macroeconomic factors, suggests that the valuations of the S&P 500 are a robust predictor of future stock market performance. The analyst attributes the persistence of this relationship to the S&P 500's role as a bellwether for the overall health of the US economy.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'valuations' strengthens the causal path from valuations to the outcome, as the analyst's report confirms a strong positive correlation between the S&P 500's price-to-earnings ratio and future stock price growth. This increases the confidence in the model's prediction that higher valuations lead to stock price increases. As a result, I increase the probability of the outcome from 0.62 to 0.72, as the challenge has reinforced the causal link between valuations and the S&P 500's performance.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'valuations' strengthens the causal path from valuations to the outcome, as the analyst's report confirms a strong positive correlation between the S&P 500's price-to-earnings ratio and future stock price growth. This increases the confidence in the model's prediction that higher valuations lead to stock price increases. As a result, I increase the probability of the outcome from 0.62 to 0.72, as the challenge has reinforced the causal link between valuations and the S&P 500's performance.\"\n}",
+      "target_id": "valuations",
+      "target_type": "node",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The International Monetary Fund (IMF) has announced its latest forecast, indicating a 0.5% increase in the global economic growth rate for 2025, citing a surge in technological advancements and rising consumer spending in major economies. This development is seen as a strong indicator of a continued upward trend in economic growth rates worldwide.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The IMF's announcement strengthens the causal path from 'global_growth' to 'economic_growth', which in turn leads to higher 'valuations' and ultimately an 'outcome' of increased S&P 500 value. This new information suggests a more robust and sustained economic growth trend, making it more likely for the S&P 500 to increase by 2025-12-28 as compared to its value on 2025-12-21. The strong indicator of a continued upward trend in economic growth rates worldwide has increased my confidence in the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The IMF's announcement strengthens the causal path from 'global_growth' to 'economic_growth', which in turn leads to higher 'valuations' and ultimately an 'outcome' of increased S&P 500 value. This new information suggests a more robust and sustained economic growth trend, making it more likely for the S&P 500 to increase by 2025-12-28 as compared to its value on 2025-12-21. The strong indicator of a continued upward trend in economic growth rates worldwide has increased my confidence in the outcome.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Consider a hypothetical scenario where the S&P 500 experiences a surge in valuations despite a slowing economy due to a significant increase in foreign institutional investment, which is attracted to the US market by a weak dollar. This influx of capital drives up valuations, but does not reflect a strengthening economic growth. In this case, the causal link 'economic_growth->valuations' appears to be broken, as valuations increase despite a weakening economy.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The causal link 'economic_growth->valuations' is a critical path in my reasoning. The challenge to this link suggests that the relationship between economic growth and valuations is not as direct as I initially thought. This makes me question the causal link 'valuations->outcome' as well, as valuations may increase due to factors other than economic growth. As a result, I have decreased my probability estimate, acknowledging the potential for stock prices to increase despite a slowing economy.",
+      "raw_response": "{\"updated_probability\": 0.55, \"shift_direction\": \"decreased\", \"reasoning\": \"The causal link 'economic_growth->valuations' is a critical path in my reasoning. The challenge to this link suggests that the relationship between economic growth and valuations is not as direct as I initially thought. This makes me question the causal link 'valuations->outcome' as well, as valuations may increase due to factors other than economic growth. As a result, I have decreased my probability estimate, acknowledging the potential for stock prices to increase despite a slowing economy.\"}",
+      "target_id": "economic_growth->valuations",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where the US imposes stricter trade policies, leading to a decline in global growth, but domestic economic growth is boosted by increased inward investment from countries looking to diversify their portfolios, thereby preserving economic growth despite the decline in global growth.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'global_growth->economic_growth' suggests that domestic economic growth may be insulated from a decline in global growth, which could lead to higher valuations and, consequently, an increased likelihood of the S&P 500 increasing by 2025-12-28. However, this challenge also introduces uncertainty, as the relationship between global growth and domestic economic growth is no longer a straightforward causal link. As a result, I'm increasing my probability estimate, but not as high as initially, as there are still many factors at play.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'global_growth->economic_growth' suggests that domestic economic growth may be insulated from a decline in global growth, which could lead to higher valuations and, consequently, an increased likelihood of the S&P 500 increasing by 2025-12-28. However, this challenge also introduces uncertainty, as the relationship between global growth and domestic economic growth is no longer a straightforward causal link. As a result, I'm increasing my probability estimate, but not as high as initially, as there are still many factors at play.\"\n}",
+      "target_id": "global_growth->economic_growth",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve announces that it will maintain its current interest rate policy despite upcoming economic indicators suggesting a potential need for rate adjustment, and then unexpectedly receives a new report that casts doubt on the accuracy of those indicators.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'fed_policy->interest_rates' weakens the influence of the Federal Reserve's monetary policy decisions on interest rates. However, this link is not structurally critical to the reasoning, as there are alternative paths to influence interest rates (e.g., 'inflation_rate->interest_rates'). Nonetheless, the challenge reduces the certainty in the causal path from 'fed_policy' to 'interest_rates' and subsequently to 'valuations'. This, in turn, results in a slightly increased probability for the outcome, as the path from 'fed_policy' to 'outcome' now relies less on the challenged link. Additionally, the unchanged valuations and interest rates due to the Federal Reserve's decision may lead to a relatively calm market, contributing to the increased probability of the S&P 500 having increased by 2025-12-28 as compared to its value on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'fed_policy->interest_rates' weakens the influence of the Federal Reserve's monetary policy decisions on interest rates. However, this link is not structurally critical to the reasoning, as there are alternative paths to influence interest rates (e.g., 'inflation_rate->interest_rates'). Nonetheless, the challenge reduces the certainty in the causal path from 'fed_policy' to 'interest_rates' and subsequently to 'valuations'. This, in turn, results in a slightly increased probability for the outcome, as the path from 'fed_policy' to 'outcome' now relies less on the challenged link. Additionally, the unchanged valuations and interest rates due to the Federal Reserve's decision may lead to a relatively calm market, contributing to the increased probability of the S&P 500 having increased by 2025-12-28 as compared to its value on 2025-12-21.\"\n}",
+      "target_id": "fed_policy->interest_rates",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Imagine that a significant portion of the S&P 500's value is comprised of tech stocks that have experienced a recent surge in market value due to the anticipation of future economic growth. If this is the case, would the increase in valuations (driven by the speculative bubble in tech stocks) not, in fact, be a precursor to future economic growth, rather than the other way around?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'economic_growth->valuations' suggests that the relationship between economic growth and valuations may be bidirectional or even reversed in this specific case. If a significant portion of the S&P 500's value is comprised of tech stocks driven by speculative bubble, then the increase in valuations may indeed be a precursor to future economic growth. This challenges the original causal path from economic growth to valuations, but does not necessarily invalidate it entirely. The revised causal network would still consider the effect of economic growth on valuations, but with a reduced weight due to the potential feedback loop from tech stocks. This leads to a slightly increased probability of the outcome, as the revised causal path still suggests a positive relationship between economic growth and valuations, albeit with a more nuanced understanding of the underlying dynamics.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_growth->valuations' suggests that the relationship between economic growth and valuations may be bidirectional or even reversed in this specific case. If a significant portion of the S&P 500's value is comprised of tech stocks driven by speculative bubble, then the increase in valuations may indeed be a precursor to future economic growth. This challenges the original causal path from economic growth to valuations, but does not necessarily invalidate it entirely. The revised causal network would still consider the effect of economic growth on valuations, but with a reduced weight due to the potential feedback loop from tech stocks. This leads to a slightly increased probability of the outcome, as the revised causal path still suggests a positive relationship between economic growth and valuations, albeit with a more nuanced understanding of the underlying dynamics.\"\n}",
+      "target_id": "economic_growth->valuations",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider a hypothetical scenario where the Federal Reserve unexpectedly announces that it will maintain its current monetary policy stance, despite growing concerns about rising inflation. How does this surprise decision influence your prediction about the future valuations of the S&P 500, and consequently, the outcome of whether the index will have increased by 2025-12-28 compared to its value on 2025-12-21? Does this new information lead you to revise your original probability estimate of 0.62, and if so, by how much? Please provide a revised probability estimate, along with a clear explanation of your reasoning.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The surprise decision by the Federal Reserve to maintain its current monetary policy stance, despite growing concerns about rising inflation, challenges the causal link 'fed_policy->valuations'. This link is structurally important to our reasoning, as it influences the future valuations of the S&P 500. However, the decision does not break the causal path, but rather weakens it. As a result, we expect a decrease in the valuations of the S&P 500, leading to a lower probability of the index increasing by 2025-12-28 compared to its value on 2025-12-21. The causal paths affected are 'fed_policy->valuations' and 'valuations->outcome'. The surprise decision reduces the influence of the Federal Reserve's policy on stock market performance, leading to a decrease in our original probability estimate of 0.62 to 0.55.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The surprise decision by the Federal Reserve to maintain its current monetary policy stance, despite growing concerns about rising inflation, challenges the causal link 'fed_policy->valuations'. This link is structurally important to our reasoning, as it influences the future valuations of the S&P 500. However, the decision does not break the causal path, but rather weakens it. As a result, we expect a decrease in the valuations of the S&P 500, leading to a lower probability of the index increasing by 2025-12-28 compared to its value on 2025-12-21. The causal paths affected are 'fed_policy->valuations' and 'valuations->outcome'. The surprise decision reduces the influence of the Federal Reserve's policy on stock market performance, leading to a decrease in our original probability estimate of 0.62 to 0.55.\"\n}",
+      "target_id": "fed_policy->valuations",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Will a significant increase in crude oil prices by 2025-12-21 influence the forecaster's estimate of the S&P 500's performance by 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "A significant increase in crude oil prices by 2025-12-21 could lead to increased inflation, which in turn would lead to higher interest rates. This would make stocks less attractive, thus reducing the valuations of the S&P 500. Additionally, higher oil prices could lead to a recession, reducing economic growth and global growth, further reducing valuations and the S&P 500 index. This changes the causal paths leading to the outcome, as the economic growth and valuations nodes now have a more direct link to the outcome through the interest rates node. As a result, I decrease my estimate of the S&P 500's performance by 2025-12-28 as compared to its value on 2025-12-21.",
+      "raw_response": "{\"updated_probability\": 0.57, \"shift_direction\": \"decreased\", \"reasoning\": \"A significant increase in crude oil prices by 2025-12-21 could lead to increased inflation, which in turn would lead to higher interest rates. This would make stocks less attractive, thus reducing the valuations of the S&P 500. Additionally, higher oil prices could lead to a recession, reducing economic growth and global growth, further reducing valuations and the S&P 500 index. This changes the causal paths leading to the outcome, as the economic growth and valuations nodes now have a more direct link to the outcome through the interest rates node. As a result, I decrease my estimate of the S&P 500's performance by 2025-12-28 as compared to its value on 2025-12-21.\"}",
+      "target_id": "oil_prices",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Will the S&P 500's earnings growth outperform the overall market's earnings growth between 2025-12-21 and 2025-12-28, potentially driving stock price increases?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge adds a new causal path from earnings growth to valuations and subsequently to the outcome. Since the S&P 500's earnings growth is a key driver of stock price increases, this new information suggests that the expected stock price increase is more likely. Additionally, the new causal path reinforces the existing relationship between valuations and the outcome, further increasing the probability of the stock price increase. However, the impact of this new information is moderate, as the challenged element (earnings growth outperforming the market) is structurally important but not a critical causal link in the network.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge adds a new causal path from earnings growth to valuations and subsequently to the outcome. Since the S&P 500's earnings growth is a key driver of stock price increases, this new information suggests that the expected stock price increase is more likely. Additionally, the new causal path reinforces the existing relationship between valuations and the outcome, further increasing the probability of the stock price increase. However, the impact of this new information is moderate, as the challenged element (earnings growth outperforming the market) is structurally important but not a critical causal link in the network.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A new, sustainable energy technology has been announced that could potentially power 50% of the world's data centers by 2030. This breakthrough has significant implications for the tech industry's carbon footprint, but its near-term impact on the S&P 500's valuation is unclear.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The announcement of a new, sustainable energy technology may positively impact the tech industry's carbon footprint and potentially lead to increased global growth (global_growth -> economic_growth). However, its near-term impact on the S&P 500's valuation is unclear. Nevertheless, this development may slightly mitigate the expected increase in the S&P 500's valuation due to potential interest rate changes (economic_growth -> interest_rates). As a result, I decrease my initial estimate of 0.62 to 0.55, indicating a slightly lower likelihood of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announcement of a new, sustainable energy technology may positively impact the tech industry's carbon footprint and potentially lead to increased global growth (global_growth -> economic_growth). However, its near-term impact on the S&P 500's valuation is unclear. Nevertheless, this development may slightly mitigate the expected increase in the S&P 500's valuation due to potential interest rate changes (economic_growth -> interest_rates). As a result, I decrease my initial estimate of 0.62 to 0.55, indicating a slightly lower likelihood of the S&P 500 increasing by 2025-12-28 as compared to its value on 2025-12-21.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The S&P 500's sector allocation to renewable energy will increase by 15% over the next 6 months.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The news that the S&P 500's sector allocation to renewable energy will increase by 15% over the next 6 months affects the causal path from global_growth to economic_growth. With a stronger sector allocation to renewable energy, we expect the global growth rate to have a positive impact on domestic economic growth, leading to higher valuations. However, this increased allocation also implies that the global growth rate will be less dependent on domestic economic growth, making the link from global_growth to economic_growth weaker. As a result, I decrease my probability estimate from 0.62 to 0.55, as the increased sector allocation to renewable energy reduces the reliability of the global growth rate's impact on domestic economic growth and subsequently on the S&P 500's valuations.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The news that the S&P 500's sector allocation to renewable energy will increase by 15% over the next 6 months affects the causal path from global_growth to economic_growth. With a stronger sector allocation to renewable energy, we expect the global growth rate to have a positive impact on domestic economic growth, leading to higher valuations. However, this increased allocation also implies that the global growth rate will be less dependent on domestic economic growth, making the link from global_growth to economic_growth weaker. As a result, I decrease my probability estimate from 0.62 to 0.55, as the increased sector allocation to renewable energy reduces the reliability of the global growth rate's impact on domestic economic growth and subsequently on the S&P 500's valuations.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "The International Monetary Fund recently revised its global growth forecast upwards, citing a stronger-than-expected rebound in major trading partners, particularly in the European Union, and an increase in global trade volumes. This revision suggests that the global economy is more resilient than previously thought, which in turn reinforces the likelihood of sustained economic growth in the coming years.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The revised global growth forecast upwards from the International Monetary Fund strengthens the causal path from global_growth to economic_growth, making it more likely for domestic economic growth to be strong. This, in turn, increases the likelihood of higher valuations and subsequently, a positive outcome for the S&P 500. The causal link from global_growth to economic_growth is a key driver in our reasoning, and the increased confidence in global growth reinforces our initial estimate of a 62% chance of the S&P 500 increasing by 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The revised global growth forecast upwards from the International Monetary Fund strengthens the causal path from global_growth to economic_growth, making it more likely for domestic economic growth to be strong. This, in turn, increases the likelihood of higher valuations and subsequently, a positive outcome for the S&P 500. The causal link from global_growth to economic_growth is a key driver in our reasoning, and the increased confidence in global growth reinforces our initial estimate of a 62% chance of the S&P 500 increasing by 2025-12-28.\"\n}",
+      "target_id": "global_growth",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A recent report from the International Crisis Group highlights a significant increase in military build-up and aggressive rhetoric from major world powers, indicating a heightened sense of geopolitical tensions. This development is expected to lead to a decline in global trade and investment, exacerbating existing economic vulnerabilities. Experts warn that this escalation could have far-reaching consequences for global economic stability, making it more challenging to achieve sustained economic growth in the future.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The recent report from the International Crisis Group has strengthened the causal link between geopolitical tensions and global growth. Given the expected decline in global trade and investment, this has led to a decrease in my confidence that the S&P 500 will increase by 2025-12-28 as compared to its value on 2025-12-21. The causal paths affected are: geopolitical_tensions -> global_growth, global_growth -> economic_growth, and economic_growth -> valuations. With a higher likelihood of slower global growth, I now expect lower valuations, which in turn reduces the probability of the S&P 500 increasing. This challenge has also reinforced the importance of global growth in influencing domestic economic growth, making it a critical factor in my reasoning.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The recent report from the International Crisis Group has strengthened the causal link between geopolitical tensions and global growth. Given the expected decline in global trade and investment, this has led to a decrease in my confidence that the S&P 500 will increase by 2025-12-28 as compared to its value on 2025-12-21. The causal paths affected are: geopolitical_tensions -> global_growth, global_growth -> economic_growth, and economic_growth -> valuations. With a higher likelihood of slower global growth, I now expect lower valuations, which in turn reduces the probability of the S&P 500 increasing. This challenge has also reinforced the importance of global growth in influencing domestic economic growth, making it a critical factor in my reasoning.\"\n}",
+      "target_id": "geopolitical_tensions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "If there is a significant announcement of a large corporation investing heavily in research and development, leading to a potential breakthrough in a key industry, what would be the impact on the forecaster's estimate of the probability of the S&P 500 increasing by 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a significant investment in research and development by a large corporation potentially leading to a breakthrough in a key industry would likely strengthen economic growth in the long term. This is because such investments often lead to increased productivity and innovation, which can drive future economic growth. As a result, the causal path from 'economic_growth' to 'valuations' is strengthened, making it more likely that valuations will increase, and subsequently, the probability of the S&P 500 increasing by 2025-12-28 also increases. Additionally, a potential breakthrough in a key industry could lead to increased global growth, which would further strengthen future economic growth. Therefore, the updated probability estimate increases from 0.62 to 0.72.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of a significant investment in research and development by a large corporation potentially leading to a breakthrough in a key industry would likely strengthen economic growth in the long term. This is because such investments often lead to increased productivity and innovation, which can drive future economic growth. As a result, the causal path from 'economic_growth' to 'valuations' is strengthened, making it more likely that valuations will increase, and subsequently, the probability of the S&P 500 increasing by 2025-12-28 also increases. Additionally, a potential breakthrough in a key industry could lead to increased global growth, which would further strengthen future economic growth. Therefore, the updated probability estimate increases from 0.62 to 0.72.\"\n}",
+      "target_id": "economic_growth->valuations",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by the International Monetary Fund (IMF) demonstrates that global economic growth has a significant impact on domestic economic growth, particularly in countries with high trade openness and financial integration. The study found that a 1% increase in global growth leads to a 0.7% increase in domestic growth, suggesting a strong causal link between global and domestic economic growth. We would like the forecaster to account for this evidence when updating their beliefs about the S&P 500 index value. Specifically, we ask the forecaster to estimate the probability of the S&P 500 increasing by 2025-12-28, assuming a 2% increase in global growth.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.78,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "Given the strong causal link between global and domestic economic growth, the study's findings support a more optimistic forecast for the S&P 500. The increased global growth rate directly influences domestic economic growth, which in turn affects valuations and ultimately the outcome. With a 2% increase in global growth, we can expect a 1.4% increase in domestic growth (0.7 x 2), leading to stronger valuations and a higher probability of the S&P 500 increasing by 2025-12-28.",
+      "raw_response": "{\"updated_probability\": 0.78, \"shift_direction\": \"increased\", \"reasoning\": \"Given the strong causal link between global and domestic economic growth, the study's findings support a more optimistic forecast for the S&P 500. The increased global growth rate directly influences domestic economic growth, which in turn affects valuations and ultimately the outcome. With a 2% increase in global growth, we can expect a 1.4% increase in domestic growth (0.7 x 2), leading to stronger valuations and a higher probability of the S&P 500 increasing by 2025-12-28.\"}",
+      "target_id": "global_growth->economic_growth",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A senior Federal Reserve official announces that the central bank will adopt a more dovish stance on interest rates in the coming months, citing concerns about the potential impact of rising geopolitical tensions on global economic growth. This announcement sparks a sharp decline in long-term interest rates, as investors become more optimistic about the future outlook for the economy. How does the forecaster update their probability of the S&P 500 increasing by 2025-12-28 in light of this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a more dovish Federal Reserve stance on interest rates strengthens the causal link 'fed_policy -> interest_rates'. This has a positive effect on the causal path 'fed_policy -> interest_rates -> valuations', increasing the likelihood of higher valuations. Additionally, the optimistic outlook for the economy weakens the causal link 'geopolitical_tensions -> global_growth', reducing the negative influence of geopolitical tensions on global economic growth, which in turn supports stronger economic growth. As a result, the probability of the S&P 500 increasing by 2025-12-28 has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of a more dovish Federal Reserve stance on interest rates strengthens the causal link 'fed_policy -> interest_rates'. This has a positive effect on the causal path 'fed_policy -> interest_rates -> valuations', increasing the likelihood of higher valuations. Additionally, the optimistic outlook for the economy weakens the causal link 'geopolitical_tensions -> global_growth', reducing the negative influence of geopolitical tensions on global economic growth, which in turn supports stronger economic growth. As a result, the probability of the S&P 500 increasing by 2025-12-28 has increased.\"\n}",
+      "target_id": "fed_policy->interest_rates",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "SP500",
+    "question_text": "Will the S&P 500, which represents the daily index value at market close have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+    "source": "fred",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.08999999999999998,
+    "max_absolute_shift": 0.22999999999999998
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 1.411764705882353,
+    "mean_shift_high": 0.11999999999999998,
+    "mean_shift_low": 0.08499999999999998,
+    "asymmetry_index": 0.9999999999999999,
+    "mean_shift_negate": 0.10428571428571427,
+    "mean_shift_strengthen": 0.10428571428571429,
+    "fnar": 1,
+    "n_accepted": 3,
+    "n_spurious": 3,
+    "critical_path_premium": 0.03151515151515151,
+    "mean_shift_on_path": 0.10818181818181817,
+    "mean_shift_off_path": 0.07666666666666666,
+    "importance_sensitivity_correlation": 0.12362637362637363,
+    "control_sensitivity": 1
+  }
+}

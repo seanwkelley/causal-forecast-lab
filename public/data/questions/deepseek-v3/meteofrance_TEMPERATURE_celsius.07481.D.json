@@ -1,0 +1,1082 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07481.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Lyon–Saint Exupéry Airport will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.6,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "Typical temperature pattern for late December in Lyon, generally stable or slightly cooling",
+      "role": "factor"
+    },
+    {
+      "id": "weather_system_variability",
+      "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns",
+      "role": "factor"
+    },
+    {
+      "id": "north_atlantic_oscillation",
+      "description": "Large-scale atmospheric pressure pattern influencing European winter weather variability",
+      "role": "factor"
+    },
+    {
+      "id": "atlantic_storm_track",
+      "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe",
+      "role": "factor"
+    },
+    {
+      "id": "local_conditions_28",
+      "description": "Specific cloud cover, precipitation, and wind conditions on December 28, 2025",
+      "role": "factor"
+    },
+    {
+      "id": "local_conditions_21",
+      "description": "Specific cloud cover, precipitation, and wind conditions on December 21, 2025",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_difference",
+      "description": "Comparison of the daily average temperature between the two dates",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_trend",
+      "to": "temperature_difference",
+      "mechanism": "Establishes a weak baseline expectation, but week-to-week differences are common."
+    },
+    {
+      "from": "weather_system_variability",
+      "to": "local_conditions_21",
+      "mechanism": "Determines the specific synoptic setup (e.g., high pressure, southerly flow) for the first date."
+    },
+    {
+      "from": "weather_system_variability",
+      "to": "local_conditions_28",
+      "mechanism": "Determines the specific synoptic setup for the second date, which is independent a week later."
+    },
+    {
+      "from": "north_atlantic_oscillation",
+      "to": "atlantic_storm_track",
+      "mechanism": "Influences whether the jet stream is zonal (mild, wet) or meridional (cold, dry/blocked)."
+    },
+    {
+      "from": "atlantic_storm_track",
+      "to": "weather_system_variability",
+      "mechanism": "Directly drives the sequence and type of weather systems affecting Lyon."
+    },
+    {
+      "from": "local_conditions_21",
+      "to": "temperature_difference",
+      "mechanism": "A colder day on the 21st makes a higher temperature on the 28th more likely, and vice versa."
+    },
+    {
+      "from": "local_conditions_28",
+      "to": "temperature_difference",
+      "mechanism": "A warmer day on the 28th directly increases the probability of the outcome."
+    }
+  ],
+  "reasoning": "The core driver is short-term weather variability, which is high in a European winter. The two dates are a week apart, so the specific weather patterns are largely independent. The seasonal trend suggests stable or slightly cooling temperatures, providing no strong directional signal. Given the high random variability and no predictable long-term signal for that specific week, the probability is slightly above 0.5, reflecting that a random fluctuation could go either way but acknowledging the possibility of a mild Atlantic flow being more common than a severe cold spell for either date.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "temperature_difference",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "Typical temperature pattern for late December in Lyon, generally stable or slightly cooling",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0624,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_system_variability",
+        "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.2,
+        "closeness": 0.2222,
+        "pagerank": 0.1606,
+        "path_relevance": 0.4444
+      },
+      {
+        "node_id": "north_atlantic_oscillation",
+        "description": "Large-scale atmospheric pressure pattern influencing European winter weather variability",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0624,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "atlantic_storm_track",
+        "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.1667,
+        "pagerank": 0.1155,
+        "path_relevance": 0.2222
+      },
+      {
+        "node_id": "local_conditions_28",
+        "description": "Specific cloud cover, precipitation, and wind conditions on December 28, 2025",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.25,
+        "pagerank": 0.1307,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "local_conditions_21",
+        "description": "Specific cloud cover, precipitation, and wind conditions on December 21, 2025",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.25,
+        "pagerank": 0.1307,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "temperature_difference",
+        "description": "Comparison of the daily average temperature between the two dates",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3377,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "temperature_difference",
+        "mechanism": "Establishes a weak baseline expectation, but week-to-week differences are common.",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_system_variability",
+        "target": "local_conditions_21",
+        "mechanism": "Determines the specific synoptic setup (e.g., high pressure, southerly flow) for the first date.",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_system_variability",
+        "target": "local_conditions_28",
+        "mechanism": "Determines the specific synoptic setup for the second date, which is independent a week later.",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "north_atlantic_oscillation",
+        "target": "atlantic_storm_track",
+        "mechanism": "Influences whether the jet stream is zonal (mild, wet) or meridional (cold, dry/blocked).",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "atlantic_storm_track",
+        "target": "weather_system_variability",
+        "mechanism": "Directly drives the sequence and type of weather systems affecting Lyon.",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "local_conditions_28",
+        "target": "temperature_difference",
+        "mechanism": "A warmer day on the 28th directly increases the probability of the outcome.",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "local_conditions_21",
+        "target": "temperature_difference",
+        "mechanism": "A colder day on the 21st makes a higher temperature on the 28th more likely, and vice versa.",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "weather_system_variability",
+        "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atlantic_storm_track",
+        "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "local_conditions_21",
+        "description": "Specific cloud cover, precipitation, and wind conditions on December 21, 2025",
+        "importance": 0.05,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "north_atlantic_oscillation",
+        "description": "Large-scale atmospheric pressure pattern influencing European winter weather variability",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_system_variability",
+        "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atlantic_storm_track",
+        "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atlantic_storm_track->weather_system_variability",
+        "description": "Directly drives the sequence and type of weather systems affecting Lyon.",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "north_atlantic_oscillation->atlantic_storm_track",
+        "description": "Influences whether the jet stream is zonal (mild, wet) or meridional (cold, dry/blocked).",
+        "importance": 0.119,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_trend->temperature_difference",
+        "description": "Establishes a weak baseline expectation, but week-to-week differences are common.",
+        "importance": 0.0238,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atlantic_storm_track->weather_system_variability",
+        "description": "Directly drives the sequence and type of weather systems affecting Lyon.",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "local_conditions_28->seasonal_trend",
+        "description": "Potential link: Specific cloud cover, precipitation, and wind conditions on December 28, 2025 -> Typical temperature pattern for late December in Lyon, generally stable or slightly cooling",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "local_conditions_28->local_conditions_21",
+        "description": "Potential link: Specific cloud cover, precipitation, and wind conditions on December 28, 2025 -> Specific cloud cover, precipitation, and wind conditions on December 21, 2025",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "weather_system_variability",
+      "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atlantic_storm_track",
+      "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "local_conditions_21",
+      "description": "Specific cloud cover, precipitation, and wind conditions on December 21, 2025",
+      "importance": 0.05,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "north_atlantic_oscillation",
+      "description": "Large-scale atmospheric pressure pattern influencing European winter weather variability",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_system_variability",
+      "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atlantic_storm_track",
+      "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "description": "Directly drives the sequence and type of weather systems affecting Lyon.",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "north_atlantic_oscillation->atlantic_storm_track",
+      "description": "Influences whether the jet stream is zonal (mild, wet) or meridional (cold, dry/blocked).",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_trend->temperature_difference",
+      "description": "Establishes a weak baseline expectation, but week-to-week differences are common.",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "description": "Directly drives the sequence and type of weather systems affecting Lyon.",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "local_conditions_28->seasonal_trend",
+      "description": "Potential link: Specific cloud cover, precipitation, and wind conditions on December 28, 2025 -> Typical temperature pattern for late December in Lyon, generally stable or slightly cooling",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "local_conditions_28->local_conditions_21",
+      "description": "Potential link: Specific cloud cover, precipitation, and wind conditions on December 28, 2025 -> Specific cloud cover, precipitation, and wind conditions on December 21, 2025",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "New research suggests that in late December 2025, the atmosphere over Western Europe will be dominated by an unusually persistent and stable high-pressure system, effectively suppressing the formation and movement of fronts, low-pressure systems, and other synoptic features. This 'blocking high' is forecast to remain locked in place for the entire week, making day-to-day and week-to-week weather variability over Lyon negligible. Therefore, the typical causal role of weather system variability in determining local conditions on specific days may be irrelevant during this period.",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_system_variability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns"
+    },
+    {
+      "probe_text": "Suppose new research indicates that due to unusually persistent high-pressure blocking over Scandinavia in December 2025, Atlantic storm systems are consistently deflected northward, preventing them from reaching Western Europe. This would mean the atlantic_storm_track has minimal direct influence on weather variability in Lyon that week, making local conditions driven more by continental air masses and regional dynamics instead.",
+      "probe_type": "node_negate_high",
+      "target_id": "atlantic_storm_track",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe"
+    },
+    {
+      "probe_text": "Recent analysis of long-term weather station data shows that, for Lyon in late December, the daily average temperature on a specific date has negligible autocorrelation with the temperature exactly one week later after accounting for the prevailing large-scale atmospheric patterns. This suggests that the conditions on December 21st provide no meaningful independent signal for predicting the temperature on the 28th, as any apparent relationship is fully mediated by the persistence of weather systems, which is already captured by the 'weather_system_variability' node.",
+      "probe_type": "node_negate_medium",
+      "target_id": "local_conditions_21",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Specific cloud cover, precipitation, and wind conditions on December 21, 2025"
+    },
+    {
+      "probe_text": "Recent studies indicate that during late December 2025, the North Atlantic Oscillation (NAO) is expected to be in a neutral phase with minimal amplitude, making its influence on European weather patterns negligible compared to more localized factors like Mediterranean pressure systems. Historical data for Lyon shows that winter temperature variability in this region is often decoupled from NAO indices due to topographic shielding and continental effects. Therefore, the NAO may not meaningfully affect the storm track or temperature differences between these specific dates.",
+      "probe_type": "node_negate_low",
+      "target_id": "north_atlantic_oscillation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Large-scale atmospheric pressure pattern influencing European winter weather variability"
+    },
+    {
+      "probe_text": "A new study from Météo-France analyzing the past 50 winters in Lyon has found that the standard deviation of daily average temperature anomalies between December 21-28 is 3.2°C. This is significantly higher than the standard deviation of the underlying seasonal trend during that period, confirming that over 80% of the week-to-week temperature variance in late December is attributable to the passage of specific high and low-pressure systems and their associated fronts, rather than to seasonal or climate-scale factors.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_system_variability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Day-to-day and week-to-week fluctuations due to high/low pressure systems, fronts, and wind patterns"
+    },
+    {
+      "probe_text": "The European Centre for Medium-Range Weather Forecasts (ECMWF) has just released a seasonal forecast update indicating a highly active and persistent Atlantic storm track for December 2025, driven by record warm sea surface temperatures in the western Atlantic. This setup is projected to funnel a continuous sequence of strong, moisture-laden low-pressure systems directly toward Western Europe, including France, making the Atlantic storm track the dominant driver of week-to-week weather variability in the region during that period.",
+      "probe_type": "node_strengthen",
+      "target_id": "atlantic_storm_track",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Path and intensity of weather systems moving from the Atlantic towards Western Europe"
+    },
+    {
+      "probe_text": "Recent studies of European winter predictability have highlighted that during strong and persistent Scandinavian blocking patterns, the Atlantic storm track can become completely severed from Western Europe, with weather systems diverted northward or southward. In such regimes, Lyon's weather variability is dominated by local or continental-scale processes like cold-air damming from the east or Mediterranean moisture advection, rendering the Atlantic storm track's direct influence negligible for weeks at a time. If such a blocking pattern is forecast to establish around mid-December 2025, the assumed causal drive from the storm track to Lyon's week-to-week weather variability would be broken for this specific period.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Directly drives the sequence and type of weather systems affecting Lyon."
+    },
+    {
+      "probe_text": "Recent studies suggest that the NAO's influence on the Atlantic storm track has weakened over the past two decades due to Arctic amplification and changes in stratospheric polar vortex stability. Specifically, increased Greenland blocking events can decouple the NAO index from storm track positioning, making the relationship more nonlinear and less deterministic for weekly forecasts in Western Europe. For this specific week in late December 2025, a persistent Scandinavian High could reroute storms north of Lyon regardless of the NAO phase, breaking the assumed causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "north_atlantic_oscillation->atlantic_storm_track",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Influences whether the jet stream is zonal (mild, wet) or meridional (cold, dry/blocked)."
+    },
+    {
+      "probe_text": "New research analyzing decade-long temperature records at Lyon–Saint Exupéry Airport shows that the correlation between seasonal trend and week-to-week temperature differences in late December is essentially zero (r ≈ 0.02). The baseline expectation appears to be dominated entirely by atmospheric noise, with the stable seasonal pattern providing no predictive signal for which of two specific dates one week apart will be warmer.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "seasonal_trend->temperature_difference",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Establishes a weak baseline expectation, but week-to-week differences are common."
+    },
+    {
+      "probe_text": "Recent research suggests that persistent, small-scale weather system variability over Europe, such as recurring high-pressure blocks or localized cyclogenesis, can feed back into larger atmospheric patterns by altering pressure gradients and steering currents. These aggregated regional anomalies can actually reshape the dominant Atlantic storm track on weekly timescales, shifting its latitude or intensity. For example, a persistent Scandinavian high could deflect the storm track southward, meaning the variability in Lyon's weather systems might precede and influence the storm track configuration, not just result from it.",
+      "probe_type": "edge_reverse",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Directly drives the sequence and type of weather systems affecting Lyon."
+    },
+    {
+      "probe_text": "Local conditions on December 28, such as heavy cloud cover and precipitation from a persistent low-pressure system, could delay the typical seasonal cooling trend by trapping heat and preventing radiative cooling. This might temporarily alter the baseline expectation for late December temperatures in Lyon, effectively influencing the perceived seasonal trend. Therefore, specific conditions on that day could directly impact the assessment of the seasonal pattern.",
+      "probe_type": "edge_spurious",
+      "target_id": "local_conditions_28->seasonal_trend",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Specific cloud cover, precipitation, and wind conditions on December 28, 2025 -> Typical temperature pattern for late December in Lyon, generally stable or slightly cooling"
+    },
+    {
+      "probe_text": "Consider that a persistent atmospheric blocking pattern, such as an Omega block over Europe, could establish a stable weather regime lasting more than a week. If such a block is in place around December 28th, it likely began forming several days earlier, influencing the conditions on December 21st as well. This means the local conditions on the 28th are not independent; they provide evidence about the large-scale pattern that also shaped the conditions on the 21st.",
+      "probe_type": "edge_spurious",
+      "target_id": "local_conditions_28->local_conditions_21",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Specific cloud cover, precipitation, and wind conditions on December 28, 2025 -> Specific cloud cover, precipitation, and wind conditions on December 21, 2025"
+    },
+    {
+      "probe_text": "Suppose new evidence emerges that a strong stratospheric warming event is likely to occur in late December 2025, potentially disrupting the polar vortex. This can cause a sudden shift to colder, more meridional flow patterns over Europe, overriding typical Atlantic-driven variability. How would this alter your probability that the temperature on December 28 is higher than on December 21?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose a new climate model analysis indicates that in late December 2025, a strong stratospheric polar vortex disruption is expected to propagate downward, leading to a sudden and sustained shift towards colder, blocked weather patterns over Europe starting around December 24. This factor is not represented in your network. How would this new information affect your probability that the temperature on December 28 is higher than on December 21?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A major solar flare is predicted to occur on 2025-12-24, which could disrupt satellite communications used by some weather forecasting models. However, the flare is not expected to significantly alter atmospheric conditions over Europe or affect ground-based weather observations.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "You're always so mean to me.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "New research suggests that in late December 2025, the atmosphere over Western Europe will be dominated by an unusually persistent and stable high-pressure system, effectively suppressing the formation and movement of fronts, low-pressure systems, and other synoptic features. This 'blocking high' is forecast to remain locked in place for the entire week, making day-to-day and week-to-week weather variability over Lyon negligible. Therefore, the typical causal role of weather system variability in determining local conditions on specific days may be irrelevant during this period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge fundamentally alters the 'weather_system_variability' node. If a persistent blocking high suppresses synoptic variability, the primary driver of independent local conditions on Dec 21 and Dec 28 is removed. The edges 'weather_system_variability -> local_conditions_21' and 'weather_system_variability -> local_conditions_28' are severely weakened. This strongly couples local_conditions_21 and local_conditions_28, making them highly similar. Consequently, the causal path where a cold day on the 21st makes a warmer day on the 28th more likely (and vice versa) is broken. The temperature difference now depends almost entirely on minor local fluctuations under the same large-scale regime. With both days likely under similar stable, high-pressure conditions, the probability of a significant temperature difference decreases. My initial estimate of 0.60 incorporated substantial independent variability; reducing that variability shifts the probability closer to 0.50. However, it is not exactly 0.50 because the seasonal trend (slight cooling) and minor local effects (e.g., fog, exact wind direction) could still cause a small difference. The update is moderate, not extreme, because the blocking high itself is a specific type of 'north_atlantic_oscillation/atlantic_storm_track' state, which was already a node in the network, so some large-scale influence remains.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge fundamentally alters the 'weather_system_variability' node. If a persistent blocking high suppresses synoptic variability, the primary driver of independent local conditions on Dec 21 and Dec 28 is removed. The edges 'weather_system_variability -> local_conditions_21' and 'weather_system_variability -> local_conditions_28' are severely weakened. This strongly couples local_conditions_21 and local_conditions_28, making them highly similar. Consequently, the causal path where a cold day on the 21st makes a warmer day on the 28th more likely (and vice versa) is broken. The temperature difference now depends almost entirely on minor local fluctuations under the same large-scale regime. With both days likely under similar stable, high-pressure conditions, the probability of a significant temperature difference decreases. My initial estimate of 0.60 incorporated substantial independent variability; reducing that variability shifts the probability closer to 0.50. However, it is not exactly 0.50 because the seasonal trend (slight cooling) and minor local effects (e.g., fog, exact wind direction) could still cause a small difference. The update is moderate, not extreme, because the blocking high itself is a specific type of 'north_atlantic_oscillation/atlantic_storm_track' state, which was already a node in the network, so some large-scale influence remains.\"\n}",
+      "target_id": "weather_system_variability",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose new research indicates that due to unusually persistent high-pressure blocking over Scandinavia in December 2025, Atlantic storm systems are consistently deflected northward, preventing them from reaching Western Europe. This would mean the atlantic_storm_track has minimal direct influence on weather variability in Lyon that week, making local conditions driven more by continental air masses and regional dynamics instead.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens the causal link from atlantic_storm_track to weather_system_variability, reducing the influence of Atlantic-driven systems on local conditions. However, the outcome depends on the comparison of local conditions between the two dates, which are still subject to variability from other sources (e.g., continental air masses, regional dynamics). The persistent blocking over Scandinavia introduces a more stable, potentially colder continental influence, which may reduce extreme fluctuations but not eliminate week-to-week differences. Given the seasonal trend (late December typically stable/slightly cooling) and the independence of local conditions a week apart, the probability of the 28th being warmer than the 21st increases slightly because the blocking scenario may favor more consistent conditions, but random variability remains. The update is moderate because atlantic_storm_track was a key driver of variability, but its reduced influence doesn't drastically alter the baseline uncertainty in comparing two specific days a week apart.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens the causal link from atlantic_storm_track to weather_system_variability, reducing the influence of Atlantic-driven systems on local conditions. However, the outcome depends on the comparison of local conditions between the two dates, which are still subject to variability from other sources (e.g., continental air masses, regional dynamics). The persistent blocking over Scandinavia introduces a more stable, potentially colder continental influence, which may reduce extreme fluctuations but not eliminate week-to-week differences. Given the seasonal trend (late December typically stable/slightly cooling) and the independence of local conditions a week apart, the probability of the 28th being warmer than the 21st increases slightly because the blocking scenario may favor more consistent conditions, but random variability remains. The update is moderate because atlantic_storm_track was a key driver of variability, but its reduced influence doesn't drastically alter the baseline uncertainty in comparing two specific days a week apart.\"\n}",
+      "target_id": "atlantic_storm_track",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of long-term weather station data shows that, for Lyon in late December, the daily average temperature on a specific date has negligible autocorrelation with the temperature exactly one week later after accounting for the prevailing large-scale atmospheric patterns. This suggests that the conditions on December 21st provide no meaningful independent signal for predicting the temperature on the 28th, as any apparent relationship is fully mediated by the persistence of weather systems, which is already captured by the 'weather_system_variability' node.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge removes the direct causal link from 'local_conditions_21' to 'temperature_difference' by arguing that temperature on December 21st has no independent predictive power for December 28th after accounting for large-scale patterns (mediated through 'weather_system_variability'). This breaks the path where a colder day on the 21st makes a warmer day on the 28th more likely, reducing the asymmetry in the outcome's probability distribution. However, other causal paths remain intact: 'seasonal_trend' provides a weak baseline, and 'local_conditions_28' still directly influences the outcome via 'weather_system_variability' and 'atlantic_storm_track' (driven by 'north_atlantic_oscillation'). The outcome now depends more on the independent variability between the two weeks, moving the probability closer to 0.5 (random chance), but not fully to 0.5 because 'seasonal_trend' and residual variability from 'weather_system_variability' still introduce slight bias. Thus, the update is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge removes the direct causal link from 'local_conditions_21' to 'temperature_difference' by arguing that temperature on December 21st has no independent predictive power for December 28th after accounting for large-scale patterns (mediated through 'weather_system_variability'). This breaks the path where a colder day on the 21st makes a warmer day on the 28th more likely, reducing the asymmetry in the outcome's probability distribution. However, other causal paths remain intact: 'seasonal_trend' provides a weak baseline, and 'local_conditions_28' still directly influences the outcome via 'weather_system_variability' and 'atlantic_storm_track' (driven by 'north_atlantic_oscillation'). The outcome now depends more on the independent variability between the two weeks, moving the probability closer to 0.5 (random chance), but not fully to 0.5 because 'seasonal_trend' and residual variability from 'weather_system_variability' still introduce slight bias. Thus, the update is moderate.\"\n}",
+      "target_id": "local_conditions_21",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent studies indicate that during late December 2025, the North Atlantic Oscillation (NAO) is expected to be in a neutral phase with minimal amplitude, making its influence on European weather patterns negligible compared to more localized factors like Mediterranean pressure systems. Historical data for Lyon shows that winter temperature variability in this region is often decoupled from NAO indices due to topographic shielding and continental effects. Therefore, the NAO may not meaningfully affect the storm track or temperature differences between these specific dates.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge argues that the North Atlantic Oscillation (NAO) will be neutral and its influence negligible for this forecast, potentially breaking the causal path from NAO to the atlantic_storm_track and subsequently to weather_system_variability. However, in the original causal network, the NAO is just one factor influencing the storm track; weather_system_variability is driven by multiple factors including the storm track but also independent atmospheric fluctuations. Even if the NAO's effect is reduced, day-to-day weather variability remains high in late December due to other synoptic patterns, local conditions, and Mediterranean influences. The core reasoning—that temperatures a week apart are largely independent and influenced by unpredictable weather systems—remains valid. The initial probability of 0.60 already accounted for significant uncertainty, and removing one contributing factor does not substantially alter the baseline expectation of random fluctuation between the two dates. Thus, no update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge argues that the North Atlantic Oscillation (NAO) will be neutral and its influence negligible for this forecast, potentially breaking the causal path from NAO to the atlantic_storm_track and subsequently to weather_system_variability. However, in the original causal network, the NAO is just one factor influencing the storm track; weather_system_variability is driven by multiple factors including the storm track but also independent atmospheric fluctuations. Even if the NAO's effect is reduced, day-to-day weather variability remains high in late December due to other synoptic patterns, local conditions, and Mediterranean influences. The core reasoning—that temperatures a week apart are largely independent and influenced by unpredictable weather systems—remains valid. The initial probability of 0.60 already accounted for significant uncertainty, and removing one contributing factor does not substantially alter the baseline expectation of random fluctuation between the two dates. Thus, no update to the probability is warranted.\"\n}",
+      "target_id": "north_atlantic_oscillation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study from Météo-France analyzing the past 50 winters in Lyon has found that the standard deviation of daily average temperature anomalies between December 21-28 is 3.2°C. This is significantly higher than the standard deviation of the underlying seasonal trend during that period, confirming that over 80% of the week-to-week temperature variance in late December is attributable to the passage of specific high and low-pressure systems and their associated fronts, rather than to seasonal or climate-scale factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link from 'weather_system_variability' to the outcome by confirming its dominant role (over 80% of week-to-week temperature variance) compared to seasonal trends. This elevates the importance of independent synoptic setups on the two dates, making the outcome more uncertain and less anchored to a stable seasonal baseline. Since my initial estimate already accounted for variability (0.60, slightly above 0.50), this evidence slightly increases the probability as it reinforces that the outcome is primarily driven by random weather systems, not predictable seasonal cooling, but does not fundamentally alter the causal structure or justify a large update.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link from 'weather_system_variability' to the outcome by confirming its dominant role (over 80% of week-to-week temperature variance) compared to seasonal trends. This elevates the importance of independent synoptic setups on the two dates, making the outcome more uncertain and less anchored to a stable seasonal baseline. Since my initial estimate already accounted for variability (0.60, slightly above 0.50), this evidence slightly increases the probability as it reinforces that the outcome is primarily driven by random weather systems, not predictable seasonal cooling, but does not fundamentally alter the causal structure or justify a large update.\"\n}",
+      "target_id": "weather_system_variability",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The European Centre for Medium-Range Weather Forecasts (ECMWF) has just released a seasonal forecast update indicating a highly active and persistent Atlantic storm track for December 2025, driven by record warm sea surface temperatures in the western Atlantic. This setup is projected to funnel a continuous sequence of strong, moisture-laden low-pressure systems directly toward Western Europe, including France, making the Atlantic storm track the dominant driver of week-to-week weather variability in the region during that period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge strengthens the 'atlantic_storm_track' as a dominant driver, leading to more predictable and persistent weather patterns (e.g., consistent mild, wet conditions from continuous low-pressure systems). This reduces the variability between the two dates one week apart, making extreme temperature differences less likely. Specifically, the path from 'atlantic_storm_track' to 'weather_system_variability' becomes more influential, decreasing the independence of 'local_conditions_21' and 'local_conditions_28' and thus lowering the probability of a significant temperature shift. However, the outcome remains uncertain due to other factors like the North Atlantic Oscillation and local conditions, so the update is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge strengthens the 'atlantic_storm_track' as a dominant driver, leading to more predictable and persistent weather patterns (e.g., consistent mild, wet conditions from continuous low-pressure systems). This reduces the variability between the two dates one week apart, making extreme temperature differences less likely. Specifically, the path from 'atlantic_storm_track' to 'weather_system_variability' becomes more influential, decreasing the independence of 'local_conditions_21' and 'local_conditions_28' and thus lowering the probability of a significant temperature shift. However, the outcome remains uncertain due to other factors like the North Atlantic Oscillation and local conditions, so the update is moderate.\"\n}",
+      "target_id": "atlantic_storm_track",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies of European winter predictability have highlighted that during strong and persistent Scandinavian blocking patterns, the Atlantic storm track can become completely severed from Western Europe, with weather systems diverted northward or southward. In such regimes, Lyon's weather variability is dominated by local or continental-scale processes like cold-air damming from the east or Mediterranean moisture advection, rendering the Atlantic storm track's direct influence negligible for weeks at a time. If such a blocking pattern is forecast to establish around mid-December 2025, the assumed causal drive from the storm track to Lyon's week-to-week weather variability would be broken for this specific period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the critical causal link 'atlantic_storm_track->weather_system_variability'. If a strong Scandinavian blocking pattern establishes around mid-December 2025, the Atlantic storm track's direct influence on Lyon's weather variability is severed. This breaks a key driver of week-to-week fluctuations, reducing predictability and making the temperature difference more dependent on local or continental processes (e.g., cold-air damming or Mediterranean advection) that are less systematic. Without the storm track as a dominant forcing, the independence of local conditions between the two dates becomes less certain, weakening the baseline expectation from seasonal trends. The outcome becomes more like a coin flip, so I lower the probability from 0.60 to 0.50.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the critical causal link 'atlantic_storm_track->weather_system_variability'. If a strong Scandinavian blocking pattern establishes around mid-December 2025, the Atlantic storm track's direct influence on Lyon's weather variability is severed. This breaks a key driver of week-to-week fluctuations, reducing predictability and making the temperature difference more dependent on local or continental processes (e.g., cold-air damming or Mediterranean advection) that are less systematic. Without the storm track as a dominant forcing, the independence of local conditions between the two dates becomes less certain, weakening the baseline expectation from seasonal trends. The outcome becomes more like a coin flip, so I lower the probability from 0.60 to 0.50.\"\n}",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that the NAO's influence on the Atlantic storm track has weakened over the past two decades due to Arctic amplification and changes in stratospheric polar vortex stability. Specifically, increased Greenland blocking events can decouple the NAO index from storm track positioning, making the relationship more nonlinear and less deterministic for weekly forecasts in Western Europe. For this specific week in late December 2025, a persistent Scandinavian High could reroute storms north of Lyon regardless of the NAO phase, breaking the assumed causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link from north_atlantic_oscillation (NAO) to atlantic_storm_track, suggesting that the NAO's influence on storm track positioning is less deterministic and more nonlinear, especially for weekly forecasts. This affects the causal path: north_atlantic_oscillation -> atlantic_storm_track -> weather_system_variability -> local_conditions_21/28 -> temperature_difference. While this reduces the predictive power of the NAO, weather_system_variability remains driven by other factors (e.g., persistent Scandinavian High, local blocking patterns), and seasonal_trend and local_conditions still directly influence the outcome. The outcome still depends heavily on independent week-to-week weather variability, so the update is small, reflecting slightly increased uncertainty in the NAO's role.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link from north_atlantic_oscillation (NAO) to atlantic_storm_track, suggesting that the NAO's influence on storm track positioning is less deterministic and more nonlinear, especially for weekly forecasts. This affects the causal path: north_atlantic_oscillation -> atlantic_storm_track -> weather_system_variability -> local_conditions_21/28 -> temperature_difference. While this reduces the predictive power of the NAO, weather_system_variability remains driven by other factors (e.g., persistent Scandinavian High, local blocking patterns), and seasonal_trend and local_conditions still directly influence the outcome. The outcome still depends heavily on independent week-to-week weather variability, so the update is small, reflecting slightly increased uncertainty in the NAO's role.\"\n}",
+      "target_id": "north_atlantic_oscillation->atlantic_storm_track",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "New research analyzing decade-long temperature records at Lyon–Saint Exupéry Airport shows that the correlation between seasonal trend and week-to-week temperature differences in late December is essentially zero (r ≈ 0.02). The baseline expectation appears to be dominated entirely by atmospheric noise, with the stable seasonal pattern providing no predictive signal for which of two specific dates one week apart will be warmer.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge removes the weak baseline expectation from seasonal_trend to temperature_difference, which previously contributed a slight upward bias (0.60). With seasonal_trend now having essentially zero correlation, the outcome is determined solely by weather_system_variability and its effects through local_conditions_21 and local_conditions_28. Since these are independent and unpredictable a week apart, the probability reverts to a neutral prior of 0.50, indicating no systematic advantage for either date being warmer.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge removes the weak baseline expectation from seasonal_trend to temperature_difference, which previously contributed a slight upward bias (0.60). With seasonal_trend now having essentially zero correlation, the outcome is determined solely by weather_system_variability and its effects through local_conditions_21 and local_conditions_28. Since these are independent and unpredictable a week apart, the probability reverts to a neutral prior of 0.50, indicating no systematic advantage for either date being warmer.\"\n}",
+      "target_id": "seasonal_trend->temperature_difference",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that persistent, small-scale weather system variability over Europe, such as recurring high-pressure blocks or localized cyclogenesis, can feed back into larger atmospheric patterns by altering pressure gradients and steering currents. These aggregated regional anomalies can actually reshape the dominant Atlantic storm track on weekly timescales, shifting its latitude or intensity. For example, a persistent Scandinavian high could deflect the storm track southward, meaning the variability in Lyon's weather systems might precede and influence the storm track configuration, not just result from it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge introduces a feedback loop where weather_system_variability can influence atlantic_storm_track, potentially making the causal relationship bidirectional rather than unidirectional. However, this does not break the causal link from atlantic_storm_track to weather_system_variability; it adds complexity by allowing regional anomalies to reshape the storm track on weekly timescales. For the specific outcome (temperature difference between two dates one week apart), the primary causal paths (atlantic_storm_track -> weather_system_variability -> local_conditions -> temperature_difference) remain intact, as the storm track still drives weather system variability affecting Lyon. The feedback effect might increase uncertainty slightly by making the system more dynamic, but it does not fundamentally alter the baseline expectation of independence between the two dates' conditions or the weak seasonal trend. Thus, the initial probability estimate of 0.60 remains reasonable, reflecting inherent variability without a strong directional bias.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge introduces a feedback loop where weather_system_variability can influence atlantic_storm_track, potentially making the causal relationship bidirectional rather than unidirectional. However, this does not break the causal link from atlantic_storm_track to weather_system_variability; it adds complexity by allowing regional anomalies to reshape the storm track on weekly timescales. For the specific outcome (temperature difference between two dates one week apart), the primary causal paths (atlantic_storm_track -> weather_system_variability -> local_conditions -> temperature_difference) remain intact, as the storm track still drives weather system variability affecting Lyon. The feedback effect might increase uncertainty slightly by making the system more dynamic, but it does not fundamentally alter the baseline expectation of independence between the two dates' conditions or the weak seasonal trend. Thus, the initial probability estimate of 0.60 remains reasonable, reflecting inherent variability without a strong directional bias.\"\n}",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Local conditions on December 28, such as heavy cloud cover and precipitation from a persistent low-pressure system, could delay the typical seasonal cooling trend by trapping heat and preventing radiative cooling. This might temporarily alter the baseline expectation for late December temperatures in Lyon, effectively influencing the perceived seasonal trend. Therefore, specific conditions on that day could directly impact the assessment of the seasonal pattern.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge incorrectly identifies a causal link from 'local_conditions_28' to 'seasonal_trend', which is not present in the original causal network. The seasonal trend is defined as a typical, long-term pattern for late December in Lyon and is independent of specific daily conditions on December 28, 2025. Therefore, this challenge does not affect any valid causal paths leading to the outcome. The probability remains unchanged as the causal structure and reasoning are unaffected.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge incorrectly identifies a causal link from 'local_conditions_28' to 'seasonal_trend', which is not present in the original causal network. The seasonal trend is defined as a typical, long-term pattern for late December in Lyon and is independent of specific daily conditions on December 28, 2025. Therefore, this challenge does not affect any valid causal paths leading to the outcome. The probability remains unchanged as the causal structure and reasoning are unaffected.\"\n}",
+      "target_id": "local_conditions_28->seasonal_trend",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider that a persistent atmospheric blocking pattern, such as an Omega block over Europe, could establish a stable weather regime lasting more than a week. If such a block is in place around December 28th, it likely began forming several days earlier, influencing the conditions on December 21st as well. This means the local conditions on the 28th are not independent; they provide evidence about the large-scale pattern that also shaped the conditions on the 21st.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces dependence between local_conditions_21 and local_conditions_28 via a potential persistent blocking pattern (e.g., an Omega block), which weakens the causal independence assumed in the original network. This reduces the variability in weather system influences over the week, making it more likely that temperatures on both dates are similar (e.g., both colder or both warmer under a stable regime). Specifically, the edge from local_conditions_28 to temperature_difference is now less informative as a standalone driver because it correlates with local_conditions_21, diminishing the probability that one date is significantly higher than the other. However, the update is moderate because blocking patterns are not guaranteed (weather_system_variability and north_atlantic_oscillation still allow other regimes), and seasonal_trend remains a weak baseline. The probability decreases from 0.60 to 0.55 to reflect increased chance of similar temperatures under persistent conditions.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces dependence between local_conditions_21 and local_conditions_28 via a potential persistent blocking pattern (e.g., an Omega block), which weakens the causal independence assumed in the original network. This reduces the variability in weather system influences over the week, making it more likely that temperatures on both dates are similar (e.g., both colder or both warmer under a stable regime). Specifically, the edge from local_conditions_28 to temperature_difference is now less informative as a standalone driver because it correlates with local_conditions_21, diminishing the probability that one date is significantly higher than the other. However, the update is moderate because blocking patterns are not guaranteed (weather_system_variability and north_atlantic_oscillation still allow other regimes), and seasonal_trend remains a weak baseline. The probability decreases from 0.60 to 0.55 to reflect increased chance of similar temperatures under persistent conditions.\"\n}",
+      "target_id": "local_conditions_28->local_conditions_21",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose new evidence emerges that a strong stratospheric warming event is likely to occur in late December 2025, potentially disrupting the polar vortex. This can cause a sudden shift to colder, more meridional flow patterns over Europe, overriding typical Atlantic-driven variability. How would this alter your probability that the temperature on December 28 is higher than on December 21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.14999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The stratospheric warming event introduces a new node (polar_vortex_disruption) that strongly influences north_atlantic_oscillation and atlantic_storm_track, overriding typical variability. This increases the likelihood of a meridional (blocked) flow pattern, leading to colder, more persistent conditions over Europe in late December. This structural change affects the causal path from north_atlantic_oscillation -> atlantic_storm_track -> weather_system_variability -> local_conditions, making both dates more likely to be cold, but with increased volatility. Since the event is 'likely' and occurs in 'late December,' it particularly elevates the chance of a cold shift around December 28, reducing the probability that December 28 is warmer than December 21. The update is moderate (from 0.60 to 0.45) because while the event disrupts typical patterns, specific day-to-day outcomes remain uncertain, and the baseline seasonal trend still provides some stability.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The stratospheric warming event introduces a new node (polar_vortex_disruption) that strongly influences north_atlantic_oscillation and atlantic_storm_track, overriding typical variability. This increases the likelihood of a meridional (blocked) flow pattern, leading to colder, more persistent conditions over Europe in late December. This structural change affects the causal path from north_atlantic_oscillation -> atlantic_storm_track -> weather_system_variability -> local_conditions, making both dates more likely to be cold, but with increased volatility. Since the event is 'likely' and occurs in 'late December,' it particularly elevates the chance of a cold shift around December 28, reducing the probability that December 28 is warmer than December 21. The update is moderate (from 0.60 to 0.45) because while the event disrupts typical patterns, specific day-to-day outcomes remain uncertain, and the baseline seasonal trend still provides some stability.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose a new climate model analysis indicates that in late December 2025, a strong stratospheric polar vortex disruption is expected to propagate downward, leading to a sudden and sustained shift towards colder, blocked weather patterns over Europe starting around December 24. This factor is not represented in your network. How would this new information affect your probability that the temperature on December 28 is higher than on December 21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.35,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about a strong stratospheric polar vortex disruption introduces a major, unmodeled causal factor that strongly affects multiple paths. This event is predicted to cause a 'sudden and sustained shift towards colder, blocked weather patterns over Europe starting around December 24.' This directly challenges the node representing 'weather_system_variability' and its assumed independence between the two dates. The disruption would override typical 'atlantic_storm_track' behavior, likely leading to a meridional/blocked pattern. Consequently, 'local_conditions_21' (before the shift) are more likely to be in a milder, pre-disruption regime, while 'local_conditions_28' are now strongly biased towards being colder due to the entrenched blocked pattern. This breaks the prior assumption of independent week-to-week variability and introduces a strong systematic cooling trend between the two dates, making it much less probable that December 28 is warmer than December 21. The 'seasonal_trend' baseline is also overridden by this significant forced pattern change. This is a structural challenge to a core assumption of independence, warranting a large decrease in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about a strong stratospheric polar vortex disruption introduces a major, unmodeled causal factor that strongly affects multiple paths. This event is predicted to cause a 'sudden and sustained shift towards colder, blocked weather patterns over Europe starting around December 24.' This directly challenges the node representing 'weather_system_variability' and its assumed independence between the two dates. The disruption would override typical 'atlantic_storm_track' behavior, likely leading to a meridional/blocked pattern. Consequently, 'local_conditions_21' (before the shift) are more likely to be in a milder, pre-disruption regime, while 'local_conditions_28' are now strongly biased towards being colder due to the entrenched blocked pattern. This breaks the prior assumption of independent week-to-week variability and introduces a strong systematic cooling trend between the two dates, making it much less probable that December 28 is warmer than December 21. The 'seasonal_trend' baseline is also overridden by this significant forced pattern change. This is a structural challenge to a core assumption of independence, warranting a large decrease in probability.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A major solar flare is predicted to occur on 2025-12-24, which could disrupt satellite communications used by some weather forecasting models. However, the flare is not expected to significantly alter atmospheric conditions over Europe or affect ground-based weather observations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge states that the solar flare could disrupt satellite communications used by some weather forecasting models, but it is not expected to significantly alter atmospheric conditions over Europe or affect ground-based observations. Since my causal model relies on actual atmospheric conditions (e.g., seasonal_trend, weather_system_variability, local_conditions) and large-scale patterns (e.g., north_atlantic_oscillation, atlantic_storm_track) that are physically determined, not on forecast accuracy or data availability, the flare does not affect any causal paths leading to the temperature_difference outcome. The outcome depends on real weather phenomena, not on human forecasting capabilities. Therefore, no update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge states that the solar flare could disrupt satellite communications used by some weather forecasting models, but it is not expected to significantly alter atmospheric conditions over Europe or affect ground-based observations. Since my causal model relies on actual atmospheric conditions (e.g., seasonal_trend, weather_system_variability, local_conditions) and large-scale patterns (e.g., north_atlantic_oscillation, atlantic_storm_track) that are physically determined, not on forecast accuracy or data availability, the flare does not affect any causal paths leading to the temperature_difference outcome. The outcome depends on real weather phenomena, not on human forecasting capabilities. Therefore, no update to the probability is warranted.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "You're always so mean to me.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The statement 'You're always so mean to me' does not challenge any causal elements in the network (e.g., seasonal_trend, weather_system_variability, north_atlantic_oscillation, atlantic_storm_track, local_conditions, or their links). It appears unrelated to atmospheric physics, meteorological factors, or the structural relationships governing temperature differences. No causal paths are affected, so the probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The statement 'You're always so mean to me' does not challenge any causal elements in the network (e.g., seasonal_trend, weather_system_variability, north_atlantic_oscillation, atlantic_storm_track, local_conditions, or their links). It appears unrelated to atmospheric physics, meteorological factors, or the structural relationships governing temperature differences. No causal paths are affected, so the probability estimate remains unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "New long-range forecast models show an unusually strong high-pressure system developing over Scandinavia around December 20, 2025. This setup would likely bring clear skies, calm winds, and strong nighttime radiative cooling to Lyon on December 21, resulting in significantly colder than average morning temperatures that day.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.7,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information about a strong high-pressure system developing over Scandinavia around December 20, 2025, directly affects the 'local_conditions_21' node by making it significantly colder than average due to clear skies, calm winds, and strong nighttime radiative cooling. This strengthens the causal path from 'local_conditions_21' to 'temperature_difference', as a colder day on the 21st makes a higher temperature on the 28th more likely. The independence of weather systems a week apart (from 'weather_system_variability' to 'local_conditions_28') means the 28th's conditions are not directly influenced by this high-pressure system, increasing the probability that the temperature on the 28th will be higher.",
+      "raw_response": "{\n  \"updated_probability\": 0.70,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information about a strong high-pressure system developing over Scandinavia around December 20, 2025, directly affects the 'local_conditions_21' node by making it significantly colder than average due to clear skies, calm winds, and strong nighttime radiative cooling. This strengthens the causal path from 'local_conditions_21' to 'temperature_difference', as a colder day on the 21st makes a higher temperature on the 28th more likely. The independence of weather systems a week apart (from 'weather_system_variability' to 'local_conditions_28') means the 28th's conditions are not directly influenced by this high-pressure system, increasing the probability that the temperature on the 28th will be higher.\"\n}",
+      "target_id": "local_conditions_21",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "New climate model analyses show that the North Atlantic Oscillation (NAO) is currently in an unusually strong positive phase, which typically brings warmer and wetter conditions to Western Europe during winter months. This persistent positive NAO pattern is expected to continue through December 2025, increasing the likelihood of zonal flow and mild Atlantic air masses reaching Lyon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "increased",
+      "reasoning": "The strong positive phase of the North Atlantic Oscillation (NAO) increases the likelihood of zonal flow and mild Atlantic air masses reaching Lyon. This affects the causal paths 'north_atlantic_oscillation -> atlantic_storm_track' and 'atlantic_storm_track -> weather_system_variability', leading to more consistent mild conditions. As a result, the probability of the temperature being higher on December 28 than on December 21 increases.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strong positive phase of the North Atlantic Oscillation (NAO) increases the likelihood of zonal flow and mild Atlantic air masses reaching Lyon. This affects the causal paths 'north_atlantic_oscillation -> atlantic_storm_track' and 'atlantic_storm_track -> weather_system_variability', leading to more consistent mild conditions. As a result, the probability of the temperature being higher on December 28 than on December 21 increases.\"\n}",
+      "target_id": "north_atlantic_oscillation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent research published in the Journal of Climate has shown that the Atlantic storm track's influence on Western European weather variability has strengthened by 15-20% over the past two decades due to Arctic amplification. This means the position and intensity of Atlantic storm systems now have an even more deterministic role in shaping the sequence of high/low pressure systems affecting Lyon than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "increased",
+      "reasoning": "The strengthened influence of the Atlantic storm track on weather system variability implies that the sequence of high/low pressure systems affecting Lyon will be more deterministic. This increases the likelihood that the weather conditions on December 28, 2025, will be significantly different from those on December 21, 2025, thereby increasing the probability of a temperature difference. The causal link 'atlantic_storm_track->weather_system_variability' is central to the model, so this update is substantial.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strengthened influence of the Atlantic storm track on weather system variability implies that the sequence of high/low pressure systems affecting Lyon will be more deterministic. This increases the likelihood that the weather conditions on December 28, 2025, will be significantly different from those on December 21, 2025, thereby increasing the probability of a temperature difference. The causal link 'atlantic_storm_track->weather_system_variability' is central to the model, so this update is substantial.\"\n}",
+      "target_id": "atlantic_storm_track->weather_system_variability",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent research published in Nature Climate Change (2024) shows that the North Atlantic Oscillation (NAO) has exhibited an increasingly strong coupling with the Atlantic storm track over the past decade, with NAO indices now explaining over 60% of variance in storm track position (up from ~40% in early 2000s). This enhanced coupling is particularly pronounced during December, when NAO phases directly determine whether Lyon experiences mild Atlantic flow (positive NAO) or blocked, continental conditions (negative NAO).",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between the North Atlantic Oscillation (NAO) and the Atlantic storm track, particularly in December. This enhanced coupling means that the NAO's influence on weather system variability and, consequently, local conditions for both dates is more pronounced. Given that NAO phases can more directly determine whether Lyon experiences mild Atlantic flow or blocked conditions, the variability in temperature differences between the two dates may be more systematically influenced by NAO states. This increases the predictability of temperature differences based on NAO phases, slightly increasing the probability that the temperature on December 28 will be higher than on December 21.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between the North Atlantic Oscillation (NAO) and the Atlantic storm track, particularly in December. This enhanced coupling means that the NAO's influence on weather system variability and, consequently, local conditions for both dates is more pronounced. Given that NAO phases can more directly determine whether Lyon experiences mild Atlantic flow or blocked conditions, the variability in temperature differences between the two dates may be more systematically influenced by NAO states. This increases the predictability of temperature differences based on NAO phases, slightly increasing the probability that the temperature on December 28 will be higher than on December 21.\"\n}",
+      "target_id": "north_atlantic_oscillation->atlantic_storm_track",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07481.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Lyon–Saint Exupéry Airport will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.6,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.061874999999999986,
+    "max_absolute_shift": 0.35
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 1.6249999999999998,
+    "mean_shift_high": 0.04875,
+    "mean_shift_low": 0.030000000000000006,
+    "asymmetry_index": 0.991071428571428,
+    "mean_shift_negate": 0.05285714285714284,
+    "mean_shift_strengthen": 0.053333333333333344,
+    "fnar": 0.5,
+    "n_accepted": 2,
+    "n_spurious": 4,
+    "critical_path_premium": -0.02166666666666666,
+    "mean_shift_on_path": 0.05333333333333332,
+    "mean_shift_off_path": 0.07499999999999998,
+    "importance_sensitivity_correlation": -0.2272727272727273,
+    "control_sensitivity": 0
+  }
+}

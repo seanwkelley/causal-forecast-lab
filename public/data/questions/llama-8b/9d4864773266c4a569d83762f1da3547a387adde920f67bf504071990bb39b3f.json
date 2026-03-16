@@ -1,0 +1,1200 @@
+{
+  "question_id": "9d4864773266c4a569d83762f1da3547a387adde920f67bf504071990bb39b3f",
+  "question_text": "Will there be more than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.23,
+  "nodes": [
+    {
+      "id": "conflict_history",
+      "description": "The history of conflicts in the region",
+      "role": "factor"
+    },
+    {
+      "id": "political_stability",
+      "description": "Stability of the current government",
+      "role": "factor"
+    },
+    {
+      "id": "economic_growth",
+      "description": "Current economic growth rate in Ethiopia",
+      "role": "factor"
+    },
+    {
+      "id": "migration_patterns",
+      "description": "Patterns of migration in and out of the region",
+      "role": "factor"
+    },
+    {
+      "id": "climate_conditions",
+      "description": "Recent climate conditions affecting the region",
+      "role": "factor"
+    },
+    {
+      "id": "international_influence",
+      "description": "Influence of international actors on the region",
+      "role": "factor"
+    },
+    {
+      "id": "violence_against_civilians_index",
+      "description": "Historical data on violence against civilians",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "More than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "conflict_history",
+      "to": "political_stability",
+      "mechanism": "Conflict history can lead to political instability"
+    },
+    {
+      "from": "conflict_history",
+      "to": "migration_patterns",
+      "mechanism": "Conflict can cause migration"
+    },
+    {
+      "from": "political_stability",
+      "to": "international_influence",
+      "mechanism": "A stable government may attract international investment"
+    },
+    {
+      "from": "economic_growth",
+      "to": "conflict_history",
+      "mechanism": "Economic growth can reduce conflict"
+    },
+    {
+      "from": "migration_patterns",
+      "to": "violence_against_civilians_index",
+      "mechanism": "Migration can lead to increased competition for resources"
+    },
+    {
+      "from": "climate_conditions",
+      "to": "violence_against_civilians_index",
+      "mechanism": "Drought or extreme weather can lead to desperation and violence"
+    },
+    {
+      "from": "international_influence",
+      "to": "violence_against_civilians_index",
+      "mechanism": "International actors can exacerbate or mitigate violence"
+    },
+    {
+      "from": "violence_against_civilians_index",
+      "to": "outcome",
+      "mechanism": "Historical violence can predict future violence"
+    },
+    {
+      "from": "conflict_history",
+      "to": "violence_against_civilians_index",
+      "mechanism": "Conflict history can predict future violence"
+    },
+    {
+      "from": "political_stability",
+      "to": "outcome",
+      "mechanism": "Political stability can reduce violence"
+    },
+    {
+      "from": "economic_growth",
+      "to": "outcome",
+      "mechanism": "Economic growth can reduce violence"
+    },
+    {
+      "from": "migration_patterns",
+      "to": "outcome",
+      "mechanism": "Migration can lead to increased competition for resources, potentially leading to violence"
+    },
+    {
+      "from": "climate_conditions",
+      "to": "outcome",
+      "mechanism": "Drought or extreme weather can lead to desperation and violence"
+    },
+    {
+      "from": "international_influence",
+      "to": "outcome",
+      "mechanism": "International actors can exacerbate or mitigate violence"
+    }
+  ],
+  "reasoning": "I assign a probability of 0.23 to the event occurring because while there are several factors that could contribute to increased violence, such as conflict history, migration patterns, and climate conditions, the relationship between these factors and the outcome is complex and not well-understood. The probability reflects my uncertainty and the potential for various factors to interact and influence the outcome.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 14,
+    "density": 0.25,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "conflict_history",
+        "description": "The history of conflicts in the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 3,
+        "betweenness": 0.0952,
+        "closeness": 0.1429,
+        "pagerank": 0.0824,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "political_stability",
+        "description": "Stability of the current government",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0556,
+        "closeness": 0.1905,
+        "pagerank": 0.0812,
+        "path_relevance": 0.1111
+      },
+      {
+        "node_id": "economic_growth",
+        "description": "Current economic growth rate in Ethiopia",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0578,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "migration_patterns",
+        "description": "Patterns of migration in and out of the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0079,
+        "closeness": 0.1905,
+        "pagerank": 0.0812,
+        "path_relevance": 0.1111
+      },
+      {
+        "node_id": "climate_conditions",
+        "description": "Recent climate conditions affecting the region",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0578,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "international_influence",
+        "description": "Influence of international actors on the region",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0238,
+        "closeness": 0.2143,
+        "pagerank": 0.0923,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "violence_against_civilians_index",
+        "description": "Historical data on violence against civilians",
+        "role": "factor",
+        "in_degree": 4,
+        "out_degree": 1,
+        "betweenness": 0.0079,
+        "closeness": 0.6429,
+        "pagerank": 0.1795,
+        "path_relevance": 0.1111
+      },
+      {
+        "node_id": "outcome",
+        "description": "More than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days",
+        "role": "outcome",
+        "in_degree": 6,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.875,
+        "pagerank": 0.3678,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "conflict_history",
+        "target": "political_stability",
+        "mechanism": "Conflict history can lead to political instability",
+        "edge_betweenness": 0.0774,
+        "on_critical_path": true
+      },
+      {
+        "source": "conflict_history",
+        "target": "migration_patterns",
+        "mechanism": "Conflict can cause migration",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "conflict_history",
+        "target": "violence_against_civilians_index",
+        "mechanism": "Conflict history can predict future violence",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_stability",
+        "target": "international_influence",
+        "mechanism": "A stable government may attract international investment",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": false
+      },
+      {
+        "source": "political_stability",
+        "target": "outcome",
+        "mechanism": "Political stability can reduce violence",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "conflict_history",
+        "mechanism": "Economic growth can reduce conflict",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": false
+      },
+      {
+        "source": "economic_growth",
+        "target": "outcome",
+        "mechanism": "Economic growth can reduce violence",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "migration_patterns",
+        "target": "violence_against_civilians_index",
+        "mechanism": "Migration can lead to increased competition for resources",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": false
+      },
+      {
+        "source": "migration_patterns",
+        "target": "outcome",
+        "mechanism": "Migration can lead to increased competition for resources, potentially leading to violence",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "climate_conditions",
+        "target": "violence_against_civilians_index",
+        "mechanism": "Drought or extreme weather can lead to desperation and violence",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": false
+      },
+      {
+        "source": "climate_conditions",
+        "target": "outcome",
+        "mechanism": "Drought or extreme weather can lead to desperation and violence",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "international_influence",
+        "target": "violence_against_civilians_index",
+        "mechanism": "International actors can exacerbate or mitigate violence",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "international_influence",
+        "target": "outcome",
+        "mechanism": "International actors can exacerbate or mitigate violence",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "violence_against_civilians_index",
+        "target": "outcome",
+        "mechanism": "Historical violence can predict future violence",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "conflict_history",
+        "description": "The history of conflicts in the region",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_stability",
+        "description": "Stability of the current government",
+        "importance": 0.0556,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "migration_patterns",
+        "description": "Patterns of migration in and out of the region",
+        "importance": 0.0079,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "climate_conditions",
+        "description": "Recent climate conditions affecting the region",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "conflict_history",
+        "description": "The history of conflicts in the region",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_stability",
+        "description": "Stability of the current government",
+        "importance": 0.0556,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "conflict_history->political_stability",
+        "description": "Conflict history can lead to political instability",
+        "importance": 0.0774,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "conflict_history->migration_patterns",
+        "description": "Conflict can cause migration",
+        "importance": 0.0417,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_growth->conflict_history",
+        "description": "Economic growth can reduce conflict",
+        "importance": 0.0893,
+        "centrality_rank": 10,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "conflict_history->political_stability",
+        "description": "Conflict history can lead to political instability",
+        "importance": 0.0774,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->climate_conditions",
+        "description": "Potential link: Current economic growth rate in Ethiopia -> Recent climate conditions affecting the region",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->violence_against_civilians_index",
+        "description": "Potential link: Current economic growth rate in Ethiopia -> Historical data on violence against civilians",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "conflict_history",
+      "description": "The history of conflicts in the region",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_stability",
+      "description": "Stability of the current government",
+      "importance": 0.0556,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "migration_patterns",
+      "description": "Patterns of migration in and out of the region",
+      "importance": 0.0079,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "climate_conditions",
+      "description": "Recent climate conditions affecting the region",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "conflict_history",
+      "description": "The history of conflicts in the region",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_stability",
+      "description": "Stability of the current government",
+      "importance": 0.0556,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "conflict_history->political_stability",
+      "description": "Conflict history can lead to political instability",
+      "importance": 0.0774,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "conflict_history->migration_patterns",
+      "description": "Conflict can cause migration",
+      "importance": 0.0417,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_growth->conflict_history",
+      "description": "Economic growth can reduce conflict",
+      "importance": 0.0893,
+      "centrality_rank": 10,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "conflict_history->political_stability",
+      "description": "Conflict history can lead to political instability",
+      "importance": 0.0774,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->climate_conditions",
+      "description": "Potential link: Current economic growth rate in Ethiopia -> Recent climate conditions affecting the region",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->violence_against_civilians_index",
+      "description": "Potential link: Current economic growth rate in Ethiopia -> Historical data on violence against civilians",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Imagine a scenario where the recent surge in economic growth in Ethiopia has led to a significant reduction in the number of violent conflicts in the region, rendering the historical conflict data obsolete. This could be due to the fact that the economic growth has created new opportunities for the population, reducing the likelihood of violent clashes over resources. As a result, the historical conflict data may not be a reliable predictor of future violence. What if this factor, conflict history, is completely wrong or irrelevant in this context?",
+      "probe_type": "node_negate_high",
+      "target_id": "conflict_history",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "The history of conflicts in the region"
+    },
+    {
+      "probe_text": "What if the current government in Ethiopia is actually a puppet regime, and the real power holders are international actors or other external forces? In this scenario, the government's stability is an illusion, and the actual drivers of violence are external to the country's internal politics.",
+      "probe_type": "node_negate_high",
+      "target_id": "political_stability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0556,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Stability of the current government"
+    },
+    {
+      "probe_text": "However, recent research suggests that the Ethiopian government's efforts to increase investment in rural areas have led to a significant decrease in internal migration, as more people are choosing to stay in their hometowns rather than moving to cities in search of better opportunities.",
+      "probe_type": "node_negate_medium",
+      "target_id": "migration_patterns",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0079,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Patterns of migration in and out of the region"
+    },
+    {
+      "probe_text": "The Ethiopian government recently invested in a nationwide weather control system, which has been successfully mitigating the effects of drought and extreme weather events in the region.",
+      "probe_type": "node_negate_low",
+      "target_id": "climate_conditions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Recent climate conditions affecting the region"
+    },
+    {
+      "probe_text": "A recently declassified archive of confidential diplomatic cables reveals a series of high-level meetings between regional leaders in the 1990s, indicating a pattern of tacit cooperation between neighboring countries to manage and suppress conflicts in the region. This archival evidence suggests that the regional leaders were actively working to prevent the escalation of violence, further underscoring the significance of conflict history in shaping the region's stability.",
+      "probe_type": "node_strengthen",
+      "target_id": "conflict_history",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "The history of conflicts in the region"
+    },
+    {
+      "probe_text": "A recently released report by a reputable think tank highlights the Ethiopian government's successful implementation of policies aimed at reducing corruption and improving transparency, leading to a significant increase in foreign investment and a boost in domestic economic growth.",
+      "probe_type": "node_strengthen",
+      "target_id": "political_stability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0556,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Stability of the current government"
+    },
+    {
+      "probe_text": "What if the recent influx of foreign aid to the region has actually helped to stabilize the government, despite the long history of conflict? This could be due to the government's recent efforts to improve governance and accountability, which have been facilitated by the aid. Would the forecaster still estimate a high probability of violence against civilians, or would they update their beliefs to reflect the potential positive impact of foreign aid on political stability?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "conflict_history->political_stability",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0774,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Conflict history can lead to political instability"
+    },
+    {
+      "probe_text": "Will the number of refugees fleeing Ethiopia in the next 30 days increase by more than 50% if the Ethiopian government provides a safe and efficient repatriation program for returning migrants, effectively breaking the causal link between conflict history and migration patterns?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "conflict_history->migration_patterns",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0417,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Conflict can cause migration"
+    },
+    {
+      "probe_text": "A recent report suggests that infrastructure investments, often driven by economic growth, have inadvertently created new hotspots for conflict in Ethiopia. Specifically, the construction of large-scale dams has led to displacement of local communities and exacerbated existing tensions between ethnic groups.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "economic_growth->conflict_history",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0893,
+      "centrality_rank": 10,
+      "on_critical_path": false,
+      "description": "Economic growth can reduce conflict"
+    },
+    {
+      "probe_text": "Consider a scenario where a new, relatively stable government in Ethiopia decides to engage in a long-term peace process with neighboring countries, thereby reducing the likelihood of future conflicts. How would you update your estimate of the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21, given that this government's commitment to peace has been in place for several years, and would you still expect more than ten times as many 'Violence against civilians' in the 30 days before 2025-12-28 compared to one plus that average? Please explain.",
+      "probe_type": "edge_reverse",
+      "target_id": "conflict_history->political_stability",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0774,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Conflict history can lead to political instability"
+    },
+    {
+      "probe_text": "Will the upcoming rainy season in Ethiopia lead to an increase in 'Violence against civilians' in the 30 days leading up to 2025-12-28, despite the current economic growth rate of 5% being above the 5-year average?",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->climate_conditions",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Current economic growth rate in Ethiopia -> Recent climate conditions affecting the region"
+    },
+    {
+      "probe_text": "If Ethiopia experiences a sudden increase in foreign investment due to its economic growth, will this lead to an increase in historical data on violence against civilians in the region within the next 12 months, assuming all other factors remain constant?",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->violence_against_civilians_index",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Current economic growth rate in Ethiopia -> Historical data on violence against civilians"
+    },
+    {
+      "probe_text": "Will the recent surge in anti-government protests in Ethiopia, fueled by rising food prices and economic inequality, lead to an increase in violence against civilians in the 30 days leading up to 2025-12-28?",
+      "probe_type": "missing_node",
+      "target_id": "social_unrest",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "An increase in local and regional arms trafficking is likely to contribute to more than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days, as it would increase the availability of weapons and potentially escalate conflicts.",
+      "probe_type": "missing_node",
+      "target_id": "arms_trafficking",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A new highway connecting Addis Ababa to Djibouti has recently been completed, reducing travel time and increasing trade between the two cities.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The capital of Ethiopia is Addis Ababa. Ethiopia is a landlocked country in the Horn of Africa with a population of over 120 million people. While Addis Ababa has been the capital since 1942, the city has undergone rapid urbanization and infrastructure development. The city's population is expected to increase by 10% annually for the next decade.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Imagine a scenario where the recent surge in economic growth in Ethiopia has led to a significant reduction in the number of violent conflicts in the region, rendering the historical conflict data obsolete. This could be due to the fact that the economic growth has created new opportunities for the population, reducing the likelihood of violent clashes over resources. As a result, the historical conflict data may not be a reliable predictor of future violence. What if this factor, conflict history, is completely wrong or irrelevant in this context?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'conflict_history' significantly affects the causal paths leading to the outcome. The conflict history node is a key predictor of future violence, and its accuracy is crucial for our estimate. If the historical conflict data is obsolete due to recent economic growth, the causal paths from 'conflict_history' to 'outcome' become less relevant. The edges 'conflict_history -> violence_against_civilians_index' and 'conflict_history -> outcome' are weakened, reducing the overall impact of the conflict history on our forecast. As a result, I decrease the probability of the outcome occurring from 0.23 to 0.15.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'conflict_history' significantly affects the causal paths leading to the outcome. The conflict history node is a key predictor of future violence, and its accuracy is crucial for our estimate. If the historical conflict data is obsolete due to recent economic growth, the causal paths from 'conflict_history' to 'outcome' become less relevant. The edges 'conflict_history -> violence_against_civilians_index' and 'conflict_history -> outcome' are weakened, reducing the overall impact of the conflict history on our forecast. As a result, I decrease the probability of the outcome occurring from 0.23 to 0.15.\"\n}",
+      "target_id": "conflict_history",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the current government in Ethiopia is actually a puppet regime, and the real power holders are international actors or other external forces? In this scenario, the government's stability is an illusion, and the actual drivers of violence are external to the country's internal politics.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.22,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'political_stability' being an illusion due to external forces like international actors affects the causal path from 'political_stability' to the outcome. This path is now weaker, as the government's stability is not a reliable predictor of violence. Additionally, the causal path from 'international_influence' to the outcome is strengthened, as external forces are now more likely to be a direct driver of violence. The overall effect is an increase in the probability of the outcome, as multiple paths lead to increased violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'political_stability' being an illusion due to external forces like international actors affects the causal path from 'political_stability' to the outcome. This path is now weaker, as the government's stability is not a reliable predictor of violence. Additionally, the causal path from 'international_influence' to the outcome is strengthened, as external forces are now more likely to be a direct driver of violence. The overall effect is an increase in the probability of the outcome, as multiple paths lead to increased violence.\"\n}",
+      "target_id": "political_stability",
+      "target_type": "node",
+      "target_importance": 0.0556,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "However, recent research suggests that the Ethiopian government's efforts to increase investment in rural areas have led to a significant decrease in internal migration, as more people are choosing to stay in their hometowns rather than moving to cities in search of better opportunities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.04000000000000001,
+      "shift_direction": "increased",
+      "reasoning": "The new information about a decrease in internal migration challenges the causal path 'migration_patterns -> violence_against_civilians_index' and 'migration_patterns -> outcome'. Historically, migration patterns have contributed to an increase in violence against civilians, and the reduction in migration is likely to lead to reduced competition for resources and decreased desperation among the population. This change should lead to a decrease in the expected violence against civilians. However, the impact of this change is still uncertain, and other factors such as political stability, economic growth, and international influence are still expected to play a role in determining the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.27,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The new information about a decrease in internal migration challenges the causal path 'migration_patterns -> violence_against_civilians_index' and 'migration_patterns -> outcome'. Historically, migration patterns have contributed to an increase in violence against civilians, and the reduction in migration is likely to lead to reduced competition for resources and decreased desperation among the population. This change should lead to a decrease in the expected violence against civilians. However, the impact of this change is still uncertain, and other factors such as political stability, economic growth, and international influence are still expected to play a role in determining the outcome.\"\n}",
+      "target_id": "migration_patterns",
+      "target_type": "node",
+      "target_importance": 0.0079,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "The Ethiopian government recently invested in a nationwide weather control system, which has been successfully mitigating the effects of drought and extreme weather events in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.05000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a nationwide weather control system in Ethiopia has significantly mitigated the effects of drought and extreme weather events in the region. This reduces the likelihood of desperation and violence among the civilian population, which was previously exacerbated by climate conditions. The causal path from climate_conditions to violence_against_civilians_index has been weakened, leading to a decrease in the overall probability of the outcome. Additionally, the indirect effect of climate_conditions on outcome through violence_against_civilians_index has also been reduced. As a result, the forecast probability of more than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days has decreased from 0.23 to 0.18.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a nationwide weather control system in Ethiopia has significantly mitigated the effects of drought and extreme weather events in the region. This reduces the likelihood of desperation and violence among the civilian population, which was previously exacerbated by climate conditions. The causal path from climate_conditions to violence_against_civilians_index has been weakened, leading to a decrease in the overall probability of the outcome. Additionally, the indirect effect of climate_conditions on outcome through violence_against_civilians_index has also been reduced. As a result, the forecast probability of more than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days has decreased from 0.23 to 0.18.\"\n}",
+      "target_id": "climate_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recently declassified archive of confidential diplomatic cables reveals a series of high-level meetings between regional leaders in the 1990s, indicating a pattern of tacit cooperation between neighboring countries to manage and suppress conflicts in the region. This archival evidence suggests that the regional leaders were actively working to prevent the escalation of violence, further underscoring the significance of conflict history in shaping the region's stability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The newly declassified diplomatic cables reveal a previously unknown aspect of conflict history in the region. This challenges the direct causal link from 'conflict_history' to 'political_stability', as it suggests that regional leaders actively worked to prevent conflict escalation in the 1990s. This reduces the weight of 'conflict_history' on 'political_stability', ultimately decreasing the probability of 'outcome'. Specifically, the causal paths affected are: conflict_history -> political_stability, which weakens the influence of conflict history on the region's stability. This, in turn, reduces the impact of political stability on 'outcome'. The revised causal network now captures the nuanced role of conflict history in the region's stability, leading to a decreased probability of 'outcome'.",
+      "raw_response": "{\n  \"updated_probability\": 0.17,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The newly declassified diplomatic cables reveal a previously unknown aspect of conflict history in the region. This challenges the direct causal link from 'conflict_history' to 'political_stability', as it suggests that regional leaders actively worked to prevent conflict escalation in the 1990s. This reduces the weight of 'conflict_history' on 'political_stability', ultimately decreasing the probability of 'outcome'. Specifically, the causal paths affected are: conflict_history -> political_stability, which weakens the influence of conflict history on the region's stability. This, in turn, reduces the impact of political stability on 'outcome'. The revised causal network now captures the nuanced role of conflict history in the region's stability, leading to a decreased probability of 'outcome'.\"\n}",
+      "target_id": "conflict_history",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recently released report by a reputable think tank highlights the Ethiopian government's successful implementation of policies aimed at reducing corruption and improving transparency, leading to a significant increase in foreign investment and a boost in domestic economic growth.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.07999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The report highlights the Ethiopian government's success in reducing corruption and improving transparency, leading to increased foreign investment and domestic economic growth. This challenges the edge 'conflict_history -> political_stability', which is no longer as relevant given the improved governance. As a result, the causal path from 'conflict_history' to 'outcome' is weakened. However, the positive impact on 'economic_growth' and its edge to 'outcome' suggests that the overall effect is a slight increase in the probability of the outcome. This is because the improved economic conditions can lead to reduced conflict and violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The report highlights the Ethiopian government's success in reducing corruption and improving transparency, leading to increased foreign investment and domestic economic growth. This challenges the edge 'conflict_history -> political_stability', which is no longer as relevant given the improved governance. As a result, the causal path from 'conflict_history' to 'outcome' is weakened. However, the positive impact on 'economic_growth' and its edge to 'outcome' suggests that the overall effect is a slight increase in the probability of the outcome. This is because the improved economic conditions can lead to reduced conflict and violence.\"\n}",
+      "target_id": "political_stability",
+      "target_type": "node",
+      "target_importance": 0.0556,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "What if the recent influx of foreign aid to the region has actually helped to stabilize the government, despite the long history of conflict? This could be due to the government's recent efforts to improve governance and accountability, which have been facilitated by the aid. Would the forecaster still estimate a high probability of violence against civilians, or would they update their beliefs to reflect the potential positive impact of foreign aid on political stability?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'conflict_history->political_stability' suggests that the historical conflict may not necessarily lead to political instability. Instead, the recent influx of foreign aid and the government's efforts to improve governance and accountability may have helped to stabilize the government. This challenges the causal path from 'conflict_history' to 'outcome' through 'political_stability'. Furthermore, the potential positive impact of foreign aid on 'political_stability' may also reduce the influence of 'conflict_history' on 'outcome' through the 'violence_against_civilians_index' node. As a result, I update my probability estimate to 0.15, reflecting a lower likelihood of violence against civilians.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'conflict_history->political_stability' suggests that the historical conflict may not necessarily lead to political instability. Instead, the recent influx of foreign aid and the government's efforts to improve governance and accountability may have helped to stabilize the government. This challenges the causal path from 'conflict_history' to 'outcome' through 'political_stability'. Furthermore, the potential positive impact of foreign aid on 'political_stability' may also reduce the influence of 'conflict_history' on 'outcome' through the 'violence_against_civilians_index' node. As a result, I update my probability estimate to 0.15, reflecting a lower likelihood of violence against civilians.\"\n}",
+      "target_id": "conflict_history->political_stability",
+      "target_type": "edge",
+      "target_importance": 0.0774,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Will the number of refugees fleeing Ethiopia in the next 30 days increase by more than 50% if the Ethiopian government provides a safe and efficient repatriation program for returning migrants, effectively breaking the causal link between conflict history and migration patterns?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'conflict_history->migration_patterns' affects the causal paths leading to the outcome 'More than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days'. With the repatriation program, the connection between conflict history and migration patterns is broken, reducing the likelihood of increased competition for resources and potential violence. This challenge has a moderate impact on the overall causal network, as it affects the migration_patterns node, which is a significant contributor to the outcome. As a result, I decrease my initial probability estimate from 0.23 to 0.17.",
+      "raw_response": "{\n  \"updated_probability\": 0.17,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'conflict_history->migration_patterns' affects the causal paths leading to the outcome 'More than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days'. With the repatriation program, the connection between conflict history and migration patterns is broken, reducing the likelihood of increased competition for resources and potential violence. This challenge has a moderate impact on the overall causal network, as it affects the migration_patterns node, which is a significant contributor to the outcome. As a result, I decrease my initial probability estimate from 0.23 to 0.17.\"\n}",
+      "target_id": "conflict_history->migration_patterns",
+      "target_type": "edge",
+      "target_importance": 0.0417,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent report suggests that infrastructure investments, often driven by economic growth, have inadvertently created new hotspots for conflict in Ethiopia. Specifically, the construction of large-scale dams has led to displacement of local communities and exacerbated existing tensions between ethnic groups.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.11999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'economic_growth->conflict_history' suggests that economic growth may actually contribute to conflict in Ethiopia, rather than reducing it. This changes the causal paths leading to the outcome. Previously, economic growth was thought to reduce conflict, which in turn reduced violence against civilians. However, the new information suggests that economic growth may create new hotspots for conflict, potentially increasing conflict history. This, in turn, may increase the likelihood of violence against civilians. Additionally, the indirect effect of economic growth on conflict history may weaken the causal link 'economic_growth->outcome', making it less likely that economic growth will reduce violence. As a result, I have increased the probability of the outcome from 0.23 to 0.35.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_growth->conflict_history' suggests that economic growth may actually contribute to conflict in Ethiopia, rather than reducing it. This changes the causal paths leading to the outcome. Previously, economic growth was thought to reduce conflict, which in turn reduced violence against civilians. However, the new information suggests that economic growth may create new hotspots for conflict, potentially increasing conflict history. This, in turn, may increase the likelihood of violence against civilians. Additionally, the indirect effect of economic growth on conflict history may weaken the causal link 'economic_growth->outcome', making it less likely that economic growth will reduce violence. As a result, I have increased the probability of the outcome from 0.23 to 0.35.\"\n}",
+      "target_id": "economic_growth->conflict_history",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 10,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where a new, relatively stable government in Ethiopia decides to engage in a long-term peace process with neighboring countries, thereby reducing the likelihood of future conflicts. How would you update your estimate of the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21, given that this government's commitment to peace has been in place for several years, and would you still expect more than ten times as many 'Violence against civilians' in the 30 days before 2025-12-28 compared to one plus that average? Please explain.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The causal link 'conflict_history->political_stability' is challenged by the new government's commitment to peace. This means that the conflict history, which was previously a strong predictor of political instability, is now less relevant. The reduction in conflict history's impact will decrease the influence of 'conflict_history->violence_against_civilians_index' and 'conflict_history->outcome' edges. As a result, I expect a decrease in the 30-day average of 'Violence against civilians' over the preceding 360 days, making the outcome of more than ten times as many 'Violence against civilians' less likely. The challenge affects the causal paths through the 'conflict_history' node, reducing the overall probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.17,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The causal link 'conflict_history->political_stability' is challenged by the new government's commitment to peace. This means that the conflict history, which was previously a strong predictor of political instability, is now less relevant. The reduction in conflict history's impact will decrease the influence of 'conflict_history->violence_against_civilians_index' and 'conflict_history->outcome' edges. As a result, I expect a decrease in the 30-day average of 'Violence against civilians' over the preceding 360 days, making the outcome of more than ten times as many 'Violence against civilians' less likely. The challenge affects the causal paths through the 'conflict_history' node, reducing the overall probability of the outcome.\"\n}",
+      "target_id": "conflict_history->political_stability",
+      "target_type": "edge",
+      "target_importance": 0.0774,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Will the upcoming rainy season in Ethiopia lead to an increase in 'Violence against civilians' in the 30 days leading up to 2025-12-28, despite the current economic growth rate of 5% being above the 5-year average?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.15,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'economic_growth->climate_conditions' implies that despite the current economic growth rate, the rainy season in Ethiopia could lead to increased desperation and violence. This breaks the causal path 'economic_growth->outcome' as the economic growth rate is no longer a mitigating factor for the outcome. The increased probability is due to the potential for drought or extreme weather to exacerbate violence, which was previously mitigated by the economic growth rate. The direct causal link from climate_conditions to violence_against_civilians_index and then to outcome becomes more significant, increasing the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_growth->climate_conditions' implies that despite the current economic growth rate, the rainy season in Ethiopia could lead to increased desperation and violence. This breaks the causal path 'economic_growth->outcome' as the economic growth rate is no longer a mitigating factor for the outcome. The increased probability is due to the potential for drought or extreme weather to exacerbate violence, which was previously mitigated by the economic growth rate. The direct causal link from climate_conditions to violence_against_civilians_index and then to outcome becomes more significant, increasing the probability of the outcome.\"\n}",
+      "target_id": "economic_growth->climate_conditions",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "If Ethiopia experiences a sudden increase in foreign investment due to its economic growth, will this lead to an increase in historical data on violence against civilians in the region within the next 12 months, assuming all other factors remain constant?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.16,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The causal link 'economic_growth->violence_against_civilians_index' is challenged, which affects the causal path from economic growth to the outcome. This link suggests that economic growth can reduce violence against civilians. However, the challenge implies that foreign investment due to economic growth may not necessarily lead to a decrease in historical data on violence against civilians. This reduces the confidence in the causal path from economic growth to the outcome. As a result, I decrease my probability estimate for the outcome from 0.23 to 0.16.",
+      "raw_response": "{\n  \"updated_probability\": 0.16,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The causal link 'economic_growth->violence_against_civilians_index' is challenged, which affects the causal path from economic growth to the outcome. This link suggests that economic growth can reduce violence against civilians. However, the challenge implies that foreign investment due to economic growth may not necessarily lead to a decrease in historical data on violence against civilians. This reduces the confidence in the causal path from economic growth to the outcome. As a result, I decrease my probability estimate for the outcome from 0.23 to 0.16.\"\n}",
+      "target_id": "economic_growth->violence_against_civilians_index",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Will the recent surge in anti-government protests in Ethiopia, fueled by rising food prices and economic inequality, lead to an increase in violence against civilians in the 30 days leading up to 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.22,
+      "shift_direction": "increased",
+      "reasoning": "The recent surge in anti-government protests in Ethiopia, fueled by rising food prices and economic inequality, suggests a weakening of political stability. This directly impacts the causal path from 'political_stability' to 'outcome', making it more likely for violence against civilians to occur. Additionally, the protests may lead to increased migration patterns, which in turn can increase competition for resources, potentially leading to violence. This further strengthens the causal path from 'migration_patterns' to 'outcome'. Therefore, my forecast for the outcome has increased to 0.45.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The recent surge in anti-government protests in Ethiopia, fueled by rising food prices and economic inequality, suggests a weakening of political stability. This directly impacts the causal path from 'political_stability' to 'outcome', making it more likely for violence against civilians to occur. Additionally, the protests may lead to increased migration patterns, which in turn can increase competition for resources, potentially leading to violence. This further strengthens the causal path from 'migration_patterns' to 'outcome'. Therefore, my forecast for the outcome has increased to 0.45.\"\n}",
+      "target_id": "social_unrest",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "An increase in local and regional arms trafficking is likely to contribute to more than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days, as it would increase the availability of weapons and potentially escalate conflicts.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.43,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights the potential impact of arms trafficking on the availability of weapons and the escalation of conflicts. This strengthens the causal link between conflict_history and violence_against_civilians_index, as well as between international_influence and violence_against_civilians_index. These strengthened links, in turn, increase the influence of migration_patterns and climate_conditions on the outcome. Additionally, the challenge suggests a new causal link between arms trafficking and the outcome, further increasing the likelihood of the outcome. As a result, I update my probability estimate from 0.23 to 0.43, indicating a moderate increase in the likelihood of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.43,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights the potential impact of arms trafficking on the availability of weapons and the escalation of conflicts. This strengthens the causal link between conflict_history and violence_against_civilians_index, as well as between international_influence and violence_against_civilians_index. These strengthened links, in turn, increase the influence of migration_patterns and climate_conditions on the outcome. Additionally, the challenge suggests a new causal link between arms trafficking and the outcome, further increasing the likelihood of the outcome. As a result, I update my probability estimate from 0.23 to 0.43, indicating a moderate increase in the likelihood of the outcome.\"\n}",
+      "target_id": "arms_trafficking",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A new highway connecting Addis Ababa to Djibouti has recently been completed, reducing travel time and increasing trade between the two cities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.05000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new highway connecting Addis Ababa to Djibouti has reduced travel time and increased trade between the two cities. This development affects the causal path from economic_growth to conflict_history, as improved trade and commerce can lead to increased economic stability. Additionally, the highway may reduce migration_patterns from the region, as improved connectivity can make it easier for people to access employment and other opportunities within Ethiopia. With reduced conflict history and migration patterns, the nodes influencing the outcome node (political_stability, economic_growth, migration_patterns) are now favoring a decrease in violence against civilians. As a result, I have decreased my initial estimate of 0.23, considering the critical causal paths leading to the outcome have been strengthened in favor of reduced violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new highway connecting Addis Ababa to Djibouti has reduced travel time and increased trade between the two cities. This development affects the causal path from economic_growth to conflict_history, as improved trade and commerce can lead to increased economic stability. Additionally, the highway may reduce migration_patterns from the region, as improved connectivity can make it easier for people to access employment and other opportunities within Ethiopia. With reduced conflict history and migration patterns, the nodes influencing the outcome node (political_stability, economic_growth, migration_patterns) are now favoring a decrease in violence against civilians. As a result, I have decreased my initial estimate of 0.23, considering the critical causal paths leading to the outcome have been strengthened in favor of reduced violence.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The capital of Ethiopia is Addis Ababa. Ethiopia is a landlocked country in the Horn of Africa with a population of over 120 million people. While Addis Ababa has been the capital since 1942, the city has undergone rapid urbanization and infrastructure development. The city's population is expected to increase by 10% annually for the next decade.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.33,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The new information about Addis Ababa's rapid urbanization and population growth suggests that the city is likely to continue to experience increased competition for resources, potentially leading to violence. This strengthens the causal path from migration_patterns to violence_against_civilians_index. Additionally, the increased population in the capital city may lead to increased mobility and opportunities for violence to spread. This challenges the assumption that the historical pattern of violence will remain unchanged, potentially leading to a higher likelihood of violence against civilians. However, the exact impact is difficult to quantify, so the updated probability is only slightly higher.",
+      "raw_response": "{\n  \"updated_probability\": 0.33,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information about Addis Ababa's rapid urbanization and population growth suggests that the city is likely to continue to experience increased competition for resources, potentially leading to violence. This strengthens the causal path from migration_patterns to violence_against_civilians_index. Additionally, the increased population in the capital city may lead to increased mobility and opportunities for violence to spread. This challenges the assumption that the historical pattern of violence will remain unchanged, potentially leading to a higher likelihood of violence against civilians. However, the exact impact is difficult to quantify, so the updated probability is only slightly higher.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate a significant increase in refugees streaming into Ethiopia from neighboring countries, fleeing conflict and persecution. This influx of migrants has put a strain on local resources and infrastructure, exacerbating social tensions and competition for jobs. Additionally, the new migrants are bringing with them different cultural and ethnic backgrounds, which may lead to further social and economic challenges. If this trend continues, it may lead to increased competition for resources, potentially escalating into violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.43,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The recent reports of a significant increase in refugees streaming into Ethiopia from neighboring countries have strengthened the causal path from 'migration_patterns' to 'outcome'. This is because the influx of migrants is putting a strain on local resources and infrastructure, exacerbating social tensions and competition for jobs, which can potentially lead to increased competition for resources and violence. As a result, I have increased my probability estimate for the outcome, as the causal link from 'migration_patterns' to 'outcome' has become stronger. I have also considered the indirect effects of this change on other causal paths, such as the increased competition for resources potentially exacerbating social and economic challenges, which may further increase the likelihood of violence. However, I still have some uncertainty about the exact impact of this migration trend, and I have not updated my estimate to 1.0, as there are still other factors that could mitigate or exacerbate the situation.",
+      "raw_response": "{\n  \"updated_probability\": 0.43,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent reports of a significant increase in refugees streaming into Ethiopia from neighboring countries have strengthened the causal path from 'migration_patterns' to 'outcome'. This is because the influx of migrants is putting a strain on local resources and infrastructure, exacerbating social tensions and competition for jobs, which can potentially lead to increased competition for resources and violence. As a result, I have increased my probability estimate for the outcome, as the causal link from 'migration_patterns' to 'outcome' has become stronger. I have also considered the indirect effects of this change on other causal paths, such as the increased competition for resources potentially exacerbating social and economic challenges, which may further increase the likelihood of violence. However, I still have some uncertainty about the exact impact of this migration trend, and I have not updated my estimate to 1.0, as there are still other factors that could mitigate or exacerbate the situation.\"\n}",
+      "target_id": "migration_patterns",
+      "target_type": "node",
+      "target_importance": 0.0079,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in a reputable scientific journal finds a strong correlation between droughts in the region and increased levels of violence against civilians, suggesting that the impact of climate conditions on violence is more significant than previously thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.37,
+      "absolute_shift": 0.13999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The recent study provides strong evidence that climate conditions have a significant impact on violence against civilians. This means that the causal path from climate_conditions to violence_against_civilians_index is strengthened, increasing the link's weight. As a result, the influence of climate_conditions on the outcome is increased, leading to a higher probability of the outcome. Additionally, the strengthened link between climate_conditions and violence_against_civilians_index also increases the impact of migration_patterns on the outcome, as migration and climate-related violence are now more closely linked. This further contributes to the increased probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.37,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent study provides strong evidence that climate conditions have a significant impact on violence against civilians. This means that the causal path from climate_conditions to violence_against_civilians_index is strengthened, increasing the link's weight. As a result, the influence of climate_conditions on the outcome is increased, leading to a higher probability of the outcome. Additionally, the strengthened link between climate_conditions and violence_against_civilians_index also increases the impact of migration_patterns on the outcome, as migration and climate-related violence are now more closely linked. This further contributes to the increased probability of the outcome.\"\n}",
+      "target_id": "climate_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports of ongoing ethnic tensions and clashes in the Oromia region of Ethiopia, which have a long history of conflict, have led to a significant increase in government crackdowns and arrests, further eroding the stability of the current government.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.11999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'conflict_history->political_stability' suggests that the current government's stability is more fragile than previously thought. This affects the causal paths leading to the outcome, particularly the edges 'conflict_history->political_stability', 'political_stability->outcome', and 'conflict_history->outcome'. The increase in government crackdowns and arrests, driven by ongoing ethnic tensions, erodes the stability of the current government, making it more likely that violence against civilians will escalate. Additionally, the historical conflict in the Oromia region suggests that conflict history can predict future violence, further supporting the likelihood of increased violence. As a result, I have increased my estimate of the probability of more than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'conflict_history->political_stability' suggests that the current government's stability is more fragile than previously thought. This affects the causal paths leading to the outcome, particularly the edges 'conflict_history->political_stability', 'political_stability->outcome', and 'conflict_history->outcome'. The increase in government crackdowns and arrests, driven by ongoing ethnic tensions, erodes the stability of the current government, making it more likely that violence against civilians will escalate. Additionally, the historical conflict in the Oromia region suggests that conflict history can predict future violence, further supporting the likelihood of increased violence. As a result, I have increased my estimate of the probability of more than ten times the 30-day average of 'Violence against civilians' over the preceding 360 days.\"\n}",
+      "target_id": "conflict_history->political_stability",
+      "target_type": "edge",
+      "target_importance": 0.0774,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports from the International Organization for Migration (IOM) indicate that the ongoing conflict in the Tigray Region of Ethiopia has led to a significant increase in migration of ethnic Tigrayans to neighboring countries, with over 50,000 people fleeing to Sudan since November 2020. This phenomenon highlights the causal relationship between conflict and migration, as communities displaced by violence seek safety and economic opportunities elsewhere.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.36,
+      "absolute_shift": 0.12999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The recent reports from the International Organization for Migration (IOM) provide strong evidence that the ongoing conflict in the Tigray Region of Ethiopia has led to a significant increase in migration. This challenges my previous assumption that conflict history may not directly lead to migration patterns. The causal link 'conflict_history->migration_patterns' is now more strongly supported, and I must reassess the impact on the outcome. With this new information, I estimate that the increased migration will lead to more competition for resources, potentially exacerbating violence against civilians. As a result, I increase my probability estimate for the outcome. However, I still consider several other causal paths that could mitigate or exacerbate the violence, such as the economic growth rate, international influence, and climate conditions. Therefore, while I have increased my estimate, I still consider it uncertain.",
+      "raw_response": "{\n  \"updated_probability\": 0.36,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent reports from the International Organization for Migration (IOM) provide strong evidence that the ongoing conflict in the Tigray Region of Ethiopia has led to a significant increase in migration. This challenges my previous assumption that conflict history may not directly lead to migration patterns. The causal link 'conflict_history->migration_patterns' is now more strongly supported, and I must reassess the impact on the outcome. With this new information, I estimate that the increased migration will lead to more competition for resources, potentially exacerbating violence against civilians. As a result, I increase my probability estimate for the outcome. However, I still consider several other causal paths that could mitigate or exacerbate the violence, such as the economic growth rate, international influence, and climate conditions. Therefore, while I have increased my estimate, I still consider it uncertain.\"\n}",
+      "target_id": "conflict_history->migration_patterns",
+      "target_type": "edge",
+      "target_importance": 0.0417,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent report from the World Bank suggests that a 10% increase in economic growth in Ethiopia is associated with a 20% decrease in the number of reported conflicts over the past decade. The report argues that this is due to increased government revenue allowing for more effective conflict resolution mechanisms. We would like the forecaster to consider this new information and update their estimate of the probability of 'More than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21'.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.07999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information suggests that economic growth has a positive effect on reducing conflicts, which in turn reduces violence against civilians. This strengthens the causal path 'economic_growth -> conflict_history -> violence_against_civilians_index -> outcome'. As a result, my confidence in the original estimate increases, as the data suggests that economic growth can lead to a decrease in violence against civilians. However, the direct causal link between economic growth and conflict history was previously uncertain, and this new information clarifies that relationship, leading to a modest increase in my probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information suggests that economic growth has a positive effect on reducing conflicts, which in turn reduces violence against civilians. This strengthens the causal path 'economic_growth -> conflict_history -> violence_against_civilians_index -> outcome'. As a result, my confidence in the original estimate increases, as the data suggests that economic growth can lead to a decrease in violence against civilians. However, the direct causal link between economic growth and conflict history was previously uncertain, and this new information clarifies that relationship, leading to a modest increase in my probability estimate.\"\n}",
+      "target_id": "economic_growth->conflict_history",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "9d4864773266c4a569d83762f1da3547a387adde920f67bf504071990bb39b3f",
+    "question_text": "Will there be more than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.23,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.10250000000000001,
+    "max_absolute_shift": 0.22
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 1.1527777777777781,
+    "mean_shift_high": 0.10375000000000001,
+    "mean_shift_low": 0.08999999999999998,
+    "asymmetry_index": 0.8024691358024694,
+    "mean_shift_negate": 0.09285714285714287,
+    "mean_shift_strengthen": 0.1157142857142857,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0,
+    "mean_shift_on_path": 0.11,
+    "mean_shift_off_path": 0.11,
+    "importance_sensitivity_correlation": -0.18131868131868134,
+    "control_sensitivity": 1
+  }
+}

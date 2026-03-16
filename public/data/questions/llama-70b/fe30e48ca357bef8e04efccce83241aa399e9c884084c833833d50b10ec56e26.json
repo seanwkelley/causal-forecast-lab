@@ -1,0 +1,1083 @@
+{
+  "question_id": "fe30e48ca357bef8e04efccce83241aa399e9c884084c833833d50b10ec56e26",
+  "question_text": "Will there be more fatalities in Lesotho for the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,fatalities\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of fatalities over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more fatalities would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.73,
+  "nodes": [
+    {
+      "id": "road_safety",
+      "description": "The state of road safety in Lesotho",
+      "role": "factor"
+    },
+    {
+      "id": "healthcare_quality",
+      "description": "The quality of healthcare services in Lesotho",
+      "role": "factor"
+    },
+    {
+      "id": "crime_rate",
+      "description": "The rate of crime in Lesotho",
+      "role": "factor"
+    },
+    {
+      "id": "natural_disasters",
+      "description": "The occurrence of natural disasters in Lesotho",
+      "role": "factor"
+    },
+    {
+      "id": "economic_stability",
+      "description": "The state of economic stability in Lesotho",
+      "role": "factor"
+    },
+    {
+      "id": "fatalities_trend",
+      "description": "The trend of fatalities in Lesotho over the preceding period",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The forecasted event of more fatalities in Lesotho",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "road_safety",
+      "to": "fatalities_trend",
+      "mechanism": "Poor road safety leads to more accidents and fatalities"
+    },
+    {
+      "from": "healthcare_quality",
+      "to": "fatalities_trend",
+      "mechanism": "Low-quality healthcare increases the likelihood of fatalities"
+    },
+    {
+      "from": "crime_rate",
+      "to": "fatalities_trend",
+      "mechanism": "Higher crime rates can lead to more violent fatalities"
+    },
+    {
+      "from": "natural_disasters",
+      "to": "fatalities_trend",
+      "mechanism": "Natural disasters can cause a significant number of fatalities"
+    },
+    {
+      "from": "economic_stability",
+      "to": "road_safety",
+      "mechanism": "Economic instability can lead to poor road maintenance and safety"
+    },
+    {
+      "from": "economic_stability",
+      "to": "healthcare_quality",
+      "mechanism": "Economic instability can affect the quality of healthcare services"
+    },
+    {
+      "from": "fatalities_trend",
+      "to": "outcome",
+      "mechanism": "A higher trend of fatalities increases the likelihood of more fatalities in the future"
+    }
+  ],
+  "reasoning": "The forecasted event of more fatalities in Lesotho is influenced by various factors, including road safety, healthcare quality, crime rate, and natural disasters. These factors can indirectly affect the outcome through their impact on the trend of fatalities in Lesotho. Economic stability also plays a role by influencing road safety and healthcare quality. Given the complexity of these factors and their potential impact on fatalities, I estimate a probability of 0.73 that there will be more fatalities in Lesotho for the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the preceding 360 days.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "road_safety",
+        "description": "The state of road safety in Lesotho",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.0873,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "healthcare_quality",
+        "description": "The quality of healthcare services in Lesotho",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.0873,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "crime_rate",
+        "description": "The rate of crime in Lesotho",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0612,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "natural_disasters",
+        "description": "The occurrence of natural disasters in Lesotho",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0612,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_stability",
+        "description": "The state of economic stability in Lesotho",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0612,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "fatalities_trend",
+        "description": "The trend of fatalities in Lesotho over the preceding period",
+        "role": "factor",
+        "in_degree": 4,
+        "out_degree": 1,
+        "betweenness": 0.1667,
+        "closeness": 0.6944,
+        "pagerank": 0.3138,
+        "path_relevance": 0.8571
+      },
+      {
+        "node_id": "outcome",
+        "description": "The forecasted event of more fatalities in Lesotho",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3279,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "road_safety",
+        "target": "fatalities_trend",
+        "mechanism": "Poor road safety leads to more accidents and fatalities",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "healthcare_quality",
+        "target": "fatalities_trend",
+        "mechanism": "Low-quality healthcare increases the likelihood of fatalities",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "crime_rate",
+        "target": "fatalities_trend",
+        "mechanism": "Higher crime rates can lead to more violent fatalities",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "natural_disasters",
+        "target": "fatalities_trend",
+        "mechanism": "Natural disasters can cause a significant number of fatalities",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_stability",
+        "target": "road_safety",
+        "mechanism": "Economic instability can lead to poor road maintenance and safety",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_stability",
+        "target": "healthcare_quality",
+        "mechanism": "Economic instability can affect the quality of healthcare services",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "fatalities_trend",
+        "target": "outcome",
+        "mechanism": "A higher trend of fatalities increases the likelihood of more fatalities in the future",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "fatalities_trend",
+        "description": "The trend of fatalities in Lesotho over the preceding period",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "road_safety",
+        "description": "The state of road safety in Lesotho",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "crime_rate",
+        "description": "The rate of crime in Lesotho",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_stability",
+        "description": "The state of economic stability in Lesotho",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "fatalities_trend",
+        "description": "The trend of fatalities in Lesotho over the preceding period",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "road_safety",
+        "description": "The state of road safety in Lesotho",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fatalities_trend->outcome",
+        "description": "A higher trend of fatalities increases the likelihood of more fatalities in the future",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "road_safety->fatalities_trend",
+        "description": "Poor road safety leads to more accidents and fatalities",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_stability->healthcare_quality",
+        "description": "Economic instability can affect the quality of healthcare services",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fatalities_trend->outcome",
+        "description": "A higher trend of fatalities increases the likelihood of more fatalities in the future",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "fatalities_trend->healthcare_quality",
+        "description": "Potential link: The trend of fatalities in Lesotho over the preceding period -> The quality of healthcare services in Lesotho",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "fatalities_trend->road_safety",
+        "description": "Potential link: The trend of fatalities in Lesotho over the preceding period -> The state of road safety in Lesotho",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "fatalities_trend",
+      "description": "The trend of fatalities in Lesotho over the preceding period",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "road_safety",
+      "description": "The state of road safety in Lesotho",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "crime_rate",
+      "description": "The rate of crime in Lesotho",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_stability",
+      "description": "The state of economic stability in Lesotho",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "fatalities_trend",
+      "description": "The trend of fatalities in Lesotho over the preceding period",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "road_safety",
+      "description": "The state of road safety in Lesotho",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fatalities_trend->outcome",
+      "description": "A higher trend of fatalities increases the likelihood of more fatalities in the future",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "road_safety->fatalities_trend",
+      "description": "Poor road safety leads to more accidents and fatalities",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_stability->healthcare_quality",
+      "description": "Economic instability can affect the quality of healthcare services",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fatalities_trend->outcome",
+      "description": "A higher trend of fatalities increases the likelihood of more fatalities in the future",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "fatalities_trend->healthcare_quality",
+      "description": "Potential link: The trend of fatalities in Lesotho over the preceding period -> The quality of healthcare services in Lesotho",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "fatalities_trend->road_safety",
+      "description": "Potential link: The trend of fatalities in Lesotho over the preceding period -> The state of road safety in Lesotho",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the recent trend of fatalities in Lesotho is not a reliable indicator of future fatalities due to significant changes in the country's emergency response systems and safety protocols, making past trends irrelevant to current predictions? Perhaps the implementation of new traffic laws, improved hospital facilities, and enhanced disaster preparedness measures have broken the historical pattern of fatalities. As a result, the trend of fatalities over the preceding period may not accurately forecast future fatalities. This could render the fatalities trend factor obsolete in predicting the outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "fatalities_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The trend of fatalities in Lesotho over the preceding period"
+    },
+    {
+      "probe_text": "Recent investments in Lesotho's road infrastructure have significantly improved road safety, reducing accidents and fatalities. Additionally, the government has implemented strict traffic laws and enforcement, further minimizing the impact of road safety on fatalities. As a result, the state of road safety in Lesotho may no longer be a crucial factor in determining the trend of fatalities. This development could render the previously assumed causal link between road safety and fatalities trend obsolete.",
+      "probe_type": "node_negate_high",
+      "target_id": "road_safety",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The state of road safety in Lesotho"
+    },
+    {
+      "probe_text": "Recent reports from the Lesotho government indicate a significant decrease in violent crime rates over the past year, with a notable increase in police presence and community-led initiatives to reduce gang activity. Additionally, studies have shown that the primary causes of fatalities in Lesotho are more closely related to road accidents and natural disasters rather than violent crime. This suggests that the crime rate may have a minimal impact on the overall trend of fatalities. As a result, the previously assumed causal link between crime rate and fatalities trend may be overstated.",
+      "probe_type": "node_negate_medium",
+      "target_id": "crime_rate",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "The rate of crime in Lesotho"
+    },
+    {
+      "probe_text": "Recent investments in Lesotho's infrastructure and a significant increase in foreign aid have led to a surge in economic activity, suggesting that the country's economic stability may not be as relevant to road safety and healthcare quality as previously thought. In fact, the improved economic conditions have enabled the government to allocate more resources to road maintenance and healthcare services. Furthermore, the influx of foreign investment has created new job opportunities, reducing the likelihood of crime and improving overall social stability. This newfound economic stability might actually have a neutral or even positive effect on fatalities in Lesotho.",
+      "probe_type": "node_negate_low",
+      "target_id": "economic_stability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "The state of economic stability in Lesotho"
+    },
+    {
+      "probe_text": "A recent study by the Lesotho Ministry of Health reported a strong correlation between the 30-day moving average of fatalities and the subsequent 30-day fatality rate, with a significant increase in fatalities observed when the moving average exceeded a certain threshold. The study analyzed data from the past five years and controlled for various external factors, including road safety, healthcare quality, and crime rates. This finding suggests that the trend of fatalities in Lesotho is a robust predictor of future fatalities. The study's results have been endorsed by the World Health Organization as a valuable contribution to the understanding of fatality trends in the region.",
+      "probe_type": "node_strengthen",
+      "target_id": "fatalities_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The trend of fatalities in Lesotho over the preceding period"
+    },
+    {
+      "probe_text": "The Lesotho Ministry of Public Works and Transport has announced a significant increase in the budget for road maintenance and infrastructure development, aiming to reduce the number of accidents on the country's roads. This move is expected to improve road safety, especially on major highways. According to the Minister, this initiative is part of a broader effort to enhance road safety and reduce fatalities. Experts predict that this investment will lead to a noticeable decrease in accident rates within the next year.",
+      "probe_type": "node_strengthen",
+      "target_id": "road_safety",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The state of road safety in Lesotho"
+    },
+    {
+      "probe_text": "Recent data shows that the government of Lesotho has implemented a new road safety campaign and increased funding for emergency services, which could lead to a decrease in fatalities despite a previously high trend. Additionally, the introduction of new healthcare policies has improved the quality of care, potentially reducing the number of fatalities. This could indicate that the relationship between the trend of fatalities and future outcomes is not as strong as assumed. The current trend might be reversing due to these interventions.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "fatalities_trend->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "A higher trend of fatalities increases the likelihood of more fatalities in the future"
+    },
+    {
+      "probe_text": "Recently, Lesotho implemented a nationwide road safety campaign, resulting in a significant increase in seatbelt usage and a reduction in speeding violations. However, despite this improvement in road safety behaviors, the number of fatalities on Lesotho's roads has not decreased as expected, suggesting that other factors such as vehicle maintenance and road conditions may be more critical in determining fatality rates. Furthermore, data from similar countries shows that improvements in road safety do not always translate to reductions in fatalities, indicating a potential break in the assumed causal link. This challenges the idea that poor road safety directly leads to more accidents and fatalities.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "road_safety->fatalities_trend",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Poor road safety leads to more accidents and fatalities"
+    },
+    {
+      "probe_text": "Recent investments in Lesotho's healthcare infrastructure have been primarily funded by international organizations, which has helped maintain a consistent level of healthcare quality regardless of the country's economic stability. Furthermore, the healthcare sector in Lesotho has seen significant private investment, making it less dependent on government funding that could be affected by economic instability. This suggests that the quality of healthcare services in Lesotho may not be as directly influenced by economic stability as initially thought. Could the forecaster reconsider the impact of economic stability on healthcare quality in their assessment?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "economic_stability->healthcare_quality",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Economic instability can affect the quality of healthcare services"
+    },
+    {
+      "probe_text": "Suppose a new government policy in Lesotho is announced, which will provide additional funding for emergency services and road safety measures only if the number of fatalities exceeds the 30-day average of fatalities over the preceding 360 days. This policy is widely publicized and may influence the behavior of drivers and other stakeholders. As a result, the anticipation of potential increased funding for safety measures could lead to changes in road safety and healthcare quality, thus affecting the trend of fatalities. Does this new information change your estimate of the probability?",
+      "probe_type": "edge_reverse",
+      "target_id": "fatalities_trend->outcome",
+      "mechanism": "The expectation of increased funding for safety measures (outcome) influences the trend of fatalities by changing the behavior of drivers and stakeholders, thus reversing the causal link.",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "A higher trend of fatalities increases the likelihood of more fatalities in the future"
+    },
+    {
+      "probe_text": "Recently, it has been observed that high fatality rates in Lesotho have led to an increased burden on the healthcare system, resulting in shortages of medical supplies and staff burnout, ultimately decreasing the quality of healthcare services. This suggests a potential feedback loop where a higher trend of fatalities negatively impacts healthcare quality. For instance, if the trend of fatalities over the preceding period is high, hospitals may struggle to maintain adequate staffing and resources, leading to a decline in the overall quality of care. Could this relationship between fatalities trend and healthcare quality affect the forecasted event of more fatalities in Lesotho?",
+      "probe_type": "edge_spurious",
+      "target_id": "fatalities_trend->healthcare_quality",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The trend of fatalities in Lesotho over the preceding period -> The quality of healthcare services in Lesotho"
+    },
+    {
+      "probe_text": "A recent study in Lesotho found that a higher trend of fatalities over the past year has led to increased public awareness and government scrutiny of road safety, resulting in more stringent traffic enforcement and infrastructure investments, thereby improving road safety. However, this improvement may not be sustained if the trend of fatalities continues to rise, as resources may be diverted to address the more pressing issue of high fatality rates. If the trend of fatalities in Lesotho over the preceding period directly influences the state of road safety, then a continued increase in fatalities could ultimately lead to a decline in road safety due to decreased public and government attention to the issue. Will the forecaster update their belief about the relationship between fatalities trend and road safety in light of this new information?",
+      "probe_type": "edge_spurious",
+      "target_id": "fatalities_trend->road_safety",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The trend of fatalities in Lesotho over the preceding period -> The state of road safety in Lesotho"
+    },
+    {
+      "probe_text": "What if a new pandemic strain emerges in Lesotho, significantly increasing the burden on the healthcare system and potentially leading to more fatalities due to overwhelmed medical facilities and staff shortages? This could be a critical factor in determining the outcome. The spread of infectious diseases can have a direct impact on fatalities, especially if the healthcare system is not equipped to handle the surge in cases. Would this new information change your estimate?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Recently, there has been a significant increase in political unrest in Lesotho, leading to widespread protests and demonstrations. How would this development affect your forecast, considering that political instability can lead to increased violence, accidents, and decreased access to healthcare services? This could, in turn, influence the trend of fatalities in the region. Would you update your probability estimate in light of this new information?",
+      "probe_type": "missing_node",
+      "target_id": "political_unrest",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The Lesotho Ministry of Tourism has announced plans to launch a new campaign to promote eco-tourism in the country, focusing on sustainable practices and community-based tourism initiatives. This campaign is expected to attract more international tourists and boost the local economy through job creation and infrastructure development. However, the campaign's primary focus is on environmental conservation and community engagement, with no direct involvement in road safety, healthcare, crime prevention, or disaster management. The campaign's launch is scheduled to coincide with the peak tourist season.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The Lesotho Ministry of Tourism has announced a new campaign to promote cultural heritage sites, which is expected to increase tourism revenue by 10% in the next quarter. This campaign will focus on showcasing the country's unique traditional clothing and handicrafts. The ministry has allocated a significant budget to advertise Lesotho's cultural events and festivals internationally. However, the campaign's primary goal is to attract more visitors to the country's rural areas.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the recent trend of fatalities in Lesotho is not a reliable indicator of future fatalities due to significant changes in the country's emergency response systems and safety protocols, making past trends irrelevant to current predictions? Perhaps the implementation of new traffic laws, improved hospital facilities, and enhanced disaster preparedness measures have broken the historical pattern of fatalities. As a result, the trend of fatalities over the preceding period may not accurately forecast future fatalities. This could render the fatalities trend factor obsolete in predicting the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.31,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'fatalities_trend' factor significantly affects the causal path 'fatalities_trend -> outcome', which was a crucial link in predicting more fatalities in Lesotho. Given the implementation of new traffic laws, improved hospital facilities, and enhanced disaster preparedness measures, the historical trend of fatalities may no longer be a reliable indicator of future fatalities. This renders the 'fatalities_trend' factor less predictive, breaking a key causal path. As a result, the updated probability decreases substantially, reflecting the reduced confidence in the predictability of the outcome based on past trends alone.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n   \"shift_direction\": \"decreased\",\n   \"reasoning\": \"The challenge to the 'fatalities_trend' factor significantly affects the causal path 'fatalities_trend -> outcome', which was a crucial link in predicting more fatalities in Lesotho. Given the implementation of new traffic laws, improved hospital facilities, and enhanced disaster preparedness measures, the historical trend of fatalities may no longer be a reliable indicator of future fatalities. This renders the 'fatalities_trend' factor less predictive, breaking a key causal path. As a result, the updated probability decreases substantially, reflecting the reduced confidence in the predictability of the outcome based on past trends alone.\"\n}",
+      "target_id": "fatalities_trend",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent investments in Lesotho's road infrastructure have significantly improved road safety, reducing accidents and fatalities. Additionally, the government has implemented strict traffic laws and enforcement, further minimizing the impact of road safety on fatalities. As a result, the state of road safety in Lesotho may no longer be a crucial factor in determining the trend of fatalities. This development could render the previously assumed causal link between road safety and fatalities trend obsolete.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'road_safety' factor affects the causal path 'road_safety -> fatalities_trend', potentially weakening the link between poor road safety and increased fatalities. Given that road safety improvements and stricter traffic laws have been implemented, the contribution of road safety to the fatalities trend may be diminished. However, other causal paths such as 'healthcare_quality -> fatalities_trend', 'crime_rate -> fatalities_trend', 'natural_disasters -> fatalities_trend', and 'economic_stability -> healthcare_quality' and 'economic_stability -> road_safety' remain intact. The update reflects a moderate decrease in probability because while the road safety factor is now less influential, it is not the sole determinant of fatalities trend, and other factors continue to contribute to the outcome. The decrease acknowledges the reduced impact of road safety without suggesting it is negligible or that other factors have changed.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'road_safety' factor affects the causal path 'road_safety -> fatalities_trend', potentially weakening the link between poor road safety and increased fatalities. Given that road safety improvements and stricter traffic laws have been implemented, the contribution of road safety to the fatalities trend may be diminished. However, other causal paths such as 'healthcare_quality -> fatalities_trend', 'crime_rate -> fatalities_trend', 'natural_disasters -> fatalities_trend', and 'economic_stability -> healthcare_quality' and 'economic_stability -> road_safety' remain intact. The update reflects a moderate decrease in probability because while the road safety factor is now less influential, it is not the sole determinant of fatalities trend, and other factors continue to contribute to the outcome. The decrease acknowledges the reduced impact of road safety without suggesting it is negligible or that other factors have changed.\"\n}",
+      "target_id": "road_safety",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports from the Lesotho government indicate a significant decrease in violent crime rates over the past year, with a notable increase in police presence and community-led initiatives to reduce gang activity. Additionally, studies have shown that the primary causes of fatalities in Lesotho are more closely related to road accidents and natural disasters rather than violent crime. This suggests that the crime rate may have a minimal impact on the overall trend of fatalities. As a result, the previously assumed causal link between crime rate and fatalities trend may be overstated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'crime_rate' causal factor suggests that its impact on the 'fatalities_trend' may be minimal. Given that the primary causes of fatalities in Lesotho are road accidents and natural disasters, the causal path from 'crime_rate' to 'fatalities_trend' is peripheral. Although this path is affected, the reduction in crime rate is a positive development, it does not significantly alter the overall likelihood of more fatalities in the future, as the main drivers (road safety, healthcare quality, and natural disasters) remain unchanged. Therefore, the update to the probability estimate is small, reflecting a minor adjustment to account for the decreased importance of crime rate in the causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'crime_rate' causal factor suggests that its impact on the 'fatalities_trend' may be minimal. Given that the primary causes of fatalities in Lesotho are road accidents and natural disasters, the causal path from 'crime_rate' to 'fatalities_trend' is peripheral. Although this path is affected, the reduction in crime rate is a positive development, it does not significantly alter the overall likelihood of more fatalities in the future, as the main drivers (road safety, healthcare quality, and natural disasters) remain unchanged. Therefore, the update to the probability estimate is small, reflecting a minor adjustment to account for the decreased importance of crime rate in the causal network.\"\n}",
+      "target_id": "crime_rate",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent investments in Lesotho's infrastructure and a significant increase in foreign aid have led to a surge in economic activity, suggesting that the country's economic stability may not be as relevant to road safety and healthcare quality as previously thought. In fact, the improved economic conditions have enabled the government to allocate more resources to road maintenance and healthcare services. Furthermore, the influx of foreign investment has created new job opportunities, reducing the likelihood of crime and improving overall social stability. This newfound economic stability might actually have a neutral or even positive effect on fatalities in Lesotho.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'economic_stability' factor suggests that its impact on road safety and healthcare quality may be less significant than initially thought, potentially even having a positive effect due to increased investment in these areas. This affects the causal paths from 'economic_stability' to 'road_safety' and 'healthcare_quality', and subsequently to 'fatalities_trend' and the 'outcome'. Given that economic stability now seems to have a positive or neutral effect, the likelihood of more fatalities due to poor road safety and low-quality healthcare decreases. However, the update is moderate because the direct links from 'road_safety', 'healthcare_quality', 'crime_rate', and 'natural_disasters' to 'fatalities_trend' remain unchanged, and 'economic_stability' was not the sole determinant of the 'outcome'. The reduction in crime rate due to new job opportunities also contributes to the decrease in the probability of more fatalities.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'economic_stability' factor suggests that its impact on road safety and healthcare quality may be less significant than initially thought, potentially even having a positive effect due to increased investment in these areas. This affects the causal paths from 'economic_stability' to 'road_safety' and 'healthcare_quality', and subsequently to 'fatalities_trend' and the 'outcome'. Given that economic stability now seems to have a positive or neutral effect, the likelihood of more fatalities due to poor road safety and low-quality healthcare decreases. However, the update is moderate because the direct links from 'road_safety', 'healthcare_quality', 'crime_rate', and 'natural_disasters' to 'fatalities_trend' remain unchanged, and 'economic_stability' was not the sole determinant of the 'outcome'. The reduction in crime rate due to new job opportunities also contributes to the decrease in the probability of more fatalities.\"\n}",
+      "target_id": "economic_stability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent study by the Lesotho Ministry of Health reported a strong correlation between the 30-day moving average of fatalities and the subsequent 30-day fatality rate, with a significant increase in fatalities observed when the moving average exceeded a certain threshold. The study analyzed data from the past five years and controlled for various external factors, including road safety, healthcare quality, and crime rates. This finding suggests that the trend of fatalities in Lesotho is a robust predictor of future fatalities. The study's results have been endorsed by the World Health Organization as a valuable contribution to the understanding of fatality trends in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The study by the Lesotho Ministry of Health strengthens the causal link between fatalities_trend and outcome, indicating a robust predictive relationship. This challenges my initial estimate by providing evidence that past fatality trends are a reliable indicator of future fatalities, thus reinforcing the importance of the fatalities_trend node in the causal network. The endorsement by the World Health Organization adds credibility to the study's findings. As a result, I am increasing my probability estimate, reflecting a higher confidence that the trend of fatalities will continue to influence the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The study by the Lesotho Ministry of Health strengthens the causal link between fatalities_trend and outcome, indicating a robust predictive relationship. This challenges my initial estimate by providing evidence that past fatality trends are a reliable indicator of future fatalities, thus reinforcing the importance of the fatalities_trend node in the causal network. The endorsement by the World Health Organization adds credibility to the study's findings. As a result, I am increasing my probability estimate, reflecting a higher confidence that the trend of fatalities will continue to influence the outcome.\"\n}",
+      "target_id": "fatalities_trend",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The Lesotho Ministry of Public Works and Transport has announced a significant increase in the budget for road maintenance and infrastructure development, aiming to reduce the number of accidents on the country's roads. This move is expected to improve road safety, especially on major highways. According to the Minister, this initiative is part of a broader effort to enhance road safety and reduce fatalities. Experts predict that this investment will lead to a noticeable decrease in accident rates within the next year.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.64,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'road_safety' element affects the causal path 'road_safety -> fatalities_trend', which in turn affects 'fatalities_trend -> outcome'. Improved road safety is expected to decrease accident rates, potentially reducing fatalities. Although 'road_safety' is not the only factor influencing 'fatalities_trend', it is a significant one. The update to 'road_safety' suggests a decrease in the likelihood of more fatalities in the future, leading to a decrease in the estimated probability. However, the decrease is moderate, as other factors like 'healthcare_quality', 'crime_rate', 'natural_disasters', and 'economic_stability' continue to influence 'fatalities_trend' and the 'outcome'.",
+      "raw_response": "{\n  \"updated_probability\": 0.64,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'road_safety' element affects the causal path 'road_safety -> fatalities_trend', which in turn affects 'fatalities_trend -> outcome'. Improved road safety is expected to decrease accident rates, potentially reducing fatalities. Although 'road_safety' is not the only factor influencing 'fatalities_trend', it is a significant one. The update to 'road_safety' suggests a decrease in the likelihood of more fatalities in the future, leading to a decrease in the estimated probability. However, the decrease is moderate, as other factors like 'healthcare_quality', 'crime_rate', 'natural_disasters', and 'economic_stability' continue to influence 'fatalities_trend' and the 'outcome'.\"\n}",
+      "target_id": "road_safety",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that the government of Lesotho has implemented a new road safety campaign and increased funding for emergency services, which could lead to a decrease in fatalities despite a previously high trend. Additionally, the introduction of new healthcare policies has improved the quality of care, potentially reducing the number of fatalities. This could indicate that the relationship between the trend of fatalities and future outcomes is not as strong as assumed. The current trend might be reversing due to these interventions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge primarily affects the causal path 'fatalities_trend -> outcome' by suggesting that recent interventions could reverse the current trend of fatalities, thus weakening the link between past fatalities trend and future outcomes. Additionally, the improved road safety and healthcare quality indirectly influence 'fatalities_trend' through 'road_safety -> fatalities_trend' and 'healthcare_quality -> fatalities_trend', further supporting the potential decrease in fatalities. Given the structural importance of 'fatalities_trend' in predicting the outcome and the plausible impact of these interventions, a substantial update to the probability estimate is warranted. The updated probability reflects a decreased likelihood of more fatalities due to the potential reversal of the trend caused by the government's interventions.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge primarily affects the causal path 'fatalities_trend -> outcome' by suggesting that recent interventions could reverse the current trend of fatalities, thus weakening the link between past fatalities trend and future outcomes. Additionally, the improved road safety and healthcare quality indirectly influence 'fatalities_trend' through 'road_safety -> fatalities_trend' and 'healthcare_quality -> fatalities_trend', further supporting the potential decrease in fatalities. Given the structural importance of 'fatalities_trend' in predicting the outcome and the plausible impact of these interventions, a substantial update to the probability estimate is warranted. The updated probability reflects a decreased likelihood of more fatalities due to the potential reversal of the trend caused by the government's interventions.\"\n}",
+      "target_id": "fatalities_trend->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recently, Lesotho implemented a nationwide road safety campaign, resulting in a significant increase in seatbelt usage and a reduction in speeding violations. However, despite this improvement in road safety behaviors, the number of fatalities on Lesotho's roads has not decreased as expected, suggesting that other factors such as vehicle maintenance and road conditions may be more critical in determining fatality rates. Furthermore, data from similar countries shows that improvements in road safety do not always translate to reductions in fatalities, indicating a potential break in the assumed causal link. This challenges the idea that poor road safety directly leads to more accidents and fatalities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'road_safety->fatalities_trend' suggests that the relationship between road safety and fatalities may not be as direct as initially assumed. This breaks a causal path that was previously considered important, but not the only one. Other factors such as healthcare quality, crime rate, natural disasters, and economic stability still contribute to the fatalities trend. Given that the road safety campaign did not lead to a decrease in fatalities as expected, it indicates that other factors might be more influential. However, since road safety was just one of several factors influencing fatalities trend, the overall impact on the outcome is reduced but not eliminated. The updated probability reflects a decreased confidence in the initial forecast due to the reduced importance of the road safety factor, but still acknowledges the potential for other factors to contribute to an increase in fatalities.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'road_safety->fatalities_trend' suggests that the relationship between road safety and fatalities may not be as direct as initially assumed. This breaks a causal path that was previously considered important, but not the only one. Other factors such as healthcare quality, crime rate, natural disasters, and economic stability still contribute to the fatalities trend. Given that the road safety campaign did not lead to a decrease in fatalities as expected, it indicates that other factors might be more influential. However, since road safety was just one of several factors influencing fatalities trend, the overall impact on the outcome is reduced but not eliminated. The updated probability reflects a decreased confidence in the initial forecast due to the reduced importance of the road safety factor, but still acknowledges the potential for other factors to contribute to an increase in fatalities.\"\n}",
+      "target_id": "road_safety->fatalities_trend",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent investments in Lesotho's healthcare infrastructure have been primarily funded by international organizations, which has helped maintain a consistent level of healthcare quality regardless of the country's economic stability. Furthermore, the healthcare sector in Lesotho has seen significant private investment, making it less dependent on government funding that could be affected by economic instability. This suggests that the quality of healthcare services in Lesotho may not be as directly influenced by economic stability as initially thought. Could the forecaster reconsider the impact of economic stability on healthcare quality in their assessment?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'economic_stability->healthcare_quality' suggests that healthcare quality in Lesotho is less dependent on economic stability due to international and private investments. This weakens the indirect path from economic stability to fatalities trend through healthcare quality. However, other paths such as 'road_safety -> fatalities_trend', 'crime_rate -> fatalities_trend', 'natural_disasters -> fatalities_trend', and 'economic_stability -> road_safety' remain unaffected. Given that the link between economic stability and healthcare quality is not the only influential factor on fatalities trend, and considering the overall resilience of the healthcare sector in Lesotho, the update to the probability is moderate. The increased probability reflects a slightly reduced concern about economic instability impacting healthcare quality and, by extension, fatalities, but it does not significantly alter the overall forecast due to the multifaceted nature of the causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_stability->healthcare_quality' suggests that healthcare quality in Lesotho is less dependent on economic stability due to international and private investments. This weakens the indirect path from economic stability to fatalities trend through healthcare quality. However, other paths such as 'road_safety -> fatalities_trend', 'crime_rate -> fatalities_trend', 'natural_disasters -> fatalities_trend', and 'economic_stability -> road_safety' remain unaffected. Given that the link between economic stability and healthcare quality is not the only influential factor on fatalities trend, and considering the overall resilience of the healthcare sector in Lesotho, the update to the probability is moderate. The increased probability reflects a slightly reduced concern about economic instability impacting healthcare quality and, by extension, fatalities, but it does not significantly alter the overall forecast due to the multifaceted nature of the causal network.\"\n}",
+      "target_id": "economic_stability->healthcare_quality",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Suppose a new government policy in Lesotho is announced, which will provide additional funding for emergency services and road safety measures only if the number of fatalities exceeds the 30-day average of fatalities over the preceding 360 days. This policy is widely publicized and may influence the behavior of drivers and other stakeholders. As a result, the anticipation of potential increased funding for safety measures could lead to changes in road safety and healthcare quality, thus affecting the trend of fatalities. Does this new information change your estimate of the probability?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of the new government policy affects the causal path 'fatalities_trend -> outcome' by potentially altering the trend of fatalities through improved road safety and emergency services. This policy may lead to increased caution among drivers and stakeholders, thus reducing the likelihood of fatalities. The causal paths 'economic_stability -> road_safety' and 'economic_stability -> healthcare_quality' are also indirectly affected, as the policy's impact on road safety and healthcare quality could mitigate the negative effects of economic instability. However, the policy's effectiveness depends on the number of fatalities exceeding the 30-day average, creating a feedback loop that complicates the prediction. Given the potential for improved safety measures and behavioral changes, I have decreased the estimated probability, but the update is moderate, as the policy's impact is conditional and its effects on the trend of fatalities are uncertain.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of the new government policy affects the causal path 'fatalities_trend -> outcome' by potentially altering the trend of fatalities through improved road safety and emergency services. This policy may lead to increased caution among drivers and stakeholders, thus reducing the likelihood of fatalities. The causal paths 'economic_stability -> road_safety' and 'economic_stability -> healthcare_quality' are also indirectly affected, as the policy's impact on road safety and healthcare quality could mitigate the negative effects of economic instability. However, the policy's effectiveness depends on the number of fatalities exceeding the 30-day average, creating a feedback loop that complicates the prediction. Given the potential for improved safety measures and behavioral changes, I have decreased the estimated probability, but the update is moderate, as the policy's impact is conditional and its effects on the trend of fatalities are uncertain.\"\n}",
+      "target_id": "fatalities_trend->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recently, it has been observed that high fatality rates in Lesotho have led to an increased burden on the healthcare system, resulting in shortages of medical supplies and staff burnout, ultimately decreasing the quality of healthcare services. This suggests a potential feedback loop where a higher trend of fatalities negatively impacts healthcare quality. For instance, if the trend of fatalities over the preceding period is high, hospitals may struggle to maintain adequate staffing and resources, leading to a decline in the overall quality of care. Could this relationship between fatalities trend and healthcare quality affect the forecasted event of more fatalities in Lesotho?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of a feedback loop between fatalities_trend and healthcare_quality suggests that a higher trend of fatalities can negatively impact healthcare quality, which in turn can increase the likelihood of more fatalities. This reinforces the causal path from fatalities_trend to outcome, as poor healthcare quality can exacerbate the trend of fatalities. The affected causal path is: fatalities_trend -> healthcare_quality -> fatalities_trend -> outcome. This creates a self-reinforcing cycle that increases the likelihood of more fatalities in Lesotho. As a result, I have increased my estimate of the probability of more fatalities in Lesotho.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of a feedback loop between fatalities_trend and healthcare_quality suggests that a higher trend of fatalities can negatively impact healthcare quality, which in turn can increase the likelihood of more fatalities. This reinforces the causal path from fatalities_trend to outcome, as poor healthcare quality can exacerbate the trend of fatalities. The affected causal path is: fatalities_trend -> healthcare_quality -> fatalities_trend -> outcome. This creates a self-reinforcing cycle that increases the likelihood of more fatalities in Lesotho. As a result, I have increased my estimate of the probability of more fatalities in Lesotho.\"\n}",
+      "target_id": "fatalities_trend->healthcare_quality",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "A recent study in Lesotho found that a higher trend of fatalities over the past year has led to increased public awareness and government scrutiny of road safety, resulting in more stringent traffic enforcement and infrastructure investments, thereby improving road safety. However, this improvement may not be sustained if the trend of fatalities continues to rise, as resources may be diverted to address the more pressing issue of high fatality rates. If the trend of fatalities in Lesotho over the preceding period directly influences the state of road safety, then a continued increase in fatalities could ultimately lead to a decline in road safety due to decreased public and government attention to the issue. Will the forecaster update their belief about the relationship between fatalities trend and road safety in light of this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The new information challenges the assumed causal link between fatalities_trend and road_safety, suggesting a potential positive feedback loop where increased fatalities lead to improved road safety in the short term, but potentially deteriorating road safety if fatalities continue to rise. However, the direct causal link from fatalities_trend to road_safety was not present in the original network, so the update is moderate. The original network had economic_stability affecting road_safety, and fatalities_trend directly influencing the outcome. The introduction of this new relationship suggests that the trend of fatalities could have an indirect positive effect on road safety, which in turn could decrease the likelihood of fatalities, thus slightly decreasing the probability of the outcome. The shift is moderate because the primary causal paths (road_safety, healthcare_quality, crime_rate, natural_disasters, and economic_stability) influencing fatalities_trend and the outcome remain unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information challenges the assumed causal link between fatalities_trend and road_safety, suggesting a potential positive feedback loop where increased fatalities lead to improved road safety in the short term, but potentially deteriorating road safety if fatalities continue to rise. However, the direct causal link from fatalities_trend to road_safety was not present in the original network, so the update is moderate. The original network had economic_stability affecting road_safety, and fatalities_trend directly influencing the outcome. The introduction of this new relationship suggests that the trend of fatalities could have an indirect positive effect on road safety, which in turn could decrease the likelihood of fatalities, thus slightly decreasing the probability of the outcome. The shift is moderate because the primary causal paths (road_safety, healthcare_quality, crime_rate, natural_disasters, and economic_stability) influencing fatalities_trend and the outcome remain unchanged.\"\n}",
+      "target_id": "fatalities_trend->road_safety",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a new pandemic strain emerges in Lesotho, significantly increasing the burden on the healthcare system and potentially leading to more fatalities due to overwhelmed medical facilities and staff shortages? This could be a critical factor in determining the outcome. The spread of infectious diseases can have a direct impact on fatalities, especially if the healthcare system is not equipped to handle the surge in cases. Would this new information change your estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The emergence of a new pandemic strain in Lesotho directly impacts the healthcare_quality node, which in turn affects the fatalities_trend node. This new information introduces an additional causal path: pandemic_strain -> healthcare_quality -> fatalities_trend -> outcome. The increased burden on the healthcare system and potential for overwhelmed medical facilities and staff shortages can lead to more fatalities. Given the significant impact of a pandemic on the healthcare system and fatalities, I am increasing my estimate substantially. The original causal paths, such as road_safety, crime_rate, and natural_disasters, are still relevant, but the introduction of this new factor dominates the update, shifting the probability upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The emergence of a new pandemic strain in Lesotho directly impacts the healthcare_quality node, which in turn affects the fatalities_trend node. This new information introduces an additional causal path: pandemic_strain -> healthcare_quality -> fatalities_trend -> outcome. The increased burden on the healthcare system and potential for overwhelmed medical facilities and staff shortages can lead to more fatalities. Given the significant impact of a pandemic on the healthcare system and fatalities, I am increasing my estimate substantially. The original causal paths, such as road_safety, crime_rate, and natural_disasters, are still relevant, but the introduction of this new factor dominates the update, shifting the probability upward.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recently, there has been a significant increase in political unrest in Lesotho, leading to widespread protests and demonstrations. How would this development affect your forecast, considering that political instability can lead to increased violence, accidents, and decreased access to healthcare services? This could, in turn, influence the trend of fatalities in the region. Would you update your probability estimate in light of this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of political unrest in Lesotho affects multiple causal paths leading to the outcome. Political instability can lead to increased violence, which in turn affects the crime_rate node, potentially increasing the rate of violent fatalities. Additionally, widespread protests and demonstrations can lead to accidents, influencing the road_safety node and further contributing to fatalities. The decreased access to healthcare services due to political unrest impacts the healthcare_quality node, potentially increasing the likelihood of fatalities due to reduced healthcare effectiveness. These changes reinforce the fatalities_trend node, suggesting a higher trend of fatalities, which directly influences the outcome. Given the significant impact of political unrest on several key nodes in the causal network, the updated probability estimate reflects an increased likelihood of more fatalities in Lesotho during the specified period.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of political unrest in Lesotho affects multiple causal paths leading to the outcome. Political instability can lead to increased violence, which in turn affects the crime_rate node, potentially increasing the rate of violent fatalities. Additionally, widespread protests and demonstrations can lead to accidents, influencing the road_safety node and further contributing to fatalities. The decreased access to healthcare services due to political unrest impacts the healthcare_quality node, potentially increasing the likelihood of fatalities due to reduced healthcare effectiveness. These changes reinforce the fatalities_trend node, suggesting a higher trend of fatalities, which directly influences the outcome. Given the significant impact of political unrest on several key nodes in the causal network, the updated probability estimate reflects an increased likelihood of more fatalities in Lesotho during the specified period.\"\n}",
+      "target_id": "political_unrest",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Lesotho Ministry of Tourism has announced plans to launch a new campaign to promote eco-tourism in the country, focusing on sustainable practices and community-based tourism initiatives. This campaign is expected to attract more international tourists and boost the local economy through job creation and infrastructure development. However, the campaign's primary focus is on environmental conservation and community engagement, with no direct involvement in road safety, healthcare, crime prevention, or disaster management. The campaign's launch is scheduled to coincide with the peak tourist season.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The announced campaign to promote eco-tourism in Lesotho is expected to boost the local economy through job creation and infrastructure development, which could indirectly improve economic stability. This, in turn, might have a slight positive effect on road safety and healthcare quality through improved economic conditions. However, since the campaign's primary focus is on environmental conservation and community engagement without direct involvement in road safety, healthcare, crime prevention, or disaster management, the impact on the critical causal paths leading to fatalities is minimal. The slight decrease in probability reflects the potential for marginally improved economic stability to indirectly influence road safety and healthcare quality, but this effect is not substantial enough to significantly alter the overall forecast.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announced campaign to promote eco-tourism in Lesotho is expected to boost the local economy through job creation and infrastructure development, which could indirectly improve economic stability. This, in turn, might have a slight positive effect on road safety and healthcare quality through improved economic conditions. However, since the campaign's primary focus is on environmental conservation and community engagement without direct involvement in road safety, healthcare, crime prevention, or disaster management, the impact on the critical causal paths leading to fatalities is minimal. The slight decrease in probability reflects the potential for marginally improved economic stability to indirectly influence road safety and healthcare quality, but this effect is not substantial enough to significantly alter the overall forecast.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Lesotho Ministry of Tourism has announced a new campaign to promote cultural heritage sites, which is expected to increase tourism revenue by 10% in the next quarter. This campaign will focus on showcasing the country's unique traditional clothing and handicrafts. The ministry has allocated a significant budget to advertise Lesotho's cultural events and festivals internationally. However, the campaign's primary goal is to attract more visitors to the country's rural areas.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The campaign to promote cultural heritage sites is expected to increase tourism revenue, which could lead to improved economic stability in Lesotho. According to the causal network, economic stability has a positive effect on road safety and healthcare quality. Improved road safety and healthcare quality can lead to a decrease in fatalities. However, the primary goal of the campaign is to attract more visitors to rural areas, which may increase the number of people on the roads, potentially offsetting some of the positive effects on road safety. Nevertheless, the overall effect of increased economic stability is likely to be positive, leading to a slight increase in the probability of more fatalities in the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the preceding 360 days, although the impact is expected to be small.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The campaign to promote cultural heritage sites is expected to increase tourism revenue, which could lead to improved economic stability in Lesotho. According to the causal network, economic stability has a positive effect on road safety and healthcare quality. Improved road safety and healthcare quality can lead to a decrease in fatalities. However, the primary goal of the campaign is to attract more visitors to rural areas, which may increase the number of people on the roads, potentially offsetting some of the positive effects on road safety. Nevertheless, the overall effect of increased economic stability is likely to be positive, leading to a slight increase in the probability of more fatalities in the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the preceding 360 days, although the impact is expected to be small.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "According to recent reports from the Lesotho National Police, there has been a significant surge in violent crime incidents, particularly in the capital city of Maseru, over the past quarter. This increase is attributed to rising gang activity and a lack of effective law enforcement strategies. Furthermore, local community leaders have expressed concerns about the growing presence of organized crime groups in the country, which is expected to exacerbate the situation. As a result, the police force is struggling to maintain order and prevent fatalities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'crime_rate' causal factor indicates a significant surge in violent crime incidents in Lesotho, which is expected to lead to more fatalities. This affects the causal path 'crime_rate -> fatalities_trend', strengthening the link between crime rate and fatalities trend. As a result, the likelihood of more fatalities in the future increases. The update is substantial because the challenged element is structurally important to the reasoning, and the change in crime rate has a direct impact on the fatalities trend, which in turn affects the outcome. The increased crime rate, particularly in the capital city, and the growing presence of organized crime groups exacerbate the situation, leading to a higher probability of more fatalities in Lesotho.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'crime_rate' causal factor indicates a significant surge in violent crime incidents in Lesotho, which is expected to lead to more fatalities. This affects the causal path 'crime_rate -> fatalities_trend', strengthening the link between crime rate and fatalities trend. As a result, the likelihood of more fatalities in the future increases. The update is substantial because the challenged element is structurally important to the reasoning, and the change in crime rate has a direct impact on the fatalities trend, which in turn affects the outcome. The increased crime rate, particularly in the capital city, and the growing presence of organized crime groups exacerbate the situation, leading to a higher probability of more fatalities in Lesotho.\"\n}",
+      "target_id": "crime_rate",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recently, the International Monetary Fund (IMF) announced that Lesotho's economy is expected to experience a significant downturn due to a decline in global demand for its primary exports. This economic instability is likely to impact the government's ability to allocate funds to road maintenance and healthcare services. As a result, the condition of roads may deteriorate, and healthcare facilities may struggle to provide adequate care, potentially increasing the likelihood of fatalities. The IMF's forecast suggests that this economic instability may persist for several months, affecting the overall stability of Lesotho's economy.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.81,
+      "absolute_shift": 0.08000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The announcement by the IMF regarding Lesotho's economic downturn affects the causal paths through 'economic_stability' to 'road_safety' and 'healthcare_quality', both of which influence 'fatalities_trend' and subsequently the 'outcome'. Given that economic instability can lead to poor road maintenance and decreased quality of healthcare services, the likelihood of accidents and fatalities due to these factors increases. This directly impacts the 'fatalities_trend', making it more probable that there will be more fatalities in the specified period. The persistence of economic instability for several months amplifies its potential impact on road safety and healthcare quality, thus increasing the estimated probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.81,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement by the IMF regarding Lesotho's economic downturn affects the causal paths through 'economic_stability' to 'road_safety' and 'healthcare_quality', both of which influence 'fatalities_trend' and subsequently the 'outcome'. Given that economic instability can lead to poor road maintenance and decreased quality of healthcare services, the likelihood of accidents and fatalities due to these factors increases. This directly impacts the 'fatalities_trend', making it more probable that there will be more fatalities in the specified period. The persistence of economic instability for several months amplifies its potential impact on road safety and healthcare quality, thus increasing the estimated probability of the outcome.\"\n}",
+      "target_id": "economic_stability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by the Lesotho Ministry of Health has found that for every 10% increase in fatalities over a 30-day period, there is a corresponding 15% increase in the likelihood of additional fatalities over the subsequent 30 days, due to factors such as increased stress on healthcare services and reduced emergency response capabilities. This suggests that the relationship between fatalities trend and outcome may be even stronger than initially assumed. Furthermore, the study revealed that this correlation is particularly pronounced during periods of economic instability, which Lesotho is currently experiencing. As a result, the forecaster should reevaluate their probability estimate in light of this new information.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between 'fatalities_trend' and 'outcome', indicating a higher likelihood of additional fatalities following an increase in fatalities over a 30-day period. This is particularly relevant given Lesotho's current economic instability, which amplifies the correlation. The primary causal path affected is 'fatalities_trend -> outcome', with the study suggesting a stronger relationship than initially assumed. This update reflects the increased confidence in the forecast due to the stronger correlation between fatalities trend and outcome, especially under conditions of economic instability.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between 'fatalities_trend' and 'outcome', indicating a higher likelihood of additional fatalities following an increase in fatalities over a 30-day period. This is particularly relevant given Lesotho's current economic instability, which amplifies the correlation. The primary causal path affected is 'fatalities_trend -> outcome', with the study suggesting a stronger relationship than initially assumed. This update reflects the increased confidence in the forecast due to the stronger correlation between fatalities trend and outcome, especially under conditions of economic instability.\"\n}",
+      "target_id": "fatalities_trend->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recently, the Lesotho government acknowledged that the country's road infrastructure has significantly deteriorated due to lack of maintenance, leading to a notable increase in road accidents and fatalities over the past quarter. This deterioration is expected to worsen due to the current economic constraints, which will further limit the government's ability to invest in road safety improvements. As a result, the risk of accidents and fatalities on Lesotho's roads is likely to increase, reinforcing the link between poor road safety and higher fatalities. This development suggests that the impact of road safety on fatalities trend may be even more pronounced than initially estimated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'road_safety->fatalities_trend' actually strengthens this relationship, indicating that poor road safety will have an even more significant impact on the trend of fatalities in Lesotho. This development affects the causal path from 'road_safety' to 'fatalities_trend' and subsequently to 'outcome', increasing the likelihood of more fatalities due to the anticipated worsening of road conditions and the government's limited ability to invest in road safety improvements. Given the critical role of road safety in influencing fatalities, this update substantially increases the estimated probability of more fatalities in the specified period.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'road_safety->fatalities_trend' actually strengthens this relationship, indicating that poor road safety will have an even more significant impact on the trend of fatalities in Lesotho. This development affects the causal path from 'road_safety' to 'fatalities_trend' and subsequently to 'outcome', increasing the likelihood of more fatalities due to the anticipated worsening of road conditions and the government's limited ability to invest in road safety improvements. Given the critical role of road safety in influencing fatalities, this update substantially increases the estimated probability of more fatalities in the specified period.\"\n}",
+      "target_id": "road_safety->fatalities_trend",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "fe30e48ca357bef8e04efccce83241aa399e9c884084c833833d50b10ec56e26",
+    "question_text": "Will there be more fatalities in Lesotho for the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,fatalities\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of fatalities over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more fatalities would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.73,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.08374999999999998,
+    "max_absolute_shift": 0.31
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 3.5069444444444424,
+    "mean_shift_high": 0.12624999999999997,
+    "mean_shift_low": 0.03600000000000001,
+    "asymmetry_index": 0.8439560439560436,
+    "mean_shift_negate": 0.0914285714285714,
+    "mean_shift_strengthen": 0.10833333333333334,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.037999999999999964,
+    "mean_shift_on_path": 0.10799999999999996,
+    "mean_shift_off_path": 0.06999999999999999,
+    "importance_sensitivity_correlation": 0.6121212121212121,
+    "control_sensitivity": 0
+  }
+}

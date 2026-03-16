@@ -1,0 +1,1070 @@
+{
+  "question_id": "TREAST",
+  "question_text": "Will the total value of US Treasury securities held by the Federal Reserve have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+  "source": "fred",
+  "initial_probability": 0.65,
+  "nodes": [
+    {
+      "id": "fed_policy",
+      "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+      "role": "factor"
+    },
+    {
+      "id": "inflation_trend",
+      "description": "The trajectory of inflation rates in the U.S. during late 2025",
+      "role": "factor"
+    },
+    {
+      "id": "economic_growth",
+      "description": "The rate of U.S. economic growth in the latter part of 2025",
+      "role": "factor"
+    },
+    {
+      "id": "market_volatility",
+      "description": "Levels of financial market stress or instability in December 2025",
+      "role": "factor"
+    },
+    {
+      "id": "treasury_issuance",
+      "description": "The volume of new U.S. Treasury securities issued by the Treasury Department",
+      "role": "factor"
+    },
+    {
+      "id": "balance_sheet_operations",
+      "description": "The Fed's reinvestment or runoff decisions regarding maturing securities",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The total value of US Treasury securities held by the Federal Reserve has increased by 2025-12-28 compared to 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "inflation_trend",
+      "to": "fed_policy",
+      "mechanism": "Higher inflation pressures may lead the Fed to maintain or expand its balance sheet to support economic stability"
+    },
+    {
+      "from": "economic_growth",
+      "to": "fed_policy",
+      "mechanism": "Slower growth may prompt the Fed to ease policy or halt balance sheet runoff, influencing holdings"
+    },
+    {
+      "from": "market_volatility",
+      "to": "fed_policy",
+      "mechanism": "Elevated financial instability could lead the Fed to resume asset purchases or suspend redemptions"
+    },
+    {
+      "from": "fed_policy",
+      "to": "balance_sheet_operations",
+      "mechanism": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off"
+    },
+    {
+      "from": "treasury_issuance",
+      "to": "balance_sheet_operations",
+      "mechanism": "Higher Treasury issuance increases opportunities for the Fed to purchase or reinvest in securities"
+    },
+    {
+      "from": "balance_sheet_operations",
+      "to": "outcome",
+      "mechanism": "If the Fed reinvests more than the amount of maturities, its holdings increase"
+    }
+  ],
+  "reasoning": "The Fed's balance sheet changes slowly, but small weekly changes can occur due to reinvestment decisions. As of late 2025, if inflation remains elevated or economic growth slows, the Fed may pause balance sheet runoff or modestly reinvest more, leading to a slight increase in holdings over a one-week window. Market volatility could also prompt temporary intervention. Given the short timeframe (one week), the most likely scenario is continued reinvestment at a level matching or slightly exceeding maturities, making a small increase somewhat more likely than a decrease. Hence, the probability is moderately above 50%.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "fed_policy",
+        "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.2,
+        "closeness": 0.5,
+        "pagerank": 0.2022,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "inflation_trend",
+        "description": "The trajectory of inflation rates in the U.S. during late 2025",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_growth",
+        "description": "The rate of U.S. economic growth in the latter part of 2025",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "market_volatility",
+        "description": "Levels of financial market stress or instability in December 2025",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "treasury_issuance",
+        "description": "The volume of new U.S. Treasury securities issued by the Treasury Department",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "balance_sheet_operations",
+        "description": "The Fed's reinvestment or runoff decisions regarding maturing securities",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1667,
+        "closeness": 0.5208,
+        "pagerank": 0.2773,
+        "path_relevance": 0.8333
+      },
+      {
+        "node_id": "outcome",
+        "description": "The total value of US Treasury securities held by the Federal Reserve has increased by 2025-12-28 compared to 2025-12-21",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4286,
+        "pagerank": 0.2926,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "fed_policy",
+        "target": "balance_sheet_operations",
+        "mechanism": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "inflation_trend",
+        "target": "fed_policy",
+        "mechanism": "Higher inflation pressures may lead the Fed to maintain or expand its balance sheet to support economic stability",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "fed_policy",
+        "mechanism": "Slower growth may prompt the Fed to ease policy or halt balance sheet runoff, influencing holdings",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "market_volatility",
+        "target": "fed_policy",
+        "mechanism": "Elevated financial instability could lead the Fed to resume asset purchases or suspend redemptions",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "treasury_issuance",
+        "target": "balance_sheet_operations",
+        "mechanism": "Higher Treasury issuance increases opportunities for the Fed to purchase or reinvest in securities",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "balance_sheet_operations",
+        "target": "outcome",
+        "mechanism": "If the Fed reinvests more than the amount of maturities, its holdings increase",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "fed_policy",
+        "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "balance_sheet_operations",
+        "description": "The Fed's reinvestment or runoff decisions regarding maturing securities",
+        "importance": 0.1667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "The rate of U.S. economic growth in the latter part of 2025",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "treasury_issuance",
+        "description": "The volume of new U.S. Treasury securities issued by the Treasury Department",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "fed_policy",
+        "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "balance_sheet_operations",
+        "description": "The Fed's reinvestment or runoff decisions regarding maturing securities",
+        "importance": 0.1667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fed_policy->balance_sheet_operations",
+        "description": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "balance_sheet_operations->outcome",
+        "description": "If the Fed reinvests more than the amount of maturities, its holdings increase",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "treasury_issuance->balance_sheet_operations",
+        "description": "Higher Treasury issuance increases opportunities for the Fed to purchase or reinvest in securities",
+        "importance": 0.0476,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fed_policy->balance_sheet_operations",
+        "description": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "balance_sheet_operations->fed_policy",
+        "description": "Potential link: The Fed's reinvestment or runoff decisions regarding maturing securities -> The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "balance_sheet_operations->economic_growth",
+        "description": "Potential link: The Fed's reinvestment or runoff decisions regarding maturing securities -> The rate of U.S. economic growth in the latter part of 2025",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "fed_policy",
+      "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "balance_sheet_operations",
+      "description": "The Fed's reinvestment or runoff decisions regarding maturing securities",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "The rate of U.S. economic growth in the latter part of 2025",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "treasury_issuance",
+      "description": "The volume of new U.S. Treasury securities issued by the Treasury Department",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "fed_policy",
+      "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "balance_sheet_operations",
+      "description": "The Fed's reinvestment or runoff decisions regarding maturing securities",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "description": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "balance_sheet_operations->outcome",
+      "description": "If the Fed reinvests more than the amount of maturities, its holdings increase",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "treasury_issuance->balance_sheet_operations",
+      "description": "Higher Treasury issuance increases opportunities for the Fed to purchase or reinvest in securities",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "description": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "balance_sheet_operations->fed_policy",
+      "description": "Potential link: The Fed's reinvestment or runoff decisions regarding maturing securities -> The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "balance_sheet_operations->economic_growth",
+      "description": "Potential link: The Fed's reinvestment or runoff decisions regarding maturing securities -> The rate of U.S. economic growth in the latter part of 2025",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the Federal Reserve's monetary policy stance has no real impact on balance sheet operations because those decisions are now autonomously governed by pre-set rules tied to inflation and employment targets, leaving no discretion for policy shifts in late 2025? In this case, even a hawkish or dovish stance would not alter reinvestment behavior, making fed_policy irrelevant to changes in Treasury holdings over the one-week period.",
+      "probe_type": "node_negate_high",
+      "target_id": "fed_policy",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion"
+    },
+    {
+      "probe_text": "What if the Fed's reinvestment or runoff decisions had no impact on its Treasury holdings because the Treasury Department unexpectedly changed the maturity structure of new issuances, replacing shorter-term bills with longer-term bonds that the Fed was contractually obligated to hold? In this case, changes in holdings would be driven by issuance timing and composition rather than the Fed's operational choices.",
+      "probe_type": "node_negate_high",
+      "target_id": "balance_sheet_operations",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The Fed's reinvestment or runoff decisions regarding maturing securities"
+    },
+    {
+      "probe_text": "Suppose U.S. economic growth remains strong in late 2025, with GDP expanding at over 3% annualized. Despite this, the Federal Reserve could still maintain accommodative balance sheet operations due to concerns about inflation overshooting or global financial spillovers, decoupling its reinvestment decisions from domestic growth trends. This suggests that economic growth alone may not be a decisive driver of the Fed's balance sheet actions in the short term.",
+      "probe_type": "node_negate_medium",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "The rate of U.S. economic growth in the latter part of 2025"
+    },
+    {
+      "probe_text": "Suppose the U.S. Treasury significantly reduced new issuance in December 2025 due to a surplus in federal revenues. Even with fewer securities available, the Fed could still reinvest maturing holdings into the limited supply of new Treasuries, meaning changes in issuance volume may not constrain the Fed's ability to maintain or grow its balance sheet. Thus, the level of new issuance may not meaningfully affect the weekly change in holdings.",
+      "probe_type": "node_negate_low",
+      "target_id": "treasury_issuance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "The volume of new U.S. Treasury securities issued by the Treasury Department"
+    },
+    {
+      "probe_text": "On 2025-12-15, the Federal Reserve announced that it would temporarily pause balance sheet runoff starting in January 2026 due to rising concerns about tightening financial conditions, signaling a dovish shift in policy. This decision was explicitly tied to incoming data showing weakening labor market indicators and inflation falling below 2% on a sustained basis. The move reinforces the centrality of fed_policy in determining balance sheet dynamics, as it directly precedes and governs reinvestment decisions.",
+      "probe_type": "node_strengthen",
+      "target_id": "fed_policy",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion"
+    },
+    {
+      "probe_text": "On 2025-12-22, the Federal Reserve announced that it would fully reinvest all proceeds from maturing Treasury securities over the following week due to renewed concerns about liquidity conditions in financial markets. This decision was explicitly reaffirmed in the minutes of the FOMC's emergency conference call on 2025-12-24, highlighting a temporary pause in balance sheet normalization.",
+      "probe_type": "node_strengthen",
+      "target_id": "balance_sheet_operations",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The Fed's reinvestment or runoff decisions regarding maturing securities"
+    },
+    {
+      "probe_text": "The Federal Reserve's balance sheet operations are increasingly governed by pre-announced plans for reinvestment and runoff, which are often set in advance and continue automatically unless a formal policy change is made. Even if fed_policy shifts slightly in late 2025, the operational implementation may not adjust within a single week due to procedural inertia and a desire to avoid market disruption, weakening the direct causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off"
+    },
+    {
+      "probe_text": "The causal link assumes that reinvestment exceeding maturities directly increases the Fed's Treasury holdings, but this may not hold if the Fed engages in 'rollover swaps'—replacing maturing securities with new ones of equal value—without increasing total book value. Additionally, accounting adjustments or valuation changes due to interest rate fluctuations could keep the total market value flat or declining even if quantities increase, decoupling operational activity from the measured outcome.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "balance_sheet_operations->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "If the Fed reinvests more than the amount of maturities, its holdings increase"
+    },
+    {
+      "probe_text": "Even if the U.S. Treasury issues a large volume of new securities in December 2025, the Federal Reserve may not increase its holdings if it has committed to balance sheet normalization and is passively allowing maturing securities to roll off. The Fed's reinvestment decisions are governed by policy directives, not the availability of new issuance, so higher supply does not necessarily create upward pressure on Fed holdings.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "treasury_issuance->balance_sheet_operations",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "Higher Treasury issuance increases opportunities for the Fed to purchase or reinvest in securities"
+    },
+    {
+      "probe_text": "In December 2025, the Federal Reserve may be constrained by operational limits in its balance sheet management—for example, if a large volume of securities mature simultaneously, the mechanical need to reinvest or absorb liquidity could force a temporary adjustment in balance sheet operations, which in turn signals a de facto policy shift before any formal change in fed_policy. This suggests that balance_sheet_operations can drive changes in perceived or actual policy stance, rather than merely reflecting it.",
+      "probe_type": "edge_reverse",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The Fed's policy direction determines whether it reinvests proceeds or allows roll-off"
+    },
+    {
+      "probe_text": "Suppose the Federal Reserve unexpectedly resumes large-scale reinvestment of maturing Treasury securities in December 2025, increasing its balance sheet despite prior guidance of normalization. Would this shift in balance sheet operations signal a de facto change in monetary policy stance toward accommodation, even if interest rate policy remains unchanged? Consider whether operational decisions can themselves constitute policy signaling or adjustments.",
+      "probe_type": "edge_spurious",
+      "target_id": "balance_sheet_operations->fed_policy",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The Fed's reinvestment or runoff decisions regarding maturing securities -> The Federal Reserve's monetary policy stance, particularly regarding balance sheet normalization or expansion"
+    },
+    {
+      "probe_text": "Suppose the Federal Reserve unexpectedly announces a significant reinvestment program in maturing Treasury securities during December 2025, increasing demand for Treasuries and suppressing long-term interest rates. Could this sustained downward pressure on yields stimulate additional business investment and consumer borrowing in the short term, thereby boosting economic growth in late 2025?",
+      "probe_type": "edge_spurious",
+      "target_id": "balance_sheet_operations->economic_growth",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The Fed's reinvestment or runoff decisions regarding maturing securities -> The rate of U.S. economic growth in the latter part of 2025"
+    },
+    {
+      "probe_text": "Suppose Congress passes emergency legislation in December 2025 that mandates the Treasury issue a large volume of short-term debt to address an immediate funding crisis, and that the Federal Reserve temporarily suspends balance sheet runoff to ensure market stability and absorb the new supply. How would this affect the likelihood that the Fed's Treasury holdings increase over the week in question?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose the U.S. Treasury unexpectedly announces a major change in auction sizes or maturity profiles of newly issued securities during December 2025, such as a significant increase in short-term bill issuance. This could alter the availability and composition of securities the Fed can reinvest in, potentially constraining or enabling balance sheet expansion even if policy intentions remain unchanged. How would this affect the likelihood that the Fed’s Treasury holdings increase over the specified week?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In December 2025, the U.S. Treasury announced a new series of 10-year Treasury notes with embedded green financing components aimed at funding climate resilience projects. While these securities received strong initial demand from international investors, the auction format and yield structure were otherwise consistent with previous 10-year note sales.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "On 2025-12-20, the U.S. Treasury announced a shift in the average maturity composition of newly issued debt, favoring 20-year bonds over 10-year notes in that week's auction. This change was made to better align with long-term financing needs and investor demand patterns.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the Federal Reserve's monetary policy stance has no real impact on balance sheet operations because those decisions are now autonomously governed by pre-set rules tied to inflation and employment targets, leaving no discretion for policy shifts in late 2025? In this case, even a hawkish or dovish stance would not alter reinvestment behavior, making fed_policy irrelevant to changes in Treasury holdings over the one-week period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.2,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly undermines the centrality of 'fed_policy' in the causal network by asserting that balance sheet operations are governed by pre-set, rule-based mechanisms rather than discretionary policy decisions. This severs the key causal path from 'fed_policy' to 'balance_sheet_operations', which was a primary driver of the outcome. As a result, changes in inflation_trend, economic_growth, and market_volatility no longer influence the outcome through fed_policy, weakening those indirect paths. The only remaining influence on the outcome is via 'treasury_issuance' and direct rule-based 'balance_sheet_operations'. Over a one-week period, treasury issuance is likely minimal and balance sheet changes under fixed rules are likely small or neutral, making a net increase in holdings less probable. Therefore, the removal of discretionary policy as a lever reduces the likelihood of an increase in holdings, leading to a substantial downward revision in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly undermines the centrality of 'fed_policy' in the causal network by asserting that balance sheet operations are governed by pre-set, rule-based mechanisms rather than discretionary policy decisions. This severs the key causal path from 'fed_policy' to 'balance_sheet_operations', which was a primary driver of the outcome. As a result, changes in inflation_trend, economic_growth, and market_volatility no longer influence the outcome through fed_policy, weakening those indirect paths. The only remaining influence on the outcome is via 'treasury_issuance' and direct rule-based 'balance_sheet_operations'. Over a one-week period, treasury issuance is likely minimal and balance sheet changes under fixed rules are likely small or neutral, making a net increase in holdings less probable. Therefore, the removal of discretionary policy as a lever reduces the likelihood of an increase in holdings, leading to a substantial downward revision in the probability estimate.\"\n}",
+      "target_id": "fed_policy",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the Fed's reinvestment or runoff decisions had no impact on its Treasury holdings because the Treasury Department unexpectedly changed the maturity structure of new issuances, replacing shorter-term bills with longer-term bonds that the Fed was contractually obligated to hold? In this case, changes in holdings would be driven by issuance timing and composition rather than the Fed's operational choices.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.2,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge reframes 'balance_sheet_operations' as less influential by introducing a structural shift in Treasury issuance—specifically, a move to longer-term bonds that the Fed is contractually obligated to hold. This weakens the causal link between the Fed's operational discretion (reinvestment/rolloff decisions) and the outcome. Instead, the primary driver shifts to 'treasury_issuance', particularly its timing and maturity composition, which are outside the Fed's control. This reduces the likelihood that the Fed’s policy intentions (via balance sheet operations) will determine whether holdings increase. As a result, the outcome becomes more dependent on unpredictable fiscal decisions and contractual obligations, increasing uncertainty and reducing the probability of an increase in holdings—especially over a very short 7-day window (Dec 21–28), when issuance timing is unlikely to align fortuitously. The weakened link from 'fed_policy' through 'balance_sheet_operations' to 'outcome' substantially undermines the basis for the original 0.65 probability, which relied on the Fed maintaining reinvestment due to policy inertia. Therefore, the probability is reduced to 0.45, reflecting lower confidence in an increase absent active Fed reinvestment discretion.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge reframes 'balance_sheet_operations' as less influential by introducing a structural shift in Treasury issuance—specifically, a move to longer-term bonds that the Fed is contractually obligated to hold. This weakens the causal link between the Fed's operational discretion (reinvestment/rolloff decisions) and the outcome. Instead, the primary driver shifts to 'treasury_issuance', particularly its timing and maturity composition, which are outside the Fed's control. This reduces the likelihood that the Fed’s policy intentions (via balance sheet operations) will determine whether holdings increase. As a result, the outcome becomes more dependent on unpredictable fiscal decisions and contractual obligations, increasing uncertainty and reducing the probability of an increase in holdings—especially over a very short 7-day window (Dec 21–28), when issuance timing is unlikely to align fortuitously. The weakened link from 'fed_policy' through 'balance_sheet_operations' to 'outcome' substantially undermines the basis for the original 0.65 probability, which relied on the Fed maintaining reinvestment due to policy inertia. Therefore, the probability is reduced to 0.45, reflecting lower confidence in an increase absent active Fed reinvestment discretion.\"\n}",
+      "target_id": "balance_sheet_operations",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Suppose U.S. economic growth remains strong in late 2025, with GDP expanding at over 3% annualized. Despite this, the Federal Reserve could still maintain accommodative balance sheet operations due to concerns about inflation overshooting or global financial spillovers, decoupling its reinvestment decisions from domestic growth trends. This suggests that economic growth alone may not be a decisive driver of the Fed's balance sheet actions in the short term.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that economic_growth may be less decisive in determining fed_policy than previously assumed, particularly if inflation or global financial stability concerns dominate Fed decision-making. This weakens the causal path from economic_growth -> fed_policy, reducing the influence of strong domestic growth as a signal for balance sheet normalization. As a result, the link between strong growth and likely runoff (or non-reinvestment) is attenuated, making a near-term increase in Treasury holdings somewhat more plausible even in a high-growth environment. However, since economic_growth was not the dominant driver in the original network—fed_policy remains primarily sensitive to inflation_trend and market_volatility—the overall impact on the outcome is modest. The balance_sheet_operations -> outcome and treasury_issuance -> balance_sheet_operations paths remain intact, and the core drivers of reinvestment decisions are still active. Therefore, the probability decreases only slightly, reflecting a marginally higher chance that the Fed maintains reinvestment despite strong growth.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that economic_growth may be less decisive in determining fed_policy than previously assumed, particularly if inflation or global financial stability concerns dominate Fed decision-making. This weakens the causal path from economic_growth -> fed_policy, reducing the influence of strong domestic growth as a signal for balance sheet normalization. As a result, the link between strong growth and likely runoff (or non-reinvestment) is attenuated, making a near-term increase in Treasury holdings somewhat more plausible even in a high-growth environment. However, since economic_growth was not the dominant driver in the original network—fed_policy remains primarily sensitive to inflation_trend and market_volatility—the overall impact on the outcome is modest. The balance_sheet_operations -> outcome and treasury_issuance -> balance_sheet_operations paths remain intact, and the core drivers of reinvestment decisions are still active. Therefore, the probability decreases only slightly, reflecting a marginally higher chance that the Fed maintains reinvestment despite strong growth.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Suppose the U.S. Treasury significantly reduced new issuance in December 2025 due to a surplus in federal revenues. Even with fewer securities available, the Fed could still reinvest maturing holdings into the limited supply of new Treasuries, meaning changes in issuance volume may not constrain the Fed's ability to maintain or grow its balance sheet. Thus, the level of new issuance may not meaningfully affect the weekly change in holdings.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between treasury_issuance and balance_sheet_operations, arguing that even with reduced Treasury issuance, the Fed can still reinvest maturing proceeds into the available supply, implying that issuance volume is not a binding constraint on the Fed's balance sheet operations. This weakens the importance of the treasury_issuance node in the causal network. However, treasury_issuance was not a central driver of the outcome—balance_sheet_operations is primarily governed by fed_policy, which depends on inflation_trend, economic_growth, and market_volatility. The key causal path (fed_policy -> balance_sheet_operations -> outcome) remains intact. Thus, while the challenge downgrades the relevance of a secondary input (treasury_issuance), it does not disrupt the primary mechanism driving the forecast. The slight decrease in probability reflects a modest reassessment: if fewer Treasuries are issued, the mechanical ease of reinvestment may be reduced, but the Fed's ability to reinvest remains plausible. Hence, the change is small, but the outcome is slightly less likely under constrained supply, warranting a minor downward adjustment.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between treasury_issuance and balance_sheet_operations, arguing that even with reduced Treasury issuance, the Fed can still reinvest maturing proceeds into the available supply, implying that issuance volume is not a binding constraint on the Fed's balance sheet operations. This weakens the importance of the treasury_issuance node in the causal network. However, treasury_issuance was not a central driver of the outcome—balance_sheet_operations is primarily governed by fed_policy, which depends on inflation_trend, economic_growth, and market_volatility. The key causal path (fed_policy -> balance_sheet_operations -> outcome) remains intact. Thus, while the challenge downgrades the relevance of a secondary input (treasury_issuance), it does not disrupt the primary mechanism driving the forecast. The slight decrease in probability reflects a modest reassessment: if fewer Treasuries are issued, the mechanical ease of reinvestment may be reduced, but the Fed's ability to reinvest remains plausible. Hence, the change is small, but the outcome is slightly less likely under constrained supply, warranting a minor downward adjustment.\"\n}",
+      "target_id": "treasury_issuance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-12-15, the Federal Reserve announced that it would temporarily pause balance sheet runoff starting in January 2026 due to rising concerns about tightening financial conditions, signaling a dovish shift in policy. This decision was explicitly tied to incoming data showing weakening labor market indicators and inflation falling below 2% on a sustained basis. The move reinforces the centrality of fed_policy in determining balance sheet dynamics, as it directly precedes and governs reinvestment decisions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The announcement on 2025-12-15 directly strengthens the causal path from fed_policy to balance_sheet_operations, as it signals a dovish shift that includes a pause in balance sheet runoff starting in January 2026. This policy change increases the likelihood that the Fed will maintain or even expand its holdings of Treasury securities during the week in question (2025-12-21 to 2025-12-28), especially if reinvestment continues at a pace exceeding maturities. Although the formal pause begins in January, the policy signal likely reflects current operational intentions, and balance sheet operations are often adjusted in anticipation of announced policy changes. Thus, the strengthened link between fed_policy and balance_sheet_operations, driven by new evidence of intentional policy easing, enhances the probability that the outcome occurs. The update is substantial because fed_policy is a central node governing the key mechanism (balance_sheet_operations) leading to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement on 2025-12-15 directly strengthens the causal path from fed_policy to balance_sheet_operations, as it signals a dovish shift that includes a pause in balance sheet runoff starting in January 2026. This policy change increases the likelihood that the Fed will maintain or even expand its holdings of Treasury securities during the week in question (2025-12-21 to 2025-12-28), especially if reinvestment continues at a pace exceeding maturities. Although the formal pause begins in January, the policy signal likely reflects current operational intentions, and balance sheet operations are often adjusted in anticipation of announced policy changes. Thus, the strengthened link between fed_policy and balance_sheet_operations, driven by new evidence of intentional policy easing, enhances the probability that the outcome occurs. The update is substantial because fed_policy is a central node governing the key mechanism (balance_sheet_operations) leading to the outcome.\"\n}",
+      "target_id": "fed_policy",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-12-22, the Federal Reserve announced that it would fully reinvest all proceeds from maturing Treasury securities over the following week due to renewed concerns about liquidity conditions in financial markets. This decision was explicitly reaffirmed in the minutes of the FOMC's emergency conference call on 2025-12-24, highlighting a temporary pause in balance sheet normalization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly affects the 'balance_sheet_operations' node, a central causal link to the outcome. The Fed's announcement on 2025-12-22 to fully reinvest all proceeds from maturing Treasuries — reinforced by the FOMC emergency minutes on 2025-12-24 — indicates a clear shift toward balance sheet maintenance or expansion over the relevant period. This overrides any prior assumptions of continued runoff and strengthens the causal path from fed_policy to balance_sheet_operations to outcome. The decision was motivated by liquidity concerns, linking market_volatility to fed_policy, further validating the responsiveness of the Fed’s operations to financial conditions. With reinvestment explicitly confirmed during the week of 2025-12-21 to 2025-12-28, the likelihood that Treasury holdings increase (or at least do not decrease) rises significantly. Since even flat reinvestment in a week with maturities would typically maintain or slightly grow holdings depending on purchase timing and maturity distribution, and given the Fed's proactive stance, the probability of an increase in total value is meaningfully elevated. Thus, the update reflects the strengthened causal path through balance_sheet_operations to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly affects the 'balance_sheet_operations' node, a central causal link to the outcome. The Fed's announcement on 2025-12-22 to fully reinvest all proceeds from maturing Treasuries — reinforced by the FOMC emergency minutes on 2025-12-24 — indicates a clear shift toward balance sheet maintenance or expansion over the relevant period. This overrides any prior assumptions of continued runoff and strengthens the causal path from fed_policy to balance_sheet_operations to outcome. The decision was motivated by liquidity concerns, linking market_volatility to fed_policy, further validating the responsiveness of the Fed’s operations to financial conditions. With reinvestment explicitly confirmed during the week of 2025-12-21 to 2025-12-28, the likelihood that Treasury holdings increase (or at least do not decrease) rises significantly. Since even flat reinvestment in a week with maturities would typically maintain or slightly grow holdings depending on purchase timing and maturity distribution, and given the Fed's proactive stance, the probability of an increase in total value is meaningfully elevated. Thus, the update reflects the strengthened causal path through balance_sheet_operations to the outcome.\"\n}",
+      "target_id": "balance_sheet_operations",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve's balance sheet operations are increasingly governed by pre-announced plans for reinvestment and runoff, which are often set in advance and continue automatically unless a formal policy change is made. Even if fed_policy shifts slightly in late 2025, the operational implementation may not adjust within a single week due to procedural inertia and a desire to avoid market disruption, weakening the direct causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between fed_policy and balance_sheet_operations, which is a central pathway in the network. If balance sheet operations are governed by pre-announced, automatic procedures with procedural inertia, then even a shift in fed_policy during late 2025 would be unlikely to affect balance_sheet_operations within the one-week window (2025-12-21 to 2025-12-28). This weakens the influence of fed_policy on the outcome, and by extension, diminishes the impact of inflation_trend, economic_growth, and market_volatility on the outcome through that pathway. As a result, the likelihood of a deliberate policy-driven increase in Treasury holdings within such a narrow timeframe decreases. The remaining influence on the outcome comes primarily from treasury_issuance and existing reinvestment rules, but these are more mechanical and less responsive to short-term policy shifts. Therefore, the weakened causal link reduces confidence in an increase, leading to a downward update in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between fed_policy and balance_sheet_operations, which is a central pathway in the network. If balance sheet operations are governed by pre-announced, automatic procedures with procedural inertia, then even a shift in fed_policy during late 2025 would be unlikely to affect balance_sheet_operations within the one-week window (2025-12-21 to 2025-12-28). This weakens the influence of fed_policy on the outcome, and by extension, diminishes the impact of inflation_trend, economic_growth, and market_volatility on the outcome through that pathway. As a result, the likelihood of a deliberate policy-driven increase in Treasury holdings within such a narrow timeframe decreases. The remaining influence on the outcome comes primarily from treasury_issuance and existing reinvestment rules, but these are more mechanical and less responsive to short-term policy shifts. Therefore, the weakened causal link reduces confidence in an increase, leading to a downward update in probability.\"\n}",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "The causal link assumes that reinvestment exceeding maturities directly increases the Fed's Treasury holdings, but this may not hold if the Fed engages in 'rollover swaps'—replacing maturing securities with new ones of equal value—without increasing total book value. Additionally, accounting adjustments or valuation changes due to interest rate fluctuations could keep the total market value flat or declining even if quantities increase, decoupling operational activity from the measured outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'balance_sheet_operations -> outcome' is significant because it highlights a structural assumption: that reinvestment exceeding maturities necessarily increases the total *value* of Treasury holdings. However, if the Fed conducts rollover swaps at par value without net expansion, or if market valuation changes (e.g., rising interest rates reducing market prices of existing bonds) offset increases in quantity, then balance sheet operations may not translate into a higher reported value. This decoupling affects the final causal link in the primary path from fed_policy to outcome, introducing uncertainty about whether operational activity will register in the measured outcome. While the Fed's policy still influences reinvestment behavior, the mapping to the observed value is less deterministic. This weakens confidence in the original 0.65 estimate, particularly given that the comparison is over just one week (2025-12-21 to 2025-12-28), when large shifts are unlikely. Thus, the probability is reduced to 0.55, reflecting greater uncertainty and a less direct relationship between operations and reported value.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'balance_sheet_operations -> outcome' is significant because it highlights a structural assumption: that reinvestment exceeding maturities necessarily increases the total *value* of Treasury holdings. However, if the Fed conducts rollover swaps at par value without net expansion, or if market valuation changes (e.g., rising interest rates reducing market prices of existing bonds) offset increases in quantity, then balance sheet operations may not translate into a higher reported value. This decoupling affects the final causal link in the primary path from fed_policy to outcome, introducing uncertainty about whether operational activity will register in the measured outcome. While the Fed's policy still influences reinvestment behavior, the mapping to the observed value is less deterministic. This weakens confidence in the original 0.65 estimate, particularly given that the comparison is over just one week (2025-12-21 to 2025-12-28), when large shifts are unlikely. Thus, the probability is reduced to 0.55, reflecting greater uncertainty and a less direct relationship between operations and reported value.\"\n}",
+      "target_id": "balance_sheet_operations->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Even if the U.S. Treasury issues a large volume of new securities in December 2025, the Federal Reserve may not increase its holdings if it has committed to balance sheet normalization and is passively allowing maturing securities to roll off. The Fed's reinvestment decisions are governed by policy directives, not the availability of new issuance, so higher supply does not necessarily create upward pressure on Fed holdings.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link 'treasury_issuance -> balance_sheet_operations', arguing that the Fed's reinvestment decisions are driven by policy directives rather than the supply of new Treasury issuance. This weakens the influence of treasury_issuance on balance_sheet_operations, effectively removing a potential pathway through which increased issuance could lead to higher holdings. While treasury_issuance could still indirectly affect operations if the Fed adjusts policy in response to fiscal conditions, under current policy frameworks (e.g., balance sheet normalization), the Fed is likely to maintain passive runoff regardless of issuance volume. This reduces the likelihood that balance_sheet_operations will result in net increases in holdings, especially over a one-week window. As a result, the causal path from treasury_issuance to outcome is significantly weakened, lowering confidence in an increase in holdings. The primary drivers of the outcome now rest more heavily on fed_policy and its downstream effects via balance_sheet_operations, which are currently biased toward runoff unless disrupted by inflation, growth, or volatility shocks. Given the narrow timeframe and lack of automatic response to issuance, the probability of an increase is meaningfully reduced.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link 'treasury_issuance -> balance_sheet_operations', arguing that the Fed's reinvestment decisions are driven by policy directives rather than the supply of new Treasury issuance. This weakens the influence of treasury_issuance on balance_sheet_operations, effectively removing a potential pathway through which increased issuance could lead to higher holdings. While treasury_issuance could still indirectly affect operations if the Fed adjusts policy in response to fiscal conditions, under current policy frameworks (e.g., balance sheet normalization), the Fed is likely to maintain passive runoff regardless of issuance volume. This reduces the likelihood that balance_sheet_operations will result in net increases in holdings, especially over a one-week window. As a result, the causal path from treasury_issuance to outcome is significantly weakened, lowering confidence in an increase in holdings. The primary drivers of the outcome now rest more heavily on fed_policy and its downstream effects via balance_sheet_operations, which are currently biased toward runoff unless disrupted by inflation, growth, or volatility shocks. Given the narrow timeframe and lack of automatic response to issuance, the probability of an increase is meaningfully reduced.\"\n}",
+      "target_id": "treasury_issuance->balance_sheet_operations",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "In December 2025, the Federal Reserve may be constrained by operational limits in its balance sheet management—for example, if a large volume of securities mature simultaneously, the mechanical need to reinvest or absorb liquidity could force a temporary adjustment in balance sheet operations, which in turn signals a de facto policy shift before any formal change in fed_policy. This suggests that balance_sheet_operations can drive changes in perceived or actual policy stance, rather than merely reflecting it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reverses the causal direction between fed_policy and balance_sheet_operations, suggesting that operational mechanics in balance sheet management—such as large-scale maturity roll-ins—can drive policy adjustments rather than merely follow from them. This strengthens the causal path from balance_sheet_operations to outcome by elevating its autonomy from fed_policy, making increases in Treasury holdings more likely due to mechanical reinvestment pressures, especially if a surge of maturing securities occurs in late December 2025. This makes an increase in holdings more probable even without an explicit policy shift, effectively decoupling the outcome from the need for deliberate easing. Thus, the structural importance of balance_sheet_operations increases, and the likelihood of an increase in Treasury holdings rises due to potential endogenous reinvestment dynamics. The causal path from treasury_issuance -> balance_sheet_operations -> outcome becomes more dominant, warranting a substantial upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reverses the causal direction between fed_policy and balance_sheet_operations, suggesting that operational mechanics in balance sheet management—such as large-scale maturity roll-ins—can drive policy adjustments rather than merely follow from them. This strengthens the causal path from balance_sheet_operations to outcome by elevating its autonomy from fed_policy, making increases in Treasury holdings more likely due to mechanical reinvestment pressures, especially if a surge of maturing securities occurs in late December 2025. This makes an increase in holdings more probable even without an explicit policy shift, effectively decoupling the outcome from the need for deliberate easing. Thus, the structural importance of balance_sheet_operations increases, and the likelihood of an increase in Treasury holdings rises due to potential endogenous reinvestment dynamics. The causal path from treasury_issuance -> balance_sheet_operations -> outcome becomes more dominant, warranting a substantial upward revision.\"\n}",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose the Federal Reserve unexpectedly resumes large-scale reinvestment of maturing Treasury securities in December 2025, increasing its balance sheet despite prior guidance of normalization. Would this shift in balance sheet operations signal a de facto change in monetary policy stance toward accommodation, even if interest rate policy remains unchanged? Consider whether operational decisions can themselves constitute policy signaling or adjustments.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The challenge clarifies that balance sheet operations are not merely a downstream consequence of fed_policy but can also act as a direct signal or instrument of monetary policy. If the Fed resumes large-scale reinvestment despite prior normalization guidance, this operational shift would indicate a de facto easing of policy, reinforcing the causal link from balance_sheet_operations to outcome. This strengthens the pathway: balance_sheet_operations → outcome, and also introduces a feedback loop where operations influence policy stance (balance_sheet_operations → fed_policy), thereby amplifying the likelihood of continued reinvestment. As a result, the probability of an increase in Treasury holdings rises substantially. The revised scenario suggests that even transient or unexpected operational shifts can independently drive the outcome, making the outcome more sensitive to balance sheet decisions than previously modeled. Hence, the updated estimate reflects greater confidence in an increase.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge clarifies that balance sheet operations are not merely a downstream consequence of fed_policy but can also act as a direct signal or instrument of monetary policy. If the Fed resumes large-scale reinvestment despite prior normalization guidance, this operational shift would indicate a de facto easing of policy, reinforcing the causal link from balance_sheet_operations to outcome. This strengthens the pathway: balance_sheet_operations → outcome, and also introduces a feedback loop where operations influence policy stance (balance_sheet_operations → fed_policy), thereby amplifying the likelihood of continued reinvestment. As a result, the probability of an increase in Treasury holdings rises substantially. The revised scenario suggests that even transient or unexpected operational shifts can independently drive the outcome, making the outcome more sensitive to balance sheet decisions than previously modeled. Hence, the updated estimate reflects greater confidence in an increase.\"\n}",
+      "target_id": "balance_sheet_operations->fed_policy",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose the Federal Reserve unexpectedly announces a significant reinvestment program in maturing Treasury securities during December 2025, increasing demand for Treasuries and suppressing long-term interest rates. Could this sustained downward pressure on yields stimulate additional business investment and consumer borrowing in the short term, thereby boosting economic growth in late 2025?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge proposes a reverse causal link from balance_sheet_operations to economic_growth, suggesting that Fed reinvestment could stimulate growth via lower yields. However, this does not alter the primary causal path leading to the outcome—balance_sheet_operations directly affects the outcome, and its drivers (fed_policy, treasury_issuance) remain structurally unchanged. The proposed feedback loop from operations to growth to fed_policy could reinforce easing but operates too late in the timeline (late December 2025) to significantly alter the Fed's balance sheet decisions within the one-week window. Thus, while theoretically plausible, this reverse link does not materially affect the likelihood of an increase in Treasury holdings by 2025-12-28. The core determinants of balance_sheet_operations remain unchallenged, so the probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge proposes a reverse causal link from balance_sheet_operations to economic_growth, suggesting that Fed reinvestment could stimulate growth via lower yields. However, this does not alter the primary causal path leading to the outcome—balance_sheet_operations directly affects the outcome, and its drivers (fed_policy, treasury_issuance) remain structurally unchanged. The proposed feedback loop from operations to growth to fed_policy could reinforce easing but operates too late in the timeline (late December 2025) to significantly alter the Fed's balance sheet decisions within the one-week window. Thus, while theoretically plausible, this reverse link does not materially affect the likelihood of an increase in Treasury holdings by 2025-12-28. The core determinants of balance_sheet_operations remain unchallenged, so the probability estimate remains unchanged.\"\n}",
+      "target_id": "balance_sheet_operations->economic_growth",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose Congress passes emergency legislation in December 2025 that mandates the Treasury issue a large volume of short-term debt to address an immediate funding crisis, and that the Federal Reserve temporarily suspends balance sheet runoff to ensure market stability and absorb the new supply. How would this affect the likelihood that the Fed's Treasury holdings increase over the week in question?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The emergency legislation directly impacts the 'treasury_issuance' node, dramatically increasing the volume of short-term debt issued. This feeds into 'balance_sheet_operations' by creating pressure for the Fed to absorb the new supply to maintain market stability. Additionally, the Fed's temporary suspension of balance sheet runoff—triggered by the combination of market stress and policy response—strengthens the 'fed_policy -> balance_sheet_operations' link, shifting operations toward reinvestment or active purchases. The 'market_volatility' node is also implicitly activated due to the funding crisis, which further justifies Fed intervention. These changes reinforce the causal path leading to the outcome: increased balance sheet operations are now more directly tied to both Treasury issuance and Fed policy response. As a result, the likelihood of the Fed's Treasury holdings increasing over that week rises significantly.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The emergency legislation directly impacts the 'treasury_issuance' node, dramatically increasing the volume of short-term debt issued. This feeds into 'balance_sheet_operations' by creating pressure for the Fed to absorb the new supply to maintain market stability. Additionally, the Fed's temporary suspension of balance sheet runoff—triggered by the combination of market stress and policy response—strengthens the 'fed_policy -> balance_sheet_operations' link, shifting operations toward reinvestment or active purchases. The 'market_volatility' node is also implicitly activated due to the funding crisis, which further justifies Fed intervention. These changes reinforce the causal path leading to the outcome: increased balance sheet operations are now more directly tied to both Treasury issuance and Fed policy response. As a result, the likelihood of the Fed's Treasury holdings increasing over that week rises significantly.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose the U.S. Treasury unexpectedly announces a major change in auction sizes or maturity profiles of newly issued securities during December 2025, such as a significant increase in short-term bill issuance. This could alter the availability and composition of securities the Fed can reinvest in, potentially constraining or enabling balance sheet expansion even if policy intentions remain unchanged. How would this affect the likelihood that the Fed’s Treasury holdings increase over the specified week?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a new exogenous shock—unexpected changes in Treasury issuance composition—that directly affects the 'treasury_issuance' node and interacts with 'balance_sheet_operations'. While 'treasury_issuance' was already a causal input to 'balance_sheet_operations', the scenario emphasizes a structural constraint: even if the Fed intends to reinvest or expand its holdings (via 'fed_policy'), a shift toward short-term bills may mismatch the maturity profile the Fed is willing or able to reinvest in, limiting its operational flexibility. This weakens the causal link from 'fed_policy' to 'balance_sheet_operations' by introducing a supply-side bottleneck. As a result, the likelihood that reinvestments exceed redemptions (and thus increase holdings) is reduced, particularly over a short one-week window where operational agility is limited. The impact is not catastrophic—policy intentions still dominate medium-term trends—but for a precise weekly comparison, the constrained reinvestment options modestly decrease the probability. Thus, the estimate shifts downward from 0.65 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a new exogenous shock—unexpected changes in Treasury issuance composition—that directly affects the 'treasury_issuance' node and interacts with 'balance_sheet_operations'. While 'treasury_issuance' was already a causal input to 'balance_sheet_operations', the scenario emphasizes a structural constraint: even if the Fed intends to reinvest or expand its holdings (via 'fed_policy'), a shift toward short-term bills may mismatch the maturity profile the Fed is willing or able to reinvest in, limiting its operational flexibility. This weakens the causal link from 'fed_policy' to 'balance_sheet_operations' by introducing a supply-side bottleneck. As a result, the likelihood that reinvestments exceed redemptions (and thus increase holdings) is reduced, particularly over a short one-week window where operational agility is limited. The impact is not catastrophic—policy intentions still dominate medium-term trends—but for a precise weekly comparison, the constrained reinvestment options modestly decrease the probability. Thus, the estimate shifts downward from 0.65 to 0.58.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In December 2025, the U.S. Treasury announced a new series of 10-year Treasury notes with embedded green financing components aimed at funding climate resilience projects. While these securities received strong initial demand from international investors, the auction format and yield structure were otherwise consistent with previous 10-year note sales.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The announcement of a new series of 10-year Treasury notes with green financing components does not meaningfully alter the causal paths in the model. The key drivers of the Fed's holdings—fed_policy, balance_sheet_operations, and treasury_issuance—affect the outcome through the Fed's reinvestment behavior and policy stance. While treasury_issuance is a causal node, the structural change described (green financing components) does not affect the quantity or timing of issuance in a way that alters reinvestment opportunities, nor does it directly influence the Fed's policy decisions. The auction format and yield structure remain consistent with prior sales, implying no disruption to market functioning or Fed operational behavior. Therefore, the edge from treasury_issuance -> balance_sheet_operations remains functionally unchanged, and no other causal paths are impacted. The outcome probability remains unaltered.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The announcement of a new series of 10-year Treasury notes with green financing components does not meaningfully alter the causal paths in the model. The key drivers of the Fed's holdings—fed_policy, balance_sheet_operations, and treasury_issuance—affect the outcome through the Fed's reinvestment behavior and policy stance. While treasury_issuance is a causal node, the structural change described (green financing components) does not affect the quantity or timing of issuance in a way that alters reinvestment opportunities, nor does it directly influence the Fed's policy decisions. The auction format and yield structure remain consistent with prior sales, implying no disruption to market functioning or Fed operational behavior. Therefore, the edge from treasury_issuance -> balance_sheet_operations remains functionally unchanged, and no other causal paths are impacted. The outcome probability remains unaltered.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "On 2025-12-20, the U.S. Treasury announced a shift in the average maturity composition of newly issued debt, favoring 20-year bonds over 10-year notes in that week's auction. This change was made to better align with long-term financing needs and investor demand patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The U.S. Treasury's shift in the average maturity composition of newly issued debt—favoring 20-year bonds over 10-year notes—does not directly affect the causal path leading to the Fed's holdings increasing over the one-week period from 2025-12-21 to 2025-12-28. This change in issuance composition influences the supply of specific maturities but does not alter the overall volume of treasury issuance (which would affect balance_sheet_operations via treasury_issuance), nor does it directly impact the Fed’s policy stance (fed_policy) or its reinvestment behavior (balance_sheet_operations). The Fed's balance sheet changes on a weekly basis depend primarily on its decisions to reinvest or allow runoff, which are driven by policy intentions and market conditions, not the maturity structure of new debt. Since this announcement does not imply a change in the total supply of new securities or a shift in Fed policy or operational behavior, the causal path to the outcome remains intact. Therefore, no update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The U.S. Treasury's shift in the average maturity composition of newly issued debt—favoring 20-year bonds over 10-year notes—does not directly affect the causal path leading to the Fed's holdings increasing over the one-week period from 2025-12-21 to 2025-12-28. This change in issuance composition influences the supply of specific maturities but does not alter the overall volume of treasury issuance (which would affect balance_sheet_operations via treasury_issuance), nor does it directly impact the Fed’s policy stance (fed_policy) or its reinvestment behavior (balance_sheet_operations). The Fed's balance sheet changes on a weekly basis depend primarily on its decisions to reinvest or allow runoff, which are driven by policy intentions and market conditions, not the maturity structure of new debt. Since this announcement does not imply a change in the total supply of new securities or a shift in Fed policy or operational behavior, the causal path to the outcome remains intact. Therefore, no update to the probability is warranted.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Newly released Q4 2025 GDP data shows that U.S. economic growth accelerated to 3.1% annualized, driven by strong consumer spending and business investment, exceeding Federal Reserve expectations. This robust growth trajectory reduces upward pressure on the Fed to maintain accommodative balance sheet policies, making it more likely that economic conditions will influence the Fed's decisions around reinvestment and runoff.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.2,
+      "shift_direction": "decreased",
+      "reasoning": "The newly released Q4 2025 GDP data showing accelerated economic growth (3.1% annualized) directly challenges the 'economic_growth' node in the causal network. This strong growth reduces the likelihood that the Fed will maintain accommodative policies, weakening the causal path from 'economic_growth' to 'fed_policy'. With less downward pressure on the economy, the Fed is more likely to continue balance sheet runoff rather than pause or reverse it, which strengthens 'balance_sheet_operations' toward net reduction. This weakens the path from 'balance_sheet_operations' to the 'outcome'. The robust growth also reduces the chance of emergency reinvestment or policy shifts in late December, making an increase in Treasury holdings less probable. As 'economic_growth' is a key input to 'fed_policy'—a central node in the network—the update meaningfully affects the overall likelihood. Therefore, the probability of an increase in Treasury holdings by the Fed over that week is substantially reduced.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The newly released Q4 2025 GDP data showing accelerated economic growth (3.1% annualized) directly challenges the 'economic_growth' node in the causal network. This strong growth reduces the likelihood that the Fed will maintain accommodative policies, weakening the causal path from 'economic_growth' to 'fed_policy'. With less downward pressure on the economy, the Fed is more likely to continue balance sheet runoff rather than pause or reverse it, which strengthens 'balance_sheet_operations' toward net reduction. This weakens the path from 'balance_sheet_operations' to the 'outcome'. The robust growth also reduces the chance of emergency reinvestment or policy shifts in late December, making an increase in Treasury holdings less probable. As 'economic_growth' is a key input to 'fed_policy'—a central node in the network—the update meaningfully affects the overall likelihood. Therefore, the probability of an increase in Treasury holdings by the Fed over that week is substantially reduced.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "The U.S. Treasury announces a significant increase in long-term bond issuance for the week of 2025-12-22, citing higher-than-expected budget deficits driven by new fiscal stimulus measures. This surge in supply creates greater availability of securities for the Federal Reserve to purchase or reinvest into, even if its policy stance remains unchanged. As a result, the Fed is more likely to maintain or expand its Treasury holdings through routine reinvestment operations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of increased Treasury issuance directly strengthens the 'treasury_issuance' node, which feeds into 'balance_sheet_operations'. Even if the Fed's policy stance (fed_policy) remains unchanged, higher issuance increases the pool of available securities, making it more likely that reinvestment operations will sustain or grow holdings. This enhances the likelihood of the outcome independently of shifts in inflation, growth, or market volatility. The causal path treasury_issuance -> balance_sheet_operations -> outcome becomes more robust, increasing confidence that holdings will rise over the week. While fed_policy remains a dominant driver, the exogenous supply shock from the Treasury bolsters the operational capacity for the Fed to maintain or expand its balance sheet, warranting a moderate upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of increased Treasury issuance directly strengthens the 'treasury_issuance' node, which feeds into 'balance_sheet_operations'. Even if the Fed's policy stance (fed_policy) remains unchanged, higher issuance increases the pool of available securities, making it more likely that reinvestment operations will sustain or grow holdings. This enhances the likelihood of the outcome independently of shifts in inflation, growth, or market volatility. The causal path treasury_issuance -> balance_sheet_operations -> outcome becomes more robust, increasing confidence that holdings will rise over the week. While fed_policy remains a dominant driver, the exogenous supply shock from the Treasury bolsters the operational capacity for the Fed to maintain or expand its balance sheet, warranting a moderate upward revision.\"\n}",
+      "target_id": "treasury_issuance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2024, the Federal Reserve announced an explicit tightening of its balance sheet normalization policy, stating that future decisions on reinvestment of maturing securities would be directly contingent on the assessment of inflation and labor market conditions, reinforcing the tight coupling between monetary policy stance and balance sheet operations. This formalized guidance strengthens the causal link between fed_policy and balance_sheet_operations by institutionalizing policy-dependent reinvestment rules.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between fed_policy and balance_sheet_operations by confirming a formal, rule-based dependency of balance sheet operations on monetary policy stance. This reinforces the pathway from fed_policy → balance_sheet_operations → outcome, making the outcome more sensitive to shifts in policy driven by inflation_trend and economic_growth. Given that the Fed has institutionalized reinvestment decisions around inflation and labor market conditions, any dovish tilt in policy due to rising inflation concerns or weakening growth would more reliably translate into reinvestment activity, increasing the likelihood of balance sheet expansion. This heightened predictability and structural reinforcement of the causal chain increases confidence in the outcome, particularly if prevailing conditions in late 2025 lean toward pause or easing. Thus, the probability is updated upward to reflect the stronger mechanistic link between policy and operations.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between fed_policy and balance_sheet_operations by confirming a formal, rule-based dependency of balance sheet operations on monetary policy stance. This reinforces the pathway from fed_policy → balance_sheet_operations → outcome, making the outcome more sensitive to shifts in policy driven by inflation_trend and economic_growth. Given that the Fed has institutionalized reinvestment decisions around inflation and labor market conditions, any dovish tilt in policy due to rising inflation concerns or weakening growth would more reliably translate into reinvestment activity, increasing the likelihood of balance sheet expansion. This heightened predictability and structural reinforcement of the causal chain increases confidence in the outcome, particularly if prevailing conditions in late 2025 lean toward pause or easing. Thus, the probability is updated upward to reflect the stronger mechanistic link between policy and operations.\"\n}",
+      "target_id": "fed_policy->balance_sheet_operations",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In the week of 2025-12-21, the Federal Reserve announced that it would temporarily suspend principal repayments reinvestment on $80 billion of maturing Treasury securities due to elevated market volatility, but new internal guidance revealed a commitment to reinvest 100% of redemptions from inflation-protected securities to maintain liquidity. Given that reinvestment volumes exceeded maturing securities by $12 billion that week, this directly led to an increase in the total market value of Treasuries held by the Fed by 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.88,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly strengthens the causal link between balance_sheet_operations and outcome by providing specific evidence that reinvestment activities (particularly a net increase of $12 billion in holdings due to differential reinvestment policies) led to an expansion in the Fed's Treasury holdings despite partial suspension of reinvestment on $80 billion of maturing securities. This indicates that internal policy guidance—especially full reinvestment of inflation-protected securities—can dominate partial runoff, resulting in a net increase in holdings. The data confirms that balance_sheet_operations remained expansionary in net terms during that week, reinforcing the causal path to the outcome. This new information increases confidence that the outcome occurred, as it demonstrates a concrete mechanism through which operations led to increased holdings, even under volatile conditions. Therefore, the probability is substantially updated upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.88,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly strengthens the causal link between balance_sheet_operations and outcome by providing specific evidence that reinvestment activities (particularly a net increase of $12 billion in holdings due to differential reinvestment policies) led to an expansion in the Fed's Treasury holdings despite partial suspension of reinvestment on $80 billion of maturing securities. This indicates that internal policy guidance—especially full reinvestment of inflation-protected securities—can dominate partial runoff, resulting in a net increase in holdings. The data confirms that balance_sheet_operations remained expansionary in net terms during that week, reinforcing the causal path to the outcome. This new information increases confidence that the outcome occurred, as it demonstrates a concrete mechanism through which operations led to increased holdings, even under volatile conditions. Therefore, the probability is substantially updated upward.\"\n}",
+      "target_id": "balance_sheet_operations->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "TREAST",
+    "question_text": "Will the total value of US Treasury securities held by the Federal Reserve have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+    "source": "fred",
+    "condition": "one-turn",
+    "initial_probability": 0.65,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.108125,
+    "max_absolute_shift": 0.2
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 3.6141304347826084,
+    "mean_shift_high": 0.16624999999999998,
+    "mean_shift_low": 0.046,
+    "asymmetry_index": 0.6324549237170597,
+    "mean_shift_negate": 0.10857142857142857,
+    "mean_shift_strengthen": 0.17166666666666663,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.06999999999999998,
+    "mean_shift_on_path": 0.15299999999999997,
+    "mean_shift_off_path": 0.08299999999999999,
+    "importance_sensitivity_correlation": -0.030303030303030276,
+    "control_sensitivity": 0
+  }
+}

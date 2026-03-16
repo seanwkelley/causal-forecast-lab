@@ -1,0 +1,1145 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07627.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.65,
+  "nodes": [
+    {
+      "id": "seasonal_variation",
+      "description": "Yearly and seasonal patterns in temperature",
+      "role": "factor"
+    },
+    {
+      "id": "latitude",
+      "description": "Geographical location of Saint-Girons in southern France",
+      "role": "factor"
+    },
+    {
+      "id": "elevation",
+      "description": "Altitude of Saint-Girons relative to sea level",
+      "role": "factor"
+    },
+    {
+      "id": "nearby_weather_patterns",
+      "description": "Regional weather patterns influencing Saint-Girons",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_trend",
+      "description": "Observed temperature trend in the region over past years",
+      "role": "factor"
+    },
+    {
+      "id": "weather_fronts",
+      "description": "Rapid changes in temperature due to moving weather fronts",
+      "role": "factor"
+    },
+    {
+      "id": "precipitation_amount",
+      "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Temperature on 2025-12-28 being higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_variation",
+      "to": "outcome",
+      "mechanism": "Seasonal patterns can influence temperature differences between dates"
+    },
+    {
+      "from": "latitude",
+      "to": "outcome",
+      "mechanism": "Latitude affects local climate and temperature ranges"
+    },
+    {
+      "from": "elevation",
+      "to": "outcome",
+      "mechanism": "Elevation impacts local microclimate and temperature"
+    },
+    {
+      "from": "nearby_weather_patterns",
+      "to": "outcome",
+      "mechanism": "Regional weather patterns can influence temperature on specific dates"
+    },
+    {
+      "from": "temperature_trend",
+      "to": "outcome",
+      "mechanism": "Observed temperature trend influences the likelihood of warmer temperatures on later dates"
+    },
+    {
+      "from": "weather_fronts",
+      "to": "outcome",
+      "mechanism": "Weather fronts can cause rapid changes in temperature"
+    },
+    {
+      "from": "precipitation_amount",
+      "to": "outcome",
+      "mechanism": "Precipitation can influence temperature through evapotranspiration and cloud cover"
+    },
+    {
+      "from": "temperature_trend",
+      "to": "precipitation_amount",
+      "mechanism": "Temperature trend can influence precipitation patterns through changes in atmospheric circulation"
+    },
+    {
+      "from": "precipitation_amount",
+      "to": "weather_fronts",
+      "mechanism": "Precipitation can influence the presence and movement of weather fronts"
+    },
+    {
+      "from": "weather_fronts",
+      "to": "outcome",
+      "mechanism": "Weather fronts can cause rapid changes in temperature"
+    }
+  ],
+  "reasoning": "Based on the geographical location of Saint-Girons, seasonal patterns, and observed temperature trend, there is a moderate likelihood that the temperature on 2025-12-28 will be higher than on 2025-12-21. However, the presence and movement of weather fronts, as well as precipitation amounts, can influence the temperature on these specific dates, making the prediction uncertain.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 9,
+    "density": 0.1607,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_variation",
+        "description": "Yearly and seasonal patterns in temperature",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0674,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "latitude",
+        "description": "Geographical location of Saint-Girons in southern France",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0674,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "elevation",
+        "description": "Altitude of Saint-Girons relative to sea level",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0674,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "nearby_weather_patterns",
+        "description": "Regional weather patterns influencing Saint-Girons",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0674,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "temperature_trend",
+        "description": "Observed temperature trend in the region over past years",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0674,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_fronts",
+        "description": "Rapid changes in temperature due to moving weather fronts",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.1905,
+        "pagerank": 0.1083,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "precipitation_amount",
+        "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.0961,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "Temperature on 2025-12-28 being higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 7,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 1,
+        "pagerank": 0.4583,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_variation",
+        "target": "outcome",
+        "mechanism": "Seasonal patterns can influence temperature differences between dates",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "latitude",
+        "target": "outcome",
+        "mechanism": "Latitude affects local climate and temperature ranges",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "elevation",
+        "target": "outcome",
+        "mechanism": "Elevation impacts local microclimate and temperature",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "nearby_weather_patterns",
+        "target": "outcome",
+        "mechanism": "Regional weather patterns can influence temperature on specific dates",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "temperature_trend",
+        "target": "outcome",
+        "mechanism": "Observed temperature trend influences the likelihood of warmer temperatures on later dates",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "temperature_trend",
+        "target": "precipitation_amount",
+        "mechanism": "Temperature trend can influence precipitation patterns through changes in atmospheric circulation",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "weather_fronts",
+        "target": "outcome",
+        "mechanism": "Weather fronts can cause rapid changes in temperature",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "precipitation_amount",
+        "target": "outcome",
+        "mechanism": "Precipitation can influence temperature through evapotranspiration and cloud cover",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "precipitation_amount",
+        "target": "weather_fronts",
+        "mechanism": "Precipitation can influence the presence and movement of weather fronts",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "precipitation_amount",
+        "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates",
+        "importance": 0.0238,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_variation",
+        "description": "Yearly and seasonal patterns in temperature",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "elevation",
+        "description": "Altitude of Saint-Girons relative to sea level",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_fronts",
+        "description": "Rapid changes in temperature due to moving weather fronts",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "precipitation_amount",
+        "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates",
+        "importance": 0.0238,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_variation",
+        "description": "Yearly and seasonal patterns in temperature",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_variation->outcome",
+        "description": "Seasonal patterns can influence temperature differences between dates",
+        "importance": 0.0179,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "latitude->outcome",
+        "description": "Latitude affects local climate and temperature ranges",
+        "importance": 0.0179,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "temperature_trend->precipitation_amount",
+        "description": "Temperature trend can influence precipitation patterns through changes in atmospheric circulation",
+        "importance": 0.0357,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_variation->outcome",
+        "description": "Seasonal patterns can influence temperature differences between dates",
+        "importance": 0.0179,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "elevation->weather_fronts",
+        "description": "Potential link: Altitude of Saint-Girons relative to sea level -> Rapid changes in temperature due to moving weather fronts",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "elevation->temperature_trend",
+        "description": "Potential link: Altitude of Saint-Girons relative to sea level -> Observed temperature trend in the region over past years",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "precipitation_amount",
+      "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates",
+      "importance": 0.0238,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_variation",
+      "description": "Yearly and seasonal patterns in temperature",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "elevation",
+      "description": "Altitude of Saint-Girons relative to sea level",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_fronts",
+      "description": "Rapid changes in temperature due to moving weather fronts",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "precipitation_amount",
+      "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates",
+      "importance": 0.0238,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_variation",
+      "description": "Yearly and seasonal patterns in temperature",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_variation->outcome",
+      "description": "Seasonal patterns can influence temperature differences between dates",
+      "importance": 0.0179,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "latitude->outcome",
+      "description": "Latitude affects local climate and temperature ranges",
+      "importance": 0.0179,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "temperature_trend->precipitation_amount",
+      "description": "Temperature trend can influence precipitation patterns through changes in atmospheric circulation",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_variation->outcome",
+      "description": "Seasonal patterns can influence temperature differences between dates",
+      "importance": 0.0179,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "elevation->weather_fronts",
+      "description": "Potential link: Altitude of Saint-Girons relative to sea level -> Rapid changes in temperature due to moving weather fronts",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "elevation->temperature_trend",
+      "description": "Potential link: Altitude of Saint-Girons relative to sea level -> Observed temperature trend in the region over past years",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Assuming there is a significant drought in the region during the weeks leading up to December 21 and 28, what is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_type": "node_negate_high",
+      "target_id": "precipitation_amount",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates"
+    },
+    {
+      "probe_text": "Imagine a scenario where the global climate shifts suddenly, causing a perfect synchronization between the temperature fluctuations on 2025-12-21 and 2025-12-28, effectively nullifying the typical seasonal patterns in temperature. This could be due to an unexpected amplification of the El Niño-Southern Oscillation effect, rendering seasonal variation irrelevant for this particular forecast. Under this hypothetical scenario, would the forecaster still believe that the temperature on 2025-12-28 will be higher than on 2025-12-21 with a probability of 0.65?",
+      "probe_type": "node_negate_high",
+      "target_id": "seasonal_variation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Yearly and seasonal patterns in temperature"
+    },
+    {
+      "probe_text": "A new study suggests that Saint-Girons is located in a valley with a unique geology that may actually be more conductive to heat retention than typical mountainous regions, potentially mitigating the effects of elevation on temperature.",
+      "probe_type": "node_negate_medium",
+      "target_id": "elevation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Altitude of Saint-Girons relative to sea level"
+    },
+    {
+      "probe_text": "A recent study suggests that the Saint-Girons region has been experiencing a decline in the frequency and intensity of weather fronts over the past decade, which could potentially affect our understanding of the relationship between weather fronts and temperature differences between 2025-12-28 and 2025-12-21.",
+      "probe_type": "node_negate_low",
+      "target_id": "weather_fronts",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Rapid changes in temperature due to moving weather fronts"
+    },
+    {
+      "probe_text": "A new study published in the Journal of Hydrology and Meteorology reveals that previous research underestimated the significant impact of precipitation on temperature variability in the Pyrenees region, where Saint-Girons is located. The study found that even moderate amounts of precipitation can lead to substantial changes in temperature through enhanced evapotranspiration and cloud cover. This finding is consistent with historical records showing that heavy precipitation events in the region often precede significant temperature fluctuations. The study's lead author, a renowned expert in regional climate modeling, has publicly stated that the results have important implications for improving temperature forecasting in the region.",
+      "probe_type": "node_strengthen",
+      "target_id": "precipitation_amount",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "Amount of rainfall or snowfall in the days leading up to the forecasted dates"
+    },
+    {
+      "probe_text": "A study published in a reputable climate science journal indicates that the average temperature difference between winter solstice and summer solstice at Saint-Girons has been consistently increasing over the past 30 years, suggesting a strong and growing impact of seasonal variation on local temperature patterns. This finding is supported by empirical data from the same region and is consistent with global trends in seasonal temperature differences.",
+      "probe_type": "node_strengthen",
+      "target_id": "seasonal_variation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Yearly and seasonal patterns in temperature"
+    },
+    {
+      "probe_text": "A persistent high-pressure system is predicted to dominate the region from 2025-12-20 to 2025-12-31, suppressing any typical winter temperature fluctuations. This weather pattern suggests that the influence of seasonal variation on the temperature difference between 2025-12-28 and 2025-12-21 may be minimal. In fact, this high-pressure system could lead to above-average temperatures on both dates, potentially masking any seasonal effect. What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given this weather pattern?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "seasonal_variation->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0179,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Seasonal patterns can influence temperature differences between dates"
+    },
+    {
+      "probe_text": "Consider a hypothetical 'microclimate island' scenario where Saint-Girons is surrounded by a unique geographical feature that creates a localized microclimate, effectively decoupling the city's temperature from its latitude. This microclimate could be caused by the presence of a large body of water nearby, such as a lake or a reservoir, which regulates temperature extremes and creates a more stable climate. Investigate how this microclimate island affects the relationship between latitude and temperature differences between 2025-12-21 and 2025-12-28. Does the forecaster account for this potential local anomaly when estimating the probability of warmer temperatures on 2025-12-28 compared to 2025-12-21, despite the intuitive expectation that latitude would have a significant impact on temperature ranges in southern France.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "latitude->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0179,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Latitude affects local climate and temperature ranges"
+    },
+    {
+      "probe_text": "A recent study suggests that the relationship between temperature trend and precipitation patterns in the region is actually driven by changes in soil moisture rather than atmospheric circulation, casting doubt on the influence of temperature trend on precipitation.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "temperature_trend->precipitation_amount",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Temperature trend can influence precipitation patterns through changes in atmospheric circulation"
+    },
+    {
+      "probe_text": "If the forecaster believes that the average temperature on 2025-12-28 is higher than on 2025-12-21, and this difference is attributed to the seasonal variation in temperature, would they then expect that the daily average temperature on 2025-12-21 was below a certain threshold, say 10°C, if it is observed that 2025-12-28 is above 15°C?",
+      "probe_type": "edge_reverse",
+      "target_id": "seasonal_variation->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0179,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Seasonal patterns can influence temperature differences between dates"
+    },
+    {
+      "probe_text": "Imagine that a low-pressure system is moving from the Mediterranean Sea towards Saint-Girons, bringing with it a warm front that will cause temperatures to rise in the region. However, the air mass moving over Saint-Girons is forced to rise over the town's elevated terrain, resulting in the formation of clouds and precipitation. This precipitation can then influence the movement and intensity of the weather front, potentially leading to changes in temperature. Does the forecaster's updated probability of 0.65 still hold, given this new information about the relationship between elevation and weather fronts?",
+      "probe_type": "edge_spurious",
+      "target_id": "elevation->weather_fronts",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Altitude of Saint-Girons relative to sea level -> Rapid changes in temperature due to moving weather fronts"
+    },
+    {
+      "probe_text": "Consider a recent study suggesting that the region's observed temperature trend over the past decade has been influenced by a decrease in elevation-related cooling due to the expansion of urban heat islands, which has been more pronounced in areas with higher elevations. How would this new information affect your estimate of the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given the causal relationship between elevation and temperature trend?",
+      "probe_type": "edge_spurious",
+      "target_id": "elevation->temperature_trend",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Altitude of Saint-Girons relative to sea level -> Observed temperature trend in the region over past years"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given that there will be a high-pressure system over the Pyrenees mountains on both dates, which could lead to a temperature difference between the two dates?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "The forecaster's probability assessment may be influenced by the probability of a potential heatwave in the region during the period between 2025-12-21 and 2025-12-28. This could be a significant factor, as a heatwave would likely lead to higher temperatures on the later date, making the outcome more likely. The causal mechanism would be that a heatwave would increase the temperature trend in the region during the period, leading to a higher likelihood of warmer temperatures on 2025-12-28.",
+      "probe_type": "missing_node",
+      "target_id": "temperature_trend_heatwave",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The Saint-Girons weather station will be adjusted to a new time zone, from Central European Time (CET) to Central European Summer Time (CEST) on 2025-12-20, due to the upcoming winter solstice.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "There will be a lunar eclipse visible from Saint-Girons on the night of 2025-12-28.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Assuming there is a significant drought in the region during the weeks leading up to December 21 and 28, what is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'precipitation_amount' significantly impacts the causal paths leading to the outcome. With a drought in the region, the influence of 'precipitation_amount' on 'weather_fronts' and subsequently on 'outcome' is reduced. Additionally, the drought may also affect the 'temperature_trend' by reducing evapotranspiration and cloud cover, leading to a less pronounced temperature trend. As a result, I update my probability estimate downward, as the reduced influence of precipitation on weather fronts and the temperature trend makes it less likely for the temperature on December 28 to be higher than on December 21.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'precipitation_amount' significantly impacts the causal paths leading to the outcome. With a drought in the region, the influence of 'precipitation_amount' on 'weather_fronts' and subsequently on 'outcome' is reduced. Additionally, the drought may also affect the 'temperature_trend' by reducing evapotranspiration and cloud cover, leading to a less pronounced temperature trend. As a result, I update my probability estimate downward, as the reduced influence of precipitation on weather fronts and the temperature trend makes it less likely for the temperature on December 28 to be higher than on December 21.\"\n}",
+      "target_id": "precipitation_amount",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Imagine a scenario where the global climate shifts suddenly, causing a perfect synchronization between the temperature fluctuations on 2025-12-21 and 2025-12-28, effectively nullifying the typical seasonal patterns in temperature. This could be due to an unexpected amplification of the El Niño-Southern Oscillation effect, rendering seasonal variation irrelevant for this particular forecast. Under this hypothetical scenario, would the forecaster still believe that the temperature on 2025-12-28 will be higher than on 2025-12-21 with a probability of 0.65?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.2,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'seasonal_variation' affects the causal path from 'seasonal_variation' to 'outcome'. Given the hypothetical scenario where seasonal patterns are nullified, the influence of 'seasonal_variation' on the temperature difference between 2025-12-21 and 2025-12-28 is effectively removed. This reduces the overall likelihood of the outcome, as the seasonal patterns were a contributing factor to the initial probability estimate of 0.65. The remaining causal paths, such as 'temperature_trend', 'latitude', and 'elevation', still contribute to the outcome, but with reduced overall impact. As a result, the updated probability estimate is lower, at 0.45.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'seasonal_variation' affects the causal path from 'seasonal_variation' to 'outcome'. Given the hypothetical scenario where seasonal patterns are nullified, the influence of 'seasonal_variation' on the temperature difference between 2025-12-21 and 2025-12-28 is effectively removed. This reduces the overall likelihood of the outcome, as the seasonal patterns were a contributing factor to the initial probability estimate of 0.65. The remaining causal paths, such as 'temperature_trend', 'latitude', and 'elevation', still contribute to the outcome, but with reduced overall impact. As a result, the updated probability estimate is lower, at 0.45.\"\n}",
+      "target_id": "seasonal_variation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "A new study suggests that Saint-Girons is located in a valley with a unique geology that may actually be more conductive to heat retention than typical mountainous regions, potentially mitigating the effects of elevation on temperature.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The new study's findings challenge the traditional understanding of the effect of elevation on temperature in Saint-Girons. Initially, I considered elevation to negatively impact temperature due to its typical association with colder microclimates. However, this new information suggests that Saint-Girons' unique geology may actually enhance heat retention, potentially counteracting elevation's effects. As a result, I've increased the probability of the temperature on 2025-12-28 being higher than on 2025-12-21, as the mitigation of elevation's effects on temperature increases the likelihood of warmer temperatures in the latter date. This change primarily affects the causal path from 'elevation' to 'outcome', which is now less dominant due to the new information. Consequently, the overall estimate has increased slightly, as the challenge to elevation's effect has reduced the downward pressure on the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study's findings challenge the traditional understanding of the effect of elevation on temperature in Saint-Girons. Initially, I considered elevation to negatively impact temperature due to its typical association with colder microclimates. However, this new information suggests that Saint-Girons' unique geology may actually enhance heat retention, potentially counteracting elevation's effects. As a result, I've increased the probability of the temperature on 2025-12-28 being higher than on 2025-12-21, as the mitigation of elevation's effects on temperature increases the likelihood of warmer temperatures in the latter date. This change primarily affects the causal path from 'elevation' to 'outcome', which is now less dominant due to the new information. Consequently, the overall estimate has increased slightly, as the challenge to elevation's effect has reduced the downward pressure on the probability.\"\n}",
+      "target_id": "elevation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "A recent study suggests that the Saint-Girons region has been experiencing a decline in the frequency and intensity of weather fronts over the past decade, which could potentially affect our understanding of the relationship between weather fronts and temperature differences between 2025-12-28 and 2025-12-21.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.08000000000000007,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'weather_fronts' has affected the causal path from 'weather_fronts' to 'outcome'. Given the decline in the frequency and intensity of weather fronts in the Saint-Girons region over the past decade, I now consider the likelihood of temperature changes due to weather fronts to be lower. This reduction in the strength of this causal path has decreased the overall probability of the daily average temperature on 2025-12-28 being higher than on 2025-12-21. I have adjusted the probability downward from 0.65 to 0.57, reflecting the diminished importance of weather fronts in this specific context.",
+      "raw_response": "{\n  \"updated_probability\": 0.57,\n   \"shift_direction\": \"decreased\",\n   \"reasoning\": \"The challenge to the causal factor 'weather_fronts' has affected the causal path from 'weather_fronts' to 'outcome'. Given the decline in the frequency and intensity of weather fronts in the Saint-Girons region over the past decade, I now consider the likelihood of temperature changes due to weather fronts to be lower. This reduction in the strength of this causal path has decreased the overall probability of the daily average temperature on 2025-12-28 being higher than on 2025-12-21. I have adjusted the probability downward from 0.65 to 0.57, reflecting the diminished importance of weather fronts in this specific context.\"\n}",
+      "target_id": "weather_fronts",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study published in the Journal of Hydrology and Meteorology reveals that previous research underestimated the significant impact of precipitation on temperature variability in the Pyrenees region, where Saint-Girons is located. The study found that even moderate amounts of precipitation can lead to substantial changes in temperature through enhanced evapotranspiration and cloud cover. This finding is consistent with historical records showing that heavy precipitation events in the region often precede significant temperature fluctuations. The study's lead author, a renowned expert in regional climate modeling, has publicly stated that the results have important implications for improving temperature forecasting in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new study strengthens the causal link between precipitation_amount and outcome by highlighting the significant impact of precipitation on temperature variability in the region through evapotranspiration and cloud cover. This increases the importance of precipitation_amount in the causal network, leading to a higher probability of the outcome. Additionally, the strengthened link between precipitation_amount and weather_fronts, and the increased importance of weather_fronts in the causal network, further contribute to the increased probability. The more substantial impact of precipitation on temperature variability in the region leads to a more confident estimate of the outcome, resulting in a higher updated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The new study strengthens the causal link between precipitation_amount and outcome by highlighting the significant impact of precipitation on temperature variability in the region through evapotranspiration and cloud cover. This increases the importance of precipitation_amount in the causal network, leading to a higher probability of the outcome. Additionally, the strengthened link between precipitation_amount and weather_fronts, and the increased importance of weather_fronts in the causal network, further contribute to the increased probability. The more substantial impact of precipitation on temperature variability in the region leads to a more confident estimate of the outcome, resulting in a higher updated probability.\"\n}",
+      "target_id": "precipitation_amount",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A study published in a reputable climate science journal indicates that the average temperature difference between winter solstice and summer solstice at Saint-Girons has been consistently increasing over the past 30 years, suggesting a strong and growing impact of seasonal variation on local temperature patterns. This finding is supported by empirical data from the same region and is consistent with global trends in seasonal temperature differences.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.77,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The new study strengthens the causal link between 'seasonal_variation' and 'outcome'. This increases the impact of seasonal patterns on the temperature difference between 2025-12-28 and 2025-12-21. Given the growing effect of seasonal variation, I now expect a slightly higher chance of warmer temperatures on the later date. The strengthened causal path from 'seasonal_variation' to 'outcome' dominates the effect, resulting in a moderate increase in the forecasted probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.77,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study strengthens the causal link between 'seasonal_variation' and 'outcome'. This increases the impact of seasonal patterns on the temperature difference between 2025-12-28 and 2025-12-21. Given the growing effect of seasonal variation, I now expect a slightly higher chance of warmer temperatures on the later date. The strengthened causal path from 'seasonal_variation' to 'outcome' dominates the effect, resulting in a moderate increase in the forecasted probability.\"\n}",
+      "target_id": "seasonal_variation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A persistent high-pressure system is predicted to dominate the region from 2025-12-20 to 2025-12-31, suppressing any typical winter temperature fluctuations. This weather pattern suggests that the influence of seasonal variation on the temperature difference between 2025-12-28 and 2025-12-21 may be minimal. In fact, this high-pressure system could lead to above-average temperatures on both dates, potentially masking any seasonal effect. What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given this weather pattern?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'seasonal_variation->outcome' affects the impact of seasonal variation on the temperature difference between 2025-12-28 and 2025-12-21. Given the persistent high-pressure system predicted to dominate the region, the influence of seasonal variation on the temperature difference is likely to be minimal. This reduces the uncertainty associated with the outcome, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. The causal paths affected by this change include the direct link from seasonal_variation to outcome, as well as the indirect effects of seasonal_variation on outcome through nearby_weather_patterns and weather_fronts. With the high-pressure system suppressing typical winter temperature fluctuations, the probability of a warmer temperature on 2025-12-28 has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'seasonal_variation->outcome' affects the impact of seasonal variation on the temperature difference between 2025-12-28 and 2025-12-21. Given the persistent high-pressure system predicted to dominate the region, the influence of seasonal variation on the temperature difference is likely to be minimal. This reduces the uncertainty associated with the outcome, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. The causal paths affected by this change include the direct link from seasonal_variation to outcome, as well as the indirect effects of seasonal_variation on outcome through nearby_weather_patterns and weather_fronts. With the high-pressure system suppressing typical winter temperature fluctuations, the probability of a warmer temperature on 2025-12-28 has increased.\"\n}",
+      "target_id": "seasonal_variation->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Consider a hypothetical 'microclimate island' scenario where Saint-Girons is surrounded by a unique geographical feature that creates a localized microclimate, effectively decoupling the city's temperature from its latitude. This microclimate could be caused by the presence of a large body of water nearby, such as a lake or a reservoir, which regulates temperature extremes and creates a more stable climate. Investigate how this microclimate island affects the relationship between latitude and temperature differences between 2025-12-21 and 2025-12-28. Does the forecaster account for this potential local anomaly when estimating the probability of warmer temperatures on 2025-12-28 compared to 2025-12-21, despite the intuitive expectation that latitude would have a significant impact on temperature ranges in southern France.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.08000000000000007,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a microclimate island effectively decouples the relationship between Saint-Girons' latitude and its temperature. This challenges the causal link 'latitude->outcome', which previously contributed to the expectation of warmer temperatures on 2025-12-28 due to southern France's latitude. Although southern France's latitude would typically result in warmer temperatures in December, the microclimate island creates a localized anomaly that diminishes the impact of latitude on temperature differences between the two dates. This weakening of the 'latitude->outcome' causal link reduces the overall probability of warmer temperatures on 2025-12-28 compared to 2025-12-21, from 0.65 to 0.57.",
+      "raw_response": "{\n  \"updated_probability\": 0.57,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a microclimate island effectively decouples the relationship between Saint-Girons' latitude and its temperature. This challenges the causal link 'latitude->outcome', which previously contributed to the expectation of warmer temperatures on 2025-12-28 due to southern France's latitude. Although southern France's latitude would typically result in warmer temperatures in December, the microclimate island creates a localized anomaly that diminishes the impact of latitude on temperature differences between the two dates. This weakening of the 'latitude->outcome' causal link reduces the overall probability of warmer temperatures on 2025-12-28 compared to 2025-12-21, from 0.65 to 0.57.\"\n}",
+      "target_id": "latitude->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent study suggests that the relationship between temperature trend and precipitation patterns in the region is actually driven by changes in soil moisture rather than atmospheric circulation, casting doubt on the influence of temperature trend on precipitation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The causal link 'temperature_trend->precipitation_amount' is challenged, which affects the causal path temperature_trend -> precipitation_amount -> weather_fronts -> outcome. This path contributed to the original estimate of 0.65, as a warming trend can lead to increased precipitation, which in turn can cause more weather fronts and corresponding temperature changes. However, the study suggests that this relationship is actually driven by changes in soil moisture, which invalidates this path. As a result, the updated probability decreases to 0.55.",
+      "raw_response": "{\"updated_probability\": 0.55, \"shift_direction\": \"decreased\", \"reasoning\": \"The causal link 'temperature_trend->precipitation_amount' is challenged, which affects the causal path temperature_trend -> precipitation_amount -> weather_fronts -> outcome. This path contributed to the original estimate of 0.65, as a warming trend can lead to increased precipitation, which in turn can cause more weather fronts and corresponding temperature changes. However, the study suggests that this relationship is actually driven by changes in soil moisture, which invalidates this path. As a result, the updated probability decreases to 0.55.\"}",
+      "target_id": "temperature_trend->precipitation_amount",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "If the forecaster believes that the average temperature on 2025-12-28 is higher than on 2025-12-21, and this difference is attributed to the seasonal variation in temperature, would they then expect that the daily average temperature on 2025-12-21 was below a certain threshold, say 10°C, if it is observed that 2025-12-28 is above 15°C?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge affects the causal path 'seasonal_variation->outcome'. The forecaster believes that the temperature difference between 2025-12-28 and 2025-12-21 is attributed to seasonal variation. If the temperature on 2025-12-28 is above 15°C, and the forecaster expects the temperature on 2025-12-21 to be below 10°C, this implies that the seasonal variation is strong. However, this also means that the temperature on 2025-12-21 is not already high due to other factors. Consequently, the contribution of other causal paths, such as 'temperature_trend' and 'nearby_weather_patterns', to the outcome becomes more significant. As a result, I update my probability estimate downwards, because the strength of the seasonal variation is now uncertain, and other factors may play a larger role in determining the temperature difference between the two dates.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge affects the causal path 'seasonal_variation->outcome'. The forecaster believes that the temperature difference between 2025-12-28 and 2025-12-21 is attributed to seasonal variation. If the temperature on 2025-12-28 is above 15°C, and the forecaster expects the temperature on 2025-12-21 to be below 10°C, this implies that the seasonal variation is strong. However, this also means that the temperature on 2025-12-21 is not already high due to other factors. Consequently, the contribution of other causal paths, such as 'temperature_trend' and 'nearby_weather_patterns', to the outcome becomes more significant. As a result, I update my probability estimate downwards, because the strength of the seasonal variation is now uncertain, and other factors may play a larger role in determining the temperature difference between the two dates.\"\n}",
+      "target_id": "seasonal_variation->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Imagine that a low-pressure system is moving from the Mediterranean Sea towards Saint-Girons, bringing with it a warm front that will cause temperatures to rise in the region. However, the air mass moving over Saint-Girons is forced to rise over the town's elevated terrain, resulting in the formation of clouds and precipitation. This precipitation can then influence the movement and intensity of the weather front, potentially leading to changes in temperature. Does the forecaster's updated probability of 0.65 still hold, given this new information about the relationship between elevation and weather fronts?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'elevation->weather_fronts' reveals a more complex relationship between elevation and weather fronts. In this scenario, the elevation of Saint-Girons actually influences the precipitation patterns and the movement of the weather front, which in turn can affect the temperature. This new information strengthens the causal path from elevation to weather fronts, and subsequently to the outcome. As a result, the probability of the temperature being higher on 2025-12-28 than on 2025-12-21 increases. The causal paths affected are: elevation -> weather_fronts -> outcome, and elevation -> precipitation_amount -> weather_fronts -> outcome. This update is not drastic as the challenged link was not a primary driver of the initial probability estimate, but it does provide additional insight that increases the likelihood of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'elevation->weather_fronts' reveals a more complex relationship between elevation and weather fronts. In this scenario, the elevation of Saint-Girons actually influences the precipitation patterns and the movement of the weather front, which in turn can affect the temperature. This new information strengthens the causal path from elevation to weather fronts, and subsequently to the outcome. As a result, the probability of the temperature being higher on 2025-12-28 than on 2025-12-21 increases. The causal paths affected are: elevation -> weather_fronts -> outcome, and elevation -> precipitation_amount -> weather_fronts -> outcome. This update is not drastic as the challenged link was not a primary driver of the initial probability estimate, but it does provide additional insight that increases the likelihood of the outcome.\"\n}",
+      "target_id": "elevation->weather_fronts",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider a recent study suggesting that the region's observed temperature trend over the past decade has been influenced by a decrease in elevation-related cooling due to the expansion of urban heat islands, which has been more pronounced in areas with higher elevations. How would this new information affect your estimate of the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given the causal relationship between elevation and temperature trend?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The recent study challenging the causal link 'elevation->temperature_trend' suggests that the expansion of urban heat islands has mitigated elevation-related cooling. This implies that Saint-Girons, with its higher elevation, may experience a weaker cooling trend in comparison to lower-lying areas. As a result, the probability of a warmer temperature on 2025-12-28 compared to 2025-12-21 increases, as the temperature trend's influence on the outcome is reduced. The causal paths affected are 'temperature_trend->outcome' and 'preceding causal paths that influence precipitation_amount and weather_fronts indirectly'. The updated probability reflects the diminished cooling effect at higher elevations, leading to a slightly increased chance of warmer temperatures.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent study challenging the causal link 'elevation->temperature_trend' suggests that the expansion of urban heat islands has mitigated elevation-related cooling. This implies that Saint-Girons, with its higher elevation, may experience a weaker cooling trend in comparison to lower-lying areas. As a result, the probability of a warmer temperature on 2025-12-28 compared to 2025-12-21 increases, as the temperature trend's influence on the outcome is reduced. The causal paths affected are 'temperature_trend->outcome' and 'preceding causal paths that influence precipitation_amount and weather_fronts indirectly'. The updated probability reflects the diminished cooling effect at higher elevations, leading to a slightly increased chance of warmer temperatures.\"\n}",
+      "target_id": "elevation->temperature_trend",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given that there will be a high-pressure system over the Pyrenees mountains on both dates, which could lead to a temperature difference between the two dates?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The presence of a high-pressure system over the Pyrenees mountains on both dates strengthens the causal path from nearby_weather_patterns to outcome. This is because high-pressure systems are associated with clear skies and temperature stability. Consequently, this enhances the likelihood of higher temperatures on 2025-12-28 compared to 2025-12-21. Additionally, the high-pressure system's influence on weather fronts suggests a reduced likelihood of rapid temperature changes, further supporting the increased probability of higher temperatures on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The presence of a high-pressure system over the Pyrenees mountains on both dates strengthens the causal path from nearby_weather_patterns to outcome. This is because high-pressure systems are associated with clear skies and temperature stability. Consequently, this enhances the likelihood of higher temperatures on 2025-12-28 compared to 2025-12-21. Additionally, the high-pressure system's influence on weather fronts suggests a reduced likelihood of rapid temperature changes, further supporting the increased probability of higher temperatures on the later date.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "The forecaster's probability assessment may be influenced by the probability of a potential heatwave in the region during the period between 2025-12-21 and 2025-12-28. This could be a significant factor, as a heatwave would likely lead to higher temperatures on the later date, making the outcome more likely. The causal mechanism would be that a heatwave would increase the temperature trend in the region during the period, leading to a higher likelihood of warmer temperatures on 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The addition of a heatwave as a potential causal factor significantly affects the causal paths leading to the outcome. A heatwave would increase the temperature trend in the region during the period, leading to a higher likelihood of warmer temperatures on 2025-12-28. This strengthens the causal link between temperature trend and outcome, as well as the link between temperature trend and precipitation amount, which in turn can influence weather fronts and the outcome. As a result, I increase my initial estimate of 0.65 to 0.72 to reflect the additional likelihood of a heatwave leading to warmer temperatures on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The addition of a heatwave as a potential causal factor significantly affects the causal paths leading to the outcome. A heatwave would increase the temperature trend in the region during the period, leading to a higher likelihood of warmer temperatures on 2025-12-28. This strengthens the causal link between temperature trend and outcome, as well as the link between temperature trend and precipitation amount, which in turn can influence weather fronts and the outcome. As a result, I increase my initial estimate of 0.65 to 0.72 to reflect the additional likelihood of a heatwave leading to warmer temperatures on the later date.\"\n}",
+      "target_id": "temperature_trend_heatwave",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Saint-Girons weather station will be adjusted to a new time zone, from Central European Time (CET) to Central European Summer Time (CEST) on 2025-12-20, due to the upcoming winter solstice.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The change in time zone from CET to CEST affects the causal path 'temperature_trend -> outcome' by introducing an additional seasonal pattern to consider. Since the time zone change would typically introduce a warmer period in the region around the winter solstice, I have increased the probability. Additionally, the new time zone might influence the presence and movement of weather fronts, which could further contribute to a warmer temperature on 2025-12-28. However, I have not updated the probability substantially, as the overall impact of the time zone change on the outcome is relatively minor compared to other factors like seasonal variation and regional weather patterns.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The change in time zone from CET to CEST affects the causal path 'temperature_trend -> outcome' by introducing an additional seasonal pattern to consider. Since the time zone change would typically introduce a warmer period in the region around the winter solstice, I have increased the probability. Additionally, the new time zone might influence the presence and movement of weather fronts, which could further contribute to a warmer temperature on 2025-12-28. However, I have not updated the probability substantially, as the overall impact of the time zone change on the outcome is relatively minor compared to other factors like seasonal variation and regional weather patterns.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "There will be a lunar eclipse visible from Saint-Girons on the night of 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The lunar eclipse is expected to affect the local climate and temperature by changing the tidal patterns and atmospheric circulation. This, in turn, can influence the weather patterns in the region, potentially leading to cooler temperatures on 2025-12-28. As a result, the causal path 'nearby_weather_patterns -> outcome' is affected, leading to a decrease in the probability of the daily average temperature at the French weather station at Saint-Girons being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The lunar eclipse is expected to affect the local climate and temperature by changing the tidal patterns and atmospheric circulation. This, in turn, can influence the weather patterns in the region, potentially leading to cooler temperatures on 2025-12-28. As a result, the causal path 'nearby_weather_patterns -> outcome' is affected, leading to a decrease in the probability of the daily average temperature at the French weather station at Saint-Girons being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Mountain Meteorology found that the annual temperature range in Saint-Girons is significantly greater than in nearby towns at lower elevations, suggesting that elevation has a substantial impact on local temperature variability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The recent study has strengthened the causal link between 'elevation' and 'outcome', specifically the link 'elevation -> outcome'. This is because it directly supports the idea that elevation has a substantial impact on local temperature variability. As a result, I am increasing the probability that the temperature on 2025-12-28 will be higher than on 2025-12-21. The updated probability reflects the increased confidence in the causal link between elevation and temperature variability in Saint-Girons.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent study has strengthened the causal link between 'elevation' and 'outcome', specifically the link 'elevation -> outcome'. This is because it directly supports the idea that elevation has a substantial impact on local temperature variability. As a result, I am increasing the probability that the temperature on 2025-12-28 will be higher than on 2025-12-21. The updated probability reflects the increased confidence in the causal link between elevation and temperature variability in Saint-Girons.\"\n}",
+      "target_id": "elevation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "In recent years, Saint-Girons has experienced a significant increase in temperature fluctuations during the winter months, which have been attributed to the rising frequency and intensity of Mediterranean winter storms that bring strong winds and heavy precipitation to the region, thereby influencing temperature patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'weather_fronts' has strengthened the causal link between 'weather_fronts' and 'outcome'. This is because the rising frequency and intensity of Mediterranean winter storms, which influence temperature patterns, are now more directly linked to the temperature fluctuations in Saint-Girons. As a result, the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21 has increased. The updated estimate takes into account the increased likelihood of warmer temperatures due to the stronger causal link between 'weather_fronts' and 'outcome'.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'weather_fronts' has strengthened the causal link between 'weather_fronts' and 'outcome'. This is because the rising frequency and intensity of Mediterranean winter storms, which influence temperature patterns, are now more directly linked to the temperature fluctuations in Saint-Girons. As a result, the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21 has increased. The updated estimate takes into account the increased likelihood of warmer temperatures due to the stronger causal link between 'weather_fronts' and 'outcome'.\"\n}",
+      "target_id": "weather_fronts",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21, given the temperature on 2025-12-21 was 2°C above the 20-year seasonal average, and the 2025-12-15 temperature was 1.5°C below the 20-year seasonal average?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.82,
+      "absolute_shift": 0.16999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge affects the causal path 'seasonal_variation -> outcome' by providing information about the temperature anomaly on 2025-12-21. However, this information only partially affects the seasonal pattern, as the temperature on 2025-12-15 was 1.5°C below the 20-year seasonal average. This suggests that the seasonal pattern may not be as strong as initially thought, as the temperature has already deviated from the average by 2025-12-15. Considering the remaining causal links, such as 'temperature_trend -> outcome' and 'precipitation_amount -> outcome', our estimate increases slightly because there's still a chance that the temperature on 2025-12-28 will be higher than on 2025-12-21, even if the seasonal pattern is less influential than initially thought.",
+      "raw_response": "{\n  \"updated_probability\": 0.82,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge affects the causal path 'seasonal_variation -> outcome' by providing information about the temperature anomaly on 2025-12-21. However, this information only partially affects the seasonal pattern, as the temperature on 2025-12-15 was 1.5°C below the 20-year seasonal average. This suggests that the seasonal pattern may not be as strong as initially thought, as the temperature has already deviated from the average by 2025-12-15. Considering the remaining causal links, such as 'temperature_trend -> outcome' and 'precipitation_amount -> outcome', our estimate increases slightly because there's still a chance that the temperature on 2025-12-28 will be higher than on 2025-12-21, even if the seasonal pattern is less influential than initially thought.\"\n}",
+      "target_id": "seasonal_variation->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Consider the scenario where a recent study found that Saint-Girons' latitude corresponds to a region with a distinct microclimate, characterized by a unique combination of oceanic and continental influences. This microclimate is known to produce a relatively consistent temperature range throughout the year, with minimal diurnal variations. On 2025-12-28 and 2025-12-21, the temperature patterns in this region are likely to be influenced by the prevailing westerly winds, which are more pronounced at lower latitudes. How would you update your forecast for the temperature difference between these two dates in light of this new information about the microclimate's temperature patterns?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about the distinct microclimate at Saint-Girons' latitude reduces the importance of the latitude's influence on the local climate and temperature ranges. This affects the causal path 'latitude -> outcome', which previously contributed to the probability of a warmer temperature on 2025-12-28. The prevailing westerly winds, which are more pronounced at lower latitudes, are still expected to influence the temperature patterns on both dates. However, the microclimate's consistent temperature range and minimal diurnal variations suggest a reduced likelihood of a significant temperature difference between the two dates. As a result, I decrease my initial forecast probability from 0.65 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about the distinct microclimate at Saint-Girons' latitude reduces the importance of the latitude's influence on the local climate and temperature ranges. This affects the causal path 'latitude -> outcome', which previously contributed to the probability of a warmer temperature on 2025-12-28. The prevailing westerly winds, which are more pronounced at lower latitudes, are still expected to influence the temperature patterns on both dates. However, the microclimate's consistent temperature range and minimal diurnal variations suggest a reduced likelihood of a significant temperature difference between the two dates. As a result, I decrease my initial forecast probability from 0.65 to 0.58.\"\n}",
+      "target_id": "latitude->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Imagine that a recent study has been published, suggesting a statistically significant correlation between changes in temperature trend and shifts in the North Atlantic Oscillation (NAO) pattern, a key driver of precipitation variability in southern France. This study found that as temperature trends warm, the likelihood of a positive NAO phase increases, leading to increased precipitation in the region. The French weather service has taken note of this research and has started to incorporate it into their forecasting models. How would the forecaster's estimate of the probability that the daily average temperature at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21 change in light of this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between temperature trend and precipitation amount. This, in turn, affects the causal path from temperature trend to outcome. With a higher likelihood of positive NAO phase and increased precipitation, there is a greater chance of weather fronts and nearby weather patterns influencing the temperature on 2025-12-28. This increased precipitation also means that evapotranspiration and cloud cover will have a more pronounced effect on the temperature. As a result, I increase the probability of the outcome from 0.65 to 0.72, as the temperature trend's influence on precipitation and subsequent weather patterns now provides a stronger argument in favor of a warmer temperature on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between temperature trend and precipitation amount. This, in turn, affects the causal path from temperature trend to outcome. With a higher likelihood of positive NAO phase and increased precipitation, there is a greater chance of weather fronts and nearby weather patterns influencing the temperature on 2025-12-28. This increased precipitation also means that evapotranspiration and cloud cover will have a more pronounced effect on the temperature. As a result, I increase the probability of the outcome from 0.65 to 0.72, as the temperature trend's influence on precipitation and subsequent weather patterns now provides a stronger argument in favor of a warmer temperature on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "temperature_trend->precipitation_amount",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07627.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Saint-Girons will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.65,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.09624999999999999,
+    "max_absolute_shift": 0.2
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 1.8571428571428574,
+    "mean_shift_high": 0.13,
+    "mean_shift_low": 0.06999999999999999,
+    "asymmetry_index": 1.2537313432835824,
+    "mean_shift_negate": 0.12,
+    "mean_shift_strengthen": 0.09571428571428568,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.030500000000000055,
+    "mean_shift_on_path": 0.11800000000000002,
+    "mean_shift_off_path": 0.08749999999999997,
+    "importance_sensitivity_correlation": -0.5333333333333334,
+    "control_sensitivity": 0.5
+  }
+}

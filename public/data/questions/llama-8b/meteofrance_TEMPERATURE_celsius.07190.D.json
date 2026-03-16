@@ -1,0 +1,1070 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07190.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "seasonal_pattern",
+      "description": "The typical temperature pattern for December in Strasbourg",
+      "role": "factor"
+    },
+    {
+      "id": "global_warming_trend",
+      "description": "The general increase in temperature due to climate change",
+      "role": "factor"
+    },
+    {
+      "id": "stratospheric_ozone_layer",
+      "description": "The concentration of ozone in the stratosphere affecting temperature",
+      "role": "factor"
+    },
+    {
+      "id": "weather_patterns_euro",
+      "description": "Large-scale weather patterns in Europe",
+      "role": "factor"
+    },
+    {
+      "id": "local_topography",
+      "description": "The geography of the Strasbourg area",
+      "role": "factor"
+    },
+    {
+      "id": "calendar_date",
+      "description": "The specific date of the forecast (2025-12-28 vs 2025-12-21)",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The forecasted event (temperature on 2025-12-28 > temperature on 2025-12-21)",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_pattern",
+      "to": "outcome",
+      "mechanism": "December temperatures are typically higher in Strasbourg"
+    },
+    {
+      "from": "global_warming_trend",
+      "to": "outcome",
+      "mechanism": "Climate change contributes to warmer temperatures"
+    },
+    {
+      "from": "stratospheric_ozone_layer",
+      "to": "weather_patterns_euro",
+      "mechanism": "Ozone concentration affects European weather patterns"
+    },
+    {
+      "from": "weather_patterns_euro",
+      "to": "outcome",
+      "mechanism": "Large-scale weather patterns influence local temperatures"
+    },
+    {
+      "from": "local_topography",
+      "to": "outcome",
+      "mechanism": "The geography of Strasbourg influences local temperatures"
+    },
+    {
+      "from": "calendar_date",
+      "to": "outcome",
+      "mechanism": "The specific date of the forecast affects temperature differences"
+    }
+  ],
+  "reasoning": "Based on the typical December pattern in Strasbourg and the global warming trend, I expect temperatures to be higher on 2025-12-28 than on 2025-12-21. However, the concentration of ozone in the stratosphere and local topography may influence this outcome. The specific date of the forecast also plays a role in determining the temperature difference.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_pattern",
+        "description": "The typical temperature pattern for December in Strasbourg",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.078,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_warming_trend",
+        "description": "The general increase in temperature due to climate change",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.078,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "stratospheric_ozone_layer",
+        "description": "The concentration of ozone in the stratosphere affecting temperature",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.078,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_patterns_euro",
+        "description": "Large-scale weather patterns in Europe",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.1443,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "local_topography",
+        "description": "The geography of the Strasbourg area",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.078,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "calendar_date",
+        "description": "The specific date of the forecast (2025-12-28 vs 2025-12-21)",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.078,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "The forecasted event (temperature on 2025-12-28 > temperature on 2025-12-21)",
+        "role": "outcome",
+        "in_degree": 5,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.8571,
+        "pagerank": 0.4658,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_pattern",
+        "target": "outcome",
+        "mechanism": "December temperatures are typically higher in Strasbourg",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_warming_trend",
+        "target": "outcome",
+        "mechanism": "Climate change contributes to warmer temperatures",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "stratospheric_ozone_layer",
+        "target": "weather_patterns_euro",
+        "mechanism": "Ozone concentration affects European weather patterns",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_patterns_euro",
+        "target": "outcome",
+        "mechanism": "Large-scale weather patterns influence local temperatures",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "local_topography",
+        "target": "outcome",
+        "mechanism": "The geography of Strasbourg influences local temperatures",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "calendar_date",
+        "target": "outcome",
+        "mechanism": "The specific date of the forecast affects temperature differences",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "weather_patterns_euro",
+        "description": "Large-scale weather patterns in Europe",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_pattern",
+        "description": "The typical temperature pattern for December in Strasbourg",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "stratospheric_ozone_layer",
+        "description": "The concentration of ozone in the stratosphere affecting temperature",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "calendar_date",
+        "description": "The specific date of the forecast (2025-12-28 vs 2025-12-21)",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_patterns_euro",
+        "description": "Large-scale weather patterns in Europe",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_pattern",
+        "description": "The typical temperature pattern for December in Strasbourg",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+        "description": "Ozone concentration affects European weather patterns",
+        "importance": 0.0476,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_patterns_euro->outcome",
+        "description": "Large-scale weather patterns influence local temperatures",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "calendar_date->outcome",
+        "description": "The specific date of the forecast affects temperature differences",
+        "importance": 0.0238,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+        "description": "Ozone concentration affects European weather patterns",
+        "importance": 0.0476,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "global_warming_trend->calendar_date",
+        "description": "Potential link: The general increase in temperature due to climate change -> The specific date of the forecast (2025-12-28 vs 2025-12-21)",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "global_warming_trend->weather_patterns_euro",
+        "description": "Potential link: The general increase in temperature due to climate change -> Large-scale weather patterns in Europe",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "weather_patterns_euro",
+      "description": "Large-scale weather patterns in Europe",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_pattern",
+      "description": "The typical temperature pattern for December in Strasbourg",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "stratospheric_ozone_layer",
+      "description": "The concentration of ozone in the stratosphere affecting temperature",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "calendar_date",
+      "description": "The specific date of the forecast (2025-12-28 vs 2025-12-21)",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_patterns_euro",
+      "description": "Large-scale weather patterns in Europe",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_pattern",
+      "description": "The typical temperature pattern for December in Strasbourg",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "description": "Ozone concentration affects European weather patterns",
+      "importance": 0.0476,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_patterns_euro->outcome",
+      "description": "Large-scale weather patterns influence local temperatures",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "calendar_date->outcome",
+      "description": "The specific date of the forecast affects temperature differences",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "description": "Ozone concentration affects European weather patterns",
+      "importance": 0.0476,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "global_warming_trend->calendar_date",
+      "description": "Potential link: The general increase in temperature due to climate change -> The specific date of the forecast (2025-12-28 vs 2025-12-21)",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "global_warming_trend->weather_patterns_euro",
+      "description": "Potential link: The general increase in temperature due to climate change -> Large-scale weather patterns in Europe",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Consider a hypothetical scenario where Strasbourg Airport is located in a micro-climate that is largely isolated from the larger-scale weather patterns in Europe, effectively rendering the large-scale weather patterns in Europe irrelevant to forecasting local temperatures in Strasbourg. In this scenario, the recent changes in the North Atlantic Oscillation might have led to a regional temperature anomaly that actually favors colder temperatures in Strasbourg during the forecast period.",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_patterns_euro",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large-scale weather patterns in Europe"
+    },
+    {
+      "probe_text": "What if the typical temperature pattern for December in Strasbourg is actually a cold snap, and not a warmer period as previously thought? This could be due to a recent study suggesting that the North Atlantic Oscillation has been in a negative phase for the past few years, leading to colder winters in the region.",
+      "probe_type": "node_negate_high",
+      "target_id": "seasonal_pattern",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "The typical temperature pattern for December in Strasbourg"
+    },
+    {
+      "probe_text": "Reports from the European Space Agency suggest a recent and unexpected increase in the concentration of nitrogen oxides in the stratosphere, which could potentially counteract the effects of ozone depletion and even lead to a temporary increase in stratospheric ozone concentration. If this phenomenon were to occur in the days leading up to the forecasted dates, would it alter your assessment of the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_type": "node_negate_medium",
+      "target_id": "stratospheric_ozone_layer",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "The concentration of ozone in the stratosphere affecting temperature"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21, assuming that the forecast is for 2025-12-20 instead of 2025-12-28?",
+      "probe_type": "node_negate_low",
+      "target_id": "calendar_date",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "The specific date of the forecast (2025-12-28 vs 2025-12-21)"
+    },
+    {
+      "probe_text": "A new study published in the Journal of Meteorological Research reveals a strong correlation between the North Atlantic Oscillation (NAO) and temperature anomalies in Western Europe during the winter season. This reinforces the causal link between weather patterns in Europe and temperature variations, suggesting that the influence of large-scale weather patterns on local temperatures is even more significant than previously thought.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_patterns_euro",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large-scale weather patterns in Europe"
+    },
+    {
+      "probe_text": "A new study by the French National Meteorological Service reveals that December temperatures in Strasbourg have consistently increased by 0.5°C over the past 30 years, aligning with the expected pattern of a warming climate. This trend is further supported by historical temperature records from nearby weather stations, which show a strong correlation with the typical temperature pattern for December in the region.",
+      "probe_type": "node_strengthen",
+      "target_id": "seasonal_pattern",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "The typical temperature pattern for December in Strasbourg"
+    },
+    {
+      "probe_text": "A recent study published in the Journal of Atmospheric Science suggests that the relationship between stratospheric ozone concentration and European weather patterns might be mediated by Arctic oscillation patterns, rather than a direct causal link. This could imply that the impact of ozone concentration on European weather patterns is actually indirect and potentially weaker than previously thought.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Ozone concentration affects European weather patterns"
+    },
+    {
+      "probe_text": "Consider a scenario where a severe heatwave occurs in the region surrounding Strasbourg due to high-pressure systems, causing temperatures in the area to rise significantly. Meanwhile, a series of cold fronts move through Europe, but they pass to the north of Strasbourg, bringing cooler temperatures to the surrounding regions. This would create a situation where large-scale weather patterns in Europe have a minimal impact on the local temperature in Strasbourg, potentially contradicting the causal link between 'weather_patterns_euro' and 'outcome'.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "weather_patterns_euro->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Large-scale weather patterns influence local temperatures"
+    },
+    {
+      "probe_text": "Design a scenario where the Strasbourg Airport weather station is scheduled to undergo routine maintenance on 2025-12-28, causing the temperature readings to be delayed and only available after 2025-12-21. How would this impact the forecaster's confidence in their estimate that the temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "calendar_date->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "The specific date of the forecast affects temperature differences"
+    },
+    {
+      "probe_text": "A significant volcanic eruption in Iceland in 2024 caused a significant reduction in stratospheric ozone levels, which in turn led to changes in European weather patterns, manifesting as a prolonged cold spell across Western Europe in 2025. Given this new information, how would you update your estimate for the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_type": "edge_reverse",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Ozone concentration affects European weather patterns"
+    },
+    {
+      "probe_text": "Consider a scenario where a new study reveals that the rate of global warming is accelerating, and as a result, the average temperature increase between December 21st and December 28th in Strasbourg has been consistently higher over the past decade compared to the previous decade. This new information challenges the forecaster's initial assumption that the specific date of the forecast (2025-12-28 vs 2025-12-21) only affects temperature differences through local factors. The forecaster must now update their beliefs to account for the potential impact of climate change on the temperature difference between these two dates.",
+      "probe_type": "edge_spurious",
+      "target_id": "global_warming_trend->calendar_date",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The general increase in temperature due to climate change -> The specific date of the forecast (2025-12-28 vs 2025-12-21)"
+    },
+    {
+      "probe_text": "Consider a hypothetical scenario where a significant portion of the Arctic ice cap melts in the spring of 2025 due to warmer temperatures. This melting has a cascading effect on the atmospheric circulation patterns in the Northern Hemisphere, leading to a more meridional flow of air masses over Europe, which in turn, influences the large-scale weather patterns in the region. What is the probability that this hypothetical scenario would affect the forecast of higher temperatures on 2025-12-28 compared to 2025-12-21 at the Strasbourg Airport?",
+      "probe_type": "edge_spurious",
+      "target_id": "global_warming_trend->weather_patterns_euro",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The general increase in temperature due to climate change -> Large-scale weather patterns in Europe"
+    },
+    {
+      "probe_text": "How will the probability of a temperature difference on 2025-12-28 vs 2025-12-21 change if the forecaster considers the impact of the North Atlantic Oscillation (NAO) on European weather patterns?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Will there be a significant snow cover in the region surrounding Strasbourg Airport on 2025-12-21, and if so, how much of the area will be covered?",
+      "probe_type": "missing_node",
+      "target_id": "snow_cover",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The Strasbourg Airport has undergone renovations to its air traffic control tower since 2022, and this construction project took place during the summer months when the weather is typically warmer.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "It's worth noting that the Strasbourg Airport is located near the Ill River, which is known to be a habitat for the European otter, a protected species in France. In fact, there have been recent efforts to reintroduce the species to the area.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Consider a hypothetical scenario where Strasbourg Airport is located in a micro-climate that is largely isolated from the larger-scale weather patterns in Europe, effectively rendering the large-scale weather patterns in Europe irrelevant to forecasting local temperatures in Strasbourg. In this scenario, the recent changes in the North Atlantic Oscillation might have led to a regional temperature anomaly that actually favors colder temperatures in Strasbourg during the forecast period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'weather_patterns_euro' affects the causal paths leading to the outcome by removing the influence of large-scale weather patterns in Europe on local temperatures in Strasbourg. Since these patterns typically contribute to warmer temperatures in December, their removal leads to a decrease in the probability of the outcome. Additionally, the hypothetical scenario suggests a regional temperature anomaly that favors colder temperatures, further contributing to the decrease in probability. As a result, I update my forecast to 0.52, reflecting a decrease in the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'weather_patterns_euro' affects the causal paths leading to the outcome by removing the influence of large-scale weather patterns in Europe on local temperatures in Strasbourg. Since these patterns typically contribute to warmer temperatures in December, their removal leads to a decrease in the probability of the outcome. Additionally, the hypothetical scenario suggests a regional temperature anomaly that favors colder temperatures, further contributing to the decrease in probability. As a result, I update my forecast to 0.52, reflecting a decrease in the probability of the outcome.\"\n}",
+      "target_id": "weather_patterns_euro",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the typical temperature pattern for December in Strasbourg is actually a cold snap, and not a warmer period as previously thought? This could be due to a recent study suggesting that the North Atlantic Oscillation has been in a negative phase for the past few years, leading to colder winters in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'seasonal_pattern' affects the causal path from 'seasonal_pattern' to 'outcome'. Given the typical temperature pattern for December in Strasbourg is now a cold snap, the probability of the outcome (temperature on 2025-12-28 > temperature on 2025-12-21) decreases. The cold snap reduces the likelihood of warmer temperatures in December, making it less probable that the temperature on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'seasonal_pattern' affects the causal path from 'seasonal_pattern' to 'outcome'. Given the typical temperature pattern for December in Strasbourg is now a cold snap, the probability of the outcome (temperature on 2025-12-28 > temperature on 2025-12-21) decreases. The cold snap reduces the likelihood of warmer temperatures in December, making it less probable that the temperature on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "seasonal_pattern",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Reports from the European Space Agency suggest a recent and unexpected increase in the concentration of nitrogen oxides in the stratosphere, which could potentially counteract the effects of ozone depletion and even lead to a temporary increase in stratospheric ozone concentration. If this phenomenon were to occur in the days leading up to the forecasted dates, would it alter your assessment of the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The recent and unexpected increase in stratospheric ozone concentration, potentially due to nitrogen oxide counteracting ozone depletion, affects the stratospheric_ozone_layer node. This changes the causal path stratospheric_ozone_layer -> weather_patterns_euro. Although this path is linked to weather_patterns_euro, which then affects outcome, the overall structural importance of this path in our reasoning about the temperature difference between 2025-12-28 and 2025-12-21 is relatively peripheral. Therefore, while it has some impact, it is still a relatively weak update: I slightly increase the probability of the daily average temperature at the French weather station at Strasbourg Airport being higher on 2025-12-28 than on 2025-12-21 from 0.62 to 0.68.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent and unexpected increase in stratospheric ozone concentration, potentially due to nitrogen oxide counteracting ozone depletion, affects the stratospheric_ozone_layer node. This changes the causal path stratospheric_ozone_layer -> weather_patterns_euro. Although this path is linked to weather_patterns_euro, which then affects outcome, the overall structural importance of this path in our reasoning about the temperature difference between 2025-12-28 and 2025-12-21 is relatively peripheral. Therefore, while it has some impact, it is still a relatively weak update: I slightly increase the probability of the daily average temperature at the French weather station at Strasbourg Airport being higher on 2025-12-28 than on 2025-12-21 from 0.62 to 0.68.\"\n}",
+      "target_id": "stratospheric_ozone_layer",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21, assuming that the forecast is for 2025-12-20 instead of 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "Changing the forecast date from 2025-12-28 to 2025-12-20 challenges the causal path 'calendar_date -> outcome'. This causal link is crucial as it directly affects the temperature difference between the two dates. A shift in the forecast date implies that the typical temperature pattern for December in Strasbourg (seasonal_pattern) and the global warming trend (global_warming_trend) remain unchanged, but the influence of the specific date of the forecast (calendar_date) on the temperature difference is diminished. As a result, I decrease my probability estimate from 0.62 to 0.58, as the changed forecast date reduces the confidence in the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"Changing the forecast date from 2025-12-28 to 2025-12-20 challenges the causal path 'calendar_date -> outcome'. This causal link is crucial as it directly affects the temperature difference between the two dates. A shift in the forecast date implies that the typical temperature pattern for December in Strasbourg (seasonal_pattern) and the global warming trend (global_warming_trend) remain unchanged, but the influence of the specific date of the forecast (calendar_date) on the temperature difference is diminished. As a result, I decrease my probability estimate from 0.62 to 0.58, as the changed forecast date reduces the confidence in the outcome.\"\n}",
+      "target_id": "calendar_date",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study published in the Journal of Meteorological Research reveals a strong correlation between the North Atlantic Oscillation (NAO) and temperature anomalies in Western Europe during the winter season. This reinforces the causal link between weather patterns in Europe and temperature variations, suggesting that the influence of large-scale weather patterns on local temperatures is even more significant than previously thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new study strengthens the causal link between weather_patterns_euro and outcome, which in turn reinforces the influence of calendar_date on the outcome. This is because the large-scale weather patterns in Europe (weather_patterns_euro) are now more strongly associated with temperature variations, which are in turn affected by the specific date of the forecast (calendar_date). This increased causal potency of weather_patterns_euro and calendar_date leads me to increase my estimate of the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study strengthens the causal link between weather_patterns_euro and outcome, which in turn reinforces the influence of calendar_date on the outcome. This is because the large-scale weather patterns in Europe (weather_patterns_euro) are now more strongly associated with temperature variations, which are in turn affected by the specific date of the forecast (calendar_date). This increased causal potency of weather_patterns_euro and calendar_date leads me to increase my estimate of the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "weather_patterns_euro",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study by the French National Meteorological Service reveals that December temperatures in Strasbourg have consistently increased by 0.5°C over the past 30 years, aligning with the expected pattern of a warming climate. This trend is further supported by historical temperature records from nearby weather stations, which show a strong correlation with the typical temperature pattern for December in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The new study and historical records challenge the assumption of a consistent seasonal pattern for December temperatures in Strasbourg. This affects the causal path from 'seasonal_pattern' to 'outcome'. The study suggests that December temperatures have been increasing by 0.5°C over 30 years, which is consistent with the global warming trend. This implies that the seasonal pattern is not as strong a factor as initially thought, and the climate change trend takes on more importance. As a result, our estimate of the probability of warmer temperatures on 2025-12-28 than on 2025-12-21 decreases from 0.62 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n   \"shift_direction\": \"decreased\",\n   \"reasoning\": \"The new study and historical records challenge the assumption of a consistent seasonal pattern for December temperatures in Strasbourg. This affects the causal path from 'seasonal_pattern' to 'outcome'. The study suggests that December temperatures have been increasing by 0.5°C over 30 years, which is consistent with the global warming trend. This implies that the seasonal pattern is not as strong a factor as initially thought, and the climate change trend takes on more importance. As a result, our estimate of the probability of warmer temperatures on 2025-12-28 than on 2025-12-21 decreases from 0.62 to 0.58.\"\n}",
+      "target_id": "seasonal_pattern",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Atmospheric Science suggests that the relationship between stratospheric ozone concentration and European weather patterns might be mediated by Arctic oscillation patterns, rather than a direct causal link. This could imply that the impact of ozone concentration on European weather patterns is actually indirect and potentially weaker than previously thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'stratospheric_ozone_layer->weather_patterns_euro' suggests that the relationship between ozone concentration and European weather patterns might be indirect and weaker than previously thought. This implies that the impact of ozone concentration on local temperatures, which is mediated by weather patterns, might be reduced. As a result, I decrease the estimated probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21, from 0.62 to 0.55. The reduction in probability is moderate, as the challenged link is structurally important to the reasoning, but not the sole driver of the outcome. The other causal links, such as 'seasonal_pattern' and 'global_warming_trend', remain influential, although their impact might be slightly reduced due to the weakened link between ozone concentration and weather patterns.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'stratospheric_ozone_layer->weather_patterns_euro' suggests that the relationship between ozone concentration and European weather patterns might be indirect and weaker than previously thought. This implies that the impact of ozone concentration on local temperatures, which is mediated by weather patterns, might be reduced. As a result, I decrease the estimated probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21, from 0.62 to 0.55. The reduction in probability is moderate, as the challenged link is structurally important to the reasoning, but not the sole driver of the outcome. The other causal links, such as 'seasonal_pattern' and 'global_warming_trend', remain influential, although their impact might be slightly reduced due to the weakened link between ozone concentration and weather patterns.\"\n}",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where a severe heatwave occurs in the region surrounding Strasbourg due to high-pressure systems, causing temperatures in the area to rise significantly. Meanwhile, a series of cold fronts move through Europe, but they pass to the north of Strasbourg, bringing cooler temperatures to the surrounding regions. This would create a situation where large-scale weather patterns in Europe have a minimal impact on the local temperature in Strasbourg, potentially contradicting the causal link between 'weather_patterns_euro' and 'outcome'.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenged causal link 'weather_patterns_euro->outcome' affects the causal path where large-scale weather patterns in Europe influence local temperatures in Strasbourg. However, this path is still partially supported by the remaining causal links 'global_warming_trend->outcome' and 'local_topography->outcome', which contribute to warmer temperatures in December. The scenario presented challenges the strength of this causal link but does not break it entirely. As a result, I reduce the estimated probability from 0.62 to 0.58, acknowledging the weakened causal path but still considering the additional factors contributing to warmer temperatures in Strasbourg during December.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenged causal link 'weather_patterns_euro->outcome' affects the causal path where large-scale weather patterns in Europe influence local temperatures in Strasbourg. However, this path is still partially supported by the remaining causal links 'global_warming_trend->outcome' and 'local_topography->outcome', which contribute to warmer temperatures in December. The scenario presented challenges the strength of this causal link but does not break it entirely. As a result, I reduce the estimated probability from 0.62 to 0.58, acknowledging the weakened causal path but still considering the additional factors contributing to warmer temperatures in Strasbourg during December.\"\n}",
+      "target_id": "weather_patterns_euro->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Design a scenario where the Strasbourg Airport weather station is scheduled to undergo routine maintenance on 2025-12-28, causing the temperature readings to be delayed and only available after 2025-12-21. How would this impact the forecaster's confidence in their estimate that the temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'calendar_date->outcome' affects the causal path leading to the outcome. The routine maintenance on 2025-12-28 would likely delay the temperature readings, making it difficult to determine if the temperature on 2025-12-28 is indeed higher than on 2025-12-21. This reduces our confidence in the estimate. Although the other causal paths, such as 'seasonal_pattern', 'global_warming_trend', 'stratospheric_ozone_layer', 'weather_patterns_euro', and 'local_topography', remain intact, the delay in temperature readings compromises the accuracy of the forecast. As a result, we decrease our probability estimate from 0.62 to 0.55.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'calendar_date->outcome' affects the causal path leading to the outcome. The routine maintenance on 2025-12-28 would likely delay the temperature readings, making it difficult to determine if the temperature on 2025-12-28 is indeed higher than on 2025-12-21. This reduces our confidence in the estimate. Although the other causal paths, such as 'seasonal_pattern', 'global_warming_trend', 'stratospheric_ozone_layer', 'weather_patterns_euro', and 'local_topography', remain intact, the delay in temperature readings compromises the accuracy of the forecast. As a result, we decrease our probability estimate from 0.62 to 0.55.\"\n}",
+      "target_id": "calendar_date->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "A significant volcanic eruption in Iceland in 2024 caused a significant reduction in stratospheric ozone levels, which in turn led to changes in European weather patterns, manifesting as a prolonged cold spell across Western Europe in 2025. Given this new information, how would you update your estimate for the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The significant volcanic eruption in Iceland in 2024 and its effects on stratospheric ozone levels and European weather patterns have challenged the causal link 'stratospheric_ozone_layer -> weather_patterns_euro'. This reduction in ozone levels led to changes in European weather patterns, making it more likely for a prolonged cold spell to occur in Western Europe, including Strasbourg. As a result, the probability of higher temperatures on 2025-12-28 compared to 2025-12-21 has decreased. The causal path 'stratospheric_ozone_layer -> weather_patterns_euro -> outcome' is now weaker, and I have reduced my initial estimate of 0.62 to 0.55, reflecting the increased likelihood of a colder-than-usual period in December 2025.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The significant volcanic eruption in Iceland in 2024 and its effects on stratospheric ozone levels and European weather patterns have challenged the causal link 'stratospheric_ozone_layer -> weather_patterns_euro'. This reduction in ozone levels led to changes in European weather patterns, making it more likely for a prolonged cold spell to occur in Western Europe, including Strasbourg. As a result, the probability of higher temperatures on 2025-12-28 compared to 2025-12-21 has decreased. The causal path 'stratospheric_ozone_layer -> weather_patterns_euro -> outcome' is now weaker, and I have reduced my initial estimate of 0.62 to 0.55, reflecting the increased likelihood of a colder-than-usual period in December 2025.\"\n}",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where a new study reveals that the rate of global warming is accelerating, and as a result, the average temperature increase between December 21st and December 28th in Strasbourg has been consistently higher over the past decade compared to the previous decade. This new information challenges the forecaster's initial assumption that the specific date of the forecast (2025-12-28 vs 2025-12-21) only affects temperature differences through local factors. The forecaster must now update their beliefs to account for the potential impact of climate change on the temperature difference between these two dates.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The new study suggests that the accelerating rate of global warming has a significant impact on the temperature difference between December 21st and December 28th in Strasbourg. This challenges our initial assumption that the specific date of the forecast only affects temperature differences through local factors. We must now consider the potential impact of climate change on the temperature difference between these two dates. This changes our causal network by introducing a new causal link 'global_warming_trend -> calendar_date', which affects the outcome through the edge 'calendar_date -> outcome'. This new link increases the probability of the outcome, as the accelerating rate of global warming contributes to a higher temperature on December 28th compared to December 21st.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study suggests that the accelerating rate of global warming has a significant impact on the temperature difference between December 21st and December 28th in Strasbourg. This challenges our initial assumption that the specific date of the forecast only affects temperature differences through local factors. We must now consider the potential impact of climate change on the temperature difference between these two dates. This changes our causal network by introducing a new causal link 'global_warming_trend -> calendar_date', which affects the outcome through the edge 'calendar_date -> outcome'. This new link increases the probability of the outcome, as the accelerating rate of global warming contributes to a higher temperature on December 28th compared to December 21st.\"\n}",
+      "target_id": "global_warming_trend->calendar_date",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider a hypothetical scenario where a significant portion of the Arctic ice cap melts in the spring of 2025 due to warmer temperatures. This melting has a cascading effect on the atmospheric circulation patterns in the Northern Hemisphere, leading to a more meridional flow of air masses over Europe, which in turn, influences the large-scale weather patterns in the region. What is the probability that this hypothetical scenario would affect the forecast of higher temperatures on 2025-12-28 compared to 2025-12-21 at the Strasbourg Airport?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'global_warming_trend->weather_patterns_euro' affects the causal path from global warming to the outcome. However, this path is not the primary driver of the outcome. The more significant impact comes from the 'calendar_date' node, which remains unchanged. Nevertheless, the hypothetical scenario of Arctic ice cap melting and its subsequent effect on European weather patterns introduces a new uncertainty that slightly increases the probability of higher temperatures on 2025-12-28 compared to 2025-12-21. This is because the more meridional flow of air masses over Europe could lead to a more stable and warmer atmospheric pattern, which would favor higher temperatures in December. However, this effect is still uncertain and dependent on various factors, hence the moderate increase in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'global_warming_trend->weather_patterns_euro' affects the causal path from global warming to the outcome. However, this path is not the primary driver of the outcome. The more significant impact comes from the 'calendar_date' node, which remains unchanged. Nevertheless, the hypothetical scenario of Arctic ice cap melting and its subsequent effect on European weather patterns introduces a new uncertainty that slightly increases the probability of higher temperatures on 2025-12-28 compared to 2025-12-21. This is because the more meridional flow of air masses over Europe could lead to a more stable and warmer atmospheric pattern, which would favor higher temperatures in December. However, this effect is still uncertain and dependent on various factors, hence the moderate increase in probability.\"\n}",
+      "target_id": "global_warming_trend->weather_patterns_euro",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "How will the probability of a temperature difference on 2025-12-28 vs 2025-12-21 change if the forecaster considers the impact of the North Atlantic Oscillation (NAO) on European weather patterns?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The consideration of the North Atlantic Oscillation (NAO) as an additional factor influencing European weather patterns strengthens the causal link between weather_patterns_euro and outcome. This is because the NAO is known to impact the jet stream, which in turn affects the trajectory of high and low-pressure systems in Europe, influencing local temperatures. This additional causal link affects the overall probability estimate, increasing it from 0.62 to 0.73. The introduction of the NAO as a factor in the causal network reduces the uncertainty associated with the forecast, leading to a more confident prediction of a warmer temperature on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The consideration of the North Atlantic Oscillation (NAO) as an additional factor influencing European weather patterns strengthens the causal link between weather_patterns_euro and outcome. This is because the NAO is known to impact the jet stream, which in turn affects the trajectory of high and low-pressure systems in Europe, influencing local temperatures. This additional causal link affects the overall probability estimate, increasing it from 0.62 to 0.73. The introduction of the NAO as a factor in the causal network reduces the uncertainty associated with the forecast, leading to a more confident prediction of a warmer temperature on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Will there be a significant snow cover in the region surrounding Strasbourg Airport on 2025-12-21, and if so, how much of the area will be covered?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "decreased",
+      "reasoning": "A significant snow cover in the region surrounding Strasbourg Airport on 2025-12-21 would affect the weather patterns in the area, weakening the causal link from weather_patterns_euro to outcome. Additionally, snow cover would likely have a moderating effect on the temperature, making it less likely for the temperature on 2025-12-28 to be higher than on 2025-12-21. This is because the presence of snow would increase the albedo effect, reflecting more sunlight and cooling the area. As a result, I have decreased my estimate of the probability of the forecasted event from 0.62 to 0.75.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"A significant snow cover in the region surrounding Strasbourg Airport on 2025-12-21 would affect the weather patterns in the area, weakening the causal link from weather_patterns_euro to outcome. Additionally, snow cover would likely have a moderating effect on the temperature, making it less likely for the temperature on 2025-12-28 to be higher than on 2025-12-21. This is because the presence of snow would increase the albedo effect, reflecting more sunlight and cooling the area. As a result, I have decreased my estimate of the probability of the forecasted event from 0.62 to 0.75.\"\n}",
+      "target_id": "snow_cover",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Strasbourg Airport has undergone renovations to its air traffic control tower since 2022, and this construction project took place during the summer months when the weather is typically warmer.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge affects the causal path from seasonal_pattern to outcome, as the construction project could have altered the local microclimate around the airport, potentially disrupting the typical temperature pattern for December. However, this effect is likely to be small and localized, and the overall trend of warmer temperatures due to global_warming_trend and weather_patterns_euro is still expected to prevail. As a result, I decrease my probability estimate by 4% to reflect the increased uncertainty and potential disruption to the seasonal pattern.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge affects the causal path from seasonal_pattern to outcome, as the construction project could have altered the local microclimate around the airport, potentially disrupting the typical temperature pattern for December. However, this effect is likely to be small and localized, and the overall trend of warmer temperatures due to global_warming_trend and weather_patterns_euro is still expected to prevail. As a result, I decrease my probability estimate by 4% to reflect the increased uncertainty and potential disruption to the seasonal pattern.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "It's worth noting that the Strasbourg Airport is located near the Ill River, which is known to be a habitat for the European otter, a protected species in France. In fact, there have been recent efforts to reintroduce the species to the area.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The recent reintroduction of the European otter to the area near Strasbourg Airport may influence the local ecosystem and potentially the microclimate around the airport. However, this is a peripheral element to the overall causal network. The main causal paths leading to the outcome (temperature on 2025-12-28 > temperature on 2025-12-21) remain intact, with the seasonal pattern, global warming trend, weather patterns in Europe, and local topography still playing a significant role. The reintroduction of the otter is unlikely to have a substantial impact on the large-scale weather patterns or the general temperature trends. Therefore, I slightly decrease my estimate of the probability, but only by a small margin, as the challenged element is not structurally critical to my reasoning.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The recent reintroduction of the European otter to the area near Strasbourg Airport may influence the local ecosystem and potentially the microclimate around the airport. However, this is a peripheral element to the overall causal network. The main causal paths leading to the outcome (temperature on 2025-12-28 > temperature on 2025-12-21) remain intact, with the seasonal pattern, global warming trend, weather patterns in Europe, and local topography still playing a significant role. The reintroduction of the otter is unlikely to have a substantial impact on the large-scale weather patterns or the general temperature trends. Therefore, I slightly decrease my estimate of the probability, but only by a small margin, as the challenged element is not structurally critical to my reasoning.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A recently published study by the European Space Agency's Climate Office found a statistically significant correlation between the concentration of stratospheric ozone and temperature anomalies in Western Europe during the winter months. The study's authors suggest that this relationship may be due to ozone's influence on atmospheric circulation patterns, which in turn affect temperature. Specifically, they noted that years with higher-than-average ozone concentrations in the stratosphere were associated with warmer-than-average temperatures in December in the Strasbourg region. This new evidence provides strong support for the causal link between stratospheric ozone and temperature.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence from the European Space Agency's Climate Office strengthens the causal link between stratospheric ozone and temperature in Strasbourg. This supports the path from stratospheric_ozone_layer to outcome, which is already influenced by weather_patterns_euro and outcome. With this additional information, I increase the weight of this causal path, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. The new study's finding that higher-than-average ozone concentrations are associated with warmer-than-average temperatures in December in Strasbourg increases the probability of this outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence from the European Space Agency's Climate Office strengthens the causal link between stratospheric ozone and temperature in Strasbourg. This supports the path from stratospheric_ozone_layer to outcome, which is already influenced by weather_patterns_euro and outcome. With this additional information, I increase the weight of this causal path, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. The new study's finding that higher-than-average ozone concentrations are associated with warmer-than-average temperatures in December in Strasbourg increases the probability of this outcome.\"\n}",
+      "target_id": "stratospheric_ozone_layer",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A study of 20 years of temperature data from Strasbourg Airport revealed that the difference in temperature between the last week of December and the third week of December is consistently higher than 2°C, with an average difference of 2.5°C. This suggests that the specific date within December has a substantial impact on temperature differences. Furthermore, this pattern holds even when controlling for other factors such as seasonal patterns and global warming trends. This finding reinforces the idea that the calendar date is an important factor in determining temperature differences in Strasbourg.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The study's finding that the calendar date has a substantial impact on temperature differences in Strasbourg strengthens the causal link between calendar_date and outcome. This means that the specific date of the forecast (2025-12-28 vs 2025-12-21) is now more influential in determining the outcome. As a result, I increase my estimate of the probability that the temperature on 2025-12-28 will be higher than on 2025-12-21. The causal paths leading to the outcome are now more direct and influential, with calendar_date playing a more significant role in determining the temperature difference. This change in the causal network leads me to update my probability estimate upwards.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The study's finding that the calendar date has a substantial impact on temperature differences in Strasbourg strengthens the causal link between calendar_date and outcome. This means that the specific date of the forecast (2025-12-28 vs 2025-12-21) is now more influential in determining the outcome. As a result, I increase my estimate of the probability that the temperature on 2025-12-28 will be higher than on 2025-12-21. The causal paths leading to the outcome are now more direct and influential, with calendar_date playing a more significant role in determining the temperature difference. This change in the causal network leads me to update my probability estimate upwards.\"\n}",
+      "target_id": "calendar_date",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that the 2022 ozone depletion event over the Arctic had a significant impact on the subsequent winter weather patterns in Europe, with some research indicating a 30% increase in extreme cold snaps. Investigate how the forecaster's estimate of the probability of warmer temperatures on 2025-12-28 compared to 2025-12-21 changes after being presented with evidence of this ozone-depletion event's influence on European weather patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'tratospheric_ozone_layer->weather_patterns_euro' affects the causal path from 'tratospheric_ozone_layer' to 'outcome'. This link is part of the network, but not critical. However, the recent studies indicating a 30% increase in extreme cold snaps due to the 2022 ozone depletion event over the Arctic, suggests that 'weather_patterns_euro' might be less favorable for higher temperatures on 2025-12-28. As a result, I update my estimate by reducing the probability. The direct influence of 'calendar_date' on 'outcome' remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'tratospheric_ozone_layer->weather_patterns_euro' affects the causal path from 'tratospheric_ozone_layer' to 'outcome'. This link is part of the network, but not critical. However, the recent studies indicating a 30% increase in extreme cold snaps due to the 2022 ozone depletion event over the Arctic, suggests that 'weather_patterns_euro' might be less favorable for higher temperatures on 2025-12-28. As a result, I update my estimate by reducing the probability. The direct influence of 'calendar_date' on 'outcome' remains unchanged.\"\n}",
+      "target_id": "stratospheric_ozone_layer->weather_patterns_euro",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A severe cold snap in Western Europe, known as the 'Polar Vortex', occurred in December 2022, causing record-low temperatures in several major cities, including Paris and Berlin. This event demonstrates the significant impact of large-scale weather patterns on local temperatures, as the same weather system influenced temperature differences across multiple locations. Furthermore, research has shown that the Polar Vortex event was linked to a specific atmospheric circulation pattern, which in turn was influenced by the North Atlantic Oscillation (NAO), a key driver of European weather patterns. By examining the relationship between the NAO and the temperature differences during this event, we can strengthen the causal link between weather patterns in Europe and local temperatures.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between 'weather_patterns_euro' and 'outcome'. This enhances the influence of large-scale weather patterns on local temperatures, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. The updated probability reflects the increased confidence in the causal path from 'weather_patterns_euro' to 'outcome'. Additionally, the connection between the North Atlantic Oscillation (NAO) and the Polar Vortex event further supports the role of large-scale weather patterns in shaping local temperatures, which also contributes to the increased probability estimate. The overall effect is an increased likelihood of the forecasted event, making the updated probability 0.71.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between 'weather_patterns_euro' and 'outcome'. This enhances the influence of large-scale weather patterns on local temperatures, making it more likely that the temperature on 2025-12-28 will be higher than on 2025-12-21. The updated probability reflects the increased confidence in the causal path from 'weather_patterns_euro' to 'outcome'. Additionally, the connection between the North Atlantic Oscillation (NAO) and the Polar Vortex event further supports the role of large-scale weather patterns in shaping local temperatures, which also contributes to the increased probability estimate. The overall effect is an increased likelihood of the forecasted event, making the updated probability 0.71.\"\n}",
+      "target_id": "weather_patterns_euro->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07190.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Strasbourg Airport will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.0825,
+    "max_absolute_shift": 0.16999999999999998
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 1.1607142857142856,
+    "mean_shift_high": 0.09749999999999999,
+    "mean_shift_low": 0.084,
+    "asymmetry_index": 0.6832298136645963,
+    "mean_shift_negate": 0.07857142857142858,
+    "mean_shift_strengthen": 0.115,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": -0.007916666666666697,
+    "mean_shift_on_path": 0.08874999999999998,
+    "mean_shift_off_path": 0.09666666666666668,
+    "importance_sensitivity_correlation": 0.20238095238095233,
+    "control_sensitivity": 0
+  }
+}

@@ -1,0 +1,1082 @@
+{
+  "question_id": "952de03f3e1b6b9679a372ef16b72ea4b7b42d841f504feb5819d06ffe1de921",
+  "question_text": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Explosions/Remote violence'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.15,
+  "nodes": [
+    {
+      "id": "regional_tensions",
+      "description": "Level of geopolitical tension between Israel and Hezbollah in the Levant region",
+      "role": "factor"
+    },
+    {
+      "id": "hezbollah_capacity",
+      "description": "Hezbollah's operational and military readiness for remote attacks",
+      "role": "factor"
+    },
+    {
+      "id": "israeli_military_action",
+      "description": "Recent Israeli airstrikes or military operations in Lebanon",
+      "role": "factor"
+    },
+    {
+      "id": "internal_stability",
+      "description": "Level of political and civil stability within Lebanon",
+      "role": "factor"
+    },
+    {
+      "id": "external_support",
+      "description": "Flow of weapons and funding to non-state actors in Lebanon from external powers",
+      "role": "factor"
+    },
+    {
+      "id": "attack_frequency",
+      "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "More than ten times as many 'Explosions/Remote violence' in Lebanon in the 30 days before 2025-12-28 compared to one plus the 360-day 30-day average before 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "regional_tensions",
+      "to": "hezbollah_capacity",
+      "mechanism": "Increased regional tensions strengthen Hezbollah's justification and mobilization capacity for attacks"
+    },
+    {
+      "from": "external_support",
+      "to": "hezbollah_capacity",
+      "mechanism": "External backing from Iran and Syria enhances Hezbollah's ability to conduct remote violence"
+    },
+    {
+      "from": "hezbollah_capacity",
+      "to": "attack_frequency",
+      "mechanism": "Higher operational capacity enables more frequent explosive attacks"
+    },
+    {
+      "from": "israeli_military_action",
+      "to": "attack_frequency",
+      "mechanism": "Israeli strikes provoke retaliatory remote attacks by Hezbollah and allies"
+    },
+    {
+      "from": "internal_stability",
+      "to": "attack_frequency",
+      "mechanism": "Low internal stability in Lebanon enables non-state actors to operate with less restraint"
+    },
+    {
+      "from": "attack_frequency",
+      "to": "outcome",
+      "mechanism": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold"
+    },
+    {
+      "from": "regional_tensions",
+      "to": "israeli_military_action",
+      "mechanism": "Elevated regional tensions increase the likelihood of Israeli preemptive or retaliatory military actions in Lebanon"
+    }
+  ],
+  "reasoning": "The outcome requires an extreme spike in Explosions/Remote violence in Lebanon in late 2025. While chronic regional tensions, Hezbollah's capabilities, and recurring Israeli actions create a baseline risk, a tenfold increase over a smoothed average would require an escalatory spiral akin to the 2006 war or a major decapitation strike. Such events are possible but not highly probable given deterrence dynamics and international monitoring. The causal chain from regional tensions through actor capabilities and triggering actions to actual attack frequency suggests elevated risk, but not a high probability of such an extreme outlier event. Hence, the forecast remains low but non-negligible.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "regional_tensions",
+        "description": "Level of geopolitical tension between Israel and Hezbollah in the Levant region",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "hezbollah_capacity",
+        "description": "Hezbollah's operational and military readiness for remote attacks",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.3333,
+        "pagerank": 0.1343,
+        "path_relevance": 0.2857
+      },
+      {
+        "node_id": "israeli_military_action",
+        "description": "Recent Israeli airstrikes or military operations in Lebanon",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.0841,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "internal_stability",
+        "description": "Level of political and civil stability within Lebanon",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_support",
+        "description": "Flow of weapons and funding to non-state actors in Lebanon from external powers",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "attack_frequency",
+        "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.1667,
+        "closeness": 0.5952,
+        "pagerank": 0.2949,
+        "path_relevance": 0.8571
+      },
+      {
+        "node_id": "outcome",
+        "description": "More than ten times as many 'Explosions/Remote violence' in Lebanon in the 30 days before 2025-12-28 compared to one plus the 360-day 30-day average before 2025-12-21",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4615,
+        "pagerank": 0.3097,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "regional_tensions",
+        "target": "hezbollah_capacity",
+        "mechanism": "Increased regional tensions strengthen Hezbollah's justification and mobilization capacity for attacks",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "regional_tensions",
+        "target": "israeli_military_action",
+        "mechanism": "Elevated regional tensions increase the likelihood of Israeli preemptive or retaliatory military actions in Lebanon",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "hezbollah_capacity",
+        "target": "attack_frequency",
+        "mechanism": "Higher operational capacity enables more frequent explosive attacks",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "israeli_military_action",
+        "target": "attack_frequency",
+        "mechanism": "Israeli strikes provoke retaliatory remote attacks by Hezbollah and allies",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "internal_stability",
+        "target": "attack_frequency",
+        "mechanism": "Low internal stability in Lebanon enables non-state actors to operate with less restraint",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_support",
+        "target": "hezbollah_capacity",
+        "mechanism": "External backing from Iran and Syria enhances Hezbollah's ability to conduct remote violence",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "attack_frequency",
+        "target": "outcome",
+        "mechanism": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "attack_frequency",
+        "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "hezbollah_capacity",
+        "description": "Hezbollah's operational and military readiness for remote attacks",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "regional_tensions",
+        "description": "Level of geopolitical tension between Israel and Hezbollah in the Levant region",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "external_support",
+        "description": "Flow of weapons and funding to non-state actors in Lebanon from external powers",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "attack_frequency",
+        "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "hezbollah_capacity",
+        "description": "Hezbollah's operational and military readiness for remote attacks",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "attack_frequency->outcome",
+        "description": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "hezbollah_capacity->attack_frequency",
+        "description": "Higher operational capacity enables more frequent explosive attacks",
+        "importance": 0.119,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "internal_stability->attack_frequency",
+        "description": "Low internal stability in Lebanon enables non-state actors to operate with less restraint",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "attack_frequency->outcome",
+        "description": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "hezbollah_capacity->external_support",
+        "description": "Potential link: Hezbollah's operational and military readiness for remote attacks -> Flow of weapons and funding to non-state actors in Lebanon from external powers",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "hezbollah_capacity->israeli_military_action",
+        "description": "Potential link: Hezbollah's operational and military readiness for remote attacks -> Recent Israeli airstrikes or military operations in Lebanon",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "attack_frequency",
+      "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "hezbollah_capacity",
+      "description": "Hezbollah's operational and military readiness for remote attacks",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "regional_tensions",
+      "description": "Level of geopolitical tension between Israel and Hezbollah in the Levant region",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "external_support",
+      "description": "Flow of weapons and funding to non-state actors in Lebanon from external powers",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "attack_frequency",
+      "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "hezbollah_capacity",
+      "description": "Hezbollah's operational and military readiness for remote attacks",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "attack_frequency->outcome",
+      "description": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "hezbollah_capacity->attack_frequency",
+      "description": "Higher operational capacity enables more frequent explosive attacks",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "internal_stability->attack_frequency",
+      "description": "Low internal stability in Lebanon enables non-state actors to operate with less restraint",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "attack_frequency->outcome",
+      "description": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "hezbollah_capacity->external_support",
+      "description": "Potential link: Hezbollah's operational and military readiness for remote attacks -> Flow of weapons and funding to non-state actors in Lebanon from external powers",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "hezbollah_capacity->israeli_military_action",
+      "description": "Potential link: Hezbollah's operational and military readiness for remote attacks -> Recent Israeli airstrikes or military operations in Lebanon",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the rate of 'Explosions/Remote violence' events in the recent weeks is a poor predictor of future intensity due to saturation effects or defensive adaptation? For instance, a high attack frequency might prompt overwhelming Israeli countermeasures or Lebanese state interventions that suppress further escalation, meaning periods of high frequency could precede sharp drops rather than a sustained surge needed to hit the 10x threshold.",
+      "probe_type": "node_negate_high",
+      "target_id": "attack_frequency",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks"
+    },
+    {
+      "probe_text": "What if Hezbollah's operational and military readiness has no meaningful impact on remote violence in Lebanon? Despite assumptions about its capacity, Hezbollah may prioritize political legitimacy and deterrence over actual attacks, especially if internal Lebanese dynamics or Israeli deterrence constrain its actions regardless of resources or training. In this case, even high capacity might not translate into increased attack frequency, making it a misleading factor in predicting explosive violence.",
+      "probe_type": "node_negate_high",
+      "target_id": "hezbollah_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Hezbollah's operational and military readiness for remote attacks"
+    },
+    {
+      "probe_text": "Geopolitical tensions between Israel and Hezbollah have remained elevated for years without triggering a major escalation, suggesting that high regional tension alone does not increase the likelihood of a spike in remote violence. Deterrence dynamics and mutual avoidance of full-scale conflict may be constraining both sides, making regional tensions a poor predictor of imminent explosive attacks.",
+      "probe_type": "node_negate_medium",
+      "target_id": "regional_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Level of geopolitical tension between Israel and Hezbollah in the Levant region"
+    },
+    {
+      "probe_text": "Recent diplomatic initiatives have significantly reduced the flow of weapons and funding from external powers to non-state actors in Lebanon, particularly due to increased international pressure on Iran and Syria. However, Hezbollah has demonstrated the ability to maintain its operational capacity using existing stockpiles and local financing, suggesting that external support may not be a critical driver of its attack capabilities in the near term.",
+      "probe_type": "node_negate_low",
+      "target_id": "external_support",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Flow of weapons and funding to non-state actors in Lebanon from external powers"
+    },
+    {
+      "probe_text": "On 2025-11-15, the Lebanese Armed Forces reported a sustained surge in explosive incidents along the southern border, with 47 'Explosions/Remote violence' events recorded in the prior two weeks—more than triple the monthly average from the previous quarter. UNIFIL corroborated the trend, noting that drone and rocket launches have become nearly daily, indicating a structural shift in attack tempo rather than isolated spikes.",
+      "probe_type": "node_strengthen",
+      "target_id": "attack_frequency",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Rate of 'Explosions/Remote violence' events in Lebanon over recent weeks"
+    },
+    {
+      "probe_text": "In early 2025, satellite imagery analyzed by the IHS Jane's Conflict Monitor revealed a significant expansion of Hezbollah's weapon storage facilities in the Bekaa Valley, accompanied by the arrival of advanced precision-guided missiles via overland routes from Syria. Defense analysts at the Center for Strategic and International Studies (CSIS) assessed that this buildup represents the largest enhancement of Hezbollah's remote strike capability since 2018, markedly increasing their capacity to sustain a high tempo of explosive attacks against Israeli targets and within Lebanon.",
+      "probe_type": "node_strengthen",
+      "target_id": "hezbollah_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Hezbollah's operational and military readiness for remote attacks"
+    },
+    {
+      "probe_text": "A sustained high attack frequency may not lead to a 10x increase in explosions if the baseline period already includes significant violence, making multiplicative thresholds extremely difficult to exceed. For example, if the 360-day average is 5 events per 30 days (so the threshold is 51), even a tripling to 15 events in the final month would fall short, rendering attack_frequency alone insufficient to drive the outcome.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "attack_frequency->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold"
+    },
+    {
+      "probe_text": "Hezbollah may have high operational capacity but could refrain from frequent explosive attacks due to deterrence from Israeli retaliation or diplomatic pressure from regional allies, meaning capacity does not automatically translate into high attack frequency. For example, during periods of high Iranian support in 2024, observed attack rates remained low as Hezbollah prioritized force preservation over escalation.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "hezbollah_capacity->attack_frequency",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher operational capacity enables more frequent explosive attacks"
+    },
+    {
+      "probe_text": "Lebanon's internal stability could deteriorate due to economic collapse or political deadlock without leading to increased Explosions/Remote violence, as non-state actors like Hezbollah may still prioritize strategic coordination with regional allies over opportunistic attacks. In such cases, even in the absence of strong state control, attack frequency may remain low if broader geopolitical conditions do not favor escalation.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "internal_stability->attack_frequency",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Low internal stability in Lebanon enables non-state actors to operate with less restraint"
+    },
+    {
+      "probe_text": "Suppose the threshold for 'Explosions/Remote violence' is unexpectedly lowered due to a recalibration of event-counting rules by the data reporting agency, making it easier to exceed the 10x multiplier even with moderate attack frequency. Could the anticipated outcome itself influence how frequently incidents are recorded or classified, thereby inflating attack_frequency as a result of the proximity to the threshold rather than driving it?",
+      "probe_type": "edge_reverse",
+      "target_id": "attack_frequency->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Sustained high attack frequency in the final month drives the count high enough to exceed the 10x threshold"
+    },
+    {
+      "probe_text": "Suppose Hezbollah demonstrates a significant increase in operational success and military readiness, conducting multiple high-impact remote attacks with precision. How likely is it that Iran and Syria would respond by increasing weapons shipments and financial support, viewing Hezbollah as a more effective proxy in the region? This scenario suggests that Hezbollah's demonstrated capacity could directly incentivize greater external support.",
+      "probe_type": "edge_spurious",
+      "target_id": "hezbollah_capacity->external_support",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Hezbollah's operational and military readiness for remote attacks -> Flow of weapons and funding to non-state actors in Lebanon from external powers"
+    },
+    {
+      "probe_text": "Hezbollah's increased operational and military readiness, including visible deployments of armed units near the border and successful test launches of precision-guided missiles, could be interpreted by Israeli military intelligence as an imminent threat, prompting preemptive airstrikes on weapon caches and command centers in Lebanon to degrade capabilities before an attack occurs.",
+      "probe_type": "edge_spurious",
+      "target_id": "hezbollah_capacity->israeli_military_action",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Hezbollah's operational and military readiness for remote attacks -> Recent Israeli airstrikes or military operations in Lebanon"
+    },
+    {
+      "probe_text": "Suppose international diplomatic efforts, such as a United Nations Security Council resolution or intense mediation by major powers, successfully de-escalate Israel-Hezbollah tensions in late 2025, leading to a mutual understanding to avoid cross-border attacks. This diplomatic intervention could reduce both Israeli military actions and Hezbollah's attack frequency, even if underlying capacities and regional tensions remain high. How would this affect the likelihood of the outcome?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose that in early December 2025, a major international diplomatic initiative—such as a UN-brokered ceasefire or renewed U.S.-led mediation between Israel and Lebanon—significantly reduces the operational window for hostilities. This initiative could constrain both Israeli military actions and Hezbollah’s attack planning, regardless of their capacity or prior tensions. Would this reduce the likelihood of a spike in 'Explosions/Remote violence' even if regional tensions and attack capacity remain high?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early 2025, Lebanon's Ministry of Tourism launched a new campaign to attract visitors to historic sites in the Bekaa Valley, including expanded security measures around cultural landmarks. The initiative received funding from a European Union cultural preservation program and included joint press events with local authorities in Hezbollah-administered areas.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In early 2025, Lebanon's Ministry of Tourism launched a new advertising campaign in Gulf countries to promote historic sites in the Bekaa Valley, aiming to boost visitor numbers by 40% compared to 2024. The campaign includes digital ads, travel packages, and coordination with regional airlines.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the rate of 'Explosions/Remote violence' events in the recent weeks is a poor predictor of future intensity due to saturation effects or defensive adaptation? For instance, a high attack frequency might prompt overwhelming Israeli countermeasures or Lebanese state interventions that suppress further escalation, meaning periods of high frequency could precede sharp drops rather than a sustained surge needed to hit the 10x threshold.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between attack_frequency and outcome, which is a key terminal node in the network. While attack_frequency is driven by hezbollah_capacity, israeli_military_action, and internal_stability, the assumption that high recent frequency reliably indicates a sustained surge is weakened if saturation or defensive adaptation leads to suppression of further attacks. This introduces a negative feedback mechanism not previously accounted for, breaking or weakening the final causal link to the outcome. As a result, even if preceding factors (e.g. regional_tensions or hezbollah_capacity) escalate, the likelihood of a sustained 10x surge in the final 30 days is lower than initially estimated. The structural importance of this link justifies a modest downward update.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between attack_frequency and outcome, which is a key terminal node in the network. While attack_frequency is driven by hezbollah_capacity, israeli_military_action, and internal_stability, the assumption that high recent frequency reliably indicates a sustained surge is weakened if saturation or defensive adaptation leads to suppression of further attacks. This introduces a negative feedback mechanism not previously accounted for, breaking or weakening the final causal link to the outcome. As a result, even if preceding factors (e.g. regional_tensions or hezbollah_capacity) escalate, the likelihood of a sustained 10x surge in the final 30 days is lower than initially estimated. The structural importance of this link justifies a modest downward update.\"\n}",
+      "target_id": "attack_frequency",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Hezbollah's operational and military readiness has no meaningful impact on remote violence in Lebanon? Despite assumptions about its capacity, Hezbollah may prioritize political legitimacy and deterrence over actual attacks, especially if internal Lebanese dynamics or Israeli deterrence constrain its actions regardless of resources or training. In this case, even high capacity might not translate into increased attack frequency, making it a misleading factor in predicting explosive violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'hezbollah_capacity' as a driver of attack_frequency breaks a key causal path in the network: external_support -> hezbollah_capacity -> attack_frequency and regional_tensions -> hezbollah_capacity -> attack_frequency. If Hezbollah's capacity does not translate into actual remote violence due to political constraints, deterrence, or strategic prioritization of non-escalation, then two major pathways leading to high attack_frequency (and thus the outcome) are significantly weakened. This makes the escalation in violence less sensitive to both external support and regional tensions, unless those directly trigger Israeli military action or internal instability instead. While israeli_military_action and internal_stability can still drive attack_frequency independently, removing hezbollah_capacity as an effective mediator reduces the likelihood of sustained, high-intensity explosive events reaching the 10x threshold. Thus, the probability is reduced from 0.15 to 0.10, reflecting a meaningful but not complete dismissal of escalation pathways, as other direct triggers remain plausible but less likely.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'hezbollah_capacity' as a driver of attack_frequency breaks a key causal path in the network: external_support -> hezbollah_capacity -> attack_frequency and regional_tensions -> hezbollah_capacity -> attack_frequency. If Hezbollah's capacity does not translate into actual remote violence due to political constraints, deterrence, or strategic prioritization of non-escalation, then two major pathways leading to high attack_frequency (and thus the outcome) are significantly weakened. This makes the escalation in violence less sensitive to both external support and regional tensions, unless those directly trigger Israeli military action or internal instability instead. While israeli_military_action and internal_stability can still drive attack_frequency independently, removing hezbollah_capacity as an effective mediator reduces the likelihood of sustained, high-intensity explosive events reaching the 10x threshold. Thus, the probability is reduced from 0.15 to 0.10, reflecting a meaningful but not complete dismissal of escalation pathways, as other direct triggers remain plausible but less likely.\"\n}",
+      "target_id": "hezbollah_capacity",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Geopolitical tensions between Israel and Hezbollah have remained elevated for years without triggering a major escalation, suggesting that high regional tension alone does not increase the likelihood of a spike in remote violence. Deterrence dynamics and mutual avoidance of full-scale conflict may be constraining both sides, making regional tensions a poor predictor of imminent explosive attacks.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'regional_tensions' as a driver of escalation weakens two key causal paths: (1) regional_tensions -> hezbollah_capacity and (2) regional_tensions -> israeli_military_action. If elevated tensions have persisted without triggering major escalation due to deterrence and mutual restraint, then the mere presence of high regional tension is less predictive of increased Hezbollah operational activity or Israeli military actions. This reduces the expected flow of causality through both branches leading to attack_frequency. While other factors like external_support and actual military actions still matter, downgrading the efficacy of regional_tensions as a trigger makes sustained high attack_frequency less likely. Since attack_frequency is the primary proximate driver of the outcome, and its upstream drivers are now seen as less responsive, the probability of exceeding the 10x threshold decreases. The update is moderate because direct actions (e.g., Israeli strikes or Hezbollah attacks) can still trigger spikes, but the baseline risk from simmering tensions alone is lower than previously estimated.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'regional_tensions' as a driver of escalation weakens two key causal paths: (1) regional_tensions -> hezbollah_capacity and (2) regional_tensions -> israeli_military_action. If elevated tensions have persisted without triggering major escalation due to deterrence and mutual restraint, then the mere presence of high regional tension is less predictive of increased Hezbollah operational activity or Israeli military actions. This reduces the expected flow of causality through both branches leading to attack_frequency. While other factors like external_support and actual military actions still matter, downgrading the efficacy of regional_tensions as a trigger makes sustained high attack_frequency less likely. Since attack_frequency is the primary proximate driver of the outcome, and its upstream drivers are now seen as less responsive, the probability of exceeding the 10x threshold decreases. The update is moderate because direct actions (e.g., Israeli strikes or Hezbollah attacks) can still trigger spikes, but the baseline risk from simmering tensions alone is lower than previously estimated.\"\n}",
+      "target_id": "regional_tensions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic initiatives have significantly reduced the flow of weapons and funding from external powers to non-state actors in Lebanon, particularly due to increased international pressure on Iran and Syria. However, Hezbollah has demonstrated the ability to maintain its operational capacity using existing stockpiles and local financing, suggesting that external support may not be a critical driver of its attack capabilities in the near term.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.01999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'external_support' weakens the causal path from external_support -> hezbollah_capacity, as it suggests reduced flows of weapons and funding. However, the observation that Hezbollah can maintain operational capacity via existing stockpiles and local financing indicates that this node is less critical in the near term than previously assumed. This diminishes the importance of external_support in the causal network, particularly its indirect influence on attack_frequency and ultimately the outcome. While this reduces the likelihood of a surge driven by newly enhanced capabilities, it does not eliminate Hezbollah's ability to conduct attacks, as other paths (e.g., regional_tensions -> israeli_military_action -> attack_frequency) remain intact. Therefore, the probability decreases slightly, reflecting a reduced risk of capacity-driven escalation, but not a fundamental disruption to the main pathways leading to high attack frequency.",
+      "raw_response": "{\n  \"updated_probability\": 0.13,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'external_support' weakens the causal path from external_support -> hezbollah_capacity, as it suggests reduced flows of weapons and funding. However, the observation that Hezbollah can maintain operational capacity via existing stockpiles and local financing indicates that this node is less critical in the near term than previously assumed. This diminishes the importance of external_support in the causal network, particularly its indirect influence on attack_frequency and ultimately the outcome. While this reduces the likelihood of a surge driven by newly enhanced capabilities, it does not eliminate Hezbollah's ability to conduct attacks, as other paths (e.g., regional_tensions -> israeli_military_action -> attack_frequency) remain intact. Therefore, the probability decreases slightly, reflecting a reduced risk of capacity-driven escalation, but not a fundamental disruption to the main pathways leading to high attack frequency.\"\n}",
+      "target_id": "external_support",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, the Lebanese Armed Forces reported a sustained surge in explosive incidents along the southern border, with 47 'Explosions/Remote violence' events recorded in the prior two weeks—more than triple the monthly average from the previous quarter. UNIFIL corroborated the trend, noting that drone and rocket launches have become nearly daily, indicating a structural shift in attack tempo rather than isolated spikes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.30000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The reported surge in explosive incidents—47 events in two weeks along the southern border, more than triple the previous quarterly average—directly strengthens the 'attack_frequency' node, a key causal driver of the outcome. This is not an isolated spike but a structural shift, as confirmed by UNIFIL, indicating sustained escalation. This evidence reinforces the path from 'regional_tensions' and 'hezbollah_capacity' through to 'attack_frequency', and subsequently to the 'outcome'. The observed doubling of the attack rate over a sustained period implies that the final 30-day window before 2025-12-28 could easily reach or exceed the 10x threshold, especially if escalation continues. While the threshold depends on the baseline 360-day average, the current tempo suggests a significant deviation is already underway. Thus, the likelihood of the outcome has increased substantially, though not yet probable, due to uncertainty about de-escalation or intervention in the final weeks.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reported surge in explosive incidents—47 events in two weeks along the southern border, more than triple the previous quarterly average—directly strengthens the 'attack_frequency' node, a key causal driver of the outcome. This is not an isolated spike but a structural shift, as confirmed by UNIFIL, indicating sustained escalation. This evidence reinforces the path from 'regional_tensions' and 'hezbollah_capacity' through to 'attack_frequency', and subsequently to the 'outcome'. The observed doubling of the attack rate over a sustained period implies that the final 30-day window before 2025-12-28 could easily reach or exceed the 10x threshold, especially if escalation continues. While the threshold depends on the baseline 360-day average, the current tempo suggests a significant deviation is already underway. Thus, the likelihood of the outcome has increased substantially, though not yet probable, due to uncertainty about de-escalation or intervention in the final weeks.\"\n}",
+      "target_id": "attack_frequency",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, satellite imagery analyzed by the IHS Jane's Conflict Monitor revealed a significant expansion of Hezbollah's weapon storage facilities in the Bekaa Valley, accompanied by the arrival of advanced precision-guided missiles via overland routes from Syria. Defense analysts at the Center for Strategic and International Studies (CSIS) assessed that this buildup represents the largest enhancement of Hezbollah's remote strike capability since 2018, markedly increasing their capacity to sustain a high tempo of explosive attacks against Israeli targets and within Lebanon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence directly strengthens the 'hezbollah_capacity' node, a central causal factor in the network. The satellite-confirmed expansion of weapon storage and influx of precision-guided missiles indicates a significant, tangible increase in Hezbollah's operational readiness for remote violence—validating and amplifying the 'external_support -> hezbollah_capacity' and 'regional_tensions -> hezbollah_capacity' links. This enhanced capacity feeds directly into 'hezbollah_capacity -> attack_frequency', making a sharp rise in explosive events more plausible. Given that 'attack_frequency' is the penultimate driver of the outcome, and that the threshold requires a tenfold increase (which only a sustained surge could meet), this development substantially raises the likelihood of the outcome. However, the outcome still depends on activation of this capacity—via Israeli actions or escalation dynamics—so the probability increases meaningfully but does not approach certainty.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence directly strengthens the 'hezbollah_capacity' node, a central causal factor in the network. The satellite-confirmed expansion of weapon storage and influx of precision-guided missiles indicates a significant, tangible increase in Hezbollah's operational readiness for remote violence—validating and amplifying the 'external_support -> hezbollah_capacity' and 'regional_tensions -> hezbollah_capacity' links. This enhanced capacity feeds directly into 'hezbollah_capacity -> attack_frequency', making a sharp rise in explosive events more plausible. Given that 'attack_frequency' is the penultimate driver of the outcome, and that the threshold requires a tenfold increase (which only a sustained surge could meet), this development substantially raises the likelihood of the outcome. However, the outcome still depends on activation of this capacity—via Israeli actions or escalation dynamics—so the probability increases meaningfully but does not approach certainty.\"\n}",
+      "target_id": "hezbollah_capacity",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A sustained high attack frequency may not lead to a 10x increase in explosions if the baseline period already includes significant violence, making multiplicative thresholds extremely difficult to exceed. For example, if the 360-day average is 5 events per 30 days (so the threshold is 51), even a tripling to 15 events in the final month would fall short, rendering attack_frequency alone insufficient to drive the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'attack_frequency -> outcome' highlights a structural constraint: the outcome depends not just on high attack frequency, but on a multiplicative threshold relative to a potentially elevated baseline. If the 360-day average already includes significant violence, even a substantial increase in attack_frequency may not suffice to cross the 10x threshold. This weakens the direct causal path from attack_frequency to outcome, especially in scenarios where baseline violence is non-negligible. As a result, the outcome now depends more heavily on a low baseline combined with a surge in violence, rather than surge alone. Since the baseline of 'Explosions/Remote violence' in Lebanon has been moderately elevated due to ongoing regional tensions, the likelihood of achieving a 10x increase is reduced. This affects the primary causal pathway leading to the outcome, warranting a downward revision in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'attack_frequency -> outcome' highlights a structural constraint: the outcome depends not just on high attack frequency, but on a multiplicative threshold relative to a potentially elevated baseline. If the 360-day average already includes significant violence, even a substantial increase in attack_frequency may not suffice to cross the 10x threshold. This weakens the direct causal path from attack_frequency to outcome, especially in scenarios where baseline violence is non-negligible. As a result, the outcome now depends more heavily on a low baseline combined with a surge in violence, rather than surge alone. Since the baseline of 'Explosions/Remote violence' in Lebanon has been moderately elevated due to ongoing regional tensions, the likelihood of achieving a 10x increase is reduced. This affects the primary causal pathway leading to the outcome, warranting a downward revision in the probability estimate.\"\n}",
+      "target_id": "attack_frequency->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Hezbollah may have high operational capacity but could refrain from frequent explosive attacks due to deterrence from Israeli retaliation or diplomatic pressure from regional allies, meaning capacity does not automatically translate into high attack frequency. For example, during periods of high Iranian support in 2024, observed attack rates remained low as Hezbollah prioritized force preservation over escalation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.06999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'hezbollah_capacity -> attack_frequency' undermines a key pathway in the network: the assumption that higher Hezbollah capacity reliably leads to increased attack frequency. The evidence that Hezbollah may refrain from frequent attacks despite high capacity—due to deterrence or strategic restraint—weakens this link. This decoupling reduces the likelihood that elevated capacity, even when driven by regional tensions or external support, will translate into the surge in 'Explosions/Remote violence' required for the outcome. As this pathway is central to the model (mediating much of the influence from regional_tensions, external_support, and israeli_military_action to the outcome), its weakening significantly diminishes the probability of reaching the 10x threshold. Therefore, the estimate is revised downward from 0.15 to 0.08.",
+      "raw_response": "{\n  \"updated_probability\": 0.08,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'hezbollah_capacity -> attack_frequency' undermines a key pathway in the network: the assumption that higher Hezbollah capacity reliably leads to increased attack frequency. The evidence that Hezbollah may refrain from frequent attacks despite high capacity—due to deterrence or strategic restraint—weakens this link. This decoupling reduces the likelihood that elevated capacity, even when driven by regional tensions or external support, will translate into the surge in 'Explosions/Remote violence' required for the outcome. As this pathway is central to the model (mediating much of the influence from regional_tensions, external_support, and israeli_military_action to the outcome), its weakening significantly diminishes the probability of reaching the 10x threshold. Therefore, the estimate is revised downward from 0.15 to 0.08.\"\n}",
+      "target_id": "hezbollah_capacity->attack_frequency",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Lebanon's internal stability could deteriorate due to economic collapse or political deadlock without leading to increased Explosions/Remote violence, as non-state actors like Hezbollah may still prioritize strategic coordination with regional allies over opportunistic attacks. In such cases, even in the absence of strong state control, attack frequency may remain low if broader geopolitical conditions do not favor escalation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.01999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'internal_stability -> attack_frequency' suggests that even if Lebanon's internal stability deteriorates, this may not translate into increased remote violence unless broader geopolitical conditions (such as regional tensions or Israeli military actions) align to incentivize escalation. This weakens the causal path from internal_stability to the outcome by decoupling domestic instability from attack frequency. However, this link was only one of several drivers of attack_frequency, with more dominant influences being hezbollah_capacity, regional_tensions, and israeli_military_action. Since the primary pathways to high attack frequency—via regional escalation and external support—remain intact, the overall probability does not change drastically. The reduction is modest because internal stability was a secondary enabler rather than a core determinant of explosive violence in the model.",
+      "raw_response": "{\n  \"updated_probability\": 0.13,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'internal_stability -> attack_frequency' suggests that even if Lebanon's internal stability deteriorates, this may not translate into increased remote violence unless broader geopolitical conditions (such as regional tensions or Israeli military actions) align to incentivize escalation. This weakens the causal path from internal_stability to the outcome by decoupling domestic instability from attack frequency. However, this link was only one of several drivers of attack_frequency, with more dominant influences being hezbollah_capacity, regional_tensions, and israeli_military_action. Since the primary pathways to high attack frequency—via regional escalation and external support—remain intact, the overall probability does not change drastically. The reduction is modest because internal stability was a secondary enabler rather than a core determinant of explosive violence in the model.\"\n}",
+      "target_id": "internal_stability->attack_frequency",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Suppose the threshold for 'Explosions/Remote violence' is unexpectedly lowered due to a recalibration of event-counting rules by the data reporting agency, making it easier to exceed the 10x multiplier even with moderate attack frequency. Could the anticipated outcome itself influence how frequently incidents are recorded or classified, thereby inflating attack_frequency as a result of the proximity to the threshold rather than driving it?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a feedback loop where the outcome or its proximity could influence the measurement of 'attack_frequency' via changes in event classification rules. This does not break the causal link 'attack_frequency -> outcome' but potentially strengthens it through endogenous reporting bias: if lower thresholds or heightened scrutiny near the forecast horizon make events more likely to be recorded or classified as 'Explosions/Remote violence', then even modest real-world increases could be amplified in the data. This affects the reliability of 'attack_frequency' as an independent driver, but increases the likelihood that the quantitative threshold is crossed, even without a large real escalation. The path from attack_frequency to outcome becomes more sensitive due to potential measurement inflation, making the outcome slightly more probable than originally estimated. However, since this effect is uncertain and dependent on unproven changes in reporting standards, the update is modest.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a feedback loop where the outcome or its proximity could influence the measurement of 'attack_frequency' via changes in event classification rules. This does not break the causal link 'attack_frequency -> outcome' but potentially strengthens it through endogenous reporting bias: if lower thresholds or heightened scrutiny near the forecast horizon make events more likely to be recorded or classified as 'Explosions/Remote violence', then even modest real-world increases could be amplified in the data. This affects the reliability of 'attack_frequency' as an independent driver, but increases the likelihood that the quantitative threshold is crossed, even without a large real escalation. The path from attack_frequency to outcome becomes more sensitive due to potential measurement inflation, making the outcome slightly more probable than originally estimated. However, since this effect is uncertain and dependent on unproven changes in reporting standards, the update is modest.\"\n}",
+      "target_id": "attack_frequency->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose Hezbollah demonstrates a significant increase in operational success and military readiness, conducting multiple high-impact remote attacks with precision. How likely is it that Iran and Syria would respond by increasing weapons shipments and financial support, viewing Hezbollah as a more effective proxy in the region? This scenario suggests that Hezbollah's demonstrated capacity could directly incentivize greater external support.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge suggests a reverse causal link from hezbollah_capacity to external_support, implying that demonstrated capacity could increase support from Iran and Syria. However, in the original causal network, external_support is a driver of hezbollah_capacity, not an outcome, and the proposed feedback loop does not disrupt the primary pathways leading to the outcome. The key paths to attack_frequency and thus the outcome—via regional_tensions, israeli_military_action, and existing external_support—remain intact. While the feedback mechanism might amplify hezbollah_capacity over the long term, it does not significantly alter the near-term likelihood of a tenfold spike in explosions by late 2025, especially given that such a spike would require an extreme deviation from baseline. The scenario does not indicate that this feedback loop would lead to a dramatic or sudden shift in capacity beyond what is already considered in the model. Therefore, the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge suggests a reverse causal link from hezbollah_capacity to external_support, implying that demonstrated capacity could increase support from Iran and Syria. However, in the original causal network, external_support is a driver of hezbollah_capacity, not an outcome, and the proposed feedback loop does not disrupt the primary pathways leading to the outcome. The key paths to attack_frequency and thus the outcome—via regional_tensions, israeli_military_action, and existing external_support—remain intact. While the feedback mechanism might amplify hezbollah_capacity over the long term, it does not significantly alter the near-term likelihood of a tenfold spike in explosions by late 2025, especially given that such a spike would require an extreme deviation from baseline. The scenario does not indicate that this feedback loop would lead to a dramatic or sudden shift in capacity beyond what is already considered in the model. Therefore, the probability remains unchanged.\"\n}",
+      "target_id": "hezbollah_capacity->external_support",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Hezbollah's increased operational and military readiness, including visible deployments of armed units near the border and successful test launches of precision-guided missiles, could be interpreted by Israeli military intelligence as an imminent threat, prompting preemptive airstrikes on weapon caches and command centers in Lebanon to degrade capabilities before an attack occurs.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new causal link—'hezbollah_capacity -> israeli_military_action'—which was not originally in the network. This creates an additional feedback loop: higher Hezbollah capacity not only directly increases attack_frequency but also raises the likelihood of Israeli military action, which in turn further increases attack_frequency via retaliation. This strengthens two causal pathways leading to the outcome: (1) hezbollah_capacity → attack_frequency, and (2) hezbollah_capacity → israeli_military_action → attack_frequency. As a result, elevated Hezbollah capacity becomes a more potent driver of explosive violence, increasing the likelihood of a surge in 'Explosions/Remote violence' that could exceed the 10x threshold. This structural reinforcement justifies an upward revision of the probability from 0.15 to 0.25.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new causal link—'hezbollah_capacity -> israeli_military_action'—which was not originally in the network. This creates an additional feedback loop: higher Hezbollah capacity not only directly increases attack_frequency but also raises the likelihood of Israeli military action, which in turn further increases attack_frequency via retaliation. This strengthens two causal pathways leading to the outcome: (1) hezbollah_capacity → attack_frequency, and (2) hezbollah_capacity → israeli_military_action → attack_frequency. As a result, elevated Hezbollah capacity becomes a more potent driver of explosive violence, increasing the likelihood of a surge in 'Explosions/Remote violence' that could exceed the 10x threshold. This structural reinforcement justifies an upward revision of the probability from 0.15 to 0.25.\"\n}",
+      "target_id": "hezbollah_capacity->israeli_military_action",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose international diplomatic efforts, such as a United Nations Security Council resolution or intense mediation by major powers, successfully de-escalate Israel-Hezbollah tensions in late 2025, leading to a mutual understanding to avoid cross-border attacks. This diplomatic intervention could reduce both Israeli military actions and Hezbollah's attack frequency, even if underlying capacities and regional tensions remain high. How would this affect the likelihood of the outcome?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.05,
+      "absolute_shift": 0.09999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of successful international diplomatic efforts represents a structural intervention that directly disrupts two key causal paths: regional_tensions -> israeli_military_action and hezbollah_capacity -> attack_frequency. Even if regional_tensions and hezbollah_capacity remain high, the diplomatic de-escalation severs the transmission of these factors into actual military actions and attack frequency. Specifically, the mediation suppresses israeli_military_action, thereby reducing a key trigger for retaliatory remote violence, and independently constrains attack_frequency regardless of operational capacity. Since attack_frequency is the immediate precursor to the outcome, and this node is now dampened by external diplomatic pressure, the likelihood of a 10x surge in explosions drops substantially. This challenge targets a central mechanism in the causal network—how tensions translate into violence—and thus warrants a significant downward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.05,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of successful international diplomatic efforts represents a structural intervention that directly disrupts two key causal paths: regional_tensions -> israeli_military_action and hezbollah_capacity -> attack_frequency. Even if regional_tensions and hezbollah_capacity remain high, the diplomatic de-escalation severs the transmission of these factors into actual military actions and attack frequency. Specifically, the mediation suppresses israeli_military_action, thereby reducing a key trigger for retaliatory remote violence, and independently constrains attack_frequency regardless of operational capacity. Since attack_frequency is the immediate precursor to the outcome, and this node is now dampened by external diplomatic pressure, the likelihood of a 10x surge in explosions drops substantially. This challenge targets a central mechanism in the causal network—how tensions translate into violence—and thus warrants a significant downward revision.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose that in early December 2025, a major international diplomatic initiative—such as a UN-brokered ceasefire or renewed U.S.-led mediation between Israel and Lebanon—significantly reduces the operational window for hostilities. This initiative could constrain both Israeli military actions and Hezbollah’s attack planning, regardless of their capacity or prior tensions. Would this reduce the likelihood of a spike in 'Explosions/Remote violence' even if regional tensions and attack capacity remain high?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.05,
+      "absolute_shift": 0.09999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a major international diplomatic initiative acts as a strong exogenous constraint on both Israeli military action and Hezbollah's attack planning, directly disrupting two key causal paths: regional_tensions -> israeli_military_action -> attack_frequency and hezbollah_capacity -> attack_frequency. Even if regional_tensions and hezbollah_capacity remain high, the diplomatic intervention limits the translation of capacity and tension into actual attacks by reducing the operational freedom of both sides. This effectively decouples attack_frequency from its primary drivers, weakening the likelihood of a sustained spike in Explosions/Remote violence during the critical 30-day window. Since the outcome depends on a sharp increase in attack_frequency, and this increase is now structurally inhibited, the probability of exceeding the 10x threshold decreases substantially. The new estimate reflects the dampening effect of diplomatic constraints on the key causal mechanisms leading to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.05,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a major international diplomatic initiative acts as a strong exogenous constraint on both Israeli military action and Hezbollah's attack planning, directly disrupting two key causal paths: regional_tensions -> israeli_military_action -> attack_frequency and hezbollah_capacity -> attack_frequency. Even if regional_tensions and hezbollah_capacity remain high, the diplomatic intervention limits the translation of capacity and tension into actual attacks by reducing the operational freedom of both sides. This effectively decouples attack_frequency from its primary drivers, weakening the likelihood of a sustained spike in Explosions/Remote violence during the critical 30-day window. Since the outcome depends on a sharp increase in attack_frequency, and this increase is now structurally inhibited, the probability of exceeding the 10x threshold decreases substantially. The new estimate reflects the dampening effect of diplomatic constraints on the key causal mechanisms leading to the outcome.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Lebanon's Ministry of Tourism launched a new campaign to attract visitors to historic sites in the Bekaa Valley, including expanded security measures around cultural landmarks. The initiative received funding from a European Union cultural preservation program and included joint press events with local authorities in Hezbollah-administered areas.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.01999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new tourism initiative in the Bekaa Valley, particularly in Hezbollah-administered areas and supported by international funding, introduces a countervailing incentive for Hezbollah to avoid high-frequency remote violence near cultural sites. This affects the causal path from hezbollah_capacity -> attack_frequency by introducing a local constraint: Hezbollah may seek to preserve the stability and image of areas under its influence to maintain access to external resources and legitimacy. While this does not dismantle Hezbollah's overall capacity, it creates a localized disincentive for attacks in a region where violence would undermine a publicly supported, internationally backed initiative. This weakens the strength of the hezbollah_capacity -> attack_frequency link, particularly in geographic hotspots. However, since the outcome aggregates nationwide 'Explosions/Remote violence' and Hezbollah's overall capacity and regional tensions remain intact, the effect is moderate. The internal_stability -> attack_frequency path may also be slightly dampened due to increased state-aligned or quasi-official cooperation in security coordination. Overall, the structural challenge targets a peripheral but real incentive structure, slightly reducing the likelihood of explosive escalation, hence a small downward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.13,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new tourism initiative in the Bekaa Valley, particularly in Hezbollah-administered areas and supported by international funding, introduces a countervailing incentive for Hezbollah to avoid high-frequency remote violence near cultural sites. This affects the causal path from hezbollah_capacity -> attack_frequency by introducing a local constraint: Hezbollah may seek to preserve the stability and image of areas under its influence to maintain access to external resources and legitimacy. While this does not dismantle Hezbollah's overall capacity, it creates a localized disincentive for attacks in a region where violence would undermine a publicly supported, internationally backed initiative. This weakens the strength of the hezbollah_capacity -> attack_frequency link, particularly in geographic hotspots. However, since the outcome aggregates nationwide 'Explosions/Remote violence' and Hezbollah's overall capacity and regional tensions remain intact, the effect is moderate. The internal_stability -> attack_frequency path may also be slightly dampened due to increased state-aligned or quasi-official cooperation in security coordination. Overall, the structural challenge targets a peripheral but real incentive structure, slightly reducing the likelihood of explosive escalation, hence a small downward revision.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Lebanon's Ministry of Tourism launched a new advertising campaign in Gulf countries to promote historic sites in the Bekaa Valley, aiming to boost visitor numbers by 40% compared to 2024. The campaign includes digital ads, travel packages, and coordination with regional airlines.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The launch of a tourism campaign in the Bekaa Valley by Lebanon's Ministry of Tourism does not meaningfully affect any of the causal paths in the network leading to an increase in 'Explosions/Remote violence'. The nodes in the model—such as regional_tensions, hezbollah_capacity, israeli_military_action, and internal_stability—are driven by security, geopolitical, and military dynamics, not by tourism promotion efforts. While improved internal stability (internal_stability) could theoretically be influenced by economic or social confidence-building measures like tourism, a single advertising campaign with no reported security or political reforms is unlikely to alter the operational calculus of militant groups or the regional conflict dynamics between Israel and Hezbollah. Therefore, the causal path from internal_stability to attack_frequency remains unaffected in any measurable way. No other causal links are impacted. The outcome remains primarily contingent on escalatory military and geopolitical developments, which this campaign does not influence. Thus, the probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The launch of a tourism campaign in the Bekaa Valley by Lebanon's Ministry of Tourism does not meaningfully affect any of the causal paths in the network leading to an increase in 'Explosions/Remote violence'. The nodes in the model—such as regional_tensions, hezbollah_capacity, israeli_military_action, and internal_stability—are driven by security, geopolitical, and military dynamics, not by tourism promotion efforts. While improved internal stability (internal_stability) could theoretically be influenced by economic or social confidence-building measures like tourism, a single advertising campaign with no reported security or political reforms is unlikely to alter the operational calculus of militant groups or the regional conflict dynamics between Israel and Hezbollah. Therefore, the causal path from internal_stability to attack_frequency remains unaffected in any measurable way. No other causal links are impacted. The outcome remains primarily contingent on escalatory military and geopolitical developments, which this campaign does not influence. Thus, the probability estimate remains unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, a senior Israeli defense official publicly stated that Hezbollah has amassed over 150,000 rockets along the border, posing an unprecedented threat to northern Israel, while Hezbollah's leader simultaneously warned of 'divine victory' in the event of war. This mutual escalation in rhetoric and force posture was accompanied by emergency security consultations between Israel, the U.S., and key Arab states, signaling a sharp rise in regional tensions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information significantly strengthens the 'regional_tensions' node, which is a key driver in multiple causal paths leading to the outcome. The public statements by a senior Israeli official and Hezbollah's leader indicate a sharp escalation in mutual threat perception and force posture, directly increasing 'regional_tensions'. This affects two critical paths: (1) regional_tensions -> israeli_military_action -> attack_frequency -> outcome, making Israeli airstrikes more likely, which in turn triggers retaliatory remote violence; and (2) regional_tensions -> hezbollah_capacity -> attack_frequency -> outcome, as heightened tensions bolster Hezbollah's operational justification and mobilization. Additionally, the emergency consultations with the U.S. and Arab states suggest international recognition of elevated risk, potentially enabling greater tacit or logistical support (affecting external_support -> hezbollah_capacity indirectly). While the 10x threshold remains high, the substantial uptick in tension increases the likelihood of a spike in attack frequency in the final 30-day window. Thus, the probability is updated upward from 0.15 to 0.35, reflecting a moderate but meaningful increase in risk due to the reinforced causal pathways through a central node.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information significantly strengthens the 'regional_tensions' node, which is a key driver in multiple causal paths leading to the outcome. The public statements by a senior Israeli official and Hezbollah's leader indicate a sharp escalation in mutual threat perception and force posture, directly increasing 'regional_tensions'. This affects two critical paths: (1) regional_tensions -> israeli_military_action -> attack_frequency -> outcome, making Israeli airstrikes more likely, which in turn triggers retaliatory remote violence; and (2) regional_tensions -> hezbollah_capacity -> attack_frequency -> outcome, as heightened tensions bolster Hezbollah's operational justification and mobilization. Additionally, the emergency consultations with the U.S. and Arab states suggest international recognition of elevated risk, potentially enabling greater tacit or logistical support (affecting external_support -> hezbollah_capacity indirectly). While the 10x threshold remains high, the substantial uptick in tension increases the likelihood of a spike in attack frequency in the final 30-day window. Thus, the probability is updated upward from 0.15 to 0.35, reflecting a moderate but meaningful increase in risk due to the reinforced causal pathways through a central node.\"\n}",
+      "target_id": "regional_tensions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "In late 2025, satellite imagery and intelligence reports confirm a significant increase in arms shipments from Iran to Hezbollah via Syria, including advanced precision-guided munitions and drone components, despite heightened Israeli interdiction efforts. These shipments are assessed to have directly boosted Hezbollah's stockpile of deployable weapons for remote attacks in Lebanon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new intelligence confirming a significant increase in external support—specifically advanced arms shipments from Iran to Hezbollah via Syria—directly strengthens the 'external_support' node in the causal network. This node has a direct causal link to 'hezbollah_capacity', which in turn affects 'attack_frequency' and ultimately the 'outcome'. The enhanced flow of precision-guided munitions and drone components indicates a material improvement in Hezbollah's operational readiness for remote violence, independent of other factors like recent Israeli actions or internal stability. This strengthens the causal path external_support -> hezbollah_capacity -> attack_frequency -> outcome. Given that the threshold requires more than a tenfold increase in explosions, such a boost in capacity makes crossing that threshold substantially more plausible, though not likely. The update reflects heightened risk due to a now-verified escalation in a key enabling factor. The probability is not raised further because the threshold is extremely high (10x), and delivery of weapons does not guarantee immediate deployment at that scale, especially under active interdiction.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new intelligence confirming a significant increase in external support—specifically advanced arms shipments from Iran to Hezbollah via Syria—directly strengthens the 'external_support' node in the causal network. This node has a direct causal link to 'hezbollah_capacity', which in turn affects 'attack_frequency' and ultimately the 'outcome'. The enhanced flow of precision-guided munitions and drone components indicates a material improvement in Hezbollah's operational readiness for remote violence, independent of other factors like recent Israeli actions or internal stability. This strengthens the causal path external_support -> hezbollah_capacity -> attack_frequency -> outcome. Given that the threshold requires more than a tenfold increase in explosions, such a boost in capacity makes crossing that threshold substantially more plausible, though not likely. The update reflects heightened risk due to a now-verified escalation in a key enabling factor. The probability is not raised further because the threshold is extremely high (10x), and delivery of weapons does not guarantee immediate deployment at that scale, especially under active interdiction.\"\n}",
+      "target_id": "external_support",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, a surge in drone and rocket attacks from southern Lebanon into northern Israel prompted immediate and sustained Israeli retaliatory strikes, leading to a doubling of 'Explosions/Remote violence' incidents every 72 hours over the subsequent two weeks. This pattern of rapid escalation demonstrates that once attack frequency crosses a threshold, it triggers feedback loops that make extreme event counts highly probable in the final 30-day window.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The reported surge in attacks starting 2025-11-15 and the observed doubling of 'Explosions/Remote violence' every 72 hours demonstrate a strong positive feedback loop between attack frequency and further escalation, reinforcing the causal path from attack_frequency to outcome. This dynamic amplifies the likelihood that the final 30-day count will vastly exceed the baseline, especially if the trend continues or accelerates. The feedback mechanism—where attacks provoke retaliation, which in turn enables more attacks—strengthens the attack_frequency -> outcome link, making extreme event counts more probable than previously assumed under linear or stable assumptions. This affects not only the direct path but also indirect paths through israeli_military_action and regional_tensions, which feed into escalating attack frequency. As a result, the probability of exceeding the 10x threshold is meaningfully higher, warranting a substantial upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reported surge in attacks starting 2025-11-15 and the observed doubling of 'Explosions/Remote violence' every 72 hours demonstrate a strong positive feedback loop between attack frequency and further escalation, reinforcing the causal path from attack_frequency to outcome. This dynamic amplifies the likelihood that the final 30-day count will vastly exceed the baseline, especially if the trend continues or accelerates. The feedback mechanism—where attacks provoke retaliation, which in turn enables more attacks—strengthens the attack_frequency -> outcome link, making extreme event counts more probable than previously assumed under linear or stable assumptions. This affects not only the direct path but also indirect paths through israeli_military_action and regional_tensions, which feed into escalating attack frequency. As a result, the probability of exceeding the 10x threshold is meaningfully higher, warranting a substantial upward revision.\"\n}",
+      "target_id": "attack_frequency->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2025, Israeli intelligence confirmed the interception of a major arms shipment from Iran to Hezbollah in Lebanon, including precision-guided missiles and drone systems. This shipment significantly enhances Hezbollah’s operational reach and attack tempo, with analysts observing a 40% increase in attempted remote attacks in the following two weeks alone, demonstrating a direct surge in attack frequency following a clear boost in capacity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The intercepted arms shipment and subsequent 40% increase in attempted remote attacks directly strengthen the causal link between hezbollah_capacity and attack_frequency, confirming that increases in Hezbollah's military capacity translate rapidly into higher attack frequency. This validation bolsters confidence in the pathway from external_support and regional_tensions to outcome via hezbollah_capacity and attack_frequency. Previously, uncertainty existed about how effectively increased capacity would translate into actual attacks; this evidence reduces that uncertainty and strengthens the overall causal chain. As a result, the likelihood of a surge in explosions exceeding the 10x threshold has increased, though still constrained by other factors like Israeli interdiction and internal stability. Hence, the probability is updated substantially but not extremely, reflecting the strengthened mechanism without assuming inevitable escalation.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The intercepted arms shipment and subsequent 40% increase in attempted remote attacks directly strengthen the causal link between hezbollah_capacity and attack_frequency, confirming that increases in Hezbollah's military capacity translate rapidly into higher attack frequency. This validation bolsters confidence in the pathway from external_support and regional_tensions to outcome via hezbollah_capacity and attack_frequency. Previously, uncertainty existed about how effectively increased capacity would translate into actual attacks; this evidence reduces that uncertainty and strengthens the overall causal chain. As a result, the likelihood of a surge in explosions exceeding the 10x threshold has increased, though still constrained by other factors like Israeli interdiction and internal stability. Hence, the probability is updated substantially but not extremely, reflecting the strengthened mechanism without assuming inevitable escalation.\"\n}",
+      "target_id": "hezbollah_capacity->attack_frequency",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "952de03f3e1b6b9679a372ef16b72ea4b7b42d841f504feb5819d06ffe1de921",
+    "question_text": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Explosions/Remote violence'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.15,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.0725,
+    "max_absolute_shift": 0.30000000000000004
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.6923076923076925,
+    "mean_shift_high": 0.13999999999999999,
+    "mean_shift_low": 0.05199999999999999,
+    "asymmetry_index": 0.20439560439560436,
+    "mean_shift_negate": 0.044285714285714275,
+    "mean_shift_strengthen": 0.21666666666666665,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.038000000000000006,
+    "mean_shift_on_path": 0.11699999999999999,
+    "mean_shift_off_path": 0.07899999999999999,
+    "importance_sensitivity_correlation": 0.38181818181818183,
+    "control_sensitivity": 0
+  }
+}

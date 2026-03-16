@@ -1,0 +1,1070 @@
+{
+  "question_id": "6f8a3d10d39d69ecbdb10db2fabb66d852af39b95ce1af9f48ce5d9fd0175d87",
+  "question_text": "According to Wikipedia, will Leinier Domínguez have an Elo rating on 2025-12-28 that's at least 1% higher than on 2025-12-21?",
+  "source": "wikipedia",
+  "initial_probability": 0.42,
+  "nodes": [
+    {
+      "id": "current_form",
+      "description": "Leinier Domínguez's current chess performance level and consistency",
+      "role": "factor"
+    },
+    {
+      "id": "tournament_schedule",
+      "description": "Whether Domínguez is scheduled to play in rated tournaments during the week",
+      "role": "factor"
+    },
+    {
+      "id": "opponent_strength",
+      "description": "Average Elo rating of opponents he faces during the week",
+      "role": "factor"
+    },
+    {
+      "id": "match_results",
+      "description": "Win/loss/draw outcomes in games played during the week",
+      "role": "factor"
+    },
+    {
+      "id": "rating_volatility",
+      "description": "How sensitive his rating is to recent results based on his activity and K-factor",
+      "role": "factor"
+    },
+    {
+      "id": "performance_change",
+      "description": "The net Elo rating change resulting from matches played",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Domínguez's Elo on 2025-12-28 is at least 1% higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "current_form",
+      "to": "match_results",
+      "mechanism": "Better current form increases likelihood of positive results"
+    },
+    {
+      "from": "tournament_schedule",
+      "to": "match_results",
+      "mechanism": "Playing in tournaments provides opportunities for rating changes"
+    },
+    {
+      "from": "opponent_strength",
+      "to": "match_results",
+      "mechanism": "Stronger opponents make wins harder but yield more rating points if achieved"
+    },
+    {
+      "from": "match_results",
+      "to": "performance_change",
+      "mechanism": "Wins increase rating, losses decrease it, draws have minor effect"
+    },
+    {
+      "from": "rating_volatility",
+      "to": "performance_change",
+      "mechanism": "Higher volatility amplifies rating changes from match results"
+    },
+    {
+      "from": "performance_change",
+      "to": "outcome",
+      "mechanism": "Positive performance change increases probability of meeting the 1% threshold"
+    }
+  ],
+  "reasoning": "The probability is moderate-low because a 1% Elo increase in one week requires significant positive results against strong opponents, which is uncommon for a top player like Domínguez. His rating is already high (~2750), making gains harder, and he may not even play rated games that week. However, if he participates in a tournament and performs well, the threshold is achievable, hence the probability is not negligible.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "current_form",
+        "description": "Leinier Domínguez's current chess performance level and consistency",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "tournament_schedule",
+        "description": "Whether Domínguez is scheduled to play in rated tournaments during the week",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "opponent_strength",
+        "description": "Average Elo rating of opponents he faces during the week",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "match_results",
+        "description": "Win/loss/draw outcomes in games played during the week",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.2,
+        "closeness": 0.5,
+        "pagerank": 0.2022,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "rating_volatility",
+        "description": "How sensitive his rating is to recent results based on his activity and K-factor",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "performance_change",
+        "description": "The net Elo rating change resulting from matches played",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1667,
+        "closeness": 0.5208,
+        "pagerank": 0.2773,
+        "path_relevance": 0.8333
+      },
+      {
+        "node_id": "outcome",
+        "description": "Domínguez's Elo on 2025-12-28 is at least 1% higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4286,
+        "pagerank": 0.2926,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "current_form",
+        "target": "match_results",
+        "mechanism": "Better current form increases likelihood of positive results",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "tournament_schedule",
+        "target": "match_results",
+        "mechanism": "Playing in tournaments provides opportunities for rating changes",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "opponent_strength",
+        "target": "match_results",
+        "mechanism": "Stronger opponents make wins harder but yield more rating points if achieved",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "match_results",
+        "target": "performance_change",
+        "mechanism": "Wins increase rating, losses decrease it, draws have minor effect",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "rating_volatility",
+        "target": "performance_change",
+        "mechanism": "Higher volatility amplifies rating changes from match results",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "performance_change",
+        "target": "outcome",
+        "mechanism": "Positive performance change increases probability of meeting the 1% threshold",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "match_results",
+        "description": "Win/loss/draw outcomes in games played during the week",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "performance_change",
+        "description": "The net Elo rating change resulting from matches played",
+        "importance": 0.1667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "tournament_schedule",
+        "description": "Whether Domínguez is scheduled to play in rated tournaments during the week",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "rating_volatility",
+        "description": "How sensitive his rating is to recent results based on his activity and K-factor",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "match_results",
+        "description": "Win/loss/draw outcomes in games played during the week",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "performance_change",
+        "description": "The net Elo rating change resulting from matches played",
+        "importance": 0.1667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "match_results->performance_change",
+        "description": "Wins increase rating, losses decrease it, draws have minor effect",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "performance_change->outcome",
+        "description": "Positive performance change increases probability of meeting the 1% threshold",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "rating_volatility->performance_change",
+        "description": "Higher volatility amplifies rating changes from match results",
+        "importance": 0.0476,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "match_results->performance_change",
+        "description": "Wins increase rating, losses decrease it, draws have minor effect",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "opponent_strength->rating_volatility",
+        "description": "Potential link: Average Elo rating of opponents he faces during the week -> How sensitive his rating is to recent results based on his activity and K-factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "opponent_strength->performance_change",
+        "description": "Potential link: Average Elo rating of opponents he faces during the week -> The net Elo rating change resulting from matches played",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "match_results",
+      "description": "Win/loss/draw outcomes in games played during the week",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "performance_change",
+      "description": "The net Elo rating change resulting from matches played",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "tournament_schedule",
+      "description": "Whether Domínguez is scheduled to play in rated tournaments during the week",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "rating_volatility",
+      "description": "How sensitive his rating is to recent results based on his activity and K-factor",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "match_results",
+      "description": "Win/loss/draw outcomes in games played during the week",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "performance_change",
+      "description": "The net Elo rating change resulting from matches played",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "match_results->performance_change",
+      "description": "Wins increase rating, losses decrease it, draws have minor effect",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "performance_change->outcome",
+      "description": "Positive performance change increases probability of meeting the 1% threshold",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "rating_volatility->performance_change",
+      "description": "Higher volatility amplifies rating changes from match results",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "match_results->performance_change",
+      "description": "Wins increase rating, losses decrease it, draws have minor effect",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "opponent_strength->rating_volatility",
+      "description": "Potential link: Average Elo rating of opponents he faces during the week -> How sensitive his rating is to recent results based on his activity and K-factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "opponent_strength->performance_change",
+      "description": "Potential link: Average Elo rating of opponents he faces during the week -> The net Elo rating change resulting from matches played",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if Domínguez's match results during that week are irrelevant because FIDE announces all his games from that period will be treated as unofficial or exhibition matches, with no impact on his official Elo rating? This could happen if there is a formal dispute over tournament conditions or player eligibility, leading FIDE to exclude the events from the rating calculation entirely, meaning wins or losses won't affect his rating.",
+      "probe_type": "node_negate_high",
+      "target_id": "match_results",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Win/loss/draw outcomes in games played during the week"
+    },
+    {
+      "probe_text": "Consider that FIDE's rating regulations for established Grandmasters like Domínguez include a specific rule: if a player has played fewer than a certain number of rated games in a rating period, their rating is considered 'inactive' and is not updated, regardless of the results of any games they did play. If Domínguez plays only a single exhibition match during this week—a game that is officially rated—the result would still trigger a rating calculation. However, FIDE's rules might cap the maximum rating change from a single game or a very small number of games, making the 'net Elo rating change' from the week's matches effectively zero or negligible for the purpose of a 1% increase, which requires a substantial jump. The 'performance_change' node, therefore, might be irrelevant because institutional rules prevent it from having its expected effect.",
+      "probe_type": "node_negate_high",
+      "target_id": "performance_change",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The net Elo rating change resulting from matches played"
+    },
+    {
+      "probe_text": "Chess.com and FIDE records show that Leinier Domínguez has pre-registered for the 2025 World Rapid & Blitz Championship, which runs from December 26–30, 2025, with all games being rated. This means he is definitively scheduled to play in official FIDE-rated tournaments during the exact week in question, making the uncertainty around his tournament schedule irrelevant.",
+      "probe_type": "node_negate_medium",
+      "target_id": "tournament_schedule",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Whether Domínguez is scheduled to play in rated tournaments during the week"
+    },
+    {
+      "probe_text": "In fact, FIDE has recently standardized K-factors for all titled players in Domínguez's rating range to a fixed low value, making his rating minimally sensitive to individual results regardless of his activity. Additionally, Elo calculations for top players now incorporate performance over many games rather than recent volatility, so short-term results have little impact on his rating changes. Therefore, rating volatility is not a meaningful factor for predicting his weekly rating changes.",
+      "probe_type": "node_negate_low",
+      "target_id": "rating_volatility",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "How sensitive his rating is to recent results based on his activity and K-factor"
+    },
+    {
+      "probe_text": "Chess.com has announced a new 'Winter Rapid Championship' from December 22-27, 2025, featuring a round-robin format with 12 games for each participant. This tournament is officially FIDE-rated and will include many top players, confirming that Domínguez will have multiple high-stakes games in the exact week in question. This directly strengthens the importance of his match results, as each game's outcome will have a significant, immediate impact on his Elo rating during the critical period.",
+      "probe_type": "node_strengthen",
+      "target_id": "match_results",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Win/loss/draw outcomes in games played during the week"
+    },
+    {
+      "probe_text": "New statistical analysis of FIDE rating data reveals that for active players like Domínguez, over 95% of weekly Elo rating changes exceeding 1% are directly attributable to performance in rated games during that week, with minimal influence from lagged effects or rating corrections. Furthermore, Domínguez's K-factor remains at 40 (the maximum for established players under 2400), meaning each rated game result this week will have an immediate and amplified impact on his rating. This underscores that his net Elo change from matches played this week is the dominant driver of whether he meets the threshold.",
+      "probe_type": "node_strengthen",
+      "target_id": "performance_change",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The net Elo rating change resulting from matches played"
+    },
+    {
+      "probe_text": "Chess.com's rating system for titled players like Domínguez includes a 'rating floor' feature that prevents ratings from dropping below a certain threshold regardless of match results, and his rating is already near that floor. Additionally, FIDE's K-factor for players over 2400 Elo is reduced to 10, meaning rating changes from individual games are minimal unless he plays many games in the week. Given these constraints, even a win against a much higher-rated opponent might yield less than 5 Elo points, weakening the direct impact of match results on performance change.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "match_results->performance_change",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Wins increase rating, losses decrease it, draws have minor effect"
+    },
+    {
+      "probe_text": "Assume that Domínguez's Elo rating on 2025-12-21 is already near the maximum allowed by FIDE for his current title and activity status, creating a rating ceiling. Even a positive performance change from wins might be insufficient to push his rating 1% higher due to this cap, as rating gains diminish as he approaches it. This suggests the link from performance change to the outcome could be weaker than assumed, as structural limits override recent results.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "performance_change->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Positive performance change increases probability of meeting the 1% threshold"
+    },
+    {
+      "probe_text": "Note that FIDE's rating system applies a K-factor reduction for highly rated players (like Domínguez, who is over 2700) and for players with many rated games, which caps volatility regardless of recent results. Even if his results in a given week are extreme, his actual rating change will be dampened by these stability mechanisms, making volatility less impactful than the model suggests.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "rating_volatility->performance_change",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "Higher volatility amplifies rating changes from match results"
+    },
+    {
+      "probe_text": "Consider that Elo ratings are updated after each tournament based on performance relative to opponents. If Domínguez's rating changes significantly mid-week due to a provisional rating adjustment or a correction from a previous event, his official rating on chess platforms like FIDE could be updated before his matches are played. This could affect his seeding and opponents' preparation, indirectly influencing his match results—for example, a higher pre-match rating might intimidate opponents or lead to different pairing strategies, altering outcomes. Thus, performance_change (rating update) could causally influence match_results, not just the other way around.",
+      "probe_type": "edge_reverse",
+      "target_id": "match_results->performance_change",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Wins increase rating, losses decrease it, draws have minor effect"
+    },
+    {
+      "probe_text": "The K-factor in Elo rating systems depends on the number of games played and the player's rating; if Domínguez faces stronger opponents, he might play fewer games or adjust his tournament participation, which can affect his K-factor and thus his rating volatility. For instance, if he faces a field of much higher-rated opponents, the rating system may treat those games as higher-stakes or adjust volatility based on the rating disparity. This means opponent strength directly influences how sensitive his rating is to each result.",
+      "probe_type": "edge_spurious",
+      "target_id": "opponent_strength->rating_volatility",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Average Elo rating of opponents he faces during the week -> How sensitive his rating is to recent results based on his activity and K-factor"
+    },
+    {
+      "probe_text": "Consider that if Domínguez faces opponents with an average Elo rating significantly higher than his own, even a modest score (like 50%) could yield a large positive performance rating, directly increasing his net Elo change, independent of his match results. Conversely, if he faces much weaker opponents, even a perfect score might yield minimal rating gains. This means opponent strength directly influences the magnitude of rating changes per game, affecting performance_change beyond just match outcomes.",
+      "probe_type": "edge_spurious",
+      "target_id": "opponent_strength->performance_change",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Average Elo rating of opponents he faces during the week -> The net Elo rating change resulting from matches played"
+    },
+    {
+      "probe_text": "Suppose you learn that Leinier Domínguez is scheduled to participate in a rapid or blitz tournament during the week, but his Elo rating from these games will not be updated in the classical rating list used for this forecast. How does this affect your probability that his classical Elo rating on 2025-12-28 is at least 1% higher than on 2025-12-21?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose it is discovered that Leinier Domínguez has a scheduled high-stakes training camp with top grandmasters during that week, which is known to significantly boost his focus and strategic preparation, potentially improving his performance in any concurrent or immediately following tournament games. How would this new information about structured preparation affect your probability that his Elo rating increases by at least 1% from 2025-12-21 to 2025-12-28?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Leinier Domínguez recently announced he is writing a book on chess openings, scheduled for publication in mid-2026. This book project involves analyzing historical games and developing new theoretical lines, but it does not interfere with his tournament participation or preparation schedule.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "According to recent reports, Leinier Domínguez has been experimenting with a new opening variation in his blitz games on Chess.com, which he says helps him handle unfamiliar positions better. However, this change only affects his online blitz play and does not apply to his over-the-board classical tournament games, which are the only ones that impact his FIDE Elo rating. His coach confirmed that his preparation for official tournaments remains unchanged and follows his traditional repertoire.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Domínguez's match results during that week are irrelevant because FIDE announces all his games from that period will be treated as unofficial or exhibition matches, with no impact on his official Elo rating? This could happen if there is a formal dispute over tournament conditions or player eligibility, leading FIDE to exclude the events from the rating calculation entirely, meaning wins or losses won't affect his rating.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.05,
+      "absolute_shift": 0.37,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly breaks the primary causal path from match_results to performance_change and outcome. If all games during the week are deemed unofficial, then match_results have no effect on Elo. The only remaining path for rating change is if FIDE corrects a prior error or adjusts his rating administratively during that week, which is extremely unlikely. This makes the outcome (a 1% increase in one week) almost entirely dependent on a rare non-competition event. The initial probability of 0.42 was largely based on potential rating gains from playing games; removing that mechanism drastically reduces the likelihood.",
+      "raw_response": "{\n  \"updated_probability\": 0.05,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly breaks the primary causal path from match_results to performance_change and outcome. If all games during the week are deemed unofficial, then match_results have no effect on Elo. The only remaining path for rating change is if FIDE corrects a prior error or adjusts his rating administratively during that week, which is extremely unlikely. This makes the outcome (a 1% increase in one week) almost entirely dependent on a rare non-competition event. The initial probability of 0.42 was largely based on potential rating gains from playing games; removing that mechanism drastically reduces the likelihood.\"\n}",
+      "target_id": "match_results",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Consider that FIDE's rating regulations for established Grandmasters like Domínguez include a specific rule: if a player has played fewer than a certain number of rated games in a rating period, their rating is considered 'inactive' and is not updated, regardless of the results of any games they did play. If Domínguez plays only a single exhibition match during this week—a game that is officially rated—the result would still trigger a rating calculation. However, FIDE's rules might cap the maximum rating change from a single game or a very small number of games, making the 'net Elo rating change' from the week's matches effectively zero or negligible for the purpose of a 1% increase, which requires a substantial jump. The 'performance_change' node, therefore, might be irrelevant because institutional rules prevent it from having its expected effect.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly breaks the causal link from 'performance_change' to 'outcome' by introducing a FIDE rule that caps or nullifies rating changes from a small number of games (e.g., a single exhibition match), which is plausible given Domínguez's status as an established Grandmaster. This makes the 'performance_change' node largely irrelevant unless he plays enough rated games to avoid the cap, reducing the likelihood of a 1% increase. The update is moderate because the challenge is conditional on low game count, but it targets a critical path: if performance_change is ineffective, the outcome depends almost entirely on prior rating stability, lowering the probability from 0.42 to 0.25.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly breaks the causal link from 'performance_change' to 'outcome' by introducing a FIDE rule that caps or nullifies rating changes from a small number of games (e.g., a single exhibition match), which is plausible given Domínguez's status as an established Grandmaster. This makes the 'performance_change' node largely irrelevant unless he plays enough rated games to avoid the cap, reducing the likelihood of a 1% increase. The update is moderate because the challenge is conditional on low game count, but it targets a critical path: if performance_change is ineffective, the outcome depends almost entirely on prior rating stability, lowering the probability from 0.42 to 0.25.\"\n}",
+      "target_id": "performance_change",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Chess.com and FIDE records show that Leinier Domínguez has pre-registered for the 2025 World Rapid & Blitz Championship, which runs from December 26–30, 2025, with all games being rated. This means he is definitively scheduled to play in official FIDE-rated tournaments during the exact week in question, making the uncertainty around his tournament schedule irrelevant.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.12000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge definitively establishes that Domínguez will play in official FIDE-rated tournaments during the exact week in question (December 26–30, 2025). This directly affects the causal path from 'tournament_schedule' to 'match_results' to 'performance_change' to the outcome. Previously, the uncertainty around whether he would play any rated games was a significant factor limiting the probability of a rating change. Now, the 'tournament_schedule' node is known to be true, removing that uncertainty and ensuring the opportunity for rating movement. This makes a positive performance change (and thus the outcome) more likely, as he will have multiple games in a high-profile event. However, the outcome still depends heavily on his 'current_form', 'opponent_strength', and actual 'match_results' in that tournament, so the update is moderate, not extreme.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge definitively establishes that Domínguez will play in official FIDE-rated tournaments during the exact week in question (December 26–30, 2025). This directly affects the causal path from 'tournament_schedule' to 'match_results' to 'performance_change' to the outcome. Previously, the uncertainty around whether he would play any rated games was a significant factor limiting the probability of a rating change. Now, the 'tournament_schedule' node is known to be true, removing that uncertainty and ensuring the opportunity for rating movement. This makes a positive performance change (and thus the outcome) more likely, as he will have multiple games in a high-profile event. However, the outcome still depends heavily on his 'current_form', 'opponent_strength', and actual 'match_results' in that tournament, so the update is moderate, not extreme.\"\n}",
+      "target_id": "tournament_schedule",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "In fact, FIDE has recently standardized K-factors for all titled players in Domínguez's rating range to a fixed low value, making his rating minimally sensitive to individual results regardless of his activity. Additionally, Elo calculations for top players now incorporate performance over many games rather than recent volatility, so short-term results have little impact on his rating changes. Therefore, rating volatility is not a meaningful factor for predicting his weekly rating changes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly affects the 'rating_volatility -> performance_change' edge in the causal network. Rating volatility was previously a factor amplifying or dampening rating changes from match results. If volatility is now minimized due to standardized low K-factors and reliance on long-term performance over short-term results, the impact of weekly match outcomes on rating changes is reduced. This weakens the causal path from match_results through performance_change to the outcome, making it harder to achieve a 1% rating increase in just one week. However, the path through current_form and tournament_schedule remains intact, and the outcome still depends on performance_change from match_results, so the update is moderate rather than extreme.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly affects the 'rating_volatility -> performance_change' edge in the causal network. Rating volatility was previously a factor amplifying or dampening rating changes from match results. If volatility is now minimized due to standardized low K-factors and reliance on long-term performance over short-term results, the impact of weekly match outcomes on rating changes is reduced. This weakens the causal path from match_results through performance_change to the outcome, making it harder to achieve a 1% rating increase in just one week. However, the path through current_form and tournament_schedule remains intact, and the outcome still depends on performance_change from match_results, so the update is moderate rather than extreme.\"\n}",
+      "target_id": "rating_volatility",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Chess.com has announced a new 'Winter Rapid Championship' from December 22-27, 2025, featuring a round-robin format with 12 games for each participant. This tournament is officially FIDE-rated and will include many top players, confirming that Domínguez will have multiple high-stakes games in the exact week in question. This directly strengthens the importance of his match results, as each game's outcome will have a significant, immediate impact on his Elo rating during the critical period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal paths involving 'tournament_schedule' and 'match_results'. Specifically, it confirms Domínguez will play multiple FIDE-rated games (12 games) in the exact week, directly increasing the likelihood and magnitude of rating changes. This amplifies the importance of 'match_results' and 'performance_change', as each game outcome will have immediate impact, raising the volatility and potential for a significant positive shift. However, the outcome still depends on his actual performance against strong opponents, so the increase is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal paths involving 'tournament_schedule' and 'match_results'. Specifically, it confirms Domínguez will play multiple FIDE-rated games (12 games) in the exact week, directly increasing the likelihood and magnitude of rating changes. This amplifies the importance of 'match_results' and 'performance_change', as each game outcome will have immediate impact, raising the volatility and potential for a significant positive shift. However, the outcome still depends on his actual performance against strong opponents, so the increase is moderate.\"\n}",
+      "target_id": "match_results",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "New statistical analysis of FIDE rating data reveals that for active players like Domínguez, over 95% of weekly Elo rating changes exceeding 1% are directly attributable to performance in rated games during that week, with minimal influence from lagged effects or rating corrections. Furthermore, Domínguez's K-factor remains at 40 (the maximum for established players under 2400), meaning each rated game result this week will have an immediate and amplified impact on his rating. This underscores that his net Elo change from matches played this week is the dominant driver of whether he meets the threshold.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.44,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reinforces the centrality of the 'performance_change' node in the causal network, confirming that it is the dominant driver of the outcome with minimal confounding from lagged effects or corrections. It also clarifies that Domínguez's K-factor (rating_volatility) is at its maximum, amplifying the impact of match results on performance change. This strengthens the causal path from match_results → performance_change → outcome, increasing confidence that the model's structure is correct. However, the core uncertainty remains about whether he will actually play in tournaments and achieve positive match results. The increase in probability is modest because the challenge confirms rather than fundamentally alters the network; it reduces uncertainty about the mechanism but not about the antecedent conditions (tournament_schedule, opponent_strength, current_form).",
+      "raw_response": "{\n  \"updated_probability\": 0.44,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reinforces the centrality of the 'performance_change' node in the causal network, confirming that it is the dominant driver of the outcome with minimal confounding from lagged effects or corrections. It also clarifies that Domínguez's K-factor (rating_volatility) is at its maximum, amplifying the impact of match results on performance change. This strengthens the causal path from match_results → performance_change → outcome, increasing confidence that the model's structure is correct. However, the core uncertainty remains about whether he will actually play in tournaments and achieve positive match results. The increase in probability is modest because the challenge confirms rather than fundamentally alters the network; it reduces uncertainty about the mechanism but not about the antecedent conditions (tournament_schedule, opponent_strength, current_form).\"\n}",
+      "target_id": "performance_change",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Chess.com's rating system for titled players like Domínguez includes a 'rating floor' feature that prevents ratings from dropping below a certain threshold regardless of match results, and his rating is already near that floor. Additionally, FIDE's K-factor for players over 2400 Elo is reduced to 10, meaning rating changes from individual games are minimal unless he plays many games in the week. Given these constraints, even a win against a much higher-rated opponent might yield less than 5 Elo points, weakening the direct impact of match results on performance change.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link from 'match_results -> performance_change', which is central to the network. Specifically, the rating floor near Domínguez's current rating and reduced K-factor (10 for players over 2400) limit the magnitude of rating gains from wins, even against stronger opponents. This diminishes the effect of positive match results on performance change, reducing the likelihood that a week's games could produce a net Elo increase of at least 1% (approximately 27 points if his rating is around 2700). While other factors like tournament schedule and current form still matter, the constrained rating volatility makes it harder to achieve the outcome, leading to a moderate decrease in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link from 'match_results -> performance_change', which is central to the network. Specifically, the rating floor near Domínguez's current rating and reduced K-factor (10 for players over 2400) limit the magnitude of rating gains from wins, even against stronger opponents. This diminishes the effect of positive match results on performance change, reducing the likelihood that a week's games could produce a net Elo increase of at least 1% (approximately 27 points if his rating is around 2700). While other factors like tournament schedule and current form still matter, the constrained rating volatility makes it harder to achieve the outcome, leading to a moderate decrease in probability.\"\n}",
+      "target_id": "match_results->performance_change",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Assume that Domínguez's Elo rating on 2025-12-21 is already near the maximum allowed by FIDE for his current title and activity status, creating a rating ceiling. Even a positive performance change from wins might be insufficient to push his rating 1% higher due to this cap, as rating gains diminish as he approaches it. This suggests the link from performance change to the outcome could be weaker than assumed, as structural limits override recent results.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the critical causal link from performance_change to outcome. If Domínguez is near a rating ceiling, even positive performance from match results may not translate into the required 1% increase due to diminishing rating gains. This structural limit reduces the effectiveness of all upstream factors (current_form, tournament_schedule, opponent_strength, match_results, rating_volatility) in achieving the outcome, as the final step in the causal path is constrained. The update is moderate because the challenge introduces uncertainty about the ceiling's exact impact, but it significantly lowers the probability that any performance change will meet the threshold.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the critical causal link from performance_change to outcome. If Domínguez is near a rating ceiling, even positive performance from match results may not translate into the required 1% increase due to diminishing rating gains. This structural limit reduces the effectiveness of all upstream factors (current_form, tournament_schedule, opponent_strength, match_results, rating_volatility) in achieving the outcome, as the final step in the causal path is constrained. The update is moderate because the challenge introduces uncertainty about the ceiling's exact impact, but it significantly lowers the probability that any performance change will meet the threshold.\"\n}",
+      "target_id": "performance_change->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Note that FIDE's rating system applies a K-factor reduction for highly rated players (like Domínguez, who is over 2700) and for players with many rated games, which caps volatility regardless of recent results. Even if his results in a given week are extreme, his actual rating change will be dampened by these stability mechanisms, making volatility less impactful than the model suggests.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link from 'rating_volatility' to 'performance_change' by noting that FIDE's K-factor reduction for highly rated players like Domínguez (over 2700) and those with many rated games dampens rating volatility, capping potential changes even from extreme results. This reduces the amplification effect of volatility on rating changes from match results, making it harder to achieve a 1% increase in Elo over a week. The path 'match_results -> performance_change -> outcome' is still intact, but the moderating effect of volatility lowers the likelihood of large positive swings. Since volatility was a key factor enabling significant weekly gains, the probability decreases modestly.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link from 'rating_volatility' to 'performance_change' by noting that FIDE's K-factor reduction for highly rated players like Domínguez (over 2700) and those with many rated games dampens rating volatility, capping potential changes even from extreme results. This reduces the amplification effect of volatility on rating changes from match results, making it harder to achieve a 1% increase in Elo over a week. The path 'match_results -> performance_change -> outcome' is still intact, but the moderating effect of volatility lowers the likelihood of large positive swings. Since volatility was a key factor enabling significant weekly gains, the probability decreases modestly.\"\n}",
+      "target_id": "rating_volatility->performance_change",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Consider that Elo ratings are updated after each tournament based on performance relative to opponents. If Domínguez's rating changes significantly mid-week due to a provisional rating adjustment or a correction from a previous event, his official rating on chess platforms like FIDE could be updated before his matches are played. This could affect his seeding and opponents' preparation, indirectly influencing his match results—for example, a higher pre-match rating might intimidate opponents or lead to different pairing strategies, altering outcomes. Thus, performance_change (rating update) could causally influence match_results, not just the other way around.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.41,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge highlights a potential feedback loop where performance_change (rating updates) could influence match_results through mechanisms like seeding, opponent intimidation, or preparation changes. This adds a bidirectional causal relationship, introducing uncertainty about the direction and magnitude of rating effects. However, since Elo rating changes are primarily driven by match outcomes, and the described feedback effects (e.g., psychological impacts, pairing strategies) are indirect and likely small in a short one-week window, the structural importance of the original link 'match_results->performance_change' remains dominant. The update is minor because the challenge adds complexity but does not break the core causal path; it slightly reduces confidence in the model's simplicity, leading to a small downward adjustment in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.41,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge highlights a potential feedback loop where performance_change (rating updates) could influence match_results through mechanisms like seeding, opponent intimidation, or preparation changes. This adds a bidirectional causal relationship, introducing uncertainty about the direction and magnitude of rating effects. However, since Elo rating changes are primarily driven by match outcomes, and the described feedback effects (e.g., psychological impacts, pairing strategies) are indirect and likely small in a short one-week window, the structural importance of the original link 'match_results->performance_change' remains dominant. The update is minor because the challenge adds complexity but does not break the core causal path; it slightly reduces confidence in the model's simplicity, leading to a small downward adjustment in probability.\"\n}",
+      "target_id": "match_results->performance_change",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "The K-factor in Elo rating systems depends on the number of games played and the player's rating; if Domínguez faces stronger opponents, he might play fewer games or adjust his tournament participation, which can affect his K-factor and thus his rating volatility. For instance, if he faces a field of much higher-rated opponents, the rating system may treat those games as higher-stakes or adjust volatility based on the rating disparity. This means opponent strength directly influences how sensitive his rating is to each result.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge introduces a plausible causal link from opponent_strength to rating_volatility. However, this link is already implicitly captured in the network through the paths opponent_strength -> match_results -> performance_change and rating_volatility -> performance_change. The proposed direct effect (opponent strength affecting K-factor) is likely small for a titled, active player like Domínguez, as the K-factor is primarily determined by factors like lifetime games played and rating floor, not short-term opponent strength. Furthermore, the core causal mechanism for the outcome remains unchanged: the net performance_change from match_results is still the primary driver. The new link does not fundamentally alter the structural importance of the existing paths or provide strong new evidence that changes the base probability estimate. Therefore, no update is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge introduces a plausible causal link from opponent_strength to rating_volatility. However, this link is already implicitly captured in the network through the paths opponent_strength -> match_results -> performance_change and rating_volatility -> performance_change. The proposed direct effect (opponent strength affecting K-factor) is likely small for a titled, active player like Domínguez, as the K-factor is primarily determined by factors like lifetime games played and rating floor, not short-term opponent strength. Furthermore, the core causal mechanism for the outcome remains unchanged: the net performance_change from match_results is still the primary driver. The new link does not fundamentally alter the structural importance of the existing paths or provide strong new evidence that changes the base probability estimate. Therefore, no update is warranted.\"\n}",
+      "target_id": "opponent_strength->rating_volatility",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider that if Domínguez faces opponents with an average Elo rating significantly higher than his own, even a modest score (like 50%) could yield a large positive performance rating, directly increasing his net Elo change, independent of his match results. Conversely, if he faces much weaker opponents, even a perfect score might yield minimal rating gains. This means opponent strength directly influences the magnitude of rating changes per game, affecting performance_change beyond just match outcomes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.4,
+      "absolute_shift": 0.019999999999999962,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge highlights that opponent_strength directly influences performance_change beyond just through match_results, as the Elo system's rating change per game depends on the rating difference between players. This adds an additional causal path: opponent_strength -> performance_change, which was not fully captured in the original network. However, this path is already partially mediated by match_results in the original model (since opponent strength affects match difficulty), so the update is modest. The direct effect emphasizes that even with moderate match results, facing stronger opponents can yield larger rating gains, slightly increasing uncertainty. The probability decreases slightly because the original estimate may have overemphasized the role of match_results alone, and the added complexity suggests a more nuanced relationship that doesn't strongly favor an increase.",
+      "raw_response": "{\n  \"updated_probability\": 0.40,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge highlights that opponent_strength directly influences performance_change beyond just through match_results, as the Elo system's rating change per game depends on the rating difference between players. This adds an additional causal path: opponent_strength -> performance_change, which was not fully captured in the original network. However, this path is already partially mediated by match_results in the original model (since opponent strength affects match difficulty), so the update is modest. The direct effect emphasizes that even with moderate match results, facing stronger opponents can yield larger rating gains, slightly increasing uncertainty. The probability decreases slightly because the original estimate may have overemphasized the role of match_results alone, and the added complexity suggests a more nuanced relationship that doesn't strongly favor an increase.\"\n}",
+      "target_id": "opponent_strength->performance_change",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose you learn that Leinier Domínguez is scheduled to participate in a rapid or blitz tournament during the week, but his Elo rating from these games will not be updated in the classical rating list used for this forecast. How does this affect your probability that his classical Elo rating on 2025-12-28 is at least 1% higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal path from tournament_schedule to match_results to performance_change, as the rapid/blitz tournament does not affect the classical Elo rating used for the outcome. This reduces the likelihood that Domínguez will play in a relevant classical tournament during the week, decreasing opportunities for rating gains. However, other factors (e.g., potential classical tournaments not mentioned) and his current_form still contribute, so the update is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal path from tournament_schedule to match_results to performance_change, as the rapid/blitz tournament does not affect the classical Elo rating used for the outcome. This reduces the likelihood that Domínguez will play in a relevant classical tournament during the week, decreasing opportunities for rating gains. However, other factors (e.g., potential classical tournaments not mentioned) and his current_form still contribute, so the update is moderate.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose it is discovered that Leinier Domínguez has a scheduled high-stakes training camp with top grandmasters during that week, which is known to significantly boost his focus and strategic preparation, potentially improving his performance in any concurrent or immediately following tournament games. How would this new information about structured preparation affect your probability that his Elo rating increases by at least 1% from 2025-12-21 to 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new information about a high-stakes training camp directly affects the 'current_form' node by improving Domínguez's focus and strategic preparation, which strengthens the causal path from current_form → match_results → performance_change → outcome. This increases the likelihood of positive match results and thus a positive performance change, raising the probability of meeting the 1% Elo increase threshold. However, the update is moderate because the training camp's impact depends on whether he plays rated tournaments during that week (tournament_schedule) and the specific outcomes against opponents (opponent_strength), which remain uncertain.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information about a high-stakes training camp directly affects the 'current_form' node by improving Domínguez's focus and strategic preparation, which strengthens the causal path from current_form → match_results → performance_change → outcome. This increases the likelihood of positive match results and thus a positive performance change, raising the probability of meeting the 1% Elo increase threshold. However, the update is moderate because the training camp's impact depends on whether he plays rated tournaments during that week (tournament_schedule) and the specific outcomes against opponents (opponent_strength), which remain uncertain.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Leinier Domínguez recently announced he is writing a book on chess openings, scheduled for publication in mid-2026. This book project involves analyzing historical games and developing new theoretical lines, but it does not interfere with his tournament participation or preparation schedule.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.43,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new factor (book project) that could positively affect the 'current_form' node by enhancing Domínguez's theoretical knowledge and analytical skills, potentially leading to better 'match_results'. However, since the project does not interfere with tournament participation or preparation, it does not disrupt existing causal paths. The effect is minor and indirect, so the probability increases slightly due to a potential small boost in performance, but remains largely similar to the initial estimate given the uncertainty and peripheral nature of this influence.",
+      "raw_response": "{\n  \"updated_probability\": 0.43,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new factor (book project) that could positively affect the 'current_form' node by enhancing Domínguez's theoretical knowledge and analytical skills, potentially leading to better 'match_results'. However, since the project does not interfere with tournament participation or preparation, it does not disrupt existing causal paths. The effect is minor and indirect, so the probability increases slightly due to a potential small boost in performance, but remains largely similar to the initial estimate given the uncertainty and peripheral nature of this influence.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "According to recent reports, Leinier Domínguez has been experimenting with a new opening variation in his blitz games on Chess.com, which he says helps him handle unfamiliar positions better. However, this change only affects his online blitz play and does not apply to his over-the-board classical tournament games, which are the only ones that impact his FIDE Elo rating. His coach confirmed that his preparation for official tournaments remains unchanged and follows his traditional repertoire.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge only affects online blitz play, which does not influence FIDE Elo rating. The causal network is based on official over-the-board tournament games, where his preparation remains unchanged. No causal paths to the outcome are affected.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge only affects online blitz play, which does not influence FIDE Elo rating. The causal network is based on official over-the-board tournament games, where his preparation remains unchanged. No causal paths to the outcome are affected.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "The International Chess Federation (FIDE) has just announced that Leinier Domínguez has been invited to participate in the 2025 World Rapid & Blitz Championship, which will take place from December 22-27, 2025. This is a prestigious event with many high-rated opponents, and all games will be FIDE-rated, providing significant opportunities for rating changes during the critical week.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The announcement that Leinier Domínguez will participate in the 2025 World Rapid & Blitz Championship directly affects the 'tournament_schedule' node in the causal network. This prestigious event ensures he will be playing in rated tournaments during the critical week (December 22-27, 2025), providing significant opportunities for rating changes. Additionally, the event features many high-rated opponents, which impacts the 'opponent_strength' node, potentially increasing the rating points gained from wins. Given that Domínguez's current form is strong enough to be invited to such an event, the 'current_form' node also indirectly supports positive match results. The combination of guaranteed tournament participation, high opponent strength, and likely good current form significantly increases the probability of a positive performance change, thereby increasing the likelihood of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement that Leinier Domínguez will participate in the 2025 World Rapid & Blitz Championship directly affects the 'tournament_schedule' node in the causal network. This prestigious event ensures he will be playing in rated tournaments during the critical week (December 22-27, 2025), providing significant opportunities for rating changes. Additionally, the event features many high-rated opponents, which impacts the 'opponent_strength' node, potentially increasing the rating points gained from wins. Given that Domínguez's current form is strong enough to be invited to such an event, the 'current_form' node also indirectly supports positive match results. The combination of guaranteed tournament participation, high opponent strength, and likely good current form significantly increases the probability of a positive performance change, thereby increasing the likelihood of the outcome.\"\n}",
+      "target_id": "tournament_schedule",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent FIDE announcements indicate that players with fewer than 30 rated games in the past year, like Domínguez, will have their K-factor temporarily increased by 20% to accelerate rating adjustments. This change would make his rating more sensitive to individual match results during this period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.47,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The challenge affects the 'rating_volatility' node, which directly influences 'performance_change' and subsequently the 'outcome'. The increased K-factor means Domínguez's rating will be more sensitive to individual match results, amplifying both positive and negative performance changes. Given that the initial estimate already considered some volatility, this change increases the likelihood of significant rating movements in either direction. However, since the question specifies a positive outcome (1% higher), and Domínguez's current form is a factor, the increased volatility slightly raises the probability of achieving the threshold.",
+      "raw_response": "```json\n{\n  \"updated_probability\": 0.47,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge affects the 'rating_volatility' node, which directly influences 'performance_change' and subsequently the 'outcome'. The increased K-factor means Domínguez's rating will be more sensitive to individual match results, amplifying both positive and negative performance changes. Given that the initial estimate already considered some volatility, this change increases the likelihood of significant rating movements in either direction. However, since the question specifies a positive outcome (1% higher), and Domínguez's current form is a factor, the increased volatility slightly raises the probability of achieving the threshold.\"\n}\n```",
+      "target_id": "rating_volatility",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis by FIDE shows that Leinier Domínguez's K-factor has been increased from 10 to 20 due to his reduced tournament activity in 2024, meaning each match result will now have twice the impact on his Elo rating compared to previous years. This change directly amplifies the effect of wins and losses on his performance_change, making the match_results->performance_change link even stronger than before.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The increase in Leinier Domínguez's K-factor from 10 to 20 significantly strengthens the 'match_results->performance_change' link, amplifying the effect of each match result on his Elo rating. This means that positive results (wins) will now have a larger positive impact on his rating, increasing the likelihood of achieving a 1% increase in Elo rating over the week. However, the overall probability increase is moderated by the uncertainty in his current form, tournament schedule, and opponent strength, which remain unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The increase in Leinier Domínguez's K-factor from 10 to 20 significantly strengthens the 'match_results->performance_change' link, amplifying the effect of each match result on his Elo rating. This means that positive results (wins) will now have a larger positive impact on his rating, increasing the likelihood of achieving a 1% increase in Elo rating over the week. However, the overall probability increase is moderated by the uncertainty in his current form, tournament schedule, and opponent strength, which remain unchanged.\"\n}",
+      "target_id": "match_results->performance_change",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of FIDE rating changes shows that for players with Domínguez's current rating (~2750), a single tournament performance rating that's 100 points above their current rating (easily achievable with a strong performance) would typically result in a rating gain exceeding 1% over a week. Given Domínguez's recent history of occasionally posting +50-100 point tournament performances, this suggests the performance_change->outcome link may be stronger than estimated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the 'performance_change->outcome' link by providing empirical evidence that Domínguez's occasional strong tournament performances can indeed lead to significant rating gains. This affects the causal path by making the outcome more sensitive to positive performance changes, especially given his rating volatility and the potential for high-performance tournaments. The update reflects increased confidence in the likelihood of achieving the 1% rating increase when considering his capability for strong performances.",
+      "raw_response": "```json\n{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the 'performance_change->outcome' link by providing empirical evidence that Domínguez's occasional strong tournament performances can indeed lead to significant rating gains. This affects the causal path by making the outcome more sensitive to positive performance changes, especially given his rating volatility and the potential for high-performance tournaments. The update reflects increased confidence in the likelihood of achieving the 1% rating increase when considering his capability for strong performances.\"\n}\n```",
+      "target_id": "performance_change->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "6f8a3d10d39d69ecbdb10db2fabb66d852af39b95ce1af9f48ce5d9fd0175d87",
+    "question_text": "According to Wikipedia, will Leinier Domínguez have an Elo rating on 2025-12-28 that's at least 1% higher than on 2025-12-21?",
+    "source": "wikipedia",
+    "condition": "one-turn",
+    "initial_probability": 0.42,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.073125,
+    "max_absolute_shift": 0.37
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 4.330357142857145,
+    "mean_shift_high": 0.12125000000000002,
+    "mean_shift_low": 0.02799999999999999,
+    "asymmetry_index": 1.556851311953353,
+    "mean_shift_negate": 0.12714285714285717,
+    "mean_shift_strengthen": 0.08166666666666668,
+    "fnar": 0.25,
+    "n_accepted": 1,
+    "n_spurious": 4,
+    "critical_path_premium": 0.05000000000000002,
+    "mean_shift_on_path": 0.10200000000000002,
+    "mean_shift_off_path": 0.052000000000000005,
+    "importance_sensitivity_correlation": 0.21212121212121215,
+    "control_sensitivity": 0
+  }
+}

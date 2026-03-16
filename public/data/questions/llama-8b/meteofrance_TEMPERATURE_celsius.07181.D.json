@@ -1,0 +1,1164 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07181.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "seasonal_pattern",
+      "description": "Short-term temperature trends influenced by seasonal patterns",
+      "role": "factor"
+    },
+    {
+      "id": "atmospheric_pressure",
+      "description": "Low-pressure systems influencing temperature",
+      "role": "factor"
+    },
+    {
+      "id": "north_atlantic Oscillation",
+      "description": "Long-term climate pattern influencing temperature",
+      "role": "factor"
+    },
+    {
+      "id": "global_warming",
+      "description": "Long-term climate trend influencing temperature",
+      "role": "factor"
+    },
+    {
+      "id": "snow_cover",
+      "description": "Snow cover affecting temperature",
+      "role": "factor"
+    },
+    {
+      "id": "cloud_cover",
+      "description": "Cloud cover influencing temperature",
+      "role": "factor"
+    },
+    {
+      "id": "precipitation_amount",
+      "description": "Precipitation amount affecting temperature",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_outcome",
+      "description": "The forecasted event",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_pattern",
+      "to": "north_atlantic Oscillation",
+      "mechanism": "Seasonal patterns often correlated with NAO"
+    },
+    {
+      "from": "north_atlantic Oscillation",
+      "to": "global_warming",
+      "mechanism": "NAO can influence long-term climate trends"
+    },
+    {
+      "from": "global_warming",
+      "to": "temperature_outcome",
+      "mechanism": "Global warming trend influencing average temperature"
+    },
+    {
+      "from": "seasonal_pattern",
+      "to": "snow_cover",
+      "mechanism": "Seasonal patterns influencing snow cover"
+    },
+    {
+      "from": "snow_cover",
+      "to": "temperature_outcome",
+      "mechanism": "Snow cover affecting temperature"
+    },
+    {
+      "from": "atmospheric_pressure",
+      "to": "cloud_cover",
+      "mechanism": "Low-pressure systems often associated with cloud cover"
+    },
+    {
+      "from": "cloud_cover",
+      "to": "precipitation_amount",
+      "mechanism": "Cloud cover influencing precipitation amount"
+    },
+    {
+      "from": "precipitation_amount",
+      "to": "temperature_outcome",
+      "mechanism": "Precipitation amount affecting temperature"
+    },
+    {
+      "from": "global_warming",
+      "to": "snow_cover",
+      "mechanism": "Global warming influencing snow cover"
+    },
+    {
+      "from": "north_atlantic Oscillation",
+      "to": "atmospheric_pressure",
+      "mechanism": "NAO influencing atmospheric pressure"
+    },
+    {
+      "from": "atmospheric_pressure",
+      "to": "temperature_outcome",
+      "mechanism": "Atmospheric pressure influencing temperature"
+    }
+  ],
+  "reasoning": "The forecasted event is influenced by a combination of short-term and long-term climate patterns, including seasonal trends, atmospheric pressure, and global warming. The North Atlantic Oscillation (NAO) plays a crucial role in influencing these factors, which in turn affect the daily average temperature at Nancy – Ochey Air Base. Considering the time of year (December) and the location, there is a moderate chance that the temperature on 2025-12-28 will be higher than on 2025-12-21 due to changes in snow cover and atmospheric pressure.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 11,
+    "density": 0.1964,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "temperature_outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_pattern",
+        "description": "Short-term temperature trends influenced by seasonal patterns",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0553,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "atmospheric_pressure",
+        "description": "Low-pressure systems influencing temperature",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.1071,
+        "closeness": 0.1905,
+        "pagerank": 0.0888,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "north_atlantic Oscillation",
+        "description": "Long-term climate pattern influencing temperature",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0952,
+        "closeness": 0.1429,
+        "pagerank": 0.0788,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_warming",
+        "description": "Long-term climate trend influencing temperature",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0357,
+        "closeness": 0.1905,
+        "pagerank": 0.0888,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "snow_cover",
+        "description": "Snow cover affecting temperature",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.3214,
+        "pagerank": 0.1166,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "cloud_cover",
+        "description": "Cloud cover influencing temperature",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.2143,
+        "pagerank": 0.0931,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "precipitation_amount",
+        "description": "Precipitation amount affecting temperature",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.2286,
+        "pagerank": 0.1344,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "temperature_outcome",
+        "description": "The forecasted event",
+        "role": "outcome",
+        "in_degree": 4,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.7,
+        "pagerank": 0.3442,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_pattern",
+        "target": "north_atlantic Oscillation",
+        "mechanism": "Seasonal patterns often correlated with NAO",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": false
+      },
+      {
+        "source": "seasonal_pattern",
+        "target": "snow_cover",
+        "mechanism": "Seasonal patterns influencing snow cover",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "atmospheric_pressure",
+        "target": "cloud_cover",
+        "mechanism": "Low-pressure systems often associated with cloud cover",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": false
+      },
+      {
+        "source": "atmospheric_pressure",
+        "target": "temperature_outcome",
+        "mechanism": "Atmospheric pressure influencing temperature",
+        "edge_betweenness": 0.0268,
+        "on_critical_path": true
+      },
+      {
+        "source": "north_atlantic Oscillation",
+        "target": "global_warming",
+        "mechanism": "NAO can influence long-term climate trends",
+        "edge_betweenness": 0.0625,
+        "on_critical_path": true
+      },
+      {
+        "source": "north_atlantic Oscillation",
+        "target": "atmospheric_pressure",
+        "mechanism": "NAO influencing atmospheric pressure",
+        "edge_betweenness": 0.1161,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_warming",
+        "target": "temperature_outcome",
+        "mechanism": "Global warming trend influencing average temperature",
+        "edge_betweenness": 0.0268,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_warming",
+        "target": "snow_cover",
+        "mechanism": "Global warming influencing snow cover",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "snow_cover",
+        "target": "temperature_outcome",
+        "mechanism": "Snow cover affecting temperature",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "cloud_cover",
+        "target": "precipitation_amount",
+        "mechanism": "Cloud cover influencing precipitation amount",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": true
+      },
+      {
+        "source": "precipitation_amount",
+        "target": "temperature_outcome",
+        "mechanism": "Precipitation amount affecting temperature",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_pressure",
+        "description": "Low-pressure systems influencing temperature",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "north_atlantic Oscillation",
+        "description": "Long-term climate pattern influencing temperature",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_warming",
+        "description": "Long-term climate trend influencing temperature",
+        "importance": 0.0357,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_pattern",
+        "description": "Short-term temperature trends influenced by seasonal patterns",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_pressure",
+        "description": "Low-pressure systems influencing temperature",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "north_atlantic Oscillation",
+        "description": "Long-term climate pattern influencing temperature",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+        "description": "NAO influencing atmospheric pressure",
+        "importance": 0.1161,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "cloud_cover->precipitation_amount",
+        "description": "Cloud cover influencing precipitation amount",
+        "importance": 0.0893,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atmospheric_pressure->cloud_cover",
+        "description": "Low-pressure systems often associated with cloud cover",
+        "importance": 0.1071,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+        "description": "NAO influencing atmospheric pressure",
+        "importance": 0.1161,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "precipitation_amount->snow_cover",
+        "description": "Potential link: Precipitation amount affecting temperature -> Snow cover affecting temperature",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "precipitation_amount->atmospheric_pressure",
+        "description": "Potential link: Precipitation amount affecting temperature -> Low-pressure systems influencing temperature",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_pressure",
+      "description": "Low-pressure systems influencing temperature",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "north_atlantic Oscillation",
+      "description": "Long-term climate pattern influencing temperature",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_warming",
+      "description": "Long-term climate trend influencing temperature",
+      "importance": 0.0357,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_pattern",
+      "description": "Short-term temperature trends influenced by seasonal patterns",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_pressure",
+      "description": "Low-pressure systems influencing temperature",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "north_atlantic Oscillation",
+      "description": "Long-term climate pattern influencing temperature",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "description": "NAO influencing atmospheric pressure",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "cloud_cover->precipitation_amount",
+      "description": "Cloud cover influencing precipitation amount",
+      "importance": 0.0893,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atmospheric_pressure->cloud_cover",
+      "description": "Low-pressure systems often associated with cloud cover",
+      "importance": 0.1071,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "description": "NAO influencing atmospheric pressure",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "precipitation_amount->snow_cover",
+      "description": "Potential link: Precipitation amount affecting temperature -> Snow cover affecting temperature",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "precipitation_amount->atmospheric_pressure",
+      "description": "Potential link: Precipitation amount affecting temperature -> Low-pressure systems influencing temperature",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if low-pressure systems are actually associated with warming rather than cooling, contradicting historical climate patterns and challenging our understanding of atmospheric dynamics in the region? This could be due to a shift in the jet stream, leading to an increase in westerly winds that bring warmer air from the southwest.",
+      "probe_type": "node_negate_high",
+      "target_id": "atmospheric_pressure",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Low-pressure systems influencing temperature"
+    },
+    {
+      "probe_text": "Given recent research suggesting that the North Atlantic Oscillation's impact on European climate patterns is overstated, what if we assumed that NAO has no significant effect on temperature trends in the region? Might this reduce the probability of higher temperatures on 2025-12-28 compared to 2025-12-21?",
+      "probe_type": "node_negate_high",
+      "target_id": "north_atlantic Oscillation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Long-term climate pattern influencing temperature"
+    },
+    {
+      "probe_text": "Recent research suggests that the recent Arctic sea ice rebound, which has been attributed to natural climate variability, may be a significant counterbalance to global warming trends. If this trend continues, what effect would it have on your forecast for the daily average temperature at Nancy - Ochey Air Base on December 28th?",
+      "probe_type": "node_negate_medium",
+      "target_id": "global_warming",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0357,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Long-term climate trend influencing temperature"
+    },
+    {
+      "probe_text": "You have been informed that a strong cold front will pass through Eastern France in the 8 days leading up to 2025-12-21, which would typically lead to a rapid decline in temperature. However, due to an unusual high-pressure system, the cold front has been diverted around Eastern France, eliminating the typical seasonal cooling trend. How would this new information affect your forecast for the temperature difference between 2025-12-28 and 2025-12-21?",
+      "probe_type": "node_negate_low",
+      "target_id": "seasonal_pattern",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Short-term temperature trends influenced by seasonal patterns"
+    },
+    {
+      "probe_text": "Recent studies by a team of meteorologists from the European Centre for Medium-Range Weather Forecasts (ECMWF) found a significant correlation between low-pressure systems and temperature variations in the region surrounding Nancy – Ochey Air Base. Their research used advanced atmospheric circulation modeling to isolate the impact of low-pressure systems on temperature patterns, demonstrating a strong statistical association between these two variables. This study provides robust empirical evidence supporting the causal link between atmospheric pressure and temperature, making it a valuable addition to the forecaster's causal model.",
+      "probe_type": "node_strengthen",
+      "target_id": "atmospheric_pressure",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Low-pressure systems influencing temperature"
+    },
+    {
+      "probe_text": "A recent study published in the Journal of Climate Dynamics has found a strong correlation between the North Atlantic Oscillation (NAO) and European temperature patterns during the winter months, with a specific case study highlighting a 3.4°C temperature difference between NAO-positive and NAO-negative winters in the region.",
+      "probe_type": "node_strengthen",
+      "target_id": "north_atlantic Oscillation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Long-term climate pattern influencing temperature"
+    },
+    {
+      "probe_text": "Recent research suggests that the relationship between the North Atlantic Oscillation (NAO) and atmospheric pressure has been overstated, particularly during periods of extreme weather. Studies have shown that other atmospheric circulation patterns, such as the Arctic Oscillation, may be more influential in shaping atmospheric pressure trends than previously thought. Specifically, the 2024-2025 winter season saw a strong Arctic Oscillation pattern dominate the region, resulting in near-normal atmospheric pressure conditions despite the expected influence of the NAO.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "NAO influencing atmospheric pressure"
+    },
+    {
+      "probe_text": "A recent study published in the Journal of Climate Dynamics found that the correlation between cloud cover and precipitation amount in the region surrounding Nancy – Ochey Air Base is largely driven by the presence of a large industrial complex that consistently generates high levels of particulate matter, which in turn attract cloud-forming aerosols, leading to increased precipitation. However, if the industrial complex were to cease operations, would the relationship between cloud cover and precipitation amount remain the same?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "cloud_cover->precipitation_amount",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0893,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Cloud cover influencing precipitation amount"
+    },
+    {
+      "probe_text": "A recent study published in the Journal of Atmospheric Science found that there is no significant correlation between low-pressure systems and cloud cover during the winter months in the region of Nancy – Ochey Air Base. The research suggests that the relationship between atmospheric pressure and cloud cover is more complex and influenced by other factors such as the angle of the sun and the presence of wind shear.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "atmospheric_pressure->cloud_cover",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Low-pressure systems often associated with cloud cover"
+    },
+    {
+      "probe_text": "The forecaster should re-evaluate their causal model in light of the fact that research suggests that certain low-pressure systems often associated with atmospheric pressure fluctuations have been linked to increased cloud cover, which may be correlated with increased North Atlantic Oscillation activity. Investigate how changes in atmospheric pressure could potentially drive fluctuations in the North Atlantic Oscillation, rather than the other way around.",
+      "probe_type": "edge_reverse",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "NAO influencing atmospheric pressure"
+    },
+    {
+      "probe_text": "Consider a scenario where heavy precipitation on 2025-12-21 leads to a slow melting of snow cover, and by 2025-12-28, the snow cover is still present, affecting the daily average temperature. This would imply that high precipitation on 2025-12-21 is positively correlated with low snow cover on 2025-12-28, which in turn is negatively correlated with the daily average temperature on the same day. Can you update your probability that the daily average temperature on 2025-12-28 will be higher than that on 2025-12-21, given this new information?",
+      "probe_type": "edge_spurious",
+      "target_id": "precipitation_amount->snow_cover",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Precipitation amount affecting temperature -> Snow cover affecting temperature"
+    },
+    {
+      "probe_text": "Consider what happens when a prolonged period of heavy precipitation in the region leads to prolonged soil saturation. This saturation can weaken the foundation of buildings and infrastructure, increasing the likelihood of structural damage due to increased water pressure. In turn, this damage can lead to flooding in low-lying areas, further increasing precipitation in some areas and reducing it in others. How does the forecaster update their estimate of the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21, given this new information about the relationship between precipitation and atmospheric pressure?",
+      "probe_type": "edge_spurious",
+      "target_id": "precipitation_amount->atmospheric_pressure",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Precipitation amount affecting temperature -> Low-pressure systems influencing temperature"
+    },
+    {
+      "probe_text": "A severe cold front is forecasted to move through the region between 2025-12-21 and 2025-12-28, potentially bringing significant cold air from the Arctic. This cold front could disrupt the normal seasonal pattern and have a direct impact on the temperature outcome. The forecaster should consider the causal link between cold fronts and temperature trends.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Will the temperature at the French weather station at Nancy – Ochey Air Base be higher on 2025-12-28 than on 2025-12-21, assuming a strong, prolonged high-pressure system develops over Western Europe during the week leading up to December 21st and persists through December 28th, potentially leading to increased cloud cover, reduced precipitation, and lingering anticyclonic conditions that warm the region by December 28th compared to December 21st.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "There is a new trend among young people in Nancy to carry colorful umbrellas as a fashion statement, which is expected to peak in popularity around the winter solstice.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "There will be a total solar eclipse visible from Nancy on 2025-12-21, which is 7 days before the temperature comparison date. This event is expected to have a negligible impact on the regional climate patterns.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if low-pressure systems are actually associated with warming rather than cooling, contradicting historical climate patterns and challenging our understanding of atmospheric dynamics in the region? This could be due to a shift in the jet stream, leading to an increase in westerly winds that bring warmer air from the southwest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'atmospheric_pressure' suggests that low-pressure systems may be associated with warming rather than cooling. This affects the causal paths leading to the outcome through the edge 'atmospheric_pressure -> cloud_cover'. Since cloud cover was previously influencing temperature to some extent, this change implies that cloud cover may also be associated with warming. Consequently, the path 'cloud_cover -> precipitation_amount' and subsequently 'precipitation_amount -> temperature_outcome' may also contribute to a warmer event. I have increased the probability estimate to 0.85 as the challenged element is structurally important to our reasoning. The changed dynamics in the jet stream and the resulting increase in westerly winds may indeed bring warmer air from the southwest, supporting the increased probability of a warmer event.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'atmospheric_pressure' suggests that low-pressure systems may be associated with warming rather than cooling. This affects the causal paths leading to the outcome through the edge 'atmospheric_pressure -> cloud_cover'. Since cloud cover was previously influencing temperature to some extent, this change implies that cloud cover may also be associated with warming. Consequently, the path 'cloud_cover -> precipitation_amount' and subsequently 'precipitation_amount -> temperature_outcome' may also contribute to a warmer event. I have increased the probability estimate to 0.85 as the challenged element is structurally important to our reasoning. The changed dynamics in the jet stream and the resulting increase in westerly winds may indeed bring warmer air from the southwest, supporting the increased probability of a warmer event.\"\n}",
+      "target_id": "atmospheric_pressure",
+      "target_type": "node",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Given recent research suggesting that the North Atlantic Oscillation's impact on European climate patterns is overstated, what if we assumed that NAO has no significant effect on temperature trends in the region? Might this reduce the probability of higher temperatures on 2025-12-28 compared to 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to NAO's effect on temperature trends in Europe reduces the causal influence of global warming on the temperature outcome. This, in turn, decreases the probability of higher temperatures on 2025-12-28 compared to 2025-12-21. Furthermore, the influence of snow cover on temperature is also diminished, as NAO's connection to snow cover is disrupted. However, the removal of NAO's influence on atmospheric pressure and cloud cover results in a relatively moderate adjustment to the overall probability estimate, considering the residual effects of other causal factors.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to NAO's effect on temperature trends in Europe reduces the causal influence of global warming on the temperature outcome. This, in turn, decreases the probability of higher temperatures on 2025-12-28 compared to 2025-12-21. Furthermore, the influence of snow cover on temperature is also diminished, as NAO's connection to snow cover is disrupted. However, the removal of NAO's influence on atmospheric pressure and cloud cover results in a relatively moderate adjustment to the overall probability estimate, considering the residual effects of other causal factors.\"\n}",
+      "target_id": "north_atlantic Oscillation",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that the recent Arctic sea ice rebound, which has been attributed to natural climate variability, may be a significant counterbalance to global warming trends. If this trend continues, what effect would it have on your forecast for the daily average temperature at Nancy - Ochey Air Base on December 28th?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to global warming as a causal factor affects the causal path global_warming -> temperature_outcome. Given the recent research suggesting that the Arctic sea ice rebound may be a significant counterbalance to global warming trends, I am reducing the influence of global warming on the forecast. This, in turn, reduces the likelihood of a warmer temperature on December 28th compared to December 21st. The causal paths seasonal_pattern -> snow_cover -> temperature_outcome and atmospheric_pressure -> cloud_cover -> precipitation_amount -> temperature_outcome remain unaffected, as they are less directly influenced by global warming. As a result, I am decreasing my probability estimate from 0.62 to 0.53.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to global warming as a causal factor affects the causal path global_warming -> temperature_outcome. Given the recent research suggesting that the Arctic sea ice rebound may be a significant counterbalance to global warming trends, I am reducing the influence of global warming on the forecast. This, in turn, reduces the likelihood of a warmer temperature on December 28th compared to December 21st. The causal paths seasonal_pattern -> snow_cover -> temperature_outcome and atmospheric_pressure -> cloud_cover -> precipitation_amount -> temperature_outcome remain unaffected, as they are less directly influenced by global warming. As a result, I am decreasing my probability estimate from 0.62 to 0.53.\"\n}",
+      "target_id": "global_warming",
+      "target_type": "node",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "You have been informed that a strong cold front will pass through Eastern France in the 8 days leading up to 2025-12-21, which would typically lead to a rapid decline in temperature. However, due to an unusual high-pressure system, the cold front has been diverted around Eastern France, eliminating the typical seasonal cooling trend. How would this new information affect your forecast for the temperature difference between 2025-12-28 and 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'seasonal_pattern' significantly impacts the causal paths leading to the outcome. The strong cold front and subsequent high-pressure system diversion typically result in a more rapid cooling trend. However, this cooling trend is now absent, which means the temperature difference between 2025-12-28 and 2025-12-21 is less likely to be influenced by the typical seasonal cooling pattern. As a result, I expect the temperature to be higher on 2025-12-28 compared to 2025-12-21, as the global warming trend and other factors will have a more significant impact on the temperature difference. I update my forecast probability from 0.62 to 0.85, as the absence of the typical seasonal cooling trend increases the likelihood of a higher temperature on 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'seasonal_pattern' significantly impacts the causal paths leading to the outcome. The strong cold front and subsequent high-pressure system diversion typically result in a more rapid cooling trend. However, this cooling trend is now absent, which means the temperature difference between 2025-12-28 and 2025-12-21 is less likely to be influenced by the typical seasonal cooling pattern. As a result, I expect the temperature to be higher on 2025-12-28 compared to 2025-12-21, as the global warming trend and other factors will have a more significant impact on the temperature difference. I update my forecast probability from 0.62 to 0.85, as the absence of the typical seasonal cooling trend increases the likelihood of a higher temperature on 2025-12-28.\"\n}",
+      "target_id": "seasonal_pattern",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent studies by a team of meteorologists from the European Centre for Medium-Range Weather Forecasts (ECMWF) found a significant correlation between low-pressure systems and temperature variations in the region surrounding Nancy – Ochey Air Base. Their research used advanced atmospheric circulation modeling to isolate the impact of low-pressure systems on temperature patterns, demonstrating a strong statistical association between these two variables. This study provides robust empirical evidence supporting the causal link between atmospheric pressure and temperature, making it a valuable addition to the forecaster's causal model.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between atmospheric_pressure and temperature_outcome. This enhances the influence of low-pressure systems on temperature variations, leading to a higher likelihood of warmer temperatures on 2025-12-28 compared to 2025-12-21. The updated causal network solidifies the connection between atmospheric pressure and temperature, making it a more confident prediction. The direct causal link from atmospheric_pressure to temperature_outcome is now more robust, increasing the probability of a warmer temperature on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between atmospheric_pressure and temperature_outcome. This enhances the influence of low-pressure systems on temperature variations, leading to a higher likelihood of warmer temperatures on 2025-12-28 compared to 2025-12-21. The updated causal network solidifies the connection between atmospheric pressure and temperature, making it a more confident prediction. The direct causal link from atmospheric_pressure to temperature_outcome is now more robust, increasing the probability of a warmer temperature on the later date.\"\n}",
+      "target_id": "atmospheric_pressure",
+      "target_type": "node",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Climate Dynamics has found a strong correlation between the North Atlantic Oscillation (NAO) and European temperature patterns during the winter months, with a specific case study highlighting a 3.4°C temperature difference between NAO-positive and NAO-negative winters in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The recent study strengthening the correlation between NAO and European temperature patterns has weakened the uncertainty associated with the causal link between NAO and global warming. This has reduced the likelihood of a stronger global warming trend influencing the temperature outcome, and subsequently decreased the probability of higher temperatures on December 28th compared to December 21st.",
+      "raw_response": "{\"updated_probability\": 0.55, \"shift_direction\": \"decreased\", \"reasoning\": \"The recent study strengthening the correlation between NAO and European temperature patterns has weakened the uncertainty associated with the causal link between NAO and global warming. This has reduced the likelihood of a stronger global warming trend influencing the temperature outcome, and subsequently decreased the probability of higher temperatures on December 28th compared to December 21st.\"}",
+      "target_id": "north_atlantic Oscillation",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that the relationship between the North Atlantic Oscillation (NAO) and atmospheric pressure has been overstated, particularly during periods of extreme weather. Studies have shown that other atmospheric circulation patterns, such as the Arctic Oscillation, may be more influential in shaping atmospheric pressure trends than previously thought. Specifically, the 2024-2025 winter season saw a strong Arctic Oscillation pattern dominate the region, resulting in near-normal atmospheric pressure conditions despite the expected influence of the NAO.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'north_atlantic Oscillation->atmospheric_pressure' reduces the strength of the causal path from 'north_atlantic Oscillation' to 'temperature_outcome' through 'atmospheric_pressure'. Although this link was already not the primary path, it contributed to a moderate increase in the probability of the outcome. Given the overstated relationship between the NAO and atmospheric pressure, particularly during periods of extreme weather, the influence of the NAO on atmospheric pressure is diminished. Consequently, the overall probability of the outcome decreases as the remaining causal paths are less certain. A strong Arctic Oscillation pattern during the 2024-2025 winter season also supports this reasoning, as it led to near-normal atmospheric pressure conditions despite the expected influence of the NAO.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'north_atlantic Oscillation->atmospheric_pressure' reduces the strength of the causal path from 'north_atlantic Oscillation' to 'temperature_outcome' through 'atmospheric_pressure'. Although this link was already not the primary path, it contributed to a moderate increase in the probability of the outcome. Given the overstated relationship between the NAO and atmospheric pressure, particularly during periods of extreme weather, the influence of the NAO on atmospheric pressure is diminished. Consequently, the overall probability of the outcome decreases as the remaining causal paths are less certain. A strong Arctic Oscillation pattern during the 2024-2025 winter season also supports this reasoning, as it led to near-normal atmospheric pressure conditions despite the expected influence of the NAO.\"\n}",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "target_type": "edge",
+      "target_importance": 0.1161,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Climate Dynamics found that the correlation between cloud cover and precipitation amount in the region surrounding Nancy – Ochey Air Base is largely driven by the presence of a large industrial complex that consistently generates high levels of particulate matter, which in turn attract cloud-forming aerosols, leading to increased precipitation. However, if the industrial complex were to cease operations, would the relationship between cloud cover and precipitation amount remain the same?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'cloud_cover->precipitation_amount' affects the causal paths leading to the outcome by potentially breaking the connection between cloud cover and precipitation amount. This relationship was previously considered when estimating the probability of higher temperatures on 2025-12-28 compared to 2025-12-21. However, if the industrial complex were to cease operations, the relationship between cloud cover and precipitation amount may not remain the same, which would reduce the influence of cloud cover on precipitation amount. Consequently, the total effect of this path on the outcome is diminished, leading to a decreased probability of higher temperatures on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'cloud_cover->precipitation_amount' affects the causal paths leading to the outcome by potentially breaking the connection between cloud cover and precipitation amount. This relationship was previously considered when estimating the probability of higher temperatures on 2025-12-28 compared to 2025-12-21. However, if the industrial complex were to cease operations, the relationship between cloud cover and precipitation amount may not remain the same, which would reduce the influence of cloud cover on precipitation amount. Consequently, the total effect of this path on the outcome is diminished, leading to a decreased probability of higher temperatures on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "cloud_cover->precipitation_amount",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Atmospheric Science found that there is no significant correlation between low-pressure systems and cloud cover during the winter months in the region of Nancy – Ochey Air Base. The research suggests that the relationship between atmospheric pressure and cloud cover is more complex and influenced by other factors such as the angle of the sun and the presence of wind shear.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'atmospheric_pressure->cloud_cover' affects a critical causal path leading to the outcome. The relationship between atmospheric pressure and cloud cover is an important factor in predicting precipitation amount and subsequently temperature. However, with this challenge, the influence of atmospheric pressure on cloud cover, and subsequently on precipitation amount, is reduced. This breaks a key link in the causal chain. As a result, I have decreased my estimate of the probability of the temperature being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'atmospheric_pressure->cloud_cover' affects a critical causal path leading to the outcome. The relationship between atmospheric pressure and cloud cover is an important factor in predicting precipitation amount and subsequently temperature. However, with this challenge, the influence of atmospheric pressure on cloud cover, and subsequently on precipitation amount, is reduced. This breaks a key link in the causal chain. As a result, I have decreased my estimate of the probability of the temperature being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "atmospheric_pressure->cloud_cover",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "The forecaster should re-evaluate their causal model in light of the fact that research suggests that certain low-pressure systems often associated with atmospheric pressure fluctuations have been linked to increased cloud cover, which may be correlated with increased North Atlantic Oscillation activity. Investigate how changes in atmospheric pressure could potentially drive fluctuations in the North Atlantic Oscillation, rather than the other way around.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'north_atlantic Oscillation->atmospheric_pressure' suggests that atmospheric pressure fluctuations may drive fluctuations in the North Atlantic Oscillation, rather than the other way around. This changes the causal path from 'seasonal_pattern' to 'temperature_outcome' via 'north_atlantic Oscillation' and 'global_warming'. The link between 'seasonal_pattern' and 'north_atlantic Oscillation' becomes less direct, and the influence of 'seasonal_pattern' on 'temperature_outcome' is reduced. Additionally, the link between 'atmospheric_pressure' and 'temperature_outcome' becomes more direct, as it is now a potential driver of 'temperature_outcome'. This reduces the overall influence of 'seasonal_pattern' and 'north_atlantic Oscillation' on 'temperature_outcome', leading to a decrease in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'north_atlantic Oscillation->atmospheric_pressure' suggests that atmospheric pressure fluctuations may drive fluctuations in the North Atlantic Oscillation, rather than the other way around. This changes the causal path from 'seasonal_pattern' to 'temperature_outcome' via 'north_atlantic Oscillation' and 'global_warming'. The link between 'seasonal_pattern' and 'north_atlantic Oscillation' becomes less direct, and the influence of 'seasonal_pattern' on 'temperature_outcome' is reduced. Additionally, the link between 'atmospheric_pressure' and 'temperature_outcome' becomes more direct, as it is now a potential driver of 'temperature_outcome'. This reduces the overall influence of 'seasonal_pattern' and 'north_atlantic Oscillation' on 'temperature_outcome', leading to a decrease in the estimated probability.\"\n}",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "target_type": "edge",
+      "target_importance": 0.1161,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where heavy precipitation on 2025-12-21 leads to a slow melting of snow cover, and by 2025-12-28, the snow cover is still present, affecting the daily average temperature. This would imply that high precipitation on 2025-12-21 is positively correlated with low snow cover on 2025-12-28, which in turn is negatively correlated with the daily average temperature on the same day. Can you update your probability that the daily average temperature on 2025-12-28 will be higher than that on 2025-12-21, given this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.78,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The causal link 'precipitation_amount -> snow_cover' has been challenged. This link is part of the causal path from precipitation_amount to temperature_outcome, and from precipitation_amount to snow_cover affecting temperature_outcome. The challenge suggests that high precipitation on 2025-12-21 leads to a slow melting of snow cover, resulting in snow cover still being present on 2025-12-28 and affecting the daily average temperature. This challenges the effectiveness of precipitation_amount in the causal network. As a result, I update my estimate as the causal path from precipitation_amount to temperature_outcome is weakened. The remaining causal paths, e.g., seasonal_pattern -> snow_cover -> temperature_outcome and global_warming -> snow_cover -> temperature_outcome, still contribute to the outcome. However, the updated probability reflects a decreased confidence in the forecast due to the weakened causal link.",
+      "raw_response": "{\n  \"updated_probability\": 0.78,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The causal link 'precipitation_amount -> snow_cover' has been challenged. This link is part of the causal path from precipitation_amount to temperature_outcome, and from precipitation_amount to snow_cover affecting temperature_outcome. The challenge suggests that high precipitation on 2025-12-21 leads to a slow melting of snow cover, resulting in snow cover still being present on 2025-12-28 and affecting the daily average temperature. This challenges the effectiveness of precipitation_amount in the causal network. As a result, I update my estimate as the causal path from precipitation_amount to temperature_outcome is weakened. The remaining causal paths, e.g., seasonal_pattern -> snow_cover -> temperature_outcome and global_warming -> snow_cover -> temperature_outcome, still contribute to the outcome. However, the updated probability reflects a decreased confidence in the forecast due to the weakened causal link.\"\n}",
+      "target_id": "precipitation_amount->snow_cover",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider what happens when a prolonged period of heavy precipitation in the region leads to prolonged soil saturation. This saturation can weaken the foundation of buildings and infrastructure, increasing the likelihood of structural damage due to increased water pressure. In turn, this damage can lead to flooding in low-lying areas, further increasing precipitation in some areas and reducing it in others. How does the forecaster update their estimate of the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21, given this new information about the relationship between precipitation and atmospheric pressure?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'precipitation_amount->atmospheric_pressure' suggests a complex, self-reinforcing feedback loop between precipitation and atmospheric pressure. This challenges our initial assumption that precipitation amount directly influences atmospheric pressure. As a result, we must reassess the causal path from precipitation amount to temperature outcome, which is now more uncertain. The decrease in probability reflects this increased uncertainty, as the direct influence of precipitation on atmospheric pressure is no longer a straightforward causal link. We can still rely on other paths, such as the seasonal pattern influencing snow cover and atmospheric pressure, but the weakening of this link decreases our confidence in the temperature outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'precipitation_amount->atmospheric_pressure' suggests a complex, self-reinforcing feedback loop between precipitation and atmospheric pressure. This challenges our initial assumption that precipitation amount directly influences atmospheric pressure. As a result, we must reassess the causal path from precipitation amount to temperature outcome, which is now more uncertain. The decrease in probability reflects this increased uncertainty, as the direct influence of precipitation on atmospheric pressure is no longer a straightforward causal link. We can still rely on other paths, such as the seasonal pattern influencing snow cover and atmospheric pressure, but the weakening of this link decreases our confidence in the temperature outcome.\"\n}",
+      "target_id": "precipitation_amount->atmospheric_pressure",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A severe cold front is forecasted to move through the region between 2025-12-21 and 2025-12-28, potentially bringing significant cold air from the Arctic. This cold front could disrupt the normal seasonal pattern and have a direct impact on the temperature outcome. The forecaster should consider the causal link between cold fronts and temperature trends.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.47,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The forecasted severe cold front significantly challenges the causal paths leading to the outcome. The direct impact of the cold front on temperature trends, potentially disrupting the normal seasonal pattern, suggests that the probability of higher temperatures on 2025-12-28 compared to 2025-12-21 has decreased. This is because the cold front's influence on atmospheric pressure and cloud cover could lead to increased precipitation and colder temperatures, countering the expected warmer temperatures due to the later date in the season. The causal link between cold fronts and temperature trends has strengthened, making the challenged element structurally important to our reasoning. As a result, I have updated my probability estimate to reflect this increased uncertainty and potential for colder temperatures.",
+      "raw_response": "{\n  \"updated_probability\": 0.47,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The forecasted severe cold front significantly challenges the causal paths leading to the outcome. The direct impact of the cold front on temperature trends, potentially disrupting the normal seasonal pattern, suggests that the probability of higher temperatures on 2025-12-28 compared to 2025-12-21 has decreased. This is because the cold front's influence on atmospheric pressure and cloud cover could lead to increased precipitation and colder temperatures, countering the expected warmer temperatures due to the later date in the season. The causal link between cold fronts and temperature trends has strengthened, making the challenged element structurally important to our reasoning. As a result, I have updated my probability estimate to reflect this increased uncertainty and potential for colder temperatures.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Will the temperature at the French weather station at Nancy – Ochey Air Base be higher on 2025-12-28 than on 2025-12-21, assuming a strong, prolonged high-pressure system develops over Western Europe during the week leading up to December 21st and persists through December 28th, potentially leading to increased cloud cover, reduced precipitation, and lingering anticyclonic conditions that warm the region by December 28th compared to December 21st.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The prolonged high-pressure system would directly affect the causal paths involving atmospheric_pressure -> cloud_cover and cloud_cover -> precipitation_amount, leading to reduced cloud cover and precipitation. This, in turn, would reduce the cooling effect of clouds and precipitation on temperature, making the temperature outcome more likely to be higher on 2025-12-28 compared to 2025-12-21. Additionally, the anticyclonic conditions associated with high-pressure systems can warm the region, directly influencing the temperature outcome. This new information strengthens the causal link between atmospheric_pressure and temperature_outcome, leading to an increase in the probability of the forecasted event.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The prolonged high-pressure system would directly affect the causal paths involving atmospheric_pressure -> cloud_cover and cloud_cover -> precipitation_amount, leading to reduced cloud cover and precipitation. This, in turn, would reduce the cooling effect of clouds and precipitation on temperature, making the temperature outcome more likely to be higher on 2025-12-28 compared to 2025-12-21. Additionally, the anticyclonic conditions associated with high-pressure systems can warm the region, directly influencing the temperature outcome. This new information strengthens the causal link between atmospheric_pressure and temperature_outcome, leading to an increase in the probability of the forecasted event.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "There is a new trend among young people in Nancy to carry colorful umbrellas as a fashion statement, which is expected to peak in popularity around the winter solstice.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of colorful umbrellas as a fashion statement among young people in Nancy is expected to peak around the winter solstice, which may lead to increased cloud cover as people carry these umbrellas on rainy days. This could potentially disrupt the causal path from atmospheric_pressure to cloud_cover, making it more difficult to accurately forecast cloud cover and precipitation amount. As a result, my estimate for the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21 has decreased from 0.62 to 0.58. ",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of colorful umbrellas as a fashion statement among young people in Nancy is expected to peak around the winter solstice, which may lead to increased cloud cover as people carry these umbrellas on rainy days. This could potentially disrupt the causal path from atmospheric_pressure to cloud_cover, making it more difficult to accurately forecast cloud cover and precipitation amount. As a result, my estimate for the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21 has decreased from 0.62 to 0.58. \"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "There will be a total solar eclipse visible from Nancy on 2025-12-21, which is 7 days before the temperature comparison date. This event is expected to have a negligible impact on the regional climate patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The total solar eclipse on 2025-12-21 is expected to have a negligible impact on regional climate patterns. However, the eclipse could potentially affect the atmospheric conditions on the day of the eclipse, which might influence the atmospheric pressure. Given that the atmospheric pressure is a causal link to the temperature outcome, I need to reassess the impact of the eclipse on this path. Although the eclipse's effect is expected to be negligible, it still introduces some uncertainty. As a result, I am decreasing my initial estimate of 0.62 to 0.57, as the eclipse's potential influence on atmospheric pressure might lead to a slightly cooler temperature on 2025-12-21 compared to the initial forecast.",
+      "raw_response": "{\n  \"updated_probability\": 0.57,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The total solar eclipse on 2025-12-21 is expected to have a negligible impact on regional climate patterns. However, the eclipse could potentially affect the atmospheric conditions on the day of the eclipse, which might influence the atmospheric pressure. Given that the atmospheric pressure is a causal link to the temperature outcome, I need to reassess the impact of the eclipse on this path. Although the eclipse's effect is expected to be negligible, it still introduces some uncertainty. As a result, I am decreasing my initial estimate of 0.62 to 0.57, as the eclipse's potential influence on atmospheric pressure might lead to a slightly cooler temperature on 2025-12-21 compared to the initial forecast.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the European region, including Nancy, has experienced a 2°C increase in average temperature over the past 30 years, which is significantly higher than the global average. Furthermore, satellite data has revealed a 15% decline in Arctic sea ice coverage over the same period, leading to a corresponding increase in ocean heat transport to the Northern Hemisphere. This warming trend is also consistent with the observed 10% decrease in snow cover days in the French Alps during the same period, suggesting a link between global warming and changes in regional climate patterns. A new report from the Intergovernmental Panel on Climate Change (IPCC) has also highlighted the importance of global warming in driving temperature increases in mid-latitude regions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'global_warming' has strengthened the causal paths leading to the outcome. Specifically, the new evidence has increased the confidence in the link between global warming and temperature increases in mid-latitude regions. This has reinforced the causal path 'global_warming -> temperature_outcome', making it more likely that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21. Additionally, the increased confidence in the link between global warming and changes in regional climate patterns has also strengthened the causal path 'global_warming -> snow_cover', which in turn affects the temperature outcome. As a result, I have increased the probability estimate to 0.71.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'global_warming' has strengthened the causal paths leading to the outcome. Specifically, the new evidence has increased the confidence in the link between global warming and temperature increases in mid-latitude regions. This has reinforced the causal path 'global_warming -> temperature_outcome', making it more likely that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21. Additionally, the increased confidence in the link between global warming and changes in regional climate patterns has also strengthened the causal path 'global_warming -> snow_cover', which in turn affects the temperature outcome. As a result, I have increased the probability estimate to 0.71.\"\n}",
+      "target_id": "global_warming",
+      "target_type": "node",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "It has been observed that the daily average temperature at the French weather station at Nancy – Ochey Air Base tends to follow a consistent pattern of increase and decrease over the course of a year, with temperatures typically peaking in July and bottoming out in February. This seasonality is consistent with the broader European temperature patterns, and experts agree that it is a reliable indicator of short-term temperature trends. The recent data shows that the current date of 2025-12-21 is during the winter season, which is typically characterized by lower temperatures than the summer months. This suggests that the seasonal pattern is likely to be a major contributor to the temperature outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal factor 'seasonal_pattern' suggests that it is a major contributor to the temperature outcome. This strengthens the causal paths from 'seasonal_pattern' to 'temperature_outcome' through 'snow_cover' and 'global_warming'. As a result, I update my probability estimate upward, as the seasonality of temperatures is expected to contribute to a higher temperature on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal factor 'seasonal_pattern' suggests that it is a major contributor to the temperature outcome. This strengthens the causal paths from 'seasonal_pattern' to 'temperature_outcome' through 'snow_cover' and 'global_warming'. As a result, I update my probability estimate upward, as the seasonality of temperatures is expected to contribute to a higher temperature on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "seasonal_pattern",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in the Journal of Climate Dynamics (2022) found a statistically significant correlation between North Atlantic Oscillation (NAO) indices and low-pressure system frequencies over the European region, including the area surrounding the Nancy – Ochey Air Base. This suggests that the NAO's influence on atmospheric pressure is more direct and pronounced than previously thought, and may be a key driver of temperature fluctuations in the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The recent study strengthens the causal link between North Atlantic Oscillation (NAO) and atmospheric pressure, which in turn influences temperature. This makes the NAO a more direct influencer of temperature fluctuations in the region, including the area surrounding the Nancy – Ochey Air Base. With a more direct and pronounced influence of NAO on atmospheric pressure, we can expect a stronger correlation between NAO and temperature outcomes. As a result, the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21 decreases slightly from our initial estimate of 0.62 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n   \"shift_direction\": \"decreased\",\n   \"reasoning\": \"The recent study strengthens the causal link between North Atlantic Oscillation (NAO) and atmospheric pressure, which in turn influences temperature. This makes the NAO a more direct influencer of temperature fluctuations in the region, including the area surrounding the Nancy – Ochey Air Base. With a more direct and pronounced influence of NAO on atmospheric pressure, we can expect a stronger correlation between NAO and temperature outcomes. As a result, the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21 decreases slightly from our initial estimate of 0.62 to 0.58.\"\n}",
+      "target_id": "north_atlantic Oscillation->atmospheric_pressure",
+      "target_type": "edge",
+      "target_importance": 0.1161,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Consider a severe thunderstorm event on 2025-12-28 at the French weather station at Nancy – Ochey Air Base, where forecasters expect dense cloud cover to lead to heavy precipitation amounts, causing the daily average temperature to be lower than on 2025-12-21. Discuss how this event would influence your estimate of the conditional probability P(temperature_outcome | cloud_cover, precipitation_amount).",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'cloud_cover->precipitation_amount' severely affects the causal path leading to the outcome. The severe thunderstorm event on 2025-12-28 is expected to cause dense cloud cover to lead to heavy precipitation amounts, causing the daily average temperature to be lower than on 2025-12-21. This breaks the positive causal relationship between cloud cover and precipitation amount, which was previously thought to positively influence temperature. With this new information, the causal path 'cloud_cover->precipitation_amount->temperature_outcome' is weakened. As a result, I update my estimate of the conditional probability P(temperature_outcome | cloud_cover, precipitation_amount) from 0.62 to 0.45, reflecting a decreased likelihood of higher temperatures on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'cloud_cover->precipitation_amount' severely affects the causal path leading to the outcome. The severe thunderstorm event on 2025-12-28 is expected to cause dense cloud cover to lead to heavy precipitation amounts, causing the daily average temperature to be lower than on 2025-12-21. This breaks the positive causal relationship between cloud cover and precipitation amount, which was previously thought to positively influence temperature. With this new information, the causal path 'cloud_cover->precipitation_amount->temperature_outcome' is weakened. As a result, I update my estimate of the conditional probability P(temperature_outcome | cloud_cover, precipitation_amount) from 0.62 to 0.45, reflecting a decreased likelihood of higher temperatures on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "cloud_cover->precipitation_amount",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A study published in the Journal of Atmospheric Science found that during the winter months, low-pressure systems are accompanied by a significant increase in cloud cover, with an average cloud cover increase of 30% within 24 hours of a low-pressure system's arrival. This correlation is particularly strong when the low-pressure system is situated over the North Sea. Furthermore, the study's results were consistent across multiple years, suggesting a robust relationship between low-pressure systems and cloud cover. Would your causal model account for this strengthened relationship?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The strengthened relationship between low-pressure systems and cloud cover, as described in the study, enhances the causal link 'atmospheric_pressure->cloud_cover'. This, in turn, reinforces the causal path 'atmospheric_pressure->cloud_cover->precipitation_amount->temperature_outcome'. As a result, I expect the temperature on 2025-12-28 to be higher compared to 2025-12-21, as the increased cloud cover associated with low-pressure systems is likely to lead to increased precipitation, which will have a warming effect on the temperature. The increased probability reflects the added confidence in this causal path due to the robust relationship between low-pressure systems and cloud cover as found in the study.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strengthened relationship between low-pressure systems and cloud cover, as described in the study, enhances the causal link 'atmospheric_pressure->cloud_cover'. This, in turn, reinforces the causal path 'atmospheric_pressure->cloud_cover->precipitation_amount->temperature_outcome'. As a result, I expect the temperature on 2025-12-28 to be higher compared to 2025-12-21, as the increased cloud cover associated with low-pressure systems is likely to lead to increased precipitation, which will have a warming effect on the temperature. The increased probability reflects the added confidence in this causal path due to the robust relationship between low-pressure systems and cloud cover as found in the study.\"\n}",
+      "target_id": "atmospheric_pressure->cloud_cover",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07181.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.1125,
+    "max_absolute_shift": 0.22999999999999998
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 0.8661971830985916,
+    "mean_shift_high": 0.10250000000000001,
+    "mean_shift_low": 0.11833333333333333,
+    "asymmetry_index": 1.1600000000000004,
+    "mean_shift_negate": 0.12428571428571429,
+    "mean_shift_strengthen": 0.10714285714285712,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": -0.03638888888888887,
+    "mean_shift_on_path": 0.09444444444444446,
+    "mean_shift_off_path": 0.13083333333333333,
+    "importance_sensitivity_correlation": -0.21153846153846145,
+    "control_sensitivity": 0.5
+  }
+}

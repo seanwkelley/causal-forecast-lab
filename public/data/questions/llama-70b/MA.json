@@ -1,0 +1,1100 @@
+{
+  "question_id": "MA",
+  "question_text": "Will MA's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.58,
+  "nodes": [
+    {
+      "id": "market_trend",
+      "description": "Overall direction of the market",
+      "role": "factor"
+    },
+    {
+      "id": "economic_growth",
+      "description": "State of the economy",
+      "role": "factor"
+    },
+    {
+      "id": "fed_policy",
+      "description": "Monetary policy decisions by the Federal Reserve",
+      "role": "factor"
+    },
+    {
+      "id": "company_performance",
+      "description": "MA's financial health and performance",
+      "role": "factor"
+    },
+    {
+      "id": "industry_trends",
+      "description": "Trends within MA's industry",
+      "role": "factor"
+    },
+    {
+      "id": "investor_sentiment",
+      "description": "Overall attitude of investors towards MA",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "MA's market close price on 2025-12-28 being higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_growth",
+      "to": "market_trend",
+      "mechanism": "A strong economy boosts market confidence"
+    },
+    {
+      "from": "fed_policy",
+      "to": "market_trend",
+      "mechanism": "Interest rates and monetary policy influence market direction"
+    },
+    {
+      "from": "market_trend",
+      "to": "investor_sentiment",
+      "mechanism": "Market trends affect how investors feel about stocks"
+    },
+    {
+      "from": "company_performance",
+      "to": "investor_sentiment",
+      "mechanism": "MA's financial health directly influences investor confidence"
+    },
+    {
+      "from": "industry_trends",
+      "to": "company_performance",
+      "mechanism": "Industry trends impact MA's financial performance"
+    },
+    {
+      "from": "investor_sentiment",
+      "to": "outcome",
+      "mechanism": "Positive investor sentiment can drive up MA's stock price"
+    },
+    {
+      "from": "market_trend",
+      "to": "outcome",
+      "mechanism": "Overall market direction influences individual stock prices"
+    }
+  ],
+  "reasoning": "The forecast considers multiple factors influencing MA's stock price, including overall market trend, economic growth, Federal Reserve policy, company performance, industry trends, and investor sentiment. A positive market trend, driven by economic growth and favorable Fed policy, can boost investor sentiment, which in turn can drive up MA's stock price. Additionally, strong company performance within favorable industry trends can further support a higher stock price. Given these factors, there's a slightly higher chance that MA's market close price on 2025-12-28 will be higher than on 2025-12-21.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "market_trend",
+        "description": "Overall direction of the market",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.1333,
+        "closeness": 0.3333,
+        "pagerank": 0.1629,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "economic_growth",
+        "description": "State of the economy",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0603,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "fed_policy",
+        "description": "Monetary policy decisions by the Federal Reserve",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0603,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "company_performance",
+        "description": "MA's financial health and performance",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1116,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "industry_trends",
+        "description": "Trends within MA's industry",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0603,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "investor_sentiment",
+        "description": "Overall attitude of investors towards MA",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.5208,
+        "pagerank": 0.2244,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "outcome",
+        "description": "MA's market close price on 2025-12-28 being higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.3202,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "market_trend",
+        "target": "investor_sentiment",
+        "mechanism": "Market trends affect how investors feel about stocks",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": false
+      },
+      {
+        "source": "market_trend",
+        "target": "outcome",
+        "mechanism": "Overall market direction influences individual stock prices",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "market_trend",
+        "mechanism": "A strong economy boosts market confidence",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "fed_policy",
+        "target": "market_trend",
+        "mechanism": "Interest rates and monetary policy influence market direction",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "company_performance",
+        "target": "investor_sentiment",
+        "mechanism": "MA's financial health directly influences investor confidence",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "industry_trends",
+        "target": "company_performance",
+        "mechanism": "Industry trends impact MA's financial performance",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "investor_sentiment",
+        "target": "outcome",
+        "mechanism": "Positive investor sentiment can drive up MA's stock price",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "market_trend",
+        "description": "Overall direction of the market",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "company_performance",
+        "description": "MA's financial health and performance",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "State of the economy",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "industry_trends",
+        "description": "Trends within MA's industry",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_trend",
+        "description": "Overall direction of the market",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "company_performance",
+        "description": "MA's financial health and performance",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "company_performance->investor_sentiment",
+        "description": "MA's financial health directly influences investor confidence",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_trend->outcome",
+        "description": "Overall market direction influences individual stock prices",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_trend->investor_sentiment",
+        "description": "Market trends affect how investors feel about stocks",
+        "importance": 0.0714,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "company_performance->investor_sentiment",
+        "description": "MA's financial health directly influences investor confidence",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->company_performance",
+        "description": "Potential link: State of the economy -> MA's financial health and performance",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->investor_sentiment",
+        "description": "Potential link: State of the economy -> Overall attitude of investors towards MA",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "market_trend",
+      "description": "Overall direction of the market",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "company_performance",
+      "description": "MA's financial health and performance",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "State of the economy",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "industry_trends",
+      "description": "Trends within MA's industry",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_trend",
+      "description": "Overall direction of the market",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "company_performance",
+      "description": "MA's financial health and performance",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "company_performance->investor_sentiment",
+      "description": "MA's financial health directly influences investor confidence",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_trend->outcome",
+      "description": "Overall market direction influences individual stock prices",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_trend->investor_sentiment",
+      "description": "Market trends affect how investors feel about stocks",
+      "importance": 0.0714,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "company_performance->investor_sentiment",
+      "description": "MA's financial health directly influences investor confidence",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->company_performance",
+      "description": "Potential link: State of the economy -> MA's financial health and performance",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->investor_sentiment",
+      "description": "Potential link: State of the economy -> Overall attitude of investors towards MA",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the overall market trend has minimal impact on MA's stock price due to its strong brand and diversified revenue streams, making it more resilient to broader market fluctuations? Recent studies suggest that certain stocks, particularly those in the tech industry, have decoupled from traditional market trends. Alternatively, it's possible that a bearish market trend could actually benefit MA as investors seek out stable, cash-rich companies. This could render the market trend factor irrelevant or even reverse its expected influence on MA's stock price.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall direction of the market"
+    },
+    {
+      "probe_text": "What if Mastercard's financial health and performance are not as crucial to investor sentiment as previously thought, due to the company's ability to adapt to changing market conditions and its strong brand reputation? Perhaps MA's diversification of services and global presence make its financial performance less of a concern for investors. Alternatively, it's possible that MA's financial health is currently overvalued by investors, and a reevaluation of the company's performance could lead to a decrease in investor sentiment. This could render company_performance irrelevant to the outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "company_performance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "MA's financial health and performance"
+    },
+    {
+      "probe_text": "Recent data suggests that the economy is entering a recession, with GDP growth slowing down significantly and unemployment rates rising, which may weaken the positive effect of economic growth on market trends. Additionally, some economists argue that the current economic growth is largely driven by inflation, rather than actual productivity gains, which could lead to a market correction. This challenges the assumption that a strong economy will boost market confidence. In fact, a recession could lead to decreased consumer spending and reduced business investment, ultimately affecting MA's market close price.",
+      "probe_type": "node_negate_medium",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "State of the economy"
+    },
+    {
+      "probe_text": "Recently, there have been significant advancements in technology that are expected to disrupt MA's industry, potentially making current trends within the industry less relevant to the company's future performance. Furthermore, MA has been diversifying its portfolio, reducing its dependence on industry-specific factors. As a result, industry trends may have a minimal impact on MA's financial health and performance. This could render the current industry trends less predictive of MA's stock price movement.",
+      "probe_type": "node_negate_low",
+      "target_id": "industry_trends",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Trends within MA's industry"
+    },
+    {
+      "probe_text": "A recent survey of institutional investors revealed that 85% of respondents believe the current bull market will continue through 2025, driven by low unemployment rates and increased consumer spending. This optimism is expected to further boost market confidence, leading to higher stock prices. Additionally, a prominent market analyst predicted that the S&P 500 will reach a new all-time high by the end of 2025, citing strong economic fundamentals and favorable monetary policy. This wave of positive sentiment is likely to lift the overall market, including MA's stock price.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall direction of the market"
+    },
+    {
+      "probe_text": "Mastercard (MA) announced a significant increase in quarterly earnings, beating analyst expectations by a wide margin. This earnings surprise was driven by strong growth in their core payments business and successful expansion into new markets. As a result, several major financial institutions have upgraded their ratings on MA's stock, citing improved financial health and increased competitiveness. This development suggests that MA's financial performance is likely to continue outpacing industry averages.",
+      "probe_type": "node_strengthen",
+      "target_id": "company_performance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "MA's financial health and performance"
+    },
+    {
+      "probe_text": "Recent studies have shown that investor sentiment towards MA is more closely tied to broader market trends and industry outlooks rather than the company's financial performance. In fact, during the last quarter, MA's stock price increased despite a decline in their financial health, suggesting that investor confidence is driven more by external factors than internal company performance. This challenges the assumption that MA's financial health directly influences investor confidence. What if this relationship is weaker than assumed, and investor sentiment is more resilient to company performance fluctuations?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "company_performance->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "MA's financial health directly influences investor confidence"
+    },
+    {
+      "probe_text": "Recent studies have shown that in times of high market volatility, individual stock prices can decouple from the overall market trend due to factors like sector-specific news and investor overreaction. For instance, if MA's industry is experiencing a significant downturn despite a rising overall market, its stock price might not follow the broader market trend. Furthermore, the increasing presence of algorithmic trading and sector-focused ETFs can lead to stock price movements that are less correlated with the overall market direction. This raises questions about the strength of the causal link between market trend and MA's stock price outcome.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "market_trend->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Overall market direction influences individual stock prices"
+    },
+    {
+      "probe_text": "Recent studies have shown that investor sentiment towards specific stocks like MA is increasingly driven by company-specific news and social media, rather than broad market trends. Additionally, the rise of indexing and passive investing has reduced the influence of market trends on individual stock investor sentiment. As a result, the relationship between market trends and investor sentiment may be weaker than previously thought. This shift in investor behavior could render the traditional causal link between market trends and investor sentiment less relevant.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "market_trend->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Market trends affect how investors feel about stocks"
+    },
+    {
+      "probe_text": "Recent studies have shown that investor sentiment can significantly impact a company's ability to secure funding, attract top talent, and negotiate favorable deals, thereby influencing its financial health. For instance, if investors are bullish on MA, they may be more likely to invest in the company, providing it with the capital needed to pursue lucrative opportunities. This suggests that investor sentiment can drive company performance, rather than the other way around. What if a surge in investor confidence leads to increased investment in MA, subsequently improving its financial health?",
+      "probe_type": "edge_reverse",
+      "target_id": "company_performance->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "MA's financial health directly influences investor confidence"
+    },
+    {
+      "probe_text": "Recent data indicates that a strong national economy, as measured by GDP growth, has historically led to increased consumer spending on credit products, directly benefiting companies like MA with significant exposure to the consumer credit market, potentially enhancing their financial health and performance. However, the forecaster's current model does not account for this relationship. Considering this new information, how should the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 be updated? This overlooked connection could significantly impact MA's financial performance.",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->company_performance",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: State of the economy -> MA's financial health and performance"
+    },
+    {
+      "probe_text": "Recent surveys indicate that consumer spending and business investments are increasing due to a strong economy, leading to heightened optimism among investors, particularly those interested in MA's industry. As economic growth continues, it is likely that investors will become more confident in MA's ability to expand its customer base and increase revenue. This, in turn, could lead to increased investment in MA, driving up its stock price. How does this new information affect your forecast?",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->investor_sentiment",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: State of the economy -> Overall attitude of investors towards MA"
+    },
+    {
+      "probe_text": "What if a major cybersecurity breach were to occur at MA in the coming weeks, potentially damaging the company's reputation and eroding investor trust? This event could significantly impact MA's market close price. The forecaster's current network does not account for such unforeseen events. How would this new information affect their forecast?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What if geopolitical tensions between major world economies escalate significantly in the next week, potentially disrupting global trade and impacting investor confidence? This could be due to unexpected diplomatic conflicts or trade agreements falling through. How would this new information affect your forecast for MA's market close price on 2025-12-28 being higher than on 2025-12-21? The missing factor here is geopolitical stability, which can influence market trends and investor sentiment.",
+      "probe_type": "missing_node",
+      "target_id": "geopolitical_stability",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Mastercard, the company in question, has recently announced a new partnership with a popular fintech firm to improve its digital payment processing systems. This partnership is expected to enhance the user experience and provide more seamless transactions. However, the integration process is still in its early stages and not expected to have any material impact on the company's financial performance until mid-2026. The partnership has been well-received by industry insiders, with many praising the potential for increased efficiency.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Mastercard recently announced a new partnership with a popular fintech company to develop an innovative digital payment platform for small businesses. This platform is expected to be launched in the second quarter of 2026 and will not be directly related to Mastercard's current product offerings. The partnership has garnered significant attention in the media, with many outlets highlighting the potential for increased collaboration between traditional financial institutions and fintech startups. However, the details of the partnership are still under wraps, and it remains to be seen how it will impact the broader financial landscape.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the overall market trend has minimal impact on MA's stock price due to its strong brand and diversified revenue streams, making it more resilient to broader market fluctuations? Recent studies suggest that certain stocks, particularly those in the tech industry, have decoupled from traditional market trends. Alternatively, it's possible that a bearish market trend could actually benefit MA as investors seek out stable, cash-rich companies. This could render the market trend factor irrelevant or even reverse its expected influence on MA's stock price.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'market_trend' factor suggests that MA's stock price may be less influenced by overall market trends due to its strong brand and diversified revenue streams. This could render the causal link from 'market_trend' to 'outcome' less significant. However, the alternative possibility that a bearish market trend could benefit MA by attracting investors seeking stable companies introduces a new, potentially positive influence on MA's stock price. While the direct link from 'market_trend' to 'outcome' may be weakened, the indirect path through 'investor_sentiment' could still be relevant, potentially even strengthened by the scenario where MA benefits from a bearish market. The net effect is a slight increase in the estimated probability, as the resilience of MA to market fluctuations and potential benefits from a bearish trend could offset or even outweigh the reduced direct influence of market trends on its stock price.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'market_trend' factor suggests that MA's stock price may be less influenced by overall market trends due to its strong brand and diversified revenue streams. This could render the causal link from 'market_trend' to 'outcome' less significant. However, the alternative possibility that a bearish market trend could benefit MA by attracting investors seeking stable companies introduces a new, potentially positive influence on MA's stock price. While the direct link from 'market_trend' to 'outcome' may be weakened, the indirect path through 'investor_sentiment' could still be relevant, potentially even strengthened by the scenario where MA benefits from a bearish market. The net effect is a slight increase in the estimated probability, as the resilience of MA to market fluctuations and potential benefits from a bearish trend could offset or even outweigh the reduced direct influence of market trends on its stock price.\"\n}",
+      "target_id": "market_trend",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Mastercard's financial health and performance are not as crucial to investor sentiment as previously thought, due to the company's ability to adapt to changing market conditions and its strong brand reputation? Perhaps MA's diversification of services and global presence make its financial performance less of a concern for investors. Alternatively, it's possible that MA's financial health is currently overvalued by investors, and a reevaluation of the company's performance could lead to a decrease in investor sentiment. This could render company_performance irrelevant to the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'company_performance' suggests that its influence on 'investor_sentiment' and subsequently 'outcome' might be less significant than initially thought. However, this does not completely sever the causal link, as MA's financial health still plays a role in investor confidence, albeit possibly a diminished one. The primary paths affected are 'company_performance -> investor_sentiment' and indirectly 'industry_trends -> company_performance -> investor_sentiment'. Given that other factors such as 'market_trend', 'fed_policy', and 'industry_trends' continue to influence 'outcome' through various paths, the reduction in importance of 'company_performance' slightly increases the reliance on these other factors, which could still drive the stock price up, especially if the market trend and federal policy are favorable. Thus, while the challenge introduces some uncertainty, it does not fundamentally alter the potential for MA's stock price to increase, leading to a modest increase in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'company_performance' suggests that its influence on 'investor_sentiment' and subsequently 'outcome' might be less significant than initially thought. However, this does not completely sever the causal link, as MA's financial health still plays a role in investor confidence, albeit possibly a diminished one. The primary paths affected are 'company_performance -> investor_sentiment' and indirectly 'industry_trends -> company_performance -> investor_sentiment'. Given that other factors such as 'market_trend', 'fed_policy', and 'industry_trends' continue to influence 'outcome' through various paths, the reduction in importance of 'company_performance' slightly increases the reliance on these other factors, which could still drive the stock price up, especially if the market trend and federal policy are favorable. Thus, while the challenge introduces some uncertainty, it does not fundamentally alter the potential for MA's stock price to increase, leading to a modest increase in the estimated probability.\"\n}",
+      "target_id": "company_performance",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data suggests that the economy is entering a recession, with GDP growth slowing down significantly and unemployment rates rising, which may weaken the positive effect of economic growth on market trends. Additionally, some economists argue that the current economic growth is largely driven by inflation, rather than actual productivity gains, which could lead to a market correction. This challenges the assumption that a strong economy will boost market confidence. In fact, a recession could lead to decreased consumer spending and reduced business investment, ultimately affecting MA's market close price.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'economic_growth' affects the causal path 'economic_growth -> market_trend', which in turn influences 'market_trend -> investor_sentiment' and 'market_trend -> outcome'. Given the potential for a recession, decreased consumer spending, and reduced business investment, the positive effect of economic growth on market trends is weakened. This significantly impacts the overall market direction and investor sentiment, both critical factors influencing MA's stock price. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 decreases substantially, reflecting the increased uncertainty and potential negative impact of a recession on the market and MA's performance.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'economic_growth' affects the causal path 'economic_growth -> market_trend', which in turn influences 'market_trend -> investor_sentiment' and 'market_trend -> outcome'. Given the potential for a recession, decreased consumer spending, and reduced business investment, the positive effect of economic growth on market trends is weakened. This significantly impacts the overall market direction and investor sentiment, both critical factors influencing MA's stock price. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 decreases substantially, reflecting the increased uncertainty and potential negative impact of a recession on the market and MA's performance.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recently, there have been significant advancements in technology that are expected to disrupt MA's industry, potentially making current trends within the industry less relevant to the company's future performance. Furthermore, MA has been diversifying its portfolio, reducing its dependence on industry-specific factors. As a result, industry trends may have a minimal impact on MA's financial health and performance. This could render the current industry trends less predictive of MA's stock price movement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'industry_trends' affects the causal path 'industry_trends -> company_performance -> investor_sentiment -> outcome' and 'industry_trends -> company_performance -> investor_sentiment'. However, since MA has been diversifying its portfolio and reducing its dependence on industry-specific factors, the impact of industry trends on the company's financial health and performance is minimized. This reduction in influence means that the overall market trend and investor sentiment, which are still positively influenced by economic growth and fed policy, become relatively more important in determining the outcome. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases, but only slightly, since the challenged element, while part of the network, is not as critical given the company's diversification efforts.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'industry_trends' affects the causal path 'industry_trends -> company_performance -> investor_sentiment -> outcome' and 'industry_trends -> company_performance -> investor_sentiment'. However, since MA has been diversifying its portfolio and reducing its dependence on industry-specific factors, the impact of industry trends on the company's financial health and performance is minimized. This reduction in influence means that the overall market trend and investor sentiment, which are still positively influenced by economic growth and fed policy, become relatively more important in determining the outcome. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases, but only slightly, since the challenged element, while part of the network, is not as critical given the company's diversification efforts.\"\n}",
+      "target_id": "industry_trends",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of institutional investors revealed that 85% of respondents believe the current bull market will continue through 2025, driven by low unemployment rates and increased consumer spending. This optimism is expected to further boost market confidence, leading to higher stock prices. Additionally, a prominent market analyst predicted that the S&P 500 will reach a new all-time high by the end of 2025, citing strong economic fundamentals and favorable monetary policy. This wave of positive sentiment is likely to lift the overall market, including MA's stock price.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'market_trend' factor significantly strengthens the causal path from 'market_trend' to 'outcome' and from 'market_trend' to 'investor_sentiment', as the overall market direction is now more likely to be positive. This, in turn, boosts the likelihood of MA's stock price increasing. The survey of institutional investors and the market analyst's prediction both contribute to a more optimistic market outlook, which reinforces the edges between 'economic_growth' and 'market_trend', and 'fed_policy' and 'market_trend'. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases, reflecting the enhanced positive market sentiment and its expected impact on MA's stock price.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'market_trend' factor significantly strengthens the causal path from 'market_trend' to 'outcome' and from 'market_trend' to 'investor_sentiment', as the overall market direction is now more likely to be positive. This, in turn, boosts the likelihood of MA's stock price increasing. The survey of institutional investors and the market analyst's prediction both contribute to a more optimistic market outlook, which reinforces the edges between 'economic_growth' and 'market_trend', and 'fed_policy' and 'market_trend'. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases, reflecting the enhanced positive market sentiment and its expected impact on MA's stock price.\"\n}",
+      "target_id": "market_trend",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Mastercard (MA) announced a significant increase in quarterly earnings, beating analyst expectations by a wide margin. This earnings surprise was driven by strong growth in their core payments business and successful expansion into new markets. As a result, several major financial institutions have upgraded their ratings on MA's stock, citing improved financial health and increased competitiveness. This development suggests that MA's financial performance is likely to continue outpacing industry averages.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of Mastercard's significant increase in quarterly earnings and the subsequent upgrade in ratings by major financial institutions directly impacts the 'company_performance' node in the causal network. This improvement in financial health and competitiveness strengthens the causal path 'company_performance -> investor_sentiment', as better financial performance typically leads to increased investor confidence. Furthermore, the positive earnings surprise and expansion into new markets may also indirectly influence 'industry_trends', potentially making the 'industry_trends -> company_performance' path more favorable. As a result, the overall 'investor_sentiment' is likely to become more positive, which in turn increases the probability of the outcome 'MA's market close price on 2025-12-28 being higher than on 2025-12-21'. The update is substantial because 'company_performance' is a critical element influencing investor sentiment and, by extension, the stock price, but it does not approach certainty due to the influence of other factors like 'market_trend' and 'fed_policy' on the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of Mastercard's significant increase in quarterly earnings and the subsequent upgrade in ratings by major financial institutions directly impacts the 'company_performance' node in the causal network. This improvement in financial health and competitiveness strengthens the causal path 'company_performance -> investor_sentiment', as better financial performance typically leads to increased investor confidence. Furthermore, the positive earnings surprise and expansion into new markets may also indirectly influence 'industry_trends', potentially making the 'industry_trends -> company_performance' path more favorable. As a result, the overall 'investor_sentiment' is likely to become more positive, which in turn increases the probability of the outcome 'MA's market close price on 2025-12-28 being higher than on 2025-12-21'. The update is substantial because 'company_performance' is a critical element influencing investor sentiment and, by extension, the stock price, but it does not approach certainty due to the influence of other factors like 'market_trend' and 'fed_policy' on the outcome.\"\n}",
+      "target_id": "company_performance",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that investor sentiment towards MA is more closely tied to broader market trends and industry outlooks rather than the company's financial performance. In fact, during the last quarter, MA's stock price increased despite a decline in their financial health, suggesting that investor confidence is driven more by external factors than internal company performance. This challenges the assumption that MA's financial health directly influences investor confidence. What if this relationship is weaker than assumed, and investor sentiment is more resilient to company performance fluctuations?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'company_performance->investor_sentiment' suggests that investor sentiment is more closely tied to broader market trends and industry outlooks rather than MA's financial health. This means that the path 'industry_trends -> company_performance -> investor_sentiment' is weaker than initially assumed. However, the direct influence of 'arket_trend' on 'investor_sentiment' and the outcome remains unchanged. Given that the overall market direction and industry trends still play a significant role in determining investor sentiment and the stock price, the weakened link between company performance and investor sentiment does not drastically alter the overall outlook. The update reflects a slight increase in probability due to the reduced impact of potential negative company performance on the outcome, implying that broader positive market trends could more readily override internal company fluctuations.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'company_performance->investor_sentiment' suggests that investor sentiment is more closely tied to broader market trends and industry outlooks rather than MA's financial health. This means that the path 'industry_trends -> company_performance -> investor_sentiment' is weaker than initially assumed. However, the direct influence of 'arket_trend' on 'investor_sentiment' and the outcome remains unchanged. Given that the overall market direction and industry trends still play a significant role in determining investor sentiment and the stock price, the weakened link between company performance and investor sentiment does not drastically alter the overall outlook. The update reflects a slight increase in probability due to the reduced impact of potential negative company performance on the outcome, implying that broader positive market trends could more readily override internal company fluctuations.\"\n}",
+      "target_id": "company_performance->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that in times of high market volatility, individual stock prices can decouple from the overall market trend due to factors like sector-specific news and investor overreaction. For instance, if MA's industry is experiencing a significant downturn despite a rising overall market, its stock price might not follow the broader market trend. Furthermore, the increasing presence of algorithmic trading and sector-focused ETFs can lead to stock price movements that are less correlated with the overall market direction. This raises questions about the strength of the causal link between market trend and MA's stock price outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'market_trend->outcome' causal link suggests that the overall market trend may have a weaker influence on MA's stock price outcome, especially in times of high volatility or when sector-specific factors dominate. This affects the causal path from 'market_trend' to 'outcome' directly, potentially reducing the predictive power of market trends on MA's stock price. However, other causal paths such as 'economic_growth->market_trend->investor_sentiment->outcome', 'fed_policy->market_trend->investor_sentiment->outcome', and 'company_performance->investor_sentiment->outcome' remain intact. Given the complexity and the conditional nature of the challenge (it specifically mentions high market volatility and sector-specific news), the update to the probability estimate is moderate, reflecting a decreased reliance on the market trend as a sole predictor but acknowledging the multitude of factors still at play.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'market_trend->outcome' causal link suggests that the overall market trend may have a weaker influence on MA's stock price outcome, especially in times of high volatility or when sector-specific factors dominate. This affects the causal path from 'market_trend' to 'outcome' directly, potentially reducing the predictive power of market trends on MA's stock price. However, other causal paths such as 'economic_growth->market_trend->investor_sentiment->outcome', 'fed_policy->market_trend->investor_sentiment->outcome', and 'company_performance->investor_sentiment->outcome' remain intact. Given the complexity and the conditional nature of the challenge (it specifically mentions high market volatility and sector-specific news), the update to the probability estimate is moderate, reflecting a decreased reliance on the market trend as a sole predictor but acknowledging the multitude of factors still at play.\"\n}",
+      "target_id": "market_trend->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that investor sentiment towards specific stocks like MA is increasingly driven by company-specific news and social media, rather than broad market trends. Additionally, the rise of indexing and passive investing has reduced the influence of market trends on individual stock investor sentiment. As a result, the relationship between market trends and investor sentiment may be weaker than previously thought. This shift in investor behavior could render the traditional causal link between market trends and investor sentiment less relevant.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'market_trend->investor_sentiment' affects one of the paths leading to the outcome. However, this link is not the only influence on investor sentiment, as company_performance also directly impacts it. Additionally, market_trend still has a direct link to the outcome. Given that the influence of market trends on investor sentiment is reduced but not eliminated, and considering other causal paths remain intact, the update to the probability is moderate. The decrease reflects a slightly reduced confidence in the outcome being higher due to a less direct influence of market trends on investor sentiment, but the overall network structure and other influences still support a probability above 0.5.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'market_trend->investor_sentiment' affects one of the paths leading to the outcome. However, this link is not the only influence on investor sentiment, as company_performance also directly impacts it. Additionally, market_trend still has a direct link to the outcome. Given that the influence of market trends on investor sentiment is reduced but not eliminated, and considering other causal paths remain intact, the update to the probability is moderate. The decrease reflects a slightly reduced confidence in the outcome being higher due to a less direct influence of market trends on investor sentiment, but the overall network structure and other influences still support a probability above 0.5.\"\n}",
+      "target_id": "market_trend->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that investor sentiment can significantly impact a company's ability to secure funding, attract top talent, and negotiate favorable deals, thereby influencing its financial health. For instance, if investors are bullish on MA, they may be more likely to invest in the company, providing it with the capital needed to pursue lucrative opportunities. This suggests that investor sentiment can drive company performance, rather than the other way around. What if a surge in investor confidence leads to increased investment in MA, subsequently improving its financial health?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'company_performance->investor_sentiment' suggests that investor sentiment can drive company performance, potentially creating a feedback loop. This new information affects the causal paths leading to the outcome by introducing an additional mechanism by which investor sentiment can influence MA's stock price. Specifically, the path 'investor_sentiment -> company_performance -> investor_sentiment -> outcome' is now a viable alternative to the original 'company_performance -> investor_sentiment -> outcome' path. As a result, the importance of investor sentiment in driving the outcome is amplified, leading to a moderate increase in the estimated probability. However, since the original causal link is not entirely broken, but rather complemented by an additional mechanism, the update is not drastic.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'company_performance->investor_sentiment' suggests that investor sentiment can drive company performance, potentially creating a feedback loop. This new information affects the causal paths leading to the outcome by introducing an additional mechanism by which investor sentiment can influence MA's stock price. Specifically, the path 'investor_sentiment -> company_performance -> investor_sentiment -> outcome' is now a viable alternative to the original 'company_performance -> investor_sentiment -> outcome' path. As a result, the importance of investor sentiment in driving the outcome is amplified, leading to a moderate increase in the estimated probability. However, since the original causal link is not entirely broken, but rather complemented by an additional mechanism, the update is not drastic.\"\n}",
+      "target_id": "company_performance->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent data indicates that a strong national economy, as measured by GDP growth, has historically led to increased consumer spending on credit products, directly benefiting companies like MA with significant exposure to the consumer credit market, potentially enhancing their financial health and performance. However, the forecaster's current model does not account for this relationship. Considering this new information, how should the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 be updated? This overlooked connection could significantly impact MA's financial performance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.10000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of a direct causal link between economic_growth and company_performance significantly enhances the positive impact of a strong economy on MA's financial health. This new connection strengthens the causal paths leading to the outcome, particularly through the investor_sentiment node, as improved company_performance directly boosts investor confidence. Moreover, the overall market_trend, influenced by economic_growth, further supports a positive outcome. The update reflects the increased likelihood of MA's market close price on 2025-12-28 being higher than on 2025-12-21 due to the amplified effect of economic growth on both market trends and MA's financial performance.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of a direct causal link between economic_growth and company_performance significantly enhances the positive impact of a strong economy on MA's financial health. This new connection strengthens the causal paths leading to the outcome, particularly through the investor_sentiment node, as improved company_performance directly boosts investor confidence. Moreover, the overall market_trend, influenced by economic_growth, further supports a positive outcome. The update reflects the increased likelihood of MA's market close price on 2025-12-28 being higher than on 2025-12-21 due to the amplified effect of economic growth on both market trends and MA's financial performance.\"\n}",
+      "target_id": "economic_growth->company_performance",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys indicate that consumer spending and business investments are increasing due to a strong economy, leading to heightened optimism among investors, particularly those interested in MA's industry. As economic growth continues, it is likely that investors will become more confident in MA's ability to expand its customer base and increase revenue. This, in turn, could lead to increased investment in MA, driving up its stock price. How does this new information affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The new information suggests a direct relationship between economic growth and investor sentiment, particularly for MA's industry. This introduces a new causal path: economic_growth -> investor_sentiment, which reinforces the existing paths leading to the outcome. The original path economic_growth -> market_trend -> investor_sentiment is supplemented by this more direct link, making the relationship between economic growth and investor confidence stronger. As economic growth is likely to continue, this heightened optimism among investors could lead to increased investment in MA, driving up its stock price. Therefore, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information suggests a direct relationship between economic growth and investor sentiment, particularly for MA's industry. This introduces a new causal path: economic_growth -> investor_sentiment, which reinforces the existing paths leading to the outcome. The original path economic_growth -> market_trend -> investor_sentiment is supplemented by this more direct link, making the relationship between economic growth and investor confidence stronger. As economic growth is likely to continue, this heightened optimism among investors could lead to increased investment in MA, driving up its stock price. Therefore, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases.\"\n}",
+      "target_id": "economic_growth->investor_sentiment",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a major cybersecurity breach were to occur at MA in the coming weeks, potentially damaging the company's reputation and eroding investor trust? This event could significantly impact MA's market close price. The forecaster's current network does not account for such unforeseen events. How would this new information affect their forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a potential major cybersecurity breach at MA significantly impacts the causal paths leading to the outcome. This event would directly affect 'company_performance' by damaging MA's reputation and eroding investor trust, which in turn would negatively influence 'investor_sentiment'. The breach would also indirectly impact 'outcome' through its effects on 'market_trend' and 'industry_trends', as a breach could lead to a loss of investor confidence not just in MA but potentially in its industry and the broader market. Given the direct and indirect effects on key nodes in the causal network, particularly 'company_performance' and 'investor_sentiment', which are crucial for determining the 'outcome', the forecast probability is substantially decreased.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a potential major cybersecurity breach at MA significantly impacts the causal paths leading to the outcome. This event would directly affect 'company_performance' by damaging MA's reputation and eroding investor trust, which in turn would negatively influence 'investor_sentiment'. The breach would also indirectly impact 'outcome' through its effects on 'market_trend' and 'industry_trends', as a breach could lead to a loss of investor confidence not just in MA but potentially in its industry and the broader market. Given the direct and indirect effects on key nodes in the causal network, particularly 'company_performance' and 'investor_sentiment', which are crucial for determining the 'outcome', the forecast probability is substantially decreased.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if geopolitical tensions between major world economies escalate significantly in the next week, potentially disrupting global trade and impacting investor confidence? This could be due to unexpected diplomatic conflicts or trade agreements falling through. How would this new information affect your forecast for MA's market close price on 2025-12-28 being higher than on 2025-12-21? The missing factor here is geopolitical stability, which can influence market trends and investor sentiment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of escalating geopolitical tensions significantly impacts the causal paths leading to the outcome. This new factor affects the market_trend node, as geopolitical instability can lead to decreased investor confidence and market volatility. The path from market_trend to investor_sentiment and directly to the outcome is compromised, suggesting a higher likelihood of a negative market trend and decreased investor sentiment. Additionally, the path from market_trend to outcome is directly influenced, as geopolitical tensions can lead to a decline in overall market direction, further impacting MA's stock price. Given the potential disruption to global trade and investor confidence, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 decreases substantially.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of escalating geopolitical tensions significantly impacts the causal paths leading to the outcome. This new factor affects the market_trend node, as geopolitical instability can lead to decreased investor confidence and market volatility. The path from market_trend to investor_sentiment and directly to the outcome is compromised, suggesting a higher likelihood of a negative market trend and decreased investor sentiment. Additionally, the path from market_trend to outcome is directly influenced, as geopolitical tensions can lead to a decline in overall market direction, further impacting MA's stock price. Given the potential disruption to global trade and investor confidence, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 decreases substantially.\"\n}",
+      "target_id": "geopolitical_stability",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Mastercard, the company in question, has recently announced a new partnership with a popular fintech firm to improve its digital payment processing systems. This partnership is expected to enhance the user experience and provide more seamless transactions. However, the integration process is still in its early stages and not expected to have any material impact on the company's financial performance until mid-2026. The partnership has been well-received by industry insiders, with many praising the potential for increased efficiency.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of the new partnership is expected to positively impact industry_trends, which in turn affects company_performance. Although the material impact on financial performance is not expected until mid-2026, the positive reception from industry insiders can enhance investor_sentiment in the short term. The causal path industry_trends -> company_performance -> investor_sentiment -> outcome is slightly strengthened, leading to a modest increase in the estimated probability. However, the overall market direction and economic growth remain the primary drivers of the outcome, and the update to the forecast is relatively small due to the limited immediate financial impact of the partnership.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of the new partnership is expected to positively impact industry_trends, which in turn affects company_performance. Although the material impact on financial performance is not expected until mid-2026, the positive reception from industry insiders can enhance investor_sentiment in the short term. The causal path industry_trends -> company_performance -> investor_sentiment -> outcome is slightly strengthened, leading to a modest increase in the estimated probability. However, the overall market direction and economic growth remain the primary drivers of the outcome, and the update to the forecast is relatively small due to the limited immediate financial impact of the partnership.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Mastercard recently announced a new partnership with a popular fintech company to develop an innovative digital payment platform for small businesses. This platform is expected to be launched in the second quarter of 2026 and will not be directly related to Mastercard's current product offerings. The partnership has garnered significant attention in the media, with many outlets highlighting the potential for increased collaboration between traditional financial institutions and fintech startups. However, the details of the partnership are still under wraps, and it remains to be seen how it will impact the broader financial landscape.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of Mastercard's new partnership with a fintech company has the potential to positively impact investor sentiment, as it suggests the company is innovating and expanding its offerings. This primarily affects the causal path from company_performance to investor_sentiment, as the partnership is seen as a positive development for Mastercard's financial health and future prospects. Although the details of the partnership are still under wraps and its launch is scheduled for 2026, the immediate media attention and perceived potential for growth could boost investor confidence in the short term. The impact on the broader market trend and economic growth is less direct, but positive news about a major player like Mastercard can contribute to a more optimistic market outlook. Given that the partnership's effects are anticipated to be positive but its influence on the outcome is somewhat speculative and indirect, the update to the probability estimate is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of Mastercard's new partnership with a fintech company has the potential to positively impact investor sentiment, as it suggests the company is innovating and expanding its offerings. This primarily affects the causal path from company_performance to investor_sentiment, as the partnership is seen as a positive development for Mastercard's financial health and future prospects. Although the details of the partnership are still under wraps and its launch is scheduled for 2026, the immediate media attention and perceived potential for growth could boost investor confidence in the short term. The impact on the broader market trend and economic growth is less direct, but positive news about a major player like Mastercard can contribute to a more optimistic market outlook. Given that the partnership's effects are anticipated to be positive but its influence on the outcome is somewhat speculative and indirect, the update to the probability estimate is moderate.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "The Bureau of Economic Analysis has just released its third-quarter GDP report, showing a 3.5% annualized growth rate, exceeding expectations and indicating a strong and expanding economy. This growth is broadly based, with increases in personal consumption, business investment, and government spending. Additionally, the report highlights a significant uptick in employment rates and a drop in unemployment claims, further solidifying the positive economic outlook. As a result, economists are revising their forecasts upwards, predicting continued robust economic expansion through the end of 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.67,
+      "absolute_shift": 0.09000000000000008,
+      "shift_direction": "increased",
+      "reasoning": "The strong GDP report and positive economic outlook directly impact the 'economic_growth' node, which in turn affects the 'market_trend' node through the causal link 'economic_growth -> market_trend'. This boost in market trend is expected to positively influence 'investor_sentiment' and directly impact the 'outcome', as a strong market trend can lead to higher individual stock prices. Given the broad-based nature of the economic growth and the resulting upward revision in forecasts, the causal paths leading to the outcome are strengthened, increasing the likelihood that MA's market close price on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.67,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strong GDP report and positive economic outlook directly impact the 'economic_growth' node, which in turn affects the 'market_trend' node through the causal link 'economic_growth -> market_trend'. This boost in market trend is expected to positively influence 'investor_sentiment' and directly impact the 'outcome', as a strong market trend can lead to higher individual stock prices. Given the broad-based nature of the economic growth and the resulting upward revision in forecasts, the causal paths leading to the outcome are strengthened, increasing the likelihood that MA's market close price on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recently, several major players in MA's industry have reported significant increases in revenue and profitability, citing growing demand and successful product launches. This trend is expected to continue into the next quarter, with analysts predicting a surge in industry-wide growth. As a result, MA is likely to benefit from the positive industry trends, potentially leading to improved financial performance. This development suggests that industry trends will play a more crucial role in shaping MA's market close price on 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.10000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'industry_trends' suggests a positive impact on MA's financial performance, which in turn affects investor sentiment and potentially the market close price. The causal path 'industry_trends -> company_performance -> investor_sentiment -> outcome' is strengthened, as the positive industry trends are expected to improve MA's financial health and boost investor confidence. Additionally, the overall positive industry trends may also contribute to a more favorable market trend, further influencing the outcome through the path 'market_trend -> outcome'. Given the significant potential impact of industry trends on MA's performance and the predicted surge in industry-wide growth, I have increased my probability estimate to reflect the improved outlook for MA's market close price on 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'industry_trends' suggests a positive impact on MA's financial performance, which in turn affects investor sentiment and potentially the market close price. The causal path 'industry_trends -> company_performance -> investor_sentiment -> outcome' is strengthened, as the positive industry trends are expected to improve MA's financial health and boost investor confidence. Additionally, the overall positive industry trends may also contribute to a more favorable market trend, further influencing the outcome through the path 'market_trend -> outcome'. Given the significant potential impact of industry trends on MA's performance and the predicted surge in industry-wide growth, I have increased my probability estimate to reflect the improved outlook for MA's market close price on 2025-12-28.\"\n}",
+      "target_id": "industry_trends",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recently, MA announced a significant increase in quarterly earnings, surpassing analyst expectations. This news was met with a notable surge in investor confidence, as reflected in the stock's price jump and positive analyst reports. Furthermore, a survey of institutional investors revealed that MA's strong financial performance was cited as the primary reason for their increased investment in the company. This development suggests that the relationship between MA's financial health and investor confidence is even more direct and influential than previously thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between company_performance and investor_sentiment, indicating a more direct and influential relationship than previously thought. This affects the causal paths leading to the outcome through investor_sentiment, which in turn influences the outcome. Given that MA's strong financial performance has led to increased investor confidence, it is reasonable to expect this positive sentiment to contribute to a higher market close price on 2025-12-28 compared to 2025-12-21. The update reflects an increased likelihood of this outcome due to the reinforced link between company_performance and investor_sentiment, although the overall market trend and other factors still play significant roles in determining the final outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between company_performance and investor_sentiment, indicating a more direct and influential relationship than previously thought. This affects the causal paths leading to the outcome through investor_sentiment, which in turn influences the outcome. Given that MA's strong financial performance has led to increased investor confidence, it is reasonable to expect this positive sentiment to contribute to a higher market close price on 2025-12-28 compared to 2025-12-21. The update reflects an increased likelihood of this outcome due to the reinforced link between company_performance and investor_sentiment, although the overall market trend and other factors still play significant roles in determining the final outcome.\"\n}",
+      "target_id": "company_performance->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by a reputable financial research firm found that, on average, individual stocks within the S&P 500 index move in tandem with the overall market trend approximately 75% of the time, with this correlation increasing to 90% during periods of high market volatility. This suggests that the causal link between market trend and individual stock prices may be even stronger than previously thought. Furthermore, the study highlighted that stocks in the financial sector, such as MA, tend to exhibit an even higher degree of correlation with the overall market trend. This evidence reinforces the idea that the overall market direction has a profound influence on individual stock prices, particularly for stocks like MA.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'market_trend->outcome', suggesting a higher correlation between market trend and individual stock prices, particularly for stocks in the financial sector like MA. This reinforces the importance of the overall market direction in influencing MA's stock price. As a result, the causal paths leading to the outcome through 'market_trend' are more strongly supported. Given that 'market_trend' is a key factor in the network, this update increases the confidence in the outcome, leading to a moderate increase in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'market_trend->outcome', suggesting a higher correlation between market trend and individual stock prices, particularly for stocks in the financial sector like MA. This reinforces the importance of the overall market direction in influencing MA's stock price. As a result, the causal paths leading to the outcome through 'market_trend' are more strongly supported. Given that 'market_trend' is a key factor in the network, this update increases the confidence in the outcome, leading to a moderate increase in the estimated probability.\"\n}",
+      "target_id": "market_trend->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of institutional investors revealed that 80% of respondents adjust their investment strategies based on overall market trends, with 60% citing market trends as a key factor in their sentiment towards individual stocks. Additionally, historical data shows that during periods of strong market growth, investor sentiment towards MA has increased, even when the company's financial performance has been stable. This suggests that market trends have a more profound impact on investor sentiment than previously thought. As a result, it is likely that the positive market trend will boost investor confidence in MA, leading to a higher market close price on 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'market_trend->investor_sentiment', suggesting that market trends have a more significant impact on investor sentiment than previously thought. This affects the causal path 'market_trend -> investor_sentiment -> outcome', increasing the likelihood that a positive market trend will boost investor confidence in MA and drive up its stock price. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases. The update is moderate, reflecting the enhanced importance of market trends in influencing investor sentiment, but still acknowledges uncertainty in other factors like company performance and industry trends.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'market_trend->investor_sentiment', suggesting that market trends have a more significant impact on investor sentiment than previously thought. This affects the causal path 'market_trend -> investor_sentiment -> outcome', increasing the likelihood that a positive market trend will boost investor confidence in MA and drive up its stock price. As a result, the probability of MA's market close price on 2025-12-28 being higher than on 2025-12-21 increases. The update is moderate, reflecting the enhanced importance of market trends in influencing investor sentiment, but still acknowledges uncertainty in other factors like company performance and industry trends.\"\n}",
+      "target_id": "market_trend->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "MA",
+    "question_text": "Will MA's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.58,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.08375000000000002,
+    "max_absolute_shift": 0.19999999999999996
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 1.4062499999999996,
+    "mean_shift_high": 0.07500000000000002,
+    "mean_shift_low": 0.053333333333333365,
+    "asymmetry_index": 0.6086956521739126,
+    "mean_shift_negate": 0.06,
+    "mean_shift_strengthen": 0.09857142857142863,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": -0.02055555555555555,
+    "mean_shift_on_path": 0.07111111111111114,
+    "mean_shift_off_path": 0.09166666666666669,
+    "importance_sensitivity_correlation": -0.3318181818181818,
+    "control_sensitivity": 0
+  }
+}

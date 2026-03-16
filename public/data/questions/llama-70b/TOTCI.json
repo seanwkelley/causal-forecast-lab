@@ -1,0 +1,1060 @@
+{
+  "question_id": "TOTCI",
+  "question_text": "Will the total dollar amount representing all commercial and industrial loans made by commercial banks in the US have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+  "source": "fred",
+  "initial_probability": 0.73,
+  "nodes": [
+    {
+      "id": "economic_growth",
+      "description": "The overall state of the US economy",
+      "role": "factor"
+    },
+    {
+      "id": "fed_policy",
+      "description": "Monetary policy decisions made by the Federal Reserve",
+      "role": "factor"
+    },
+    {
+      "id": "interest_rates",
+      "description": "The prevailing interest rates for loans",
+      "role": "factor"
+    },
+    {
+      "id": "business_confidence",
+      "description": "The level of confidence businesses have in the economy",
+      "role": "factor"
+    },
+    {
+      "id": "loan_demand",
+      "description": "The demand for commercial and industrial loans",
+      "role": "factor"
+    },
+    {
+      "id": "bank_lending_capacity",
+      "description": "The ability of banks to lend",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The increase in total dollar amount of commercial and industrial loans by 2025-12-28",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_growth",
+      "to": "business_confidence",
+      "mechanism": "A strong economy boosts business confidence"
+    },
+    {
+      "from": "business_confidence",
+      "to": "loan_demand",
+      "mechanism": "Confident businesses are more likely to seek loans for expansion"
+    },
+    {
+      "from": "fed_policy",
+      "to": "interest_rates",
+      "mechanism": "The Federal Reserve sets interest rates through monetary policy"
+    },
+    {
+      "from": "interest_rates",
+      "to": "loan_demand",
+      "mechanism": "Lower interest rates increase demand for loans"
+    },
+    {
+      "from": "interest_rates",
+      "to": "bank_lending_capacity",
+      "mechanism": "Lower interest rates can increase banks' willingness to lend"
+    },
+    {
+      "from": "bank_lending_capacity",
+      "to": "outcome",
+      "mechanism": "Banks' ability to lend affects the total amount of loans made"
+    },
+    {
+      "from": "loan_demand",
+      "to": "outcome",
+      "mechanism": "High demand for loans leads to an increase in the total amount lent"
+    }
+  ],
+  "reasoning": "The forecast that the total dollar amount of commercial and industrial loans will increase by 2025-12-28 compared to 2025-12-21 is based on the interplay of several factors. A growing economy and favorable Federal Reserve policy are expected to contribute to low interest rates and high business confidence, both of which should increase demand for loans and banks' capacity to lend, ultimately leading to an increase in the total amount of loans made.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "economic_growth",
+        "description": "The overall state of the US economy",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0,
+        "composite_importance": 0.1123
+      },
+      {
+        "node_id": "fed_policy",
+        "description": "Monetary policy decisions made by the Federal Reserve",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0,
+        "composite_importance": 0.1123
+      },
+      {
+        "node_id": "interest_rates",
+        "description": "The prevailing interest rates for loans",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.1,
+        "closeness": 0.1667,
+        "pagerank": 0.1141,
+        "path_relevance": 0.25,
+        "composite_importance": 0.3278
+      },
+      {
+        "node_id": "business_confidence",
+        "description": "The level of confidence businesses have in the economy",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1141,
+        "path_relevance": 0.125,
+        "composite_importance": 0.1803
+      },
+      {
+        "node_id": "loan_demand",
+        "description": "The demand for commercial and industrial loans",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.4444,
+        "pagerank": 0.2071,
+        "path_relevance": 0.5,
+        "composite_importance": 0.3214
+      },
+      {
+        "node_id": "bank_lending_capacity",
+        "description": "The ability of banks to lend",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.2222,
+        "pagerank": 0.1101,
+        "path_relevance": 0.25,
+        "composite_importance": 0.207
+      },
+      {
+        "node_id": "outcome",
+        "description": "The increase in total dollar amount of commercial and industrial loans by 2025-12-28",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3313,
+        "path_relevance": 0,
+        "composite_importance": 0.0663
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "economic_growth",
+        "target": "business_confidence",
+        "mechanism": "A strong economy boosts business confidence",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "fed_policy",
+        "target": "interest_rates",
+        "mechanism": "The Federal Reserve sets interest rates through monetary policy",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "interest_rates",
+        "target": "loan_demand",
+        "mechanism": "Lower interest rates increase demand for loans",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "interest_rates",
+        "target": "bank_lending_capacity",
+        "mechanism": "Lower interest rates can increase banks' willingness to lend",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "business_confidence",
+        "target": "loan_demand",
+        "mechanism": "Confident businesses are more likely to seek loans for expansion",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "loan_demand",
+        "target": "outcome",
+        "mechanism": "High demand for loans leads to an increase in the total amount lent",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "bank_lending_capacity",
+        "target": "outcome",
+        "mechanism": "Banks' ability to lend affects the total amount of loans made",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "interest_rates",
+        "description": "The prevailing interest rates for loans",
+        "importance": 0.3278,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "loan_demand",
+        "description": "The demand for commercial and industrial loans",
+        "importance": 0.3214,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "business_confidence",
+        "description": "The level of confidence businesses have in the economy",
+        "importance": 0.1803,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "fed_policy",
+        "description": "Monetary policy decisions made by the Federal Reserve",
+        "importance": 0.1123,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "interest_rates",
+        "description": "The prevailing interest rates for loans",
+        "importance": 0.3278,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "loan_demand",
+        "description": "The demand for commercial and industrial loans",
+        "importance": 0.3214,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fed_policy->interest_rates",
+        "description": "The Federal Reserve sets interest rates through monetary policy",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "business_confidence->loan_demand",
+        "description": "Confident businesses are more likely to seek loans for expansion",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "bank_lending_capacity->outcome",
+        "description": "Banks' ability to lend affects the total amount of loans made",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "fed_policy->interest_rates",
+        "description": "The Federal Reserve sets interest rates through monetary policy",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "bank_lending_capacity->loan_demand",
+        "description": "Potential link: The ability of banks to lend -> The demand for commercial and industrial loans",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_fabricate"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "interest_rates",
+      "description": "The prevailing interest rates for loans",
+      "importance": 0.3278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "loan_demand",
+      "description": "The demand for commercial and industrial loans",
+      "importance": 0.3214,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "business_confidence",
+      "description": "The level of confidence businesses have in the economy",
+      "importance": 0.1803,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "fed_policy",
+      "description": "Monetary policy decisions made by the Federal Reserve",
+      "importance": 0.1123,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "interest_rates",
+      "description": "The prevailing interest rates for loans",
+      "importance": 0.3278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "loan_demand",
+      "description": "The demand for commercial and industrial loans",
+      "importance": 0.3214,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fed_policy->interest_rates",
+      "description": "The Federal Reserve sets interest rates through monetary policy",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "business_confidence->loan_demand",
+      "description": "Confident businesses are more likely to seek loans for expansion",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "bank_lending_capacity->outcome",
+      "description": "Banks' ability to lend affects the total amount of loans made",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "fed_policy->interest_rates",
+      "description": "The Federal Reserve sets interest rates through monetary policy",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "bank_lending_capacity->loan_demand",
+      "description": "Potential link: The ability of banks to lend -> The demand for commercial and industrial loans",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_fabricate"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the prevailing interest rates for loans have no significant impact on loan demand or bank lending capacity due to a surge in alternative lending sources, such as private equity firms and fintech companies, which can provide loans at competitive rates regardless of traditional interest rates? This could render interest rates less relevant in determining the outcome. Alternatively, what if higher interest rates actually stimulate loan demand as businesses seek to lock in loans before rates increase further, thus potentially increasing the total amount lent? Recent trends suggest that traditional banking models may be less influential in the current market.",
+      "probe_type": "node_negate_high",
+      "target_id": "interest_rates",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.3278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The prevailing interest rates for loans"
+    },
+    {
+      "probe_text": "What if a sudden and unexpected surge in remote work and digital transformation leads to a significant decrease in the need for physical expansion, rendering the demand for commercial and industrial loans irrelevant to the outcome? Alternatively, businesses might be seeking alternative funding sources, such as venture capital or crowdfunding, making traditional loan demand a poor indicator of the total amount lent. This could be due to the growing trend of businesses prioritizing agility and scalability over traditional brick-and-mortar expansion. As a result, the demand for loans might not be a driving factor in the increase of total dollar amount of commercial and industrial loans.",
+      "probe_type": "node_negate_high",
+      "target_id": "loan_demand",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.3214,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The demand for commercial and industrial loans"
+    },
+    {
+      "probe_text": "Recent surveys of small business owners suggest that despite the overall economic growth, many are hesitant to expand due to concerns over global market instability and rising operational costs, indicating that business confidence may not be as directly tied to economic growth as previously thought. In fact, some industries are experiencing decreased confidence due to these external factors, potentially reducing loan demand. This discrepancy raises questions about the strength of the link between economic growth and business confidence. As a result, the expected increase in commercial and industrial loans may not materialize.",
+      "probe_type": "node_negate_medium",
+      "target_id": "business_confidence",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1803,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "The level of confidence businesses have in the economy"
+    },
+    {
+      "probe_text": "Recent analysis suggests that the Federal Reserve's monetary policy decisions have been largely ineffective in influencing interest rates due to global economic trends and market forces. As a result, the Fed's actions may not have the expected impact on loan demand and bank lending capacity. This raises questions about the significance of fed_policy in the causal network. The Federal Reserve's decisions might be less relevant than previously thought, potentially rendering this factor negligible in predicting the outcome.",
+      "probe_type": "node_negate_low",
+      "target_id": "fed_policy",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1123,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Monetary policy decisions made by the Federal Reserve"
+    },
+    {
+      "probe_text": "The Federal Reserve announced a surprise cut in interest rates on 2025-12-24, citing a need to stimulate economic growth, and multiple major commercial banks immediately responded by reducing their lending rates, making loans more attractive to businesses. This move is expected to significantly increase loan applications in the coming weeks. Experts predict that this reduction in interest rates will not only boost loan demand but also enhance banks' lending capacity due to decreased borrowing costs. As a result, the outlook for commercial and industrial loan growth has become even more favorable.",
+      "probe_type": "node_strengthen",
+      "target_id": "interest_rates",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.3278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The prevailing interest rates for loans"
+    },
+    {
+      "probe_text": "A recent survey by the National Federation of Independent Business found that 62% of small business owners plan to expand their operations in the next quarter, citing improved economic conditions and increased access to capital. This surge in expansion plans is expected to drive up demand for commercial and industrial loans, as businesses seek financing to support their growth initiatives. Additionally, the survey noted that 75% of respondents believe that the current interest rate environment is favorable for borrowing. This sentiment is likely to further boost loan demand, as businesses take advantage of relatively low interest rates to finance their expansion plans.",
+      "probe_type": "node_strengthen",
+      "target_id": "loan_demand",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.3214,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The demand for commercial and industrial loans"
+    },
+    {
+      "probe_text": "Recent political pressures and concerns about economic overheating might lead the Federal Reserve to keep interest rates steady despite inflationary trends, breaking the typical causal link between fed_policy and interest_rates. Alternatively, global economic shifts could force the Federal Reserve to adjust interest rates based on international market trends rather than domestic monetary policy, weakening the direct influence of fed_policy on interest_rates. Furthermore, the current economic environment may be experiencing a period where the Federal Reserve's ability to control interest rates through monetary policy is diminished due to external factors. This could be due to a decrease in the effectiveness of traditional monetary policy tools.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "fed_policy->interest_rates",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The Federal Reserve sets interest rates through monetary policy"
+    },
+    {
+      "probe_text": "However, recent surveys have shown that despite high business confidence, many companies are opting to utilize internal funds or alternative financing options rather than seeking traditional loans for expansion, potentially due to increased scrutiny of debt levels or the attractiveness of private funding sources. This shift in financing strategies could weaken the link between business confidence and loan demand. Furthermore, some industries are experiencing a rise in cash-rich companies that prefer self-financing over borrowing, which might further decouple business confidence from loan demand. As a result, the relationship between business confidence and loan demand may not be as direct or strong as previously assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "business_confidence->loan_demand",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Confident businesses are more likely to seek loans for expansion"
+    },
+    {
+      "probe_text": "Recent banking regulations have led to a significant increase in banks' capital reserves, making them more willing to lend. However, these same regulations have also introduced stricter lending standards, which might offset the impact of increased lending capacity on the actual amount of loans made. In this context, the ability of banks to lend might not directly translate to an increase in the total dollar amount of commercial and industrial loans. This could be due to the banks' cautious approach to lending despite having the capacity to do so.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "bank_lending_capacity->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Banks' ability to lend affects the total amount of loans made"
+    },
+    {
+      "probe_text": "Recent research suggests that market expectations of future interest rate changes can influence the Federal Reserve's monetary policy decisions, as policymakers aim to align their actions with market sentiment to maintain economic stability. For instance, if interest rates are expected to rise due to market forces, the Federal Reserve might adjust its policy stance to accommodate or mitigate these changes. This dynamic could imply that interest rate movements, driven by market forces, sometimes precede and inform Federal Reserve policy decisions, rather than the other way around. Could it be that interest rate trends are, in some cases, driving Federal Reserve policy rather than solely being driven by it?",
+      "probe_type": "edge_reverse",
+      "target_id": "fed_policy->interest_rates",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The Federal Reserve sets interest rates through monetary policy"
+    },
+    {
+      "probe_text": "Recent surveys indicate that banks with increased lending capacity tend to offer more attractive loan terms, such as lower fees and flexible repayment options, which in turn can stimulate demand for commercial and industrial loans from businesses that were previously hesitant due to stringent loan conditions. This suggests a potential causal link where the ability of banks to lend directly influences the demand for loans. If banks can lend more, they may advertise and promote their loan products more aggressively, thereby increasing demand. This could imply that the forecaster's model is missing an important relationship between bank lending capacity and loan demand.",
+      "probe_type": "edge_fabricate",
+      "target_id": "bank_lending_capacity->loan_demand",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The ability of banks to lend -> The demand for commercial and industrial loans"
+    },
+    {
+      "probe_text": "What if a major global economic downturn were to occur between 2025-12-21 and 2025-12-28, significantly impacting US trade and reducing the demand for commercial and industrial loans? This event could be triggered by unforeseen geopolitical tensions or a sudden decline in international trade agreements. The absence of a node representing global economic conditions in the forecaster's network suggests a potential blind spot. How would this new information affect your estimate of the probability that the total dollar amount of commercial and industrial loans has increased by 2025-12-28?",
+      "probe_type": "missing_node",
+      "target_id": "global_economic_conditions",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What if a significant increase in regulatory capital requirements for banks is announced, forcing them to reduce their lending capacity to maintain compliance? This change could directly impact the bank_lending_capacity node. Would this development alter your forecast for the increase in total dollar amount of commercial and industrial loans by 2025-12-28? The introduction of stricter regulations could affect banks' ability to lend, thus influencing the outcome.",
+      "probe_type": "missing_node",
+      "target_id": "regulatory_requirements",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The US Department of Education has announced plans to implement new guidelines for student loan forgiveness programs by the end of 2025. This initiative aims to simplify the process for borrowers and provide more flexibility in repayment options. Although this change is expected to impact a significant number of individuals, it is primarily focused on personal debt rather than commercial or industrial loans. The Department of Education believes this move will have a positive effect on the overall financial literacy of the population.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The US Department of Labor has announced a new initiative to improve data collection methods for tracking employment rates in the service sector, which is expected to provide more accurate insights into job market trends by 2026. This change is part of a broader effort to modernize the department's statistical analysis capabilities. The initiative does not involve any changes to the current methods used for tracking economic indicators related to commercial and industrial loan activities.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the prevailing interest rates for loans have no significant impact on loan demand or bank lending capacity due to a surge in alternative lending sources, such as private equity firms and fintech companies, which can provide loans at competitive rates regardless of traditional interest rates? This could render interest rates less relevant in determining the outcome. Alternatively, what if higher interest rates actually stimulate loan demand as businesses seek to lock in loans before rates increase further, thus potentially increasing the total amount lent? Recent trends suggest that traditional banking models may be less influential in the current market.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'interest_rates' affects two key paths: 'interest_rates -> loan_demand' and 'interest_rates -> bank_lending_capacity'. If alternative lending sources render traditional interest rates less relevant, the influence of 'interest_rates' on 'loan_demand' and 'bank_lending_capacity' is diminished. Additionally, the possibility that higher interest rates could stimulate loan demand introduces uncertainty. However, the primary drivers 'economic_growth -> business_confidence -> loan_demand' and 'bank_lending_capacity -> outcome' remain unaffected. Given the reduced impact of 'interest_rates', I've decreased the probability, reflecting increased uncertainty about the outcome, but the decrease is moderate as the core causal paths remain intact.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'interest_rates' affects two key paths: 'interest_rates -> loan_demand' and 'interest_rates -> bank_lending_capacity'. If alternative lending sources render traditional interest rates less relevant, the influence of 'interest_rates' on 'loan_demand' and 'bank_lending_capacity' is diminished. Additionally, the possibility that higher interest rates could stimulate loan demand introduces uncertainty. However, the primary drivers 'economic_growth -> business_confidence -> loan_demand' and 'bank_lending_capacity -> outcome' remain unaffected. Given the reduced impact of 'interest_rates', I've decreased the probability, reflecting increased uncertainty about the outcome, but the decrease is moderate as the core causal paths remain intact.\"\n}",
+      "target_id": "interest_rates",
+      "target_type": "node",
+      "target_importance": 0.3278,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if a sudden and unexpected surge in remote work and digital transformation leads to a significant decrease in the need for physical expansion, rendering the demand for commercial and industrial loans irrelevant to the outcome? Alternatively, businesses might be seeking alternative funding sources, such as venture capital or crowdfunding, making traditional loan demand a poor indicator of the total amount lent. This could be due to the growing trend of businesses prioritizing agility and scalability over traditional brick-and-mortar expansion. As a result, the demand for loans might not be a driving factor in the increase of total dollar amount of commercial and industrial loans.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.41,
+      "absolute_shift": 0.32,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between loan_demand and outcome, suggesting that the demand for commercial and industrial loans may not be a driving factor in the increase of the total dollar amount lent. This affects two critical causal paths: business_confidence -> loan_demand -> outcome and interest_rates -> loan_demand -> outcome. If businesses are prioritizing agility and scalability over traditional expansion and seeking alternative funding sources, the demand for loans may not accurately predict the outcome. As a result, the importance of loan_demand in the causal network is diminished, leading to a substantial decrease in the estimated probability. The paths economic_growth -> business_confidence and fed_policy -> interest_rates -> bank_lending_capacity are still relevant, but their impact is reduced due to the decreased reliance on loan_demand. Therefore, a significant update to the probability estimate is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.41,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between loan_demand and outcome, suggesting that the demand for commercial and industrial loans may not be a driving factor in the increase of the total dollar amount lent. This affects two critical causal paths: business_confidence -> loan_demand -> outcome and interest_rates -> loan_demand -> outcome. If businesses are prioritizing agility and scalability over traditional expansion and seeking alternative funding sources, the demand for loans may not accurately predict the outcome. As a result, the importance of loan_demand in the causal network is diminished, leading to a substantial decrease in the estimated probability. The paths economic_growth -> business_confidence and fed_policy -> interest_rates -> bank_lending_capacity are still relevant, but their impact is reduced due to the decreased reliance on loan_demand. Therefore, a significant update to the probability estimate is warranted.\"\n}",
+      "target_id": "loan_demand",
+      "target_type": "node",
+      "target_importance": 0.3214,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys of small business owners suggest that despite the overall economic growth, many are hesitant to expand due to concerns over global market instability and rising operational costs, indicating that business confidence may not be as directly tied to economic growth as previously thought. In fact, some industries are experiencing decreased confidence due to these external factors, potentially reducing loan demand. This discrepancy raises questions about the strength of the link between economic growth and business confidence. As a result, the expected increase in commercial and industrial loans may not materialize.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'business_confidence' node affects the causal path from 'economic_growth' to 'loan_demand' through 'business_confidence'. This path is now weakened due to the concerns over global market instability and rising operational costs, which suggest that business confidence may not increase as directly with economic growth as previously thought. As a result, the expected increase in loan demand and subsequently the total dollar amount of commercial and industrial loans may not materialize. However, the path from 'fed_policy' to 'interest_rates' to 'loan_demand' and 'bank_lending_capacity' remains intact, which is why the update is significant but does not completely negate the initial forecast. The reduction in the probability reflects the diminished confidence in the direct relationship between economic growth and loan demand via business confidence, but still acknowledges other factors that could support an increase in loans.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'business_confidence' node affects the causal path from 'economic_growth' to 'loan_demand' through 'business_confidence'. This path is now weakened due to the concerns over global market instability and rising operational costs, which suggest that business confidence may not increase as directly with economic growth as previously thought. As a result, the expected increase in loan demand and subsequently the total dollar amount of commercial and industrial loans may not materialize. However, the path from 'fed_policy' to 'interest_rates' to 'loan_demand' and 'bank_lending_capacity' remains intact, which is why the update is significant but does not completely negate the initial forecast. The reduction in the probability reflects the diminished confidence in the direct relationship between economic growth and loan demand via business confidence, but still acknowledges other factors that could support an increase in loans.\"\n}",
+      "target_id": "business_confidence",
+      "target_type": "node",
+      "target_importance": 0.1803,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis suggests that the Federal Reserve's monetary policy decisions have been largely ineffective in influencing interest rates due to global economic trends and market forces. As a result, the Fed's actions may not have the expected impact on loan demand and bank lending capacity. This raises questions about the significance of fed_policy in the causal network. The Federal Reserve's decisions might be less relevant than previously thought, potentially rendering this factor negligible in predicting the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'fed_policy' affects the causal paths 'fed_policy -> interest_rates' and subsequently 'interest_rates -> loan_demand' and 'interest_rates -> bank_lending_capacity'. Since the Federal Reserve's ability to influence interest rates is questioned, the impact of 'fed_policy' on 'loan_demand' and 'bank_lending_capacity' is diminished. However, 'economic_growth -> business_confidence -> loan_demand' and 'bank_lending_capacity -> outcome' remain unaffected, as they do not directly depend on 'fed_policy'. Given that 'fed_policy' was not the sole driver of the outcome, but rather one of several factors, the decrease in the probability estimate reflects the reduced influence of 'fed_policy' on the outcome, without completely negating the other causal paths that contribute to the increase in commercial and industrial loans.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'fed_policy' affects the causal paths 'fed_policy -> interest_rates' and subsequently 'interest_rates -> loan_demand' and 'interest_rates -> bank_lending_capacity'. Since the Federal Reserve's ability to influence interest rates is questioned, the impact of 'fed_policy' on 'loan_demand' and 'bank_lending_capacity' is diminished. However, 'economic_growth -> business_confidence -> loan_demand' and 'bank_lending_capacity -> outcome' remain unaffected, as they do not directly depend on 'fed_policy'. Given that 'fed_policy' was not the sole driver of the outcome, but rather one of several factors, the decrease in the probability estimate reflects the reduced influence of 'fed_policy' on the outcome, without completely negating the other causal paths that contribute to the increase in commercial and industrial loans.\"\n}",
+      "target_id": "fed_policy",
+      "target_type": "node",
+      "target_importance": 0.1123,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve announced a surprise cut in interest rates on 2025-12-24, citing a need to stimulate economic growth, and multiple major commercial banks immediately responded by reducing their lending rates, making loans more attractive to businesses. This move is expected to significantly increase loan applications in the coming weeks. Experts predict that this reduction in interest rates will not only boost loan demand but also enhance banks' lending capacity due to decreased borrowing costs. As a result, the outlook for commercial and industrial loan growth has become even more favorable.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.92,
+      "absolute_shift": 0.19000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The surprise cut in interest rates by the Federal Reserve directly affects two critical causal paths: interest_rates -> loan_demand and interest_rates -> bank_lending_capacity. Lower interest rates are expected to increase loan demand and enhance banks' lending capacity. These changes reinforce the positive outlook for commercial and industrial loan growth. The impact on both loan demand and bank lending capacity strengthens the causal links leading to an increase in the total dollar amount of loans, thus increasing the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.92,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The surprise cut in interest rates by the Federal Reserve directly affects two critical causal paths: interest_rates -> loan_demand and interest_rates -> bank_lending_capacity. Lower interest rates are expected to increase loan demand and enhance banks' lending capacity. These changes reinforce the positive outlook for commercial and industrial loan growth. The impact on both loan demand and bank lending capacity strengthens the causal links leading to an increase in the total dollar amount of loans, thus increasing the probability of the outcome.\"\n}",
+      "target_id": "interest_rates",
+      "target_type": "node",
+      "target_importance": 0.3278,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey by the National Federation of Independent Business found that 62% of small business owners plan to expand their operations in the next quarter, citing improved economic conditions and increased access to capital. This surge in expansion plans is expected to drive up demand for commercial and industrial loans, as businesses seek financing to support their growth initiatives. Additionally, the survey noted that 75% of respondents believe that the current interest rate environment is favorable for borrowing. This sentiment is likely to further boost loan demand, as businesses take advantage of relatively low interest rates to finance their expansion plans.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'loan_demand' strengthens the causal path from 'business_confidence' and 'interest_rates' to 'outcome' through 'loan_demand'. The survey's findings indicate a surge in expansion plans among small business owners, which is likely to increase demand for commercial and industrial loans. Additionally, the favorable interest rate environment is expected to further boost loan demand. This increase in loan demand, in turn, is likely to lead to an increase in the total dollar amount of loans made, as banks respond to the higher demand. The causal paths affected are 'business_confidence -> loan_demand' and 'interest_rates -> loan_demand', both of which are critical links in the network. Given the convincing evidence, a substantial update to the probability estimate is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'loan_demand' strengthens the causal path from 'business_confidence' and 'interest_rates' to 'outcome' through 'loan_demand'. The survey's findings indicate a surge in expansion plans among small business owners, which is likely to increase demand for commercial and industrial loans. Additionally, the favorable interest rate environment is expected to further boost loan demand. This increase in loan demand, in turn, is likely to lead to an increase in the total dollar amount of loans made, as banks respond to the higher demand. The causal paths affected are 'business_confidence -> loan_demand' and 'interest_rates -> loan_demand', both of which are critical links in the network. Given the convincing evidence, a substantial update to the probability estimate is warranted.\"\n}",
+      "target_id": "loan_demand",
+      "target_type": "node",
+      "target_importance": 0.3214,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent political pressures and concerns about economic overheating might lead the Federal Reserve to keep interest rates steady despite inflationary trends, breaking the typical causal link between fed_policy and interest_rates. Alternatively, global economic shifts could force the Federal Reserve to adjust interest rates based on international market trends rather than domestic monetary policy, weakening the direct influence of fed_policy on interest_rates. Furthermore, the current economic environment may be experiencing a period where the Federal Reserve's ability to control interest rates through monetary policy is diminished due to external factors. This could be due to a decrease in the effectiveness of traditional monetary policy tools.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'fed_policy->interest_rates' affects the paths 'fed_policy->interest_rates->loan_demand' and 'fed_policy->interest_rates->bank_lending_capacity', which are important for determining loan demand and bank lending capacity. If the Federal Reserve's ability to control interest rates is diminished, the expected increase in loan demand and bank lending capacity due to lower interest rates may not materialize. However, other causal paths such as 'economic_growth->business_confidence->loan_demand' and 'business_confidence->loan_demand->outcome' remain intact. The decrease in the probability estimate reflects the reduced confidence in the interest rate mechanism, but the other paths still support a positive outlook for loan growth, albeit less strongly.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'fed_policy->interest_rates' affects the paths 'fed_policy->interest_rates->loan_demand' and 'fed_policy->interest_rates->bank_lending_capacity', which are important for determining loan demand and bank lending capacity. If the Federal Reserve's ability to control interest rates is diminished, the expected increase in loan demand and bank lending capacity due to lower interest rates may not materialize. However, other causal paths such as 'economic_growth->business_confidence->loan_demand' and 'business_confidence->loan_demand->outcome' remain intact. The decrease in the probability estimate reflects the reduced confidence in the interest rate mechanism, but the other paths still support a positive outlook for loan growth, albeit less strongly.\"\n}",
+      "target_id": "fed_policy->interest_rates",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "However, recent surveys have shown that despite high business confidence, many companies are opting to utilize internal funds or alternative financing options rather than seeking traditional loans for expansion, potentially due to increased scrutiny of debt levels or the attractiveness of private funding sources. This shift in financing strategies could weaken the link between business confidence and loan demand. Furthermore, some industries are experiencing a rise in cash-rich companies that prefer self-financing over borrowing, which might further decouple business confidence from loan demand. As a result, the relationship between business confidence and loan demand may not be as direct or strong as previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'business_confidence->loan_demand' affects one of the primary paths leading to the outcome, as it potentially weakens the direct relationship between business confidence and loan demand. This path is significant because confident businesses are typically more likely to seek expansion loans. However, the information suggests that despite high confidence, companies are opting for alternative financing, which could reduce loan demand. Since this link is part of a key causal chain (economic_growth -> business_confidence -> loan_demand -> outcome), its weakening impacts the overall probability of the outcome. Nonetheless, other paths, such as fed_policy -> interest_rates -> loan_demand and interest_rates -> bank_lending_capacity -> outcome, remain unaffected, which is why the update is moderate rather than extreme. The decrease in probability reflects the reduced certainty in the loan demand increase due to this weakened link, but the probability remains above 0.5 due to the resilience of other causal paths.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'business_confidence->loan_demand' affects one of the primary paths leading to the outcome, as it potentially weakens the direct relationship between business confidence and loan demand. This path is significant because confident businesses are typically more likely to seek expansion loans. However, the information suggests that despite high confidence, companies are opting for alternative financing, which could reduce loan demand. Since this link is part of a key causal chain (economic_growth -> business_confidence -> loan_demand -> outcome), its weakening impacts the overall probability of the outcome. Nonetheless, other paths, such as fed_policy -> interest_rates -> loan_demand and interest_rates -> bank_lending_capacity -> outcome, remain unaffected, which is why the update is moderate rather than extreme. The decrease in probability reflects the reduced certainty in the loan demand increase due to this weakened link, but the probability remains above 0.5 due to the resilience of other causal paths.\"\n}",
+      "target_id": "business_confidence->loan_demand",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent banking regulations have led to a significant increase in banks' capital reserves, making them more willing to lend. However, these same regulations have also introduced stricter lending standards, which might offset the impact of increased lending capacity on the actual amount of loans made. In this context, the ability of banks to lend might not directly translate to an increase in the total dollar amount of commercial and industrial loans. This could be due to the banks' cautious approach to lending despite having the capacity to do so.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link 'bank_lending_capacity -> outcome', suggesting that increased bank lending capacity may not directly translate to more loans due to stricter lending standards. This affects the causal path 'interest_rates -> bank_lending_capacity -> outcome' and 'bank_lending_capacity -> outcome', potentially reducing the impact of increased lending capacity on the outcome. However, other paths like 'economic_growth -> business_confidence -> loan_demand -> outcome' and 'fed_policy -> interest_rates -> loan_demand -> outcome' remain intact. Given the introduced uncertainty and potential offsetting effects, a moderate decrease in the probability estimate is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link 'bank_lending_capacity -> outcome', suggesting that increased bank lending capacity may not directly translate to more loans due to stricter lending standards. This affects the causal path 'interest_rates -> bank_lending_capacity -> outcome' and 'bank_lending_capacity -> outcome', potentially reducing the impact of increased lending capacity on the outcome. However, other paths like 'economic_growth -> business_confidence -> loan_demand -> outcome' and 'fed_policy -> interest_rates -> loan_demand -> outcome' remain intact. Given the introduced uncertainty and potential offsetting effects, a moderate decrease in the probability estimate is warranted.\"\n}",
+      "target_id": "bank_lending_capacity->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that market expectations of future interest rate changes can influence the Federal Reserve's monetary policy decisions, as policymakers aim to align their actions with market sentiment to maintain economic stability. For instance, if interest rates are expected to rise due to market forces, the Federal Reserve might adjust its policy stance to accommodate or mitigate these changes. This dynamic could imply that interest rate movements, driven by market forces, sometimes precede and inform Federal Reserve policy decisions, rather than the other way around. Could it be that interest rate trends are, in some cases, driving Federal Reserve policy rather than solely being driven by it?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.69,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'fed_policy->interest_rates' causal link suggests that interest rate movements can sometimes precede and inform Federal Reserve policy decisions, rather than the other way around. This affects the causal path 'fed_policy -> interest_rates -> loan_demand' and 'fed_policy -> interest_rates -> bank_lending_capacity', as the direct influence of the Federal Reserve on interest rates, and subsequently on loan demand and bank lending capacity, may be diminished. However, the overall structure of the causal network remains intact, with other paths such as 'economic_growth -> business_confidence -> loan_demand' still contributing to the outcome. Given the complexity of these interactions and the potential for the Federal Reserve to still exert significant influence over interest rates, the update to the probability estimate is moderate, reflecting a nuanced reassessment of the causal dynamics at play.",
+      "raw_response": "{\n  \"updated_probability\": 0.69,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'fed_policy->interest_rates' causal link suggests that interest rate movements can sometimes precede and inform Federal Reserve policy decisions, rather than the other way around. This affects the causal path 'fed_policy -> interest_rates -> loan_demand' and 'fed_policy -> interest_rates -> bank_lending_capacity', as the direct influence of the Federal Reserve on interest rates, and subsequently on loan demand and bank lending capacity, may be diminished. However, the overall structure of the causal network remains intact, with other paths such as 'economic_growth -> business_confidence -> loan_demand' still contributing to the outcome. Given the complexity of these interactions and the potential for the Federal Reserve to still exert significant influence over interest rates, the update to the probability estimate is moderate, reflecting a nuanced reassessment of the causal dynamics at play.\"\n}",
+      "target_id": "fed_policy->interest_rates",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_fabricate",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys indicate that banks with increased lending capacity tend to offer more attractive loan terms, such as lower fees and flexible repayment options, which in turn can stimulate demand for commercial and industrial loans from businesses that were previously hesitant due to stringent loan conditions. This suggests a potential causal link where the ability of banks to lend directly influences the demand for loans. If banks can lend more, they may advertise and promote their loan products more aggressively, thereby increasing demand. This could imply that the forecaster's model is missing an important relationship between bank lending capacity and loan demand.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.81,
+      "absolute_shift": 0.08000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a previously unmodeled direct relationship between bank_lending_capacity and loan_demand. This additional link suggests that increased bank lending capacity can stimulate loan demand, potentially amplifying the effect of other factors like economic_growth and fed_policy on the outcome. The causal path bank_lending_capacity -> loan_demand -> outcome is now recognized as significant, in addition to the existing path bank_lending_capacity -> outcome. This strengthens the overall positive influence on the outcome, as more factors contribute to an increase in commercial and industrial loans. Given the potential for banks to more aggressively promote their loan products when they have increased lending capacity, this could lead to a noticeable increase in loan demand, thereby increasing the likelihood of the total dollar amount of these loans rising by 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.81,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a previously unmodeled direct relationship between bank_lending_capacity and loan_demand. This additional link suggests that increased bank lending capacity can stimulate loan demand, potentially amplifying the effect of other factors like economic_growth and fed_policy on the outcome. The causal path bank_lending_capacity -> loan_demand -> outcome is now recognized as significant, in addition to the existing path bank_lending_capacity -> outcome. This strengthens the overall positive influence on the outcome, as more factors contribute to an increase in commercial and industrial loans. Given the potential for banks to more aggressively promote their loan products when they have increased lending capacity, this could lead to a noticeable increase in loan demand, thereby increasing the likelihood of the total dollar amount of these loans rising by 2025-12-28.\"\n}",
+      "target_id": "bank_lending_capacity->loan_demand",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a major global economic downturn were to occur between 2025-12-21 and 2025-12-28, significantly impacting US trade and reducing the demand for commercial and industrial loans? This event could be triggered by unforeseen geopolitical tensions or a sudden decline in international trade agreements. The absence of a node representing global economic conditions in the forecaster's network suggests a potential blind spot. How would this new information affect your estimate of the probability that the total dollar amount of commercial and industrial loans has increased by 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.42,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a major global economic downturn significantly impacts the causal paths leading to the outcome. This event affects the economic_growth node, which in turn influences business_confidence and subsequently loan_demand. The downturn also directly impacts loan_demand by reducing US trade, a critical factor not initially accounted for in the model. The absence of a node for global economic conditions in the original network means this new information reveals a significant blind spot. Given the critical nature of this challenge to the core causal paths (economic_growth -> business_confidence -> loan_demand and loan_demand -> outcome), and considering the potential for reduced bank_lending_capacity due to economic instability, a substantial decrease in the estimated probability is warranted. The updated probability reflects a lower likelihood of increased commercial and industrial loans due to decreased demand and potentially reduced lending capacity amidst a global economic downturn.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a major global economic downturn significantly impacts the causal paths leading to the outcome. This event affects the economic_growth node, which in turn influences business_confidence and subsequently loan_demand. The downturn also directly impacts loan_demand by reducing US trade, a critical factor not initially accounted for in the model. The absence of a node for global economic conditions in the original network means this new information reveals a significant blind spot. Given the critical nature of this challenge to the core causal paths (economic_growth -> business_confidence -> loan_demand and loan_demand -> outcome), and considering the potential for reduced bank_lending_capacity due to economic instability, a substantial decrease in the estimated probability is warranted. The updated probability reflects a lower likelihood of increased commercial and industrial loans due to decreased demand and potentially reduced lending capacity amidst a global economic downturn.\"\n}",
+      "target_id": "global_economic_conditions",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a significant increase in regulatory capital requirements for banks is announced, forcing them to reduce their lending capacity to maintain compliance? This change could directly impact the bank_lending_capacity node. Would this development alter your forecast for the increase in total dollar amount of commercial and industrial loans by 2025-12-28? The introduction of stricter regulations could affect banks' ability to lend, thus influencing the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.31,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of stricter regulatory capital requirements directly impacts the bank_lending_capacity node, which is a critical element in the causal network as it directly affects the outcome. This change breaks a key causal path: bank_lending_capacity -> outcome. With reduced lending capacity, banks will be less able to meet loan demand, regardless of the level of economic growth, business confidence, or interest rates. The challenge primarily affects the path from bank_lending_capacity to outcome, significantly reducing the likelihood of an increase in the total dollar amount of commercial and industrial loans by 2025-12-28. The update reflects a substantial decrease in the probability due to the critical nature of the impacted causal link.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of stricter regulatory capital requirements directly impacts the bank_lending_capacity node, which is a critical element in the causal network as it directly affects the outcome. This change breaks a key causal path: bank_lending_capacity -> outcome. With reduced lending capacity, banks will be less able to meet loan demand, regardless of the level of economic growth, business confidence, or interest rates. The challenge primarily affects the path from bank_lending_capacity to outcome, significantly reducing the likelihood of an increase in the total dollar amount of commercial and industrial loans by 2025-12-28. The update reflects a substantial decrease in the probability due to the critical nature of the impacted causal link.\"\n}",
+      "target_id": "regulatory_requirements",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The US Department of Education has announced plans to implement new guidelines for student loan forgiveness programs by the end of 2025. This initiative aims to simplify the process for borrowers and provide more flexibility in repayment options. Although this change is expected to impact a significant number of individuals, it is primarily focused on personal debt rather than commercial or industrial loans. The Department of Education believes this move will have a positive effect on the overall financial literacy of the population.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The announced plans for student loan forgiveness programs primarily affect personal debt and financial literacy, which are peripheral to the commercial and industrial loan market. None of the causal paths directly leading to the outcome (loan_demand -> outcome, bank_lending_capacity -> outcome) are significantly impacted by this change. As a result, the overall structure of the causal network remains intact, and the probability estimate for the increase in commercial and industrial loans by 2025-12-28 remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The announced plans for student loan forgiveness programs primarily affect personal debt and financial literacy, which are peripheral to the commercial and industrial loan market. None of the causal paths directly leading to the outcome (loan_demand -> outcome, bank_lending_capacity -> outcome) are significantly impacted by this change. As a result, the overall structure of the causal network remains intact, and the probability estimate for the increase in commercial and industrial loans by 2025-12-28 remains unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The US Department of Labor has announced a new initiative to improve data collection methods for tracking employment rates in the service sector, which is expected to provide more accurate insights into job market trends by 2026. This change is part of a broader effort to modernize the department's statistical analysis capabilities. The initiative does not involve any changes to the current methods used for tracking economic indicators related to commercial and industrial loan activities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The announcement by the US Department of Labor regarding the improvement of data collection methods for tracking employment rates in the service sector does not directly impact any of the causal paths leading to the outcome of increased commercial and industrial loans. The initiative is focused on enhancing job market trend insights and does not involve changes to methods used for tracking economic indicators related to commercial and industrial loan activities. Therefore, the structural challenge does not affect the critical causal links in our model, such as the relationship between economic growth, business confidence, loan demand, interest rates, and bank lending capacity. As a result, our probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n   \"shift_direction\": \"unchanged\",\n   \"reasoning\": \"The announcement by the US Department of Labor regarding the improvement of data collection methods for tracking employment rates in the service sector does not directly impact any of the causal paths leading to the outcome of increased commercial and industrial loans. The initiative is focused on enhancing job market trend insights and does not involve changes to methods used for tracking economic indicators related to commercial and industrial loan activities. Therefore, the structural challenge does not affect the critical causal links in our model, such as the relationship between economic growth, business confidence, loan demand, interest rates, and bank lending capacity. As a result, our probability estimate remains unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "On 2025-12-24, the Federal Reserve announced a surprise reduction in the reserve requirement ratio for commercial banks, effective immediately. This move is expected to significantly increase the lending capacity of commercial banks, as they will be able to lend a larger portion of their deposits. As a result, market analysts are predicting a surge in commercial and industrial loan originations in the coming weeks. The Fed's decision was seen as a targeted effort to stimulate economic growth through increased access to credit.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.92,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The surprise reduction in the reserve requirement ratio by the Federal Reserve directly affects the 'fed_policy' node, which in turn increases 'bank_lending_capacity'. This change strengthens the causal path 'fed_policy -> bank_lending_capacity -> outcome', making it more likely that the total dollar amount of commercial and industrial loans will increase. Additionally, the anticipated surge in loan originations due to this policy change may also indirectly boost 'loan_demand' through increased market confidence, further supporting an increase in the outcome. Given the targeted nature of the Fed's decision to stimulate economic growth, the impact on 'bank_lending_capacity' and potentially on 'loan_demand' through 'market_confidence' suggests a substantial increase in the probability of the outcome, hence updating the estimate from 0.78 to 0.92.",
+      "raw_response": "{\n  \"updated_probability\": 0.92,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The surprise reduction in the reserve requirement ratio by the Federal Reserve directly affects the 'fed_policy' node, which in turn increases 'bank_lending_capacity'. This change strengthens the causal path 'fed_policy -> bank_lending_capacity -> outcome', making it more likely that the total dollar amount of commercial and industrial loans will increase. Additionally, the anticipated surge in loan originations due to this policy change may also indirectly boost 'loan_demand' through increased market confidence, further supporting an increase in the outcome. Given the targeted nature of the Fed's decision to stimulate economic growth, the impact on 'bank_lending_capacity' and potentially on 'loan_demand' through 'market_confidence' suggests a substantial increase in the probability of the outcome, hence updating the estimate from 0.78 to 0.92.\"\n}",
+      "target_id": "fed_policy",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of major investors and financial institutions shows a significant increase in optimism regarding the US financial market's stability and growth prospects. This surge in confidence is attributed to the Federal Reserve's recent statements on maintaining a stable monetary policy and the overall resilience of the US economy. As a result, several key market indicators, such as stock prices and bond yields, have begun to reflect this renewed confidence. This shift in market sentiment is expected to encourage more businesses to seek loans for expansion and investment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'arket_confidence' indicates a significant increase in optimism regarding the US financial market, which strengthens the causal path from 'arket_confidence' to 'loan_demand'. This increase in market confidence, attributed to the Federal Reserve's statements and the US economy's resilience, is expected to encourage more businesses to seek loans. As a result, the demand for commercial and industrial loans is likely to increase, directly affecting the outcome. The causal paths affected are 'arket_confidence -> loan_demand' and 'economic_growth -> market_confidence', both of which contribute to an increase in 'loan_demand' and subsequently the 'outcome'. Given the positive impact on market confidence and its downstream effects, the updated probability reflects a higher likelihood of an increase in the total dollar amount of commercial and industrial loans.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'arket_confidence' indicates a significant increase in optimism regarding the US financial market, which strengthens the causal path from 'arket_confidence' to 'loan_demand'. This increase in market confidence, attributed to the Federal Reserve's statements and the US economy's resilience, is expected to encourage more businesses to seek loans. As a result, the demand for commercial and industrial loans is likely to increase, directly affecting the outcome. The causal paths affected are 'arket_confidence -> loan_demand' and 'economic_growth -> market_confidence', both of which contribute to an increase in 'loan_demand' and subsequently the 'outcome'. Given the positive impact on market confidence and its downstream effects, the updated probability reflects a higher likelihood of an increase in the total dollar amount of commercial and industrial loans.\"\n}",
+      "target_id": "market_confidence",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent survey by the National Federation of Independent Business found that a record number of small businesses are planning to expand their operations and increase investments, leading to a surge in demand for commercial loans. This trend is expected to continue through 2025, driven by favorable economic conditions and tax policies. As a result, commercial banks are experiencing a significant increase in loan applications, further solidifying the link between loan demand and actual loan amounts. This development suggests that the causal link between loan demand and outcome may be even stronger than initially assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between loan_demand and outcome, suggesting a stronger relationship than initially assumed. This development positively affects the causal paths leading to the outcome, particularly the paths economic_growth -> loan_demand -> outcome and market_confidence -> loan_demand -> outcome. Given the favorable economic conditions, tax policies, and the resulting surge in demand for commercial loans, it is reasonable to increase the probability estimate. The update reflects the increased confidence in the outcome due to the reinforced link between loan demand and actual loan amounts.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The challenge strengthens the causal link between loan_demand and outcome, suggesting a stronger relationship than initially assumed. This development positively affects the causal paths leading to the outcome, particularly the paths economic_growth -> loan_demand -> outcome and market_confidence -> loan_demand -> outcome. Given the favorable economic conditions, tax policies, and the resulting surge in demand for commercial loans, it is reasonable to increase the probability estimate. The update reflects the increased confidence in the outcome due to the reinforced link between loan demand and actual loan amounts.\"\n}",
+      "target_id": "loan_demand->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recently, the Federal Reserve announced an increase in the reserve requirement for commercial banks, which is expected to temporarily reduce their lending capacity. As a result, several major banks have already started to adjust their lending strategies, citing reduced capacity to meet demand. This development highlights the direct impact of bank lending capacity on the total loan amount, suggesting that the relationship between these two variables may be even more sensitive than initially thought. In light of this update, the forecaster should reassess the strength of the causal link between bank lending capacity and the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.69,
+      "absolute_shift": 0.09000000000000008,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'bank_lending_capacity->outcome' indicates a temporary reduction in bank lending capacity due to the increased reserve requirement. This directly affects the causal path 'fed_policy -> bank_lending_capacity -> outcome', making it less likely for the total dollar amount of commercial and industrial loans to increase. Although the relationship between bank lending capacity and the outcome may be more sensitive, the overall impact is a decrease in the probability of the outcome due to reduced lending capacity. Other causal paths, such as 'economic_growth -> loan_demand -> outcome' and 'economic_growth -> market_confidence -> loan_demand -> outcome', remain unaffected. The decrease in probability reflects the updated assessment of the sensitive relationship between bank lending capacity and the outcome, given the temporary reduction in lending capacity.",
+      "raw_response": "{\n  \"updated_probability\": 0.69,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'bank_lending_capacity->outcome' indicates a temporary reduction in bank lending capacity due to the increased reserve requirement. This directly affects the causal path 'fed_policy -> bank_lending_capacity -> outcome', making it less likely for the total dollar amount of commercial and industrial loans to increase. Although the relationship between bank lending capacity and the outcome may be more sensitive, the overall impact is a decrease in the probability of the outcome due to reduced lending capacity. Other causal paths, such as 'economic_growth -> loan_demand -> outcome' and 'economic_growth -> market_confidence -> loan_demand -> outcome', remain unaffected. The decrease in probability reflects the updated assessment of the sensitive relationship between bank lending capacity and the outcome, given the temporary reduction in lending capacity.\"\n}",
+      "target_id": "bank_lending_capacity->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that the US GDP has experienced a significant uptick in the last quarter, with a notable increase in consumer spending and business investments, which historically correlates with heightened market confidence as investors become more optimistic about future economic prospects. This surge in economic activity is expected to continue into the next quarter. Furthermore, leading economic indicators such as the Purchasing Managers' Index (PMI) also suggest a strong expansion in the manufacturing sector, which could further bolster market confidence. As a result, it is plausible that market confidence will receive an additional boost from this economic growth, potentially exceeding initial expectations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between economic_growth and market_confidence, suggesting that the recent economic uptick will further boost market confidence. This positively affects the loan_demand node through the market_confidence -> loan_demand path, as increased market confidence is expected to lead to higher demand for loans. Consequently, this strengthens the overall causal path leading to the outcome, increasing the likelihood that the total dollar amount of commercial and industrial loans will increase by 2025-12-28. The update is moderate, reflecting the reinforcement of an existing positive trend in the economy rather than a fundamental shift in the underlying causal structure.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between economic_growth and market_confidence, suggesting that the recent economic uptick will further boost market confidence. This positively affects the loan_demand node through the market_confidence -> loan_demand path, as increased market confidence is expected to lead to higher demand for loans. Consequently, this strengthens the overall causal path leading to the outcome, increasing the likelihood that the total dollar amount of commercial and industrial loans will increase by 2025-12-28. The update is moderate, reflecting the reinforcement of an existing positive trend in the economy rather than a fundamental shift in the underlying causal structure.\"\n}",
+      "target_id": "economic_growth->market_confidence",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "TOTCI",
+    "question_text": "Will the total dollar amount representing all commercial and industrial loans made by commercial banks in the US have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+    "source": "fred",
+    "condition": "one-turn",
+    "initial_probability": 0.73,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.12533333333333332,
+    "max_absolute_shift": 0.42
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 2.9375000000000027,
+    "mean_shift_high": 0.1175,
+    "mean_shift_low": 0.03999999999999996,
+    "asymmetry_index": 0.9599999999999997,
+    "mean_shift_negate": 0.10285714285714283,
+    "mean_shift_strengthen": 0.10714285714285714,
+    "fnar": 1,
+    "n_accepted": 2,
+    "n_spurious": 2,
+    "critical_path_premium": -0.019393939393939352,
+    "mean_shift_on_path": 0.10727272727272727,
+    "mean_shift_off_path": 0.12666666666666662,
+    "importance_sensitivity_correlation": 0.2554945054945055,
+    "control_sensitivity": 0
+  }
+}

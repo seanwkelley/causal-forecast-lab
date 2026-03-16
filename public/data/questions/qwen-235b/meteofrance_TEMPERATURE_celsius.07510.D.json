@@ -1,0 +1,1035 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07510.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Bordeaux–Mérignac Airport will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "The typical temperature pattern in Bordeaux during late December, reflecting gradual cooling or warming trends",
+      "role": "factor"
+    },
+    {
+      "id": "weather_systems",
+      "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature",
+      "role": "factor"
+    },
+    {
+      "id": "climate_phase",
+      "description": "The state of large-scale climate oscillations like NAO or ENSO affecting European winter weather",
+      "role": "factor"
+    },
+    {
+      "id": "urban_heat",
+      "description": "Local warming effect from urban development around Bordeaux–Mérignac Airport",
+      "role": "factor"
+    },
+    {
+      "id": "temp_2025_12_21",
+      "description": "The actual temperature on December 21, 2025, setting the baseline for comparison",
+      "role": "factor"
+    },
+    {
+      "id": "temp_2025_12_28",
+      "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The event that the daily average temperature on 2025-12-28 is higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_trend",
+      "to": "temp_2025_12_28",
+      "mechanism": "Seasonal trends influence expected temperatures in late December"
+    },
+    {
+      "from": "climate_phase",
+      "to": "weather_systems",
+      "mechanism": "Large-scale climate phases modulate the frequency and type of weather systems over France"
+    },
+    {
+      "from": "weather_systems",
+      "to": "temp_2025_12_21",
+      "mechanism": "Specific weather systems determine the temperature on December 21"
+    },
+    {
+      "from": "weather_systems",
+      "to": "temp_2025_12_28",
+      "mechanism": "The same dynamic systems evolve and affect temperatures a week later"
+    },
+    {
+      "from": "urban_heat",
+      "to": "temp_2025_12_28",
+      "mechanism": "Urbanization contributes to slightly higher recorded temperatures at the airport station"
+    },
+    {
+      "from": "temp_2025_12_21",
+      "to": "outcome",
+      "mechanism": "The temperature on Dec 21 sets the comparison point for the outcome"
+    },
+    {
+      "from": "temp_2025_12_28",
+      "to": "outcome",
+      "mechanism": "The temperature on Dec 28 directly determines whether it exceeds the earlier reading"
+    }
+  ],
+  "reasoning": "Temperatures in Bordeaux in late December are influenced by seasonal norms, large-scale climate patterns, and transient weather systems. While no strong trend favors warming over a one-week period, weak seasonal variability and urban warming slightly increase the chance of higher temperatures later in the week. However, weather is inherently unpredictable a year in advance, and day-to-day fluctuations are nearly symmetric. Thus, the probability is only slightly above 50%.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "The typical temperature pattern in Bordeaux during late December, reflecting gradual cooling or warming trends",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0641,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_systems",
+        "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.1,
+        "closeness": 0.1667,
+        "pagerank": 0.1186,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "climate_phase",
+        "description": "The state of large-scale climate oscillations like NAO or ENSO affecting European winter weather",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0641,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "urban_heat",
+        "description": "Local warming effect from urban development around Bordeaux–Mérignac Airport",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0641,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "temp_2025_12_21",
+        "description": "The actual temperature on December 21, 2025, setting the baseline for comparison",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.2222,
+        "pagerank": 0.1145,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "temp_2025_12_28",
+        "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.5333,
+        "pagerank": 0.2234,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "outcome",
+        "description": "The event that the daily average temperature on 2025-12-28 is higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.3513,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "temp_2025_12_28",
+        "mechanism": "Seasonal trends influence expected temperatures in late December",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "temp_2025_12_21",
+        "mechanism": "Specific weather systems determine the temperature on December 21",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "temp_2025_12_28",
+        "mechanism": "The same dynamic systems evolve and affect temperatures a week later",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "climate_phase",
+        "target": "weather_systems",
+        "mechanism": "Large-scale climate phases modulate the frequency and type of weather systems over France",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "urban_heat",
+        "target": "temp_2025_12_28",
+        "mechanism": "Urbanization contributes to slightly higher recorded temperatures at the airport station",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "temp_2025_12_21",
+        "target": "outcome",
+        "mechanism": "The temperature on Dec 21 sets the comparison point for the outcome",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "temp_2025_12_28",
+        "target": "outcome",
+        "mechanism": "The temperature on Dec 28 directly determines whether it exceeds the earlier reading",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature",
+        "importance": 0.1,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "temp_2025_12_28",
+        "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_trend",
+        "description": "The typical temperature pattern in Bordeaux during late December, reflecting gradual cooling or warming trends",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "urban_heat",
+        "description": "Local warming effect from urban development around Bordeaux–Mérignac Airport",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature",
+        "importance": 0.1,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "temp_2025_12_28",
+        "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "climate_phase->weather_systems",
+        "description": "Large-scale climate phases modulate the frequency and type of weather systems over France",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "temp_2025_12_28->outcome",
+        "description": "The temperature on Dec 28 directly determines whether it exceeds the earlier reading",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "temp_2025_12_21->outcome",
+        "description": "The temperature on Dec 21 sets the comparison point for the outcome",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "climate_phase->weather_systems",
+        "description": "Large-scale climate phases modulate the frequency and type of weather systems over France",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "temp_2025_12_28->temp_2025_12_21",
+        "description": "Potential link: The actual temperature on December 28, 2025, influenced by weather and climate factors -> The actual temperature on December 21, 2025, setting the baseline for comparison",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "temp_2025_12_28",
+      "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_trend",
+      "description": "The typical temperature pattern in Bordeaux during late December, reflecting gradual cooling or warming trends",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "urban_heat",
+      "description": "Local warming effect from urban development around Bordeaux–Mérignac Airport",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "temp_2025_12_28",
+      "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "climate_phase->weather_systems",
+      "description": "Large-scale climate phases modulate the frequency and type of weather systems over France",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "temp_2025_12_28->outcome",
+      "description": "The temperature on Dec 28 directly determines whether it exceeds the earlier reading",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "temp_2025_12_21->outcome",
+      "description": "The temperature on Dec 21 sets the comparison point for the outcome",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "climate_phase->weather_systems",
+      "description": "Large-scale climate phases modulate the frequency and type of weather systems over France",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "temp_2025_12_28->temp_2025_12_21",
+      "description": "Potential link: The actual temperature on December 28, 2025, influenced by weather and climate factors -> The actual temperature on December 21, 2025, setting the baseline for comparison",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if short-term weather systems like high or low-pressure fronts have no meaningful impact on temperature variations in Bordeaux during late December? Given that the region often experiences stalled atmospheric patterns in winter, it's plausible that temperatures are primarily locked in by persistent stable air masses, making the specific evolution of transient systems irrelevant compared to seasonal and large-scale climate drivers.",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature"
+    },
+    {
+      "probe_text": "What if the actual temperature on December 28, 2025, is not meaningfully influenced by weather systems or seasonal trends, but instead is overwhelmingly determined by a rare, unpredictable stratospheric event—such as a sudden stratospheric warming—that decouples surface temperatures from normal drivers? In that case, temp_2025_12_28 becomes effectively random relative to the modeled causal factors, undermining its role in predicting the outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "temp_2025_12_28",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors"
+    },
+    {
+      "probe_text": "Recent microclimate data from Bordeaux–Mérignac Airport shows no statistically significant temperature trend between December 21 and December 28 over the past 30 years, with average changes centered around zero. This suggests that any gradual seasonal trend during this specific week is negligible compared to synoptic-scale weather variability, making the seasonal_trend factor unlikely to exert a meaningful influence on the temperature difference.",
+      "probe_type": "node_negate_medium",
+      "target_id": "seasonal_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "The typical temperature pattern in Bordeaux during late December, reflecting gradual cooling or warming trends"
+    },
+    {
+      "probe_text": "Recent urban planning policies around Bordeaux–Mérignac Airport have prevented significant expansion of infrastructure since 2020, and satellite data shows stable land surface temperatures in the area. Given this, the local urban heat effect is unlikely to have increased and may already be fully accounted for in historical baselines, making it negligible for predicting temperature changes in 2025.",
+      "probe_type": "node_negate_low",
+      "target_id": "urban_heat",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Local warming effect from urban development around Bordeaux–Mérignac Airport"
+    },
+    {
+      "probe_text": "A recent high-resolution meteorological modeling study of southwestern France has shown that short-term weather systems, particularly persistent high-pressure ridges over the Bay of Biscay, were responsible for 78% of the week-to-week temperature variability at Bordeaux–Mérignac Airport between 2000 and 2024. The study confirms that these systems dominate over seasonal trends during late December, making atmospheric dynamics the strongest proximate driver of temperature fluctuations.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Short-term atmospheric patterns such as high or low-pressure systems influencing temperature"
+    },
+    {
+      "probe_text": "New high-resolution regional climate models specifically calibrated for southwestern France show that daily temperature variations at Bordeaux–Mérignac Airport in late December are increasingly dominated by localized atmospheric circulation patterns that can cause sharp week-to-week temperature shifts. These models, validated against 20 years of airport microclimate data, highlight that temp_2025_12_28 is highly sensitive to short-term synoptic changes, making it a stronger independent driver of the outcome than previously assumed.",
+      "probe_type": "node_strengthen",
+      "target_id": "temp_2025_12_28",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The actual temperature on December 28, 2025, influenced by weather and climate factors"
+    },
+    {
+      "probe_text": "Recent studies of winter weather predictability in western Europe show that the North Atlantic Oscillation (NAO) has had negligible statistical influence on short-term weather system variations over France since 2010, with synoptic-scale patterns dominated instead by Arctic moisture intrusions and Siberian blocking events uncorrelated with traditional climate indices. This suggests the effect of climate_phase on weather_systems may be spurious or dwarfed by more immediate dynamical drivers.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "climate_phase->weather_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large-scale climate phases modulate the frequency and type of weather systems over France"
+    },
+    {
+      "probe_text": "Suppose a technical malfunction in the temperature sensor at Bordeaux–Mérignac Airport causes it to report a spurious spike on December 28, 2025, recording a value 3°C higher than the actual air temperature due to localized radiation heating of the instrument. In this case, even if the true thermal conditions were cooler than on December 21, the official 'daily average' used to determine the outcome could still be higher. This undermines the assumption that temp_2025_12_28 directly reflects a real meteorological comparison, introducing measurement artifacts as a confounding influence on the outcome.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "temp_2025_12_28->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The temperature on Dec 28 directly determines whether it exceeds the earlier reading"
+    },
+    {
+      "probe_text": "The temperature on December 21 serves as a comparison point, but if the measurement on that day was influenced by a transient, anomalous weather event—such as a short-lived cold front or instrument error—then using it as a reference could misrepresent the true trend. In such cases, the outcome hinges less on the raw value of temp_2025_12_21 and more on whether both days reflect consistent underlying conditions, weakening its direct causal role in determining the outcome.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "temp_2025_12_21->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "The temperature on Dec 21 sets the comparison point for the outcome"
+    },
+    {
+      "probe_text": "Large-scale climate oscillations like the North Atlantic Oscillation (NAO) are diagnosed from patterns in atmospheric pressure and wind fields, which are themselves outcomes of persistent configurations of weather systems over time. Therefore, it is the aggregation and persistence of specific weather systems—such as recurrent cyclonic activity over Iceland and anticyclonic conditions over the subtropical Atlantic—that constitute and sustain the observed climate phase, rather than the phase causing the weather systems.",
+      "probe_type": "edge_reverse",
+      "target_id": "climate_phase->weather_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large-scale climate phases modulate the frequency and type of weather systems over France"
+    },
+    {
+      "probe_text": "Suppose a sudden stratospheric warming event in late December 2025 causes a persistent ridge over Western Europe, leading forecasters to revise earlier temperature observations due to a documented bias in airport-based measurements during high-pressure regimes. Could the actual temperature recorded on December 28 influence the adjusted or perceived baseline on December 21 through data homogenization processes that retroactively correct past readings?",
+      "probe_type": "edge_spurious",
+      "target_id": "temp_2025_12_28->temp_2025_12_21",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The actual temperature on December 28, 2025, influenced by weather and climate factors -> The actual temperature on December 21, 2025, setting the baseline for comparison"
+    },
+    {
+      "probe_text": "Consider the influence of snow cover or ground albedo feedback in late December: if significant snowfall occurs in the region between December 21 and 28, it could increase surface reflectivity and lead to cooler daytime temperatures on the 28th, especially if the snow persists. This local surface condition is not captured by seasonal trends or weather systems alone and could dampen warming, affecting the likelihood that the temperature on the 28th exceeds that of the 21st.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the influence of long-range weather predictability and model consensus trends. If numerical weather prediction models consistently show a warming trend from December 21 to December 28 several days in advance, this could indicate persistent atmospheric patterns that make a temperature increase more likely. This factor captures forecastable persistence in weather evolution that is not fully accounted for by generic weather systems or climate phases alone.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent study found that the number of international flights departing from Bordeaux–Mérignac Airport has increased by 15% compared to the same period in 2024. Researchers speculate this could amplify contrail formation, potentially influencing local atmospheric conditions.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent study found that the number of commercial flights departing from Bordeaux–Mérignac Airport has increased by 15% compared to 2024, primarily due to expanded winter tourism routes. This rise in air traffic has led to more frequent runway usage and ground operations during December 2025.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if short-term weather systems like high or low-pressure fronts have no meaningful impact on temperature variations in Bordeaux during late December? Given that the region often experiences stalled atmospheric patterns in winter, it's plausible that temperatures are primarily locked in by persistent stable air masses, making the specific evolution of transient systems irrelevant compared to seasonal and large-scale climate drivers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the influence of 'weather_systems' on temperature variation in late December in Bordeaux, suggesting that stalled atmospheric patterns and persistent air masses dominate over transient weather systems. If true, this weakens the causal links from 'weather_systems' to both 'temp_2025_12_21' and 'temp_2025_12_28', reducing short-term variability. As a result, temperatures on both dates would be more strongly governed by the shared influences of 'seasonal_trend' and 'climate_phase', increasing their correlation. This makes large differences between the two days less likely, slightly reducing the probability that one day is warmer than the other purely by chance. However, since 'seasonal_trend' and 'climate_phase' still allow for some directional movement (e.g., gradual warming or cooling), and 'urban_heat' exerts a small steady bias, the outcome remains close to 0.5. The reduction is small because even under stable conditions, some day-to-day variation persists, and the outcome is still largely a near-random comparison. Thus, the probability shifts only slightly downward from 0.52 to 0.51.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the influence of 'weather_systems' on temperature variation in late December in Bordeaux, suggesting that stalled atmospheric patterns and persistent air masses dominate over transient weather systems. If true, this weakens the causal links from 'weather_systems' to both 'temp_2025_12_21' and 'temp_2025_12_28', reducing short-term variability. As a result, temperatures on both dates would be more strongly governed by the shared influences of 'seasonal_trend' and 'climate_phase', increasing their correlation. This makes large differences between the two days less likely, slightly reducing the probability that one day is warmer than the other purely by chance. However, since 'seasonal_trend' and 'climate_phase' still allow for some directional movement (e.g., gradual warming or cooling), and 'urban_heat' exerts a small steady bias, the outcome remains close to 0.5. The reduction is small because even under stable conditions, some day-to-day variation persists, and the outcome is still largely a near-random comparison. Thus, the probability shifts only slightly downward from 0.52 to 0.51.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the actual temperature on December 28, 2025, is not meaningfully influenced by weather systems or seasonal trends, but instead is overwhelmingly determined by a rare, unpredictable stratospheric event—such as a sudden stratospheric warming—that decouples surface temperatures from normal drivers? In that case, temp_2025_12_28 becomes effectively random relative to the modeled causal factors, undermining its role in predicting the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal node temp_2025_12_28 and its dependence on weather_systems and seasonal_trend. If a sudden stratospheric warming (SSW) event occurs, it could indeed disrupt the typical surface temperature drivers, making temp_2025_12_28 less predictable from weather_systems and seasonal_trend. This weakens the causal links from weather_systems -> temp_2025_12_28 and seasonal_trend -> temp_2025_12_28, effectively decoupling these established drivers from the outcome. However, such events are rare and unpredictable, and while they introduce volatility, they do not systematically bias temperatures higher or lower over the one-week comparison window. Thus, in the absence of any directional signal, the outcome becomes closer to a coin flip. The original slight edge (0.52) was based on weak seasonal trends and persistence in weather systems; removing those weakens the rationale for any asymmetry. Therefore, the probability shifts slightly toward 0.5, reflecting increased uncertainty but not a reversal of expectation.",
+      "raw_response": "{\n  \"updated_probability\": 0.5,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal node temp_2025_12_28 and its dependence on weather_systems and seasonal_trend. If a sudden stratospheric warming (SSW) event occurs, it could indeed disrupt the typical surface temperature drivers, making temp_2025_12_28 less predictable from weather_systems and seasonal_trend. This weakens the causal links from weather_systems -> temp_2025_12_28 and seasonal_trend -> temp_2025_12_28, effectively decoupling these established drivers from the outcome. However, such events are rare and unpredictable, and while they introduce volatility, they do not systematically bias temperatures higher or lower over the one-week comparison window. Thus, in the absence of any directional signal, the outcome becomes closer to a coin flip. The original slight edge (0.52) was based on weak seasonal trends and persistence in weather systems; removing those weakens the rationale for any asymmetry. Therefore, the probability shifts slightly toward 0.5, reflecting increased uncertainty but not a reversal of expectation.\"\n}",
+      "target_id": "temp_2025_12_28",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent microclimate data from Bordeaux–Mérignac Airport shows no statistically significant temperature trend between December 21 and December 28 over the past 30 years, with average changes centered around zero. This suggests that any gradual seasonal trend during this specific week is negligible compared to synoptic-scale weather variability, making the seasonal_trend factor unlikely to exert a meaningful influence on the temperature difference.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'seasonal_trend' weakens the causal path from seasonal_trend to temp_2025_12_28, suggesting that there is no systematic warming or cooling trend between December 21 and 28 in Bordeaux. This removes a small but structured signal that could have biased the outcome in one direction. Previously, a slight warming trend was implicitly assumed, contributing to a >0.5 probability. With evidence showing no significant trend over 30 years, this factor no longer supports a higher temperature on Dec 28. However, since weather_systems and other sources of variability still dominate, and the outcome depends heavily on short-term atmospheric dynamics (which remain symmetric), the probability only slightly decreases. The main causal path via seasonal trend is effectively nullified, but it was a weak link compared to the dominant influence of weather_systems. Thus, the update is small, reflecting a return toward a more symmetric, near-50% chance.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'seasonal_trend' weakens the causal path from seasonal_trend to temp_2025_12_28, suggesting that there is no systematic warming or cooling trend between December 21 and 28 in Bordeaux. This removes a small but structured signal that could have biased the outcome in one direction. Previously, a slight warming trend was implicitly assumed, contributing to a >0.5 probability. With evidence showing no significant trend over 30 years, this factor no longer supports a higher temperature on Dec 28. However, since weather_systems and other sources of variability still dominate, and the outcome depends heavily on short-term atmospheric dynamics (which remain symmetric), the probability only slightly decreases. The main causal path via seasonal trend is effectively nullified, but it was a weak link compared to the dominant influence of weather_systems. Thus, the update is small, reflecting a return toward a more symmetric, near-50% chance.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent urban planning policies around Bordeaux–Mérignac Airport have prevented significant expansion of infrastructure since 2020, and satellite data shows stable land surface temperatures in the area. Given this, the local urban heat effect is unlikely to have increased and may already be fully accounted for in historical baselines, making it negligible for predicting temperature changes in 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge to the 'urban_heat' node suggests that the local urban heat island effect has stabilized and is unlikely to contribute additional warming in 2025 beyond what is already reflected in historical baselines. However, 'urban_heat' was only weakly connected to the outcome, influencing only temp_2025_12_28 and likely already accounted for in the station's climatological norms. The dominant drivers of the outcome—weather_systems, seasonal_trend, and climate_phase—remain unaffected. Since urban_heat does not mediate changes between the two dates but rather adds a near-constant baseline offset, its stabilization has no meaningful impact on the *difference* in temperatures between the two days. Therefore, the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge to the 'urban_heat' node suggests that the local urban heat island effect has stabilized and is unlikely to contribute additional warming in 2025 beyond what is already reflected in historical baselines. However, 'urban_heat' was only weakly connected to the outcome, influencing only temp_2025_12_28 and likely already accounted for in the station's climatological norms. The dominant drivers of the outcome—weather_systems, seasonal_trend, and climate_phase—remain unaffected. Since urban_heat does not mediate changes between the two dates but rather adds a near-constant baseline offset, its stabilization has no meaningful impact on the *difference* in temperatures between the two days. Therefore, the probability remains unchanged.\"\n}",
+      "target_id": "urban_heat",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent high-resolution meteorological modeling study of southwestern France has shown that short-term weather systems, particularly persistent high-pressure ridges over the Bay of Biscay, were responsible for 78% of the week-to-week temperature variability at Bordeaux–Mérignac Airport between 2000 and 2024. The study confirms that these systems dominate over seasonal trends during late December, making atmospheric dynamics the strongest proximate driver of temperature fluctuations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the role of 'weather_systems' as the dominant driver of week-to-week temperature variability at Bordeaux–Mérignac Airport in late December, surpassing the influence of seasonal_trend. This enhances the causal power of the path from climate_phase → weather_systems → temp_2025_12_21 and temp_2025_12_28, and reinforces the link between successive weekly temperatures. Because weather systems persist and evolve over such short time intervals, the temperature on Dec 28 is more strongly dependent on the same dynamic patterns affecting Dec 21 than previously assumed. Given that high-pressure ridges (associated with warmer, calmer conditions) are a frequent cause of positive temperature anomalies in the region, and that such systems often persist for several days to a week, the likelihood of warmer conditions on Dec 28 compared to Dec 21 increases slightly under this stronger weather-driven regime. The outcome remains uncertain due to the inherent unpredictability of specific weather systems in 2025, but the weighting of probabilities shifts modestly upward due to the increased autocorrelation in temperature driven by persistent systems. Thus, the probability increases from 0.52 to 0.56.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the role of 'weather_systems' as the dominant driver of week-to-week temperature variability at Bordeaux–Mérignac Airport in late December, surpassing the influence of seasonal_trend. This enhances the causal power of the path from climate_phase → weather_systems → temp_2025_12_21 and temp_2025_12_28, and reinforces the link between successive weekly temperatures. Because weather systems persist and evolve over such short time intervals, the temperature on Dec 28 is more strongly dependent on the same dynamic patterns affecting Dec 21 than previously assumed. Given that high-pressure ridges (associated with warmer, calmer conditions) are a frequent cause of positive temperature anomalies in the region, and that such systems often persist for several days to a week, the likelihood of warmer conditions on Dec 28 compared to Dec 21 increases slightly under this stronger weather-driven regime. The outcome remains uncertain due to the inherent unpredictability of specific weather systems in 2025, but the weighting of probabilities shifts modestly upward due to the increased autocorrelation in temperature driven by persistent systems. Thus, the probability increases from 0.52 to 0.56.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "New high-resolution regional climate models specifically calibrated for southwestern France show that daily temperature variations at Bordeaux–Mérignac Airport in late December are increasingly dominated by localized atmospheric circulation patterns that can cause sharp week-to-week temperature shifts. These models, validated against 20 years of airport microclimate data, highlight that temp_2025_12_28 is highly sensitive to short-term synoptic changes, making it a stronger independent driver of the outcome than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge emphasizes that temp_2025_12_28 is highly sensitive to short-term synoptic changes, reinforcing its role as a strong independent driver of the outcome. This increases the effective independence of temp_2025_12_28 from temp_2025_12_21, weakening the comparative stability implied by seasonal_trend and reducing the predictive power of the earlier temperature as a baseline. However, since the outcome is a pairwise comparison between two closely spaced days, increased volatility doesn't systematically favor an increase or decrease—rather, it slightly widens the distribution around equality, marginally reducing the probability of a higher temperature on the later date due to a slight asymmetry in boundary effects (temperatures cannot fall below absolute zero, but this is negligible here). The main causal path from temp_2025_12_28 to outcome is strengthened, but so is its independence from shared drivers with temp_2025_12_21, leading to a small decrease in probability due to reduced autocorrelation in daily temperatures. The shift is minor because the original estimate already reflected near-50% uncertainty, and the new information modestly adjusts the weighting of temp_2025_12_28's volatility without altering the fundamental symmetry of the comparison.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge emphasizes that temp_2025_12_28 is highly sensitive to short-term synoptic changes, reinforcing its role as a strong independent driver of the outcome. This increases the effective independence of temp_2025_12_28 from temp_2025_12_21, weakening the comparative stability implied by seasonal_trend and reducing the predictive power of the earlier temperature as a baseline. However, since the outcome is a pairwise comparison between two closely spaced days, increased volatility doesn't systematically favor an increase or decrease—rather, it slightly widens the distribution around equality, marginally reducing the probability of a higher temperature on the later date due to a slight asymmetry in boundary effects (temperatures cannot fall below absolute zero, but this is negligible here). The main causal path from temp_2025_12_28 to outcome is strengthened, but so is its independence from shared drivers with temp_2025_12_21, leading to a small decrease in probability due to reduced autocorrelation in daily temperatures. The shift is minor because the original estimate already reflected near-50% uncertainty, and the new information modestly adjusts the weighting of temp_2025_12_28's volatility without altering the fundamental symmetry of the comparison.\"\n}",
+      "target_id": "temp_2025_12_28",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies of winter weather predictability in western Europe show that the North Atlantic Oscillation (NAO) has had negligible statistical influence on short-term weather system variations over France since 2010, with synoptic-scale patterns dominated instead by Arctic moisture intrusions and Siberian blocking events uncorrelated with traditional climate indices. This suggests the effect of climate_phase on weather_systems may be spurious or dwarfed by more immediate dynamical drivers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between climate_phase and weather_systems, suggesting that large-scale climate oscillations like NAO have negligible influence on short-term weather patterns over France in recent years. This weakens the indirect path from climate_phase → weather_systems → temp_2025_12_21 and temp_2025_12_28, reducing the predictive value of climate_phase in the model. However, since the outcome primarily depends on the comparison between two close-in-time temperatures influenced by evolving weather systems and local factors, and since seasonal_trend, urban_heat, and direct weather dynamics remain intact, the overall effect on the outcome probability is small. The minor decrease from 0.52 to 0.51 reflects slightly reduced confidence in structured climate drivers improving predictability beyond random variation, but the core short-term meteorological processes remain dominant.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between climate_phase and weather_systems, suggesting that large-scale climate oscillations like NAO have negligible influence on short-term weather patterns over France in recent years. This weakens the indirect path from climate_phase → weather_systems → temp_2025_12_21 and temp_2025_12_28, reducing the predictive value of climate_phase in the model. However, since the outcome primarily depends on the comparison between two close-in-time temperatures influenced by evolving weather systems and local factors, and since seasonal_trend, urban_heat, and direct weather dynamics remain intact, the overall effect on the outcome probability is small. The minor decrease from 0.52 to 0.51 reflects slightly reduced confidence in structured climate drivers improving predictability beyond random variation, but the core short-term meteorological processes remain dominant.\"\n}",
+      "target_id": "climate_phase->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Suppose a technical malfunction in the temperature sensor at Bordeaux–Mérignac Airport causes it to report a spurious spike on December 28, 2025, recording a value 3°C higher than the actual air temperature due to localized radiation heating of the instrument. In this case, even if the true thermal conditions were cooler than on December 21, the official 'daily average' used to determine the outcome could still be higher. This undermines the assumption that temp_2025_12_28 directly reflects a real meteorological comparison, introducing measurement artifacts as a confounding influence on the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge introduces a potential measurement artifact affecting the reported value of temp_2025_12_28, which could decouple the observed temperature from the true meteorological conditions. However, the outcome node is defined based on the official 'daily average temperature' as recorded by the station, not on true physical temperature. Therefore, even if the reading is biased due to a sensor malfunction, that reading still directly determines the outcome according to the question's criteria. The causal link temp_2025_12_28 -> outcome remains intact because temp_2025_12_28 in this context refers to the recorded value, which includes any instrumental biases. Since the possibility of such malfunctions is rare and not systematically favoring higher or lower readings, and because the original 0.52 estimate already implicitly accounts for typical observational noise and variability (including minor data quality issues), no significant update is warranted. The core causal structure and uncertainty remain unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge introduces a potential measurement artifact affecting the reported value of temp_2025_12_28, which could decouple the observed temperature from the true meteorological conditions. However, the outcome node is defined based on the official 'daily average temperature' as recorded by the station, not on true physical temperature. Therefore, even if the reading is biased due to a sensor malfunction, that reading still directly determines the outcome according to the question's criteria. The causal link temp_2025_12_28 -> outcome remains intact because temp_2025_12_28 in this context refers to the recorded value, which includes any instrumental biases. Since the possibility of such malfunctions is rare and not systematically favoring higher or lower readings, and because the original 0.52 estimate already implicitly accounts for typical observational noise and variability (including minor data quality issues), no significant update is warranted. The core causal structure and uncertainty remain unchanged.\"\n}",
+      "target_id": "temp_2025_12_28->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "The temperature on December 21 serves as a comparison point, but if the measurement on that day was influenced by a transient, anomalous weather event—such as a short-lived cold front or instrument error—then using it as a reference could misrepresent the true trend. In such cases, the outcome hinges less on the raw value of temp_2025_12_21 and more on whether both days reflect consistent underlying conditions, weakening its direct causal role in determining the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link temp_2025_12_21 -> outcome by suggesting that the temperature on December 21 might reflect transient noise rather than a stable baseline. However, in the context of comparing two specific daily averages, the outcome is definitionally dependent on the actual observed value on December 21, regardless of whether it was driven by an anomaly or not. Thus, while the *interpretability* of the outcome might be affected, the *causal mechanism* remains intact: the outcome is literally defined as temp_2025_12_28 > temp_2025_12_21, so the link cannot be truly broken. That said, if temp_2025_12_21 is more volatile due to anomalous influences, the effective signal-to-noise ratio decreases, slightly weakening the predictability of the outcome based on underlying trends. This introduces a minor element of randomness, nudging the probability closer to 0.5. Hence, the downward adjustment is minimal—from 0.52 to 0.51—reflecting a slight increase in uncertainty, not a structural break in causality.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link temp_2025_12_21 -> outcome by suggesting that the temperature on December 21 might reflect transient noise rather than a stable baseline. However, in the context of comparing two specific daily averages, the outcome is definitionally dependent on the actual observed value on December 21, regardless of whether it was driven by an anomaly or not. Thus, while the *interpretability* of the outcome might be affected, the *causal mechanism* remains intact: the outcome is literally defined as temp_2025_12_28 > temp_2025_12_21, so the link cannot be truly broken. That said, if temp_2025_12_21 is more volatile due to anomalous influences, the effective signal-to-noise ratio decreases, slightly weakening the predictability of the outcome based on underlying trends. This introduces a minor element of randomness, nudging the probability closer to 0.5. Hence, the downward adjustment is minimal—from 0.52 to 0.51—reflecting a slight increase in uncertainty, not a structural break in causality.\"\n}",
+      "target_id": "temp_2025_12_21->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Large-scale climate oscillations like the North Atlantic Oscillation (NAO) are diagnosed from patterns in atmospheric pressure and wind fields, which are themselves outcomes of persistent configurations of weather systems over time. Therefore, it is the aggregation and persistence of specific weather systems—such as recurrent cyclonic activity over Iceland and anticyclonic conditions over the subtropical Atlantic—that constitute and sustain the observed climate phase, rather than the phase causing the weather systems.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge reinterprets the direction of causality between climate_phase and weather_systems, suggesting that climate_phase is an emergent property of persistent weather patterns rather than a driver of them. However, for the purpose of forecasting the outcome, the key predictive relationship is whether knowledge of the climate phase (regardless of its origin) provides useful information about likely weather systems in late December. Since the statistical association between climate phase and subsequent weather patterns remains valid—even if it reflects correlation rather than direct causation—the predictive value of climate_phase as a node in the network is largely preserved. The causal paths from climate_phase to weather_systems to temperatures remain informatively linked, even if the underlying causality is bidirectional or reinterpreted. Therefore, the challenge does not break a critical causal link in a way that degrades forecast ability, and the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge reinterprets the direction of causality between climate_phase and weather_systems, suggesting that climate_phase is an emergent property of persistent weather patterns rather than a driver of them. However, for the purpose of forecasting the outcome, the key predictive relationship is whether knowledge of the climate phase (regardless of its origin) provides useful information about likely weather systems in late December. Since the statistical association between climate phase and subsequent weather patterns remains valid—even if it reflects correlation rather than direct causation—the predictive value of climate_phase as a node in the network is largely preserved. The causal paths from climate_phase to weather_systems to temperatures remain informatively linked, even if the underlying causality is bidirectional or reinterpreted. Therefore, the challenge does not break a critical causal link in a way that degrades forecast ability, and the probability remains unchanged.\"\n}",
+      "target_id": "climate_phase->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a sudden stratospheric warming event in late December 2025 causes a persistent ridge over Western Europe, leading forecasters to revise earlier temperature observations due to a documented bias in airport-based measurements during high-pressure regimes. Could the actual temperature recorded on December 28 influence the adjusted or perceived baseline on December 21 through data homogenization processes that retroactively correct past readings?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge proposes a scenario in which a stratospheric warming event leads to persistent weather patterns and suggests that data homogenization might retroactively adjust the recorded temperature for December 21 based on conditions observed on December 28. However, in the causal network, the node temp_2025_12_21 represents the actual observed temperature used as a baseline, not a retroactively corrected value. While data homogenization can occur in climate records for long-term consistency, operational temperature comparisons — especially for a forecast question about raw daily averages — rely on real-time or finalized official observations that are not typically revised after the fact based on future weather. Therefore, the proposed retroactive influence of temp_2025_12_28 on temp_2025_12_21 through data correction does not represent a valid backward causal link in this context. The causal path temp_2025_12_28 -> outcome remains intact and independent of any such adjustment. Since the challenged link does not meaningfully alter the forward causal structure leading to the outcome, and because the scenario does not affect the comparative likelihood of warmer conditions on December 28 versus December 21, the probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge proposes a scenario in which a stratospheric warming event leads to persistent weather patterns and suggests that data homogenization might retroactively adjust the recorded temperature for December 21 based on conditions observed on December 28. However, in the causal network, the node temp_2025_12_21 represents the actual observed temperature used as a baseline, not a retroactively corrected value. While data homogenization can occur in climate records for long-term consistency, operational temperature comparisons — especially for a forecast question about raw daily averages — rely on real-time or finalized official observations that are not typically revised after the fact based on future weather. Therefore, the proposed retroactive influence of temp_2025_12_28 on temp_2025_12_21 through data correction does not represent a valid backward causal link in this context. The causal path temp_2025_12_28 -> outcome remains intact and independent of any such adjustment. Since the challenged link does not meaningfully alter the forward causal structure leading to the outcome, and because the scenario does not affect the comparative likelihood of warmer conditions on December 28 versus December 21, the probability estimate remains unchanged.\"\n}",
+      "target_id": "temp_2025_12_28->temp_2025_12_21",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the influence of snow cover or ground albedo feedback in late December: if significant snowfall occurs in the region between December 21 and 28, it could increase surface reflectivity and lead to cooler daytime temperatures on the 28th, especially if the snow persists. This local surface condition is not captured by seasonal trends or weather systems alone and could dampen warming, affecting the likelihood that the temperature on the 28th exceeds that of the 21st.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of snow cover and ground albedo feedback adds a new causal pathway that can negatively affect temp_2025_12_28, particularly if snow from weather systems persists after December 21. This mechanism is not fully captured by the existing nodes: while weather_systems may influence whether snow falls, the sustained cooling effect from increased surface reflectivity and insulation is a localized surface process that dampens warming independently of large-scale patterns. This creates a new inhibitory path from weather_systems -> snow_cover -> reduced_temp_2025_12_28 -> outcome, which was previously unaccounted for. Since late December in Bordeaux rarely sees persistent snow, the base probability of this effect is low, but non-zero, and could systematically reduce temperatures on the 28th when it occurs. This introduces a slight downward bias in the likelihood that the 28th is warmer, especially in cold anomaly years. Thus, the original near-neutral estimate of 0.52 is adjusted downward to 0.48 to reflect this previously omitted cooling feedback.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of snow cover and ground albedo feedback adds a new causal pathway that can negatively affect temp_2025_12_28, particularly if snow from weather systems persists after December 21. This mechanism is not fully captured by the existing nodes: while weather_systems may influence whether snow falls, the sustained cooling effect from increased surface reflectivity and insulation is a localized surface process that dampens warming independently of large-scale patterns. This creates a new inhibitory path from weather_systems -> snow_cover -> reduced_temp_2025_12_28 -> outcome, which was previously unaccounted for. Since late December in Bordeaux rarely sees persistent snow, the base probability of this effect is low, but non-zero, and could systematically reduce temperatures on the 28th when it occurs. This introduces a slight downward bias in the likelihood that the 28th is warmer, especially in cold anomaly years. Thus, the original near-neutral estimate of 0.52 is adjusted downward to 0.48 to reflect this previously omitted cooling feedback.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the influence of long-range weather predictability and model consensus trends. If numerical weather prediction models consistently show a warming trend from December 21 to December 28 several days in advance, this could indicate persistent atmospheric patterns that make a temperature increase more likely. This factor captures forecastable persistence in weather evolution that is not fully accounted for by generic weather systems or climate phases alone.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The new consideration introduces a source of predictability related to persistent atmospheric patterns that can be captured by numerical weather prediction (NWP) model consensus. This affects the causal path from weather_systems to both temp_2025_12_21 and temp_2025_12_28 by adding a layer of temporal coherence and forecastable evolution. Specifically, if NWP models show a consistent warming trend over this period, it implies that weather_systems are not evolving randomly but are following a predictable, persistent pattern—increasing the likelihood that temp_2025_12_28 is higher than temp_2025_12_21. This strengthens the link between the two temperature nodes via weather_systems, effectively increasing autocorrelation in the short-term weather evolution. While this does not override seasonal_trend or climate_phase, it adds weight to the short-term deterministic component of weather_systems, making outcome more sensitive to forecastable trends. Since this information is not yet available (for 2025), the update is modest—reflecting only the structural possibility of such predictability—but still justifies a small upward shift from baseline climatology.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new consideration introduces a source of predictability related to persistent atmospheric patterns that can be captured by numerical weather prediction (NWP) model consensus. This affects the causal path from weather_systems to both temp_2025_12_21 and temp_2025_12_28 by adding a layer of temporal coherence and forecastable evolution. Specifically, if NWP models show a consistent warming trend over this period, it implies that weather_systems are not evolving randomly but are following a predictable, persistent pattern—increasing the likelihood that temp_2025_12_28 is higher than temp_2025_12_21. This strengthens the link between the two temperature nodes via weather_systems, effectively increasing autocorrelation in the short-term weather evolution. While this does not override seasonal_trend or climate_phase, it adds weight to the short-term deterministic component of weather_systems, making outcome more sensitive to forecastable trends. Since this information is not yet available (for 2025), the update is modest—reflecting only the structural possibility of such predictability—but still justifies a small upward shift from baseline climatology.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the number of international flights departing from Bordeaux–Mérignac Airport has increased by 15% compared to the same period in 2024. Researchers speculate this could amplify contrail formation, potentially influencing local atmospheric conditions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The increase in international flights and potential for greater contrail formation represents a speculative and peripheral influence on local temperature. Contrails can affect local radiative balance—potentially cooling during the day or warming at night—but their net effect on daily average temperatures at a specific location one week apart is highly uncertain and likely minimal compared to dominant factors like weather systems and seasonal trends. This new information does not establish a clear causal link to either temp_2025_12_21 or temp_2025_12_28, nor does it modify the core causal pathways (e.g., weather_systems, seasonal_trend) that drive the outcome. Given the weak and indirect plausibility of contrail effects altering the week-to-week temperature comparison, and the lack of empirical evidence quantifying this impact at the Bordeaux station, the causal network remains structurally unchanged. Therefore, no update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The increase in international flights and potential for greater contrail formation represents a speculative and peripheral influence on local temperature. Contrails can affect local radiative balance—potentially cooling during the day or warming at night—but their net effect on daily average temperatures at a specific location one week apart is highly uncertain and likely minimal compared to dominant factors like weather systems and seasonal trends. This new information does not establish a clear causal link to either temp_2025_12_21 or temp_2025_12_28, nor does it modify the core causal pathways (e.g., weather_systems, seasonal_trend) that drive the outcome. Given the weak and indirect plausibility of contrail effects altering the week-to-week temperature comparison, and the lack of empirical evidence quantifying this impact at the Bordeaux station, the causal network remains structurally unchanged. Therefore, no update to the probability is warranted.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the number of commercial flights departing from Bordeaux–Mérignac Airport has increased by 15% compared to 2024, primarily due to expanded winter tourism routes. This rise in air traffic has led to more frequent runway usage and ground operations during December 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The increase in commercial flights and associated ground operations does not meaningfully affect any of the core causal paths leading to the outcome. The temperature at Bordeaux–Mérignac Airport is primarily governed by seasonal trends, weather systems, large-scale climate phases, and local urban heat effects. While increased air traffic could theoretically contribute to localized heat from engine use or tarmac activity, this effect is negligible compared to the meteorological drivers and is not captured in any established microclimate models for airport stations. The node urban_heat already accounts for persistent local anthropogenic warming, but transient increases from flight operations are unlikely to create a measurable bias in daily average temperature, especially over a weekly comparison. Since no causal link exists from flight activity to temperature readings in the model, and the proposed mechanism does not alter seasonal, synoptic, or climatic drivers, the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The increase in commercial flights and associated ground operations does not meaningfully affect any of the core causal paths leading to the outcome. The temperature at Bordeaux–Mérignac Airport is primarily governed by seasonal trends, weather systems, large-scale climate phases, and local urban heat effects. While increased air traffic could theoretically contribute to localized heat from engine use or tarmac activity, this effect is negligible compared to the meteorological drivers and is not captured in any established microclimate models for airport stations. The node urban_heat already accounts for persistent local anthropogenic warming, but transient increases from flight operations are unlikely to create a measurable bias in daily average temperature, especially over a weekly comparison. Since no causal link exists from flight activity to temperature readings in the model, and the proposed mechanism does not alter seasonal, synoptic, or climatic drivers, the probability remains unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent historical analysis of daily temperatures at Bordeaux–Mérignac Airport from 2000 to 2024 shows a statistically significant warming trend in late December, with average temperatures increasing by 0.8°C over the period. This trend is consistent with regional climate models projecting earlier winter thaws due to climate change, suggesting that seasonal patterns are increasingly favoring warmer conditions in the last week of December compared to the solstice week.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the 'seasonal_trend' node by providing evidence of a statistically significant warming trend in late December over the past 25 years, driven by climate change. This directly affects the causal path from 'seasonal_trend' to 'temp_2025_12_28', increasing the expected temperature on December 28 relative to the climatological baseline. Since December 28 falls later in the month and benefits more from this trend than December 21, the likelihood that temp_2025_12_28 exceeds temp_2025_12_21 increases. The outcome depends on the difference between these two temperatures, so this trend introduces a systematic bias favoring warmer readings on the later date. While short-term weather systems still dominate day-to-day variability, the reinforced seasonal trend tilts the balance, justifying a moderate upward revision from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the 'seasonal_trend' node by providing evidence of a statistically significant warming trend in late December over the past 25 years, driven by climate change. This directly affects the causal path from 'seasonal_trend' to 'temp_2025_12_28', increasing the expected temperature on December 28 relative to the climatological baseline. Since December 28 falls later in the month and benefits more from this trend than December 21, the likelihood that temp_2025_12_28 exceeds temp_2025_12_21 increases. The outcome depends on the difference between these two temperatures, so this trend introduces a systematic bias favoring warmer readings on the later date. While short-term weather systems still dominate day-to-day variability, the reinforced seasonal trend tilts the balance, justifying a moderate upward revision from 0.52 to 0.58.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A 2024 urban development report for Bordeaux indicates a 15% increase in sealed surfaces and a reduction in green spaces near Mérignac Airport over the past five years, consistent with amplified local heat retention. Satellite-derived land surface temperature data show a 0.8°C higher nocturnal heat signature in the airport’s vicinity compared to rural areas, a gap that has widened by 0.2°C since 2020, aligning with ongoing urbanization trends.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The evidence strengthens the 'urban_heat' node, confirming an intensifying local heat island effect near Bordeaux–Mérignac Airport. This reinforces the causal path urban_heat -> temp_2025_12_28, increasing the expected temperature on December 28. While urban_heat does not directly affect temp_2025_12_21, its asymmetric impact favors higher temperatures on the later date, slightly increasing the likelihood of the outcome. However, because weather_systems and seasonal_trend remain dominant and unpredictable on these time scales, and urban heat affects only one side of the comparison, the update is modest. The strengthened urban heat signal tilts the balance slightly, but not substantially, in favor of a warmer Dec 28.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The evidence strengthens the 'urban_heat' node, confirming an intensifying local heat island effect near Bordeaux–Mérignac Airport. This reinforces the causal path urban_heat -> temp_2025_12_28, increasing the expected temperature on December 28. While urban_heat does not directly affect temp_2025_12_21, its asymmetric impact favors higher temperatures on the later date, slightly increasing the likelihood of the outcome. However, because weather_systems and seasonal_trend remain dominant and unpredictable on these time scales, and urban heat affects only one side of the comparison, the update is modest. The strengthened urban heat signal tilts the balance slightly, but not substantially, in favor of a warmer Dec 28.\"\n}",
+      "target_id": "urban_heat",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent research from 2023-2024 shows that during positive phases of the North Atlantic Oscillation (NAO), zonal airflow over Western Europe strengthens significantly, leading to more frequent and intense Atlantic weather systems reaching France. This dynamic has been particularly pronounced in the last two winters, with observational data from Météo-France indicating a 40% increase in the persistence of high-impact weather systems during positive NAO periods. These findings reinforce the causal influence of climate_phase on the behavior of weather_systems over France.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between climate_phase and weather_systems, particularly by showing that positive NAO phases lead to more persistent and intense Atlantic weather systems affecting France. This enhances the influence of climate_phase on both temp_2025_12_21 and temp_2025_12_28 through the weather_systems node. Because the two dates are one week apart, stronger persistence in weather systems increases the likelihood that conditions favoring higher temperatures on one day will carry over to the next. However, since the outcome depends on the *relative* temperatures between the two days, increased weather persistence slightly raises the probability that temperatures remain similar or trend consistently—especially if seasonal trends or urban heat nudges push the later date higher. Thus, the strengthened climate_phase → weather_systems link increases confidence in temp_2025_12_28 being warmer, particularly if broader climate conditions favor warming patterns. This justifies a modest upward revision from 0.52 to 0.56.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between climate_phase and weather_systems, particularly by showing that positive NAO phases lead to more persistent and intense Atlantic weather systems affecting France. This enhances the influence of climate_phase on both temp_2025_12_21 and temp_2025_12_28 through the weather_systems node. Because the two dates are one week apart, stronger persistence in weather systems increases the likelihood that conditions favoring higher temperatures on one day will carry over to the next. However, since the outcome depends on the *relative* temperatures between the two days, increased weather persistence slightly raises the probability that temperatures remain similar or trend consistently—especially if seasonal trends or urban heat nudges push the later date higher. Thus, the strengthened climate_phase → weather_systems link increases confidence in temp_2025_12_28 being warmer, particularly if broader climate conditions favor warming patterns. This justifies a modest upward revision from 0.52 to 0.56.\"\n}",
+      "target_id": "climate_phase->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent high-resolution observational data from Bordeaux–Mérignac Airport (2020–2024) show that daily temperature anomalies are highly persistent over weekly intervals in December, with a day-to-day autocorrelation of 0.89, reinforcing that temp_2025_12_28 is a direct and dominant determinant of the outcome. This short-term stability in winter weather patterns makes the temperature on Dec 28 an even stronger predictor of the comparative outcome than previously modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reinforces the causal link temp_2025_12_28 -> outcome by providing evidence of high short-term persistence in daily temperature anomalies (autocorrelation of 0.89 over weekly intervals). This strengthens the influence of temp_2025_12_28 on the outcome, as temperatures are more likely to remain stable or trend gradually rather than fluctuate wildly. As a result, the temperature on Dec 28 becomes a more reliable predictor of the comparative outcome. This increases the probability that if Dec 28 is warmer, it will exceed the Dec 21 value, especially given the persistence. The seasonal trend near the winter solstice is relatively flat, so drift is minimal, and the autocorrelation evidence tilts the balance slightly toward higher continuity. Thus, the outcome is more sensitive to temp_2025_12_28 than previously modeled, warranting a moderate upward adjustment from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reinforces the causal link temp_2025_12_28 -> outcome by providing evidence of high short-term persistence in daily temperature anomalies (autocorrelation of 0.89 over weekly intervals). This strengthens the influence of temp_2025_12_28 on the outcome, as temperatures are more likely to remain stable or trend gradually rather than fluctuate wildly. As a result, the temperature on Dec 28 becomes a more reliable predictor of the comparative outcome. This increases the probability that if Dec 28 is warmer, it will exceed the Dec 21 value, especially given the persistence. The seasonal trend near the winter solstice is relatively flat, so drift is minimal, and the autocorrelation evidence tilts the balance slightly toward higher continuity. Thus, the outcome is more sensitive to temp_2025_12_28 than previously modeled, warranting a moderate upward adjustment from 0.52 to 0.58.\"\n}",
+      "target_id": "temp_2025_12_28->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07510.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Bordeaux–Mérignac Airport will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.011333333333333343,
+    "max_absolute_shift": 0.040000000000000036
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 3.958333333333331,
+    "mean_shift_high": 0.023750000000000007,
+    "mean_shift_low": 0.006000000000000005,
+    "asymmetry_index": 0.2236024844720499,
+    "mean_shift_negate": 0.008571428571428579,
+    "mean_shift_strengthen": 0.03833333333333333,
+    "fnar": 0,
+    "n_accepted": 0,
+    "n_spurious": 3,
+    "critical_path_premium": 0.0033333333333333375,
+    "mean_shift_on_path": 0.020000000000000007,
+    "mean_shift_off_path": 0.01666666666666667,
+    "importance_sensitivity_correlation": 0.1515151515151515,
+    "control_sensitivity": 0
+  }
+}

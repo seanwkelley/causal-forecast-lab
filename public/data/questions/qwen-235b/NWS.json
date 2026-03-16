@@ -1,0 +1,1112 @@
+{
+  "question_id": "NWS",
+  "question_text": "Will NWS's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.58,
+  "nodes": [
+    {
+      "id": "market_trend_2025",
+      "description": "General direction of the stock market in late 2025",
+      "role": "factor"
+    },
+    {
+      "id": "nws_earnings_q4_2025",
+      "description": "News Corp's earnings performance in Q4 2025",
+      "role": "factor"
+    },
+    {
+      "id": "media_industry_trends",
+      "description": "Shifts in advertising revenue, digital subscriptions, and competition in the media sector",
+      "role": "factor"
+    },
+    {
+      "id": "investor_sentiment",
+      "description": "Overall market sentiment toward large-cap media stocks",
+      "role": "factor"
+    },
+    {
+      "id": "macroeconomic_conditions",
+      "description": "Interest rates, inflation, and GDP growth in late 2025",
+      "role": "factor"
+    },
+    {
+      "id": "corporate_actions",
+      "description": "Potential stock splits, buybacks, or dividends affecting NWS share price",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "NWS's market close price on 2025-12-28 is higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "macroeconomic_conditions",
+      "to": "market_trend_2025",
+      "mechanism": "Macroeconomic conditions influence the overall trajectory of the stock market"
+    },
+    {
+      "from": "market_trend_2025",
+      "to": "investor_sentiment",
+      "mechanism": "A rising market improves investor confidence in individual stocks"
+    },
+    {
+      "from": "macroeconomic_conditions",
+      "to": "nws_earnings_q4_2025",
+      "mechanism": "Strong economic growth supports higher advertising spending and revenue for media companies"
+    },
+    {
+      "from": "media_industry_trends",
+      "to": "nws_earnings_q4_2025",
+      "mechanism": "Shifts in digital engagement and ad tech affect News Corp's revenue potential"
+    },
+    {
+      "from": "nws_earnings_q4_2025",
+      "to": "investor_sentiment",
+      "mechanism": "Better-than-expected earnings improve perceptions of company health"
+    },
+    {
+      "from": "investor_sentiment",
+      "to": "corporate_actions",
+      "mechanism": "Positive sentiment may encourage management to pursue stock buybacks or splits"
+    },
+    {
+      "from": "corporate_actions",
+      "to": "outcome",
+      "mechanism": "Buybacks or splits can directly increase or adjust the market price"
+    },
+    {
+      "from": "investor_sentiment",
+      "to": "outcome",
+      "mechanism": "Higher optimism leads to increased buying pressure, lifting the stock price"
+    }
+  ],
+  "reasoning": "The probability is slightly above 50% due to expected moderate economic growth and potential tailwinds from digital transformation in News Corp's media segment. While the stock is not highly volatile, investor sentiment and Q4 earnings will be pivotal. Most factors—including macroeconomic conditions, industry trends, and corporate actions—feed into sentiment, which directly influences short-term price movement between mid and late December 2025. The week-over-week change is uncertain but leans positive assuming no major adverse shocks.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 8,
+    "density": 0.1905,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "market_trend_2025",
+        "description": "General direction of the stock market in late 2025",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.1667,
+        "pagerank": 0.0804,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "nws_earnings_q4_2025",
+        "description": "News Corp's earnings performance in Q4 2025",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.15,
+        "closeness": 0.3333,
+        "pagerank": 0.1284,
+        "path_relevance": 0.2857
+      },
+      {
+        "node_id": "media_industry_trends",
+        "description": "Shifts in advertising revenue, digital subscriptions, and competition in the media sector",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0564,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "investor_sentiment",
+        "description": "Overall market sentiment toward large-cap media stocks",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.2667,
+        "closeness": 0.4444,
+        "pagerank": 0.234,
+        "path_relevance": 0.7143
+      },
+      {
+        "node_id": "macroeconomic_conditions",
+        "description": "Interest rates, inflation, and GDP growth in late 2025",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0564,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "corporate_actions",
+        "description": "Potential stock splits, buybacks, or dividends affecting NWS share price",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.3788,
+        "pagerank": 0.1559,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "NWS's market close price on 2025-12-28 is higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.2884,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "market_trend_2025",
+        "target": "investor_sentiment",
+        "mechanism": "A rising market improves investor confidence in individual stocks",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "nws_earnings_q4_2025",
+        "target": "investor_sentiment",
+        "mechanism": "Better-than-expected earnings improve perceptions of company health",
+        "edge_betweenness": 0.1786,
+        "on_critical_path": true
+      },
+      {
+        "source": "media_industry_trends",
+        "target": "nws_earnings_q4_2025",
+        "mechanism": "Shifts in digital engagement and ad tech affect News Corp's revenue potential",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "investor_sentiment",
+        "target": "corporate_actions",
+        "mechanism": "Positive sentiment may encourage management to pursue stock buybacks or splits",
+        "edge_betweenness": 0.119,
+        "on_critical_path": false
+      },
+      {
+        "source": "investor_sentiment",
+        "target": "outcome",
+        "mechanism": "Higher optimism leads to increased buying pressure, lifting the stock price",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "macroeconomic_conditions",
+        "target": "market_trend_2025",
+        "mechanism": "Macroeconomic conditions influence the overall trajectory of the stock market",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "macroeconomic_conditions",
+        "target": "nws_earnings_q4_2025",
+        "mechanism": "Strong economic growth supports higher advertising spending and revenue for media companies",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "corporate_actions",
+        "target": "outcome",
+        "mechanism": "Buybacks or splits can directly increase or adjust the market price",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "investor_sentiment",
+        "description": "Overall market sentiment toward large-cap media stocks",
+        "importance": 0.2667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "nws_earnings_q4_2025",
+        "description": "News Corp's earnings performance in Q4 2025",
+        "importance": 0.15,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "media_industry_trends",
+        "description": "Shifts in advertising revenue, digital subscriptions, and competition in the media sector",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "corporate_actions",
+        "description": "Potential stock splits, buybacks, or dividends affecting NWS share price",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "investor_sentiment",
+        "description": "Overall market sentiment toward large-cap media stocks",
+        "importance": 0.2667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "nws_earnings_q4_2025",
+        "description": "News Corp's earnings performance in Q4 2025",
+        "importance": 0.15,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "nws_earnings_q4_2025->investor_sentiment",
+        "description": "Better-than-expected earnings improve perceptions of company health",
+        "importance": 0.1786,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "investor_sentiment->outcome",
+        "description": "Higher optimism leads to increased buying pressure, lifting the stock price",
+        "importance": 0.119,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "investor_sentiment->corporate_actions",
+        "description": "Positive sentiment may encourage management to pursue stock buybacks or splits",
+        "importance": 0.119,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "nws_earnings_q4_2025->investor_sentiment",
+        "description": "Better-than-expected earnings improve perceptions of company health",
+        "importance": 0.1786,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "macroeconomic_conditions->corporate_actions",
+        "description": "Potential link: Interest rates, inflation, and GDP growth in late 2025 -> Potential stock splits, buybacks, or dividends affecting NWS share price",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "macroeconomic_conditions->investor_sentiment",
+        "description": "Potential link: Interest rates, inflation, and GDP growth in late 2025 -> Overall market sentiment toward large-cap media stocks",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "investor_sentiment",
+      "description": "Overall market sentiment toward large-cap media stocks",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "nws_earnings_q4_2025",
+      "description": "News Corp's earnings performance in Q4 2025",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "media_industry_trends",
+      "description": "Shifts in advertising revenue, digital subscriptions, and competition in the media sector",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "corporate_actions",
+      "description": "Potential stock splits, buybacks, or dividends affecting NWS share price",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "investor_sentiment",
+      "description": "Overall market sentiment toward large-cap media stocks",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "nws_earnings_q4_2025",
+      "description": "News Corp's earnings performance in Q4 2025",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "description": "Better-than-expected earnings improve perceptions of company health",
+      "importance": 0.1786,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "investor_sentiment->outcome",
+      "description": "Higher optimism leads to increased buying pressure, lifting the stock price",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "investor_sentiment->corporate_actions",
+      "description": "Positive sentiment may encourage management to pursue stock buybacks or splits",
+      "importance": 0.119,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "description": "Better-than-expected earnings improve perceptions of company health",
+      "importance": 0.1786,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "macroeconomic_conditions->corporate_actions",
+      "description": "Potential link: Interest rates, inflation, and GDP growth in late 2025 -> Potential stock splits, buybacks, or dividends affecting NWS share price",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "macroeconomic_conditions->investor_sentiment",
+      "description": "Potential link: Interest rates, inflation, and GDP growth in late 2025 -> Overall market sentiment toward large-cap media stocks",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if overall market sentiment toward large-cap media stocks has no meaningful impact on NWS's price movement in December 2025? In periods of heightened macroeconomic uncertainty, investor sentiment may become decoupled from actual trading behavior, with institutional investors prioritizing earnings fundamentals and balance sheet strength over sentiment trends. If trading volume in NWS is dominated by long-term holders rather than sentiment-driven traders, shifts in optimism or pessimism may not translate into price changes.",
+      "probe_type": "node_negate_high",
+      "target_id": "investor_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall market sentiment toward large-cap media stocks"
+    },
+    {
+      "probe_text": "What if News Corp's Q4 2025 earnings performance has little impact on its stock price because the market had already fully priced in both best-case and worst-case scenarios by early December 2025? In such a case, even a strong earnings beat or miss would result in minimal price movement due to no new information being revealed, making the actual earnings outcome irrelevant to the stock's performance in the final weeks of the year.",
+      "probe_type": "node_negate_high",
+      "target_id": "nws_earnings_q4_2025",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "News Corp's earnings performance in Q4 2025"
+    },
+    {
+      "probe_text": "Recent regulatory changes have significantly reduced the impact of digital advertising volatility on major media companies, with the 2025 Global Digital Advertising Act leveling the playing field by restricting real-time bidding dominance. As a result, shifts in digital ad revenue—once a key driver of quarterly performance—have become less material to firms like News Corp, making media industry trends a weaker predictor of NWS earnings in Q4 2025.",
+      "probe_type": "node_negate_medium",
+      "target_id": "media_industry_trends",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Shifts in advertising revenue, digital subscriptions, and competition in the media sector"
+    },
+    {
+      "probe_text": "It is unlikely that News Corp will announce any stock splits, buybacks, or special dividends between December 2025 and the end of the year, as the company has consistently prioritized debt reduction over shareholder returns in recent quarters. Without active corporate actions, this factor will have no meaningful impact on NWS's share price movement in the final week of December 2025.",
+      "probe_type": "node_negate_low",
+      "target_id": "corporate_actions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Potential stock splits, buybacks, or dividends affecting NWS share price"
+    },
+    {
+      "probe_text": "In November 2025, a major Wall Street investment firm upgrades News Corp to 'Overweight' in its portfolio strategy, citing renewed investor confidence in large-cap media stocks due to stabilizing digital ad revenues and increased M&A activity in the sector. This shift has already triggered a 12% rise in NWS shares over the prior three weeks, outperforming the broader S&P 500.",
+      "probe_type": "node_strengthen",
+      "target_id": "investor_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall market sentiment toward large-cap media stocks"
+    },
+    {
+      "probe_text": "On January 15, 2026, News Corp announced preliminary Q4 2025 earnings that exceeded analyst expectations, driven by a 12% year-over-year increase in digital subscription revenue and a rebound in advertising sales linked to strong viewership of key sporting events. Analysts at J.P. Morgan noted that the earnings beat was 'broadly based across divisions' and likely to bolster investor confidence in the company's growth trajectory.",
+      "probe_type": "node_strengthen",
+      "target_id": "nws_earnings_q4_2025",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "News Corp's earnings performance in Q4 2025"
+    },
+    {
+      "probe_text": "In recent years, News Corp's stock has shown limited responsiveness to earnings surprises due to investor skepticism about the sustainability of its advertising revenue and long-term digital转型 strategy. Even if Q4 2025 earnings beat expectations, market analysts may attribute the outperformance to one-time cost-cutting rather than fundamental business improvement, especially if broader media industry trends remain weak, thereby limiting any positive shift in investor sentiment.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1786,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Better-than-expected earnings improve perceptions of company health"
+    },
+    {
+      "probe_text": "In early December 2025, News Corp announces a major restructuring that shifts focus away from traditional media assets toward unprofitable digital ventures, triggering skepticism among long-term institutional investors. Despite a broad increase in investor sentiment across the media sector due to favorable macro conditions, NWS experiences net selling pressure from large holders, causing its stock to underperform the market. This suggests that investor sentiment may not translate to price appreciation when fundamental concerns drive informed selling.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "investor_sentiment->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher optimism leads to increased buying pressure, lifting the stock price"
+    },
+    {
+      "probe_text": "Even if investor sentiment toward News Corp is positive in late 2025, management may not pursue stock buybacks or splits if they are prioritizing debt reduction, M&A investments, or face board-level constraints on capital allocation. Historical precedent shows that News Corp has maintained a conservative approach to corporate actions, often favoring strategic reinvestment over share price manipulation.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "investor_sentiment->corporate_actions",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Positive sentiment may encourage management to pursue stock buybacks or splits"
+    },
+    {
+      "probe_text": "Investor sentiment can influence analysts' and management's expectations, leading to optimistic earnings forecasts and potential earnings management through accounting adjustments. If positive sentiment drives upward pressure on expected earnings, then perceived 'better-than-expected' earnings may simply reflect prior bullish sentiment rather than causing a shift in it.",
+      "probe_type": "edge_reverse",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1786,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Better-than-expected earnings improve perceptions of company health"
+    },
+    {
+      "probe_text": "Suppose interest rates rise significantly in late 2025 due to higher-than-expected inflation, increasing the cost of borrowing for companies. How would this affect News Corp's likelihood of executing a stock buyback or dividend increase, given that such corporate actions often depend on access to cheap capital? Would tighter financial conditions constrain their capital allocation decisions even if investor sentiment remains positive?",
+      "probe_type": "edge_spurious",
+      "target_id": "macroeconomic_conditions->corporate_actions",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Interest rates, inflation, and GDP growth in late 2025 -> Potential stock splits, buybacks, or dividends affecting NWS share price"
+    },
+    {
+      "probe_text": "Suppose late 2025 sees unexpectedly high inflation and rapidly rising interest rates, leading to tighter monetary policy. Even if the overall market trend remains positive due to strong GDP growth, large-cap media stocks—often valued on long-term earnings multiples—could face downward pressure as investors rotate into more rate-resilient sectors, thereby dampening investor sentiment independently of broad market movements. Would this shift in sentiment occur even if market_trend_2025 were stable or rising?",
+      "probe_type": "edge_spurious",
+      "target_id": "macroeconomic_conditions->investor_sentiment",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Interest rates, inflation, and GDP growth in late 2025 -> Overall market sentiment toward large-cap media stocks"
+    },
+    {
+      "probe_text": "Consider the potential impact of a major acquisition or divestiture by News Corp in late 2025. Such a strategic move could significantly alter investor expectations about future cash flows and growth, leading to a sharp revaluation of the stock independent of earnings or market trends. For example, selling a high-profile asset like Dow Jones could reduce future revenue but increase investor confidence if the price is favorable, directly influencing the share price between December 21 and 28.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the potential impact of a major regulatory change, such as new antitrust legislation or foreign ownership restrictions targeting media conglomerates, which could directly affect News Corp's operations or market valuation. Such a regulatory intervention could force asset divestitures, limit revenue streams, or alter investor expectations, thereby influencing both investor sentiment and the stock price directly.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In October 2025, News Corp announced a new corporate wellness initiative aimed at improving employee mental health and reducing workplace stress. The program includes mindfulness training, expanded mental health benefits, and on-site counseling services at its New York and Sydney offices.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In October 2025, News Corp announced a new corporate headquarters in Sydney, Australia, featuring sustainable design and housing its Asia-Pacific leadership team. The move is part of a broader rebranding initiative to emphasize environmental responsibility and regional engagement.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if overall market sentiment toward large-cap media stocks has no meaningful impact on NWS's price movement in December 2025? In periods of heightened macroeconomic uncertainty, investor sentiment may become decoupled from actual trading behavior, with institutional investors prioritizing earnings fundamentals and balance sheet strength over sentiment trends. If trading volume in NWS is dominated by long-term holders rather than sentiment-driven traders, shifts in optimism or pessimism may not translate into price changes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets 'investor_sentiment' as a weak or non-influential factor in NWS's price movement during December 2025, particularly under macroeconomic uncertainty and with low sensitivity to sentiment-driven trading. This disrupts two key causal paths: (1) investor_sentiment -> outcome, which previously supported price increases through optimism-driven demand, and (2) investor_sentiment -> corporate_actions -> outcome, where positive sentiment might have prompted buybacks or splits. If sentiment has minimal impact on actual trading behavior and corporate decisions, these pathways weaken significantly. However, the effect on the overall outcome is moderate because other structural drivers—such as macroeconomic_conditions, nws_earnings_q4_2025, and media_industry_trends—still propagate through to the stock price via fundamentals. The outcome remains influenced by market_trend_2025 and earnings, but with reduced amplification from sentiment feedback loops. Thus, the probability shifts downward slightly from 0.58 to 0.52, reflecting lower confidence in sentiment-based upside.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets 'investor_sentiment' as a weak or non-influential factor in NWS's price movement during December 2025, particularly under macroeconomic uncertainty and with low sensitivity to sentiment-driven trading. This disrupts two key causal paths: (1) investor_sentiment -> outcome, which previously supported price increases through optimism-driven demand, and (2) investor_sentiment -> corporate_actions -> outcome, where positive sentiment might have prompted buybacks or splits. If sentiment has minimal impact on actual trading behavior and corporate decisions, these pathways weaken significantly. However, the effect on the overall outcome is moderate because other structural drivers—such as macroeconomic_conditions, nws_earnings_q4_2025, and media_industry_trends—still propagate through to the stock price via fundamentals. The outcome remains influenced by market_trend_2025 and earnings, but with reduced amplification from sentiment feedback loops. Thus, the probability shifts downward slightly from 0.58 to 0.52, reflecting lower confidence in sentiment-based upside.\"\n}",
+      "target_id": "investor_sentiment",
+      "target_type": "node",
+      "target_importance": 0.2667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if News Corp's Q4 2025 earnings performance has little impact on its stock price because the market had already fully priced in both best-case and worst-case scenarios by early December 2025? In such a case, even a strong earnings beat or miss would result in minimal price movement due to no new information being revealed, making the actual earnings outcome irrelevant to the stock's performance in the final weeks of the year.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly undermines the importance of 'nws_earnings_q4_2025' in the causal network. If Q4 2025 earnings are fully anticipated by early December 2025, then the node 'nws_earnings_q4_2025' no longer meaningfully influences 'investor_sentiment' or 'corporate_actions' during the final weeks of the year. This severs or weakens two key causal paths: (1) nws_earnings_q4_2025 -> investor_sentiment and (2) macroeconomic_conditions -> nws_earnings_q4_2025 -> investor_sentiment. As a result, the primary drivers of the outcome shift almost entirely to 'market_trend_2025' and 'investor_sentiment' as shaped by broader macro conditions and media-sector sentiment, rather than firm-specific fundamentals. Since the original 0.58 probability was partially anchored on News Corp's individual earnings performance providing upward momentum, and that path is now invalid, the estimate reverts closer to a baseline expectation of random walk behavior over a one-week window. However, some residual influence remains via industry trends and macro-driven market momentum, so the probability does not drop to 0.50. Hence, a modest downward update to 0.51 is appropriate.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly undermines the importance of 'nws_earnings_q4_2025' in the causal network. If Q4 2025 earnings are fully anticipated by early December 2025, then the node 'nws_earnings_q4_2025' no longer meaningfully influences 'investor_sentiment' or 'corporate_actions' during the final weeks of the year. This severs or weakens two key causal paths: (1) nws_earnings_q4_2025 -> investor_sentiment and (2) macroeconomic_conditions -> nws_earnings_q4_2025 -> investor_sentiment. As a result, the primary drivers of the outcome shift almost entirely to 'market_trend_2025' and 'investor_sentiment' as shaped by broader macro conditions and media-sector sentiment, rather than firm-specific fundamentals. Since the original 0.58 probability was partially anchored on News Corp's individual earnings performance providing upward momentum, and that path is now invalid, the estimate reverts closer to a baseline expectation of random walk behavior over a one-week window. However, some residual influence remains via industry trends and macro-driven market momentum, so the probability does not drop to 0.50. Hence, a modest downward update to 0.51 is appropriate.\"\n}",
+      "target_id": "nws_earnings_q4_2025",
+      "target_type": "node",
+      "target_importance": 0.15,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent regulatory changes have significantly reduced the impact of digital advertising volatility on major media companies, with the 2025 Global Digital Advertising Act leveling the playing field by restricting real-time bidding dominance. As a result, shifts in digital ad revenue—once a key driver of quarterly performance—have become less material to firms like News Corp, making media industry trends a weaker predictor of NWS earnings in Q4 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.029999999999999916,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between media_industry_trends and nws_earnings_q4_2025, as regulatory changes are said to reduce the impact of digital advertising volatility—historically a key component of media industry trends—on News Corp's earnings. This diminishes the explanatory power of media_industry_trends in predicting NWS's financial performance in Q4 2025. As a result, the path from media_industry_trends → nws_earnings_q4_2025 → investor_sentiment → outcome is less influential, reducing the overall weight of this causal chain. However, since other drivers such as macroeconomic_conditions, market_trend_2025, and corporate_actions remain intact and continue to support the outcome, the reduction is modest. The weakened path slightly lowers confidence in a positive price movement, leading to a small downward adjustment from 0.58 to 0.55.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between media_industry_trends and nws_earnings_q4_2025, as regulatory changes are said to reduce the impact of digital advertising volatility—historically a key component of media industry trends—on News Corp's earnings. This diminishes the explanatory power of media_industry_trends in predicting NWS's financial performance in Q4 2025. As a result, the path from media_industry_trends → nws_earnings_q4_2025 → investor_sentiment → outcome is less influential, reducing the overall weight of this causal chain. However, since other drivers such as macroeconomic_conditions, market_trend_2025, and corporate_actions remain intact and continue to support the outcome, the reduction is modest. The weakened path slightly lowers confidence in a positive price movement, leading to a small downward adjustment from 0.58 to 0.55.\"\n}",
+      "target_id": "media_industry_trends",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "It is unlikely that News Corp will announce any stock splits, buybacks, or special dividends between December 2025 and the end of the year, as the company has consistently prioritized debt reduction over shareholder returns in recent quarters. Without active corporate actions, this factor will have no meaningful impact on NWS's share price movement in the final week of December 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.019999999999999907,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the 'corporate_actions' node by indicating that News Corp is unlikely to pursue stock splits, buybacks, or special dividends in late 2025 due to a strategic focus on debt reduction. This removes a potential upward catalyst for the stock price in the final week of December. The causal path from 'investor_sentiment' → 'corporate_actions' → 'outcome' is effectively broken, eliminating a secondary mechanism through which sentiment could amplify price gains. However, 'corporate_actions' was a relatively peripheral factor in the overall network, with the primary drivers being market trend, earnings, and investor sentiment acting directly on the outcome. The direct path from 'investor_sentiment' → 'outcome' remains intact, so the impact is modest. Given the reduced likelihood of a price-boosting corporate action, the probability of a higher close on 2025-12-28 slightly decreases from 0.58 to 0.56.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the 'corporate_actions' node by indicating that News Corp is unlikely to pursue stock splits, buybacks, or special dividends in late 2025 due to a strategic focus on debt reduction. This removes a potential upward catalyst for the stock price in the final week of December. The causal path from 'investor_sentiment' → 'corporate_actions' → 'outcome' is effectively broken, eliminating a secondary mechanism through which sentiment could amplify price gains. However, 'corporate_actions' was a relatively peripheral factor in the overall network, with the primary drivers being market trend, earnings, and investor sentiment acting directly on the outcome. The direct path from 'investor_sentiment' → 'outcome' remains intact, so the impact is modest. Given the reduced likelihood of a price-boosting corporate action, the probability of a higher close on 2025-12-28 slightly decreases from 0.58 to 0.56.\"\n}",
+      "target_id": "corporate_actions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In November 2025, a major Wall Street investment firm upgrades News Corp to 'Overweight' in its portfolio strategy, citing renewed investor confidence in large-cap media stocks due to stabilizing digital ad revenues and increased M&A activity in the sector. This shift has already triggered a 12% rise in NWS shares over the prior three weeks, outperforming the broader S&P 500.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The Wall Street upgrade in November 2025 directly strengthens the 'investor_sentiment' node, which is a central causal driver in the network. This new information confirms rising optimism about large-cap media stocks and specifically News Corp, feeding into both the 'investor_sentiment -> outcome' direct path and the 'investor_sentiment -> corporate_actions -> outcome' indirect path. The 12% share price increase already observed indicates strong buying pressure, suggesting sustained momentum into December. Additionally, the upgrade is tied to stabilizing digital ad revenues and M&A activity, which indirectly supports 'nws_earnings_q4_2025' and reinforces positive sentiment. Because 'investor_sentiment' is upstream of multiple causal paths leading to the outcome, and because the evidence is concrete and market-validated, the probability is updated substantially upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The Wall Street upgrade in November 2025 directly strengthens the 'investor_sentiment' node, which is a central causal driver in the network. This new information confirms rising optimism about large-cap media stocks and specifically News Corp, feeding into both the 'investor_sentiment -> outcome' direct path and the 'investor_sentiment -> corporate_actions -> outcome' indirect path. The 12% share price increase already observed indicates strong buying pressure, suggesting sustained momentum into December. Additionally, the upgrade is tied to stabilizing digital ad revenues and M&A activity, which indirectly supports 'nws_earnings_q4_2025' and reinforces positive sentiment. Because 'investor_sentiment' is upstream of multiple causal paths leading to the outcome, and because the evidence is concrete and market-validated, the probability is updated substantially upward.\"\n}",
+      "target_id": "investor_sentiment",
+      "target_type": "node",
+      "target_importance": 0.2667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On January 15, 2026, News Corp announced preliminary Q4 2025 earnings that exceeded analyst expectations, driven by a 12% year-over-year increase in digital subscription revenue and a rebound in advertising sales linked to strong viewership of key sporting events. Analysts at J.P. Morgan noted that the earnings beat was 'broadly based across divisions' and likely to bolster investor confidence in the company's growth trajectory.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of strong Q4 2025 earnings exceeding expectations directly strengthens the 'nws_earnings_q4_2025' node, which is a key causal driver in the network. This positively impacts two critical paths: (1) nws_earnings_q4_2025 -> investor_sentiment, which is now more likely to reflect optimism, increasing buying pressure; and (2) nws_earnings_q4_2025 -> macroeconomic_conditions (indirectly via improved sector performance), reinforcing broader market confidence. Stronger investor sentiment in turn boosts both corporate_actions (raising likelihood of buybacks or other price-supportive measures) and directly lifts the outcome via increased demand. Given that earnings are a core determinant of near-term price movement—especially in a predictable, fundamentals-driven stock like NWS—this positive surprise meaningfully increases the likelihood that the Dec 28 close is higher than the Dec 21 close. The update reflects the strengthened causal flow from earnings through sentiment to price.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of strong Q4 2025 earnings exceeding expectations directly strengthens the 'nws_earnings_q4_2025' node, which is a key causal driver in the network. This positively impacts two critical paths: (1) nws_earnings_q4_2025 -> investor_sentiment, which is now more likely to reflect optimism, increasing buying pressure; and (2) nws_earnings_q4_2025 -> macroeconomic_conditions (indirectly via improved sector performance), reinforcing broader market confidence. Stronger investor sentiment in turn boosts both corporate_actions (raising likelihood of buybacks or other price-supportive measures) and directly lifts the outcome via increased demand. Given that earnings are a core determinant of near-term price movement—especially in a predictable, fundamentals-driven stock like NWS—this positive surprise meaningfully increases the likelihood that the Dec 28 close is higher than the Dec 21 close. The update reflects the strengthened causal flow from earnings through sentiment to price.\"\n}",
+      "target_id": "nws_earnings_q4_2025",
+      "target_type": "node",
+      "target_importance": 0.15,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "In recent years, News Corp's stock has shown limited responsiveness to earnings surprises due to investor skepticism about the sustainability of its advertising revenue and long-term digital转型 strategy. Even if Q4 2025 earnings beat expectations, market analysts may attribute the outperformance to one-time cost-cutting rather than fundamental business improvement, especially if broader media industry trends remain weak, thereby limiting any positive shift in investor sentiment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between nws_earnings_q4_2025 and investor_sentiment, which is a key pathway through which company fundamentals influence the stock price. If earnings beats do not translate reliably into improved investor sentiment—due to skepticism about sustainability or attribution to one-time factors—then this weakens an important mechanism by which positive earnings could lift the stock. This reduces the expected impact of potentially strong Q4 2025 earnings on both investor_sentiment and, consequently, on corporate_actions and the outcome. However, other paths remain intact: market_trend_2025 and investor_sentiment can still be driven by macroeconomic_conditions and broader media_industry_trends, and direct sentiment effects on the outcome persist. Since the challenged link is important but not the sole driver, and because the base probability was only moderately above 0.5, the update is meaningful but not drastic. The weakened causal path reduces confidence in earnings-driven upside, justifying a modest downward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between nws_earnings_q4_2025 and investor_sentiment, which is a key pathway through which company fundamentals influence the stock price. If earnings beats do not translate reliably into improved investor sentiment—due to skepticism about sustainability or attribution to one-time factors—then this weakens an important mechanism by which positive earnings could lift the stock. This reduces the expected impact of potentially strong Q4 2025 earnings on both investor_sentiment and, consequently, on corporate_actions and the outcome. However, other paths remain intact: market_trend_2025 and investor_sentiment can still be driven by macroeconomic_conditions and broader media_industry_trends, and direct sentiment effects on the outcome persist. Since the challenged link is important but not the sole driver, and because the base probability was only moderately above 0.5, the update is meaningful but not drastic. The weakened causal path reduces confidence in earnings-driven upside, justifying a modest downward revision.\"\n}",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1786,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "In early December 2025, News Corp announces a major restructuring that shifts focus away from traditional media assets toward unprofitable digital ventures, triggering skepticism among long-term institutional investors. Despite a broad increase in investor sentiment across the media sector due to favorable macro conditions, NWS experiences net selling pressure from large holders, causing its stock to underperform the market. This suggests that investor sentiment may not translate to price appreciation when fundamental concerns drive informed selling.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.46,
+      "absolute_shift": 0.11999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between investor_sentiment and outcome, which is a direct and structurally important path in the network. The scenario describes a divergence between broad sector sentiment and NWS-specific price movement due to informed selling by institutional investors reacting to fundamental concerns from a restructuring. This weakens the assumption that positive investor sentiment reliably translates into price appreciation for NWS. While macroeconomic_conditions and market_trend_2025 may still support upward pressure, the broken link between sentiment and outcome—especially when corporate_actions and fundamentals move negatively—reduces the likelihood of a price increase. The causal path investor_sentiment -> outcome is now less reliable, and the new information introduces a countervailing force (institutional selling) that directly opposes price growth, leading to a meaningful downward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.46,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between investor_sentiment and outcome, which is a direct and structurally important path in the network. The scenario describes a divergence between broad sector sentiment and NWS-specific price movement due to informed selling by institutional investors reacting to fundamental concerns from a restructuring. This weakens the assumption that positive investor sentiment reliably translates into price appreciation for NWS. While macroeconomic_conditions and market_trend_2025 may still support upward pressure, the broken link between sentiment and outcome—especially when corporate_actions and fundamentals move negatively—reduces the likelihood of a price increase. The causal path investor_sentiment -> outcome is now less reliable, and the new information introduces a countervailing force (institutional selling) that directly opposes price growth, leading to a meaningful downward revision.\"\n}",
+      "target_id": "investor_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Even if investor sentiment toward News Corp is positive in late 2025, management may not pursue stock buybacks or splits if they are prioritizing debt reduction, M&A investments, or face board-level constraints on capital allocation. Historical precedent shows that News Corp has maintained a conservative approach to corporate actions, often favoring strategic reinvestment over share price manipulation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.019999999999999907,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between investor_sentiment and corporate_actions, suggesting that positive sentiment may not translate into stock-supportive corporate actions like buybacks or splits due to management priorities such as debt reduction, M&A, or conservative capital allocation. This reduces the strength of one pathway through which investor sentiment could amplify its effect on the outcome. However, the primary causal path from investor_sentiment to outcome—via direct buying pressure—is still intact. Since the broken link is secondary and the main driver (market sentiment affecting price directly) remains operative, the update is modest. The probability decreases slightly to reflect reduced likelihood of price-boosting corporate actions in response to positive sentiment.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between investor_sentiment and corporate_actions, suggesting that positive sentiment may not translate into stock-supportive corporate actions like buybacks or splits due to management priorities such as debt reduction, M&A, or conservative capital allocation. This reduces the strength of one pathway through which investor sentiment could amplify its effect on the outcome. However, the primary causal path from investor_sentiment to outcome—via direct buying pressure—is still intact. Since the broken link is secondary and the main driver (market sentiment affecting price directly) remains operative, the update is modest. The probability decreases slightly to reflect reduced likelihood of price-boosting corporate actions in response to positive sentiment.\"\n}",
+      "target_id": "investor_sentiment->corporate_actions",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Investor sentiment can influence analysts' and management's expectations, leading to optimistic earnings forecasts and potential earnings management through accounting adjustments. If positive sentiment drives upward pressure on expected earnings, then perceived 'better-than-expected' earnings may simply reflect prior bullish sentiment rather than causing a shift in it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.019999999999999907,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the direction of causality between nws_earnings_q4_2025 and investor_sentiment, suggesting that investor sentiment may drive perceived earnings performance rather than the other way around. This weakens the causal link from nws_earnings_q4_2025 -> investor_sentiment, implying that earnings outcomes may have less independent impact on sentiment than previously assumed. As a result, the pathway through which strong earnings uplift investor sentiment—and subsequently the stock price—is less certain. However, this link was not the dominant path in the network; investor_sentiment is still influenced by market_trend_2025 and macroeconomic_conditions, and corporate_actions and direct sentiment effects on the outcome remain intact. Therefore, while the structural importance of earnings as a causal driver is reduced, the overall impact on the outcome is modest, leading to a small downward adjustment in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the direction of causality between nws_earnings_q4_2025 and investor_sentiment, suggesting that investor sentiment may drive perceived earnings performance rather than the other way around. This weakens the causal link from nws_earnings_q4_2025 -> investor_sentiment, implying that earnings outcomes may have less independent impact on sentiment than previously assumed. As a result, the pathway through which strong earnings uplift investor sentiment—and subsequently the stock price—is less certain. However, this link was not the dominant path in the network; investor_sentiment is still influenced by market_trend_2025 and macroeconomic_conditions, and corporate_actions and direct sentiment effects on the outcome remain intact. Therefore, while the structural importance of earnings as a causal driver is reduced, the overall impact on the outcome is modest, leading to a small downward adjustment in probability.\"\n}",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1786,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose interest rates rise significantly in late 2025 due to higher-than-expected inflation, increasing the cost of borrowing for companies. How would this affect News Corp's likelihood of executing a stock buyback or dividend increase, given that such corporate actions often depend on access to cheap capital? Would tighter financial conditions constrain their capital allocation decisions even if investor sentiment remains positive?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.039999999999999925,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge highlights a plausible constraint on the causal path from macroeconomic_conditions to corporate_actions, specifically that rising interest rates and tighter financial conditions could limit News Corp's ability to execute stock buybacks or increase dividends, even if investor sentiment is positive. This weakens the indirect link between macroeconomic_conditions and outcome via corporate_actions. While investor_sentiment remains a strong driver of short-term price movements, the reduced likelihood of supportive corporate actions (like buybacks) in a high-rate environment diminishes a potential upward catalyst for the stock price in late December 2025. However, this effect is moderate because the primary drivers—market_trend_2025 and investor_sentiment—are still intact, and corporate_actions is a secondary driver. Thus, the update is modest, reflecting a slightly lower probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge highlights a plausible constraint on the causal path from macroeconomic_conditions to corporate_actions, specifically that rising interest rates and tighter financial conditions could limit News Corp's ability to execute stock buybacks or increase dividends, even if investor sentiment is positive. This weakens the indirect link between macroeconomic_conditions and outcome via corporate_actions. While investor_sentiment remains a strong driver of short-term price movements, the reduced likelihood of supportive corporate actions (like buybacks) in a high-rate environment diminishes a potential upward catalyst for the stock price in late December 2025. However, this effect is moderate because the primary drivers—market_trend_2025 and investor_sentiment—are still intact, and corporate_actions is a secondary driver. Thus, the update is modest, reflecting a slightly lower probability of the outcome.\"\n}",
+      "target_id": "macroeconomic_conditions->corporate_actions",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose late 2025 sees unexpectedly high inflation and rapidly rising interest rates, leading to tighter monetary policy. Even if the overall market trend remains positive due to strong GDP growth, large-cap media stocks—often valued on long-term earnings multiples—could face downward pressure as investors rotate into more rate-resilient sectors, thereby dampening investor sentiment independently of broad market movements. Would this shift in sentiment occur even if market_trend_2025 were stable or rising?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge highlights a potential decoupling between macroeconomic_conditions and investor_sentiment for large-cap media stocks like NWS, even if market_trend_2025 remains positive. Specifically, rising interest rates and inflation could lead investors to devalue long-duration assets such as media stocks, which are sensitive to discount rate changes due to their reliance on long-term earnings multiples. This weakens the implicit assumption in the original causal network that investor_sentiment is primarily driven through market_trend_2025, which itself is driven by macroeconomic_conditions. The new reasoning introduces a direct negative path from macroeconomic_conditions to investor_sentiment, bypassing and countering the positive path through market_trend_2025. As a result, investor_sentiment—and consequently the outcome—may be lower than previously expected under such conditions. This affects two key paths: (1) macroeconomic_conditions → investor_sentiment (now potentially negative), and (2) nws_earnings_q4_2025 → investor_sentiment (less impactful if sentiment is suppressed by macro factors). Since investor_sentiment feeds into both corporate_actions and the outcome directly, the overall likelihood of a price increase between 2025-12-21 and 2025-12-28 is reduced. However, the effect is moderate because the outcome still depends heavily on market_trend_2025 and company-specific earnings, which could offset some of the sentiment drag.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge highlights a potential decoupling between macroeconomic_conditions and investor_sentiment for large-cap media stocks like NWS, even if market_trend_2025 remains positive. Specifically, rising interest rates and inflation could lead investors to devalue long-duration assets such as media stocks, which are sensitive to discount rate changes due to their reliance on long-term earnings multiples. This weakens the implicit assumption in the original causal network that investor_sentiment is primarily driven through market_trend_2025, which itself is driven by macroeconomic_conditions. The new reasoning introduces a direct negative path from macroeconomic_conditions to investor_sentiment, bypassing and countering the positive path through market_trend_2025. As a result, investor_sentiment—and consequently the outcome—may be lower than previously expected under such conditions. This affects two key paths: (1) macroeconomic_conditions → investor_sentiment (now potentially negative), and (2) nws_earnings_q4_2025 → investor_sentiment (less impactful if sentiment is suppressed by macro factors). Since investor_sentiment feeds into both corporate_actions and the outcome directly, the overall likelihood of a price increase between 2025-12-21 and 2025-12-28 is reduced. However, the effect is moderate because the outcome still depends heavily on market_trend_2025 and company-specific earnings, which could offset some of the sentiment drag.\"\n}",
+      "target_id": "macroeconomic_conditions->investor_sentiment",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential impact of a major acquisition or divestiture by News Corp in late 2025. Such a strategic move could significantly alter investor expectations about future cash flows and growth, leading to a sharp revaluation of the stock independent of earnings or market trends. For example, selling a high-profile asset like Dow Jones could reduce future revenue but increase investor confidence if the price is favorable, directly influencing the share price between December 21 and 28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The structural challenge introduces a new causal node—strategic corporate transactions (acquisitions or divestitures)—that can directly affect investor_sentiment and corporate_actions, and thereby influence the outcome. This new path bypasses or amplifies existing ones: a major divestiture like selling Dow Jones could lead to a surge in investor confidence due to capital return potential or strategic refocusing, even if near-term earnings are unaffected. This strengthens the causal influence of corporate_actions on the outcome and adds a new direct link from strategic transactions to investor_sentiment. While the base probability was 0.58, reflecting modest bullishness from market trends and earnings, the possibility of a catalytic event in late 2025 introduces asymmetric upside potential. Given the proximity of the event window (December 21–28), a late announcement could cause a sharp revaluation, increasing the likelihood of a higher close on the 28th. Thus, the probability is revised upward to 0.65 to account for this newly emphasized pathway.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The structural challenge introduces a new causal node—strategic corporate transactions (acquisitions or divestitures)—that can directly affect investor_sentiment and corporate_actions, and thereby influence the outcome. This new path bypasses or amplifies existing ones: a major divestiture like selling Dow Jones could lead to a surge in investor confidence due to capital return potential or strategic refocusing, even if near-term earnings are unaffected. This strengthens the causal influence of corporate_actions on the outcome and adds a new direct link from strategic transactions to investor_sentiment. While the base probability was 0.58, reflecting modest bullishness from market trends and earnings, the possibility of a catalytic event in late 2025 introduces asymmetric upside potential. Given the proximity of the event window (December 21–28), a late announcement could cause a sharp revaluation, increasing the likelihood of a higher close on the 28th. Thus, the probability is revised upward to 0.65 to account for this newly emphasized pathway.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential impact of a major regulatory change, such as new antitrust legislation or foreign ownership restrictions targeting media conglomerates, which could directly affect News Corp's operations or market valuation. Such a regulatory intervention could force asset divestitures, limit revenue streams, or alter investor expectations, thereby influencing both investor sentiment and the stock price directly.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a major regulatory change targeting media conglomerates adds a new exogenous risk that directly impacts both investor_sentiment and the outcome, bypassing existing causal paths. This creates an additional downward pressure on the stock price independent of earnings, market trends, or macroeconomic conditions. The new causal paths—regulatory_change -> investor_sentiment and regulatory_change -> outcome—introduce uncertainty that was not accounted for in the original model. While such events are relatively low probability, their potential impact is high, and given News Corp's size and exposure in the media sector, the risk of forced divestitures or restricted operations could significantly dampen short-term price appreciation. This weakens the overall bullish case, particularly in the final week of December when markets may price in anticipated risks. As a result, the probability of a higher close on 2025-12-28 versus 2025-12-21 is reduced modestly, reflecting a more cautious outlook due to this newly emphasized structural risk.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a major regulatory change targeting media conglomerates adds a new exogenous risk that directly impacts both investor_sentiment and the outcome, bypassing existing causal paths. This creates an additional downward pressure on the stock price independent of earnings, market trends, or macroeconomic conditions. The new causal paths—regulatory_change -> investor_sentiment and regulatory_change -> outcome—introduce uncertainty that was not accounted for in the original model. While such events are relatively low probability, their potential impact is high, and given News Corp's size and exposure in the media sector, the risk of forced divestitures or restricted operations could significantly dampen short-term price appreciation. This weakens the overall bullish case, particularly in the final week of December when markets may price in anticipated risks. As a result, the probability of a higher close on 2025-12-28 versus 2025-12-21 is reduced modestly, reflecting a more cautious outlook due to this newly emphasized structural risk.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In October 2025, News Corp announced a new corporate wellness initiative aimed at improving employee mental health and reducing workplace stress. The program includes mindfulness training, expanded mental health benefits, and on-site counseling services at its New York and Sydney offices.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The announcement of a corporate wellness initiative, while potentially beneficial for employee morale and long-term productivity, does not meaningfully affect any of the causal paths leading to the stock price outcome over the one-week period from 2025-12-21 to 2025-12-28. This event is not linked to investor sentiment in a measurable way over such a short horizon, nor does it impact earnings, macroeconomic conditions, media industry trends, or corporate actions like buybacks or splits that directly influence share price. The initiative is peripheral to the key drivers in the causal network, and there is no strong evidence that such programs lead to immediate changes in stock price. Therefore, the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The announcement of a corporate wellness initiative, while potentially beneficial for employee morale and long-term productivity, does not meaningfully affect any of the causal paths leading to the stock price outcome over the one-week period from 2025-12-21 to 2025-12-28. This event is not linked to investor sentiment in a measurable way over such a short horizon, nor does it impact earnings, macroeconomic conditions, media industry trends, or corporate actions like buybacks or splits that directly influence share price. The initiative is peripheral to the key drivers in the causal network, and there is no strong evidence that such programs lead to immediate changes in stock price. Therefore, the probability remains unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In October 2025, News Corp announced a new corporate headquarters in Sydney, Australia, featuring sustainable design and housing its Asia-Pacific leadership team. The move is part of a broader rebranding initiative to emphasize environmental responsibility and regional engagement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a new sustainable corporate headquarters in Sydney represents a signal of long-term strategic investment and brand strengthening, which could positively influence investor_sentiment. This event is not a direct corporate_action like a buyback or split, but it contributes to the narrative of corporate renewal and regional expansion, potentially enhancing perceptions of News Corp as forward-looking and environmentally responsible. This primarily affects the path from media_industry_trends -> investor_sentiment via signaling adaptive management in a competitive media landscape, and indirectly supports nws_earnings_q4_2025 by suggesting improved regional operational focus. The effect on the outcome is modest because the announcement is more symbolic than material in the short term, and does not directly alter earnings or macroeconomic conditions. Therefore, the update is small but positive, reflecting a slightly increased likelihood of price appreciation.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of a new sustainable corporate headquarters in Sydney represents a signal of long-term strategic investment and brand strengthening, which could positively influence investor_sentiment. This event is not a direct corporate_action like a buyback or split, but it contributes to the narrative of corporate renewal and regional expansion, potentially enhancing perceptions of News Corp as forward-looking and environmentally responsible. This primarily affects the path from media_industry_trends -> investor_sentiment via signaling adaptive management in a competitive media landscape, and indirectly supports nws_earnings_q4_2025 by suggesting improved regional operational focus. The effect on the outcome is modest because the announcement is more symbolic than material in the short term, and does not directly alter earnings or macroeconomic conditions. Therefore, the update is small but positive, reflecting a slightly increased likelihood of price appreciation.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In Q3 2025, major digital platforms report a 15% year-over-year increase in programmatic advertising spending, and News Corp signs a strategic partnership with a leading ad-tech firm to enhance targeted advertising across its digital properties. This strengthens the outlook for News Corp's digital revenue streams amid broader industry growth in performance-based advertising.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.66,
+      "absolute_shift": 0.08000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'media_industry_trends' node, which has a causal link to 'nws_earnings_q4_2025'. Specifically, a 15% YoY increase in programmatic advertising spending and News Corp's strategic ad-tech partnership suggest improved revenue potential for the company in Q4 2025. This enhances the likelihood of stronger earnings, which in turn positively affects 'investor_sentiment'. Higher investor sentiment increases buying pressure (impacting 'outcome') and may also encourage favorable 'corporate_actions', such as buybacks. The update is moderate because while 'media_industry_trends' is an important input, it is one of several factors influencing the outcome, and macroeconomic conditions and broader market trends still play significant roles. However, the direct link from industry trends to earnings and then to sentiment and price makes this a meaningful positive update.",
+      "raw_response": "{\n  \"updated_probability\": 0.66,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'media_industry_trends' node, which has a causal link to 'nws_earnings_q4_2025'. Specifically, a 15% YoY increase in programmatic advertising spending and News Corp's strategic ad-tech partnership suggest improved revenue potential for the company in Q4 2025. This enhances the likelihood of stronger earnings, which in turn positively affects 'investor_sentiment'. Higher investor sentiment increases buying pressure (impacting 'outcome') and may also encourage favorable 'corporate_actions', such as buybacks. The update is moderate because while 'media_industry_trends' is an important input, it is one of several factors influencing the outcome, and macroeconomic conditions and broader market trends still play significant roles. However, the direct link from industry trends to earnings and then to sentiment and price makes this a meaningful positive update.\"\n}",
+      "target_id": "media_industry_trends",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, News Corp announced a $500 million share buyback program approved by its board, citing strong free cash flow and a commitment to returning value to shareholders. The company also indicated it is evaluating a potential 2-for-1 stock split in Q4 2025 to increase share liquidity and attract retail investors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a $500 million share buyback program and a potential 2-for-1 stock split directly strengthens the 'corporate_actions' node, which has a direct causal link to the outcome. Buybacks reduce shares outstanding and historically support price appreciation, while a stock split can increase retail investor demand and improve liquidity, often leading to a short-term price boost. This also reinforces 'investor_sentiment' through signaling of confidence, which further feeds into both 'corporate_actions' and directly into the 'outcome'. The timing (Q4 2025) places these actions just before the price comparison window (Dec 21–28), making their impact especially relevant. While macroeconomic and industry trends remain unchanged, the activation of this previously uncertain causal path significantly increases the likelihood of a higher closing price on 2025-12-28 versus 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of a $500 million share buyback program and a potential 2-for-1 stock split directly strengthens the 'corporate_actions' node, which has a direct causal link to the outcome. Buybacks reduce shares outstanding and historically support price appreciation, while a stock split can increase retail investor demand and improve liquidity, often leading to a short-term price boost. This also reinforces 'investor_sentiment' through signaling of confidence, which further feeds into both 'corporate_actions' and directly into the 'outcome'. The timing (Q4 2025) places these actions just before the price comparison window (Dec 21–28), making their impact especially relevant. While macroeconomic and industry trends remain unchanged, the activation of this previously uncertain causal path significantly increases the likelihood of a higher closing price on 2025-12-28 versus 2025-12-21.\"\n}",
+      "target_id": "corporate_actions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2024, News Corp reported a 12% year-over-year increase in digital subscriber growth and stronger-than-expected advertising revenue, leading to a 9% single-day stock price jump and a surge in analyst upgrades. This immediate positive shift in investor sentiment following better earnings demonstrates a direct and sensitive response to earnings performance. The market's reaction underscores that NWS investor sentiment is highly reactive to quarterly earnings surprises, reinforcing the strength of this causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The evidence strengthens the causal link between nws_earnings_q4_2025 and investor_sentiment, showing that NWS investor sentiment is highly reactive to earnings surprises. This reinforces a key pathway in the causal network: stronger earnings → improved investor sentiment → increased buying pressure → higher stock price. Since investor_sentiment is a direct driver of the outcome and also influences corporate_actions, bolstering this link increases confidence that positive earnings in Q4 2025 will translate into upward price momentum between 2025-12-21 and 2025-12-28. The historical precedent from 2024 suggests a robust and immediate market response, making the outcome more likely. Thus, the probability is increased modestly, reflecting greater certainty in this causal pathway.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The evidence strengthens the causal link between nws_earnings_q4_2025 and investor_sentiment, showing that NWS investor sentiment is highly reactive to earnings surprises. This reinforces a key pathway in the causal network: stronger earnings → improved investor sentiment → increased buying pressure → higher stock price. Since investor_sentiment is a direct driver of the outcome and also influences corporate_actions, bolstering this link increases confidence that positive earnings in Q4 2025 will translate into upward price momentum between 2025-12-21 and 2025-12-28. The historical precedent from 2024 suggests a robust and immediate market response, making the outcome more likely. Thus, the probability is increased modestly, reflecting greater certainty in this causal pathway.\"\n}",
+      "target_id": "nws_earnings_q4_2025->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1786,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In December 2024, News Corp saw a 7% single-week price surge following a wave of positive analyst upgrades and increased retail trading volume on platforms like Reddit’s r/WallStreetBets, despite no material change in fundamentals. This demonstrated that elevated investor sentiment alone can drive significant buying pressure and lift NWS’s share price in the short term.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.64,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The anecdote from December 2024 provides empirical support for the strength of the causal link between investor_sentiment and outcome, particularly in the short term and around key market periods like the one in question (late December). This evidence reinforces that investor sentiment can drive price increases even in the absence of fundamental changes, strengthening the investor_sentiment -> outcome path in the causal network. Since the outcome hinges on a week-over-week price comparison in late December 2025—a period historically sensitive to sentiment and retail trading activity—this precedent increases confidence that positive sentiment could lift the stock over that interval. The update strengthens the weight of the investor_sentiment -> outcome pathway, especially given the demonstrated sensitivity of NWS to speculative retail interest and analyst sentiment. As a result, the probability that NWS’s price will be higher on 2025-12-28 than on 2025-12-21 increases from 0.58 to 0.64.",
+      "raw_response": "{\n  \"updated_probability\": 0.64,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The anecdote from December 2024 provides empirical support for the strength of the causal link between investor_sentiment and outcome, particularly in the short term and around key market periods like the one in question (late December). This evidence reinforces that investor sentiment can drive price increases even in the absence of fundamental changes, strengthening the investor_sentiment -> outcome path in the causal network. Since the outcome hinges on a week-over-week price comparison in late December 2025—a period historically sensitive to sentiment and retail trading activity—this precedent increases confidence that positive sentiment could lift the stock over that interval. The update strengthens the weight of the investor_sentiment -> outcome pathway, especially given the demonstrated sensitivity of NWS to speculative retail interest and analyst sentiment. As a result, the probability that NWS’s price will be higher on 2025-12-28 than on 2025-12-21 increases from 0.58 to 0.64.\"\n}",
+      "target_id": "investor_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "In late 2025, strong investor sentiment toward large-cap media stocks leads to increased analyst coverage and upward earnings revisions for News Corp, raising its stock price and market capitalization. This improved market valuation gives management greater confidence and financial flexibility, making them more likely to announce a share buyback program or consider a stock split to signal confidence and attract retail investors. Historical precedent shows that News Corp has previously initiated buybacks following sustained periods of positive sentiment and stock price appreciation, reinforcing the link between market perception and corporate action.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reinforces the causal link between investor_sentiment and corporate_actions, clarifying the mechanism by which positive sentiment translates into concrete corporate actions such as buybacks or stock splits. Specifically, it highlights that improved market valuation from strong investor sentiment increases management's financial flexibility and confidence, making such actions more likely. This strengthens the path from investor_sentiment -> corporate_actions -> outcome, as well as the indirect effect of investor_sentiment on outcome through corporate_actions. Since corporate_actions directly influence the stock price (via buybacks increasing demand or splits adjusting price structure), reinforcing this path increases the likelihood that positive sentiment will culminate in a higher closing price on 2025-12-28. While this link was previously accounted for, the strengthened evidence and mechanistic clarity justify a modest upward adjustment in the overall probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reinforces the causal link between investor_sentiment and corporate_actions, clarifying the mechanism by which positive sentiment translates into concrete corporate actions such as buybacks or stock splits. Specifically, it highlights that improved market valuation from strong investor sentiment increases management's financial flexibility and confidence, making such actions more likely. This strengthens the path from investor_sentiment -> corporate_actions -> outcome, as well as the indirect effect of investor_sentiment on outcome through corporate_actions. Since corporate_actions directly influence the stock price (via buybacks increasing demand or splits adjusting price structure), reinforcing this path increases the likelihood that positive sentiment will culminate in a higher closing price on 2025-12-28. While this link was previously accounted for, the strengthened evidence and mechanistic clarity justify a modest upward adjustment in the overall probability.\"\n}",
+      "target_id": "investor_sentiment->corporate_actions",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "NWS",
+    "question_text": "Will NWS's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.58,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.058124999999999954,
+    "max_absolute_shift": 0.14
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.156250000000001,
+    "mean_shift_high": 0.08625,
+    "mean_shift_low": 0.03999999999999998,
+    "asymmetry_index": 0.593749999999999,
+    "mean_shift_negate": 0.054285714285714215,
+    "mean_shift_strengthen": 0.09142857142857146,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.030555555555555558,
+    "mean_shift_on_path": 0.07888888888888887,
+    "mean_shift_off_path": 0.04833333333333331,
+    "importance_sensitivity_correlation": 0.004545454545454519,
+    "control_sensitivity": 0
+  }
+}

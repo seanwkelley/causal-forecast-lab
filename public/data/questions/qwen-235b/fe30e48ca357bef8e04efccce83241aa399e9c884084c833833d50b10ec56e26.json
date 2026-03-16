@@ -1,0 +1,1112 @@
+{
+  "question_id": "fe30e48ca357bef8e04efccce83241aa399e9c884084c833833d50b10ec56e26",
+  "question_text": "Will there be more fatalities in Lesotho for the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,fatalities\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of fatalities over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more fatalities would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "baseline_mortality",
+      "description": "The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions",
+      "role": "factor"
+    },
+    {
+      "id": "healthcare_capacity",
+      "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions",
+      "role": "factor"
+    },
+    {
+      "id": "seasonal_factors",
+      "description": "Time-of-year effects such as rainfall, temperature, and disease prevalence (e.g., flu season)",
+      "role": "factor"
+    },
+    {
+      "id": "road_safety_conditions",
+      "description": "Traffic regulation enforcement, road quality, and vehicle safety standards affecting accident rates",
+      "role": "factor"
+    },
+    {
+      "id": "socioeconomic_stress",
+      "description": "Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health",
+      "role": "factor"
+    },
+    {
+      "id": "public_health_shocks",
+      "description": "Outbreaks of disease, medical supply shortages, or health worker strikes",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Whether fatalities in Lesotho during the 30 days before 2025-12-28 exceed the 30-day average over the prior 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "baseline_mortality",
+      "to": "outcome",
+      "mechanism": "Higher baseline mortality increases the likelihood of exceeding the historical average in any future period"
+    },
+    {
+      "from": "healthcare_capacity",
+      "to": "public_health_shocks",
+      "mechanism": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises"
+    },
+    {
+      "from": "public_health_shocks",
+      "to": "outcome",
+      "mechanism": "Disease outbreaks or health system failures can cause spikes in fatalities"
+    },
+    {
+      "from": "seasonal_factors",
+      "to": "public_health_shocks",
+      "mechanism": "Rainy season or cold months may increase transmission of infectious diseases"
+    },
+    {
+      "from": "seasonal_factors",
+      "to": "road_safety_conditions",
+      "mechanism": "Poor weather and flooding during certain seasons degrade road conditions and increase accident risk"
+    },
+    {
+      "from": "road_safety_conditions",
+      "to": "outcome",
+      "mechanism": "Poor road safety leads to more traffic fatalities, contributing to overall death rates"
+    },
+    {
+      "from": "socioeconomic_stress",
+      "to": "healthcare_capacity",
+      "mechanism": "Economic strain reduces government funding and access to medical services"
+    },
+    {
+      "from": "socioeconomic_stress",
+      "to": "outcome",
+      "mechanism": "High stress levels correlate with increased mortality from violence, malnutrition, and untreated illness"
+    }
+  ],
+  "reasoning": "Lesotho faces persistent challenges in healthcare access, infrastructure, and economic stability. While no major conflict or pandemic is currently expected, seasonal factors around late December—such as increased travel, weather disruptions, and possible disease spread—could modestly elevate fatality rates. The 30-day average over the prior 360 days likely includes prior seasonal peaks, making a significant deviation unlikely but slightly more probable than not due to compounding risks. Hence, the probability is marginally above 50%.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 8,
+    "density": 0.1905,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "baseline_mortality",
+        "description": "The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0704,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "healthcare_capacity",
+        "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.1003,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "seasonal_factors",
+        "description": "Time-of-year effects such as rainfall, temperature, and disease prevalence (e.g., flu season)",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0704,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "road_safety_conditions",
+        "description": "Traffic regulation enforcement, road quality, and vehicle safety standards affecting accident rates",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0167,
+        "closeness": 0.1667,
+        "pagerank": 0.1003,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "socioeconomic_stress",
+        "description": "Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0704,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "public_health_shocks",
+        "description": "Outbreaks of disease, medical supply shortages, or health worker strikes",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.375,
+        "pagerank": 0.1855,
+        "path_relevance": 0.2857
+      },
+      {
+        "node_id": "outcome",
+        "description": "Whether fatalities in Lesotho during the 30 days before 2025-12-28 exceed the 30-day average over the prior 360 days",
+        "role": "outcome",
+        "in_degree": 4,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.75,
+        "pagerank": 0.4029,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "baseline_mortality",
+        "target": "outcome",
+        "mechanism": "Higher baseline mortality increases the likelihood of exceeding the historical average in any future period",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "healthcare_capacity",
+        "target": "public_health_shocks",
+        "mechanism": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_factors",
+        "target": "public_health_shocks",
+        "mechanism": "Rainy season or cold months may increase transmission of infectious diseases",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_factors",
+        "target": "road_safety_conditions",
+        "mechanism": "Poor weather and flooding during certain seasons degrade road conditions and increase accident risk",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "road_safety_conditions",
+        "target": "outcome",
+        "mechanism": "Poor road safety leads to more traffic fatalities, contributing to overall death rates",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "socioeconomic_stress",
+        "target": "healthcare_capacity",
+        "mechanism": "Economic strain reduces government funding and access to medical services",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": false
+      },
+      {
+        "source": "socioeconomic_stress",
+        "target": "outcome",
+        "mechanism": "High stress levels correlate with increased mortality from violence, malnutrition, and untreated illness",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "public_health_shocks",
+        "target": "outcome",
+        "mechanism": "Disease outbreaks or health system failures can cause spikes in fatalities",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "public_health_shocks",
+        "description": "Outbreaks of disease, medical supply shortages, or health worker strikes",
+        "importance": 0.05,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "healthcare_capacity",
+        "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "baseline_mortality",
+        "description": "The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "socioeconomic_stress",
+        "description": "Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "public_health_shocks",
+        "description": "Outbreaks of disease, medical supply shortages, or health worker strikes",
+        "importance": 0.05,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "healthcare_capacity",
+        "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "healthcare_capacity->public_health_shocks",
+        "description": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "public_health_shocks->outcome",
+        "description": "Disease outbreaks or health system failures can cause spikes in fatalities",
+        "importance": 0.0595,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "socioeconomic_stress->healthcare_capacity",
+        "description": "Economic strain reduces government funding and access to medical services",
+        "importance": 0.0476,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "healthcare_capacity->public_health_shocks",
+        "description": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "baseline_mortality->public_health_shocks",
+        "description": "Potential link: The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions -> Outbreaks of disease, medical supply shortages, or health worker strikes",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "baseline_mortality->socioeconomic_stress",
+        "description": "Potential link: The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions -> Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "public_health_shocks",
+      "description": "Outbreaks of disease, medical supply shortages, or health worker strikes",
+      "importance": 0.05,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "healthcare_capacity",
+      "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "baseline_mortality",
+      "description": "The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "socioeconomic_stress",
+      "description": "Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "public_health_shocks",
+      "description": "Outbreaks of disease, medical supply shortages, or health worker strikes",
+      "importance": 0.05,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "healthcare_capacity",
+      "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "description": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "public_health_shocks->outcome",
+      "description": "Disease outbreaks or health system failures can cause spikes in fatalities",
+      "importance": 0.0595,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "socioeconomic_stress->healthcare_capacity",
+      "description": "Economic strain reduces government funding and access to medical services",
+      "importance": 0.0476,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "description": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "baseline_mortality->public_health_shocks",
+      "description": "Potential link: The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions -> Outbreaks of disease, medical supply shortages, or health worker strikes",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "baseline_mortality->socioeconomic_stress",
+      "description": "Potential link: The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions -> Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if public health shocks, such as disease outbreaks or medical supply shortages, do not significantly increase fatality rates in Lesotho because the population has developed high immunity to recurring diseases and relies minimally on formal healthcare due to widespread use of traditional medicine? In this case, even major health system disruptions might have limited impact on overall mortality, making this factor less relevant than assumed.",
+      "probe_type": "node_negate_high",
+      "target_id": "public_health_shocks",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Outbreaks of disease, medical supply shortages, or health worker strikes"
+    },
+    {
+      "probe_text": "What if Lesotho's healthcare capacity has minimal impact on overall fatalities because the majority of deaths are due to causes outside the health system's control, such as violent crime, accidents, or chronic conditions driven by poverty? In such a context, even a fully functional healthcare system might not significantly reduce mortality, making improvements or declines in healthcare capacity largely irrelevant to the outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "healthcare_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions"
+    },
+    {
+      "probe_text": "Recent government reforms in public health and road safety implemented in early 2025 have fundamentally altered the underlying risk environment in Lesotho, making the historical baseline mortality rate over the past year a poor indicator of current conditions. These systemic improvements have reduced daily fatality rates by 15% in preliminary data, suggesting that the pre-2025 baseline overestimates current mortality trends and should not heavily inform expectations for the December 2025 forecast period.",
+      "probe_type": "node_negate_medium",
+      "target_id": "baseline_mortality",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions"
+    },
+    {
+      "probe_text": "Recent economic reforms and increased foreign aid have significantly improved household income and food security in Lesotho, reducing the impact of socioeconomic stress on health outcomes. Given these improvements, the link between economic hardship and fatality rates may be weaker than assumed, especially over a short 30-day window.",
+      "probe_type": "node_negate_low",
+      "target_id": "socioeconomic_stress",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health"
+    },
+    {
+      "probe_text": "On 2025-11-15, the Ministry of Health in Lesotho confirmed a nationwide cholera outbreak affecting all ten districts, with over 1,200 suspected cases and 45 deaths reported in the past two weeks. The World Health Organization has issued an alert citing severe shortages of intravenous fluids and hospital bed capacity, while ongoing strikes by medical personnel have further crippled response efforts.",
+      "probe_type": "node_strengthen",
+      "target_id": "public_health_shocks",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Outbreaks of disease, medical supply shortages, or health worker strikes"
+    },
+    {
+      "probe_text": "A recent World Health Organization report rated Lesotho's healthcare system responsiveness in emergency situations as 'critically low,' citing a 40% reduction in ICU bed availability and severe shortages of trained medical staff over the past year. This deterioration in healthcare capacity has been directly linked to increased case fatality rates during recent disease outbreaks, reinforcing its central role in determining overall mortality levels.",
+      "probe_type": "node_strengthen",
+      "target_id": "healthcare_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "The ability of Lesotho's healthcare system to handle emergencies and treat critical conditions"
+    },
+    {
+      "probe_text": "Lesotho has maintained a functional network of community health workers and international aid partnerships that can rapidly deploy emergency medical supplies and personnel during outbreaks, even when baseline healthcare infrastructure is weak. This surge capacity has historically mitigated the impact of healthcare capacity constraints during public health crises, suggesting that weak healthcare capacity does not necessarily lead to larger or more deadly outbreaks.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises"
+    },
+    {
+      "probe_text": "Lesotho's public health system has maintained rapid response protocols and stockpiled medical supplies due to past HIV/TB epidemic preparedness, which may prevent disease outbreaks from escalating into measurable fatality spikes. Recent data from 2023–2024 shows no significant increase in mortality during minor cholera and influenza incidents, suggesting that public health shocks are being contained before causing broad fatality surges.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "public_health_shocks->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0595,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Disease outbreaks or health system failures can cause spikes in fatalities"
+    },
+    {
+      "probe_text": "Lesotho has received a surge in international health aid and debt relief over the past year, which has insulated healthcare funding from domestic economic pressures. As a result, even amid rising unemployment and inflation, the government has maintained medical staffing and supply levels, limiting the impact of socioeconomic stress on healthcare capacity.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "socioeconomic_stress->healthcare_capacity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Economic strain reduces government funding and access to medical services"
+    },
+    {
+      "probe_text": "Large-scale public health shocks, such as an unexpected disease outbreak or a surge in patient demand during an epidemic, can rapidly overwhelm hospitals and deplete medical staff and supplies in Lesotho, leading to a temporary or sustained reduction in healthcare capacity. This strain can degrade the system's ability to provide routine and emergency care, effectively diminishing overall healthcare capacity as a consequence rather than a cause.",
+      "probe_type": "edge_reverse",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Weak healthcare capacity makes the population more vulnerable to disease outbreaks and medical crises"
+    },
+    {
+      "probe_text": "Suppose Lesotho has experienced a high baseline mortality rate over the past year due to persistently weak health infrastructure and limited access to care. This ongoing strain has led to chronic underfunding and overwork of health facilities, eroding their capacity to manage routine services. Could this sustained pressure, reflected in elevated baseline mortality, increase the likelihood of public health shocks such as medical supply shortages or health worker strikes due to burnout and system exhaustion?",
+      "probe_type": "edge_spurious",
+      "target_id": "baseline_mortality->public_health_shocks",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions -> Outbreaks of disease, medical supply shortages, or health worker strikes"
+    },
+    {
+      "probe_text": "A sustained increase in the baseline mortality rate in Lesotho—driven by prolonged health crises or systemic healthcare underfunding—can erode household income and labor force participation, as families lose breadwinners and incur high medical costs, thereby deepening economic hardship and food insecurity. This feedback loop intensifies socioeconomic stress, which in turn may further elevate mortality through malnutrition and reduced healthcare access. Should this link be ignored, forecasts may underestimate the compounding risk of fatalities during periods of economic decline.",
+      "probe_type": "edge_spurious",
+      "target_id": "baseline_mortality->socioeconomic_stress",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The average daily fatality rate in Lesotho over the past year, reflecting normal health and safety conditions -> Economic hardship, unemployment, and food insecurity that may increase risk of violence or poor health"
+    },
+    {
+      "probe_text": "Consider the potential impact of a major transportation infrastructure failure, such as the collapse of a key bridge or prolonged closure of a national road, on fatality rates. Such an event could increase travel times to medical centers, delay emergency services, and indirectly lead to higher mortality during medical emergencies or accidents. Would the occurrence of such an event meaningfully increase the likelihood of exceeding the historical fatality average?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider a major political event such as national elections or civil unrest in Lesotho during the 30-day period before 2025-12-28. Political instability can lead to increased violence, disruption of healthcare services, and population displacement, all of which may elevate fatality rates. This type of acute sociopolitical shock is not captured by socioeconomic_stress or public_health_shocks alone and could significantly impact the outcome.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Recent reports indicate that Lesotho's national football team has qualified for an international tournament in early 2026, sparking widespread celebrations and increased public gatherings across major towns. This has led to higher-than-usual nighttime activity and temporary closures of some urban roads for fan events.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Recent satellite imagery shows a significant increase in cloud cover over Lesotho compared to the previous six months, likely due to shifting regional weather patterns. Meteorologists suggest this may indicate a longer-than-usual dry season ahead.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if public health shocks, such as disease outbreaks or medical supply shortages, do not significantly increase fatality rates in Lesotho because the population has developed high immunity to recurring diseases and relies minimally on formal healthcare due to widespread use of traditional medicine? In this case, even major health system disruptions might have limited impact on overall mortality, making this factor less relevant than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal path from public_health_shocks -> outcome, suggesting that due to high immunity and reliance on traditional medicine, disease outbreaks or medical supply shortages may not significantly increase fatality rates. This weakens a key amplification pathway through which health system disruptions affect mortality. Additionally, it indirectly reduces the importance of the healthcare_capacity -> public_health_shocks -> outcome pathway, as even if healthcare capacity is low, its impact on fatalities may be muted. However, public_health_shocks was not the dominant driver in the original network—baseline_mortality, road_safety_conditions, and socioeconomic_stress still exert strong direct or indirect influences. Therefore, while the challenge downgrades the influence of a moderately important factor, it does not break a structurally central link. The overall probability shifts slightly downward, reflecting reduced likelihood of a fatality spike due to health-related shocks, but remains close to baseline due to persistence of other risk factors.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal path from public_health_shocks -> outcome, suggesting that due to high immunity and reliance on traditional medicine, disease outbreaks or medical supply shortages may not significantly increase fatality rates. This weakens a key amplification pathway through which health system disruptions affect mortality. Additionally, it indirectly reduces the importance of the healthcare_capacity -> public_health_shocks -> outcome pathway, as even if healthcare capacity is low, its impact on fatalities may be muted. However, public_health_shocks was not the dominant driver in the original network—baseline_mortality, road_safety_conditions, and socioeconomic_stress still exert strong direct or indirect influences. Therefore, while the challenge downgrades the influence of a moderately important factor, it does not break a structurally central link. The overall probability shifts slightly downward, reflecting reduced likelihood of a fatality spike due to health-related shocks, but remains close to baseline due to persistence of other risk factors.\"\n}",
+      "target_id": "public_health_shocks",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Lesotho's healthcare capacity has minimal impact on overall fatalities because the majority of deaths are due to causes outside the health system's control, such as violent crime, accidents, or chronic conditions driven by poverty? In such a context, even a fully functional healthcare system might not significantly reduce mortality, making improvements or declines in healthcare capacity largely irrelevant to the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'healthcare_capacity' suggests it has limited causal influence on overall fatalities if most deaths arise from non-medical causes like violence, accidents, or poverty-driven chronic conditions. This weakens the causal path from healthcare_capacity to public_health_shocks and directly reduces its indirect influence on the outcome. It also diminishes the impact of the socioeconomic_stress -> healthcare_capacity -> public_health_shocks pathway. However, healthcare_capacity remains somewhat relevant for treatable conditions and outbreak responses, so it is not entirely irrelevant. The reduction in importance of this node slightly decreases the likelihood that system stresses (e.g., health shocks) will drive excess fatalities, leading to a modest downward adjustment in the probability. The dominant drivers of the outcome now rest more heavily on road_safety_conditions, seasonal_factors, and socioeconomic_stress, which are less mediated by the health system. Thus, the overall estimate shifts slightly downward from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'healthcare_capacity' suggests it has limited causal influence on overall fatalities if most deaths arise from non-medical causes like violence, accidents, or poverty-driven chronic conditions. This weakens the causal path from healthcare_capacity to public_health_shocks and directly reduces its indirect influence on the outcome. It also diminishes the impact of the socioeconomic_stress -> healthcare_capacity -> public_health_shocks pathway. However, healthcare_capacity remains somewhat relevant for treatable conditions and outbreak responses, so it is not entirely irrelevant. The reduction in importance of this node slightly decreases the likelihood that system stresses (e.g., health shocks) will drive excess fatalities, leading to a modest downward adjustment in the probability. The dominant drivers of the outcome now rest more heavily on road_safety_conditions, seasonal_factors, and socioeconomic_stress, which are less mediated by the health system. Thus, the overall estimate shifts slightly downward from 0.52 to 0.48.\"\n}",
+      "target_id": "healthcare_capacity",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent government reforms in public health and road safety implemented in early 2025 have fundamentally altered the underlying risk environment in Lesotho, making the historical baseline mortality rate over the past year a poor indicator of current conditions. These systemic improvements have reduced daily fatality rates by 15% in preliminary data, suggesting that the pre-2025 baseline overestimates current mortality trends and should not heavily inform expectations for the December 2025 forecast period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly undermines the 'baseline_mortality' node, which was a key input into the 'outcome' node. The claim that systemic reforms in early 2025 have reduced fatality rates by 15%—and altered the risk environment—implies that the historical 360-day average (used to compute the baseline) is no longer representative of current trends. This weakens the causal path from baseline_mortality -> outcome, as the baseline now likely overestimates true mortality levels in the forecast period. Consequently, the probability of exceeding that inflated baseline in the 30 days before 2025-12-28 decreases. Additionally, if reforms targeted public health and road safety—two structural drivers—this may also dampen public_health_shocks and road_safety_conditions, further reducing fatality risk. Given that baseline_mortality was a central anchor in the original 0.52 estimate, and new evidence suggests a sustained downward shift in mortality, the probability of exceeding the historical average is meaningfully reduced, warranting a substantial downward update to 0.38.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly undermines the 'baseline_mortality' node, which was a key input into the 'outcome' node. The claim that systemic reforms in early 2025 have reduced fatality rates by 15%—and altered the risk environment—implies that the historical 360-day average (used to compute the baseline) is no longer representative of current trends. This weakens the causal path from baseline_mortality -> outcome, as the baseline now likely overestimates true mortality levels in the forecast period. Consequently, the probability of exceeding that inflated baseline in the 30 days before 2025-12-28 decreases. Additionally, if reforms targeted public health and road safety—two structural drivers—this may also dampen public_health_shocks and road_safety_conditions, further reducing fatality risk. Given that baseline_mortality was a central anchor in the original 0.52 estimate, and new evidence suggests a sustained downward shift in mortality, the probability of exceeding the historical average is meaningfully reduced, warranting a substantial downward update to 0.38.\"\n}",
+      "target_id": "baseline_mortality",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent economic reforms and increased foreign aid have significantly improved household income and food security in Lesotho, reducing the impact of socioeconomic stress on health outcomes. Given these improvements, the link between economic hardship and fatality rates may be weaker than assumed, especially over a short 30-day window.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the 'socioeconomic_stress' node, which has two direct causal paths to the outcome: one through increased mortality from violence, malnutrition, and untreated illness, and another indirect path via reduced healthcare_capacity. The claim that recent economic reforms and foreign aid have improved household income and food security suggests that the magnitude of socioeconomic stress has diminished, weakening its influence on both direct and indirect pathways. While this factor is important, it is one of several drivers of the outcome, and the 30-day window limits the immediate impact of socioeconomic changes on fatality rates. Therefore, the reduction in the influence of socioeconomic stress slightly lowers the likelihood of a spike in fatalities relative to the baseline average. However, because other factors—such as seasonal disease patterns, road safety, and public health shocks—remain operative and structurally significant, the update is modest. The probability is adjusted downward from 0.52 to 0.48, reflecting a slightly reduced chance of exceeding the historical average.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the 'socioeconomic_stress' node, which has two direct causal paths to the outcome: one through increased mortality from violence, malnutrition, and untreated illness, and another indirect path via reduced healthcare_capacity. The claim that recent economic reforms and foreign aid have improved household income and food security suggests that the magnitude of socioeconomic stress has diminished, weakening its influence on both direct and indirect pathways. While this factor is important, it is one of several drivers of the outcome, and the 30-day window limits the immediate impact of socioeconomic changes on fatality rates. Therefore, the reduction in the influence of socioeconomic stress slightly lowers the likelihood of a spike in fatalities relative to the baseline average. However, because other factors—such as seasonal disease patterns, road safety, and public health shocks—remain operative and structurally significant, the update is modest. The probability is adjusted downward from 0.52 to 0.48, reflecting a slightly reduced chance of exceeding the historical average.\"\n}",
+      "target_id": "socioeconomic_stress",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, the Ministry of Health in Lesotho confirmed a nationwide cholera outbreak affecting all ten districts, with over 1,200 suspected cases and 45 deaths reported in the past two weeks. The World Health Organization has issued an alert citing severe shortages of intravenous fluids and hospital bed capacity, while ongoing strikes by medical personnel have further crippled response efforts.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.32999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The confirmation of a nationwide cholera outbreak significantly activates the 'public_health_shocks' node, which is a key driver in the causal network. This outbreak directly increases the likelihood of elevated fatalities due to the high number of suspected cases and existing deaths. The compromised healthcare capacity—exacerbated by shortages of medical supplies and ongoing strikes—strengthens the causal path from public_health_shocks to outcome. Additionally, the outbreak is occurring within a period (late 2025) that may overlap with seasonal factors such as the rainy season, potentially amplifying transmission. The public_health_shocks node is structurally central, and its activation substantially raises the probability of exceeding the 30-day fatality average. Therefore, the estimate is increased from 0.52 to 0.85.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The confirmation of a nationwide cholera outbreak significantly activates the 'public_health_shocks' node, which is a key driver in the causal network. This outbreak directly increases the likelihood of elevated fatalities due to the high number of suspected cases and existing deaths. The compromised healthcare capacity—exacerbated by shortages of medical supplies and ongoing strikes—strengthens the causal path from public_health_shocks to outcome. Additionally, the outbreak is occurring within a period (late 2025) that may overlap with seasonal factors such as the rainy season, potentially amplifying transmission. The public_health_shocks node is structurally central, and its activation substantially raises the probability of exceeding the 30-day fatality average. Therefore, the estimate is increased from 0.52 to 0.85.\"\n}",
+      "target_id": "public_health_shocks",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent World Health Organization report rated Lesotho's healthcare system responsiveness in emergency situations as 'critically low,' citing a 40% reduction in ICU bed availability and severe shortages of trained medical staff over the past year. This deterioration in healthcare capacity has been directly linked to increased case fatality rates during recent disease outbreaks, reinforcing its central role in determining overall mortality levels.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The WHO report strengthens the 'healthcare_capacity' node by confirming a severe deterioration in emergency responsiveness, directly impacting the 'public_health_shocks -> outcome' and 'socioeconomic_stress -> healthcare_capacity -> outcome' causal paths. With ICU beds down 40% and medical staffing critically low, the system is less able to manage surges in illness, increasing fatality rates during outbreaks. This reinforces the link between public health shocks and higher mortality, making spikes in fatalities more likely. Additionally, since socioeconomic stress likely continues to erode healthcare capacity, the system is in a downward spiral. This update increases the likelihood that the 30-day fatality count before 2025-12-28 will exceed the prior 30-day average, as the healthcare system is now structurally more vulnerable to shocks that drive excess mortality.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The WHO report strengthens the 'healthcare_capacity' node by confirming a severe deterioration in emergency responsiveness, directly impacting the 'public_health_shocks -> outcome' and 'socioeconomic_stress -> healthcare_capacity -> outcome' causal paths. With ICU beds down 40% and medical staffing critically low, the system is less able to manage surges in illness, increasing fatality rates during outbreaks. This reinforces the link between public health shocks and higher mortality, making spikes in fatalities more likely. Additionally, since socioeconomic stress likely continues to erode healthcare capacity, the system is in a downward spiral. This update increases the likelihood that the 30-day fatality count before 2025-12-28 will exceed the prior 30-day average, as the healthcare system is now structurally more vulnerable to shocks that drive excess mortality.\"\n}",
+      "target_id": "healthcare_capacity",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Lesotho has maintained a functional network of community health workers and international aid partnerships that can rapidly deploy emergency medical supplies and personnel during outbreaks, even when baseline healthcare infrastructure is weak. This surge capacity has historically mitigated the impact of healthcare capacity constraints during public health crises, suggesting that weak healthcare capacity does not necessarily lead to larger or more deadly outbreaks.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between healthcare_capacity and public_health_shocks, suggesting that even with weak baseline healthcare infrastructure, Lesotho's surge capacity—through community health workers and international partnerships—can effectively respond to outbreaks. This weakens the pathway by which low healthcare_capacity leads to severe public_health_shocks, thereby reducing the likelihood that such shocks will cause a spike in fatalities. As a result, the pathway from socioeconomic_stress -> healthcare_capacity -> public_health_shocks -> outcome is less robust, diminishing the overall risk of a fatality surge via this route. However, other pathways (e.g., seasonal_factors -> road_safety_conditions -> outcome and socioeconomic_stress -> outcome directly) remain intact, so the effect is moderate. The reduction in probability reflects a slightly lower chance of an exceptional fatality increase due to health crises, leading to a small downward adjustment from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between healthcare_capacity and public_health_shocks, suggesting that even with weak baseline healthcare infrastructure, Lesotho's surge capacity—through community health workers and international partnerships—can effectively respond to outbreaks. This weakens the pathway by which low healthcare_capacity leads to severe public_health_shocks, thereby reducing the likelihood that such shocks will cause a spike in fatalities. As a result, the pathway from socioeconomic_stress -> healthcare_capacity -> public_health_shocks -> outcome is less robust, diminishing the overall risk of a fatality surge via this route. However, other pathways (e.g., seasonal_factors -> road_safety_conditions -> outcome and socioeconomic_stress -> outcome directly) remain intact, so the effect is moderate. The reduction in probability reflects a slightly lower chance of an exceptional fatality increase due to health crises, leading to a small downward adjustment from 0.52 to 0.48.\"\n}",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Lesotho's public health system has maintained rapid response protocols and stockpiled medical supplies due to past HIV/TB epidemic preparedness, which may prevent disease outbreaks from escalating into measurable fatality spikes. Recent data from 2023–2024 shows no significant increase in mortality during minor cholera and influenza incidents, suggesting that public health shocks are being contained before causing broad fatality surges.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link between public_health_shocks and outcome by providing evidence that Lesotho's health system is effectively containing outbreaks before they translate into measurable fatality increases. This is supported by recent data showing no significant mortality spikes during cholera and influenza incidents, indicating that public_health_shocks are less likely to propagate into the outcome than previously assumed. The resilience of the health system, built through HIV/TB epidemic preparedness, also indirectly supports healthcare_capacity, potentially reducing vulnerability even during shocks. As a result, the pathway public_health_shocks -> outcome is attenuated, reducing the likelihood of a fatality surge. While other drivers like road_safety_conditions and socioeconomic_stress remain relevant, the diminished role of public health shocks — a potentially high-impact, acute driver — justifies a downward revision in the probability. The shift is meaningful but not extreme, as baseline_mortality and structural risks still anchor the forecast near parity.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link between public_health_shocks and outcome by providing evidence that Lesotho's health system is effectively containing outbreaks before they translate into measurable fatality increases. This is supported by recent data showing no significant mortality spikes during cholera and influenza incidents, indicating that public_health_shocks are less likely to propagate into the outcome than previously assumed. The resilience of the health system, built through HIV/TB epidemic preparedness, also indirectly supports healthcare_capacity, potentially reducing vulnerability even during shocks. As a result, the pathway public_health_shocks -> outcome is attenuated, reducing the likelihood of a fatality surge. While other drivers like road_safety_conditions and socioeconomic_stress remain relevant, the diminished role of public health shocks — a potentially high-impact, acute driver — justifies a downward revision in the probability. The shift is meaningful but not extreme, as baseline_mortality and structural risks still anchor the forecast near parity.\"\n}",
+      "target_id": "public_health_shocks->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0595,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Lesotho has received a surge in international health aid and debt relief over the past year, which has insulated healthcare funding from domestic economic pressures. As a result, even amid rising unemployment and inflation, the government has maintained medical staffing and supply levels, limiting the impact of socioeconomic stress on healthcare capacity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between socioeconomic_stress and healthcare_capacity, indicating that healthcare capacity is now more resilient to domestic economic pressures due to international aid and debt relief. This reduces the indirect pathway through which socioeconomic_stress could worsen public_health_shocks and, ultimately, fatalities. However, socioeconomic_stress still directly affects the outcome through violence, malnutrition, and untreated illness, and other key pathways (e.g., road_safety_conditions, seasonal_factors) remain intact. Since the broken link is only one of several pathways and healthcare_capacity was not a dominant driver in the original network, the overall impact on the outcome is modest. Thus, the probability decreases slightly, reflecting a marginally lower likelihood of elevated fatalities due to better insulated health services, but the core drivers remain largely unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between socioeconomic_stress and healthcare_capacity, indicating that healthcare capacity is now more resilient to domestic economic pressures due to international aid and debt relief. This reduces the indirect pathway through which socioeconomic_stress could worsen public_health_shocks and, ultimately, fatalities. However, socioeconomic_stress still directly affects the outcome through violence, malnutrition, and untreated illness, and other key pathways (e.g., road_safety_conditions, seasonal_factors) remain intact. Since the broken link is only one of several pathways and healthcare_capacity was not a dominant driver in the original network, the overall impact on the outcome is modest. Thus, the probability decreases slightly, reflecting a marginally lower likelihood of elevated fatalities due to better insulated health services, but the core drivers remain largely unchanged.\"\n}",
+      "target_id": "socioeconomic_stress->healthcare_capacity",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Large-scale public health shocks, such as an unexpected disease outbreak or a surge in patient demand during an epidemic, can rapidly overwhelm hospitals and deplete medical staff and supplies in Lesotho, leading to a temporary or sustained reduction in healthcare capacity. This strain can degrade the system's ability to provide routine and emergency care, effectively diminishing overall healthcare capacity as a consequence rather than a cause.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge reframes the direction of causality between healthcare_capacity and public_health_shocks, suggesting that public health shocks can reduce healthcare capacity rather than the other way around. However, this does not break or fundamentally alter the causal paths to the outcome. Instead, it indicates a feedback loop: weak healthcare capacity increases vulnerability to public health shocks (original link), and large shocks in turn degrade capacity (challenged direction). Both mechanisms can coexist. The net effect on the outcome—excess fatalities—is still governed by the interaction of these factors. Since the bidirectional relationship strengthens the overall importance of this nexus but doesn't negate any critical path to the outcome, and since the original model already captured the influence of public_health_shocks -> outcome directly, the update does not warrant a change in probability. The causal pathway remains intact, albeit with added complexity.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge reframes the direction of causality between healthcare_capacity and public_health_shocks, suggesting that public health shocks can reduce healthcare capacity rather than the other way around. However, this does not break or fundamentally alter the causal paths to the outcome. Instead, it indicates a feedback loop: weak healthcare capacity increases vulnerability to public health shocks (original link), and large shocks in turn degrade capacity (challenged direction). Both mechanisms can coexist. The net effect on the outcome—excess fatalities—is still governed by the interaction of these factors. Since the bidirectional relationship strengthens the overall importance of this nexus but doesn't negate any critical path to the outcome, and since the original model already captured the influence of public_health_shocks -> outcome directly, the update does not warrant a change in probability. The causal pathway remains intact, albeit with added complexity.\"\n}",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose Lesotho has experienced a high baseline mortality rate over the past year due to persistently weak health infrastructure and limited access to care. This ongoing strain has led to chronic underfunding and overwork of health facilities, eroding their capacity to manage routine services. Could this sustained pressure, reflected in elevated baseline mortality, increase the likelihood of public health shocks such as medical supply shortages or health worker strikes due to burnout and system exhaustion?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a previously underacknowledged causal pathway: baseline_mortality → public_health_shocks, mediated through systemic strain on healthcare infrastructure. Elevated baseline mortality in Lesotho, driven by weak health systems and underfunding, is not just a passive background condition but an active contributor to healthcare system degradation. This chronic pressure increases the risk of public health shocks such as medical supply shortages and health worker strikes due to burnout. This strengthens the causal path from baseline_mortality to outcome via public_health_shocks, reinforcing the influence of an already high baseline on future fatality spikes. As a result, if the baseline is already high, it not only raises the reference average but also increases the likelihood of acute shocks that could push the 30-day fatality count above that average. This indirect effect makes it more probable that the outcome will occur, especially given the compounding risks in a fragile health system approaching a potentially high-stress period (e.g., rainy season around December). Therefore, the probability is updated upward to reflect this amplifying feedback loop.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a previously underacknowledged causal pathway: baseline_mortality → public_health_shocks, mediated through systemic strain on healthcare infrastructure. Elevated baseline mortality in Lesotho, driven by weak health systems and underfunding, is not just a passive background condition but an active contributor to healthcare system degradation. This chronic pressure increases the risk of public health shocks such as medical supply shortages and health worker strikes due to burnout. This strengthens the causal path from baseline_mortality to outcome via public_health_shocks, reinforcing the influence of an already high baseline on future fatality spikes. As a result, if the baseline is already high, it not only raises the reference average but also increases the likelihood of acute shocks that could push the 30-day fatality count above that average. This indirect effect makes it more probable that the outcome will occur, especially given the compounding risks in a fragile health system approaching a potentially high-stress period (e.g., rainy season around December). Therefore, the probability is updated upward to reflect this amplifying feedback loop.\"\n}",
+      "target_id": "baseline_mortality->public_health_shocks",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "A sustained increase in the baseline mortality rate in Lesotho—driven by prolonged health crises or systemic healthcare underfunding—can erode household income and labor force participation, as families lose breadwinners and incur high medical costs, thereby deepening economic hardship and food insecurity. This feedback loop intensifies socioeconomic stress, which in turn may further elevate mortality through malnutrition and reduced healthcare access. Should this link be ignored, forecasts may underestimate the compounding risk of fatalities during periods of economic decline.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a previously unmodeled feedback loop: baseline_mortality -> socioeconomic_stress, which creates a reinforcing cycle where higher mortality worsens economic conditions, which in turn increases mortality. This adds a new causal path from baseline_mortality to outcome via socioeconomic_stress, amplifying the influence of baseline_mortality. Given that Lesotho already faces systemic healthcare and economic challenges, this feedback loop could significantly increase the risk of fatality spikes during periods of elevated baseline mortality. The original network underestimated this compounding effect, so the probability is increased to reflect the heightened risk of exceeding the historical average.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a previously unmodeled feedback loop: baseline_mortality -> socioeconomic_stress, which creates a reinforcing cycle where higher mortality worsens economic conditions, which in turn increases mortality. This adds a new causal path from baseline_mortality to outcome via socioeconomic_stress, amplifying the influence of baseline_mortality. Given that Lesotho already faces systemic healthcare and economic challenges, this feedback loop could significantly increase the risk of fatality spikes during periods of elevated baseline mortality. The original network underestimated this compounding effect, so the probability is increased to reflect the heightened risk of exceeding the historical average.\"\n}",
+      "target_id": "baseline_mortality->socioeconomic_stress",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential impact of a major transportation infrastructure failure, such as the collapse of a key bridge or prolonged closure of a national road, on fatality rates. Such an event could increase travel times to medical centers, delay emergency services, and indirectly lead to higher mortality during medical emergencies or accidents. Would the occurrence of such an event meaningfully increase the likelihood of exceeding the historical fatality average?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The proposed infrastructure failure introduces a new and significant causal pathway affecting the outcome: a major transportation disruption can degrade access to healthcare and delay emergency response, thereby increasing mortality. This event directly impacts the 'healthcare_capacity' node by reducing effective access to medical services, even if the system itself is functional. It also exacerbates 'road_safety_conditions' by forcing detours or unsafe travel alternatives. These changes strengthen the causal paths from healthcare_capacity -> outcome and road_safety_conditions -> outcome. Additionally, such a failure may indirectly amplify 'public_health_shocks' by limiting medical supply chains. Given the structural importance of timely medical access in a country like Lesotho, where healthcare infrastructure is already constrained, this shock meaningfully increases the likelihood of fatality spikes. Therefore, the probability is updated upward to reflect this elevated risk.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The proposed infrastructure failure introduces a new and significant causal pathway affecting the outcome: a major transportation disruption can degrade access to healthcare and delay emergency response, thereby increasing mortality. This event directly impacts the 'healthcare_capacity' node by reducing effective access to medical services, even if the system itself is functional. It also exacerbates 'road_safety_conditions' by forcing detours or unsafe travel alternatives. These changes strengthen the causal paths from healthcare_capacity -> outcome and road_safety_conditions -> outcome. Additionally, such a failure may indirectly amplify 'public_health_shocks' by limiting medical supply chains. Given the structural importance of timely medical access in a country like Lesotho, where healthcare infrastructure is already constrained, this shock meaningfully increases the likelihood of fatality spikes. Therefore, the probability is updated upward to reflect this elevated risk.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider a major political event such as national elections or civil unrest in Lesotho during the 30-day period before 2025-12-28. Political instability can lead to increased violence, disruption of healthcare services, and population displacement, all of which may elevate fatality rates. This type of acute sociopolitical shock is not captured by socioeconomic_stress or public_health_shocks alone and could significantly impact the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of a major political event such as national elections or civil unrest represents a significant acute sociopolitical shock not fully captured by the existing nodes 'socioeconomic_stress' or 'public_health_shocks'. This new factor introduces additional causal paths to the outcome: (1) direct violence from unrest increases fatalities; (2) disruption of healthcare services due to instability weakens healthcare_capacity, amplifying mortality; (3) population displacement and breakdown in law enforcement can worsen road_safety_conditions and increase untreated illness. Moreover, such events can interact with seasonal_factors (e.g., unrest during colder months compounding health risks) and trigger public_health_shocks (e.g., disease outbreaks in displaced populations). While socioeconomic_stress captures chronic economic strain, it does not account for the sudden surge in mortality risk from organized violence or systemic disruption. Therefore, the addition of this pathway substantially strengthens the potential for elevated fatalities, increasing the likelihood that the 30-day fatality count exceeds the prior average. This structural addition enhances multiple upstream drivers leading to the outcome, warranting a meaningful upward revision of the probability from 0.52 to 0.65.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of a major political event such as national elections or civil unrest represents a significant acute sociopolitical shock not fully captured by the existing nodes 'socioeconomic_stress' or 'public_health_shocks'. This new factor introduces additional causal paths to the outcome: (1) direct violence from unrest increases fatalities; (2) disruption of healthcare services due to instability weakens healthcare_capacity, amplifying mortality; (3) population displacement and breakdown in law enforcement can worsen road_safety_conditions and increase untreated illness. Moreover, such events can interact with seasonal_factors (e.g., unrest during colder months compounding health risks) and trigger public_health_shocks (e.g., disease outbreaks in displaced populations). While socioeconomic_stress captures chronic economic strain, it does not account for the sudden surge in mortality risk from organized violence or systemic disruption. Therefore, the addition of this pathway substantially strengthens the potential for elevated fatalities, increasing the likelihood that the 30-day fatality count exceeds the prior average. This structural addition enhances multiple upstream drivers leading to the outcome, warranting a meaningful upward revision of the probability from 0.52 to 0.65.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Lesotho's national football team has qualified for an international tournament in early 2026, sparking widespread celebrations and increased public gatherings across major towns. This has led to higher-than-usual nighttime activity and temporary closures of some urban roads for fan events.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The qualification of Lesotho's national football team introduces a new temporary social dynamic that affects several causal paths. Increased public gatherings and nighttime activity amplify road_safety_conditions through higher traffic volumes, alcohol consumption, and road closures, raising the risk of accidents. Additionally, large crowds can strain local healthcare_capacity in urban centers due to potential injuries or reduced access for non-emergency cases. These gatherings also elevate socioeconomic_stress temporarily by disrupting normal economic activity and increasing the risk of violence or overcrowding-related incidents. While not a core structural driver, this event acts as a catalyst that intensifies multiple existing risk factors—particularly road_safety_conditions and healthcare_capacity—both of which feed into the outcome. Given the timing (events in late 2025 leading up to early 2026), the elevated activity overlaps with the 30-day window before 2025-12-28, increasing the likelihood of a fatality spike. Thus, the probability is updated upward to reflect this compounding effect on known pathways.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The qualification of Lesotho's national football team introduces a new temporary social dynamic that affects several causal paths. Increased public gatherings and nighttime activity amplify road_safety_conditions through higher traffic volumes, alcohol consumption, and road closures, raising the risk of accidents. Additionally, large crowds can strain local healthcare_capacity in urban centers due to potential injuries or reduced access for non-emergency cases. These gatherings also elevate socioeconomic_stress temporarily by disrupting normal economic activity and increasing the risk of violence or overcrowding-related incidents. While not a core structural driver, this event acts as a catalyst that intensifies multiple existing risk factors—particularly road_safety_conditions and healthcare_capacity—both of which feed into the outcome. Given the timing (events in late 2025 leading up to early 2026), the elevated activity overlaps with the 30-day window before 2025-12-28, increasing the likelihood of a fatality spike. Thus, the probability is updated upward to reflect this compounding effect on known pathways.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery shows a significant increase in cloud cover over Lesotho compared to the previous six months, likely due to shifting regional weather patterns. Meteorologists suggest this may indicate a longer-than-usual dry season ahead.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about increased cloud cover and a predicted longer-than-usual dry season affects the 'seasonal_factors' node. Increased cloud cover may temporarily reduce temperatures or delay the onset of a dry season, but the meteorological interpretation points toward an extended dry season ahead. Dry seasons in Lesotho are typically associated with reduced transmission of waterborne and vector-borne diseases (due to less standing water), which may lower public_health_shocks. This reduces one source of fatality spikes. Additionally, dry seasons often correlate with better road conditions due to reduced flooding and mudslides, improving road_safety_conditions and lowering traffic-related fatalities. Both causal paths — seasonal_factors → public_health_shocks → outcome and seasonal_factors → road_safety_conditions → outcome — are moderately affected in a direction that reduces fatality risk. However, the effect is not strong enough to override baseline mortality trends or socioeconomic stressors, so the shift is modest. Thus, the probability of exceeding the 30-day average fatality rate decreases slightly from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about increased cloud cover and a predicted longer-than-usual dry season affects the 'seasonal_factors' node. Increased cloud cover may temporarily reduce temperatures or delay the onset of a dry season, but the meteorological interpretation points toward an extended dry season ahead. Dry seasons in Lesotho are typically associated with reduced transmission of waterborne and vector-borne diseases (due to less standing water), which may lower public_health_shocks. This reduces one source of fatality spikes. Additionally, dry seasons often correlate with better road conditions due to reduced flooding and mudslides, improving road_safety_conditions and lowering traffic-related fatalities. Both causal paths — seasonal_factors → public_health_shocks → outcome and seasonal_factors → road_safety_conditions → outcome — are moderately affected in a direction that reduces fatality risk. However, the effect is not strong enough to override baseline mortality trends or socioeconomic stressors, so the shift is modest. Thus, the probability of exceeding the 30-day average fatality rate decreases slightly from 0.52 to 0.48.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent vital registration data from Lesotho's Ministry of Health reveals that the average daily fatality rate over the past year has increased by 12% compared to the previous year, driven by persistently high rates of HIV-related complications and tuberculosis. This upward trend in baseline mortality suggests that the underlying risk of death remains elevated, making it more likely that fatality counts in the 30 days before 2025-12-28 will exceed the historical average.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'baseline_mortality' node, showing a 12% increase in the average daily fatality rate over the past year due to persistent HIV and tuberculosis burdens. This update reinforces the causal path from baseline_mortality to outcome: a higher baseline implies that the expected number of fatalities in the final 30-day window is also higher, making it more likely to exceed the 30-day average from the preceding 360 days. Since baseline_mortality is a direct antecedent of the outcome and the reported trend indicates a structurally elevated risk of death, this constitutes a significant shift in the underlying risk distribution. The update meaningfully affects the central causal pathway and justifies a moderate increase in probability from 0.52 to 0.65.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'baseline_mortality' node, showing a 12% increase in the average daily fatality rate over the past year due to persistent HIV and tuberculosis burdens. This update reinforces the causal path from baseline_mortality to outcome: a higher baseline implies that the expected number of fatalities in the final 30-day window is also higher, making it more likely to exceed the 30-day average from the preceding 360 days. Since baseline_mortality is a direct antecedent of the outcome and the reported trend indicates a structurally elevated risk of death, this constitutes a significant shift in the underlying risk distribution. The update meaningfully affects the central causal pathway and justifies a moderate increase in probability from 0.52 to 0.65.\"\n}",
+      "target_id": "baseline_mortality",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "In late 2025, Lesotho experiences a sharp rise in food prices due to prolonged drought and disrupted imports, increasing the national food insecurity rate to 45%, up from 32% earlier in the year. Simultaneously, public protests over unemployment and austerity measures turn violent in Maseru, resulting in multiple fatalities. These developments directly link heightened socioeconomic stress to both increased mortality risk and systemic strain, reinforcing its role in driving fatality rates above historical averages.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.74,
+      "absolute_shift": 0.21999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new information strongly reinforces the 'socioeconomic_stress' node as a significant driver in the causal network. The sharp rise in food insecurity (from 32% to 45%) and violent protests in Maseru directly increase mortality risk, activating two causal paths: (1) socioeconomic_stress -> outcome, as malnutrition and violence lead to higher fatalities, and (2) socioeconomic_stress -> healthcare_capacity, as economic strain likely degrades medical access and system functionality, indirectly increasing fatality risk. Additionally, the public unrest and systemic strain suggest a non-seasonal, acute shock that is likely to elevate fatalities during the 30-day window. This information increases confidence that the fatality count will exceed the prior 30-day average, which was itself calculated over a more stable period. Therefore, the probability is substantially revised upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.74,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strongly reinforces the 'socioeconomic_stress' node as a significant driver in the causal network. The sharp rise in food insecurity (from 32% to 45%) and violent protests in Maseru directly increase mortality risk, activating two causal paths: (1) socioeconomic_stress -> outcome, as malnutrition and violence lead to higher fatalities, and (2) socioeconomic_stress -> healthcare_capacity, as economic strain likely degrades medical access and system functionality, indirectly increasing fatality risk. Additionally, the public unrest and systemic strain suggest a non-seasonal, acute shock that is likely to elevate fatalities during the 30-day window. This information increases confidence that the fatality count will exceed the prior 30-day average, which was itself calculated over a more stable period. Therefore, the probability is substantially revised upward.\"\n}",
+      "target_id": "socioeconomic_stress",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2025, Lesotho’s Ministry of Health reported that 60% of district hospitals had no functioning intensive care units and widespread shortages of essential medicines, severely limiting outbreak response. A subsequent cholera outbreak in Maseru province affected over 1,200 people, with a case fatality rate of 4.5%, nearly three times the global average, due to delayed treatment and lack of isolation capacity. This demonstrates that weak healthcare infrastructure directly amplifies the impact of public health shocks.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The evidence strongly reinforces the causal link between healthcare_capacity and public_health_shocks, confirming that weak healthcare infrastructure (e.g., non-functional ICUs, medicine shortages) directly amplifies the severity of outbreaks, as demonstrated by the cholera event in Maseru. This strengthens the pathway from healthcare_capacity → public_health_shocks → outcome, making large fatality spikes more likely during public health emergencies. Given that seasonal_factors may still drive future outbreaks (e.g., rainy season in late 2025), and that socioeconomic_stress likely continues to strain healthcare_capacity, the heightened vulnerability to public health shocks increases the probability that fatalities in the 30 days before 2025-12-28 will exceed the prior 30-day average. The outcome is now more sensitive to this amplified risk pathway, justifying a substantial upward revision from 0.52 to 0.68.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The evidence strongly reinforces the causal link between healthcare_capacity and public_health_shocks, confirming that weak healthcare infrastructure (e.g., non-functional ICUs, medicine shortages) directly amplifies the severity of outbreaks, as demonstrated by the cholera event in Maseru. This strengthens the pathway from healthcare_capacity → public_health_shocks → outcome, making large fatality spikes more likely during public health emergencies. Given that seasonal_factors may still drive future outbreaks (e.g., rainy season in late 2025), and that socioeconomic_stress likely continues to strain healthcare_capacity, the heightened vulnerability to public health shocks increases the probability that fatalities in the 30 days before 2025-12-28 will exceed the prior 30-day average. The outcome is now more sensitive to this amplified risk pathway, justifying a substantial upward revision from 0.52 to 0.68.\"\n}",
+      "target_id": "healthcare_capacity->public_health_shocks",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Lesotho experienced a cholera outbreak originating in Maseru, spreading to four districts within weeks due to contaminated water supplies and a shortage of medical personnel. The Ministry of Health reported a 40% increase in daily fatalities during the peak of the outbreak compared to the preceding month, overwhelming hospitals and leading to treatment delays for non-cholera patients. This surge directly contributed to a spike in overall mortality, illustrating how public health shocks rapidly translate into increased fatalities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.78,
+      "absolute_shift": 0.26,
+      "shift_direction": "increased",
+      "reasoning": "The cholera outbreak in early 2025 directly strengthens the causal link between public_health_shocks and outcome. This real-world event demonstrates that public health shocks can rapidly and substantially increase fatality rates in Lesotho, especially when compounded by weak healthcare capacity and infrastructure vulnerabilities. The 40% increase in daily fatalities during the peak of the outbreak indicates a significant deviation from baseline_mortality, which directly feeds into the outcome variable. This evidence confirms the potency of the public_health_shocks -> outcome pathway, particularly when interacting with seasonal_factors (e.g., water contamination during rainy season) and socioeconomic_stress (limited access to clean water and healthcare). As a result, the likelihood that fatalities in the 30 days before 2025-12-28 exceed the prior 30-day average is meaningfully elevated, especially if similar or secondary public health shocks occur later in 2025. The updated estimate reflects heightened sensitivity of the outcome to public health shocks, a now empirically validated major driver.",
+      "raw_response": "{\n  \"updated_probability\": 0.78,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The cholera outbreak in early 2025 directly strengthens the causal link between public_health_shocks and outcome. This real-world event demonstrates that public health shocks can rapidly and substantially increase fatality rates in Lesotho, especially when compounded by weak healthcare capacity and infrastructure vulnerabilities. The 40% increase in daily fatalities during the peak of the outbreak indicates a significant deviation from baseline_mortality, which directly feeds into the outcome variable. This evidence confirms the potency of the public_health_shocks -> outcome pathway, particularly when interacting with seasonal_factors (e.g., water contamination during rainy season) and socioeconomic_stress (limited access to clean water and healthcare). As a result, the likelihood that fatalities in the 30 days before 2025-12-28 exceed the prior 30-day average is meaningfully elevated, especially if similar or secondary public health shocks occur later in 2025. The updated estimate reflects heightened sensitivity of the outcome to public health shocks, a now empirically validated major driver.\"\n}",
+      "target_id": "public_health_shocks->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0595,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "In 2025, Lesotho faced a 30% reduction in health sector budget allocations due to a national economic downturn, leading to delayed salaries for medical staff and suspension of essential drug imports. This directly weakened healthcare delivery, particularly in rural clinics reliant on government funding. These developments underscore that socioeconomic stress more severely degrades healthcare capacity than typically modeled, especially when fiscal constraints cascade into systemic service disruptions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between socioeconomic_stress and healthcare_capacity, revealing a more direct and severe impact than initially modeled. The 30% budget cut in 2025 leads to tangible degradation in healthcare delivery—delayed salaries and suspended drug imports—which increases vulnerability to public_health_shocks and reduces treatment capacity for existing conditions. This amplifies two causal pathways to the outcome: (1) socioeconomic_stress → healthcare_capacity → public_health_shocks → outcome, and (2) socioeconomic_stress → healthcare_capacity → outcome (via untreated illness). Additionally, rural clinics being disproportionately affected suggests higher baseline mortality may emerge, reinforcing baseline_mortality → outcome. Given that fiscal stress is now shown to cascade into systemic health service failures, the likelihood of a fatality spike in the 30 days before 2025-12-28 relative to the historical average increases. Therefore, the probability is revised upward from 0.52 to 0.65.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between socioeconomic_stress and healthcare_capacity, revealing a more direct and severe impact than initially modeled. The 30% budget cut in 2025 leads to tangible degradation in healthcare delivery—delayed salaries and suspended drug imports—which increases vulnerability to public_health_shocks and reduces treatment capacity for existing conditions. This amplifies two causal pathways to the outcome: (1) socioeconomic_stress → healthcare_capacity → public_health_shocks → outcome, and (2) socioeconomic_stress → healthcare_capacity → outcome (via untreated illness). Additionally, rural clinics being disproportionately affected suggests higher baseline mortality may emerge, reinforcing baseline_mortality → outcome. Given that fiscal stress is now shown to cascade into systemic health service failures, the likelihood of a fatality spike in the 30 days before 2025-12-28 relative to the historical average increases. Therefore, the probability is revised upward from 0.52 to 0.65.\"\n}",
+      "target_id": "socioeconomic_stress->healthcare_capacity",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "fe30e48ca357bef8e04efccce83241aa399e9c884084c833833d50b10ec56e26",
+    "question_text": "Will there be more fatalities in Lesotho for the 30 days before 2025-12-28 compared to the 30-day average of fatalities over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,fatalities\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of fatalities over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more fatalities would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.08625000000000001,
+    "max_absolute_shift": 0.32999999999999996
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 1.6500000000000001,
+    "mean_shift_high": 0.1375,
+    "mean_shift_low": 0.08333333333333333,
+    "asymmetry_index": 0.27338129496402885,
+    "mean_shift_negate": 0.05428571428571431,
+    "mean_shift_strengthen": 0.1985714285714286,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.030000000000000027,
+    "mean_shift_on_path": 0.1285714285714286,
+    "mean_shift_off_path": 0.09857142857142856,
+    "importance_sensitivity_correlation": -0.00454545454545463,
+    "control_sensitivity": 0.5
+  }
+}

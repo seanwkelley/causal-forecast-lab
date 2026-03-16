@@ -1,0 +1,1070 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07607.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Mont-de-Marsan will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "Typical temperature pattern in southern France during late December",
+      "role": "factor"
+    },
+    {
+      "id": "weather_systems",
+      "description": "Movement of high and low pressure systems affecting southwestern France",
+      "role": "factor"
+    },
+    {
+      "id": "climate_oscillation",
+      "description": "Large-scale climate patterns such as NAO or ENSO influencing European winter weather",
+      "role": "factor"
+    },
+    {
+      "id": "short_term_forecast",
+      "description": "Predicted temperature trends for the region one to two weeks prior to each date",
+      "role": "factor"
+    },
+    {
+      "id": "local_topography",
+      "description": "Geographical features around Mont-de-Marsan that influence microclimate and air flow",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_persistence",
+      "description": "Tendency for daily temperatures to be similar to recent days due to stable conditions",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The daily average temperature at Mont-de-Marsan is higher on 2025-12-28 than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "climate_oscillation",
+      "to": "weather_systems",
+      "mechanism": "Large-scale climate modes modulate the frequency and intensity of weather systems over France"
+    },
+    {
+      "from": "weather_systems",
+      "to": "short_term_forecast",
+      "mechanism": "The sequence and type of weather systems determine short-term temperature forecasts"
+    },
+    {
+      "from": "short_term_forecast",
+      "to": "outcome",
+      "mechanism": "Forecasted temperatures directly inform the likely temperature difference between the two dates"
+    },
+    {
+      "from": "seasonal_trend",
+      "to": "outcome",
+      "mechanism": "Late December in Mont-de-Marsan shows slight cooling trend, making later dates slightly colder on average"
+    },
+    {
+      "from": "local_topography",
+      "to": "weather_systems",
+      "mechanism": "Local land and river features modify how weather systems affect surface temperatures"
+    },
+    {
+      "from": "temperature_persistence",
+      "to": "outcome",
+      "mechanism": "Persistent atmospheric conditions increase likelihood of similar temperatures across the two dates, slightly favoring no change"
+    }
+  ],
+  "reasoning": "The probability is slightly above 0.5 because temperature changes over a 7-day period in winter are roughly symmetric, but weak seasonal cooling and persistence effects slightly favor stability. However, chaotic weather variability dominates, and without specific forecast data, the best estimate is near even odds with a small bias from climatological trends and regional dynamics.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "Typical temperature pattern in southern France during late December",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0645,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_systems",
+        "description": "Movement of high and low pressure systems affecting southwestern France",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.3333,
+        "pagerank": 0.1742,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "climate_oscillation",
+        "description": "Large-scale climate patterns such as NAO or ENSO influencing European winter weather",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0645,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "short_term_forecast",
+        "description": "Predicted temperature trends for the region one to two weeks prior to each date",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.3,
+        "pagerank": 0.2126,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "local_topography",
+        "description": "Geographical features around Mont-de-Marsan that influence microclimate and air flow",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0645,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "temperature_persistence",
+        "description": "Tendency for daily temperatures to be similar to recent days due to stable conditions",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0645,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "The daily average temperature at Mont-de-Marsan is higher on 2025-12-28 than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.355,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "outcome",
+        "mechanism": "Late December in Mont-de-Marsan shows slight cooling trend, making later dates slightly colder on average",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "short_term_forecast",
+        "mechanism": "The sequence and type of weather systems determine short-term temperature forecasts",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "climate_oscillation",
+        "target": "weather_systems",
+        "mechanism": "Large-scale climate modes modulate the frequency and intensity of weather systems over France",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "short_term_forecast",
+        "target": "outcome",
+        "mechanism": "Forecasted temperatures directly inform the likely temperature difference between the two dates",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "local_topography",
+        "target": "weather_systems",
+        "mechanism": "Local land and river features modify how weather systems affect surface temperatures",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "temperature_persistence",
+        "target": "outcome",
+        "mechanism": "Persistent atmospheric conditions increase likelihood of similar temperatures across the two dates, slightly favoring no change",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Movement of high and low pressure systems affecting southwestern France",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "short_term_forecast",
+        "description": "Predicted temperature trends for the region one to two weeks prior to each date",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "climate_oscillation",
+        "description": "Large-scale climate patterns such as NAO or ENSO influencing European winter weather",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "temperature_persistence",
+        "description": "Tendency for daily temperatures to be similar to recent days due to stable conditions",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Movement of high and low pressure systems affecting southwestern France",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "short_term_forecast",
+        "description": "Predicted temperature trends for the region one to two weeks prior to each date",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_systems->short_term_forecast",
+        "description": "The sequence and type of weather systems determine short-term temperature forecasts",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "short_term_forecast->outcome",
+        "description": "Forecasted temperatures directly inform the likely temperature difference between the two dates",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "temperature_persistence->outcome",
+        "description": "Persistent atmospheric conditions increase likelihood of similar temperatures across the two dates, slightly favoring no change",
+        "importance": 0.0238,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_systems->short_term_forecast",
+        "description": "The sequence and type of weather systems determine short-term temperature forecasts",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "short_term_forecast->seasonal_trend",
+        "description": "Potential link: Predicted temperature trends for the region one to two weeks prior to each date -> Typical temperature pattern in southern France during late December",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "short_term_forecast->temperature_persistence",
+        "description": "Potential link: Predicted temperature trends for the region one to two weeks prior to each date -> Tendency for daily temperatures to be similar to recent days due to stable conditions",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Movement of high and low pressure systems affecting southwestern France",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "short_term_forecast",
+      "description": "Predicted temperature trends for the region one to two weeks prior to each date",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "climate_oscillation",
+      "description": "Large-scale climate patterns such as NAO or ENSO influencing European winter weather",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "temperature_persistence",
+      "description": "Tendency for daily temperatures to be similar to recent days due to stable conditions",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Movement of high and low pressure systems affecting southwestern France",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "short_term_forecast",
+      "description": "Predicted temperature trends for the region one to two weeks prior to each date",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_systems->short_term_forecast",
+      "description": "The sequence and type of weather systems determine short-term temperature forecasts",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "short_term_forecast->outcome",
+      "description": "Forecasted temperatures directly inform the likely temperature difference between the two dates",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "temperature_persistence->outcome",
+      "description": "Persistent atmospheric conditions increase likelihood of similar temperatures across the two dates, slightly favoring no change",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_systems->short_term_forecast",
+      "description": "The sequence and type of weather systems determine short-term temperature forecasts",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "short_term_forecast->seasonal_trend",
+      "description": "Potential link: Predicted temperature trends for the region one to two weeks prior to each date -> Typical temperature pattern in southern France during late December",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "short_term_forecast->temperature_persistence",
+      "description": "Potential link: Predicted temperature trends for the region one to two weeks prior to each date -> Tendency for daily temperatures to be similar to recent days due to stable conditions",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the movement of high and low pressure systems has no significant impact on temperatures at Mont-de-Marsan during late December? In years with strong zonal flow relaxation, persistent blocking patterns may dominate the region's weather, making synoptic-scale systems irrelevant compared to stagnant, self-sustaining atmospheric regimes that override typical weather system influences.",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Movement of high and low pressure systems affecting southwestern France"
+    },
+    {
+      "probe_text": "What if short-term forecasts are completely unreliable for predicting temperature differences at Mont-de-Marsan two weeks in advance due to rapid shifts in Atlantic storm tracks? In years with high atmospheric variability, such as during a strongly positive NAO phase, short-term forecast accuracy diminishes significantly, making them no better than climatological averages for determining temperature trends in late December.",
+      "probe_type": "node_negate_high",
+      "target_id": "short_term_forecast",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Predicted temperature trends for the region one to two weeks prior to each date"
+    },
+    {
+      "probe_text": "Recent statistical analysis of winter temperature variability in southwestern France shows no significant correlation between NAO or ENSO indices and regional weather system behavior over the past three decades, suggesting that large-scale climate oscillations may not meaningfully influence short-term atmospheric patterns in this region. Given the weak teleconnection signal and high local variability, the impact of climate oscillations on weather systems near Mont-de-Marsan may be negligible compared to synoptic-scale and local forcing.",
+      "probe_type": "node_negate_medium",
+      "target_id": "climate_oscillation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Large-scale climate patterns such as NAO or ENSO influencing European winter weather"
+    },
+    {
+      "probe_text": "Suppose a detailed meteorological analysis reveals that December 2025 in southwestern France will experience highly variable atmospheric conditions, with rapid shifts between Arctic and Atlantic air masses disrupting any temperature stability. In such a volatile pattern, the tendency for temperatures to persist from one day to the next would be negligible, making temperature_persistence an irrelevant factor in predicting the temperature difference between 2025-12-21 and 2025-12-28.",
+      "probe_type": "node_negate_low",
+      "target_id": "temperature_persistence",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Tendency for daily temperatures to be similar to recent days due to stable conditions"
+    },
+    {
+      "probe_text": "A recent high-resolution meteorological modeling study focused on southwestern France has confirmed that the passage of low-pressure systems during late December significantly increases temperature variability in the Landes region, with Mont-de-Marsan showing a stronger response than previously estimated. The study attributes over 65% of interannual temperature fluctuations at the station to the timing and intensity of these weather systems, reinforcing their dominant role in short-term regional temperature changes.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Movement of high and low pressure systems affecting southwestern France"
+    },
+    {
+      "probe_text": "In late December 2025, the European Centre for Medium-Range Weather Forecasts (ECMWF) issued high-confidence ensemble predictions for southwestern France, showing a strong ridge of high pressure building over the region by December 25, leading to above-normal temperatures peaking on December 28. The forecast was consistent across multiple model runs and closely matched observed upper-air patterns, reinforcing the reliability of short-term forecasts in capturing key temperature shifts at Mont-de-Marsan.",
+      "probe_type": "node_strengthen",
+      "target_id": "short_term_forecast",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Predicted temperature trends for the region one to two weeks prior to each date"
+    },
+    {
+      "probe_text": "Recent advancements in numerical weather prediction have shown that short-term temperature forecasts in southwestern France are increasingly driven by ensemble modeling and data assimilation from satellite observations, rather than direct inference from observed weather system sequences. Inversions and micro-scale advection effects near the Adour River valley—common around Mont-de-Marsan—can produce temperature deviations of up to 3°C that are not fully explained by synoptic-scale weather systems, suggesting that local mesoscale processes may decouple short_term_forecast from large-scale weather_systems more than assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "weather_systems->short_term_forecast",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The sequence and type of weather systems determine short-term temperature forecasts"
+    },
+    {
+      "probe_text": "Short-term forecasts for late December 2025 will be based on models with known biases in representing rapid Arctic warming effects, which can cause sudden stratospheric warming events. These events disrupt the polar vortex and lead to unpredictable cold air outbreaks in southwestern France that are not reliably captured in forecasts beyond 10 days, making the short_term_forecast a potentially misleading predictor of the actual temperature difference.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "short_term_forecast->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Forecasted temperatures directly inform the likely temperature difference between the two dates"
+    },
+    {
+      "probe_text": "Temperature persistence tends to break down over longer intervals, and a 7-day gap between the two dates increases the likelihood of disruptive weather transitions, especially in winter when synoptic-scale systems can rapidly alter conditions in southwestern France. Given the climatology of Mont-de-Marsan, persistent high-pressure regimes in late December often collapse due to Atlantic storm incursions, making day-to-day temperature stability less relevant for comparisons a week apart.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "temperature_persistence->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "Persistent atmospheric conditions increase likelihood of similar temperatures across the two dates, slightly favoring no change"
+    },
+    {
+      "probe_text": "Short-term temperature forecasts are not merely passive reflections of current weather systems; they are actively incorporated into meteorological analyses that define and classify those systems. Forecast models use predicted temperature, pressure, and wind patterns to identify and refine the structure of weather systems, meaning that short_term_forecast causally contributes to the operational definition and tracking of weather_systems.",
+      "probe_type": "edge_reverse",
+      "target_id": "weather_systems->short_term_forecast",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The sequence and type of weather systems determine short-term temperature forecasts"
+    },
+    {
+      "probe_text": "Suppose the short-term forecast for mid-December 2025 shows a persistent ridge of high pressure leading to unusually warm conditions across southern France. Could this shift expectations about the typical late-December cooling trend, as statistical baselines are increasingly influenced by recent warm anomalies? If forecasters interpret such warmth as part of an emerging pattern, might this update their assessment of what is 'typical' for the seasonal trend?",
+      "probe_type": "edge_spurious",
+      "target_id": "short_term_forecast->seasonal_trend",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Predicted temperature trends for the region one to two weeks prior to each date -> Typical temperature pattern in southern France during late December"
+    },
+    {
+      "probe_text": "Suppose the short-term forecast for mid-December 2025 shows a strong, persistent high-pressure system developing over southwestern Europe, leading meteorologists to predict stable, clear conditions for two weeks leading into the target dates. Would this not increase the expected temperature persistence around Christmas week, as forecasters would anticipate little day-to-day variation? If so, doesn't the short-term forecast itself provide information that directly shapes expectations about persistence, beyond just predicting mean temperatures?",
+      "probe_type": "edge_spurious",
+      "target_id": "short_term_forecast->temperature_persistence",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Predicted temperature trends for the region one to two weeks prior to each date -> Tendency for daily temperatures to be similar to recent days due to stable conditions"
+    },
+    {
+      "probe_text": "Consider the influence of snow cover on surface albedo and temperature feedbacks. If significant snowfall occurs in the region between late December 21 and 28, the resulting snow cover could increase ground reflectivity, reduce daytime heating, and lead to lower average temperatures on December 28, even if other factors suggest warming. This mechanism is not accounted for in the current network but could substantially modulate the outcome.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose satellite imagery and atmospheric models later reveal a significant stratospheric warming event over northern Europe in mid-December 2025, which systematically disrupts the polar vortex and increases the likelihood of blocked atmospheric patterns favoring prolonged milder air advection into southwestern France. This could increase temperatures anomalously around late December, particularly after the 21st, thereby elevating the probability that the 28th is warmer than the 21st. How would this event affect the forecast?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent study found that the urban heat island effect in Bordeaux has intensified slightly over the past decade due to increased city infrastructure. This warming trend has been documented in several municipal climate reports and is particularly noticeable during winter nights.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent study found that the urban heat island effect in Mont-de-Marsan has increased slightly over the past decade due to expanded infrastructure around the airport, which now covers 15% more area than in 2015. This warming influence is most noticeable during summer months but remains present year-round.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the movement of high and low pressure systems has no significant impact on temperatures at Mont-de-Marsan during late December? In years with strong zonal flow relaxation, persistent blocking patterns may dominate the region's weather, making synoptic-scale systems irrelevant compared to stagnant, self-sustaining atmospheric regimes that override typical weather system influences.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'weather_systems' undermines a central causal path: weather_systems -> short_term_forecast -> outcome. If synoptic-scale high and low pressure systems have limited impact due to persistent blocking patterns dominating in late December, then the predictive value of 'weather_systems' is reduced. This weakens the influence of both 'climate_oscillation' and 'local_topography' on the outcome, as they primarily act through modulating weather systems. However, 'seasonal_trend' and 'temperature_persistence' remain structurally intact, with the former slightly favoring lower temperatures on the later date and the latter slightly favoring no change. With diminished influence from dynamic weather systems, the outcome becomes more reliant on seasonal cooling and stagnant regimes, which may lock in colder conditions. Thus, the probability shifts slightly downward from 0.52 to 0.48, reflecting reduced likelihood of warming from one week to the next under persistent, self-sustaining atmospheric conditions typical of blocking patterns.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'weather_systems' undermines a central causal path: weather_systems -> short_term_forecast -> outcome. If synoptic-scale high and low pressure systems have limited impact due to persistent blocking patterns dominating in late December, then the predictive value of 'weather_systems' is reduced. This weakens the influence of both 'climate_oscillation' and 'local_topography' on the outcome, as they primarily act through modulating weather systems. However, 'seasonal_trend' and 'temperature_persistence' remain structurally intact, with the former slightly favoring lower temperatures on the later date and the latter slightly favoring no change. With diminished influence from dynamic weather systems, the outcome becomes more reliant on seasonal cooling and stagnant regimes, which may lock in colder conditions. Thus, the probability shifts slightly downward from 0.52 to 0.48, reflecting reduced likelihood of warming from one week to the next under persistent, self-sustaining atmospheric conditions typical of blocking patterns.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if short-term forecasts are completely unreliable for predicting temperature differences at Mont-de-Marsan two weeks in advance due to rapid shifts in Atlantic storm tracks? In years with high atmospheric variability, such as during a strongly positive NAO phase, short-term forecast accuracy diminishes significantly, making them no better than climatological averages for determining temperature trends in late December.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'short_term_forecast' undermines a key causal path linking weather_systems to the outcome via reliable temperature predictions. If short-term forecasts are no better than climatological averages due to high atmospheric variability—especially under a strongly positive NAO phase—then the information they provide about temperature differences between 2025-12-28 and 2025-12-21 is significantly weakened. This severs the pathway from weather_systems through short_term_forecast to outcome, leaving seasonal_trend and temperature_persistence as dominant influences. Since late December in Mont-de-Marsan has a slight cooling trend (favoring lower temperatures on the later date), and with forecast-based corrections now unreliable, the balance shifts slightly against the event of a higher temperature on 2025-12-28. The change is moderate because short_term_forecast was important but not the sole determinant, and the baseline probability was already close to 0.5. Thus, the probability decreases slightly to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'short_term_forecast' undermines a key causal path linking weather_systems to the outcome via reliable temperature predictions. If short-term forecasts are no better than climatological averages due to high atmospheric variability—especially under a strongly positive NAO phase—then the information they provide about temperature differences between 2025-12-28 and 2025-12-21 is significantly weakened. This severs the pathway from weather_systems through short_term_forecast to outcome, leaving seasonal_trend and temperature_persistence as dominant influences. Since late December in Mont-de-Marsan has a slight cooling trend (favoring lower temperatures on the later date), and with forecast-based corrections now unreliable, the balance shifts slightly against the event of a higher temperature on 2025-12-28. The change is moderate because short_term_forecast was important but not the sole determinant, and the baseline probability was already close to 0.5. Thus, the probability decreases slightly to 0.48.\"\n}",
+      "target_id": "short_term_forecast",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent statistical analysis of winter temperature variability in southwestern France shows no significant correlation between NAO or ENSO indices and regional weather system behavior over the past three decades, suggesting that large-scale climate oscillations may not meaningfully influence short-term atmospheric patterns in this region. Given the weak teleconnection signal and high local variability, the impact of climate oscillations on weather systems near Mont-de-Marsan may be negligible compared to synoptic-scale and local forcing.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'climate_oscillation' node weakens the causal path from climate_oscillation -> weather_systems, suggesting that large-scale patterns like NAO or ENSO have negligible influence on regional weather systems near Mont-de-Marsan. However, this node was only indirectly linked to the outcome through a chain involving weather_systems and short_term_forecast. Given the local dominance of synoptic and topographic factors, and the already modest influence attributed to climate oscillations in this region during winter, the structural importance of this link is low. The primary drivers—seasonal_trend, short_term_forecast, and temperature_persistence—remain intact. Thus, while the removal of climate_oscillation slightly reduces predictability from large-scale patterns, it does not substantially alter the overall likelihood of a temperature increase. The probability shifts minimally downward, reflecting slightly reduced confidence in external climate signals favoring warming, but the net effect is small due to the peripheral role of this node in the overall causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'climate_oscillation' node weakens the causal path from climate_oscillation -> weather_systems, suggesting that large-scale patterns like NAO or ENSO have negligible influence on regional weather systems near Mont-de-Marsan. However, this node was only indirectly linked to the outcome through a chain involving weather_systems and short_term_forecast. Given the local dominance of synoptic and topographic factors, and the already modest influence attributed to climate oscillations in this region during winter, the structural importance of this link is low. The primary drivers—seasonal_trend, short_term_forecast, and temperature_persistence—remain intact. Thus, while the removal of climate_oscillation slightly reduces predictability from large-scale patterns, it does not substantially alter the overall likelihood of a temperature increase. The probability shifts minimally downward, reflecting slightly reduced confidence in external climate signals favoring warming, but the net effect is small due to the peripheral role of this node in the overall causal network.\"\n}",
+      "target_id": "climate_oscillation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Suppose a detailed meteorological analysis reveals that December 2025 in southwestern France will experience highly variable atmospheric conditions, with rapid shifts between Arctic and Atlantic air masses disrupting any temperature stability. In such a volatile pattern, the tendency for temperatures to persist from one day to the next would be negligible, making temperature_persistence an irrelevant factor in predicting the temperature difference between 2025-12-21 and 2025-12-28.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to temperature_persistence removes a causal path that previously slightly favored no change in temperatures between the two dates, effectively reducing the tendency for stability. In a highly variable atmospheric regime with rapid air mass changes, day-to-day temperature persistence becomes negligible. This weakens the dampening effect on temperature swings, increasing volatility between 2025-12-21 and 2025-12-28. As a result, the slight prior bias toward similarity (which supported a probability marginally above 0.5) is eliminated. The outcome now depends more heavily on weather_systems and short_term_forecast, which are themselves more uncertain under volatile conditions. However, the seasonal_trend still slightly favors cooling over the week, and without persistence to reinforce that trend or stabilize deviations, the balance shifts slightly toward lower predictability and reduced likelihood of warming. Hence, the probability is slightly decreased from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to temperature_persistence removes a causal path that previously slightly favored no change in temperatures between the two dates, effectively reducing the tendency for stability. In a highly variable atmospheric regime with rapid air mass changes, day-to-day temperature persistence becomes negligible. This weakens the dampening effect on temperature swings, increasing volatility between 2025-12-21 and 2025-12-28. As a result, the slight prior bias toward similarity (which supported a probability marginally above 0.5) is eliminated. The outcome now depends more heavily on weather_systems and short_term_forecast, which are themselves more uncertain under volatile conditions. However, the seasonal_trend still slightly favors cooling over the week, and without persistence to reinforce that trend or stabilize deviations, the balance shifts slightly toward lower predictability and reduced likelihood of warming. Hence, the probability is slightly decreased from 0.52 to 0.48.\"\n}",
+      "target_id": "temperature_persistence",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent high-resolution meteorological modeling study focused on southwestern France has confirmed that the passage of low-pressure systems during late December significantly increases temperature variability in the Landes region, with Mont-de-Marsan showing a stronger response than previously estimated. The study attributes over 65% of interannual temperature fluctuations at the station to the timing and intensity of these weather systems, reinforcing their dominant role in short-term regional temperature changes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the role of 'weather_systems' as a dominant driver of temperature variability at Mont-de-Marsan, increasing its influence in the causal network. This reinforces the path from climate_oscillation -> weather_systems -> short_term_forecast -> outcome, making temperature outcomes more sensitive to synoptic-scale dynamics. Since the two dates are close in time (one week apart), stronger weather system impacts increase the likelihood of divergence in temperatures between them, slightly favoring a higher temperature on the later date due to the possibility of a warming weather system. Additionally, the weakened relative influence of seasonal_trend (which slightly favors cooling) and temperature_persistence (which favors no change) in the face of high weather-driven variability leads to a modest increase in the probability of a higher temperature on 2025-12-28. Thus, the estimate shifts upward from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the role of 'weather_systems' as a dominant driver of temperature variability at Mont-de-Marsan, increasing its influence in the causal network. This reinforces the path from climate_oscillation -> weather_systems -> short_term_forecast -> outcome, making temperature outcomes more sensitive to synoptic-scale dynamics. Since the two dates are close in time (one week apart), stronger weather system impacts increase the likelihood of divergence in temperatures between them, slightly favoring a higher temperature on the later date due to the possibility of a warming weather system. Additionally, the weakened relative influence of seasonal_trend (which slightly favors cooling) and temperature_persistence (which favors no change) in the face of high weather-driven variability leads to a modest increase in the probability of a higher temperature on 2025-12-28. Thus, the estimate shifts upward from 0.52 to 0.58.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In late December 2025, the European Centre for Medium-Range Weather Forecasts (ECMWF) issued high-confidence ensemble predictions for southwestern France, showing a strong ridge of high pressure building over the region by December 25, leading to above-normal temperatures peaking on December 28. The forecast was consistent across multiple model runs and closely matched observed upper-air patterns, reinforcing the reliability of short-term forecasts in capturing key temperature shifts at Mont-de-Marsan.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal path from short_term_forecast to outcome by providing high-confidence, model-consistent evidence of a strong high-pressure ridge leading to above-normal temperatures on December 28. This directly enhances the influence of short_term_forecast on the outcome, making a higher temperature on the later date more likely. Additionally, the reliability of the forecast increases confidence in the predicted temperature rise, partially overriding the slight cooling trend from seasonal_trend. The confirmation that observed upper-air patterns match the forecast reinforces the validity of the short-term forecast signal, making it a dominant driver in the causal network. As a result, the probability shifts substantially upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal path from short_term_forecast to outcome by providing high-confidence, model-consistent evidence of a strong high-pressure ridge leading to above-normal temperatures on December 28. This directly enhances the influence of short_term_forecast on the outcome, making a higher temperature on the later date more likely. Additionally, the reliability of the forecast increases confidence in the predicted temperature rise, partially overriding the slight cooling trend from seasonal_trend. The confirmation that observed upper-air patterns match the forecast reinforces the validity of the short-term forecast signal, making it a dominant driver in the causal network. As a result, the probability shifts substantially upward.\"\n}",
+      "target_id": "short_term_forecast",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent advancements in numerical weather prediction have shown that short-term temperature forecasts in southwestern France are increasingly driven by ensemble modeling and data assimilation from satellite observations, rather than direct inference from observed weather system sequences. Inversions and micro-scale advection effects near the Adour River valley—common around Mont-de-Marsan—can produce temperature deviations of up to 3°C that are not fully explained by synoptic-scale weather systems, suggesting that local mesoscale processes may decouple short_term_forecast from large-scale weather_systems more than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between weather_systems and short_term_forecast by highlighting that short-term forecasts in the region are increasingly informed by high-resolution ensemble models and satellite data assimilation, which capture mesoscale effects (e.g., inversions, river valley advection) not fully explained by synoptic-scale weather systems. This reduces the explanatory power of weather_systems on short_term_forecast, thereby weakening one of the key pathways that informed the outcome. However, short_term_forecast remains a direct input to the outcome, and its predictive accuracy may even improve due to better modeling—so the node is not removed, just less dependent on weather_systems. The seasonal_trend and temperature_persistence nodes remain structurally intact, and climate_oscillation still indirectly influences conditions. Thus, while the causal path from weather_systems to outcome via short_term_forecast is partially decoupled, the overall impact on the final probability is small because the forecast node still mediates accurate predictions. The slight decrease reflects a minor reduction in confidence due to greater uncertainty in modeling local effects, and a recognition that synoptic patterns are less determinative than previously assumed.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between weather_systems and short_term_forecast by highlighting that short-term forecasts in the region are increasingly informed by high-resolution ensemble models and satellite data assimilation, which capture mesoscale effects (e.g., inversions, river valley advection) not fully explained by synoptic-scale weather systems. This reduces the explanatory power of weather_systems on short_term_forecast, thereby weakening one of the key pathways that informed the outcome. However, short_term_forecast remains a direct input to the outcome, and its predictive accuracy may even improve due to better modeling—so the node is not removed, just less dependent on weather_systems. The seasonal_trend and temperature_persistence nodes remain structurally intact, and climate_oscillation still indirectly influences conditions. Thus, while the causal path from weather_systems to outcome via short_term_forecast is partially decoupled, the overall impact on the final probability is small because the forecast node still mediates accurate predictions. The slight decrease reflects a minor reduction in confidence due to greater uncertainty in modeling local effects, and a recognition that synoptic patterns are less determinative than previously assumed.\"\n}",
+      "target_id": "weather_systems->short_term_forecast",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Short-term forecasts for late December 2025 will be based on models with known biases in representing rapid Arctic warming effects, which can cause sudden stratospheric warming events. These events disrupt the polar vortex and lead to unpredictable cold air outbreaks in southwestern France that are not reliably captured in forecasts beyond 10 days, making the short_term_forecast a potentially misleading predictor of the actual temperature difference.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the reliability of the short_term_forecast->outcome link by highlighting known model biases in capturing Arctic-driven stratospheric disruptions, which can cause unpredictable cold air outbreaks in southwestern France. This weakens the causal path from short_term_forecast to outcome, as forecasts may fail to anticipate extreme shifts due to polar vortex disturbances. However, short_term_forecast was not the dominant driver in the original network—seasonal_trend and temperature_persistence played larger roles in supporting a near-50% probability. The weakened forecast reliability slightly reduces confidence in using short-term predictions to discern between the two dates, marginally favoring persistence and climatological trends over forecast-informed judgment. Thus, the probability shifts only slightly downward from 0.52 to 0.51, reflecting a minor downgrade in predictive signal strength without collapsing the overall estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the reliability of the short_term_forecast->outcome link by highlighting known model biases in capturing Arctic-driven stratospheric disruptions, which can cause unpredictable cold air outbreaks in southwestern France. This weakens the causal path from short_term_forecast to outcome, as forecasts may fail to anticipate extreme shifts due to polar vortex disturbances. However, short_term_forecast was not the dominant driver in the original network—seasonal_trend and temperature_persistence played larger roles in supporting a near-50% probability. The weakened forecast reliability slightly reduces confidence in using short-term predictions to discern between the two dates, marginally favoring persistence and climatological trends over forecast-informed judgment. Thus, the probability shifts only slightly downward from 0.52 to 0.51, reflecting a minor downgrade in predictive signal strength without collapsing the overall estimate.\"\n}",
+      "target_id": "short_term_forecast->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Temperature persistence tends to break down over longer intervals, and a 7-day gap between the two dates increases the likelihood of disruptive weather transitions, especially in winter when synoptic-scale systems can rapidly alter conditions in southwestern France. Given the climatology of Mont-de-Marsan, persistent high-pressure regimes in late December often collapse due to Atlantic storm incursions, making day-to-day temperature stability less relevant for comparisons a week apart.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'temperature_persistence -> outcome' link is valid and somewhat weakens the influence of temperature persistence over a 7-day interval, particularly in winter when Atlantic storm systems can disrupt stable conditions in southwestern France. This reduces the strength of the persistence pathway to the outcome, making short-term weather transitions more decisive. However, temperature persistence still has some marginal influence over weekly timescales, especially during stable high-pressure periods, so the link is weakened but not eliminated. The dominant drivers remain seasonal_trend (slight cooling toward year-end) and weather_systems (modulated by climate_oscillation and visible in short_term_forecast). Since the persistence effect was only a minor factor favoring stability (and thus a 50/50 outcome), reducing its weight slightly shifts the balance toward the weak seasonal cooling trend, marginally favoring a lower temperature on the later date. Hence, the probability decreases only slightly from 0.52 to 0.51.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'temperature_persistence -> outcome' link is valid and somewhat weakens the influence of temperature persistence over a 7-day interval, particularly in winter when Atlantic storm systems can disrupt stable conditions in southwestern France. This reduces the strength of the persistence pathway to the outcome, making short-term weather transitions more decisive. However, temperature persistence still has some marginal influence over weekly timescales, especially during stable high-pressure periods, so the link is weakened but not eliminated. The dominant drivers remain seasonal_trend (slight cooling toward year-end) and weather_systems (modulated by climate_oscillation and visible in short_term_forecast). Since the persistence effect was only a minor factor favoring stability (and thus a 50/50 outcome), reducing its weight slightly shifts the balance toward the weak seasonal cooling trend, marginally favoring a lower temperature on the later date. Hence, the probability decreases only slightly from 0.52 to 0.51.\"\n}",
+      "target_id": "temperature_persistence->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Short-term temperature forecasts are not merely passive reflections of current weather systems; they are actively incorporated into meteorological analyses that define and classify those systems. Forecast models use predicted temperature, pressure, and wind patterns to identify and refine the structure of weather systems, meaning that short_term_forecast causally contributes to the operational definition and tracking of weather_systems.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge reframes the directionality between weather_systems and short_term_forecast as bidirectional rather than strictly causal from weather systems to forecasts. While it is true that forecast models inform the operational analysis and refinement of weather systems, the dominant causal flow for the purpose of predicting actual temperatures remains from large-scale weather patterns to forecast outputs. The feedback loop between forecasts and system identification occurs within modeling systems and does not significantly alter the real-world causal influence of weather systems on actual temperature outcomes. Therefore, the core causal path from weather_systems to outcome via short_term_forecast remains intact in practical terms, and the structural importance of this link is not undermined. No substantial change to the probability estimate is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge reframes the directionality between weather_systems and short_term_forecast as bidirectional rather than strictly causal from weather systems to forecasts. While it is true that forecast models inform the operational analysis and refinement of weather systems, the dominant causal flow for the purpose of predicting actual temperatures remains from large-scale weather patterns to forecast outputs. The feedback loop between forecasts and system identification occurs within modeling systems and does not significantly alter the real-world causal influence of weather systems on actual temperature outcomes. Therefore, the core causal path from weather_systems to outcome via short_term_forecast remains intact in practical terms, and the structural importance of this link is not undermined. No substantial change to the probability estimate is warranted.\"\n}",
+      "target_id": "weather_systems->short_term_forecast",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose the short-term forecast for mid-December 2025 shows a persistent ridge of high pressure leading to unusually warm conditions across southern France. Could this shift expectations about the typical late-December cooling trend, as statistical baselines are increasingly influenced by recent warm anomalies? If forecasters interpret such warmth as part of an emerging pattern, might this update their assessment of what is 'typical' for the seasonal trend?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge proposes a feedback from short_term_forecast to seasonal_trend, suggesting that an unusually warm short-term forecast could reframe expectations about the typical seasonal trend. However, in this causal network, seasonal_trend represents a long-term climatological average based on historical data, not a real-time interpretation subject to revision by forecasters. While extreme anomalies may influence public or scientific discourse about climate change, they do not alter the statistical baseline for 'typical' late-December cooling over the 30-year reference period used in operational climatology. Therefore, the causal link from short_term_forecast to seasonal_trend is not structurally valid, and the original path from seasonal_trend to outcome remains unaffected. No other causal paths are impacted by this proposed feedback. Thus, the overall probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge proposes a feedback from short_term_forecast to seasonal_trend, suggesting that an unusually warm short-term forecast could reframe expectations about the typical seasonal trend. However, in this causal network, seasonal_trend represents a long-term climatological average based on historical data, not a real-time interpretation subject to revision by forecasters. While extreme anomalies may influence public or scientific discourse about climate change, they do not alter the statistical baseline for 'typical' late-December cooling over the 30-year reference period used in operational climatology. Therefore, the causal link from short_term_forecast to seasonal_trend is not structurally valid, and the original path from seasonal_trend to outcome remains unaffected. No other causal paths are impacted by this proposed feedback. Thus, the overall probability remains unchanged.\"\n}",
+      "target_id": "short_term_forecast->seasonal_trend",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose the short-term forecast for mid-December 2025 shows a strong, persistent high-pressure system developing over southwestern Europe, leading meteorologists to predict stable, clear conditions for two weeks leading into the target dates. Would this not increase the expected temperature persistence around Christmas week, as forecasters would anticipate little day-to-day variation? If so, doesn't the short-term forecast itself provide information that directly shapes expectations about persistence, beyond just predicting mean temperatures?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a previously unmodeled causal link: short_term_forecast → temperature_persistence. If the short-term forecast indicates a stable high-pressure system leading into the target dates, this increases expected temperature persistence by suggesting reduced day-to-day variability. This strengthens the influence of the temperature_persistence node on the outcome, as stable conditions make it more likely that temperatures on 2025-12-28 will resemble those on 2025-12-21. However, since the original estimate already accounted for some baseline persistence, and the seasonal_trend slightly favors cooling, the updated information tilts the balance modestly toward higher similarity—but given the symmetry of the comparison, the increased persistence slightly raises the probability that the later date is warmer, assuming no strong trend. The key change is the addition of a feedback path: short_term_forecast not only affects the outcome directly but also amplifies the effect of temperature_persistence. This strengthens the overall stability signal, nudging the probability upward from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a previously unmodeled causal link: short_term_forecast → temperature_persistence. If the short-term forecast indicates a stable high-pressure system leading into the target dates, this increases expected temperature persistence by suggesting reduced day-to-day variability. This strengthens the influence of the temperature_persistence node on the outcome, as stable conditions make it more likely that temperatures on 2025-12-28 will resemble those on 2025-12-21. However, since the original estimate already accounted for some baseline persistence, and the seasonal_trend slightly favors cooling, the updated information tilts the balance modestly toward higher similarity—but given the symmetry of the comparison, the increased persistence slightly raises the probability that the later date is warmer, assuming no strong trend. The key change is the addition of a feedback path: short_term_forecast not only affects the outcome directly but also amplifies the effect of temperature_persistence. This strengthens the overall stability signal, nudging the probability upward from 0.52 to 0.58.\"\n}",
+      "target_id": "short_term_forecast->temperature_persistence",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the influence of snow cover on surface albedo and temperature feedbacks. If significant snowfall occurs in the region between late December 21 and 28, the resulting snow cover could increase ground reflectivity, reduce daytime heating, and lead to lower average temperatures on December 28, even if other factors suggest warming. This mechanism is not accounted for in the current network but could substantially modulate the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of snow cover as a causal factor affects the pathway between weather_systems and outcome, adding a previously unmodeled negative feedback loop. If significant snowfall occurs between December 21 and 28, increased surface albedo from snow cover can reduce net solar heating, lowering daytime temperatures and suppressing average temperatures on December 28. This mechanism interacts with weather_systems (which govern precipitation and cold air outbreaks) and modulates the outcome independently of short-term forecasts or persistence. While snowfall is relatively infrequent in Mont-de-Marsan during late December, the region is not immune to occasional winter storms. The omission of this feedback means the original model may have underestimated the probability of cooling over the period, particularly under specific synoptic conditions. Thus, the addition of this pathway slightly increases the likelihood that December 28 is colder, especially if snow accumulates. This weakens the base assumption of symmetric temperature changes and shifts the probability below 0.5. The update is modest because snow events are low-probability, but non-negligible, and the effect would be conditional on both precipitation and sustained cold. The altered causal path runs: weather_systems -> snow_cover -> albedo_feedback -> outcome, creating a new cooling bias under certain conditions.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of snow cover as a causal factor affects the pathway between weather_systems and outcome, adding a previously unmodeled negative feedback loop. If significant snowfall occurs between December 21 and 28, increased surface albedo from snow cover can reduce net solar heating, lowering daytime temperatures and suppressing average temperatures on December 28. This mechanism interacts with weather_systems (which govern precipitation and cold air outbreaks) and modulates the outcome independently of short-term forecasts or persistence. While snowfall is relatively infrequent in Mont-de-Marsan during late December, the region is not immune to occasional winter storms. The omission of this feedback means the original model may have underestimated the probability of cooling over the period, particularly under specific synoptic conditions. Thus, the addition of this pathway slightly increases the likelihood that December 28 is colder, especially if snow accumulates. This weakens the base assumption of symmetric temperature changes and shifts the probability below 0.5. The update is modest because snow events are low-probability, but non-negligible, and the effect would be conditional on both precipitation and sustained cold. The altered causal path runs: weather_systems -> snow_cover -> albedo_feedback -> outcome, creating a new cooling bias under certain conditions.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose satellite imagery and atmospheric models later reveal a significant stratospheric warming event over northern Europe in mid-December 2025, which systematically disrupts the polar vortex and increases the likelihood of blocked atmospheric patterns favoring prolonged milder air advection into southwestern France. This could increase temperatures anomalously around late December, particularly after the 21st, thereby elevating the probability that the 28th is warmer than the 21st. How would this event affect the forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The stratospheric warming event directly affects the climate_oscillation node by disrupting the polar vortex, which strengthens the influence of large-scale climate modes (e.g., negative NAO phase) that favor blocked atmospheric patterns. This enhances the causal path from climate_oscillation -> weather_systems, increasing the likelihood of persistent milder air advection into southwestern France. The altered weather_systems then feed into short_term_forecast, shifting predicted temperatures upward, especially after 2025-12-21, thereby increasing the chance that 2025-12-28 is warmer. This also reinforces temperature_persistence if mild conditions become established. The event strengthens multiple key causal paths (climate_oscillation → weather_systems → short_term_forecast → outcome) and partially overrides the typical seasonal_trend of slight cooling. Given the systemic impact on the upper atmosphere and downstream effects on regional weather persistence and warmth, the probability is meaningfully increased from baseline.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The stratospheric warming event directly affects the climate_oscillation node by disrupting the polar vortex, which strengthens the influence of large-scale climate modes (e.g., negative NAO phase) that favor blocked atmospheric patterns. This enhances the causal path from climate_oscillation -> weather_systems, increasing the likelihood of persistent milder air advection into southwestern France. The altered weather_systems then feed into short_term_forecast, shifting predicted temperatures upward, especially after 2025-12-21, thereby increasing the chance that 2025-12-28 is warmer. This also reinforces temperature_persistence if mild conditions become established. The event strengthens multiple key causal paths (climate_oscillation → weather_systems → short_term_forecast → outcome) and partially overrides the typical seasonal_trend of slight cooling. Given the systemic impact on the upper atmosphere and downstream effects on regional weather persistence and warmth, the probability is meaningfully increased from baseline.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the urban heat island effect in Bordeaux has intensified slightly over the past decade due to increased city infrastructure. This warming trend has been documented in several municipal climate reports and is particularly noticeable during winter nights.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The urban heat island (UHI) effect in Bordeaux is geographically proximate to Mont-de-Marsan (~60 km away), but the station is not within the urban core where UHI effects are strongest. However, regional warming trends, particularly in winter nights, could subtly influence baseline temperatures in surrounding areas through modified boundary layer conditions and reduced overnight cooling. This information introduces a weak upward trend in winter temperatures in the broader region, which is not fully captured in the current seasonal_trend node. While local_topography and weather_systems remain dominant for daily variations, the gradual regional warming nudges the baseline slightly upward over time. This makes a small increase in the likelihood of higher temperatures on the later date (2025-12-28 vs 2025-12-21) more plausible, especially if the period falls under stable, clear conditions where UHI-influenced air masses could advect toward the region. The effect is minor and does not alter the core causal structure (e.g., weather_systems → short_term_forecast → outcome), but it marginally weakens the seasonal_trend node’s assumption of slight cooling. Thus, the probability shifts slightly upward from 0.52 to 0.53.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The urban heat island (UHI) effect in Bordeaux is geographically proximate to Mont-de-Marsan (~60 km away), but the station is not within the urban core where UHI effects are strongest. However, regional warming trends, particularly in winter nights, could subtly influence baseline temperatures in surrounding areas through modified boundary layer conditions and reduced overnight cooling. This information introduces a weak upward trend in winter temperatures in the broader region, which is not fully captured in the current seasonal_trend node. While local_topography and weather_systems remain dominant for daily variations, the gradual regional warming nudges the baseline slightly upward over time. This makes a small increase in the likelihood of higher temperatures on the later date (2025-12-28 vs 2025-12-21) more plausible, especially if the period falls under stable, clear conditions where UHI-influenced air masses could advect toward the region. The effect is minor and does not alter the core causal structure (e.g., weather_systems → short_term_forecast → outcome), but it marginally weakens the seasonal_trend node’s assumption of slight cooling. Thus, the probability shifts slightly upward from 0.52 to 0.53.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that the urban heat island effect in Mont-de-Marsan has increased slightly over the past decade due to expanded infrastructure around the airport, which now covers 15% more area than in 2015. This warming influence is most noticeable during summer months but remains present year-round.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The new information about the urban heat island (UHI) effect introduces a previously unmodeled node—urbanization-induced warming—that weakly influences the outcome. While the UHI effect is most pronounced in summer, its year-round presence implies a small but consistent warming bias at the Mont-de-Marsan station, particularly given the airport's proximity to the weather station. This warming trend may slightly increase baseline temperatures over time, and since 2025-12-28 is later than 2025-12-21, it could be marginally more affected by cumulative UHI growth. This creates a weak causal path from urban_development -> local_warming -> outcome, reinforcing the seasonal_trend node but acting independently of it. However, because the effect is small in winter and the two dates are only one week apart, the impact on the temperature difference is minimal. The main causal drivers—weather_systems, short_term_forecast, and temperature_persistence—remain dominant. Thus, the update is small, slightly increasing the probability from 0.52 to 0.53, reflecting a marginal structural addition to the network rather than a disruption of existing paths.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information about the urban heat island (UHI) effect introduces a previously unmodeled node—urbanization-induced warming—that weakly influences the outcome. While the UHI effect is most pronounced in summer, its year-round presence implies a small but consistent warming bias at the Mont-de-Marsan station, particularly given the airport's proximity to the weather station. This warming trend may slightly increase baseline temperatures over time, and since 2025-12-28 is later than 2025-12-21, it could be marginally more affected by cumulative UHI growth. This creates a weak causal path from urban_development -> local_warming -> outcome, reinforcing the seasonal_trend node but acting independently of it. However, because the effect is small in winter and the two dates are only one week apart, the impact on the temperature difference is minimal. The main causal drivers—weather_systems, short_term_forecast, and temperature_persistence—remain dominant. Thus, the update is small, slightly increasing the probability from 0.52 to 0.53, reflecting a marginal structural addition to the network rather than a disruption of existing paths.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In late 2025, a strong positive phase of the North Atlantic Oscillation (NAO) develops, characterized by a persistent pressure gradient between the Azores High and Icelandic Low. This pattern enhances the likelihood of mild, stable westerly airflow into southwestern France during December, reinforcing the influence of large-scale climate modes on regional weather. Historical analogs show that such NAO conditions systematically increase winter temperature variability and amplify the impact of climate oscillations on local temperature outcomes at Mont-de-Marsan.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the 'climate_oscillation' node by specifying a strong positive NAO phase in late 2025, which enhances mild westerly flow into southwestern France. This intensifies the causal path from climate_oscillation -> weather_systems, leading to more persistent mild conditions. In turn, this reinforces weather_systems -> short_term_forecast and short_term_forecast -> outcome, increasing the likelihood of higher temperatures on the later date. Additionally, historical analogs indicate amplified temperature variability under such NAO conditions, which, combined with the westerly mild flow, raises the probability that 2025-12-28 is warmer than 2025-12-21 despite the slight seasonal cooling trend. The outcome is a moderate upward revision from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the 'climate_oscillation' node by specifying a strong positive NAO phase in late 2025, which enhances mild westerly flow into southwestern France. This intensifies the causal path from climate_oscillation -> weather_systems, leading to more persistent mild conditions. In turn, this reinforces weather_systems -> short_term_forecast and short_term_forecast -> outcome, increasing the likelihood of higher temperatures on the later date. Additionally, historical analogs indicate amplified temperature variability under such NAO conditions, which, combined with the westerly mild flow, raises the probability that 2025-12-28 is warmer than 2025-12-21 despite the slight seasonal cooling trend. The outcome is a moderate upward revision from 0.52 to 0.58.\"\n}",
+      "target_id": "climate_oscillation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Historical weather data from Mont-de-Marsan for the period 2000–2024 shows that in 78% of December cases, daily average temperatures changed by less than 2°C over consecutive 7-day intervals, indicating strong short-term stability. This pattern is especially pronounced during periods of high-pressure dominance, which are common in the region during winter and contribute to consistent diurnal cycles and reduced air mass turnover. The persistence signal is detectable even when accounting for broader seasonal trends, suggesting that day-to-day inertia plays a measurable role in local temperature variation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the 'temperature_persistence' node by providing empirical evidence from historical data that temperatures in Mont-de-Marsan exhibit strong short-term stability over 7-day intervals in December. This increases confidence in the causal link from temperature_persistence to outcome, as stable conditions make it more likely that temperatures on 2025-12-28 will resemble those on 2025-12-21. However, since the outcome is a comparison (higher on the later date), persistence alone does not guarantee directionality. But given that persistence reduces the likelihood of large swings and the seasonal trend suggests slight cooling, the balance shifts slightly toward expecting no change or small increases. Combined with the baseline probability near 0.5, the added weight to persistence increases the probability that temperatures remain similar, slightly favoring continuity unless disrupted — thus increasing the chance that if one day is warmer, the next week is not substantially cooler. This strengthens the path from temperature_persistence to outcome and modestly raises the probability from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the 'temperature_persistence' node by providing empirical evidence from historical data that temperatures in Mont-de-Marsan exhibit strong short-term stability over 7-day intervals in December. This increases confidence in the causal link from temperature_persistence to outcome, as stable conditions make it more likely that temperatures on 2025-12-28 will resemble those on 2025-12-21. However, since the outcome is a comparison (higher on the later date), persistence alone does not guarantee directionality. But given that persistence reduces the likelihood of large swings and the seasonal trend suggests slight cooling, the balance shifts slightly toward expecting no change or small increases. Combined with the baseline probability near 0.5, the added weight to persistence increases the probability that temperatures remain similar, slightly favoring continuity unless disrupted — thus increasing the chance that if one day is warmer, the next week is not substantially cooler. This strengthens the path from temperature_persistence to outcome and modestly raises the probability from 0.52 to 0.58.\"\n}",
+      "target_id": "temperature_persistence",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent upgrades to the AROME numerical weather prediction model in 2024 have significantly improved the resolution and accuracy of short-term temperature forecasts in southwestern France by better assimilating real-time observations of frontal passages and convective systems. These improvements have been shown to directly reduce forecast errors when rapid weather system transitions occur, confirming that the sequence and type of weather systems are a dominant driver of short-term temperature variability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The new information confirms and strengthens the causal link between weather_systems and short_term_forecast, rather than challenging it. It highlights that improvements in the AROME model have enhanced the accuracy of short-term forecasts by better capturing the impact of weather systems, reinforcing the validity of this pathway. Since this strengthens a link that was already part of the causal structure—and does not alter the expected net effect on the outcome—the overall probability remains unchanged. The original estimate already accounted for the influence of weather systems on short-term forecasts and hence on the outcome; the update provides confidence in that mechanism but does not shift the balance of evidence toward a warmer or cooler outcome on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The new information confirms and strengthens the causal link between weather_systems and short_term_forecast, rather than challenging it. It highlights that improvements in the AROME model have enhanced the accuracy of short-term forecasts by better capturing the impact of weather systems, reinforcing the validity of this pathway. Since this strengthens a link that was already part of the causal structure—and does not alter the expected net effect on the outcome—the overall probability remains unchanged. The original estimate already accounted for the influence of weather systems on short-term forecasts and hence on the outcome; the update provides confidence in that mechanism but does not shift the balance of evidence toward a warmer or cooler outcome on the later date.\"\n}",
+      "target_id": "weather_systems->short_term_forecast",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent upgrade to the AROME numerical weather prediction model in 2024 has significantly improved short-term temperature forecasts in southwestern France, reducing mean error by 18% compared to previous versions. This enhancement increases the reliability of short-term forecasts as direct indicators of actual temperature outcomes, making them even more predictive of daily temperature differences at locations like Mont-de-Marsan.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The enhancement to the AROME model strengthens the causal link between short_term_forecast and outcome by increasing the reliability of short-term temperature predictions. Since short_term_forecast is a direct input into assessing the likely temperature difference between 2025-12-28 and 2025-12-21, a more accurate forecast implies that deviations from the seasonal trend or persistence patterns are better captured. This increased confidence in the forecast slightly raises the probability that the forecasted temperature difference (whatever it may be) will materialize. However, since the forecast itself is not specified—only its improved accuracy—the update reflects a modest increase in confidence in the forecasting signal, not a directional shift in expected temperature. The effect is small because the original network already accounted for short_term_forecast as a key driver, and the improvement enhances precision rather than introducing a new causal pathway.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The enhancement to the AROME model strengthens the causal link between short_term_forecast and outcome by increasing the reliability of short-term temperature predictions. Since short_term_forecast is a direct input into assessing the likely temperature difference between 2025-12-28 and 2025-12-21, a more accurate forecast implies that deviations from the seasonal trend or persistence patterns are better captured. This increased confidence in the forecast slightly raises the probability that the forecasted temperature difference (whatever it may be) will materialize. However, since the forecast itself is not specified—only its improved accuracy—the update reflects a modest increase in confidence in the forecasting signal, not a directional shift in expected temperature. The effect is small because the original network already accounted for short_term_forecast as a key driver, and the improvement enhances precision rather than introducing a new causal pathway.\"\n}",
+      "target_id": "short_term_forecast->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07607.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Mont-de-Marsan will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.043750000000000004,
+    "max_absolute_shift": 0.19999999999999996
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 1.8269230769230769,
+    "mean_shift_high": 0.0475,
+    "mean_shift_low": 0.026000000000000002,
+    "asymmetry_index": 0.3428571428571433,
+    "mean_shift_negate": 0.022857142857142878,
+    "mean_shift_strengthen": 0.06666666666666664,
+    "fnar": 0.5,
+    "n_accepted": 2,
+    "n_spurious": 4,
+    "critical_path_premium": -0.005999999999999998,
+    "mean_shift_on_path": 0.039,
+    "mean_shift_off_path": 0.045,
+    "importance_sensitivity_correlation": -0.20606060606060606,
+    "control_sensitivity": 0
+  }
+}

@@ -1,0 +1,1096 @@
+{
+  "question_id": "ALGN",
+  "question_text": "Will ALGN's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.53,
+  "nodes": [
+    {
+      "id": "market_sentiment",
+      "description": "Overall investor sentiment and market trends during the week",
+      "role": "factor"
+    },
+    {
+      "id": "company_news",
+      "description": "Company-specific news, earnings, or announcements affecting ALGN",
+      "role": "factor"
+    },
+    {
+      "id": "sector_performance",
+      "description": "Performance of the healthcare/medical devices sector",
+      "role": "factor"
+    },
+    {
+      "id": "macroeconomic_factors",
+      "description": "Broader economic conditions like interest rates or inflation",
+      "role": "factor"
+    },
+    {
+      "id": "technical_indicators",
+      "description": "Price trends, volume, and technical analysis signals for ALGN",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "ALGN's market close price on 2025-12-28 is higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "macroeconomic_factors",
+      "to": "market_sentiment",
+      "mechanism": "Economic conditions influence overall investor confidence and risk appetite"
+    },
+    {
+      "from": "macroeconomic_factors",
+      "to": "sector_performance",
+      "mechanism": "Economic factors affect healthcare sector spending and investment"
+    },
+    {
+      "from": "company_news",
+      "to": "market_sentiment",
+      "mechanism": "ALGN-specific developments impact broader investor perceptions"
+    },
+    {
+      "from": "company_news",
+      "to": "technical_indicators",
+      "mechanism": "News drives short-term trading activity and price movements"
+    },
+    {
+      "from": "sector_performance",
+      "to": "market_sentiment",
+      "mechanism": "Sector trends influence market-wide sentiment toward related stocks"
+    },
+    {
+      "from": "market_sentiment",
+      "to": "technical_indicators",
+      "mechanism": "Investor sentiment affects buying/selling pressure and price patterns"
+    },
+    {
+      "from": "technical_indicators",
+      "to": "outcome",
+      "mechanism": "Price and volume trends directly influence the weekly price comparison"
+    },
+    {
+      "from": "company_news",
+      "to": "outcome",
+      "mechanism": "Direct company events can cause immediate price changes within the week"
+    }
+  ],
+  "reasoning": "ALGN's stock price over a one-week period is influenced by multiple factors, with limited predictability due to short-term noise. The forecast probability of 0.53 reflects slight optimism based on typical market behavior where stocks have a modest upward bias over time, but uncertainty is high given potential volatility from company news, sector shifts, and macroeconomic conditions. The causal network includes indirect chains (e.g., macroeconomic factors affecting sector performance and sentiment, which then influence technical indicators and the outcome), capturing both direct and mediated influences on the price comparison.",
+  "network_analysis": {
+    "n_nodes": 6,
+    "n_edges": 8,
+    "density": 0.2667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 6,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "market_sentiment",
+        "description": "Overall investor sentiment and market trends during the week",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.2,
+        "closeness": 0.6,
+        "pagerank": 0.2001,
+        "path_relevance": 0.4
+      },
+      {
+        "node_id": "company_news",
+        "description": "Company-specific news, earnings, or announcements affecting ALGN",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 3,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0685,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "sector_performance",
+        "description": "Performance of the healthcare/medical devices sector",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.2,
+        "pagerank": 0.0976,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "macroeconomic_factors",
+        "description": "Broader economic conditions like interest rates or inflation",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0685,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "technical_indicators",
+        "description": "Price trends, volume, and technical analysis signals for ALGN",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.15,
+        "closeness": 0.5333,
+        "pagerank": 0.258,
+        "path_relevance": 0.6
+      },
+      {
+        "node_id": "outcome",
+        "description": "ALGN's market close price on 2025-12-28 is higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3072,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "market_sentiment",
+        "target": "technical_indicators",
+        "mechanism": "Investor sentiment affects buying/selling pressure and price patterns",
+        "edge_betweenness": 0.2,
+        "on_critical_path": true
+      },
+      {
+        "source": "company_news",
+        "target": "market_sentiment",
+        "mechanism": "ALGN-specific developments impact broader investor perceptions",
+        "edge_betweenness": 0.0333,
+        "on_critical_path": false
+      },
+      {
+        "source": "company_news",
+        "target": "technical_indicators",
+        "mechanism": "News drives short-term trading activity and price movements",
+        "edge_betweenness": 0.0333,
+        "on_critical_path": false
+      },
+      {
+        "source": "company_news",
+        "target": "outcome",
+        "mechanism": "Direct company events can cause immediate price changes within the week",
+        "edge_betweenness": 0.0333,
+        "on_critical_path": true
+      },
+      {
+        "source": "sector_performance",
+        "target": "market_sentiment",
+        "mechanism": "Sector trends influence market-wide sentiment toward related stocks",
+        "edge_betweenness": 0.1,
+        "on_critical_path": true
+      },
+      {
+        "source": "macroeconomic_factors",
+        "target": "market_sentiment",
+        "mechanism": "Economic conditions influence overall investor confidence and risk appetite",
+        "edge_betweenness": 0.1,
+        "on_critical_path": true
+      },
+      {
+        "source": "macroeconomic_factors",
+        "target": "sector_performance",
+        "mechanism": "Economic factors affect healthcare sector spending and investment",
+        "edge_betweenness": 0.0333,
+        "on_critical_path": false
+      },
+      {
+        "source": "technical_indicators",
+        "target": "outcome",
+        "mechanism": "Price and volume trends directly influence the weekly price comparison",
+        "edge_betweenness": 0.1333,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment",
+        "description": "Overall investor sentiment and market trends during the week",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "technical_indicators",
+        "description": "Price trends, volume, and technical analysis signals for ALGN",
+        "importance": 0.15,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "company_news",
+        "description": "Company-specific news, earnings, or announcements affecting ALGN",
+        "importance": 0,
+        "centrality_rank": 3,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "macroeconomic_factors",
+        "description": "Broader economic conditions like interest rates or inflation",
+        "importance": 0,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment",
+        "description": "Overall investor sentiment and market trends during the week",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "technical_indicators",
+        "description": "Price trends, volume, and technical analysis signals for ALGN",
+        "importance": 0.15,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment->technical_indicators",
+        "description": "Investor sentiment affects buying/selling pressure and price patterns",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "technical_indicators->outcome",
+        "description": "Price and volume trends directly influence the weekly price comparison",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "company_news->market_sentiment",
+        "description": "ALGN-specific developments impact broader investor perceptions",
+        "importance": 0.0333,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment->technical_indicators",
+        "description": "Investor sentiment affects buying/selling pressure and price patterns",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "sector_performance->company_news",
+        "description": "Potential link: Performance of the healthcare/medical devices sector -> Company-specific news, earnings, or announcements affecting ALGN",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "sector_performance->technical_indicators",
+        "description": "Potential link: Performance of the healthcare/medical devices sector -> Price trends, volume, and technical analysis signals for ALGN",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment",
+      "description": "Overall investor sentiment and market trends during the week",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "technical_indicators",
+      "description": "Price trends, volume, and technical analysis signals for ALGN",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "company_news",
+      "description": "Company-specific news, earnings, or announcements affecting ALGN",
+      "importance": 0,
+      "centrality_rank": 3,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "macroeconomic_factors",
+      "description": "Broader economic conditions like interest rates or inflation",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment",
+      "description": "Overall investor sentiment and market trends during the week",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "technical_indicators",
+      "description": "Price trends, volume, and technical analysis signals for ALGN",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment->technical_indicators",
+      "description": "Investor sentiment affects buying/selling pressure and price patterns",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "technical_indicators->outcome",
+      "description": "Price and volume trends directly influence the weekly price comparison",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "company_news->market_sentiment",
+      "description": "ALGN-specific developments impact broader investor perceptions",
+      "importance": 0.0333,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment->technical_indicators",
+      "description": "Investor sentiment affects buying/selling pressure and price patterns",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "sector_performance->company_news",
+      "description": "Potential link: Performance of the healthcare/medical devices sector -> Company-specific news, earnings, or announcements affecting ALGN",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "sector_performance->technical_indicators",
+      "description": "Potential link: Performance of the healthcare/medical devices sector -> Price trends, volume, and technical analysis signals for ALGN",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent high-frequency trading algorithms and institutional hedging strategies have largely decoupled ALGN's weekly price movements from broad market sentiment. These automated systems react primarily to order flow and volatility metrics, not to investor confidence or general market trends. Therefore, even a significant shift in overall market sentiment during the week might have negligible impact on ALGN's specific price action.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall investor sentiment and market trends during the week"
+    },
+    {
+      "probe_text": "Technical analysis signals like price trends and volume are often dismissed as self-fulfilling prophecies with no predictive power in efficient markets, especially for a stock like ALGN that is highly sensitive to news and sector dynamics. If algorithmic trading or large institutional orders create artificial patterns, technical indicators could be entirely irrelevant noise, failing to reflect genuine supply-demand fundamentals. In a volatile week, sudden macroeconomic shifts or unexpected company announcements could completely override any technical signals, rendering them meaningless for the weekly price outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "technical_indicators",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Price trends, volume, and technical analysis signals for ALGN"
+    },
+    {
+      "probe_text": "ALGN has scheduled a corporate quiet period from December 15-31, 2025, prohibiting any new company-specific announcements, earnings releases, or material updates during that time. This regulatory restriction ensures that no ALGN-driven news will enter the market in the week leading up to the price comparison date. Therefore, the 'company_news' factor should have minimal to no causal influence on the outcome during this specific forecast period.",
+      "probe_type": "node_negate_medium",
+      "target_id": "company_news",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 3,
+      "on_critical_path": false,
+      "description": "Company-specific news, earnings, or announcements affecting ALGN"
+    },
+    {
+      "probe_text": "The Federal Reserve has signaled that interest rates will remain unchanged throughout December 2025, and recent inflation data has been precisely in line with market expectations, showing no unexpected volatility. This suggests that broader economic conditions are highly stable and already fully priced into the market, making them unlikely to drive any meaningful changes in sentiment or sector performance during the specific week in question. Given this, macroeconomic factors may be irrelevant for forecasting ALGN's short-term price movement between these two dates.",
+      "probe_type": "node_negate_low",
+      "target_id": "macroeconomic_factors",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "Broader economic conditions like interest rates or inflation"
+    },
+    {
+      "probe_text": "A major investment bank has just released a report predicting a surge in market-wide risk appetite during the week of 2025-12-21, citing historically low volatility indices and record inflows into equity funds. Their model forecasts a broad 'Santa Claus rally' across major indices, driven by strong seasonal sentiment and positive institutional positioning. This suggests overall investor sentiment is exceptionally bullish and likely to be a dominant driver of stock movements that week.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall investor sentiment and market trends during the week"
+    },
+    {
+      "probe_text": "A widely-followed technical analyst has published a detailed report showing that ALGN's price has formed a strong bullish 'inverse head and shoulders' pattern on its weekly chart, with a breakout above its 50-week moving average accompanied by a 50% surge in average weekly volume over the past month. The report concludes this specific confluence of signals has historically preceded a sustained upward move in ALGN's price over the subsequent 1-4 weeks with 80% accuracy.",
+      "probe_type": "node_strengthen",
+      "target_id": "technical_indicators",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.15,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Price trends, volume, and technical analysis signals for ALGN"
+    },
+    {
+      "probe_text": "Recent analysis shows that for ALGN, high-frequency trading algorithms dominate daily price movements, making technical indicators like moving averages and RSI primarily driven by algorithmic patterns rather than shifts in market sentiment. For example, during periods of high sentiment volatility in 2024, ALGN's technical indicators remained stable due to algorithmic arbitrage, decoupling them from broader investor mood. This suggests market sentiment may have a negligible direct effect on ALGN's technical indicators compared to automated trading systems.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "market_sentiment->technical_indicators",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Investor sentiment affects buying/selling pressure and price patterns"
+    },
+    {
+      "probe_text": "New research suggests that for a highly liquid, widely followed stock like ALGN, technical indicators often act as lagging reflections of past price movements rather than predictive drivers, especially over a short one-week horizon. During periods dominated by major scheduled events like FDA decisions or earnings announcements, the direct impact of company news and market sentiment can overwhelm any signal from technical patterns, rendering them largely irrelevant for predicting the next week's close. Additionally, algorithmic trading designed to exploit common technical signals can create self-canceling effects, weakening the causal link between indicators and subsequent price action.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "technical_indicators->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Price and volume trends directly influence the weekly price comparison"
+    },
+    {
+      "probe_text": "Consider that ALGN is a mid-cap stock in the medical devices sector, and its company-specific news, such as product approvals or earnings reports, often has limited impact on broader market sentiment due to its relatively small market influence. Instead, market-wide sentiment is predominantly driven by macroeconomic data releases, central bank decisions, and large-cap tech or financial sector movements, making ALGN-specific developments largely peripheral to overall investor confidence. Therefore, the causal link from company_news to market_sentiment might be weak or negligible in this context.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "company_news->market_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0333,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "ALGN-specific developments impact broader investor perceptions"
+    },
+    {
+      "probe_text": "Technical indicators like moving average crossovers and RSI levels are often used by algorithmic trading systems to trigger automated buy or sell orders. When these automated trades are executed in large volumes, they can create self-reinforcing price trends that directly influence overall market sentiment. For example, a 'golden cross' signal can trigger widespread algorithmic buying, which then boosts investor confidence and sentiment, rather than sentiment driving the technical patterns.",
+      "probe_type": "edge_reverse",
+      "target_id": "market_sentiment->technical_indicators",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Investor sentiment affects buying/selling pressure and price patterns"
+    },
+    {
+      "probe_text": "Consider that a strong performance in the healthcare/medical devices sector could lead to increased investor confidence in the industry, prompting ALGN's management to accelerate the announcement of a major product launch or strategic partnership to capitalize on the favorable market conditions. Conversely, a severe sector-wide downturn might force ALGN to preemptively issue a negative earnings guidance revision or announce cost-cutting measures. In either scenario, the sector's performance directly influences the timing and content of company-specific news.",
+      "probe_type": "edge_spurious",
+      "target_id": "sector_performance->company_news",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Performance of the healthcare/medical devices sector -> Company-specific news, earnings, or announcements affecting ALGN"
+    },
+    {
+      "probe_text": "Suppose we observe that over the next week, the healthcare sector experiences a major rally due to favorable FDA regulatory changes, leading to increased institutional buying of sector ETFs and basket trades. This sector-wide momentum often causes technical indicators for individual stocks like ALGN to show bullish patterns—such as rising on-balance volume and moving average crossovers—even in the absence of company-specific news. Ignoring this direct link from sector performance to technical indicators could lead to misattributing ALGN's price movements to company-specific factors when they are actually driven by broader sectoral flows.",
+      "probe_type": "edge_spurious",
+      "target_id": "sector_performance->technical_indicators",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Performance of the healthcare/medical devices sector -> Price trends, volume, and technical analysis signals for ALGN"
+    },
+    {
+      "probe_text": "Consider that major institutional investors often rebalance their portfolios near quarter-ends and year-ends, which includes late December. If a large index fund or pension fund decides to significantly increase or decrease its holdings of ALGN during the week of December 21-28, 2025, this could cause substantial price pressure independent of typical news, sentiment, or technicals. Would this potential for outsized institutional rebalancing flows, a factor not in your model, alter your probability estimate?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the potential for a major competitor in the clear aligner market, such as SmileDirectClub's revival or a new entrant, to launch a disruptive product or pricing strategy specifically during the week of December 21-28, 2025. This competitor action could directly siphon market share expectations from ALGN, leading to negative analyst revisions and immediate selling pressure, thus affecting the weekly close-to-close price comparison independent of broader market or sector trends.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A major competitor to ALGN in the clear aligner space announced a new partnership with a European dental distributor, but this announcement was made two weeks before the week in question and had already been fully priced into the market by 2025-12-21.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A major financial news outlet has just published an in-depth profile of the CEO of ALGN, highlighting their management style and personal background. The article is widely shared on social media but contains no new information about the company's financial performance, products, or strategic plans.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent high-frequency trading algorithms and institutional hedging strategies have largely decoupled ALGN's weekly price movements from broad market sentiment. These automated systems react primarily to order flow and volatility metrics, not to investor confidence or general market trends. Therefore, even a significant shift in overall market sentiment during the week might have negligible impact on ALGN's specific price action.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link from market_sentiment to technical_indicators, arguing that ALGN's weekly price movements are decoupled from broad market sentiment due to high-frequency trading and institutional hedging. This weakens one indirect path (market_sentiment -> technical_indicators -> outcome), but other direct and indirect paths remain intact: company_news directly impacts outcome and technical_indicators, sector_performance influences market_sentiment (though its effect is now lessened), and macroeconomic_factors still affect sector_performance and company_news indirectly. Since market_sentiment was a mediating factor rather than a primary driver, and the outcome depends more on company-specific events and technical indicators, the update is modest. The probability decreases slightly as the network becomes less sensitive to general market trends, but the core drivers (company_news, technical_indicators) retain importance.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link from market_sentiment to technical_indicators, arguing that ALGN's weekly price movements are decoupled from broad market sentiment due to high-frequency trading and institutional hedging. This weakens one indirect path (market_sentiment -> technical_indicators -> outcome), but other direct and indirect paths remain intact: company_news directly impacts outcome and technical_indicators, sector_performance influences market_sentiment (though its effect is now lessened), and macroeconomic_factors still affect sector_performance and company_news indirectly. Since market_sentiment was a mediating factor rather than a primary driver, and the outcome depends more on company-specific events and technical indicators, the update is modest. The probability decreases slightly as the network becomes less sensitive to general market trends, but the core drivers (company_news, technical_indicators) retain importance.\"\n}",
+      "target_id": "market_sentiment",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Technical analysis signals like price trends and volume are often dismissed as self-fulfilling prophecies with no predictive power in efficient markets, especially for a stock like ALGN that is highly sensitive to news and sector dynamics. If algorithmic trading or large institutional orders create artificial patterns, technical indicators could be entirely irrelevant noise, failing to reflect genuine supply-demand fundamentals. In a volatile week, sudden macroeconomic shifts or unexpected company announcements could completely override any technical signals, rendering them meaningless for the weekly price outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge argues that technical indicators may be irrelevant noise, lacking predictive power in efficient markets, especially for a stock like ALGN that is sensitive to news and sector dynamics, and could be overridden by sudden macroeconomic shifts or company announcements. This directly affects the causal path 'technical_indicators -> outcome', which I previously considered a direct influence on the weekly price comparison. However, my causal network also includes other significant paths: 'company_news -> outcome' (direct impact) and 'market_sentiment -> technical_indicators -> outcome' (indirect via sentiment). The challenge reduces the weight of technical indicators as a reliable predictor, but does not eliminate them entirely—they may still reflect short-term trading patterns. Given that technical indicators were one of several factors, and the outcome depends heavily on company-specific news and broader market sentiment (which remain intact), the update is moderate. The probability decreases slightly because technical indicators are now seen as less reliable, increasing uncertainty, but other causal paths (e.g., company_news, sector_performance) still provide predictive information. The shift is not large because technical indicators were not the sole or overwhelmingly dominant factor in my initial estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge argues that technical indicators may be irrelevant noise, lacking predictive power in efficient markets, especially for a stock like ALGN that is sensitive to news and sector dynamics, and could be overridden by sudden macroeconomic shifts or company announcements. This directly affects the causal path 'technical_indicators -> outcome', which I previously considered a direct influence on the weekly price comparison. However, my causal network also includes other significant paths: 'company_news -> outcome' (direct impact) and 'market_sentiment -> technical_indicators -> outcome' (indirect via sentiment). The challenge reduces the weight of technical indicators as a reliable predictor, but does not eliminate them entirely—they may still reflect short-term trading patterns. Given that technical indicators were one of several factors, and the outcome depends heavily on company-specific news and broader market sentiment (which remain intact), the update is moderate. The probability decreases slightly because technical indicators are now seen as less reliable, increasing uncertainty, but other causal paths (e.g., company_news, sector_performance) still provide predictive information. The shift is not large because technical indicators were not the sole or overwhelmingly dominant factor in my initial estimate.\"\n}",
+      "target_id": "technical_indicators",
+      "target_type": "node",
+      "target_importance": 0.15,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "ALGN has scheduled a corporate quiet period from December 15-31, 2025, prohibiting any new company-specific announcements, earnings releases, or material updates during that time. This regulatory restriction ensures that no ALGN-driven news will enter the market in the week leading up to the price comparison date. Therefore, the 'company_news' factor should have minimal to no causal influence on the outcome during this specific forecast period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.49,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge removes the direct causal influence of 'company_news' on the outcome and weakens its influence via 'technical_indicators' and 'market_sentiment' during the critical forecast week. This eliminates a potential source of positive price movement (e.g., unexpectedly good news). The outcome now depends more heavily on pre-existing trends, sector performance, and broader market factors, which may be less volatile but also lack a positive catalyst. The absence of news reduces upside potential slightly more than it reduces downside risk, as negative sentiment can still propagate from other factors. However, the update is moderate because 'company_news' was only one of several causal factors, and its influence via other nodes (like market sentiment) may still be present based on news released before the quiet period.",
+      "raw_response": "{\n  \"updated_probability\": 0.49,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge removes the direct causal influence of 'company_news' on the outcome and weakens its influence via 'technical_indicators' and 'market_sentiment' during the critical forecast week. This eliminates a potential source of positive price movement (e.g., unexpectedly good news). The outcome now depends more heavily on pre-existing trends, sector performance, and broader market factors, which may be less volatile but also lack a positive catalyst. The absence of news reduces upside potential slightly more than it reduces downside risk, as negative sentiment can still propagate from other factors. However, the update is moderate because 'company_news' was only one of several causal factors, and its influence via other nodes (like market sentiment) may still be present based on news released before the quiet period.\"\n}",
+      "target_id": "company_news",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 3,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve has signaled that interest rates will remain unchanged throughout December 2025, and recent inflation data has been precisely in line with market expectations, showing no unexpected volatility. This suggests that broader economic conditions are highly stable and already fully priced into the market, making them unlikely to drive any meaningful changes in sentiment or sector performance during the specific week in question. Given this, macroeconomic factors may be irrelevant for forecasting ALGN's short-term price movement between these two dates.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge argues that macroeconomic factors (Fed policy, inflation) are stable and fully priced in, reducing their potential to drive new sentiment or sector performance changes during the specific week. This weakens two causal edges: 'macroeconomic_factors -> market_sentiment' and 'macroeconomic_factors -> sector_performance'. However, these factors were already indirect influences; the direct paths from company_news and technical_indicators to the outcome remain intact. The stability might even slightly reduce downside volatility from economic shocks. The challenge is plausible but not catastrophic to the network, as short-term price movements are more driven by company-specific events and technicals. My initial estimate of 0.53 already reflected high uncertainty. I slightly increase the probability because reduced macroeconomic uncertainty marginally favors a stable or positive drift, but the update is small because the challenged element was not the primary driver.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge argues that macroeconomic factors (Fed policy, inflation) are stable and fully priced in, reducing their potential to drive new sentiment or sector performance changes during the specific week. This weakens two causal edges: 'macroeconomic_factors -> market_sentiment' and 'macroeconomic_factors -> sector_performance'. However, these factors were already indirect influences; the direct paths from company_news and technical_indicators to the outcome remain intact. The stability might even slightly reduce downside volatility from economic shocks. The challenge is plausible but not catastrophic to the network, as short-term price movements are more driven by company-specific events and technicals. My initial estimate of 0.53 already reflected high uncertainty. I slightly increase the probability because reduced macroeconomic uncertainty marginally favors a stable or positive drift, but the update is small because the challenged element was not the primary driver.\"\n}",
+      "target_id": "macroeconomic_factors",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A major investment bank has just released a report predicting a surge in market-wide risk appetite during the week of 2025-12-21, citing historically low volatility indices and record inflows into equity funds. Their model forecasts a broad 'Santa Claus rally' across major indices, driven by strong seasonal sentiment and positive institutional positioning. This suggests overall investor sentiment is exceptionally bullish and likely to be a dominant driver of stock movements that week.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the 'market_sentiment' node by providing specific evidence of exceptionally bullish sentiment during the relevant week (a predicted 'Santa Claus rally' with low volatility and high equity inflows). This affects multiple causal paths: market_sentiment -> technical_indicators (increased buying pressure and positive price trends) and macroeconomic_factors -> market_sentiment (reinforcing positive sentiment from economic conditions). Since market_sentiment influences technical indicators and broader market trends, which directly impact ALGN's short-term price movement, the probability of a higher close increases. However, the update is moderate (not large) because ALGN's price also depends on company-specific news and sector performance, which may not fully align with the broad market optimism, and the outcome is a binary weekly comparison where sentiment-driven gains could be offset by other factors within the week.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the 'market_sentiment' node by providing specific evidence of exceptionally bullish sentiment during the relevant week (a predicted 'Santa Claus rally' with low volatility and high equity inflows). This affects multiple causal paths: market_sentiment -> technical_indicators (increased buying pressure and positive price trends) and macroeconomic_factors -> market_sentiment (reinforcing positive sentiment from economic conditions). Since market_sentiment influences technical indicators and broader market trends, which directly impact ALGN's short-term price movement, the probability of a higher close increases. However, the update is moderate (not large) because ALGN's price also depends on company-specific news and sector performance, which may not fully align with the broad market optimism, and the outcome is a binary weekly comparison where sentiment-driven gains could be offset by other factors within the week.\"\n}",
+      "target_id": "market_sentiment",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A widely-followed technical analyst has published a detailed report showing that ALGN's price has formed a strong bullish 'inverse head and shoulders' pattern on its weekly chart, with a breakout above its 50-week moving average accompanied by a 50% surge in average weekly volume over the past month. The report concludes this specific confluence of signals has historically preceded a sustained upward move in ALGN's price over the subsequent 1-4 weeks with 80% accuracy.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the 'technical_indicators -> outcome' causal link by providing specific, high-confidence bullish signals (inverse head and shoulders pattern, breakout above 50-week moving average, volume surge) with historical 80% accuracy for ALGN. This directly enhances the influence of technical indicators on the outcome, increasing the probability of a higher close price. The effect is moderate because technical indicators are one of several causal factors, and the forecast period is specific (one week), but the strength and specificity of the signals justify a meaningful update.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the 'technical_indicators -> outcome' causal link by providing specific, high-confidence bullish signals (inverse head and shoulders pattern, breakout above 50-week moving average, volume surge) with historical 80% accuracy for ALGN. This directly enhances the influence of technical indicators on the outcome, increasing the probability of a higher close price. The effect is moderate because technical indicators are one of several causal factors, and the forecast period is specific (one week), but the strength and specificity of the signals justify a meaningful update.\"\n}",
+      "target_id": "technical_indicators",
+      "target_type": "node",
+      "target_importance": 0.15,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis shows that for ALGN, high-frequency trading algorithms dominate daily price movements, making technical indicators like moving averages and RSI primarily driven by algorithmic patterns rather than shifts in market sentiment. For example, during periods of high sentiment volatility in 2024, ALGN's technical indicators remained stable due to algorithmic arbitrage, decoupling them from broader investor mood. This suggests market sentiment may have a negligible direct effect on ALGN's technical indicators compared to automated trading systems.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link from market_sentiment to technical_indicators, suggesting algorithmic trading decouples technical indicators from broader investor mood. This weakens one indirect path (market_sentiment -> technical_indicators -> outcome) through which macroeconomic_factors, company_news, and sector_performance could influence the outcome. However, the direct causal links from company_news to outcome and from company_news to technical_indicators remain intact. The link from technical_indicators to outcome is also not directly challenged. Since market_sentiment was a mediating node aggregating multiple influences, its reduced effect on technical indicators slightly diminishes the overall predictive strength of the network, but the core drivers (direct company news and algorithmic patterns themselves) remain. This warrants a small decrease in probability, as the outcome is now slightly less influenced by the aggregated sentiment factor.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link from market_sentiment to technical_indicators, suggesting algorithmic trading decouples technical indicators from broader investor mood. This weakens one indirect path (market_sentiment -> technical_indicators -> outcome) through which macroeconomic_factors, company_news, and sector_performance could influence the outcome. However, the direct causal links from company_news to outcome and from company_news to technical_indicators remain intact. The link from technical_indicators to outcome is also not directly challenged. Since market_sentiment was a mediating node aggregating multiple influences, its reduced effect on technical indicators slightly diminishes the overall predictive strength of the network, but the core drivers (direct company news and algorithmic patterns themselves) remain. This warrants a small decrease in probability, as the outcome is now slightly less influenced by the aggregated sentiment factor.\"\n}",
+      "target_id": "market_sentiment->technical_indicators",
+      "target_type": "edge",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "New research suggests that for a highly liquid, widely followed stock like ALGN, technical indicators often act as lagging reflections of past price movements rather than predictive drivers, especially over a short one-week horizon. During periods dominated by major scheduled events like FDA decisions or earnings announcements, the direct impact of company news and market sentiment can overwhelm any signal from technical patterns, rendering them largely irrelevant for predicting the next week's close. Additionally, algorithmic trading designed to exploit common technical signals can create self-canceling effects, weakening the causal link between indicators and subsequent price action.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the 'technical_indicators -> outcome' causal link, which was previously considered a direct driver of the weekly price comparison. This reduces the influence of price trends and volume signals, shifting more weight to 'company_news -> outcome' and indirect paths through 'market_sentiment'. However, since technical indicators were not the sole or dominant driver in the network (especially given the short horizon and potential for event-driven volatility), the update is modest. The probability decreases slightly because the removal of a predictive element reduces overall confidence in directional forecasting, but other paths (e.g., direct company news effects) remain intact.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the 'technical_indicators -> outcome' causal link, which was previously considered a direct driver of the weekly price comparison. This reduces the influence of price trends and volume signals, shifting more weight to 'company_news -> outcome' and indirect paths through 'market_sentiment'. However, since technical indicators were not the sole or dominant driver in the network (especially given the short horizon and potential for event-driven volatility), the update is modest. The probability decreases slightly because the removal of a predictive element reduces overall confidence in directional forecasting, but other paths (e.g., direct company news effects) remain intact.\"\n}",
+      "target_id": "technical_indicators->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Consider that ALGN is a mid-cap stock in the medical devices sector, and its company-specific news, such as product approvals or earnings reports, often has limited impact on broader market sentiment due to its relatively small market influence. Instead, market-wide sentiment is predominantly driven by macroeconomic data releases, central bank decisions, and large-cap tech or financial sector movements, making ALGN-specific developments largely peripheral to overall investor confidence. Therefore, the causal link from company_news to market_sentiment might be weak or negligible in this context.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link from company_news to market_sentiment, affecting two causal paths leading to the outcome: (1) company_news -> market_sentiment -> technical_indicators -> outcome, and (2) company_news -> market_sentiment (indirectly influencing other sentiment-driven flows). This reduces the number of positive feedback loops through which company-specific news could amplify a price increase, making the outcome slightly more dependent on direct company_news->outcome links, sector performance, and macroeconomic factors. However, the update is small because: (a) ALGN-specific news still has a direct path to the outcome (company_news->outcome), which remains strong; (b) the link from company_news to market_sentiment was likely already a secondary influence given ALGN's mid-cap status; and (c) other paths (e.g., sector_performance->market_sentiment, macroeconomic_factors->market_sentiment) remain intact. The overall probability decreases slightly due to reduced potential for sentiment amplification from company news.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link from company_news to market_sentiment, affecting two causal paths leading to the outcome: (1) company_news -> market_sentiment -> technical_indicators -> outcome, and (2) company_news -> market_sentiment (indirectly influencing other sentiment-driven flows). This reduces the number of positive feedback loops through which company-specific news could amplify a price increase, making the outcome slightly more dependent on direct company_news->outcome links, sector performance, and macroeconomic factors. However, the update is small because: (a) ALGN-specific news still has a direct path to the outcome (company_news->outcome), which remains strong; (b) the link from company_news to market_sentiment was likely already a secondary influence given ALGN's mid-cap status; and (c) other paths (e.g., sector_performance->market_sentiment, macroeconomic_factors->market_sentiment) remain intact. The overall probability decreases slightly due to reduced potential for sentiment amplification from company news.\"\n}",
+      "target_id": "company_news->market_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Technical indicators like moving average crossovers and RSI levels are often used by algorithmic trading systems to trigger automated buy or sell orders. When these automated trades are executed in large volumes, they can create self-reinforcing price trends that directly influence overall market sentiment. For example, a 'golden cross' signal can trigger widespread algorithmic buying, which then boosts investor confidence and sentiment, rather than sentiment driving the technical patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a potential bidirectional or reverse causal relationship where technical indicators can influence market sentiment, not just sentiment driving technicals. This weakens the specific causal link 'market_sentiment -> technical_indicators' slightly, as it suggests technical indicators may be more autonomous or even a driver of sentiment. However, this does not break any critical causal paths to the outcome. The direct links from 'company_news' and 'technical_indicators' to the 'outcome' remain strong and unaffected. The challenge actually reinforces the importance of 'technical_indicators' as an independent and potentially self-reinforcing factor, which, given the nature of short-term price movements in a single week, slightly increases the weight of technical factors in my model. Since the original probability was near 0.5, this modest increase in the perceived influence of technical indicators leads to a small upward adjustment.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a potential bidirectional or reverse causal relationship where technical indicators can influence market sentiment, not just sentiment driving technicals. This weakens the specific causal link 'market_sentiment -> technical_indicators' slightly, as it suggests technical indicators may be more autonomous or even a driver of sentiment. However, this does not break any critical causal paths to the outcome. The direct links from 'company_news' and 'technical_indicators' to the 'outcome' remain strong and unaffected. The challenge actually reinforces the importance of 'technical_indicators' as an independent and potentially self-reinforcing factor, which, given the nature of short-term price movements in a single week, slightly increases the weight of technical factors in my model. Since the original probability was near 0.5, this modest increase in the perceived influence of technical indicators leads to a small upward adjustment.\"\n}",
+      "target_id": "market_sentiment->technical_indicators",
+      "target_type": "edge",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider that a strong performance in the healthcare/medical devices sector could lead to increased investor confidence in the industry, prompting ALGN's management to accelerate the announcement of a major product launch or strategic partnership to capitalize on the favorable market conditions. Conversely, a severe sector-wide downturn might force ALGN to preemptively issue a negative earnings guidance revision or announce cost-cutting measures. In either scenario, the sector's performance directly influences the timing and content of company-specific news.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge adds a new causal link from sector_performance to company_news. This strengthens the causal network by creating an additional reinforcing loop: sector performance can now influence company news, which then affects both market_sentiment and the outcome directly, as well as indirectly via technical_indicators. This increases the structural importance of sector_performance, making it a more central driver of the outcome. The overall model becomes more interconnected, potentially amplifying the effect of sector trends on the weekly price comparison. However, since the original model already had sector_performance influencing market_sentiment, and company_news was a significant node, the addition of this link is a refinement rather than a fundamental restructuring. It modestly increases my confidence in the predictive coherence of the model, leading to a small upward adjustment in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge adds a new causal link from sector_performance to company_news. This strengthens the causal network by creating an additional reinforcing loop: sector performance can now influence company news, which then affects both market_sentiment and the outcome directly, as well as indirectly via technical_indicators. This increases the structural importance of sector_performance, making it a more central driver of the outcome. The overall model becomes more interconnected, potentially amplifying the effect of sector trends on the weekly price comparison. However, since the original model already had sector_performance influencing market_sentiment, and company_news was a significant node, the addition of this link is a refinement rather than a fundamental restructuring. It modestly increases my confidence in the predictive coherence of the model, leading to a small upward adjustment in the probability estimate.\"\n}",
+      "target_id": "sector_performance->company_news",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose we observe that over the next week, the healthcare sector experiences a major rally due to favorable FDA regulatory changes, leading to increased institutional buying of sector ETFs and basket trades. This sector-wide momentum often causes technical indicators for individual stocks like ALGN to show bullish patterns—such as rising on-balance volume and moving average crossovers—even in the absence of company-specific news. Ignoring this direct link from sector performance to technical indicators could lead to misattributing ALGN's price movements to company-specific factors when they are actually driven by broader sectoral flows.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal network by adding a direct edge from 'sector_performance -> technical_indicators'. This creates an additional causal pathway for sectoral momentum to influence ALGN's price movements through technical indicators, which directly affect the outcome. The new link means that positive sector performance (e.g., from FDA regulatory changes) can more robustly generate bullish technical signals for ALGN, increasing the probability of a positive weekly price change. The update is moderate (not large) because the original network already had indirect paths from sector performance to outcome via market_sentiment and technical_indicators, but the direct link enhances the influence of sector trends.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal network by adding a direct edge from 'sector_performance -> technical_indicators'. This creates an additional causal pathway for sectoral momentum to influence ALGN's price movements through technical indicators, which directly affect the outcome. The new link means that positive sector performance (e.g., from FDA regulatory changes) can more robustly generate bullish technical signals for ALGN, increasing the probability of a positive weekly price change. The update is moderate (not large) because the original network already had indirect paths from sector performance to outcome via market_sentiment and technical_indicators, but the direct link enhances the influence of sector trends.\"\n}",
+      "target_id": "sector_performance->technical_indicators",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider that major institutional investors often rebalance their portfolios near quarter-ends and year-ends, which includes late December. If a large index fund or pension fund decides to significantly increase or decrease its holdings of ALGN during the week of December 21-28, 2025, this could cause substantial price pressure independent of typical news, sentiment, or technicals. Would this potential for outsized institutional rebalancing flows, a factor not in your model, alter your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a new causal factor (institutional rebalancing flows near year-end) that can directly affect the outcome, independent of the existing paths through company_news, market_sentiment, and technical_indicators. This factor adds a source of volatility and price pressure that is not captured in the original model, increasing uncertainty. While rebalancing could push the price in either direction, its inclusion makes the outcome more unpredictable, especially for a single week. The original model's slight bullish tilt (0.53) was based on typical causal drivers; adding this uncorrelated, high-impact noise reduces the predictive confidence derived from those drivers. Therefore, the probability moves closer to 0.50, reflecting increased uncertainty. The update is moderate, not extreme, because institutional rebalancing is a known seasonal factor that may already be partially priced in or may not materialize significantly for ALGN specifically.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a new causal factor (institutional rebalancing flows near year-end) that can directly affect the outcome, independent of the existing paths through company_news, market_sentiment, and technical_indicators. This factor adds a source of volatility and price pressure that is not captured in the original model, increasing uncertainty. While rebalancing could push the price in either direction, its inclusion makes the outcome more unpredictable, especially for a single week. The original model's slight bullish tilt (0.53) was based on typical causal drivers; adding this uncorrelated, high-impact noise reduces the predictive confidence derived from those drivers. Therefore, the probability moves closer to 0.50, reflecting increased uncertainty. The update is moderate, not extreme, because institutional rebalancing is a known seasonal factor that may already be partially priced in or may not materialize significantly for ALGN specifically.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential for a major competitor in the clear aligner market, such as SmileDirectClub's revival or a new entrant, to launch a disruptive product or pricing strategy specifically during the week of December 21-28, 2025. This competitor action could directly siphon market share expectations from ALGN, leading to negative analyst revisions and immediate selling pressure, thus affecting the weekly close-to-close price comparison independent of broader market or sector trends.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.43,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a new, specific causal path not explicitly captured in the original model: a major competitor's disruptive action during the forecast week could directly and negatively impact ALGN's price. This primarily affects the 'company_news -> outcome' edge, as a competitor launch is a direct company-relevant event, and it strengthens the negative influence on 'company_news -> market_sentiment' and 'company_news -> technical_indicators' through negative analyst revisions and selling pressure. While the timing is speculative, the structural point is valid—a concentrated negative shock during the specific week in question is a risk not fully accounted for in the initial balanced estimate. This weakens the positive causal pathways and adds a potent negative one, warranting a meaningful downward adjustment, though not extreme given the uncertainty of such an event occurring precisely in that week.",
+      "raw_response": "{\n  \"updated_probability\": 0.43,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a new, specific causal path not explicitly captured in the original model: a major competitor's disruptive action during the forecast week could directly and negatively impact ALGN's price. This primarily affects the 'company_news -> outcome' edge, as a competitor launch is a direct company-relevant event, and it strengthens the negative influence on 'company_news -> market_sentiment' and 'company_news -> technical_indicators' through negative analyst revisions and selling pressure. While the timing is speculative, the structural point is valid—a concentrated negative shock during the specific week in question is a risk not fully accounted for in the initial balanced estimate. This weakens the positive causal pathways and adds a potent negative one, warranting a meaningful downward adjustment, though not extreme given the uncertainty of such an event occurring precisely in that week.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A major competitor to ALGN in the clear aligner space announced a new partnership with a European dental distributor, but this announcement was made two weeks before the week in question and had already been fully priced into the market by 2025-12-21.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge describes a competitor announcement that occurred two weeks prior and is stated to have already been fully priced into the market by the start of the forecast week (2025-12-21). This information does not constitute new 'company_news' for ALGN during the relevant week, nor does it directly alter the causal paths (market_sentiment, sector_performance, technical_indicators, or outcome) for the specific week in question. The initial probability of 0.53 already reflected a near-even chance, accounting for typical market noise and the possibility of minor influences. Since this challenge does not introduce a new causal factor or invalidate an existing structural link in the model for the forecast period, no update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge describes a competitor announcement that occurred two weeks prior and is stated to have already been fully priced into the market by the start of the forecast week (2025-12-21). This information does not constitute new 'company_news' for ALGN during the relevant week, nor does it directly alter the causal paths (market_sentiment, sector_performance, technical_indicators, or outcome) for the specific week in question. The initial probability of 0.53 already reflected a near-even chance, accounting for typical market noise and the possibility of minor influences. Since this challenge does not introduce a new causal factor or invalidate an existing structural link in the model for the forecast period, no update to the probability is warranted.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A major financial news outlet has just published an in-depth profile of the CEO of ALGN, highlighting their management style and personal background. The article is widely shared on social media but contains no new information about the company's financial performance, products, or strategic plans.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a CEO profile article with no substantive financial or strategic content. In my causal network, this could be considered a form of 'company_news,' but it is very weak. It might slightly influence 'market_sentiment' (via the edge from company_news to market_sentiment) if the article affects general investor perception. However, it does not directly impact financial performance, products, or strategy, so its effect on the 'outcome' through the 'company_news -> outcome' path is negligible. The primary drivers (sector performance, macroeconomic factors, technical indicators, and substantive company news) remain unchanged. The article introduces minor noise but no meaningful causal force, leading to a very slight downward adjustment in probability due to increased uncertainty about the relevance of such peripheral news.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a CEO profile article with no substantive financial or strategic content. In my causal network, this could be considered a form of 'company_news,' but it is very weak. It might slightly influence 'market_sentiment' (via the edge from company_news to market_sentiment) if the article affects general investor perception. However, it does not directly impact financial performance, products, or strategy, so its effect on the 'outcome' through the 'company_news -> outcome' path is negligible. The primary drivers (sector performance, macroeconomic factors, technical indicators, and substantive company news) remain unchanged. The article introduces minor noise but no meaningful causal force, leading to a very slight downward adjustment in probability due to increased uncertainty about the relevance of such peripheral news.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "ALGN announces FDA approval for a groundbreaking new orthodontic device on 2025-12-23, with analysts projecting it could capture 15% of the market within 18 months. Major healthcare providers immediately place bulk orders, leading to upward revisions in Q1 2026 revenue estimates.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.18999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The FDA approval and subsequent bulk orders significantly strengthen the 'company_news' causal factor, which directly impacts the outcome through multiple paths: 1) Directly through immediate price reaction to positive news, 2) Indirectly through improved market sentiment towards ALGN, and 3) Through technical indicators as increased buying pressure follows the news. This is a substantially positive development that affects multiple causal paths leading to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The FDA approval and subsequent bulk orders significantly strengthen the 'company_news' causal factor, which directly impacts the outcome through multiple paths: 1) Directly through immediate price reaction to positive news, 2) Indirectly through improved market sentiment towards ALGN, and 3) Through technical indicators as increased buying pressure follows the news. This is a substantially positive development that affects multiple causal paths leading to the outcome.\"\n}",
+      "target_id": "company_news",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 3,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve has just announced a surprise 50 basis point rate cut, citing concerns about slowing economic growth. This dovish shift is expected to boost investor confidence and increase liquidity in the market, particularly benefiting growth stocks like ALGN.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The Federal Reserve's surprise rate cut directly impacts the 'macroeconomic_factors' node, which in turn affects both 'market_sentiment' and 'sector_performance'. Lower interest rates typically boost investor confidence ('market_sentiment') and increase liquidity, benefiting growth stocks like ALGN. Additionally, the healthcare sector ('sector_performance') may see increased investment due to lower borrowing costs. These changes strengthen the causal paths leading to a higher probability that ALGN's price on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The Federal Reserve's surprise rate cut directly impacts the 'macroeconomic_factors' node, which in turn affects both 'market_sentiment' and 'sector_performance'. Lower interest rates typically boost investor confidence ('market_sentiment') and increase liquidity, benefiting growth stocks like ALGN. Additionally, the healthcare sector ('sector_performance') may see increased investment due to lower borrowing costs. These changes strengthen the causal paths leading to a higher probability that ALGN's price on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "macroeconomic_factors",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of ALGN's trading patterns shows that during periods of heightened market optimism (measured by VIX below 15), ALGN experiences significantly higher trading volume and stronger momentum signals, with RSI consistently staying above 50. This demonstrates that positive market sentiment directly translates into sustained buying pressure and technical strength for ALGN.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between market_sentiment and technical_indicators, showing that positive sentiment leads to sustained buying pressure and technical strength for ALGN. This reinforces the path from market_sentiment through technical_indicators to the outcome, increasing the likelihood that positive sentiment will result in a higher price. The update is moderate because while the link is strengthened, other factors like company_news and macroeconomic_factors still play significant roles.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between market_sentiment and technical_indicators, showing that positive sentiment leads to sustained buying pressure and technical strength for ALGN. This reinforces the path from market_sentiment through technical_indicators to the outcome, increasing the likelihood that positive sentiment will result in a higher price. The update is moderate because while the link is strengthened, other factors like company_news and macroeconomic_factors still play significant roles.\"\n}",
+      "target_id": "market_sentiment->technical_indicators",
+      "target_type": "edge",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of ALGN's stock shows that over the past 12 months, weeks with above-average trading volume and positive momentum indicators (e.g., RSI above 50 and MACD crossover) have seen a 70% probability of the stock closing higher the following week, compared to just 45% in weeks without these technical signals. This suggests that technical indicators are even more predictive of short-term price movements than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'technical_indicators->outcome' by providing empirical evidence that technical indicators are more predictive of short-term price movements than previously assumed. This affects the outcome directly through the technical_indicators node and indirectly through the market_sentiment node, which also influences technical_indicators. Given the higher probability (70%) associated with positive technical signals, the overall probability of the outcome increases slightly.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'technical_indicators->outcome' by providing empirical evidence that technical indicators are more predictive of short-term price movements than previously assumed. This affects the outcome directly through the technical_indicators node and indirectly through the market_sentiment node, which also influences technical_indicators. Given the higher probability (70%) associated with positive technical signals, the overall probability of the outcome increases slightly.\"\n}",
+      "target_id": "technical_indicators->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis shows that ALGN's innovative clear aligner technology announcements have consistently moved broader dental/orthodontic sector ETFs by 1.5-2% within 24 hours, indicating ALGN-specific news significantly impacts investor perceptions beyond just its own stock. Given ALGN's 60% market share in clear aligners, its product launches are seen as bellwethers for the entire digital dentistry adoption curve.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'company_news->market_sentiment' by providing evidence that ALGN-specific news significantly impacts broader investor perceptions and sector performance. This reinforces the importance of company_news in influencing market_sentiment, which in turn affects technical_indicators and the outcome. Given ALGN's market dominance and its role as a bellwether, positive company news is more likely to have a amplified effect on the stock's price movement within the week, slightly increasing the probability of a higher close price on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'company_news->market_sentiment' by providing evidence that ALGN-specific news significantly impacts broader investor perceptions and sector performance. This reinforces the importance of company_news in influencing market_sentiment, which in turn affects technical_indicators and the outcome. Given ALGN's market dominance and its role as a bellwether, positive company news is more likely to have a amplified effect on the stock's price movement within the week, slightly increasing the probability of a higher close price on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "company_news->market_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "ALGN",
+    "question_text": "Will ALGN's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.53,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.033750000000000016,
+    "max_absolute_shift": 0.10000000000000003
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 1.730769230769231,
+    "mean_shift_high": 0.037500000000000006,
+    "mean_shift_low": 0.021666666666666667,
+    "asymmetry_index": 0.3617021276595748,
+    "mean_shift_negate": 0.024285714285714306,
+    "mean_shift_strengthen": 0.06714285714285713,
+    "fnar": 0.25,
+    "n_accepted": 1,
+    "n_spurious": 4,
+    "critical_path_premium": -0.009444444444444443,
+    "mean_shift_on_path": 0.03555555555555556,
+    "mean_shift_off_path": 0.045000000000000005,
+    "importance_sensitivity_correlation": 0.2318181818181818,
+    "control_sensitivity": 0
+  }
+}

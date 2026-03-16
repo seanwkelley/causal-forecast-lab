@@ -1,0 +1,1100 @@
+{
+  "question_id": "IT",
+  "question_text": "Will IT's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.58,
+  "nodes": [
+    {
+      "id": "market_trend",
+      "description": "Overall direction of the market",
+      "role": "factor"
+    },
+    {
+      "id": "company_performance",
+      "description": "IT company's financial and operational performance",
+      "role": "factor"
+    },
+    {
+      "id": "industry_outlook",
+      "description": "Prospects and trends in the IT industry",
+      "role": "factor"
+    },
+    {
+      "id": "economic_growth",
+      "description": "State of the economy and its growth rate",
+      "role": "factor"
+    },
+    {
+      "id": "investor_sentiment",
+      "description": "Attitudes and feelings of investors towards the IT company",
+      "role": "factor"
+    },
+    {
+      "id": "global_events",
+      "description": "Significant global events that could impact the market",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "IT's market close price on 2025-12-28 being higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "market_trend",
+      "to": "investor_sentiment",
+      "mechanism": "A positive market trend increases investor confidence"
+    },
+    {
+      "from": "company_performance",
+      "to": "investor_sentiment",
+      "mechanism": "Strong company performance boosts investor sentiment"
+    },
+    {
+      "from": "industry_outlook",
+      "to": "company_performance",
+      "mechanism": "A favorable industry outlook improves company prospects"
+    },
+    {
+      "from": "economic_growth",
+      "to": "market_trend",
+      "mechanism": "Economic growth supports a positive market trend"
+    },
+    {
+      "from": "global_events",
+      "to": "market_trend",
+      "mechanism": "Global events can disrupt or support the market trend"
+    },
+    {
+      "from": "investor_sentiment",
+      "to": "outcome",
+      "mechanism": "Positive investor sentiment can drive up the stock price"
+    },
+    {
+      "from": "company_performance",
+      "to": "outcome",
+      "mechanism": "Strong company performance directly influences the stock price"
+    }
+  ],
+  "reasoning": "The forecasted probability is based on the interplay of various factors influencing the IT company's stock price. A positive market trend, driven by economic growth and favorable global events, can increase investor sentiment, which in turn can drive up the stock price. Additionally, strong company performance within a favorable industry outlook directly contributes to a higher stock price, making it more likely for the market close price on 2025-12-28 to be higher than on 2025-12-21.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "market_trend",
+        "description": "Overall direction of the market",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.3333,
+        "pagerank": 0.1599,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "company_performance",
+        "description": "IT company's financial and operational performance",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1096,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "industry_outlook",
+        "description": "Prospects and trends in the IT industry",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0592,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_growth",
+        "description": "State of the economy and its growth rate",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0592,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "investor_sentiment",
+        "description": "Attitudes and feelings of investors towards the IT company",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.5208,
+        "pagerank": 0.2417,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "global_events",
+        "description": "Significant global events that could impact the market",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0592,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "IT's market close price on 2025-12-28 being higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3112,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "market_trend",
+        "target": "investor_sentiment",
+        "mechanism": "A positive market trend increases investor confidence",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "company_performance",
+        "target": "investor_sentiment",
+        "mechanism": "Strong company performance boosts investor sentiment",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": false
+      },
+      {
+        "source": "company_performance",
+        "target": "outcome",
+        "mechanism": "Strong company performance directly influences the stock price",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "industry_outlook",
+        "target": "company_performance",
+        "mechanism": "A favorable industry outlook improves company prospects",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "market_trend",
+        "mechanism": "Economic growth supports a positive market trend",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "investor_sentiment",
+        "target": "outcome",
+        "mechanism": "Positive investor sentiment can drive up the stock price",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_events",
+        "target": "market_trend",
+        "mechanism": "Global events can disrupt or support the market trend",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "market_trend",
+        "description": "Overall direction of the market",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "investor_sentiment",
+        "description": "Attitudes and feelings of investors towards the IT company",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "industry_outlook",
+        "description": "Prospects and trends in the IT industry",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_events",
+        "description": "Significant global events that could impact the market",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_trend",
+        "description": "Overall direction of the market",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "investor_sentiment",
+        "description": "Attitudes and feelings of investors towards the IT company",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_trend->investor_sentiment",
+        "description": "A positive market trend increases investor confidence",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "investor_sentiment->outcome",
+        "description": "Positive investor sentiment can drive up the stock price",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "company_performance->investor_sentiment",
+        "description": "Strong company performance boosts investor sentiment",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_trend->investor_sentiment",
+        "description": "A positive market trend increases investor confidence",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "industry_outlook->economic_growth",
+        "description": "Potential link: Prospects and trends in the IT industry -> State of the economy and its growth rate",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "industry_outlook->market_trend",
+        "description": "Potential link: Prospects and trends in the IT industry -> Overall direction of the market",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "market_trend",
+      "description": "Overall direction of the market",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "investor_sentiment",
+      "description": "Attitudes and feelings of investors towards the IT company",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "industry_outlook",
+      "description": "Prospects and trends in the IT industry",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_events",
+      "description": "Significant global events that could impact the market",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_trend",
+      "description": "Overall direction of the market",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "investor_sentiment",
+      "description": "Attitudes and feelings of investors towards the IT company",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_trend->investor_sentiment",
+      "description": "A positive market trend increases investor confidence",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "investor_sentiment->outcome",
+      "description": "Positive investor sentiment can drive up the stock price",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "company_performance->investor_sentiment",
+      "description": "Strong company performance boosts investor sentiment",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_trend->investor_sentiment",
+      "description": "A positive market trend increases investor confidence",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "industry_outlook->economic_growth",
+      "description": "Potential link: Prospects and trends in the IT industry -> State of the economy and its growth rate",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "industry_outlook->market_trend",
+      "description": "Potential link: Prospects and trends in the IT industry -> Overall direction of the market",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the overall market trend is actually irrelevant to IT's stock price due to the company's strong industry positioning and innovative products, making it resilient to broader market fluctuations? Recent analysis suggests that IT companies with unique value propositions tend to perform independently of general market trends. This could mean that even in a downturn, IT's market close price on 2025-12-28 could still be higher than on 2025-12-21. Consider the possibility that market trend is not a significant factor in determining IT's stock performance.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall direction of the market"
+    },
+    {
+      "probe_text": "What if investor sentiment towards the IT company is actually driven by short-term technical analysis rather than fundamental factors, making it an unreliable predictor of the stock's performance? Recent studies have shown that algorithmic trading and market makers' actions can decouple stock prices from investor attitudes, rendering sentiment analysis less effective. Furthermore, the IT company's stock price might be more influenced by the actions of a few large institutional investors rather than the broader sentiment of individual investors. This could make investor sentiment a misleading indicator of the company's future stock price.",
+      "probe_type": "node_negate_high",
+      "target_id": "investor_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Attitudes and feelings of investors towards the IT company"
+    },
+    {
+      "probe_text": "Recent reports indicate a significant slowdown in the adoption of emerging technologies within the IT sector, suggesting that the industry's growth prospects may be overstated. Furthermore, several key IT companies have announced layoffs and restructuring plans, which could undermine the sector's overall outlook. This raises questions about the validity of a favorable industry outlook as a driving factor for the company's performance. Could the forecaster be overestimating the impact of industry trends on the company's stock price?",
+      "probe_type": "node_negate_medium",
+      "target_id": "industry_outlook",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Prospects and trends in the IT industry"
+    },
+    {
+      "probe_text": "Recent analyses suggest that the global events previously thought to impact the market, such as trade agreements and geopolitical tensions, have been largely priced in by investors and are no longer a significant concern. As a result, it is unlikely that global events will have a substantial effect on the market trend in the near future. The market has shown resilience to such events in the past, and other factors are now driving investor decisions. This reduction in global event impact may render the factor insignificant in predicting the outcome.",
+      "probe_type": "node_negate_low",
+      "target_id": "global_events",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Significant global events that could impact the market"
+    },
+    {
+      "probe_text": "A recent survey of chief investment officers from major financial institutions shows a significant increase in bullish sentiment towards the market, with 80% predicting a continued upward trend through the end of 2025. This shift in sentiment is attributed to the economic growth rate exceeding expectations and the absence of major global events that could disrupt the market. As a result, several prominent market analysts have revised their year-end forecasts, now anticipating the market to close higher than previously predicted. This collective optimism suggests a strong market trend will persist.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall direction of the market"
+    },
+    {
+      "probe_text": "A recent survey of institutional investors shows a significant increase in bullish sentiment towards the IT sector, with 75% of respondents expressing confidence in the sector's growth prospects over the next quarter. This shift in sentiment is attributed to the sector's strong earnings reports and innovative product releases. Furthermore, a prominent investment bank has upgraded its rating of the IT company, citing improved investor sentiment as a key factor. As a result, trading volumes and stock prices for the company have begun to rise.",
+      "probe_type": "node_strengthen",
+      "target_id": "investor_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Attitudes and feelings of investors towards the IT company"
+    },
+    {
+      "probe_text": "However, recent studies have shown that investor sentiment in the tech industry is increasingly driven by social media and influencer opinions rather than broad market trends. This shift could weaken the traditional link between market trend and investor confidence. For instance, if a popular tech influencer criticizes IT's latest product release, it could negatively impact investor sentiment despite an overall positive market trend. Moreover, the rise of algorithmic trading may further decouple investor sentiment from market trends, as trading decisions are made based on complex data analysis rather than human interpretation of market direction.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "market_trend->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "A positive market trend increases investor confidence"
+    },
+    {
+      "probe_text": "However, recent studies have shown that investor sentiment can be a contrarian indicator, where excessively positive sentiment can lead to market bubbles and subsequent corrections, potentially driving down the stock price. Furthermore, the IT company's stock has historically been less sensitive to investor sentiment due to its strong institutional ownership and low retail investor participation. This suggests that the relationship between investor sentiment and the stock price may be more complex than initially assumed. In fact, a sudden surge in positive investor sentiment could lead to overvaluation and a subsequent price drop.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "investor_sentiment->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Positive investor sentiment can drive up the stock price"
+    },
+    {
+      "probe_text": "Recent studies have shown that investor sentiment in the IT sector is increasingly driven by speculative trading and short-term market movements rather than fundamental analysis of company performance. As a result, even strong company performance may not necessarily translate into improved investor sentiment. Furthermore, the IT industry is known for its rapid innovation cycles, making past performance less indicative of future success. This could lead to a decoupling of company performance from investor sentiment.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "company_performance->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Strong company performance boosts investor sentiment"
+    },
+    {
+      "probe_text": "A recent study found that investor sentiment, as measured by social media and online forums, often precedes and predicts market trend changes, suggesting that investors' attitudes may drive market direction rather than the other way around. For instance, when investors collectively express optimism about the market, it can create a self-reinforcing cycle where their sentiment boosts market performance. This challenges the traditional view that market trends dictate investor sentiment. Can you reassess your forecast in light of this potential reverse causality?",
+      "probe_type": "edge_reverse",
+      "target_id": "market_trend->investor_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "A positive market trend increases investor confidence"
+    },
+    {
+      "probe_text": "Recent advancements in the IT industry have led to increased investments in emerging technologies, such as artificial intelligence and cybersecurity, which in turn have contributed significantly to the overall economic growth by creating new job opportunities and stimulating innovation. As the IT industry continues to grow, its demand for skilled workforce and infrastructure development is likely to have a positive impact on the economy. This has been observed in countries where the IT sector has experienced rapid expansion, leading to an overall boost in economic activity. Does this relationship between the IT industry's prospects and the state of the economy affect your forecast?",
+      "probe_type": "edge_spurious",
+      "target_id": "industry_outlook->economic_growth",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Prospects and trends in the IT industry -> State of the economy and its growth rate"
+    },
+    {
+      "probe_text": "A recent report highlights a significant surge in demand for IT services, driven by advancements in cloud computing and artificial intelligence, which is expected to positively impact the overall market trend. This shift in industry prospects is anticipated to attract more investors, thereby influencing the broader market direction. If this trend continues, it could lead to increased market activity and a more favorable market environment. How does this new information affect your forecast?",
+      "probe_type": "edge_spurious",
+      "target_id": "industry_outlook->market_trend",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Prospects and trends in the IT industry -> Overall direction of the market"
+    },
+    {
+      "probe_text": "What if a significant technological breakthrough in the IT sector, such as the widespread adoption of a new artificial intelligence technology, were to occur between 2025-12-21 and 2025-12-28, potentially disrupting the current market dynamics and investor expectations? This breakthrough could lead to a rapid shift in investor sentiment and company valuations. The absence of such an innovation node in the current causal network overlooks a critical factor that could substantially impact the IT company's market close price. How would this development influence your forecast?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What if a significant technological breakthrough occurs in a competing industry, potentially disrupting the IT sector's growth prospects? This could lead to a shift in investor sentiment and resource allocation away from IT companies. The forecaster's network does not account for the impact of technological advancements in other industries on the IT company's stock price. How would this new information affect your estimate?",
+      "probe_type": "missing_node",
+      "target_id": "technological_breakthrough",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The IT company's headquarters has recently been renovated to include more sustainable and environmentally friendly facilities, which is expected to improve employee well-being and reduce the company's carbon footprint. This renovation is part of a broader corporate social responsibility initiative. The company's leadership believes this will enhance its reputation and contribute to a positive work environment. However, the renovation does not involve any changes to the company's operational structure or financial planning.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The IT company's headquarters is planning to unveil a new, environmentally friendly cafeteria for its employees in the first quarter of 2026. This renovation is expected to improve worker satisfaction and reduce the company's carbon footprint. However, the project's budget and timeline are not anticipated to have any impact on the company's current financial performance or strategic direction. The cafeteria's design will feature a rooftop garden and a state-of-the-art recycling system.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the overall market trend is actually irrelevant to IT's stock price due to the company's strong industry positioning and innovative products, making it resilient to broader market fluctuations? Recent analysis suggests that IT companies with unique value propositions tend to perform independently of general market trends. This could mean that even in a downturn, IT's market close price on 2025-12-28 could still be higher than on 2025-12-21. Consider the possibility that market trend is not a significant factor in determining IT's stock performance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'market_trend' factor suggests that its influence on IT's stock price might be minimal due to the company's strong industry positioning and innovative products. This affects the causal paths 'economic_growth -> market_trend -> investor_sentiment' and 'global_events -> market_trend -> investor_sentiment', potentially weakening their impact on the outcome. However, the direct link 'company_performance -> outcome' and 'company_performance -> investor_sentiment' remains unaffected, indicating that IT's stock performance could still be driven by its internal strengths rather than broader market trends. Given this, the probability of IT's market close price on 2025-12-28 being higher than on 2025-12-21 increases, as the company's resilience to market fluctuations becomes a more significant factor.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'market_trend' factor suggests that its influence on IT's stock price might be minimal due to the company's strong industry positioning and innovative products. This affects the causal paths 'economic_growth -> market_trend -> investor_sentiment' and 'global_events -> market_trend -> investor_sentiment', potentially weakening their impact on the outcome. However, the direct link 'company_performance -> outcome' and 'company_performance -> investor_sentiment' remains unaffected, indicating that IT's stock performance could still be driven by its internal strengths rather than broader market trends. Given this, the probability of IT's market close price on 2025-12-28 being higher than on 2025-12-21 increases, as the company's resilience to market fluctuations becomes a more significant factor.\"\n}",
+      "target_id": "market_trend",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if investor sentiment towards the IT company is actually driven by short-term technical analysis rather than fundamental factors, making it an unreliable predictor of the stock's performance? Recent studies have shown that algorithmic trading and market makers' actions can decouple stock prices from investor attitudes, rendering sentiment analysis less effective. Furthermore, the IT company's stock price might be more influenced by the actions of a few large institutional investors rather than the broader sentiment of individual investors. This could make investor sentiment a misleading indicator of the company's future stock price.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'investor_sentiment' node affects two causal paths: 'investor_sentiment -> outcome' and 'market_trend -> investor_sentiment' as well as 'company_performance -> investor_sentiment'. Given that investor sentiment is now considered an unreliable predictor due to its potential decoupling from fundamental factors and the influence of institutional investors, the direct path from 'investor_sentiment' to the 'outcome' is weakened. Additionally, the paths through 'market_trend' and 'company_performance' to 'investor_sentiment' and then to 'outcome' are also less reliable. However, the challenge primarily targets the effectiveness of 'investor_sentiment' as a predictor rather than the overall market or company performance. Therefore, while the update reflects a decreased reliance on 'investor_sentiment', other factors like 'company_performance', 'industry_outlook', 'economic_growth', and 'global_events' still directly or indirectly influence the 'outcome'. The decrease in probability is moderate, reflecting the diminished but not eliminated role of 'investor_sentiment' in predicting the stock price.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'investor_sentiment' node affects two causal paths: 'investor_sentiment -> outcome' and 'market_trend -> investor_sentiment' as well as 'company_performance -> investor_sentiment'. Given that investor sentiment is now considered an unreliable predictor due to its potential decoupling from fundamental factors and the influence of institutional investors, the direct path from 'investor_sentiment' to the 'outcome' is weakened. Additionally, the paths through 'market_trend' and 'company_performance' to 'investor_sentiment' and then to 'outcome' are also less reliable. However, the challenge primarily targets the effectiveness of 'investor_sentiment' as a predictor rather than the overall market or company performance. Therefore, while the update reflects a decreased reliance on 'investor_sentiment', other factors like 'company_performance', 'industry_outlook', 'economic_growth', and 'global_events' still directly or indirectly influence the 'outcome'. The decrease in probability is moderate, reflecting the diminished but not eliminated role of 'investor_sentiment' in predicting the stock price.\"\n}",
+      "target_id": "investor_sentiment",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate a significant slowdown in the adoption of emerging technologies within the IT sector, suggesting that the industry's growth prospects may be overstated. Furthermore, several key IT companies have announced layoffs and restructuring plans, which could undermine the sector's overall outlook. This raises questions about the validity of a favorable industry outlook as a driving factor for the company's performance. Could the forecaster be overestimating the impact of industry trends on the company's stock price?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'industry_outlook' node affects the causal path 'industry_outlook -> company_performance -> outcome' and 'industry_outlook -> company_performance -> investor_sentiment -> outcome'. Given the slowdown in emerging technology adoption and layoffs within the IT sector, the favorable industry outlook may not be as strong a driver for the company's performance as initially thought. This weakening of the industry outlook could lead to a decrease in the company's performance and, subsequently, a decrease in investor sentiment. However, the impact is not drastic because other factors such as 'economic_growth', 'market_trend', and 'global_events' continue to influence the outcome. The decrease in probability reflects a more cautious stance due to the potential weakening of industry trends but still acknowledges the role of other influential factors.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'industry_outlook' node affects the causal path 'industry_outlook -> company_performance -> outcome' and 'industry_outlook -> company_performance -> investor_sentiment -> outcome'. Given the slowdown in emerging technology adoption and layoffs within the IT sector, the favorable industry outlook may not be as strong a driver for the company's performance as initially thought. This weakening of the industry outlook could lead to a decrease in the company's performance and, subsequently, a decrease in investor sentiment. However, the impact is not drastic because other factors such as 'economic_growth', 'market_trend', and 'global_events' continue to influence the outcome. The decrease in probability reflects a more cautious stance due to the potential weakening of industry trends but still acknowledges the role of other influential factors.\"\n}",
+      "target_id": "industry_outlook",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses suggest that the global events previously thought to impact the market, such as trade agreements and geopolitical tensions, have been largely priced in by investors and are no longer a significant concern. As a result, it is unlikely that global events will have a substantial effect on the market trend in the near future. The market has shown resilience to such events in the past, and other factors are now driving investor decisions. This reduction in global event impact may render the factor insignificant in predicting the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.59,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'global_events' factor suggests it will have a minimal impact on the market trend. This reduction in significance affects the causal path 'global_events -> market_trend -> investor_sentiment -> outcome' and 'global_events -> market_trend'. However, since 'global_events' was not a primary driver in the initial estimate, its diminished influence results in a small increase in the probability estimate. The other causal paths, such as 'economic_growth -> market_trend', 'company_performance -> investor_sentiment', and 'company_performance -> outcome', remain unaffected, supporting a slightly more optimistic outlook for the IT company's stock price.",
+      "raw_response": "{\n  \"updated_probability\": 0.59,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'global_events' factor suggests it will have a minimal impact on the market trend. This reduction in significance affects the causal path 'global_events -> market_trend -> investor_sentiment -> outcome' and 'global_events -> market_trend'. However, since 'global_events' was not a primary driver in the initial estimate, its diminished influence results in a small increase in the probability estimate. The other causal paths, such as 'economic_growth -> market_trend', 'company_performance -> investor_sentiment', and 'company_performance -> outcome', remain unaffected, supporting a slightly more optimistic outlook for the IT company's stock price.\"\n}",
+      "target_id": "global_events",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of chief investment officers from major financial institutions shows a significant increase in bullish sentiment towards the market, with 80% predicting a continued upward trend through the end of 2025. This shift in sentiment is attributed to the economic growth rate exceeding expectations and the absence of major global events that could disrupt the market. As a result, several prominent market analysts have revised their year-end forecasts, now anticipating the market to close higher than previously predicted. This collective optimism suggests a strong market trend will persist.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'market_trend' significantly affects the causal paths leading to the outcome. With a strong market trend, investor sentiment is likely to remain positive, directly influencing the outcome. The increased bullish sentiment among chief investment officers and the revised forecasts by prominent market analysts reinforce this positive trend. This update primarily impacts the paths 'market_trend -> investor_sentiment -> outcome' and 'economic_growth -> market_trend -> investor_sentiment -> outcome', strengthening the likelihood of a higher market close price on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n   \"shift_direction\": \"increased\",\n   \"reasoning\": \"The challenge to 'market_trend' significantly affects the causal paths leading to the outcome. With a strong market trend, investor sentiment is likely to remain positive, directly influencing the outcome. The increased bullish sentiment among chief investment officers and the revised forecasts by prominent market analysts reinforce this positive trend. This update primarily impacts the paths 'market_trend -> investor_sentiment -> outcome' and 'economic_growth -> market_trend -> investor_sentiment -> outcome', strengthening the likelihood of a higher market close price on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "market_trend",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of institutional investors shows a significant increase in bullish sentiment towards the IT sector, with 75% of respondents expressing confidence in the sector's growth prospects over the next quarter. This shift in sentiment is attributed to the sector's strong earnings reports and innovative product releases. Furthermore, a prominent investment bank has upgraded its rating of the IT company, citing improved investor sentiment as a key factor. As a result, trading volumes and stock prices for the company have begun to rise.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'investor_sentiment' significantly strengthens the causal path 'investor_sentiment -> outcome', as the increased bullish sentiment among institutional investors and the upgrade by a prominent investment bank directly influence the stock price. Additionally, the positive impact on 'investor_sentiment' indirectly affects 'company_performance' through the feedback loop of investor confidence and company prospects. The increased trading volumes and rising stock prices further reinforce this positive trend. Given the structural importance of 'investor_sentiment' in the causal network, this new information substantially increases the likelihood of the outcome, leading to a notable update in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'investor_sentiment' significantly strengthens the causal path 'investor_sentiment -> outcome', as the increased bullish sentiment among institutional investors and the upgrade by a prominent investment bank directly influence the stock price. Additionally, the positive impact on 'investor_sentiment' indirectly affects 'company_performance' through the feedback loop of investor confidence and company prospects. The increased trading volumes and rising stock prices further reinforce this positive trend. Given the structural importance of 'investor_sentiment' in the causal network, this new information substantially increases the likelihood of the outcome, leading to a notable update in the probability estimate.\"\n}",
+      "target_id": "investor_sentiment",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "However, recent studies have shown that investor sentiment in the tech industry is increasingly driven by social media and influencer opinions rather than broad market trends. This shift could weaken the traditional link between market trend and investor confidence. For instance, if a popular tech influencer criticizes IT's latest product release, it could negatively impact investor sentiment despite an overall positive market trend. Moreover, the rise of algorithmic trading may further decouple investor sentiment from market trends, as trading decisions are made based on complex data analysis rather than human interpretation of market direction.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'market_trend->investor_sentiment' link suggests that investor sentiment is less directly influenced by broad market trends and more by specific factors like social media and influencer opinions. This weakens a causal path that previously supported a positive outcome. However, other paths such as 'company_performance->investor_sentiment' and 'company_performance->outcome' remain unaffected, indicating that the overall structure of the causal network still supports a slightly positive outlook. The decrease in probability reflects a reduced confidence in the market trend's ability to drive investor sentiment and, by extension, the stock price, but the impact is moderate because other factors continue to influence the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'market_trend->investor_sentiment' link suggests that investor sentiment is less directly influenced by broad market trends and more by specific factors like social media and influencer opinions. This weakens a causal path that previously supported a positive outcome. However, other paths such as 'company_performance->investor_sentiment' and 'company_performance->outcome' remain unaffected, indicating that the overall structure of the causal network still supports a slightly positive outlook. The decrease in probability reflects a reduced confidence in the market trend's ability to drive investor sentiment and, by extension, the stock price, but the impact is moderate because other factors continue to influence the outcome.\"\n}",
+      "target_id": "market_trend->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "However, recent studies have shown that investor sentiment can be a contrarian indicator, where excessively positive sentiment can lead to market bubbles and subsequent corrections, potentially driving down the stock price. Furthermore, the IT company's stock has historically been less sensitive to investor sentiment due to its strong institutional ownership and low retail investor participation. This suggests that the relationship between investor sentiment and the stock price may be more complex than initially assumed. In fact, a sudden surge in positive investor sentiment could lead to overvaluation and a subsequent price drop.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'investor_sentiment->outcome' causal link significantly affects the reasoning behind the initial forecast. Given that excessively positive investor sentiment can lead to market bubbles and corrections, and the IT company's stock is less sensitive to investor sentiment, the direct influence of investor sentiment on the stock price is diminished. This complexity introduces uncertainty, reducing the confidence in a higher market close price on 2025-12-28 compared to 2025-12-21. The causal paths through 'company_performance->outcome' and 'industry_outlook->company_performance->outcome' remain unaffected, but the questioned link reduces the overall positive outlook, leading to a decreased probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'investor_sentiment->outcome' causal link significantly affects the reasoning behind the initial forecast. Given that excessively positive investor sentiment can lead to market bubbles and corrections, and the IT company's stock is less sensitive to investor sentiment, the direct influence of investor sentiment on the stock price is diminished. This complexity introduces uncertainty, reducing the confidence in a higher market close price on 2025-12-28 compared to 2025-12-21. The causal paths through 'company_performance->outcome' and 'industry_outlook->company_performance->outcome' remain unaffected, but the questioned link reduces the overall positive outlook, leading to a decreased probability estimate.\"\n}",
+      "target_id": "investor_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that investor sentiment in the IT sector is increasingly driven by speculative trading and short-term market movements rather than fundamental analysis of company performance. As a result, even strong company performance may not necessarily translate into improved investor sentiment. Furthermore, the IT industry is known for its rapid innovation cycles, making past performance less indicative of future success. This could lead to a decoupling of company performance from investor sentiment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'company_performance->investor_sentiment' link suggests that strong company performance may not directly boost investor sentiment due to the increasing influence of speculative trading and short-term market movements in the IT sector. This affects the causal path 'company_performance -> investor_sentiment -> outcome', reducing its impact. However, the link 'company_performance -> outcome' remains intact, as strong company performance can still directly influence the stock price. Given the reduced influence of company performance on investor sentiment, the overall probability of the outcome decreases, but not substantially, as other causal paths such as 'economic_growth -> market_trend -> investor_sentiment -> outcome' and 'industry_outlook -> company_performance -> outcome' remain unaffected.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'company_performance->investor_sentiment' link suggests that strong company performance may not directly boost investor sentiment due to the increasing influence of speculative trading and short-term market movements in the IT sector. This affects the causal path 'company_performance -> investor_sentiment -> outcome', reducing its impact. However, the link 'company_performance -> outcome' remains intact, as strong company performance can still directly influence the stock price. Given the reduced influence of company performance on investor sentiment, the overall probability of the outcome decreases, but not substantially, as other causal paths such as 'economic_growth -> market_trend -> investor_sentiment -> outcome' and 'industry_outlook -> company_performance -> outcome' remain unaffected.\"\n}",
+      "target_id": "company_performance->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that investor sentiment, as measured by social media and online forums, often precedes and predicts market trend changes, suggesting that investors' attitudes may drive market direction rather than the other way around. For instance, when investors collectively express optimism about the market, it can create a self-reinforcing cycle where their sentiment boosts market performance. This challenges the traditional view that market trends dictate investor sentiment. Can you reassess your forecast in light of this potential reverse causality?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'market_trend->investor_sentiment' causal link suggests that investor sentiment may drive market trend rather than the other way around. This potentially reverses the direction of causality in one of the paths leading to the outcome. However, it does not eliminate the influence of market trend on investor sentiment entirely, as both can still interact in a complex manner. The direct links from 'company_performance' to 'outcome' and from 'investor_sentiment' to 'outcome' remain unaffected. Given that the original forecast relied on a combination of these factors, including economic growth, industry outlook, and global events, the update to the probability reflects a nuanced adjustment rather than a drastic overhaul. The decrease in probability acknowledges the potential for investor sentiment to predict market trends, which might reduce the predictive power of market trends alone on the stock price, but the change is moderate because the overall network's structure and other influences on the outcome remain intact.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'market_trend->investor_sentiment' causal link suggests that investor sentiment may drive market trend rather than the other way around. This potentially reverses the direction of causality in one of the paths leading to the outcome. However, it does not eliminate the influence of market trend on investor sentiment entirely, as both can still interact in a complex manner. The direct links from 'company_performance' to 'outcome' and from 'investor_sentiment' to 'outcome' remain unaffected. Given that the original forecast relied on a combination of these factors, including economic growth, industry outlook, and global events, the update to the probability reflects a nuanced adjustment rather than a drastic overhaul. The decrease in probability acknowledges the potential for investor sentiment to predict market trends, which might reduce the predictive power of market trends alone on the stock price, but the change is moderate because the overall network's structure and other influences on the outcome remain intact.\"\n}",
+      "target_id": "market_trend->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent advancements in the IT industry have led to increased investments in emerging technologies, such as artificial intelligence and cybersecurity, which in turn have contributed significantly to the overall economic growth by creating new job opportunities and stimulating innovation. As the IT industry continues to grow, its demand for skilled workforce and infrastructure development is likely to have a positive impact on the economy. This has been observed in countries where the IT sector has experienced rapid expansion, leading to an overall boost in economic activity. Does this relationship between the IT industry's prospects and the state of the economy affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new causal link between industry_outlook and economic_growth, suggesting that a favorable industry outlook can contribute to economic growth. This addition strengthens the causal path from industry_outlook to outcome, as it now has both a direct influence on company_performance and an indirect influence on market_trend through economic_growth. The introduction of this link increases the overall positive impact on the outcome, leading to a moderate increase in the estimated probability. The existing causal paths are reinforced, particularly the path through investor_sentiment, as a stronger economy and growing industry outlook can further boost investor confidence and sentiment.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new causal link between industry_outlook and economic_growth, suggesting that a favorable industry outlook can contribute to economic growth. This addition strengthens the causal path from industry_outlook to outcome, as it now has both a direct influence on company_performance and an indirect influence on market_trend through economic_growth. The introduction of this link increases the overall positive impact on the outcome, leading to a moderate increase in the estimated probability. The existing causal paths are reinforced, particularly the path through investor_sentiment, as a stronger economy and growing industry outlook can further boost investor confidence and sentiment.\"\n}",
+      "target_id": "industry_outlook->economic_growth",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "A recent report highlights a significant surge in demand for IT services, driven by advancements in cloud computing and artificial intelligence, which is expected to positively impact the overall market trend. This shift in industry prospects is anticipated to attract more investors, thereby influencing the broader market direction. If this trend continues, it could lead to increased market activity and a more favorable market environment. How does this new information affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The new information introduces a previously unconsidered direct link between industry_outlook and market_trend, suggesting that a favorable industry outlook can have a broader impact on the market beyond just company_performance. This strengthens the causal path from industry_outlook to outcome, both directly through its influence on market_trend and indirectly through its existing influence on company_performance. Given the potential for increased market activity and a more favorable market environment, the positive impact on investor_sentiment and subsequently on the outcome is heightened. This update reflects an increased confidence in the likelihood of IT's market close price on 2025-12-28 being higher than on 2025-12-21, due to the reinforced positive outlook for both the IT industry and the broader market.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information introduces a previously unconsidered direct link between industry_outlook and market_trend, suggesting that a favorable industry outlook can have a broader impact on the market beyond just company_performance. This strengthens the causal path from industry_outlook to outcome, both directly through its influence on market_trend and indirectly through its existing influence on company_performance. Given the potential for increased market activity and a more favorable market environment, the positive impact on investor_sentiment and subsequently on the outcome is heightened. This update reflects an increased confidence in the likelihood of IT's market close price on 2025-12-28 being higher than on 2025-12-21, due to the reinforced positive outlook for both the IT industry and the broader market.\"\n}",
+      "target_id": "industry_outlook->market_trend",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a significant technological breakthrough in the IT sector, such as the widespread adoption of a new artificial intelligence technology, were to occur between 2025-12-21 and 2025-12-28, potentially disrupting the current market dynamics and investor expectations? This breakthrough could lead to a rapid shift in investor sentiment and company valuations. The absence of such an innovation node in the current causal network overlooks a critical factor that could substantially impact the IT company's market close price. How would this development influence your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.14,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of a significant technological breakthrough in the IT sector would primarily affect the industry_outlook node, as it would likely improve the prospects and trends in the IT industry. This, in turn, would enhance company_performance, as the IT company would be well-positioned to leverage the new technology. The improved company_performance would then boost investor_sentiment, both directly and through its positive impact on the market_trend. As a result, the causal paths leading to the outcome, particularly through investor_sentiment and company_performance, would be strengthened. Given the potential for such a breakthrough to substantially impact the IT company's market close price, I am increasing my probability estimate to reflect the increased likelihood of a higher market close price on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of a significant technological breakthrough in the IT sector would primarily affect the industry_outlook node, as it would likely improve the prospects and trends in the IT industry. This, in turn, would enhance company_performance, as the IT company would be well-positioned to leverage the new technology. The improved company_performance would then boost investor_sentiment, both directly and through its positive impact on the market_trend. As a result, the causal paths leading to the outcome, particularly through investor_sentiment and company_performance, would be strengthened. Given the potential for such a breakthrough to substantially impact the IT company's market close price, I am increasing my probability estimate to reflect the increased likelihood of a higher market close price on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a significant technological breakthrough occurs in a competing industry, potentially disrupting the IT sector's growth prospects? This could lead to a shift in investor sentiment and resource allocation away from IT companies. The forecaster's network does not account for the impact of technological advancements in other industries on the IT company's stock price. How would this new information affect your estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a significant technological breakthrough in a competing industry disrupts the IT sector's growth prospects, potentially shifting investor sentiment and resource allocation away from IT companies. This affects the causal paths leading to the outcome through the nodes 'industry_outlook' and 'investor_sentiment'. The 'industry_outlook' node is impacted as the breakthrough could make the IT industry less attractive compared to the competing industry, which in turn affects 'company_performance' and subsequently 'investor_sentiment'. The direct influence on 'investor_sentiment' further diminishes the likelihood of a higher stock price. Given the structural importance of these nodes in the causal network, this challenge substantially alters the forecast, decreasing the probability that IT's market close price on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a significant technological breakthrough in a competing industry disrupts the IT sector's growth prospects, potentially shifting investor sentiment and resource allocation away from IT companies. This affects the causal paths leading to the outcome through the nodes 'industry_outlook' and 'investor_sentiment'. The 'industry_outlook' node is impacted as the breakthrough could make the IT industry less attractive compared to the competing industry, which in turn affects 'company_performance' and subsequently 'investor_sentiment'. The direct influence on 'investor_sentiment' further diminishes the likelihood of a higher stock price. Given the structural importance of these nodes in the causal network, this challenge substantially alters the forecast, decreasing the probability that IT's market close price on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "technological_breakthrough",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The IT company's headquarters has recently been renovated to include more sustainable and environmentally friendly facilities, which is expected to improve employee well-being and reduce the company's carbon footprint. This renovation is part of a broader corporate social responsibility initiative. The company's leadership believes this will enhance its reputation and contribute to a positive work environment. However, the renovation does not involve any changes to the company's operational structure or financial planning.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The renovation of the IT company's headquarters to include more sustainable and environmentally friendly facilities is expected to enhance its reputation and contribute to a positive work environment. This can indirectly influence the 'company_performance' node by improving employee well-being, which in turn can slightly boost 'investor_sentiment' and directly affect the 'outcome'. However, since the renovation does not involve changes to the company's operational structure or financial planning, the impact on 'company_performance' and subsequently on 'outcome' is likely to be minor. The primary causal paths ('market_trend' to 'investor_sentiment', 'economic_growth' to 'market_trend', and 'industry_outlook' to 'company_performance') remain unaffected. Therefore, the update to the probability estimate is small, reflecting a slightly positive but not substantial impact on the company's overall performance and investor sentiment.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The renovation of the IT company's headquarters to include more sustainable and environmentally friendly facilities is expected to enhance its reputation and contribute to a positive work environment. This can indirectly influence the 'company_performance' node by improving employee well-being, which in turn can slightly boost 'investor_sentiment' and directly affect the 'outcome'. However, since the renovation does not involve changes to the company's operational structure or financial planning, the impact on 'company_performance' and subsequently on 'outcome' is likely to be minor. The primary causal paths ('market_trend' to 'investor_sentiment', 'economic_growth' to 'market_trend', and 'industry_outlook' to 'company_performance') remain unaffected. Therefore, the update to the probability estimate is small, reflecting a slightly positive but not substantial impact on the company's overall performance and investor sentiment.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The IT company's headquarters is planning to unveil a new, environmentally friendly cafeteria for its employees in the first quarter of 2026. This renovation is expected to improve worker satisfaction and reduce the company's carbon footprint. However, the project's budget and timeline are not anticipated to have any impact on the company's current financial performance or strategic direction. The cafeteria's design will feature a rooftop garden and a state-of-the-art recycling system.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The introduction of a new, environmentally friendly cafeteria, while potentially improving worker satisfaction, does not directly impact any of the critical causal paths leading to the outcome, such as market_trend, company_performance, industry_outlook, economic_growth, or investor_sentiment. Since the project's budget and timeline are not expected to affect the company's current financial performance or strategic direction, it is a peripheral element that does not substantially influence the forecasted probability of IT's market close price on 2025-12-28 being higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The introduction of a new, environmentally friendly cafeteria, while potentially improving worker satisfaction, does not directly impact any of the critical causal paths leading to the outcome, such as market_trend, company_performance, industry_outlook, economic_growth, or investor_sentiment. Since the project's budget and timeline are not expected to affect the company's current financial performance or strategic direction, it is a peripheral element that does not substantially influence the forecasted probability of IT's market close price on 2025-12-28 being higher than on 2025-12-21.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A recent report by a leading market research firm highlighted a significant increase in demand for emerging technologies such as artificial intelligence and cloud computing, both of which are key areas of focus for the IT company. This surge in demand is expected to continue through 2025, driven by widespread adoption across various industries. As a result, several major IT companies, including the one in question, are poised to benefit from this trend. This development reinforces the positive prospects and trends in the IT industry.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The positive report on the IT industry outlook strengthens the causal link between industry_outlook and company_performance. This, in turn, enhances the company_performance -> outcome path, as a favorable industry environment is likely to improve the company's financial and operational performance, directly influencing its stock price. Additionally, the improved industry outlook can lead to increased investor_sentiment, further supporting the outcome through the investor_sentiment -> outcome path. Given the significance of this development and its direct impact on key areas of the IT company's focus, the update to the probability estimate reflects an increased confidence in the stock price being higher on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The positive report on the IT industry outlook strengthens the causal link between industry_outlook and company_performance. This, in turn, enhances the company_performance -> outcome path, as a favorable industry environment is likely to improve the company's financial and operational performance, directly influencing its stock price. Additionally, the improved industry outlook can lead to increased investor_sentiment, further supporting the outcome through the investor_sentiment -> outcome path. Given the significance of this development and its direct impact on key areas of the IT company's focus, the update to the probability estimate reflects an increased confidence in the stock price being higher on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "industry_outlook",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Reports have emerged that a significant cybersecurity breach affecting multiple major companies worldwide is expected to be disclosed in the coming weeks, potentially leading to widespread economic and market repercussions. This breach is rumored to have already led to substantial losses for several affected firms. As a result, market analysts are warning of potential instability in the global market, which could impact investor confidence and, by extension, the stock prices of companies like IT. This announcement has heightened concerns about the potential for global events to disrupt market trends.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'global_events' affects the causal path 'global_events -> market_trend', which in turn influences 'market_trend -> investor_sentiment'. This disruption to the global market, due to the expected disclosure of a significant cybersecurity breach, could lead to market instability, negatively impacting investor confidence and potentially driving down stock prices. The heightened concerns about global events disrupting market trends weaken the positive influence of economic growth on the market trend and, by extension, the overall outlook for IT's stock price. As a result, I have substantially decreased my probability estimate, reflecting the increased uncertainty and potential negative impact on the market and IT's stock price.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'global_events' affects the causal path 'global_events -> market_trend', which in turn influences 'market_trend -> investor_sentiment'. This disruption to the global market, due to the expected disclosure of a significant cybersecurity breach, could lead to market instability, negatively impacting investor confidence and potentially driving down stock prices. The heightened concerns about global events disrupting market trends weaken the positive influence of economic growth on the market trend and, by extension, the overall outlook for IT's stock price. As a result, I have substantially decreased my probability estimate, reflecting the increased uncertainty and potential negative impact on the market and IT's stock price.\"\n}",
+      "target_id": "global_events",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent survey by a leading financial institution found that 75% of institutional investors reported increased confidence in the market after the latest GDP growth rate exceeded expectations, highlighting the direct impact of positive market trends on investor sentiment. This surge in confidence was followed by a notable increase in investment allocations to the IT sector. Furthermore, historical data analysis reveals a strong correlation between market trend indices and investor sentiment metrics, with the former consistently preceding changes in the latter. This evidence suggests that the relationship between market trend and investor sentiment may be even more pronounced than initially assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between 'market_trend' and 'investor_sentiment', suggesting a more pronounced relationship than initially assumed. This affects the causal path 'economic_growth -> market_trend -> investor_sentiment -> outcome' and 'global_events -> market_trend -> investor_sentiment -> outcome', increasing the likelihood that a positive market trend will boost investor sentiment and subsequently drive up the stock price. The historical data analysis and survey results provide strong evidence for this relationship, leading to a moderate increase in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between 'market_trend' and 'investor_sentiment', suggesting a more pronounced relationship than initially assumed. This affects the causal path 'economic_growth -> market_trend -> investor_sentiment -> outcome' and 'global_events -> market_trend -> investor_sentiment -> outcome', increasing the likelihood that a positive market trend will boost investor sentiment and subsequently drive up the stock price. The historical data analysis and survey results provide strong evidence for this relationship, leading to a moderate increase in the estimated probability.\"\n}",
+      "target_id": "market_trend->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by a reputable financial analyst firm found that stocks with high social media sentiment, a key indicator of investor sentiment, outperformed the market by an average of 10% over the past quarter, suggesting that positive investor sentiment has an even more significant impact on stock prices than previously thought. This trend is expected to continue into 2025. Furthermore, IT companies have been particularly sensitive to changes in investor sentiment due to their high growth potential and volatility. As a result, it is likely that the causal link between investor sentiment and outcome is stronger than initially assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between investor_sentiment and outcome, suggesting a more significant impact of positive investor sentiment on stock prices. This affects the causal paths: market_trend -> investor_sentiment -> outcome, company_performance -> investor_sentiment -> outcome, and industry_outlook -> company_performance -> investor_sentiment -> outcome. Given the increased sensitivity of IT companies to investor sentiment and the expected continuation of the trend, the probability of IT's market close price on 2025-12-28 being higher than on 2025-12-21 increases substantially.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between investor_sentiment and outcome, suggesting a more significant impact of positive investor sentiment on stock prices. This affects the causal paths: market_trend -> investor_sentiment -> outcome, company_performance -> investor_sentiment -> outcome, and industry_outlook -> company_performance -> investor_sentiment -> outcome. Given the increased sensitivity of IT companies to investor sentiment and the expected continuation of the trend, the probability of IT's market close price on 2025-12-28 being higher than on 2025-12-21 increases substantially.\"\n}",
+      "target_id": "investor_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys indicate that a significant majority of institutional investors prioritize company performance metrics, such as revenue growth and profitability, when making investment decisions in the IT sector. This suggests that strong company performance has a more substantial impact on investor sentiment than previously thought. Furthermore, IT companies with impressive performance track records have been observed to attract more retail investors, further amplifying the positive sentiment. As a result, the relationship between company performance and investor sentiment may be more robust than initially assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between company_performance and investor_sentiment, suggesting that strong company performance has a more substantial impact on investor sentiment than previously thought. This affects the causal path company_performance -> investor_sentiment -> outcome, increasing the likelihood of a positive outcome. Additionally, the path industry_outlook -> company_performance -> investor_sentiment -> outcome is also reinforced, as a favorable industry outlook can lead to strong company performance, which in turn boosts investor sentiment. Given the increased importance of company performance in driving investor sentiment, and subsequently the stock price, the updated probability reflects a higher confidence in the outcome being positive.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between company_performance and investor_sentiment, suggesting that strong company performance has a more substantial impact on investor sentiment than previously thought. This affects the causal path company_performance -> investor_sentiment -> outcome, increasing the likelihood of a positive outcome. Additionally, the path industry_outlook -> company_performance -> investor_sentiment -> outcome is also reinforced, as a favorable industry outlook can lead to strong company performance, which in turn boosts investor sentiment. Given the increased importance of company performance in driving investor sentiment, and subsequently the stock price, the updated probability reflects a higher confidence in the outcome being positive.\"\n}",
+      "target_id": "company_performance->investor_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "IT",
+    "question_text": "Will IT's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.58,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.079375,
+    "max_absolute_shift": 0.17000000000000004
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 2.0390625,
+    "mean_shift_high": 0.10875,
+    "mean_shift_low": 0.05333333333333334,
+    "asymmetry_index": 0.5731707317073167,
+    "mean_shift_negate": 0.06714285714285712,
+    "mean_shift_strengthen": 0.11714285714285717,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.03138888888888887,
+    "mean_shift_on_path": 0.10222222222222221,
+    "mean_shift_off_path": 0.07083333333333335,
+    "importance_sensitivity_correlation": -0.3363636363636364,
+    "control_sensitivity": 0
+  }
+}

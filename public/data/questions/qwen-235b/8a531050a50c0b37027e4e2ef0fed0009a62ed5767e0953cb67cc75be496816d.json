@@ -1,0 +1,1053 @@
+{
+  "question_id": "8a531050a50c0b37027e4e2ef0fed0009a62ed5767e0953cb67cc75be496816d",
+  "question_text": "Will there be more than ten times as many 'Protests' in Oman for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Protests' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.12,
+  "nodes": [
+    {
+      "id": "regime_stability",
+      "description": "The current level of political stability and legitimacy of the Omani government",
+      "role": "factor"
+    },
+    {
+      "id": "economic_conditions",
+      "description": "Economic performance including youth unemployment, inflation, and public spending",
+      "role": "factor"
+    },
+    {
+      "id": "grievance_mobilization",
+      "description": "Public dissatisfaction and ability to organize around shared grievances",
+      "role": "factor"
+    },
+    {
+      "id": "regional_protests",
+      "description": "Level of protest activity in neighboring Gulf or Middle Eastern countries",
+      "role": "factor"
+    },
+    {
+      "id": "state_repression",
+      "description": "Government capacity and willingness to suppress dissent through surveillance, arrests, or force",
+      "role": "factor"
+    },
+    {
+      "id": "protest_spillover",
+      "description": "Cross-border diffusion of protest tactics and morale from regional movements",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "More than ten times as many 'Protests' in Oman in the 30 days before 2025-12-28 compared to one plus the 30-day average over the prior 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_conditions",
+      "to": "grievance_mobilization",
+      "mechanism": "Poor economic conditions increase public frustration and willingness to protest"
+    },
+    {
+      "from": "regime_stability",
+      "to": "grievance_mobilization",
+      "mechanism": "Low regime legitimacy amplifies public willingness to act on grievances"
+    },
+    {
+      "from": "grievance_mobilization",
+      "to": "outcome",
+      "mechanism": "Higher mobilization increases the likelihood of a large spike in protest events"
+    },
+    {
+      "from": "regional_protests",
+      "to": "protest_spillover",
+      "mechanism": "Protests in nearby countries inspire or inform activists in Oman"
+    },
+    {
+      "from": "protest_spillover",
+      "to": "grievance_mobilization",
+      "mechanism": "Regional protest momentum lowers perceived risks and raises expectations of success"
+    },
+    {
+      "from": "state_repression",
+      "to": "outcome",
+      "mechanism": "High state repression deters mass protest activity and disrupts organization"
+    },
+    {
+      "from": "economic_conditions",
+      "to": "regime_stability",
+      "mechanism": "Deteriorating economic conditions weaken public trust in the ruling regime"
+    }
+  ],
+  "reasoning": "Oman has historically experienced low levels of protest compared to other Middle Eastern nations, with the government maintaining stability through a combination of economic subsidies, co-optation, and selective repression. Economic pressures, especially youth unemployment and fiscal strain from hydrocarbon dependence, could fuel grievances, but the state’s high surveillance and rapid response capacity act as strong dampeners. Regional unrest could inspire protest waves, but spillover effects are typically weak in tightly controlled Gulf states. A tenfold protest spike would require an exogenous shock or major failure in regime containment, which is unlikely given Oman’s current trajectory. Hence, the probability remains low.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "regime_stability",
+        "description": "The current level of political stability and legitimacy of the Omani government",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.1667,
+        "pagerank": 0.0896,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_conditions",
+        "description": "Economic performance including youth unemployment, inflation, and public spending",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0628,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "grievance_mobilization",
+        "description": "Public dissatisfaction and ability to organize around shared grievances",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.5333,
+        "pagerank": 0.2645,
+        "path_relevance": 0.6667
+      },
+      {
+        "node_id": "regional_protests",
+        "description": "Level of protest activity in neighboring Gulf or Middle Eastern countries",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0628,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "state_repression",
+        "description": "Government capacity and willingness to suppress dissent through surveillance, arrests, or force",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0628,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "protest_spillover",
+        "description": "Cross-border diffusion of protest tactics and morale from regional movements",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1163,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "outcome",
+        "description": "More than ten times as many 'Protests' in Oman in the 30 days before 2025-12-28 compared to one plus the 30-day average over the prior 360 days",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.3411,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "regime_stability",
+        "target": "grievance_mobilization",
+        "mechanism": "Low regime legitimacy amplifies public willingness to act on grievances",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_conditions",
+        "target": "grievance_mobilization",
+        "mechanism": "Poor economic conditions increase public frustration and willingness to protest",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_conditions",
+        "target": "regime_stability",
+        "mechanism": "Deteriorating economic conditions weaken public trust in the ruling regime",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": false
+      },
+      {
+        "source": "grievance_mobilization",
+        "target": "outcome",
+        "mechanism": "Higher mobilization increases the likelihood of a large spike in protest events",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "regional_protests",
+        "target": "protest_spillover",
+        "mechanism": "Protests in nearby countries inspire or inform activists in Oman",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "state_repression",
+        "target": "outcome",
+        "mechanism": "High state repression deters mass protest activity and disrupts organization",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "protest_spillover",
+        "target": "grievance_mobilization",
+        "mechanism": "Regional protest momentum lowers perceived risks and raises expectations of success",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "grievance_mobilization",
+        "description": "Public dissatisfaction and ability to organize around shared grievances",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "protest_spillover",
+        "description": "Cross-border diffusion of protest tactics and morale from regional movements",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_conditions",
+        "description": "Economic performance including youth unemployment, inflation, and public spending",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "state_repression",
+        "description": "Government capacity and willingness to suppress dissent through surveillance, arrests, or force",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "grievance_mobilization",
+        "description": "Public dissatisfaction and ability to organize around shared grievances",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "protest_spillover",
+        "description": "Cross-border diffusion of protest tactics and morale from regional movements",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "grievance_mobilization->outcome",
+        "description": "Higher mobilization increases the likelihood of a large spike in protest events",
+        "importance": 0.119,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "protest_spillover->grievance_mobilization",
+        "description": "Regional protest momentum lowers perceived risks and raises expectations of success",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_conditions->regime_stability",
+        "description": "Deteriorating economic conditions weaken public trust in the ruling regime",
+        "importance": 0.0238,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "grievance_mobilization->outcome",
+        "description": "Higher mobilization increases the likelihood of a large spike in protest events",
+        "importance": 0.119,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "state_repression->grievance_mobilization",
+        "description": "Potential link: Government capacity and willingness to suppress dissent through surveillance, arrests, or force -> Public dissatisfaction and ability to organize around shared grievances",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "grievance_mobilization",
+      "description": "Public dissatisfaction and ability to organize around shared grievances",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "protest_spillover",
+      "description": "Cross-border diffusion of protest tactics and morale from regional movements",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_conditions",
+      "description": "Economic performance including youth unemployment, inflation, and public spending",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "state_repression",
+      "description": "Government capacity and willingness to suppress dissent through surveillance, arrests, or force",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "grievance_mobilization",
+      "description": "Public dissatisfaction and ability to organize around shared grievances",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "protest_spillover",
+      "description": "Cross-border diffusion of protest tactics and morale from regional movements",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "grievance_mobilization->outcome",
+      "description": "Higher mobilization increases the likelihood of a large spike in protest events",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "protest_spillover->grievance_mobilization",
+      "description": "Regional protest momentum lowers perceived risks and raises expectations of success",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_conditions->regime_stability",
+      "description": "Deteriorating economic conditions weaken public trust in the ruling regime",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "grievance_mobilization->outcome",
+      "description": "Higher mobilization increases the likelihood of a large spike in protest events",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "state_repression->grievance_mobilization",
+      "description": "Potential link: Government capacity and willingness to suppress dissent through surveillance, arrests, or force -> Public dissatisfaction and ability to organize around shared grievances",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if public dissatisfaction and the ability to organize around grievances have little effect on protest spikes in Oman? Despite high frustration over economic conditions or regional unrest, tightly controlled civil society, pervasive surveillance, and preemptive co-optation of dissent by the Omani state may render grassroots mobilization ineffective. In such a context, even widespread grievance might fail to translate into coordinated action, making mobilization capacity a poor predictor of protest surges.",
+      "probe_type": "node_negate_high",
+      "target_id": "grievance_mobilization",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public dissatisfaction and ability to organize around shared grievances"
+    },
+    {
+      "probe_text": "What if cross-border diffusion of protest tactics and morale from regional movements has no meaningful impact on protest activity in Oman? Gulf states have tightly controlled media environments and restricted civil society, which severely limit the transmission of protest tactics and inspirational momentum from neighboring countries. Unlike in more open or connected regions, Omani activists may have little awareness of or ability to coordinate with movements in other countries, making regional protest waves irrelevant to domestic mobilization.",
+      "probe_type": "node_negate_high",
+      "target_id": "protest_spillover",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Cross-border diffusion of protest tactics and morale from regional movements"
+    },
+    {
+      "probe_text": "Recent data shows that despite rising youth unemployment and inflation, the Omani government has maintained high public approval through targeted cash transfers and job quotas for nationals, suggesting economic conditions may not be translating into political grievance. In similar Gulf states, economic discontent has been absorbed through patronage without triggering protest spikes, indicating that institutional buffers may decouple economic performance from mobilization.",
+      "probe_type": "node_negate_medium",
+      "target_id": "economic_conditions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Economic performance including youth unemployment, inflation, and public spending"
+    },
+    {
+      "probe_text": "The Omani government has historically maintained control through co-optation and limited, targeted repression rather than widespread force. In the context of economic reforms and foreign investment initiatives, the state may prioritize stability and international image over aggressive suppression, reducing the relevance of 'state_repression' as a deterrent to protest mobilization.",
+      "probe_type": "node_negate_low",
+      "target_id": "state_repression",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Government capacity and willingness to suppress dissent through surveillance, arrests, or force"
+    },
+    {
+      "probe_text": "In early 2025, a coordinated series of underground youth-led collectives in Oman publicly released a manifesto citing rising unemployment and lack of political representation as unifying grievances, followed by the successful organization of several small but synchronized demonstrations in Sohar and Salalah despite limited internet access. Civil society analysts at the Gulf Center for Strategic Studies have since identified these groups as evidence of a growing, networked capacity for grievance mobilization that did not exist at scale in previous years.",
+      "probe_type": "node_strengthen",
+      "target_id": "grievance_mobilization",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public dissatisfaction and ability to organize around shared grievances"
+    },
+    {
+      "probe_text": "In early 2025, a coordinated wave of pro-democracy protests spreads across Bahrain and the UAE, accompanied by widespread social media campaigns featuring Arabic-language content specifically tailored to Omani audiences. Activists in Oman report attending cross-border strategy sessions where protest tactics, encryption tools, and anonymous coordination methods are shared, significantly enhancing their operational capacity.",
+      "probe_type": "node_strengthen",
+      "target_id": "protest_spillover",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Cross-border diffusion of protest tactics and morale from regional movements"
+    },
+    {
+      "probe_text": "High levels of grievance mobilization may not translate into actual protest spikes in Oman due to the government's preemptive co-optation strategies, such as rapid deployment of subsidies or royal decrees addressing specific grievances before they escalate. For example, in 2023, widespread public complaints over job scarcity led to immediate cabinet reshuffles and promised public sector hiring, defusing tensions without protest escalation. This suggests that grievance expression can be absorbed by regime responsiveness, breaking the link between mobilization and large-scale protest outcomes.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "grievance_mobilization->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher mobilization increases the likelihood of a large spike in protest events"
+    },
+    {
+      "probe_text": "Omani civil society has remained largely insulated from regional protest waves in the past decade, despite significant uprisings in neighboring countries. The government’s tight control over media and cross-border civil society networks, combined with a historically cautious public attitude toward political engagement, suggests that protest spillover has minimal impact on domestic grievance mobilization, as seen during the 2021 Dhofar protests when regional activism had no observable amplifying effect.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "protest_spillover->grievance_mobilization",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Regional protest momentum lowers perceived risks and raises expectations of success"
+    },
+    {
+      "probe_text": "Oman has maintained high levels of public trust in state institutions despite prolonged periods of weak economic performance, partly due to the Sultan's personal legitimacy and the perception of paternalistic governance. In such a context, economic downturns may not significantly erode regime stability if citizens do not hold the ruler personally responsible for economic hardships.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "economic_conditions->regime_stability",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Deteriorating economic conditions weaken public trust in the ruling regime"
+    },
+    {
+      "probe_text": "A sudden surge in protest events in Oman could itself amplify public awareness and solidarity, leading to increased grievance mobilization as more people become politicized and connected through participation in or exposure to large-scale protests. Rather than mobilization solely driving protest spikes, the act of protesting may recursively fuel further mobilization by strengthening networks, spreading narratives of injustice, and eroding fear of repression.",
+      "probe_type": "edge_reverse",
+      "target_id": "grievance_mobilization->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher mobilization increases the likelihood of a large spike in protest events"
+    },
+    {
+      "probe_text": "Suppose credible reports emerge that Oman has significantly expanded its digital surveillance and preemptive arrest campaigns targeting civil society leaders, but no large protests occur initially. Would this increase public grievance over time by fostering resentment against state overreach, even if immediate mobilization is deterred? Consider that repressive measures can deepen distrust in government and amplify underlying grievances, especially when perceived as unjust or excessive.",
+      "probe_type": "edge_spurious",
+      "target_id": "state_repression->grievance_mobilization",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Government capacity and willingness to suppress dissent through surveillance, arrests, or force -> Public dissatisfaction and ability to organize around shared grievances"
+    },
+    {
+      "probe_text": "Consider the role of social media penetration and digital connectivity in Oman over the forecast period. Increased access to platforms like Twitter, Instagram, and WhatsApp can amplify grievance mobilization by enabling rapid coordination and dissemination of protest-related information, even under conditions of state repression. Would a significant increase in internet penetration or the adoption of encrypted communication tools by activists change the likelihood of a protest spike, independent of economic conditions or regional spillover?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of social media penetration and digital connectivity in Oman over the forecast period. Increased access to platforms like Twitter, Instagram, and WhatsApp can enable faster coordination of protest activities, broaden participation, and amplify grievances beyond localized groups. This factor could significantly influence grievance_mobilization and the scale of protest outcomes, especially in a tightly controlled information environment where offline organization is risky.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early 2025, Oman announced a new national initiative to promote tourism by showcasing traditional Omani culture through state-sponsored festivals in major cities. The program received widespread domestic media coverage and included funding for local artisans and performers.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In early 2025, Oman launched a new national tourism campaign featuring international advertising and cultural festivals aimed at boosting visitor numbers by 30% over the next two years. The campaign has received widespread domestic media coverage and includes major events in Muscat and Salalah.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if public dissatisfaction and the ability to organize around grievances have little effect on protest spikes in Oman? Despite high frustration over economic conditions or regional unrest, tightly controlled civil society, pervasive surveillance, and preemptive co-optation of dissent by the Omani state may render grassroots mobilization ineffective. In such a context, even widespread grievance might fail to translate into coordinated action, making mobilization capacity a poor predictor of protest surges.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.07,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets 'grievance_mobilization', a central node in the causal network that mediates the effects of economic_conditions, regime_stability, and protest_spillover on the outcome. If grievance mobilization is ineffective due to tight state control, surveillance, and co-optation, then the primary pathway through which underlying discontent translates into protest spikes is weakened. This disrupts multiple causal paths: (1) economic_conditions → grievance_mobilization → outcome, (2) regime_stability → grievance_mobilization → outcome, and (3) regional_protests → protest_spillover → grievance_mobilization → outcome. As a result, even if background conditions become more volatile, the likelihood of a tenfold protest surge diminishes. The remaining direct deterrent—state_repression → outcome—becomes relatively more decisive. Given that mobilization was a key amplifying mechanism, its impairment justifies a downward revision, though not to near-zero, as spontaneous or elite-fragmentation-driven protests remain possible. Thus, the probability decreases from 0.12 to 0.07.",
+      "raw_response": "{\n  \"updated_probability\": 0.07,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets 'grievance_mobilization', a central node in the causal network that mediates the effects of economic_conditions, regime_stability, and protest_spillover on the outcome. If grievance mobilization is ineffective due to tight state control, surveillance, and co-optation, then the primary pathway through which underlying discontent translates into protest spikes is weakened. This disrupts multiple causal paths: (1) economic_conditions → grievance_mobilization → outcome, (2) regime_stability → grievance_mobilization → outcome, and (3) regional_protests → protest_spillover → grievance_mobilization → outcome. As a result, even if background conditions become more volatile, the likelihood of a tenfold protest surge diminishes. The remaining direct deterrent—state_repression → outcome—becomes relatively more decisive. Given that mobilization was a key amplifying mechanism, its impairment justifies a downward revision, though not to near-zero, as spontaneous or elite-fragmentation-driven protests remain possible. Thus, the probability decreases from 0.12 to 0.07.\"\n}",
+      "target_id": "grievance_mobilization",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if cross-border diffusion of protest tactics and morale from regional movements has no meaningful impact on protest activity in Oman? Gulf states have tightly controlled media environments and restricted civil society, which severely limit the transmission of protest tactics and inspirational momentum from neighboring countries. Unlike in more open or connected regions, Omani activists may have little awareness of or ability to coordinate with movements in other countries, making regional protest waves irrelevant to domestic mobilization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'protest_spillover' severs a key amplification pathway in the causal network. Specifically, it removes the indirect link from 'regional_protests' to 'grievance_mobilization' via 'protest_spillover', weakening the potential for external protest waves to lower the threshold for domestic mobilization in Oman. While the primary drivers of protest activity—economic conditions, regime stability, and state repression—remain intact, the absence of spillover effects reduces the likelihood of sudden, large-scale protest surges triggered or accelerated by regional momentum. Given that Oman's tightly controlled media and civil society already limit organic diffusion, this pathway was a moderate but non-dominant enabler of extreme protest spikes. Removing it slightly lowers the probability of a tenfold increase in protest events, hence a modest downward adjustment from 0.12 to 0.09.",
+      "raw_response": "{\n  \"updated_probability\": 0.09,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'protest_spillover' severs a key amplification pathway in the causal network. Specifically, it removes the indirect link from 'regional_protests' to 'grievance_mobilization' via 'protest_spillover', weakening the potential for external protest waves to lower the threshold for domestic mobilization in Oman. While the primary drivers of protest activity—economic conditions, regime stability, and state repression—remain intact, the absence of spillover effects reduces the likelihood of sudden, large-scale protest surges triggered or accelerated by regional momentum. Given that Oman's tightly controlled media and civil society already limit organic diffusion, this pathway was a moderate but non-dominant enabler of extreme protest spikes. Removing it slightly lowers the probability of a tenfold increase in protest events, hence a modest downward adjustment from 0.12 to 0.09.\"\n}",
+      "target_id": "protest_spillover",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that despite rising youth unemployment and inflation, the Omani government has maintained high public approval through targeted cash transfers and job quotas for nationals, suggesting economic conditions may not be translating into political grievance. In similar Gulf states, economic discontent has been absorbed through patronage without triggering protest spikes, indicating that institutional buffers may decouple economic performance from mobilization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.039999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal path from economic_conditions to grievance_mobilization, which is a key link in the network. New evidence suggests that institutional buffers—such as targeted cash transfers and job quotas—are effectively decoupling economic hardship from political grievance in Oman, as seen in other Gulf states. This weakens the expected impact of poor economic conditions (e.g., youth unemployment, inflation) on public mobilization. Since economic_conditions was a primary driver of grievance_mobilization in the original model, and this link is now less certain, the likelihood of a major protest spike (outcome) is reduced. The dampening effect propagates through the network: weaker grievance_mobilization leads to lower protest mobilization, especially in the absence of strong regional_spillover or destabilized regime_stability. While state_repression and regional_protests still constrain the outcome, the diminished role of economic triggers represents a structurally important weakening of the protest pathway. Therefore, the probability is lowered modestly but meaningfully.",
+      "raw_response": "{\n  \"updated_probability\": 0.08,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal path from economic_conditions to grievance_mobilization, which is a key link in the network. New evidence suggests that institutional buffers—such as targeted cash transfers and job quotas—are effectively decoupling economic hardship from political grievance in Oman, as seen in other Gulf states. This weakens the expected impact of poor economic conditions (e.g., youth unemployment, inflation) on public mobilization. Since economic_conditions was a primary driver of grievance_mobilization in the original model, and this link is now less certain, the likelihood of a major protest spike (outcome) is reduced. The dampening effect propagates through the network: weaker grievance_mobilization leads to lower protest mobilization, especially in the absence of strong regional_spillover or destabilized regime_stability. While state_repression and regional_protests still constrain the outcome, the diminished role of economic triggers represents a structurally important weakening of the protest pathway. Therefore, the probability is lowered modestly but meaningfully.\"\n}",
+      "target_id": "economic_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "The Omani government has historically maintained control through co-optation and limited, targeted repression rather than widespread force. In the context of economic reforms and foreign investment initiatives, the state may prioritize stability and international image over aggressive suppression, reducing the relevance of 'state_repression' as a deterrent to protest mobilization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'state_repression' suggests that the Omani government relies more on co-optation and image management than on widespread repression, which weakens the strength of the causal link from 'state_repression' to 'outcome'. This implies that the deterrent effect of state repression on protest mobilization is less robust than initially assumed, especially in a context where the state may avoid overt force to protect its international image. As a result, the pathway through which repression suppresses protest activity is diminished, making a large spike in protests slightly more plausible. This affects the balance of power in the causal network, particularly reducing a key inhibitory force on the outcome. While 'grievance_mobilization' remains constrained by economic and regime legitimacy factors, the lowered credibility of repression as a stabilizing tool increases the sensitivity of the system to mobilization pressures. Hence, the probability is revised upward modestly, but not dramatically, because repression still exists in targeted forms and co-optation remains effective in Oman’s political context.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'state_repression' suggests that the Omani government relies more on co-optation and image management than on widespread repression, which weakens the strength of the causal link from 'state_repression' to 'outcome'. This implies that the deterrent effect of state repression on protest mobilization is less robust than initially assumed, especially in a context where the state may avoid overt force to protect its international image. As a result, the pathway through which repression suppresses protest activity is diminished, making a large spike in protests slightly more plausible. This affects the balance of power in the causal network, particularly reducing a key inhibitory force on the outcome. While 'grievance_mobilization' remains constrained by economic and regime legitimacy factors, the lowered credibility of repression as a stabilizing tool increases the sensitivity of the system to mobilization pressures. Hence, the probability is revised upward modestly, but not dramatically, because repression still exists in targeted forms and co-optation remains effective in Oman’s political context.\"\n}",
+      "target_id": "state_repression",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, a coordinated series of underground youth-led collectives in Oman publicly released a manifesto citing rising unemployment and lack of political representation as unifying grievances, followed by the successful organization of several small but synchronized demonstrations in Sohar and Salalah despite limited internet access. Civil society analysts at the Gulf Center for Strategic Studies have since identified these groups as evidence of a growing, networked capacity for grievance mobilization that did not exist at scale in previous years.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.23,
+      "absolute_shift": 0.11000000000000001,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'grievance_mobilization' node, which is a central causal driver in the network. Previously, low grievance mobilization was assumed due to Oman's historically fragmented civil society and high barriers to organization. The emergence of coordinated youth collectives with a unifying manifesto and successful small-scale protests indicates a qualitative shift: grievances are now being articulated collectively and acted upon despite repression. This strengthens the path from economic_conditions and regime_stability to grievance_mobilization, and directly enhances the grievance_mobilization -> outcome link. Additionally, evidence of networked capacity suggests resilience and potential for scaling, increasing the plausibility of a tenfold spike. While state_repression remains a strong deterrent, the demonstrated ability to organize under constraints reduces its effectiveness. Thus, the core causal path to the outcome is now more viable, warranting a moderate upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.23,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'grievance_mobilization' node, which is a central causal driver in the network. Previously, low grievance mobilization was assumed due to Oman's historically fragmented civil society and high barriers to organization. The emergence of coordinated youth collectives with a unifying manifesto and successful small-scale protests indicates a qualitative shift: grievances are now being articulated collectively and acted upon despite repression. This strengthens the path from economic_conditions and regime_stability to grievance_mobilization, and directly enhances the grievance_mobilization -> outcome link. Additionally, evidence of networked capacity suggests resilience and potential for scaling, increasing the plausibility of a tenfold spike. While state_repression remains a strong deterrent, the demonstrated ability to organize under constraints reduces its effectiveness. Thus, the core causal path to the outcome is now more viable, warranting a moderate upward revision.\"\n}",
+      "target_id": "grievance_mobilization",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, a coordinated wave of pro-democracy protests spreads across Bahrain and the UAE, accompanied by widespread social media campaigns featuring Arabic-language content specifically tailored to Omani audiences. Activists in Oman report attending cross-border strategy sessions where protest tactics, encryption tools, and anonymous coordination methods are shared, significantly enhancing their operational capacity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'protest_spillover' node, which was previously a weaker link in the causal chain. The coordinated regional protests in Bahrain and the UAE, combined with targeted messaging and cross-border strategy sharing, significantly enhance the flow of protest tactics and morale into Oman. This strengthens the path from regional_protests -> protest_spillover -> grievance_mobilization, making it more likely that Omani citizens will act on existing grievances. Additionally, the use of encryption and anonymous coordination tools reduces the deterrent effect of state_repression, partially weakening its suppressive influence on the outcome. While Oman's regime_stability and state_repression remain relatively strong, the enhanced mobilization capacity via spillover increases the plausibility of a protest surge. This does not make the outcome likely, but it raises the probability meaningfully from baseline.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'protest_spillover' node, which was previously a weaker link in the causal chain. The coordinated regional protests in Bahrain and the UAE, combined with targeted messaging and cross-border strategy sharing, significantly enhance the flow of protest tactics and morale into Oman. This strengthens the path from regional_protests -> protest_spillover -> grievance_mobilization, making it more likely that Omani citizens will act on existing grievances. Additionally, the use of encryption and anonymous coordination tools reduces the deterrent effect of state_repression, partially weakening its suppressive influence on the outcome. While Oman's regime_stability and state_repression remain relatively strong, the enhanced mobilization capacity via spillover increases the plausibility of a protest surge. This does not make the outcome likely, but it raises the probability meaningfully from baseline.\"\n}",
+      "target_id": "protest_spillover",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "High levels of grievance mobilization may not translate into actual protest spikes in Oman due to the government's preemptive co-optation strategies, such as rapid deployment of subsidies or royal decrees addressing specific grievances before they escalate. For example, in 2023, widespread public complaints over job scarcity led to immediate cabinet reshuffles and promised public sector hiring, defusing tensions without protest escalation. This suggests that grievance expression can be absorbed by regime responsiveness, breaking the link between mobilization and large-scale protest outcomes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.07,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between grievance_mobilization and outcome, which is a central path in the network. Evidence of effective regime co-optation—such as rapid policy responses, subsidies, and public sector hiring pledges—suggests that even high levels of grievance mobilization may be defused before translating into large protest spikes. This weakens the strength of the grievance_mobilization -> outcome link, as the Omani state has demonstrated a capacity to absorb dissent through responsive, non-repressive measures. This mechanism operates independently of state repression (which remains a separate deterrent) and instead modifies the upstream relationship between mobilization and protest escalation. Given that economic grievances (e.g., youth unemployment) are likely to persist but may be similarly managed, the likelihood of a tenfold protest spike is further reduced. Therefore, the probability is downgraded from 0.12 to 0.07, reflecting diminished confidence that mobilization will lead to explosive protest outcomes due to this institutional absorption capacity.",
+      "raw_response": "{\n  \"updated_probability\": 0.07,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between grievance_mobilization and outcome, which is a central path in the network. Evidence of effective regime co-optation—such as rapid policy responses, subsidies, and public sector hiring pledges—suggests that even high levels of grievance mobilization may be defused before translating into large protest spikes. This weakens the strength of the grievance_mobilization -> outcome link, as the Omani state has demonstrated a capacity to absorb dissent through responsive, non-repressive measures. This mechanism operates independently of state repression (which remains a separate deterrent) and instead modifies the upstream relationship between mobilization and protest escalation. Given that economic grievances (e.g., youth unemployment) are likely to persist but may be similarly managed, the likelihood of a tenfold protest spike is further reduced. Therefore, the probability is downgraded from 0.12 to 0.07, reflecting diminished confidence that mobilization will lead to explosive protest outcomes due to this institutional absorption capacity.\"\n}",
+      "target_id": "grievance_mobilization->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Omani civil society has remained largely insulated from regional protest waves in the past decade, despite significant uprisings in neighboring countries. The government’s tight control over media and cross-border civil society networks, combined with a historically cautious public attitude toward political engagement, suggests that protest spillover has minimal impact on domestic grievance mobilization, as seen during the 2021 Dhofar protests when regional activism had no observable amplifying effect.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link 'protest_spillover -> grievance_mobilization', which is a key amplifier in the network. The evidence suggests that Omani civil society is insulated from regional protest waves due to state control over information and civil society, as well as cultural caution around political engagement. This weakens the pathway by which regional unrest could lower perceived risks or inspire action domestically, particularly undermining the 'protest_spillover' influence on 'grievance_mobilization'. As a result, one of the potential catalysts for a protest spike—regional diffusion—is less viable. This reduces the likelihood of a large protest surge even if regional protests occur. The pathway from 'regional_protests' to 'outcome' is now more attenuated, making the overall system less responsive to external shocks. While domestic factors like economic conditions and state repression remain primary drivers, the removal of this amplification loop slightly decreases the probability of an extreme protest spike. Thus, the estimate is downgraded from 0.12 to 0.09.",
+      "raw_response": "{\n  \"updated_probability\": 0.09,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link 'protest_spillover -> grievance_mobilization', which is a key amplifier in the network. The evidence suggests that Omani civil society is insulated from regional protest waves due to state control over information and civil society, as well as cultural caution around political engagement. This weakens the pathway by which regional unrest could lower perceived risks or inspire action domestically, particularly undermining the 'protest_spillover' influence on 'grievance_mobilization'. As a result, one of the potential catalysts for a protest spike—regional diffusion—is less viable. This reduces the likelihood of a large protest surge even if regional protests occur. The pathway from 'regional_protests' to 'outcome' is now more attenuated, making the overall system less responsive to external shocks. While domestic factors like economic conditions and state repression remain primary drivers, the removal of this amplification loop slightly decreases the probability of an extreme protest spike. Thus, the estimate is downgraded from 0.12 to 0.09.\"\n}",
+      "target_id": "protest_spillover->grievance_mobilization",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Oman has maintained high levels of public trust in state institutions despite prolonged periods of weak economic performance, partly due to the Sultan's personal legitimacy and the perception of paternalistic governance. In such a context, economic downturns may not significantly erode regime stability if citizens do not hold the ruler personally responsible for economic hardships.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.009999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'economic_conditions -> regime_stability' suggests that economic downturns have less impact on regime stability in Oman than initially assumed, due to the Sultan's personal legitimacy and paternalistic governance norms. This weakens the indirect path from economic_conditions to grievance_mobilization via regime_stability. However, the primary driver of grievance_mobilization remains economic_conditions acting directly, which is unchanged. The indirect pathway through regime_stability was secondary in the original model, so its weakening only slightly reduces the overall likelihood of a protest spike. Therefore, the probability decreases marginally from 0.12 to 0.11, reflecting a small reduction in the expected amplification of grievances due to regime instability, while the dominant causal paths (economic_conditions -> grievance_mobilization -> outcome and regional_protests -> protest_spillover -> grievance_mobilization -> outcome) remain intact.",
+      "raw_response": "{\n  \"updated_probability\": 0.11,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_conditions -> regime_stability' suggests that economic downturns have less impact on regime stability in Oman than initially assumed, due to the Sultan's personal legitimacy and paternalistic governance norms. This weakens the indirect path from economic_conditions to grievance_mobilization via regime_stability. However, the primary driver of grievance_mobilization remains economic_conditions acting directly, which is unchanged. The indirect pathway through regime_stability was secondary in the original model, so its weakening only slightly reduces the overall likelihood of a protest spike. Therefore, the probability decreases marginally from 0.12 to 0.11, reflecting a small reduction in the expected amplification of grievances due to regime instability, while the dominant causal paths (economic_conditions -> grievance_mobilization -> outcome and regional_protests -> protest_spillover -> grievance_mobilization -> outcome) remain intact.\"\n}",
+      "target_id": "economic_conditions->regime_stability",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "A sudden surge in protest events in Oman could itself amplify public awareness and solidarity, leading to increased grievance mobilization as more people become politicized and connected through participation in or exposure to large-scale protests. Rather than mobilization solely driving protest spikes, the act of protesting may recursively fuel further mobilization by strengthening networks, spreading narratives of injustice, and eroding fear of repression.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a feedback loop where the outcome (a surge in protests) can amplify grievance_mobilization, which in turn further increases the likelihood of sustained or escalating protest activity. This strengthens the causal path from grievance_mobilization to outcome by making it recursive: not only does existing mobilization increase the chance of a protest spike, but a spike itself can catalyze further mobilization, creating a self-reinforcing dynamic. This makes large protest surges more plausible once an initial threshold is crossed, particularly if repression is not immediately overwhelming. While state repression and Oman's generally stable regime still constrain the baseline probability, this feedback mechanism increases the potential for rapid escalation under permissive conditions (e.g., regional spillover or economic strain). Thus, the probability is updated upward, though remains low due to the structural constraints in the broader causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a feedback loop where the outcome (a surge in protests) can amplify grievance_mobilization, which in turn further increases the likelihood of sustained or escalating protest activity. This strengthens the causal path from grievance_mobilization to outcome by making it recursive: not only does existing mobilization increase the chance of a protest spike, but a spike itself can catalyze further mobilization, creating a self-reinforcing dynamic. This makes large protest surges more plausible once an initial threshold is crossed, particularly if repression is not immediately overwhelming. While state repression and Oman's generally stable regime still constrain the baseline probability, this feedback mechanism increases the potential for rapid escalation under permissive conditions (e.g., regional spillover or economic strain). Thus, the probability is updated upward, though remains low due to the structural constraints in the broader causal network.\"\n}",
+      "target_id": "grievance_mobilization->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose credible reports emerge that Oman has significantly expanded its digital surveillance and preemptive arrest campaigns targeting civil society leaders, but no large protests occur initially. Would this increase public grievance over time by fostering resentment against state overreach, even if immediate mobilization is deterred? Consider that repressive measures can deepen distrust in government and amplify underlying grievances, especially when perceived as unjust or excessive.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a previously unmodeled causal pathway: state_repression → grievance_mobilization (via long-term resentment from perceived overreach), which was absent in the original network that only included state_repression → outcome (as a direct deterrent). While strong repression still suppresses immediate protest activity, the addition of this path suggests that sustained repression can amplify underlying grievances over time, especially if surveillance and arrests are seen as unjust. This strengthens the grievance_mobilization node, particularly if digital repression fuels broader public resentment, even among non-activists. As grievance_mobilization is a key driver of the outcome, this indirect effect increases the likelihood of a protest spike if a triggering event occurs (e.g., economic shock or regional spillover) before the forecast horizon. Thus, the net effect is a moderate increase in the estimated probability, though repression still dampens short-term mobilization, limiting the size of the update.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a previously unmodeled causal pathway: state_repression → grievance_mobilization (via long-term resentment from perceived overreach), which was absent in the original network that only included state_repression → outcome (as a direct deterrent). While strong repression still suppresses immediate protest activity, the addition of this path suggests that sustained repression can amplify underlying grievances over time, especially if surveillance and arrests are seen as unjust. This strengthens the grievance_mobilization node, particularly if digital repression fuels broader public resentment, even among non-activists. As grievance_mobilization is a key driver of the outcome, this indirect effect increases the likelihood of a protest spike if a triggering event occurs (e.g., economic shock or regional spillover) before the forecast horizon. Thus, the net effect is a moderate increase in the estimated probability, though repression still dampens short-term mobilization, limiting the size of the update.\"\n}",
+      "target_id": "state_repression->grievance_mobilization",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of social media penetration and digital connectivity in Oman over the forecast period. Increased access to platforms like Twitter, Instagram, and WhatsApp can amplify grievance mobilization by enabling rapid coordination and dissemination of protest-related information, even under conditions of state repression. Would a significant increase in internet penetration or the adoption of encrypted communication tools by activists change the likelihood of a protest spike, independent of economic conditions or regional spillover?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of social media penetration and digital connectivity as an independent enabler of grievance_mobilization adds a new causal pathway that can amplify protest potential even if economic conditions or regional protests remain stable. This factor strengthens the grievance_mobilization -> outcome link by increasing the efficiency of coordination and resilience under state_repression, potentially offsetting some of the deterrent effect of repression. It also partially mediates the protest_spillover -> grievance_mobilization path by facilitating faster transmission of regional protest dynamics. While Oman still has relatively high state control over information and moderate internet penetration compared to other Gulf states, the increasing use of encrypted tools like WhatsApp could weaken the effectiveness of state_repression -> outcome as a dampening mechanism. This does not fundamentally break any existing causal link but enhances the potency of mobilization under existing grievances. Given that baseline economic conditions and regime stability remain relatively stable in Oman, the primary effect is a modest upward adjustment in the probability of a protest spike due to this newly emphasized digital amplification channel.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of social media penetration and digital connectivity as an independent enabler of grievance_mobilization adds a new causal pathway that can amplify protest potential even if economic conditions or regional protests remain stable. This factor strengthens the grievance_mobilization -> outcome link by increasing the efficiency of coordination and resilience under state_repression, potentially offsetting some of the deterrent effect of repression. It also partially mediates the protest_spillover -> grievance_mobilization path by facilitating faster transmission of regional protest dynamics. While Oman still has relatively high state control over information and moderate internet penetration compared to other Gulf states, the increasing use of encrypted tools like WhatsApp could weaken the effectiveness of state_repression -> outcome as a dampening mechanism. This does not fundamentally break any existing causal link but enhances the potency of mobilization under existing grievances. Given that baseline economic conditions and regime stability remain relatively stable in Oman, the primary effect is a modest upward adjustment in the probability of a protest spike due to this newly emphasized digital amplification channel.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of social media penetration and digital connectivity in Oman over the forecast period. Increased access to platforms like Twitter, Instagram, and WhatsApp can enable faster coordination of protest activities, broaden participation, and amplify grievances beyond localized groups. This factor could significantly influence grievance_mobilization and the scale of protest outcomes, especially in a tightly controlled information environment where offline organization is risky.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of social media penetration and digital connectivity adds a new causal pathway that strengthens the link between grievance_mobilization and outcome, and also amplifies grievance_mobilization itself. In a context of tight offline controls, digital platforms can act as force multipliers by enabling rapid, decentralized coordination and broader dissemination of grievances, which were previously constrained by state_repression. This does not create an entirely new path to the outcome, but it enhances two existing ones: (1) it strengthens 'grievance_mobilization -> outcome' by lowering coordination costs, and (2) it partially bypasses state_repression by shifting organization online. It may also intensify the effect of 'regional_protests -> protest_spillover -> grievance_mobilization' by accelerating the diffusion of protest models. However, Oman’s relatively high state capacity and history of effective information control suggest that this factor, while important, is moderated by existing repression capabilities. Thus, the update is moderate: the probability increases from 0.12 to 0.18, reflecting a non-trivial but not transformative shift in the likelihood of a protest spike.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of social media penetration and digital connectivity adds a new causal pathway that strengthens the link between grievance_mobilization and outcome, and also amplifies grievance_mobilization itself. In a context of tight offline controls, digital platforms can act as force multipliers by enabling rapid, decentralized coordination and broader dissemination of grievances, which were previously constrained by state_repression. This does not create an entirely new path to the outcome, but it enhances two existing ones: (1) it strengthens 'grievance_mobilization -> outcome' by lowering coordination costs, and (2) it partially bypasses state_repression by shifting organization online. It may also intensify the effect of 'regional_protests -> protest_spillover -> grievance_mobilization' by accelerating the diffusion of protest models. However, Oman’s relatively high state capacity and history of effective information control suggest that this factor, while important, is moderated by existing repression capabilities. Thus, the update is moderate: the probability increases from 0.12 to 0.18, reflecting a non-trivial but not transformative shift in the likelihood of a protest spike.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Oman announced a new national initiative to promote tourism by showcasing traditional Omani culture through state-sponsored festivals in major cities. The program received widespread domestic media coverage and included funding for local artisans and performers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The new state-sponsored cultural tourism initiative affects multiple causal paths in the model. It strengthens regime_stability by enhancing the government's public image and demonstrating responsiveness through investment in local communities, which in turn reduces grievance_mobilization. Additionally, by increasing state patronage of cultural actors and gaining positive media coverage, the initiative indirectly improves economic_conditions for some participants, particularly local artisans and performers, slightly alleviating economic grievances. This weakens the economic_conditions -> grievance_mobilization link. Furthermore, the positive narrative around national culture and state support may counteract protest_spillover effects by reinforcing regime legitimacy and reducing receptivity to foreign protest models. While the initiative does not directly alter state_repression or eliminate structural economic challenges, it bolsters regime legitimacy and dampens mobilization potential, making a protest spike less likely. Therefore, the probability of the outcome decreases modestly from 0.12 to 0.09.",
+      "raw_response": "{\n  \"updated_probability\": 0.09,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new state-sponsored cultural tourism initiative affects multiple causal paths in the model. It strengthens regime_stability by enhancing the government's public image and demonstrating responsiveness through investment in local communities, which in turn reduces grievance_mobilization. Additionally, by increasing state patronage of cultural actors and gaining positive media coverage, the initiative indirectly improves economic_conditions for some participants, particularly local artisans and performers, slightly alleviating economic grievances. This weakens the economic_conditions -> grievance_mobilization link. Furthermore, the positive narrative around national culture and state support may counteract protest_spillover effects by reinforcing regime legitimacy and reducing receptivity to foreign protest models. While the initiative does not directly alter state_repression or eliminate structural economic challenges, it bolsters regime legitimacy and dampens mobilization potential, making a protest spike less likely. Therefore, the probability of the outcome decreases modestly from 0.12 to 0.09.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Oman launched a new national tourism campaign featuring international advertising and cultural festivals aimed at boosting visitor numbers by 30% over the next two years. The campaign has received widespread domestic media coverage and includes major events in Muscat and Salalah.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.009999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The new national tourism campaign affects the causal path through economic_conditions and regime_stability. By boosting economic activity and presenting a narrative of national progress and stability, the campaign may improve perceptions of economic performance and increase regime legitimacy, particularly through visible investment and job creation in the tourism sector. This weakens the grievance_mobilization pathway by reducing public dissatisfaction, especially if the campaign leads to tangible economic benefits or distracts from underlying structural issues like youth unemployment. While the effect is indirect and likely modest given Oman's entrenched political and economic dynamics, it slightly reduces the likelihood of a protest spike. However, the campaign does not directly affect state_repression or regional_protests, which remain constraining factors. The change is minor because tourism initiatives alone are unlikely to fundamentally alter the structural drivers of protest potential, but the small positive signal to regime_stability and economic_conditions justifies a slight downward adjustment in the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.11,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new national tourism campaign affects the causal path through economic_conditions and regime_stability. By boosting economic activity and presenting a narrative of national progress and stability, the campaign may improve perceptions of economic performance and increase regime legitimacy, particularly through visible investment and job creation in the tourism sector. This weakens the grievance_mobilization pathway by reducing public dissatisfaction, especially if the campaign leads to tangible economic benefits or distracts from underlying structural issues like youth unemployment. While the effect is indirect and likely modest given Oman's entrenched political and economic dynamics, it slightly reduces the likelihood of a protest spike. However, the campaign does not directly affect state_repression or regional_protests, which remain constraining factors. The change is minor because tourism initiatives alone are unlikely to fundamentally alter the structural drivers of protest potential, but the small positive signal to regime_stability and economic_conditions justifies a slight downward adjustment in the probability.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Oman announces significant cuts to public sector subsidies and delays salary payments to government employees, leading to a spike in youth unemployment to 27%—the highest in a decade—amid rising inflation driven by reduced oil revenues. These deteriorating economic conditions are widely reported by regional financial analysts and spark renewed online criticism of economic mismanagement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'economic_conditions' node, which is a key driver in the causal network. Deteriorating economic conditions—specifically subsidy cuts, delayed public sector wages, rising youth unemployment, and inflation—amplify public grievance and reduce regime legitimacy. This affects two major causal paths: (1) economic_conditions -> grievance_mobilization, which is now stronger due to heightened material hardship, and (2) economic_conditions -> regime_stability, as public trust in the government erodes, further feeding into grievance_mobilization. These changes increase the likelihood of a protest spike, though the effect is moderated by the persistent strength of state_repression in Oman, which still constrains large-scale mobilization. The outcome remains unlikely, but significantly less so than before.",
+      "raw_response": "{\n  \"updated_probability\": 0.24,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'economic_conditions' node, which is a key driver in the causal network. Deteriorating economic conditions—specifically subsidy cuts, delayed public sector wages, rising youth unemployment, and inflation—amplify public grievance and reduce regime legitimacy. This affects two major causal paths: (1) economic_conditions -> grievance_mobilization, which is now stronger due to heightened material hardship, and (2) economic_conditions -> regime_stability, as public trust in the government erodes, further feeding into grievance_mobilization. These changes increase the likelihood of a protest spike, though the effect is moderated by the persistent strength of state_repression in Oman, which still constrains large-scale mobilization. The outcome remains unlikely, but significantly less so than before.\"\n}",
+      "target_id": "economic_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Oman expanded its cyber-surveillance infrastructure with a new AI-powered platform to monitor social media and encrypted messaging apps, funded by a contract with a foreign security technology firm. Simultaneously, the government passed amendments to the Public Order Law granting security forces broader authority to detain individuals suspected of planning 'unauthorized gatherings' without judicial oversight.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.07,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The expansion of cyber-surveillance and the legal empowerment of security forces to detain individuals without judicial oversight directly strengthen the 'state_repression' node. This enhancement increases the government's capacity and perceived willingness to suppress dissent, which reinforces the causal path from 'state_repression' to 'outcome' as a strong deterrent against large-scale protest mobilization. While 'grievance_mobilization' remains influenced by economic conditions and regional spillover, the strengthened repression capability reduces the likelihood that such grievances will translate into observable protest spikes. The update reflects a modest downward revision because while state repression is a key constraint, Oman’s relatively low baseline protest activity and incremental nature of change suggest the new measures, while significant, are preventive and may not alter underlying grievances. However, the increased risk of pre-emptive detentions and digital surveillance meaningfully raises the cost of organizing, thereby reducing the probability of a tenfold protest surge.",
+      "raw_response": "{\n  \"updated_probability\": 0.07,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The expansion of cyber-surveillance and the legal empowerment of security forces to detain individuals without judicial oversight directly strengthen the 'state_repression' node. This enhancement increases the government's capacity and perceived willingness to suppress dissent, which reinforces the causal path from 'state_repression' to 'outcome' as a strong deterrent against large-scale protest mobilization. While 'grievance_mobilization' remains influenced by economic conditions and regional spillover, the strengthened repression capability reduces the likelihood that such grievances will translate into observable protest spikes. The update reflects a modest downward revision because while state repression is a key constraint, Oman’s relatively low baseline protest activity and incremental nature of change suggest the new measures, while significant, are preventive and may not alter underlying grievances. However, the increased risk of pre-emptive detentions and digital surveillance meaningfully raises the cost of organizing, thereby reducing the probability of a tenfold protest surge.\"\n}",
+      "target_id": "state_repression",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2024, Oman witnessed a surge in labor protests in Sohar and Duqm, where coordinated strikes in special economic zones demonstrated unprecedented inter-group solidarity among public and private sector workers, signaling a new capacity for grievance convergence and mass mobilization. Despite minimal external triggers, these protests achieved significant wage concessions, illustrating that heightened grievance mobilization can rapidly translate into large-scale, effective protest actions. This suggests the causal link between grievance mobilization and protest spikes is stronger than previously modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.23,
+      "absolute_shift": 0.11000000000000001,
+      "shift_direction": "increased",
+      "reasoning": "The reported labor protests in Sohar and Duqm in early 2024 provide strong empirical evidence that grievance_mobilization can directly and effectively translate into large-scale protest events in Oman, even without significant external triggers. This strengthens the causal link grievance_mobilization -> outcome, which is a central pathway in my model. The success of these protests in achieving concessions indicates improved capacity for coordination and reduced fear of repression, suggesting that mobilization thresholds have lowered. This update affects the core causal path leading to the outcome, increasing the plausibility of a protest spike. While state_repression and regime_stability still act as dampening forces, the demonstrated efficacy of recent mobilization implies that grievance_mobilization is more potent than previously estimated. Therefore, I increase the probability from 0.12 to 0.23, reflecting a moderate but significant upward revision due to the strengthened mechanism linking mobilization to protest escalation.",
+      "raw_response": "{\n  \"updated_probability\": 0.23,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reported labor protests in Sohar and Duqm in early 2024 provide strong empirical evidence that grievance_mobilization can directly and effectively translate into large-scale protest events in Oman, even without significant external triggers. This strengthens the causal link grievance_mobilization -> outcome, which is a central pathway in my model. The success of these protests in achieving concessions indicates improved capacity for coordination and reduced fear of repression, suggesting that mobilization thresholds have lowered. This update affects the core causal path leading to the outcome, increasing the plausibility of a protest spike. While state_repression and regime_stability still act as dampening forces, the demonstrated efficacy of recent mobilization implies that grievance_mobilization is more potent than previously estimated. Therefore, I increase the probability from 0.12 to 0.23, reflecting a moderate but significant upward revision due to the strengthened mechanism linking mobilization to protest escalation.\"\n}",
+      "target_id": "grievance_mobilization->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2024, widespread protests in Kuwait over labor rights and government corruption were extensively covered on Omani social media, with viral videos of demonstrations and coordinated strike actions. Omani labor activists subsequently organized a rare joint petition citing Kuwaiti protesters as inspiration, signaling heightened willingness to act due to regional momentum. This cross-border influence demonstrates that regional protest success significantly lowers perceived risks among Omani citizens, reinforcing the strength of the protest_spillover->grievance_mobilization link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link protest_spillover -> grievance_mobilization by demonstrating a concrete instance where regional protests (in Kuwait) directly inspired coordinated action among Omani activists, including a rare joint petition. This indicates that protest_spillover is not merely theoretical but functionally active in lowering perceived risks and increasing mobilization willingness in Oman. As a result, the pathway from regional_protests through protest_spillover to grievance_mobilization and ultimately to the outcome is more robust than previously estimated. This increases confidence that a regional protest wave could catalyze a significant spike in Omani protests, especially if economic_conditions or regime_stability simultaneously deteriorate. While state_repression and Oman's generally stable regime_stability still constrain the likelihood, the enhanced credibility of this mobilization pathway justifies a moderate upward revision of the probability from 0.12 to 0.18.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link protest_spillover -> grievance_mobilization by demonstrating a concrete instance where regional protests (in Kuwait) directly inspired coordinated action among Omani activists, including a rare joint petition. This indicates that protest_spillover is not merely theoretical but functionally active in lowering perceived risks and increasing mobilization willingness in Oman. As a result, the pathway from regional_protests through protest_spillover to grievance_mobilization and ultimately to the outcome is more robust than previously estimated. This increases confidence that a regional protest wave could catalyze a significant spike in Omani protests, especially if economic_conditions or regime_stability simultaneously deteriorate. While state_repression and Oman's generally stable regime_stability still constrain the likelihood, the enhanced credibility of this mobilization pathway justifies a moderate upward revision of the probability from 0.12 to 0.18.\"\n}",
+      "target_id": "protest_spillover->grievance_mobilization",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent austerity measures in Oman, including cuts to public sector wages and subsidies, have sparked rare public criticism from tribal leaders and state employees, groups traditionally loyal to the regime. These developments suggest that economic deterioration is not only affecting public sentiment broadly but is eroding trust even among core regime constituencies, strengthening the causal link between economic conditions and regime stability beyond typical expectations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.19,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between economic_conditions and regime_stability, indicating that economic deterioration is now eroding support even among traditionally loyal groups like tribal leaders and public sector employees. This enhances the pathway: economic_conditions → regime_stability → grievance_mobilization → outcome. A weakened regime_stability amplifies public willingness to act on grievances, increasing the likelihood of protest mobilization. Additionally, this deepens the indirect path through economic_conditions → grievance_mobilization via both regime_stability and direct economic frustration. While state_repression remains a strong deterrent and regional_protests are currently subdued, the erosion of regime legitimacy among core constituents makes the system more vulnerable to protest spikes. Thus, the probability of a tenfold protest increase is meaningfully elevated, though still constrained by Oman’s repressive capacity and regional isolation.",
+      "raw_response": "{\n  \"updated_probability\": 0.19,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between economic_conditions and regime_stability, indicating that economic deterioration is now eroding support even among traditionally loyal groups like tribal leaders and public sector employees. This enhances the pathway: economic_conditions → regime_stability → grievance_mobilization → outcome. A weakened regime_stability amplifies public willingness to act on grievances, increasing the likelihood of protest mobilization. Additionally, this deepens the indirect path through economic_conditions → grievance_mobilization via both regime_stability and direct economic frustration. While state_repression remains a strong deterrent and regional_protests are currently subdued, the erosion of regime legitimacy among core constituents makes the system more vulnerable to protest spikes. Thus, the probability of a tenfold protest increase is meaningfully elevated, though still constrained by Oman’s repressive capacity and regional isolation.\"\n}",
+      "target_id": "economic_conditions->regime_stability",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "8a531050a50c0b37027e4e2ef0fed0009a62ed5767e0953cb67cc75be496816d",
+    "question_text": "Will there be more than ten times as many 'Protests' in Oman for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Protests' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.12,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.05466666666666666,
+    "max_absolute_shift": 0.16000000000000003
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 1.9565217391304353,
+    "mean_shift_high": 0.07500000000000001,
+    "mean_shift_low": 0.03833333333333333,
+    "asymmetry_index": 0.3970588235294117,
+    "mean_shift_negate": 0.038571428571428576,
+    "mean_shift_strengthen": 0.09714285714285717,
+    "fnar": 1,
+    "n_accepted": 3,
+    "n_spurious": 3,
+    "critical_path_premium": 0.021515151515151536,
+    "mean_shift_on_path": 0.07333333333333335,
+    "mean_shift_off_path": 0.05181818181818181,
+    "importance_sensitivity_correlation": 0.20454545454545459,
+    "control_sensitivity": 0
+  }
+}

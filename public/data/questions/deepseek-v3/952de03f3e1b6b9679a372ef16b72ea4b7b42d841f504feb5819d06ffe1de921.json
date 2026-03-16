@@ -1,0 +1,1063 @@
+{
+  "question_id": "952de03f3e1b6b9679a372ef16b72ea4b7b42d841f504feb5819d06ffe1de921",
+  "question_text": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Explosions/Remote violence'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.35,
+  "nodes": [
+    {
+      "id": "historical_trend",
+      "description": "The baseline level of 'Explosions/Remote violence' in Lebanon over the past 360 days",
+      "role": "factor"
+    },
+    {
+      "id": "geopolitical_tension",
+      "description": "Level of regional and internal political-military tensions affecting Lebanon (e.g., Hezbollah-Israel conflict, internal instability)",
+      "role": "factor"
+    },
+    {
+      "id": "external_intervention",
+      "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon",
+      "role": "factor"
+    },
+    {
+      "id": "internal_armed_activity",
+      "description": "Operations and attacks by non-state armed groups within Lebanon",
+      "role": "factor"
+    },
+    {
+      "id": "security_capacity",
+      "description": "Ability of Lebanese state security forces to prevent or deter incidents",
+      "role": "factor"
+    },
+    {
+      "id": "threshold_calc",
+      "description": "The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten",
+      "role": "factor"
+    },
+    {
+      "id": "future_incident_count",
+      "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2025-12-21?",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "historical_trend",
+      "to": "threshold_calc",
+      "mechanism": "Directly determines the baseline average used to calculate the comparison threshold"
+    },
+    {
+      "from": "geopolitical_tension",
+      "to": "external_intervention",
+      "mechanism": "Higher tensions increase the likelihood of cross-border strikes and military actions"
+    },
+    {
+      "from": "geopolitical_tension",
+      "to": "internal_armed_activity",
+      "mechanism": "Heightened tensions can motivate or justify attacks by domestic armed groups"
+    },
+    {
+      "from": "external_intervention",
+      "to": "future_incident_count",
+      "mechanism": "Directly contributes explosive/remote violence incidents"
+    },
+    {
+      "from": "internal_armed_activity",
+      "to": "future_incident_count",
+      "mechanism": "Directly contributes explosive/remote violence incidents"
+    },
+    {
+      "from": "security_capacity",
+      "to": "future_incident_count",
+      "mechanism": "Weaker security capacity reduces deterrence and prevention, potentially allowing more incidents"
+    },
+    {
+      "from": "threshold_calc",
+      "to": "outcome",
+      "mechanism": "Defines the numerical hurdle that the future incident count must exceed"
+    },
+    {
+      "from": "future_incident_count",
+      "to": "outcome",
+      "mechanism": "The raw count is compared against the calculated threshold to determine the outcome"
+    }
+  ],
+  "reasoning": "The forecast hinges on a significant spike in incidents relative to a recent historical average. Lebanon has experienced sustained, elevated levels of conflict-related violence, particularly related to the Hezbollah-Israel conflict. The threshold is based on a 360-day average, which likely already captures this elevated baseline. For the outcome to be true, the 30-day period would need to see an extreme escalation—over ten times the recent norm. While the risk of a major flare-up is real, a tenfold increase represents a dramatic outlier event, such as a full-scale war. The probability is set at 0.35 to reflect this non-negligible tail risk of a severe escalation, balanced against the high historical baseline which makes achieving a tenfold multiplier exceptionally challenging.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 8,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "historical_trend",
+        "description": "The baseline level of 'Explosions/Remote violence' in Lebanon over the past 360 days",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.055,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "geopolitical_tension",
+        "description": "Level of regional and internal political-military tensions affecting Lebanon (e.g., Hezbollah-Israel conflict, internal instability)",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.055,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_intervention",
+        "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.0784,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "internal_armed_activity",
+        "description": "Operations and attacks by non-state armed groups within Lebanon",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.0784,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "security_capacity",
+        "description": "Ability of Lebanese state security forces to prevent or deter incidents",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.055,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "threshold_calc",
+        "description": "The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.1018,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "future_incident_count",
+        "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.0952,
+        "closeness": 0.4571,
+        "pagerank": 0.2351,
+        "path_relevance": 0.625
+      },
+      {
+        "node_id": "outcome",
+        "description": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2025-12-21?",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5385,
+        "pagerank": 0.3413,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "historical_trend",
+        "target": "threshold_calc",
+        "mechanism": "Directly determines the baseline average used to calculate the comparison threshold",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "geopolitical_tension",
+        "target": "external_intervention",
+        "mechanism": "Higher tensions increase the likelihood of cross-border strikes and military actions",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "geopolitical_tension",
+        "target": "internal_armed_activity",
+        "mechanism": "Heightened tensions can motivate or justify attacks by domestic armed groups",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_intervention",
+        "target": "future_incident_count",
+        "mechanism": "Directly contributes explosive/remote violence incidents",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "internal_armed_activity",
+        "target": "future_incident_count",
+        "mechanism": "Directly contributes explosive/remote violence incidents",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "security_capacity",
+        "target": "future_incident_count",
+        "mechanism": "Weaker security capacity reduces deterrence and prevention, potentially allowing more incidents",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "threshold_calc",
+        "target": "outcome",
+        "mechanism": "Defines the numerical hurdle that the future incident count must exceed",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "future_incident_count",
+        "target": "outcome",
+        "mechanism": "The raw count is compared against the calculated threshold to determine the outcome",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "future_incident_count",
+        "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "external_intervention",
+        "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon",
+        "importance": 0.0238,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "threshold_calc",
+        "description": "The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten",
+        "importance": 0.0238,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "security_capacity",
+        "description": "Ability of Lebanese state security forces to prevent or deter incidents",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "future_incident_count",
+        "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "external_intervention",
+        "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon",
+        "importance": 0.0238,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "future_incident_count->outcome",
+        "description": "The raw count is compared against the calculated threshold to determine the outcome",
+        "importance": 0.0893,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "external_intervention->future_incident_count",
+        "description": "Directly contributes explosive/remote violence incidents",
+        "importance": 0.0536,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "threshold_calc->outcome",
+        "description": "Defines the numerical hurdle that the future incident count must exceed",
+        "importance": 0.0357,
+        "centrality_rank": 8,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "future_incident_count->outcome",
+        "description": "The raw count is compared against the calculated threshold to determine the outcome",
+        "importance": 0.0893,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "future_incident_count->threshold_calc",
+        "description": "Potential link: The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28 -> The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "future_incident_count",
+      "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "external_intervention",
+      "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon",
+      "importance": 0.0238,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "threshold_calc",
+      "description": "The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten",
+      "importance": 0.0238,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "security_capacity",
+      "description": "Ability of Lebanese state security forces to prevent or deter incidents",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "future_incident_count",
+      "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "external_intervention",
+      "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon",
+      "importance": 0.0238,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "future_incident_count->outcome",
+      "description": "The raw count is compared against the calculated threshold to determine the outcome",
+      "importance": 0.0893,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "external_intervention->future_incident_count",
+      "description": "Directly contributes explosive/remote violence incidents",
+      "importance": 0.0536,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "threshold_calc->outcome",
+      "description": "Defines the numerical hurdle that the future incident count must exceed",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "future_incident_count->outcome",
+      "description": "The raw count is compared against the calculated threshold to determine the outcome",
+      "importance": 0.0893,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "future_incident_count->threshold_calc",
+      "description": "Potential link: The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28 -> The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the definition of 'Explosions/Remote violence' is significantly revised or restricted by data providers in the lead-up to 2025-12-28, such that many incidents previously counted are now excluded due to new criteria (e.g., excluding attacks below a certain casualty threshold or those not directly linked to armed groups)? This could render the future incident count artificially low and disconnected from the underlying causal drivers, making it an unreliable measure for comparison.",
+      "probe_type": "node_negate_high",
+      "target_id": "future_incident_count",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28"
+    },
+    {
+      "probe_text": "Suppose that despite ongoing geopolitical tensions, external actors like Israel and Syria adopt a strategy of extreme restraint toward Lebanon to avoid escalation, perhaps due to international diplomatic pressure or internal political shifts. If direct military interventions are effectively ruled out for the forecast period, external_intervention would contribute zero incidents, making internal_armed_activity and historical_trend the sole drivers of future_incident_count.",
+      "probe_type": "node_negate_high",
+      "target_id": "external_intervention",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon"
+    },
+    {
+      "probe_text": "Recent intelligence indicates that the data collection system for 'Explosions/Remote violence' incidents in Lebanon had significant underreporting issues over the past 360 days due to administrative disruptions and communication blackouts in conflict zones. This means the historical average used to calculate the threshold is artificially low, making the benchmark unreliable as a comparison point for future incidents.",
+      "probe_type": "node_negate_medium",
+      "target_id": "threshold_calc",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten"
+    },
+    {
+      "probe_text": "Recent intelligence assessments indicate that Lebanese security forces have effectively neutralized multiple Hezbollah-linked bomb-making cells in the past two months, and international partners have significantly upgraded their surveillance and rapid-response capabilities. This suggests the 'security_capacity' node may be overstated as a deterrent, as major explosive incidents are primarily driven by external actors like Israel or Syria, whose operations are largely unaffected by domestic Lebanese security measures. Therefore, changes in Lebanon's internal security posture are unlikely to materially influence the count of explosions and remote violence over the forecast period.",
+      "probe_type": "node_negate_low",
+      "target_id": "security_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Ability of Lebanese state security forces to prevent or deter incidents"
+    },
+    {
+      "probe_text": "Recent intelligence reports indicate that multiple non-state armed groups in Lebanon have significantly increased their stockpiles of rockets and improvised explosive devices, and are actively planning a coordinated campaign of attacks over the coming months. These plans specifically target the 30-day period in question, aiming to overwhelm security forces. This suggests a direct, planned surge in the raw number of explosive incidents, making a high future_incident_count far more likely and central to the outcome.",
+      "probe_type": "node_strengthen",
+      "target_id": "future_incident_count",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28"
+    },
+    {
+      "probe_text": "Recent intelligence reports indicate that Israel is planning a sustained campaign of airstrikes against Hezbollah positions in southern Lebanon, with operational timelines extending through late 2025. This campaign is reportedly in response to specific threats, and military analysts assess a high probability of these strikes causing significant 'Explosions/Remote violence' incidents.",
+      "probe_type": "node_strengthen",
+      "target_id": "external_intervention",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Direct military actions or targeted strikes by external actors (e.g., Israel, Syria) within Lebanon"
+    },
+    {
+      "probe_text": "Recent analysis suggests that the 'Explosions/Remote violence' incident data used for this comparison may be systematically underreported in international databases due to local media blackouts or restricted access in conflict zones within Lebanon. If the historical data used to calculate the threshold is similarly affected, the threshold could be artificially low, meaning the future incident count might appear to exceed it even if actual violence levels haven't changed significantly.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "future_incident_count->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0893,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The raw count is compared against the calculated threshold to determine the outcome"
+    },
+    {
+      "probe_text": "Recent reports indicate that external military interventions, particularly cross-border strikes, have increasingly shifted to precision-targeted assassinations using drones or small munitions, which are classified under 'Targeted Attacks' rather than 'Explosions/Remote Violence'. Additionally, the Lebanese government has recently implemented a rapid-response protocol to immediately secure and de-escalate areas after any external strike, effectively preventing secondary explosions or retaliatory attacks that would inflate the incident count.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "external_intervention->future_incident_count",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0536,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Directly contributes explosive/remote violence incidents"
+    },
+    {
+      "probe_text": "New analysis suggests that the definition of 'Explosions/Remote violence' used by the ACLED data aggregator may be revised for historical data in the 360-day baseline period, potentially altering the classification of some past events. This would change the calculated historical average and thus the threshold, but it would not reflect any real change in the underlying risk of violence during the future 30-day forecast period. Therefore, the outcome could be triggered or averted by a mere data reclassification, severing the intended causal link between the calculated historical threshold and the actual future security situation.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "threshold_calc->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": true,
+      "description": "Defines the numerical hurdle that the future incident count must exceed"
+    },
+    {
+      "probe_text": "Consider that the definition of the outcome is inherently comparative: it asks whether the future incident count exceeds a specific threshold derived from historical data. This comparison is a logical or mathematical operation, not a physical causation. In fact, the outcome's definition (the question itself) causally determines how the future incident count is evaluated—if the threshold were defined differently, the same incident count could lead to a different outcome. Thus, the causal arrow should run from outcome definition (the comparison rule) to the interpretation of future_incident_count, not vice versa.",
+      "probe_type": "edge_reverse",
+      "target_id": "future_incident_count->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0893,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The raw count is compared against the calculated threshold to determine the outcome"
+    },
+    {
+      "probe_text": "Consider that the 30-day period before 2025-12-28 overlaps with the final days of the 360-day window used to calculate the threshold average, meaning some incidents in that future period could already be counted in the historical data if reporting is delayed or incidents are backdated. This overlap creates a direct causal link where higher future incident counts mechanically inflate the historical average, raising the threshold and making it harder for the outcome to resolve positively, which your model currently ignores.",
+      "probe_type": "edge_spurious",
+      "target_id": "future_incident_count->threshold_calc",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: The total number of 'Explosions/Remote violence' incidents in the 30 days prior to 2025-12-28 -> The calculated benchmark: one plus the 30-day average over the preceding 360 days, multiplied by ten"
+    },
+    {
+      "probe_text": "Recent intelligence suggests that a major international summit is scheduled for early December 2025, aiming to broker a ceasefire in the region. This 'diplomatic intervention' factor is missing from your model. A successful summit could dramatically reduce geopolitical tensions, leading to a sharp decline in both external military strikes and internal armed group activity, thereby lowering the future incident count. Conversely, if the summit fails, it could exacerbate tensions and potentially trigger a surge in violence. How would you update your probability assessment in light of this upcoming diplomatic event?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the impact of significant upcoming political dates, such as national anniversaries or electoral milestones, which often serve as catalysts for planned attacks by armed groups. If such a date falls within the 30-day forecast window, it could substantially increase the likelihood of coordinated 'Explosions/Remote violence' incidents. How would you adjust your probability estimate if you learned that a major Hezbollah or militant group anniversary, historically associated with violence, occurs in early December 2025?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early 2025, Lebanon's tourism ministry launches a new promotional campaign targeting European visitors, highlighting cultural heritage sites in Beirut and Tripoli. The campaign includes increased advertising spending and partnerships with international travel agencies, aiming to boost visitor numbers by 15% over the next year.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Lebanon's central bank announced a new policy to stabilize the Lebanese pound by increasing interest rates on foreign currency deposits, aiming to curb hyperinflation and restore confidence in the financial system. This policy is expected to have significant effects on domestic economic conditions, including potential impacts on public sector salaries and import costs over the next few months.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the definition of 'Explosions/Remote violence' is significantly revised or restricted by data providers in the lead-up to 2025-12-28, such that many incidents previously counted are now excluded due to new criteria (e.g., excluding attacks below a certain casualty threshold or those not directly linked to armed groups)? This could render the future incident count artificially low and disconnected from the underlying causal drivers, making it an unreliable measure for comparison.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly targets the critical causal link between 'future_incident_count' and the outcome. If the definition of 'Explosions/Remote violence' is significantly restricted, the measured count will be artificially depressed relative to the historical data used to calculate the threshold. This severs the reliable connection between the underlying causal drivers (geopolitical tension, external intervention, internal armed activity) and the final measured variable. The outcome depends on a comparison of two numbers derived from the same data source. A definitional change would make the future count incomparable to the historical average, introducing a major measurement error. This increases the chance that a high level of underlying violence does not translate into a high measured count, making it less likely the threshold will be exceeded. The update is substantial because the 'future_incident_count' node is central to the outcome determination.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly targets the critical causal link between 'future_incident_count' and the outcome. If the definition of 'Explosions/Remote violence' is significantly restricted, the measured count will be artificially depressed relative to the historical data used to calculate the threshold. This severs the reliable connection between the underlying causal drivers (geopolitical tension, external intervention, internal armed activity) and the final measured variable. The outcome depends on a comparison of two numbers derived from the same data source. A definitional change would make the future count incomparable to the historical average, introducing a major measurement error. This increases the chance that a high level of underlying violence does not translate into a high measured count, making it less likely the threshold will be exceeded. The update is substantial because the 'future_incident_count' node is central to the outcome determination.\"\n}",
+      "target_id": "future_incident_count",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose that despite ongoing geopolitical tensions, external actors like Israel and Syria adopt a strategy of extreme restraint toward Lebanon to avoid escalation, perhaps due to international diplomatic pressure or internal political shifts. If direct military interventions are effectively ruled out for the forecast period, external_intervention would contribute zero incidents, making internal_armed_activity and historical_trend the sole drivers of future_incident_count.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.2,
+      "absolute_shift": 0.14999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge effectively removes the 'external_intervention -> future_incident_count' causal path. External intervention (e.g., Israeli airstrikes) has been a significant and direct driver of 'Explosions/Remote violence' incidents in Lebanon during periods of high geopolitical tension. By ruling this out, a major source of potential incident volume is eliminated. This leaves internal_armed_activity and historical_trend as primary drivers. While internal groups could increase activity, their operational capacity and willingness to conduct a high volume of attacks sufficient to meet the high threshold (10x the baseline) are more limited without the catalyst and cover of active external conflict. The threshold calculation itself remains unchanged, but the expected future_incident_count is now substantially lower, making it much harder to exceed the threshold. Therefore, the probability of a positive outcome decreases significantly.",
+      "raw_response": "{\n  \"updated_probability\": 0.20,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge effectively removes the 'external_intervention -> future_incident_count' causal path. External intervention (e.g., Israeli airstrikes) has been a significant and direct driver of 'Explosions/Remote violence' incidents in Lebanon during periods of high geopolitical tension. By ruling this out, a major source of potential incident volume is eliminated. This leaves internal_armed_activity and historical_trend as primary drivers. While internal groups could increase activity, their operational capacity and willingness to conduct a high volume of attacks sufficient to meet the high threshold (10x the baseline) are more limited without the catalyst and cover of active external conflict. The threshold calculation itself remains unchanged, but the expected future_incident_count is now substantially lower, making it much harder to exceed the threshold. Therefore, the probability of a positive outcome decreases significantly.\"\n}",
+      "target_id": "external_intervention",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence indicates that the data collection system for 'Explosions/Remote violence' incidents in Lebanon had significant underreporting issues over the past 360 days due to administrative disruptions and communication blackouts in conflict zones. This means the historical average used to calculate the threshold is artificially low, making the benchmark unreliable as a comparison point for future incidents.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly affects the 'historical_trend -> threshold_calc' causal link, indicating the historical baseline used to calculate the threshold is artificially low due to underreporting. This means the benchmark (threshold_calc) is lower than previously estimated, making it easier for the 'future_incident_count' to exceed the required multiple of ten times. Since the threshold is a direct input to the outcome comparison, and a lower threshold increases the likelihood of a positive outcome, the probability should increase. However, the update is moderate because the challenge does not affect the actual future incident count or the causal drivers of violence (geopolitical_tension, external_intervention, etc.), only the reliability of the historical comparison point. The uncertainty about the true historical average also introduces additional noise, but the directional effect is clearly toward a higher probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly affects the 'historical_trend -> threshold_calc' causal link, indicating the historical baseline used to calculate the threshold is artificially low due to underreporting. This means the benchmark (threshold_calc) is lower than previously estimated, making it easier for the 'future_incident_count' to exceed the required multiple of ten times. Since the threshold is a direct input to the outcome comparison, and a lower threshold increases the likelihood of a positive outcome, the probability should increase. However, the update is moderate because the challenge does not affect the actual future incident count or the causal drivers of violence (geopolitical_tension, external_intervention, etc.), only the reliability of the historical comparison point. The uncertainty about the true historical average also introduces additional noise, but the directional effect is clearly toward a higher probability of the outcome.\"\n}",
+      "target_id": "threshold_calc",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence assessments indicate that Lebanese security forces have effectively neutralized multiple Hezbollah-linked bomb-making cells in the past two months, and international partners have significantly upgraded their surveillance and rapid-response capabilities. This suggests the 'security_capacity' node may be overstated as a deterrent, as major explosive incidents are primarily driven by external actors like Israel or Syria, whose operations are largely unaffected by domestic Lebanese security measures. Therefore, changes in Lebanon's internal security posture are unlikely to materially influence the count of explosions and remote violence over the forecast period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.3,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link from 'security_capacity' to 'future_incident_count'. It argues that security improvements are unlikely to materially reduce incidents because major explosive incidents are primarily driven by external actors (e.g., Israel, Syria) whose operations are largely unaffected by domestic Lebanese security measures. This reduces the expected mitigating effect of security capacity on incident counts, making higher counts more likely if external interventions increase. However, the impact is moderate because: (1) security capacity was already a secondary factor in my initial estimate, with geopolitical tensions and external intervention being more dominant drivers; (2) internal armed activity (e.g., from Hezbollah or other groups) might still be partially deterred by security improvements, though the challenge downplays this; and (3) the outcome depends on exceeding a threshold influenced by historical trends, which remain unchanged. The probability decreases slightly as the reduced deterrent effect modestly increases the likelihood of higher incident counts, but the core drivers (geopolitical tension, external intervention) are unaffected.",
+      "raw_response": "{\n  \"updated_probability\": 0.3,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link from 'security_capacity' to 'future_incident_count'. It argues that security improvements are unlikely to materially reduce incidents because major explosive incidents are primarily driven by external actors (e.g., Israel, Syria) whose operations are largely unaffected by domestic Lebanese security measures. This reduces the expected mitigating effect of security capacity on incident counts, making higher counts more likely if external interventions increase. However, the impact is moderate because: (1) security capacity was already a secondary factor in my initial estimate, with geopolitical tensions and external intervention being more dominant drivers; (2) internal armed activity (e.g., from Hezbollah or other groups) might still be partially deterred by security improvements, though the challenge downplays this; and (3) the outcome depends on exceeding a threshold influenced by historical trends, which remain unchanged. The probability decreases slightly as the reduced deterrent effect modestly increases the likelihood of higher incident counts, but the core drivers (geopolitical tension, external intervention) are unaffected.\"\n}",
+      "target_id": "security_capacity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that multiple non-state armed groups in Lebanon have significantly increased their stockpiles of rockets and improvised explosive devices, and are actively planning a coordinated campaign of attacks over the coming months. These plans specifically target the 30-day period in question, aiming to overwhelm security forces. This suggests a direct, planned surge in the raw number of explosive incidents, making a high future_incident_count far more likely and central to the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.20000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly strengthens the causal path from internal_armed_activity to future_incident_count, a central node in the network. It provides specific evidence that non-state groups have increased capabilities (stockpiles) and intentions (planned coordinated campaign) targeting the relevant period, which directly increases the likelihood of a high future incident count. This also interacts with security_capacity (overwhelming forces), but the primary effect is a substantial boost to internal_armed_activity's contribution to incidents. Given that internal_armed_activity is a key driver of incidents in Lebanon, and the challenge suggests a deliberate surge, the probability of exceeding the threshold rises significantly, though uncertainty remains about external_intervention and exact execution.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly strengthens the causal path from internal_armed_activity to future_incident_count, a central node in the network. It provides specific evidence that non-state groups have increased capabilities (stockpiles) and intentions (planned coordinated campaign) targeting the relevant period, which directly increases the likelihood of a high future incident count. This also interacts with security_capacity (overwhelming forces), but the primary effect is a substantial boost to internal_armed_activity's contribution to incidents. Given that internal_armed_activity is a key driver of incidents in Lebanon, and the challenge suggests a deliberate surge, the probability of exceeding the threshold rises significantly, though uncertainty remains about external_intervention and exact execution.\"\n}",
+      "target_id": "future_incident_count",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that Israel is planning a sustained campaign of airstrikes against Hezbollah positions in southern Lebanon, with operational timelines extending through late 2025. This campaign is reportedly in response to specific threats, and military analysts assess a high probability of these strikes causing significant 'Explosions/Remote violence' incidents.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly strengthens the 'external_intervention' node by providing specific, credible intelligence about planned Israeli airstrikes through late 2025, which is highly relevant to the forecast period. This increases the likelihood of incidents from external interventions, a key causal path to 'future_incident_count'. The update is moderate (not extreme) because other factors like internal armed activity and security capacity remain uncertain, and the baseline threshold calculation is unchanged, but the new information significantly raises the expected incident count.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly strengthens the 'external_intervention' node by providing specific, credible intelligence about planned Israeli airstrikes through late 2025, which is highly relevant to the forecast period. This increases the likelihood of incidents from external interventions, a key causal path to 'future_incident_count'. The update is moderate (not extreme) because other factors like internal armed activity and security capacity remain uncertain, and the baseline threshold calculation is unchanged, but the new information significantly raises the expected incident count.\"\n}",
+      "target_id": "external_intervention",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis suggests that the 'Explosions/Remote violence' incident data used for this comparison may be systematically underreported in international databases due to local media blackouts or restricted access in conflict zones within Lebanon. If the historical data used to calculate the threshold is similarly affected, the threshold could be artificially low, meaning the future incident count might appear to exceed it even if actual violence levels haven't changed significantly.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly affects the causal path from 'future_incident_count -> outcome' and 'historical_trend -> threshold_calc'. It suggests a systematic underreporting bias that could affect both the historical baseline (threshold_calc) and the future count. If the threshold is artificially low due to historical underreporting, the future incident count is more likely to exceed it, even if the true level of violence is unchanged or only moderately higher. This makes a positive outcome more likely, as the comparison hurdle is effectively lower than previously assumed. The challenge is not peripheral but structural, affecting the core measurement comparison of the forecast. However, uncertainty remains about the exact magnitude of the underreporting bias and whether it is consistent over time, so the update is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly affects the causal path from 'future_incident_count -> outcome' and 'historical_trend -> threshold_calc'. It suggests a systematic underreporting bias that could affect both the historical baseline (threshold_calc) and the future count. If the threshold is artificially low due to historical underreporting, the future incident count is more likely to exceed it, even if the true level of violence is unchanged or only moderately higher. This makes a positive outcome more likely, as the comparison hurdle is effectively lower than previously assumed. The challenge is not peripheral but structural, affecting the core measurement comparison of the forecast. However, uncertainty remains about the exact magnitude of the underreporting bias and whether it is consistent over time, so the update is moderate.\"\n}",
+      "target_id": "future_incident_count->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that external military interventions, particularly cross-border strikes, have increasingly shifted to precision-targeted assassinations using drones or small munitions, which are classified under 'Targeted Attacks' rather than 'Explosions/Remote Violence'. Additionally, the Lebanese government has recently implemented a rapid-response protocol to immediately secure and de-escalate areas after any external strike, effectively preventing secondary explosions or retaliatory attacks that would inflate the incident count.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.23,
+      "absolute_shift": 0.11999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link 'external_intervention -> future_incident_count' in two ways: (1) reclassification of precision strikes reduces the number of external incidents counted as 'Explosions/Remote Violence', and (2) rapid-response protocols suppress secondary incidents that would otherwise contribute to the count. External intervention was a key driver of high incident counts in my initial estimate, especially given heightened geopolitical tensions. This makes the required threshold (10x the baseline) less likely to be reached, as a major source of incidents is now diminished. However, internal armed activity and weak security capacity still provide alternative causal paths, preventing a collapse to near-zero probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.23,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link 'external_intervention -> future_incident_count' in two ways: (1) reclassification of precision strikes reduces the number of external incidents counted as 'Explosions/Remote Violence', and (2) rapid-response protocols suppress secondary incidents that would otherwise contribute to the count. External intervention was a key driver of high incident counts in my initial estimate, especially given heightened geopolitical tensions. This makes the required threshold (10x the baseline) less likely to be reached, as a major source of incidents is now diminished. However, internal armed activity and weak security capacity still provide alternative causal paths, preventing a collapse to near-zero probability.\"\n}",
+      "target_id": "external_intervention->future_incident_count",
+      "target_type": "edge",
+      "target_importance": 0.0536,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "New analysis suggests that the definition of 'Explosions/Remote violence' used by the ACLED data aggregator may be revised for historical data in the 360-day baseline period, potentially altering the classification of some past events. This would change the calculated historical average and thus the threshold, but it would not reflect any real change in the underlying risk of violence during the future 30-day forecast period. Therefore, the outcome could be triggered or averted by a mere data reclassification, severing the intended causal link between the calculated historical threshold and the actual future security situation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge targets the 'threshold_calc->outcome' link, noting that data reclassification in the historical baseline could alter the threshold without reflecting real changes in future security conditions. However, this does not affect the core causal paths that determine the future incident count: 'geopolitical_tension->external_intervention->future_incident_count', 'geopolitical_tension->internal_armed_activity->future_incident_count', and 'security_capacity->future_incident_count'. These paths remain intact, and the outcome still depends on comparing the actual future incident count against the calculated threshold, even if the threshold is based on potentially revised historical data. The challenge highlights measurement noise but does not sever the intended causal link, as the threshold remains a defined benchmark for the question's resolution. Therefore, the probability is unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge targets the 'threshold_calc->outcome' link, noting that data reclassification in the historical baseline could alter the threshold without reflecting real changes in future security conditions. However, this does not affect the core causal paths that determine the future incident count: 'geopolitical_tension->external_intervention->future_incident_count', 'geopolitical_tension->internal_armed_activity->future_incident_count', and 'security_capacity->future_incident_count'. These paths remain intact, and the outcome still depends on comparing the actual future incident count against the calculated threshold, even if the threshold is based on potentially revised historical data. The challenge highlights measurement noise but does not sever the intended causal link, as the threshold remains a defined benchmark for the question's resolution. Therefore, the probability is unchanged.\"\n}",
+      "target_id": "threshold_calc->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Consider that the definition of the outcome is inherently comparative: it asks whether the future incident count exceeds a specific threshold derived from historical data. This comparison is a logical or mathematical operation, not a physical causation. In fact, the outcome's definition (the question itself) causally determines how the future incident count is evaluated—if the threshold were defined differently, the same incident count could lead to a different outcome. Thus, the causal arrow should run from outcome definition (the comparison rule) to the interpretation of future_incident_count, not vice versa.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge questions the direction of the causal arrow between 'future_incident_count' and the 'outcome'. However, in the context of a forecasting causal model, the link from 'future_incident_count' to 'outcome' represents the functional dependency that the outcome (a binary yes/no) is determined by whether the incident count exceeds the threshold. The philosophical point about the definition of the outcome logically determining the interpretation of the count does not break this functional relationship. The causal network is modeling the real-world factors that produce the incident count, which is then fed into the resolution criteria. The challenge does not affect the causal paths from geopolitical_tension, external_intervention, internal_armed_activity, or security_capacity to the future_incident_count, which are the substantive drivers of the probability estimate. Therefore, the estimate of the likelihood that the incident count will be high enough to exceed the threshold remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge questions the direction of the causal arrow between 'future_incident_count' and the 'outcome'. However, in the context of a forecasting causal model, the link from 'future_incident_count' to 'outcome' represents the functional dependency that the outcome (a binary yes/no) is determined by whether the incident count exceeds the threshold. The philosophical point about the definition of the outcome logically determining the interpretation of the count does not break this functional relationship. The causal network is modeling the real-world factors that produce the incident count, which is then fed into the resolution criteria. The challenge does not affect the causal paths from geopolitical_tension, external_intervention, internal_armed_activity, or security_capacity to the future_incident_count, which are the substantive drivers of the probability estimate. Therefore, the estimate of the likelihood that the incident count will be high enough to exceed the threshold remains unchanged.\"\n}",
+      "target_id": "future_incident_count->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider that the 30-day period before 2025-12-28 overlaps with the final days of the 360-day window used to calculate the threshold average, meaning some incidents in that future period could already be counted in the historical data if reporting is delayed or incidents are backdated. This overlap creates a direct causal link where higher future incident counts mechanically inflate the historical average, raising the threshold and making it harder for the outcome to resolve positively, which your model currently ignores.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.02999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge identifies a direct, previously unmodeled causal link from future_incident_count to threshold_calc due to the overlapping reporting periods and potential for backdating. This creates a negative feedback loop: a higher future incident count could inflate the historical average used for the threshold, thereby raising the bar for a positive outcome. This mechanism makes it harder for the outcome to resolve positively, as the target is not a fixed historical baseline but one partially dependent on the future period being measured. This affects the core causal path to the outcome by introducing a counteracting force. However, the effect is likely modest because: 1) the overlap is only 7 days (Dec 21-27) out of the 360-day historical window, so the mechanical impact on the average is diluted; 2) the scenario of backdating or delayed reporting, while plausible, is not certain for all incidents. Therefore, I make a small downward update to account for this additional structural hurdle.",
+      "raw_response": "{\n  \"updated_probability\": 0.32,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge identifies a direct, previously unmodeled causal link from future_incident_count to threshold_calc due to the overlapping reporting periods and potential for backdating. This creates a negative feedback loop: a higher future incident count could inflate the historical average used for the threshold, thereby raising the bar for a positive outcome. This mechanism makes it harder for the outcome to resolve positively, as the target is not a fixed historical baseline but one partially dependent on the future period being measured. This affects the core causal path to the outcome by introducing a counteracting force. However, the effect is likely modest because: 1) the overlap is only 7 days (Dec 21-27) out of the 360-day historical window, so the mechanical impact on the average is diluted; 2) the scenario of backdating or delayed reporting, while plausible, is not certain for all incidents. Therefore, I make a small downward update to account for this additional structural hurdle.\"\n}",
+      "target_id": "future_incident_count->threshold_calc",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence suggests that a major international summit is scheduled for early December 2025, aiming to broker a ceasefire in the region. This 'diplomatic intervention' factor is missing from your model. A successful summit could dramatically reduce geopolitical tensions, leading to a sharp decline in both external military strikes and internal armed group activity, thereby lowering the future incident count. Conversely, if the summit fails, it could exacerbate tensions and potentially trigger a surge in violence. How would you update your probability assessment in light of this upcoming diplomatic event?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a new, structurally important node—'diplomatic intervention'—that directly affects the 'geopolitical_tension' node in my causal network. The scheduled summit creates a significant possibility (though not a certainty) of reducing tensions. This would weaken the causal paths from 'geopolitical_tension' to both 'external_intervention' and 'internal_armed_activity', thereby lowering the expected 'future_incident_count'. While the summit could fail and exacerbate tensions, the existence of a concerted diplomatic effort generally shifts the expected value of tensions downward in the forecast period, reducing the expected number of incidents. My initial estimate of 0.35 already incorporated high uncertainty; this new factor increases the weight of scenarios with lower violence, warranting a moderate downward update.",
+      "raw_response": "{\n    \"updated_probability\": 0.28,\n    \"shift_direction\": \"decreased\",\n    \"reasoning\": \"The challenge introduces a new, structurally important node—'diplomatic intervention'—that directly affects the 'geopolitical_tension' node in my causal network. The scheduled summit creates a significant possibility (though not a certainty) of reducing tensions. This would weaken the causal paths from 'geopolitical_tension' to both 'external_intervention' and 'internal_armed_activity', thereby lowering the expected 'future_incident_count'. While the summit could fail and exacerbate tensions, the existence of a concerted diplomatic effort generally shifts the expected value of tensions downward in the forecast period, reducing the expected number of incidents. My initial estimate of 0.35 already incorporated high uncertainty; this new factor increases the weight of scenarios with lower violence, warranting a moderate downward update.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the impact of significant upcoming political dates, such as national anniversaries or electoral milestones, which often serve as catalysts for planned attacks by armed groups. If such a date falls within the 30-day forecast window, it could substantially increase the likelihood of coordinated 'Explosions/Remote violence' incidents. How would you adjust your probability estimate if you learned that a major Hezbollah or militant group anniversary, historically associated with violence, occurs in early December 2025?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a specific, high-likelihood catalyst (a major anniversary historically associated with violence) within the forecast window. This directly affects the 'internal_armed_activity' node by increasing the probability of planned, coordinated attacks. It may also indirectly influence 'geopolitical_tension' if the anniversary rhetoric escalates rhetoric or if retaliatory strikes are anticipated. This strengthens the causal path from geopolitical_tension -> internal_armed_activity -> future_incident_count. While the core structure of the model remains valid, the probability of a spike in incidents during the relevant period is now higher, warranting a moderate upward revision. The update is not extreme because the baseline historical trend and the actions of external actors remain uncertain factors.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a specific, high-likelihood catalyst (a major anniversary historically associated with violence) within the forecast window. This directly affects the 'internal_armed_activity' node by increasing the probability of planned, coordinated attacks. It may also indirectly influence 'geopolitical_tension' if the anniversary rhetoric escalates rhetoric or if retaliatory strikes are anticipated. This strengthens the causal path from geopolitical_tension -> internal_armed_activity -> future_incident_count. While the core structure of the model remains valid, the probability of a spike in incidents during the relevant period is now higher, warranting a moderate upward revision. The update is not extreme because the baseline historical trend and the actions of external actors remain uncertain factors.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Lebanon's tourism ministry launches a new promotional campaign targeting European visitors, highlighting cultural heritage sites in Beirut and Tripoli. The campaign includes increased advertising spending and partnerships with international travel agencies, aiming to boost visitor numbers by 15% over the next year.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge targets a tourism promotion campaign. This does not directly affect any nodes in the causal network. The key drivers for 'Explosions/Remote violence'—geopolitical_tension, external_intervention, internal_armed_activity, and security_capacity—are not plausibly influenced by a tourism marketing effort aimed at European visitors. No causal paths leading to the future_incident_count or outcome are broken or altered.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge targets a tourism promotion campaign. This does not directly affect any nodes in the causal network. The key drivers for 'Explosions/Remote violence'—geopolitical_tension, external_intervention, internal_armed_activity, and security_capacity—are not plausibly influenced by a tourism marketing effort aimed at European visitors. No causal paths leading to the future_incident_count or outcome are broken or altered.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Lebanon's central bank announced a new policy to stabilize the Lebanese pound by increasing interest rates on foreign currency deposits, aiming to curb hyperinflation and restore confidence in the financial system. This policy is expected to have significant effects on domestic economic conditions, including potential impacts on public sector salaries and import costs over the next few months.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The structural challenge pertains to a new central bank policy aimed at stabilizing the Lebanese pound and curbing hyperinflation. While significant for the long-term economic outlook, this development does not directly impact the key causal paths in the model for the forecast period (the 30 days before 2025-12-28). The primary drivers of 'Explosions/Remote violence' in the model are geopolitical_tension, external_intervention, internal_armed_activity, and security_capacity. Economic policies, even if successful, are unlikely to materially alter the high level of regional military tensions (e.g., Hezbollah-Israel conflict) or the operational calculus of armed groups within the short forecast window. Furthermore, the policy's effects on public sector salaries and import costs are medium-term economic adjustments that do not constitute a direct, immediate structural change to the security or conflict landscape. Therefore, no update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The structural challenge pertains to a new central bank policy aimed at stabilizing the Lebanese pound and curbing hyperinflation. While significant for the long-term economic outlook, this development does not directly impact the key causal paths in the model for the forecast period (the 30 days before 2025-12-28). The primary drivers of 'Explosions/Remote violence' in the model are geopolitical_tension, external_intervention, internal_armed_activity, and security_capacity. Economic policies, even if successful, are unlikely to materially alter the high level of regional military tensions (e.g., Hezbollah-Israel conflict) or the operational calculus of armed groups within the short forecast window. Furthermore, the policy's effects on public sector salaries and import costs are medium-term economic adjustments that do not constitute a direct, immediate structural change to the security or conflict landscape. Therefore, no update to the probability is warranted.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Newly released data from the Lebanese Ministry of Interior shows that the 30-day average of 'Explosions/Remote violence' incidents over the past 360 days has been consistently underreported by approximately 20% due to incomplete data collection in certain regions. This adjustment would significantly increase the calculated threshold, making it even more likely that the future incident count will not exceed ten times this higher baseline.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly affects the 'threshold_calc' node by increasing the baseline average due to previously underreported data. This higher baseline means the future_incident_count must be significantly larger to exceed ten times the adjusted threshold. Given that this adjustment affects a critical component of the outcome calculation—the threshold against which future incidents are measured—the probability of the outcome decreases as the hurdle becomes more difficult to surpass.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly affects the 'threshold_calc' node by increasing the baseline average due to previously underreported data. This higher baseline means the future_incident_count must be significantly larger to exceed ten times the adjusted threshold. Given that this adjustment affects a critical component of the outcome calculation—the threshold against which future incidents are measured—the probability of the outcome decreases as the hurdle becomes more difficult to surpass.\"\n}",
+      "target_id": "threshold_calc",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Lebanon has successfully secured a new shipment of advanced surveillance drones from France, significantly enhancing their ability to monitor and preempt potential violent incidents in high-risk areas. Additionally, joint training programs with international security experts have improved the operational readiness of Lebanese security forces.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The enhancement of Lebanon's security capacity through advanced surveillance drones and improved operational readiness directly affects the 'security_capacity -> future_incident_count' causal path. With better monitoring and preemption capabilities, the likelihood of 'Explosions/Remote violence' incidents decreases. This reduces the expected 'future_incident_count', making it less likely to exceed the threshold defined by 'threshold_calc'. Therefore, the probability of the outcome occurring is decreased.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The enhancement of Lebanon's security capacity through advanced surveillance drones and improved operational readiness directly affects the 'security_capacity -> future_incident_count' causal path. With better monitoring and preemption capabilities, the likelihood of 'Explosions/Remote violence' incidents decreases. This reduces the expected 'future_incident_count', making it less likely to exceed the threshold defined by 'threshold_calc'. Therefore, the probability of the outcome occurring is decreased.\"\n}",
+      "target_id": "security_capacity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Lebanon shows a significant increase in 'Explosions/Remote violence' incidents following heightened geopolitical tensions, with a 40% rise in incidents over the past 3 months compared to the previous 9 months. This trend directly supports the causal link between future_incident_count and outcome, as it demonstrates that incident counts can and do spike dramatically relative to historical averages, validating the importance of this edge in the network.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The recent data showing a 40% rise in 'Explosions/Remote violence' incidents following heightened geopolitical tensions strengthens the causal link between future_incident_count and outcome. This evidence supports the likelihood of significant spikes in incidents relative to historical averages, thereby increasing the probability that the future incident count will exceed the calculated threshold. The affected causal path is directly between future_incident_count and outcome, validating the importance of monitoring incident trends in forecasting the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The recent data showing a 40% rise in 'Explosions/Remote violence' incidents following heightened geopolitical tensions strengthens the causal link between future_incident_count and outcome. This evidence supports the likelihood of significant spikes in incidents relative to historical averages, thereby increasing the probability that the future incident count will exceed the calculated threshold. The affected causal path is directly between future_incident_count and outcome, validating the importance of monitoring incident trends in forecasting the outcome.\"\n}",
+      "target_id": "future_incident_count->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0893,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that Israel has significantly increased its targeted drone strikes in Lebanon, specifically aiming at Hezbollah infrastructure and personnel. These strikes have been confirmed to account for over 70% of all 'Explosions/Remote violence' incidents in Lebanon over the past month, demonstrating a direct and substantial contribution by external intervention to the future incident count.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.20000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between 'external_intervention' and 'future_incident_count' by providing evidence that external interventions (specifically Israeli drone strikes) are a dominant contributor to incidents. This increases the weight of 'external_intervention' in the causal network, leading to a higher likelihood of the outcome. The update reflects the increased confidence in the causal path from geopolitical tension through external intervention to future incident count.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between 'external_intervention' and 'future_incident_count' by providing evidence that external interventions (specifically Israeli drone strikes) are a dominant contributor to incidents. This increases the weight of 'external_intervention' in the causal network, leading to a higher likelihood of the outcome. The update reflects the increased confidence in the causal path from geopolitical tension through external intervention to future incident count.\"\n}",
+      "target_id": "external_intervention->future_incident_count",
+      "target_type": "edge",
+      "target_importance": 0.0536,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "952de03f3e1b6b9679a372ef16b72ea4b7b42d841f504feb5819d06ffe1de921",
+    "question_text": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Explosions/Remote violence'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.35,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.07733333333333332,
+    "max_absolute_shift": 0.20000000000000007
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 4.750000000000002,
+    "mean_shift_high": 0.14250000000000002,
+    "mean_shift_low": 0.029999999999999992,
+    "asymmetry_index": 0.6108374384236451,
+    "mean_shift_negate": 0.08857142857142856,
+    "mean_shift_strengthen": 0.14500000000000005,
+    "fnar": 0.6666666666666666,
+    "n_accepted": 2,
+    "n_spurious": 3,
+    "critical_path_premium": 0.06595238095238098,
+    "mean_shift_on_path": 0.11166666666666669,
+    "mean_shift_off_path": 0.0457142857142857,
+    "importance_sensitivity_correlation": -0.1923076923076923,
+    "control_sensitivity": 0
+  }
+}

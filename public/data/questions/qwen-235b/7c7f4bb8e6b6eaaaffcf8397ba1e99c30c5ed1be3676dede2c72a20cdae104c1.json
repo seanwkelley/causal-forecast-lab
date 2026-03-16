@@ -1,0 +1,1023 @@
+{
+  "question_id": "7c7f4bb8e6b6eaaaffcf8397ba1e99c30c5ed1be3676dede2c72a20cdae104c1",
+  "question_text": "Will there be more than ten times as many 'Strategic developments' in Central African Republic for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Strategic developments'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.15,
+  "nodes": [
+    {
+      "id": "regional_conflict",
+      "description": "Level of armed conflict in neighboring countries that could spill into CAR",
+      "role": "factor"
+    },
+    {
+      "id": "political_stability",
+      "description": "Internal political cohesion and leadership continuity in CAR",
+      "role": "factor"
+    },
+    {
+      "id": "foreign_intervention",
+      "description": "Presence and activity of foreign military or peacekeeping forces in CAR",
+      "role": "factor"
+    },
+    {
+      "id": "insurgent_activity",
+      "description": "Operational tempo of rebel and extremist groups within CAR",
+      "role": "factor"
+    },
+    {
+      "id": "strategic_developments_baseline",
+      "description": "30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one",
+      "role": "factor"
+    },
+    {
+      "id": "trigger_event",
+      "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "More than ten times as many 'Strategic developments' in the 30 days before 2025-12-28 compared to the baseline",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "regional_conflict",
+      "to": "insurgent_activity",
+      "mechanism": "Escalation in neighboring countries empowers or enables insurgent groups in CAR"
+    },
+    {
+      "from": "insurgent_activity",
+      "to": "trigger_event",
+      "mechanism": "Increased insurgent operations raise the likelihood of a major attack or territorial seizure"
+    },
+    {
+      "from": "political_stability",
+      "to": "foreign_intervention",
+      "mechanism": "Low political stability invites or justifies external military involvement"
+    },
+    {
+      "from": "foreign_intervention",
+      "to": "trigger_event",
+      "mechanism": "Arrival or withdrawal of foreign forces can provoke retaliatory actions or political crises"
+    },
+    {
+      "from": "trigger_event",
+      "to": "outcome",
+      "mechanism": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts"
+    },
+    {
+      "from": "strategic_developments_baseline",
+      "to": "outcome",
+      "mechanism": "A higher baseline makes it harder to exceed by a factor of ten"
+    }
+  ],
+  "reasoning": "The Central African Republic has experienced chronic instability, but strategic developments tend to occur at a low to moderate baseline. A tenfold increase would require an extraordinary trigger, such as a coup, major offensive, or sudden foreign withdrawal. While regional tensions and insurgent activity create underlying risk, such a spike is rare and requires multiple converging factors. Historical patterns suggest baseline activity is unlikely to be extremely low, making the threshold high. Therefore, while possible, such an escalation is unlikely, leading to a low probability forecast.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "regional_conflict",
+        "description": "Level of armed conflict in neighboring countries that could spill into CAR",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "political_stability",
+        "description": "Internal political cohesion and leadership continuity in CAR",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "foreign_intervention",
+        "description": "Presence and activity of foreign military or peacekeeping forces in CAR",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1141,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "insurgent_activity",
+        "description": "Operational tempo of rebel and extremist groups within CAR",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1141,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "strategic_developments_baseline",
+        "description": "30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "trigger_event",
+        "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.4444,
+        "pagerank": 0.2556,
+        "path_relevance": 0.6667
+      },
+      {
+        "node_id": "outcome",
+        "description": "More than ten times as many 'Strategic developments' in the 30 days before 2025-12-28 compared to the baseline",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3313,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "regional_conflict",
+        "target": "insurgent_activity",
+        "mechanism": "Escalation in neighboring countries empowers or enables insurgent groups in CAR",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_stability",
+        "target": "foreign_intervention",
+        "mechanism": "Low political stability invites or justifies external military involvement",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "foreign_intervention",
+        "target": "trigger_event",
+        "mechanism": "Arrival or withdrawal of foreign forces can provoke retaliatory actions or political crises",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "insurgent_activity",
+        "target": "trigger_event",
+        "mechanism": "Increased insurgent operations raise the likelihood of a major attack or territorial seizure",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "strategic_developments_baseline",
+        "target": "outcome",
+        "mechanism": "A higher baseline makes it harder to exceed by a factor of ten",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "trigger_event",
+        "target": "outcome",
+        "mechanism": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "trigger_event",
+        "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "foreign_intervention",
+        "description": "Presence and activity of foreign military or peacekeeping forces in CAR",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "regional_conflict",
+        "description": "Level of armed conflict in neighboring countries that could spill into CAR",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "strategic_developments_baseline",
+        "description": "30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "trigger_event",
+        "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "foreign_intervention",
+        "description": "Presence and activity of foreign military or peacekeeping forces in CAR",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "trigger_event->outcome",
+        "description": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts",
+        "importance": 0.119,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_intervention->trigger_event",
+        "description": "Arrival or withdrawal of foreign forces can provoke retaliatory actions or political crises",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "strategic_developments_baseline->outcome",
+        "description": "A higher baseline makes it harder to exceed by a factor of ten",
+        "importance": 0.0238,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "trigger_event->outcome",
+        "description": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts",
+        "importance": 0.119,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "trigger_event->strategic_developments_baseline",
+        "description": "Potential link: Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses -> 30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "trigger_event",
+      "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "foreign_intervention",
+      "description": "Presence and activity of foreign military or peacekeeping forces in CAR",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "regional_conflict",
+      "description": "Level of armed conflict in neighboring countries that could spill into CAR",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "strategic_developments_baseline",
+      "description": "30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "trigger_event",
+      "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "foreign_intervention",
+      "description": "Presence and activity of foreign military or peacekeeping forces in CAR",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "trigger_event->outcome",
+      "description": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_intervention->trigger_event",
+      "description": "Arrival or withdrawal of foreign forces can provoke retaliatory actions or political crises",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "strategic_developments_baseline->outcome",
+      "description": "A higher baseline makes it harder to exceed by a factor of ten",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "trigger_event->outcome",
+      "description": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "trigger_event->strategic_developments_baseline",
+      "description": "Potential link: Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses -> 30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if no single major incident is required to drive a surge in strategic developments? In CAR, chronic low-level instability—rather than discrete trigger events—may gradually accumulate, prompting continuous diplomatic and military responses without any identifiable 'catalyst.' Over time, this persistent erosion of security could generate strategic activity spikes through bureaucratic or preemptive decision-making, not reactive ones.",
+      "probe_type": "node_negate_high",
+      "target_id": "trigger_event",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses"
+    },
+    {
+      "probe_text": "What if foreign military or peacekeeping forces have minimal impact on triggering strategic developments in CAR, because their operations are largely symbolic or confined to base defense? Historical patterns show that major strategic shifts often follow internal political crises or insurgent actions directly, rather than being catalyzed by foreign troop movements, suggesting that external intervention may be a symptom rather than a driver of instability.",
+      "probe_type": "node_negate_high",
+      "target_id": "foreign_intervention",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Presence and activity of foreign military or peacekeeping forces in CAR"
+    },
+    {
+      "probe_text": "Recent diplomatic accords between CAR and its neighbors, including the establishment of joint border patrols with Chad and Sudan, have reduced cross-border militant movements by over 60% in the past year. This diminished spillover risk suggests that regional conflict levels may no longer significantly influence insurgent activity within CAR, as external support and sanctuaries for rebels have been effectively curtailed.",
+      "probe_type": "node_negate_medium",
+      "target_id": "regional_conflict",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Level of armed conflict in neighboring countries that could spill into CAR"
+    },
+    {
+      "probe_text": "Recent reporting suggests that the historical average of 'Strategic developments' is a poor predictor of future spikes, as the nature of strategic activity in CAR has fundamentally shifted since 2024 due to unreported covert operations. These new dynamics are not reflected in the baseline, making it an outdated and misleading reference point for predicting threshold breaches.",
+      "probe_type": "node_negate_low",
+      "target_id": "strategic_developments_baseline",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one"
+    },
+    {
+      "probe_text": "On 2025-11-15, a coordinated assault by the UPC and FPRC coalitions captured key military installations in Bambari, prompting the government to declare a state of emergency and request emergency support from Russian mercenaries. This is the first time since 2021 that a rebel coalition has held a major urban center for over 48 hours, significantly increasing the likelihood of cascading strategic responses.",
+      "probe_type": "node_strengthen",
+      "target_id": "trigger_event",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses"
+    },
+    {
+      "probe_text": "On 2025-11-15, the United Nations Security Council votes unanimously to authorize a new multinational stabilization force in CAR, with troop deployments beginning within 72 hours. This force is explicitly mandated to secure key infrastructure and support the national army, marking the largest foreign military intervention in CAR since 2014.",
+      "probe_type": "node_strengthen",
+      "target_id": "foreign_intervention",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Presence and activity of foreign military or peacekeeping forces in CAR"
+    },
+    {
+      "probe_text": "In the past five years, three major trigger events in CAR—including a coup attempt in 2022 and large-scale attacks in 2023—did not result in a spike in strategic developments, as international actors were already at operational capacity and domestic institutions were too weak to enact rapid policy shifts. The absence of responsive bandwidth in both local and international systems suggests that trigger events alone are insufficient to generate a tenfold increase in activity without pre-existing institutional agility or external readiness.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "trigger_event->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts"
+    },
+    {
+      "probe_text": "Foreign military presence in CAR has often been normalized over the past decade, with MINUSCA and bilateral forces operating without triggering major political crises or retaliatory attacks. For example, the 2023 French troop drawdown occurred without a corresponding spike in strategic developments, suggesting that foreign intervention changes may be anticipated and institutionally managed rather than acting as direct triggers.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "foreign_intervention->trigger_event",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Arrival or withdrawal of foreign forces can provoke retaliatory actions or political crises"
+    },
+    {
+      "probe_text": "A high baseline of strategic developments may reflect an environment already saturated with political and military activity, where institutions are accustomed to rapid decision-making and external actors are highly engaged. In such cases, a major trigger event could still induce a proportional surge—potentially exceeding ten times the baseline—because the system is primed for escalation rather than constrained by it.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "strategic_developments_baseline->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "A higher baseline makes it harder to exceed by a factor of ten"
+    },
+    {
+      "probe_text": "Suppose the CAR government anticipates a surge in strategic developments due to upcoming international diplomatic engagements and military planning cycles. This expectation leads officials to stage a controlled 'trigger event,' such as a symbolic military operation or a managed political crisis, to justify or accelerate those developments. In this case, the anticipated spike in strategic activity drives the creation of the trigger event, rather than the event causing the spike.",
+      "probe_type": "edge_reverse",
+      "target_id": "trigger_event->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "A major incident catalyzes a spike in strategic developments such as military deployments or policy shifts"
+    },
+    {
+      "probe_text": "Suppose a major coup occurred in CAR on 2025-06-15, triggering a wave of international condemnations, emergency UN meetings, and immediate military reassessments that generated numerous 'Strategic developments' over the subsequent weeks. This event falls within the 360-day window used to calculate the baseline ending on 2025-12-21. Would this trigger event have directly contributed to an elevated strategic_developments_baseline, thereby making it harder for the post-baseline spike to exceed ten times the baseline? If so, isn't there a direct causal link from trigger_event to strategic_developments_baseline?",
+      "probe_type": "edge_spurious",
+      "target_id": "trigger_event->strategic_developments_baseline",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Occurrence of a major incident (e.g., coup, major attack) that could catalyze strategic responses -> 30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21, plus one"
+    },
+    {
+      "probe_text": "Suppose the Central African Republic government announces a major national security overhaul in early December 2025, including new military appointments and a revised defense doctrine, independent of any recent trigger event. Would this policy initiative alone be likely to generate a surge in 'Strategic developments' by prompting coordinated military, diplomatic, and institutional actions?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "International diplomatic initiatives, such as peace negotiations or sanctions imposed by the UN or African Union, could significantly influence the likelihood of a spike in strategic developments. A major diplomatic breakthrough or breakdown could act as a trigger event independent of internal or military dynamics, thereby increasing the probability of the outcome.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early 2025, the United Nations announced a new humanitarian aid initiative for Central African Republic, allocating $50 million to improve food security and access to clean water. The program is being implemented by civilian agencies and does not involve any military or security components.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In early 2025, the Central African Republic's Ministry of Health announced a nationwide vaccination campaign targeting measles, with operations planned in over 60 health districts. The campaign is funded by international donors and is part of a broader regional public health initiative aimed at reducing child mortality across the Sahel.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if no single major incident is required to drive a surge in strategic developments? In CAR, chronic low-level instability—rather than discrete trigger events—may gradually accumulate, prompting continuous diplomatic and military responses without any identifiable 'catalyst.' Over time, this persistent erosion of security could generate strategic activity spikes through bureaucratic or preemptive decision-making, not reactive ones.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'trigger_event' as a necessary catalyst significantly affects the causal path leading to the outcome. If strategic developments can accumulate due to chronic instability without a discrete trigger event, then the dependency on 'trigger_event -> outcome' is weakened, but the overall likelihood of the outcome increases because sustained low-level dynamics—such as persistent insurgent activity, foreign intervention, and political instability—can independently drive bureaucratic, diplomatic, or military responses over time. This means that even in the absence of a single major incident, the system can generate a surge in strategic developments through continuous pressure. The pathways from 'insurgent_activity', 'political_stability', and 'foreign_intervention' to the outcome become more direct and sustained, bypassing the bottleneck of requiring a 'trigger_event'. As a result, the structural necessity of a trigger event was a key constraint in my original low estimate; removing that constraint meaningfully increases the probability. However, the baseline ('strategic_developments_baseline') still imposes a quantitative hurdle, and CAR’s institutional inertia limits the speed of response, so the increase is substantial but not extreme.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'trigger_event' as a necessary catalyst significantly affects the causal path leading to the outcome. If strategic developments can accumulate due to chronic instability without a discrete trigger event, then the dependency on 'trigger_event -> outcome' is weakened, but the overall likelihood of the outcome increases because sustained low-level dynamics—such as persistent insurgent activity, foreign intervention, and political instability—can independently drive bureaucratic, diplomatic, or military responses over time. This means that even in the absence of a single major incident, the system can generate a surge in strategic developments through continuous pressure. The pathways from 'insurgent_activity', 'political_stability', and 'foreign_intervention' to the outcome become more direct and sustained, bypassing the bottleneck of requiring a 'trigger_event'. As a result, the structural necessity of a trigger event was a key constraint in my original low estimate; removing that constraint meaningfully increases the probability. However, the baseline ('strategic_developments_baseline') still imposes a quantitative hurdle, and CAR’s institutional inertia limits the speed of response, so the increase is substantial but not extreme.\"\n}",
+      "target_id": "trigger_event",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if foreign military or peacekeeping forces have minimal impact on triggering strategic developments in CAR, because their operations are largely symbolic or confined to base defense? Historical patterns show that major strategic shifts often follow internal political crises or insurgent actions directly, rather than being catalyzed by foreign troop movements, suggesting that external intervention may be a symptom rather than a driver of instability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'foreign_intervention' as a driver of 'trigger_event' weakens a key causal path in the network. Specifically, the link foreign_intervention -> trigger_event is called into question, suggesting that foreign troop movements may not actively provoke major incidents but instead reflect pre-existing instability. This implies that 'foreign_intervention' is more of a correlate than a catalyst, reducing its causal power. As a result, one pathway to the 'trigger_event' node—already a critical prerequisite for the outcome—is less reliable. This makes the overall realization of the outcome less likely, particularly in scenarios where external forces were assumed to provoke escalatory responses. The 'outcome' node now depends more heavily on internal factors like 'insurgent_activity' and 'political_stability', which currently show no strong signs of imminent rupture. Therefore, the probability is slightly reduced from 0.15 to 0.12, reflecting a modest downward adjustment due to the diminished role of a secondary but non-negligible causal pathway.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'foreign_intervention' as a driver of 'trigger_event' weakens a key causal path in the network. Specifically, the link foreign_intervention -> trigger_event is called into question, suggesting that foreign troop movements may not actively provoke major incidents but instead reflect pre-existing instability. This implies that 'foreign_intervention' is more of a correlate than a catalyst, reducing its causal power. As a result, one pathway to the 'trigger_event' node—already a critical prerequisite for the outcome—is less reliable. This makes the overall realization of the outcome less likely, particularly in scenarios where external forces were assumed to provoke escalatory responses. The 'outcome' node now depends more heavily on internal factors like 'insurgent_activity' and 'political_stability', which currently show no strong signs of imminent rupture. Therefore, the probability is slightly reduced from 0.15 to 0.12, reflecting a modest downward adjustment due to the diminished role of a secondary but non-negligible causal pathway.\"\n}",
+      "target_id": "foreign_intervention",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic accords between CAR and its neighbors, including the establishment of joint border patrols with Chad and Sudan, have reduced cross-border militant movements by over 60% in the past year. This diminished spillover risk suggests that regional conflict levels may no longer significantly influence insurgent activity within CAR, as external support and sanctuaries for rebels have been effectively curtailed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between regional_conflict and insurgent_activity, which is a key pathway leading to a trigger_event and ultimately the outcome. With cross-border militant movements reduced by over 60% due to diplomatic accords and joint patrols, the influence of regional_conflict on internal insurgent operations is substantially diminished. This makes it less likely that external conflict will empower rebel groups, reducing the probability of a major trigger_event. As a result, the pathway from regional_conflict → insurgent_activity → trigger_event → outcome is attenuated, lowering the overall likelihood of a tenfold spike in strategic developments. The baseline (strategic_developments_baseline) remains unchanged, but the primary driver of potential surges—insurgent escalation fueled by regional instability—is now less plausible. Hence, the probability is revised downward.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between regional_conflict and insurgent_activity, which is a key pathway leading to a trigger_event and ultimately the outcome. With cross-border militant movements reduced by over 60% due to diplomatic accords and joint patrols, the influence of regional_conflict on internal insurgent operations is substantially diminished. This makes it less likely that external conflict will empower rebel groups, reducing the probability of a major trigger_event. As a result, the pathway from regional_conflict → insurgent_activity → trigger_event → outcome is attenuated, lowering the overall likelihood of a tenfold spike in strategic developments. The baseline (strategic_developments_baseline) remains unchanged, but the primary driver of potential surges—insurgent escalation fueled by regional instability—is now less plausible. Hence, the probability is revised downward.\"\n}",
+      "target_id": "regional_conflict",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent reporting suggests that the historical average of 'Strategic developments' is a poor predictor of future spikes, as the nature of strategic activity in CAR has fundamentally shifted since 2024 due to unreported covert operations. These new dynamics are not reflected in the baseline, making it an outdated and misleading reference point for predicting threshold breaches.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'strategic_developments_baseline' undermines its role as a reliable anchor for the outcome. If the baseline is no longer a valid predictor due to unreported covert operations fundamentally altering strategic dynamics, then the threshold for exceeding it by a factor of ten becomes less meaningful and potentially easier to breach. This weakens the inhibitory causal path from 'strategic_developments_baseline -> outcome', reducing its constraining effect on the outcome. As a result, the probability of a spike in strategic developments—already driven by potential trigger events linked to insurgent activity, foreign intervention, or regional conflict—becomes more plausible regardless of historical averages. The core generative paths to the outcome (via trigger_event) remain intact and may now operate independently of the outdated baseline, increasing the likelihood of a threshold breach. Therefore, the probability is substantially revised upward despite continued uncertainty about specific triggers.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'strategic_developments_baseline' undermines its role as a reliable anchor for the outcome. If the baseline is no longer a valid predictor due to unreported covert operations fundamentally altering strategic dynamics, then the threshold for exceeding it by a factor of ten becomes less meaningful and potentially easier to breach. This weakens the inhibitory causal path from 'strategic_developments_baseline -> outcome', reducing its constraining effect on the outcome. As a result, the probability of a spike in strategic developments—already driven by potential trigger events linked to insurgent activity, foreign intervention, or regional conflict—becomes more plausible regardless of historical averages. The core generative paths to the outcome (via trigger_event) remain intact and may now operate independently of the outdated baseline, increasing the likelihood of a threshold breach. Therefore, the probability is substantially revised upward despite continued uncertainty about specific triggers.\"\n}",
+      "target_id": "strategic_developments_baseline",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, a coordinated assault by the UPC and FPRC coalitions captured key military installations in Bambari, prompting the government to declare a state of emergency and request emergency support from Russian mercenaries. This is the first time since 2021 that a rebel coalition has held a major urban center for over 48 hours, significantly increasing the likelihood of cascading strategic responses.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.5,
+      "shift_direction": "increased",
+      "reasoning": "The reported coordinated assault on Bambari by the UPC and FPRC coalitions constitutes a clear and significant trigger_event, directly activating a key causal path to the outcome. This event—capturing a major urban center, prompting a state of emergency, and eliciting a request for Russian military support—represents a major escalation that is precisely the kind of catalyst the model associates with a surge in strategic developments. The trigger_event node was already central to the causal network, and this development strongly activates it, increasing the likelihood of cascading responses such as military mobilizations, foreign intervention shifts, and high-level policy decisions. As a result, the causal path trigger_event -> outcome is now substantially more probable. Additionally, the event may further amplify insurgent_activity and foreign_intervention, reinforcing the pathway to the outcome. Given that the trigger has already occurred close to the forecast window, and that the baseline (strategic_developments_baseline) is unlikely to have increased enough to offset a tenfold surge, the probability of the outcome has increased significantly from 0.15 to 0.65.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reported coordinated assault on Bambari by the UPC and FPRC coalitions constitutes a clear and significant trigger_event, directly activating a key causal path to the outcome. This event—capturing a major urban center, prompting a state of emergency, and eliciting a request for Russian military support—represents a major escalation that is precisely the kind of catalyst the model associates with a surge in strategic developments. The trigger_event node was already central to the causal network, and this development strongly activates it, increasing the likelihood of cascading responses such as military mobilizations, foreign intervention shifts, and high-level policy decisions. As a result, the causal path trigger_event -> outcome is now substantially more probable. Additionally, the event may further amplify insurgent_activity and foreign_intervention, reinforcing the pathway to the outcome. Given that the trigger has already occurred close to the forecast window, and that the baseline (strategic_developments_baseline) is unlikely to have increased enough to offset a tenfold surge, the probability of the outcome has increased significantly from 0.15 to 0.65.\"\n}",
+      "target_id": "trigger_event",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, the United Nations Security Council votes unanimously to authorize a new multinational stabilization force in CAR, with troop deployments beginning within 72 hours. This force is explicitly mandated to secure key infrastructure and support the national army, marking the largest foreign military intervention in CAR since 2014.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.30000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The unanimous UN Security Council authorization of a new multinational stabilization force on 2025-11-15 directly activates the 'foreign_intervention' node, which strengthens the causal path foreign_intervention -> trigger_event. The rapid deployment and high-profile mandate (securing infrastructure, supporting the national army) increase the likelihood of a significant trigger_event, such as retaliatory attacks by insurgent groups or political backlash, which in turn activates the trigger_event -> outcome link. This intervention also indirectly amplifies insurgent_activity due to likely hostile reactions, further increasing the probability of a major incident. While the baseline strategic_developments_baseline remains unchanged, the magnitude and speed of this foreign intervention substantially increase the likelihood of a surge in strategic developments. The outcome is still constrained by the high bar of exceeding ten times the baseline, so the probability does not rise above 0.5, but the intervention meaningfully alters the dynamics along two key causal paths: foreign_intervention -> trigger_event and indirectly insurgent_activity -> trigger_event.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The unanimous UN Security Council authorization of a new multinational stabilization force on 2025-11-15 directly activates the 'foreign_intervention' node, which strengthens the causal path foreign_intervention -> trigger_event. The rapid deployment and high-profile mandate (securing infrastructure, supporting the national army) increase the likelihood of a significant trigger_event, such as retaliatory attacks by insurgent groups or political backlash, which in turn activates the trigger_event -> outcome link. This intervention also indirectly amplifies insurgent_activity due to likely hostile reactions, further increasing the probability of a major incident. While the baseline strategic_developments_baseline remains unchanged, the magnitude and speed of this foreign intervention substantially increase the likelihood of a surge in strategic developments. The outcome is still constrained by the high bar of exceeding ten times the baseline, so the probability does not rise above 0.5, but the intervention meaningfully alters the dynamics along two key causal paths: foreign_intervention -> trigger_event and indirectly insurgent_activity -> trigger_event.\"\n}",
+      "target_id": "foreign_intervention",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "In the past five years, three major trigger events in CAR—including a coup attempt in 2022 and large-scale attacks in 2023—did not result in a spike in strategic developments, as international actors were already at operational capacity and domestic institutions were too weak to enact rapid policy shifts. The absence of responsive bandwidth in both local and international systems suggests that trigger events alone are insufficient to generate a tenfold increase in activity without pre-existing institutional agility or external readiness.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.05,
+      "absolute_shift": 0.09999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly undermines the causal link 'trigger_event -> outcome', which is a central pathway in my original model. The evidence that three recent major trigger events failed to produce spikes in strategic developments—due to lack of responsive capacity in both domestic and international systems—suggests that the presence of a trigger event is not sufficient to generate the required surge. This weakens the main mechanism through which the outcome could occur. While other nodes like foreign_intervention or political_stability still influence dynamics, the broken link from trigger_event to outcome drastically reduces the likelihood of a tenfold spike. The baseline (strategic_developments_baseline) remains a structural barrier, and without a functioning amplification mechanism via trigger events, the outcome is even less plausible. Therefore, the probability is substantially reduced.",
+      "raw_response": "{\n  \"updated_probability\": 0.05,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly undermines the causal link 'trigger_event -> outcome', which is a central pathway in my original model. The evidence that three recent major trigger events failed to produce spikes in strategic developments—due to lack of responsive capacity in both domestic and international systems—suggests that the presence of a trigger event is not sufficient to generate the required surge. This weakens the main mechanism through which the outcome could occur. While other nodes like foreign_intervention or political_stability still influence dynamics, the broken link from trigger_event to outcome drastically reduces the likelihood of a tenfold spike. The baseline (strategic_developments_baseline) remains a structural barrier, and without a functioning amplification mechanism via trigger events, the outcome is even less plausible. Therefore, the probability is substantially reduced.\"\n}",
+      "target_id": "trigger_event->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Foreign military presence in CAR has often been normalized over the past decade, with MINUSCA and bilateral forces operating without triggering major political crises or retaliatory attacks. For example, the 2023 French troop drawdown occurred without a corresponding spike in strategic developments, suggesting that foreign intervention changes may be anticipated and institutionally managed rather than acting as direct triggers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'foreign_intervention -> trigger_event' suggests that changes in foreign military presence are less likely to act as direct catalysts for major incidents in CAR, due to institutional normalization and managed transitions (e.g., French drawdown in 2023). This weakens a key path through which one of the potential triggers for a spike in strategic developments could occur. As a result, the likelihood of a trigger_event being precipitated by foreign_intervention is reduced, which in turn lowers the probability of the outcome. However, other paths to trigger_event (notably via insurgent_activity) remain intact, and the baseline conditions (political_stability, regional_conflict) still influence the system. Therefore, while the overall probability decreases, it does not collapse, as multiple other causal routes to the outcome persist. The update is modest because foreign_intervention was one of several contributors to trigger_event, not the sole driver.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'foreign_intervention -> trigger_event' suggests that changes in foreign military presence are less likely to act as direct catalysts for major incidents in CAR, due to institutional normalization and managed transitions (e.g., French drawdown in 2023). This weakens a key path through which one of the potential triggers for a spike in strategic developments could occur. As a result, the likelihood of a trigger_event being precipitated by foreign_intervention is reduced, which in turn lowers the probability of the outcome. However, other paths to trigger_event (notably via insurgent_activity) remain intact, and the baseline conditions (political_stability, regional_conflict) still influence the system. Therefore, while the overall probability decreases, it does not collapse, as multiple other causal routes to the outcome persist. The update is modest because foreign_intervention was one of several contributors to trigger_event, not the sole driver.\"\n}",
+      "target_id": "foreign_intervention->trigger_event",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A high baseline of strategic developments may reflect an environment already saturated with political and military activity, where institutions are accustomed to rapid decision-making and external actors are highly engaged. In such cases, a major trigger event could still induce a proportional surge—potentially exceeding ten times the baseline—because the system is primed for escalation rather than constrained by it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'strategic_developments_baseline -> outcome' suggests that a high baseline may not act purely as a structural constraint on exceeding a tenfold threshold, but instead may indicate a system with high readiness for rapid escalation. This reinterprets the baseline not just as a denominator in a mathematical comparison, but as a signal of systemic responsiveness. While the original model assumed a higher baseline makes the outcome less likely (a direct negative effect), the challenge introduces a countervailing mechanism: in a high-baseline environment, trigger events may elicit faster, larger strategic responses due to existing infrastructure for decision-making and external engagement. This weakens the inhibitory effect of the baseline node and slightly strengthens the path from trigger_event to outcome. However, since the baseline is still numerically central to the resolution criteria (a tenfold increase from a high baseline remains extremely demanding), the structural hurdle remains substantial. Thus, while the system’s responsiveness increases the plausibility of a surge, it does not fundamentally invalidate the difficulty of exceeding ten times the baseline. The net effect is a small upward revision in probability, reflecting a modestly enhanced likelihood of a disproportional response in a primed environment.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'strategic_developments_baseline -> outcome' suggests that a high baseline may not act purely as a structural constraint on exceeding a tenfold threshold, but instead may indicate a system with high readiness for rapid escalation. This reinterprets the baseline not just as a denominator in a mathematical comparison, but as a signal of systemic responsiveness. While the original model assumed a higher baseline makes the outcome less likely (a direct negative effect), the challenge introduces a countervailing mechanism: in a high-baseline environment, trigger events may elicit faster, larger strategic responses due to existing infrastructure for decision-making and external engagement. This weakens the inhibitory effect of the baseline node and slightly strengthens the path from trigger_event to outcome. However, since the baseline is still numerically central to the resolution criteria (a tenfold increase from a high baseline remains extremely demanding), the structural hurdle remains substantial. Thus, while the system’s responsiveness increases the plausibility of a surge, it does not fundamentally invalidate the difficulty of exceeding ten times the baseline. The net effect is a small upward revision in probability, reflecting a modestly enhanced likelihood of a disproportional response in a primed environment.\"\n}",
+      "target_id": "strategic_developments_baseline->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Suppose the CAR government anticipates a surge in strategic developments due to upcoming international diplomatic engagements and military planning cycles. This expectation leads officials to stage a controlled 'trigger event,' such as a symbolic military operation or a managed political crisis, to justify or accelerate those developments. In this case, the anticipated spike in strategic activity drives the creation of the trigger event, rather than the event causing the spike.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The challenge inverts the causal direction between 'trigger_event' and 'outcome', suggesting that anticipated strategic developments can drive the creation of a trigger event rather than the other way around. This does not break the 'trigger_event -> outcome' link but instead introduces a feedback loop or reverse causality, reinforcing the pathway through which trigger events lead to spikes in strategic developments. In particular, if the government can stage a controlled trigger event to justify or accelerate planned developments, this makes it *more likely* that such events will be followed by measurable strategic activity, thereby strengthening the causal link rather than weakening it. This enhances the robustness of the 'trigger_event -> outcome' path, especially in contexts where strategic developments are already expected due to external cycles (e.g., diplomatic or military planning). However, since this scenario depends on intentional staging and favorable political control, and given the generally weak baseline expectations for strategic developments in CAR, the increase is modest. The overall structure of the causal network remains intact, but the responsiveness of 'outcome' to 'trigger_event' is slightly amplified, warranting a small upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge inverts the causal direction between 'trigger_event' and 'outcome', suggesting that anticipated strategic developments can drive the creation of a trigger event rather than the other way around. This does not break the 'trigger_event -> outcome' link but instead introduces a feedback loop or reverse causality, reinforcing the pathway through which trigger events lead to spikes in strategic developments. In particular, if the government can stage a controlled trigger event to justify or accelerate planned developments, this makes it *more likely* that such events will be followed by measurable strategic activity, thereby strengthening the causal link rather than weakening it. This enhances the robustness of the 'trigger_event -> outcome' path, especially in contexts where strategic developments are already expected due to external cycles (e.g., diplomatic or military planning). However, since this scenario depends on intentional staging and favorable political control, and given the generally weak baseline expectations for strategic developments in CAR, the increase is modest. The overall structure of the causal network remains intact, but the responsiveness of 'outcome' to 'trigger_event' is slightly amplified, warranting a small upward revision.\"\n}",
+      "target_id": "trigger_event->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a major coup occurred in CAR on 2025-06-15, triggering a wave of international condemnations, emergency UN meetings, and immediate military reassessments that generated numerous 'Strategic developments' over the subsequent weeks. This event falls within the 360-day window used to calculate the baseline ending on 2025-12-21. Would this trigger event have directly contributed to an elevated strategic_developments_baseline, thereby making it harder for the post-baseline spike to exceed ten times the baseline? If so, isn't there a direct causal link from trigger_event to strategic_developments_baseline?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge identifies a valid causal link from trigger_event to strategic_developments_baseline that was previously omitted. If a major trigger event (e.g., a coup on 2025-06-15) causes a spike in strategic developments during the baseline period (360 days before 2025-12-21), then the baseline value would be elevated. This directly affects the outcome, as a higher baseline makes it harder to exceed by a factor of ten in the final 30 days. The original model assumed trigger events only influenced the outcome through post-baseline activity, but now we recognize that such events can also suppress the likelihood of a tenfold spike by inflating the baseline. This creates a countervailing effect: the same type of event that could catalyze a future spike also raises the bar for exceeding the baseline. As a result, the net probability of the outcome decreases because one of the main drivers (trigger_event) partially undermines its own effectiveness via the baseline. This weakens the overall causal pathway from trigger_event to outcome, particularly in scenarios where major events occur in the mid-term. Therefore, the probability is downgraded from 0.15 to 0.10.",
+      "raw_response": "{\n  \"updated_probability\": 0.1,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge identifies a valid causal link from trigger_event to strategic_developments_baseline that was previously omitted. If a major trigger event (e.g., a coup on 2025-06-15) causes a spike in strategic developments during the baseline period (360 days before 2025-12-21), then the baseline value would be elevated. This directly affects the outcome, as a higher baseline makes it harder to exceed by a factor of ten in the final 30 days. The original model assumed trigger events only influenced the outcome through post-baseline activity, but now we recognize that such events can also suppress the likelihood of a tenfold spike by inflating the baseline. This creates a countervailing effect: the same type of event that could catalyze a future spike also raises the bar for exceeding the baseline. As a result, the net probability of the outcome decreases because one of the main drivers (trigger_event) partially undermines its own effectiveness via the baseline. This weakens the overall causal pathway from trigger_event to outcome, particularly in scenarios where major events occur in the mid-term. Therefore, the probability is downgraded from 0.15 to 0.10.\"\n}",
+      "target_id": "trigger_event->strategic_developments_baseline",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose the Central African Republic government announces a major national security overhaul in early December 2025, including new military appointments and a revised defense doctrine, independent of any recent trigger event. Would this policy initiative alone be likely to generate a surge in 'Strategic developments' by prompting coordinated military, diplomatic, and institutional actions?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The structural challenge introduces a new causal path—government-led policy initiatives as an independent driver of 'Strategic developments'—that is not captured in the original causal network. This bypasses the 'trigger_event' node, which was previously essential for generating the outcome. A major national security overhaul (e.g., new military appointments, revised doctrine) could directly stimulate a cascade of strategic developments such as military reorganizations, diplomatic briefings, institutional reforms, and defense partnerships, even in the absence of conflict escalations or external shocks. This adds a direct path from political_stability (as a source of top-down reform capacity) to outcome, and potentially strengthens foreign_intervention if reforms invite new partnerships. Since this newly highlighted mechanism is plausible and could generate a tenfold spike relative to a likely low baseline, the probability is substantially revised upward. However, uncertainty remains about whether such reforms would generate sufficiently numerous and classified 'Strategic developments' to meet the threshold, so the update is significant but not extreme.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The structural challenge introduces a new causal path—government-led policy initiatives as an independent driver of 'Strategic developments'—that is not captured in the original causal network. This bypasses the 'trigger_event' node, which was previously essential for generating the outcome. A major national security overhaul (e.g., new military appointments, revised doctrine) could directly stimulate a cascade of strategic developments such as military reorganizations, diplomatic briefings, institutional reforms, and defense partnerships, even in the absence of conflict escalations or external shocks. This adds a direct path from political_stability (as a source of top-down reform capacity) to outcome, and potentially strengthens foreign_intervention if reforms invite new partnerships. Since this newly highlighted mechanism is plausible and could generate a tenfold spike relative to a likely low baseline, the probability is substantially revised upward. However, uncertainty remains about whether such reforms would generate sufficiently numerous and classified 'Strategic developments' to meet the threshold, so the update is significant but not extreme.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "International diplomatic initiatives, such as peace negotiations or sanctions imposed by the UN or African Union, could significantly influence the likelihood of a spike in strategic developments. A major diplomatic breakthrough or breakdown could act as a trigger event independent of internal or military dynamics, thereby increasing the probability of the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new causal path via international diplomatic initiatives, which can act as an independent trigger_event, bypassing traditional internal drivers like insurgent_activity or political_stability. This adds an additional route to the outcome, increasing the likelihood of a major spike in strategic developments. The original model underweighted exogenous political shocks from diplomatic channels, such as sudden UN sanctions or a collapsed peace process, which could prompt immediate strategic responses (e.g., military realignments, foreign intervention, or government announcements). While the baseline strategic_developments_baseline still constrains the magnitude needed for the outcome, the expanded set of triggers makes the outcome more plausible. The shift from 0.15 to 0.25 reflects a moderate increase due to this newly acknowledged pathway, without overstating its dominance.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new causal path via international diplomatic initiatives, which can act as an independent trigger_event, bypassing traditional internal drivers like insurgent_activity or political_stability. This adds an additional route to the outcome, increasing the likelihood of a major spike in strategic developments. The original model underweighted exogenous political shocks from diplomatic channels, such as sudden UN sanctions or a collapsed peace process, which could prompt immediate strategic responses (e.g., military realignments, foreign intervention, or government announcements). While the baseline strategic_developments_baseline still constrains the magnitude needed for the outcome, the expanded set of triggers makes the outcome more plausible. The shift from 0.15 to 0.25 reflects a moderate increase due to this newly acknowledged pathway, without overstating its dominance.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, the United Nations announced a new humanitarian aid initiative for Central African Republic, allocating $50 million to improve food security and access to clean water. The program is being implemented by civilian agencies and does not involve any military or security components.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The announced UN humanitarian aid initiative does not affect any of the key causal paths in the model. The outcome depends on a tenfold spike in 'Strategic developments,' which are likely tied to security, political, or military events rather than civilian humanitarian programming. The initiative does not influence regional conflict, political stability, foreign military intervention, insurgent activity, or the likelihood of a trigger event such as a coup or major attack. Since the program is civilian-led and lacks security components, it does not alter the dynamics of foreign_intervention, trigger_event, or insurgent_activity. Therefore, the baseline trajectory of the causal network remains intact, and the probability of the outcome is unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The announced UN humanitarian aid initiative does not affect any of the key causal paths in the model. The outcome depends on a tenfold spike in 'Strategic developments,' which are likely tied to security, political, or military events rather than civilian humanitarian programming. The initiative does not influence regional conflict, political stability, foreign military intervention, insurgent activity, or the likelihood of a trigger event such as a coup or major attack. Since the program is civilian-led and lacks security components, it does not alter the dynamics of foreign_intervention, trigger_event, or insurgent_activity. Therefore, the baseline trajectory of the causal network remains intact, and the probability of the outcome is unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, the Central African Republic's Ministry of Health announced a nationwide vaccination campaign targeting measles, with operations planned in over 60 health districts. The campaign is funded by international donors and is part of a broader regional public health initiative aimed at reducing child mortality across the Sahel.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The nationwide vaccination campaign, while significant for public health, does not directly affect any of the causal paths leading to the outcome. The nodes in the causal network—such as regional_conflict, political_stability, foreign_intervention, insurgent_activity, and trigger_event—are primarily tied to security, political, and military dynamics. A public health initiative, even if logistically complex and internationally supported, is unlikely to generate 'Strategic developments' of the kind (e.g., military deployments, policy shifts in response to conflict, coups, or major attacks) that would meaningfully influence the outcome variable. It does not constitute a trigger_event, nor does it plausibly increase insurgent_activity or foreign_intervention in a strategic-military sense. Therefore, the baseline drivers of the outcome remain unaltered, and no causal path is substantively affected. The forecast remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The nationwide vaccination campaign, while significant for public health, does not directly affect any of the causal paths leading to the outcome. The nodes in the causal network—such as regional_conflict, political_stability, foreign_intervention, insurgent_activity, and trigger_event—are primarily tied to security, political, and military dynamics. A public health initiative, even if logistically complex and internationally supported, is unlikely to generate 'Strategic developments' of the kind (e.g., military deployments, policy shifts in response to conflict, coups, or major attacks) that would meaningfully influence the outcome variable. It does not constitute a trigger_event, nor does it plausibly increase insurgent_activity or foreign_intervention in a strategic-military sense. Therefore, the baseline drivers of the outcome remain unaltered, and no causal path is substantively affected. The forecast remains unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In late October 2025, escalating hostilities between rebel factions and government forces in eastern Democratic Republic of the Congo led to cross-border skirmishes near the CAR border, resulting in the displacement of over 15,000 people and reports of armed groups establishing new supply routes through CAR territory. Regional analysts have assessed that the spillover has already enhanced operational capacity among CAR-based insurgents who share ideological and logistical ties with Congolese rebel groups.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'regional_conflict' node, which is a key upstream driver in the causal network. The reported cross-border skirmishes and enhanced operational capacity of CAR-based insurgents due to spillover from eastern DRC intensify the 'regional_conflict -> insurgent_activity' link. This, in turn, increases the likelihood of the 'insurgent_activity -> trigger_event' pathway being activated, such as through a major attack or territorial advance. Given that 'trigger_event -> outcome' is a primary causal path to the outcome, the elevated risk of such a trigger substantially increases the probability of a spike in strategic developments. While the baseline ('strategic_developments_baseline') remains a moderating factor, the reinforced pathway from regional instability to potential trigger events justifies a significant upward revision. The update is not larger because the actual occurrence of a trigger event is still uncertain, and political stability and foreign intervention dynamics remain unaltered in this update.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'regional_conflict' node, which is a key upstream driver in the causal network. The reported cross-border skirmishes and enhanced operational capacity of CAR-based insurgents due to spillover from eastern DRC intensify the 'regional_conflict -> insurgent_activity' link. This, in turn, increases the likelihood of the 'insurgent_activity -> trigger_event' pathway being activated, such as through a major attack or territorial advance. Given that 'trigger_event -> outcome' is a primary causal path to the outcome, the elevated risk of such a trigger substantially increases the probability of a spike in strategic developments. While the baseline ('strategic_developments_baseline') remains a moderating factor, the reinforced pathway from regional instability to potential trigger events justifies a significant upward revision. The update is not larger because the actual occurrence of a trigger event is still uncertain, and political stability and foreign intervention dynamics remain unaltered in this update.\"\n}",
+      "target_id": "regional_conflict",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that 'Strategic developments' in the Central African Republic have been consistently elevated over the past nine months, with an average of 4.2 events per 30-day period, driven by ongoing peacekeeping transitions and diplomatic engagements. This suggests the 30-day baseline will likely settle around 5.2 (4.2 + 1), making a tenfold exceedance require at least 52 events in the final month—an exceptionally high bar given historical volatility patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.05,
+      "absolute_shift": 0.09999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'strategic_developments_baseline' directly affects a key causal path: strategic_developments_baseline -> outcome. The updated data indicating a consistent average of 4.2 strategic developments per 30-day period implies a baseline of 5.2, significantly higher than previously assumed. This raises the threshold for a tenfold exceedance to 52 events in the final month. Given CAR's historical volatility and the absence of evidence for an impending shock of that magnitude, such a spike is highly improbable. The high baseline makes the outcome much harder to achieve, substantially weakening the likelihood despite other potential triggers. Therefore, the probability is reduced from 0.15 to 0.05, reflecting the strengthened structural barrier imposed by the elevated baseline.",
+      "raw_response": "{\n  \"updated_probability\": 0.05,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'strategic_developments_baseline' directly affects a key causal path: strategic_developments_baseline -> outcome. The updated data indicating a consistent average of 4.2 strategic developments per 30-day period implies a baseline of 5.2, significantly higher than previously assumed. This raises the threshold for a tenfold exceedance to 52 events in the final month. Given CAR's historical volatility and the absence of evidence for an impending shock of that magnitude, such a spike is highly improbable. The high baseline makes the outcome much harder to achieve, substantially weakening the likelihood despite other potential triggers. Therefore, the probability is reduced from 0.15 to 0.05, reflecting the strengthened structural barrier imposed by the elevated baseline.\"\n}",
+      "target_id": "strategic_developments_baseline",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, a coordinated attack by the UPC and FPRC coalitions seized control of Bouar, prompting immediate declarations of emergency by the central government, a French-led MINUSCA troop surge, and a UN Security Council emergency session. This sequence triggered over 40 documented strategic developments—including troop deployments, sanctions, and diplomatic initiatives—within 10 days, demonstrating how a single trigger event can rapidly cascade into an order-of-magnitude increase in strategic activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.30000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The challenge provides a concrete, real-world example where a single trigger event (the seizure of Bouar by UPC and FPRC) directly led to a cascade of over 40 strategic developments within 10 days, vastly exceeding the baseline threshold needed for the outcome. This strengthens the causal link 'trigger_event -> outcome' from theoretical to empirically demonstrated in the CAR context. It confirms that a major incident can indeed generate an order-of-magnitude spike in strategic activity, making the outcome substantially more plausible. While the baseline (strategic_developments_baseline) still imposes a constraint, and other upstream factors (e.g. political_stability, regional_conflict) remain uncertain, the demonstration that the trigger-to-outcome pathway is functional and potent increases confidence in the feasibility of the outcome. Therefore, the probability is revised upward significantly, though not to a high level, due to the continued uncertainty around whether such a trigger will occur in the relevant timeframe.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge provides a concrete, real-world example where a single trigger event (the seizure of Bouar by UPC and FPRC) directly led to a cascade of over 40 strategic developments within 10 days, vastly exceeding the baseline threshold needed for the outcome. This strengthens the causal link 'trigger_event -> outcome' from theoretical to empirically demonstrated in the CAR context. It confirms that a major incident can indeed generate an order-of-magnitude spike in strategic activity, making the outcome substantially more plausible. While the baseline (strategic_developments_baseline) still imposes a constraint, and other upstream factors (e.g. political_stability, regional_conflict) remain uncertain, the demonstration that the trigger-to-outcome pathway is functional and potent increases confidence in the feasibility of the outcome. Therefore, the probability is revised upward significantly, though not to a high level, due to the continued uncertainty around whether such a trigger will occur in the relevant timeframe.\"\n}",
+      "target_id": "trigger_event->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2023, the withdrawal of Rwandan troops from CAR, part of a phased drawdown of foreign forces, was followed within weeks by a surge in coordinated attacks by the UPC rebel faction in the east, exploiting perceived security vacuums. This rapid insurgent response underscores how foreign military disengagement directly triggers strategic crises, reinforcing the causal link between foreign intervention dynamics and high-impact trigger events.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The evidence strengthens the causal link between foreign_intervention and trigger_event, particularly highlighting how the withdrawal of foreign forces can rapidly lead to a security vacuum exploited by insurgents. This reinforces the pathway: foreign_intervention -> trigger_event -> outcome. The example from 2023 demonstrates a clear mechanism by which changes in foreign military presence directly catalyze high-impact events, increasing the likelihood of a spike in strategic developments. Since this pathway is central to the overall causal network and feeds directly into the outcome, the strengthened evidence justifies a moderate increase in the estimated probability, reflecting higher confidence that disengagement or shifts in foreign intervention could precipitate a trigger event sufficient to drive the required surge in strategic developments.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The evidence strengthens the causal link between foreign_intervention and trigger_event, particularly highlighting how the withdrawal of foreign forces can rapidly lead to a security vacuum exploited by insurgents. This reinforces the pathway: foreign_intervention -> trigger_event -> outcome. The example from 2023 demonstrates a clear mechanism by which changes in foreign military presence directly catalyze high-impact events, increasing the likelihood of a spike in strategic developments. Since this pathway is central to the overall causal network and feeds directly into the outcome, the strengthened evidence justifies a moderate increase in the estimated probability, reflecting higher confidence that disengagement or shifts in foreign intervention could precipitate a trigger event sufficient to drive the required surge in strategic developments.\"\n}",
+      "target_id": "foreign_intervention->trigger_event",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "7c7f4bb8e6b6eaaaffcf8397ba1e99c30c5ed1be3676dede2c72a20cdae104c1",
+    "question_text": "Will there be more than ten times as many 'Strategic developments' in Central African Republic for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Strategic developments' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Strategic developments'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.15,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.12133333333333333,
+    "max_absolute_shift": 0.5
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.9545454545454555,
+    "mean_shift_high": 0.19500000000000003,
+    "mean_shift_low": 0.06599999999999999,
+    "asymmetry_index": 0.36571428571428566,
+    "mean_shift_negate": 0.09142857142857143,
+    "mean_shift_strengthen": 0.25000000000000006,
+    "fnar": 0.6666666666666666,
+    "n_accepted": 2,
+    "n_spurious": 3,
+    "critical_path_premium": 0.062000000000000055,
+    "mean_shift_on_path": 0.16200000000000003,
+    "mean_shift_off_path": 0.09999999999999998,
+    "importance_sensitivity_correlation": 0.48484848484848486,
+    "control_sensitivity": 0
+  }
+}

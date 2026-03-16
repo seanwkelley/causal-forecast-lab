@@ -1,0 +1,1112 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07434.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.72,
+  "nodes": [
+    {
+      "id": "solar_irradiance",
+      "description": "Total solar radiation at Limoges-Bellegarde Airport",
+      "role": "factor"
+    },
+    {
+      "id": "cloud_cover",
+      "description": "Cloud cover percentage over Limoges-Bellegarde Airport",
+      "role": "factor"
+    },
+    {
+      "id": "atmospheric_circulation",
+      "description": "Large-scale atmospheric circulation patterns (e.g., high/low pressure systems)",
+      "role": "factor"
+    },
+    {
+      "id": "seasonal_pattern",
+      "description": "Typical temperature patterns for late December in Limoges, France",
+      "role": "factor"
+    },
+    {
+      "id": "temperature_anomalies",
+      "description": "Recent temperature deviations from the seasonal average",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Daily average temperature at Limoges-Bellegarde Airport on 2025-12-28 compared to 2025-12-21",
+      "role": "outcome"
+    },
+    {
+      "id": "surface_temperature",
+      "description": "Current temperature of the land surface at Limoges-Bellegarde Airport",
+      "role": "factor"
+    }
+  ],
+  "edges": [
+    {
+      "from": "solar_irradiance",
+      "to": "surface_temperature",
+      "mechanism": "Heat transfer from solar radiation"
+    },
+    {
+      "from": "cloud_cover",
+      "to": "surface_temperature",
+      "mechanism": "Insulating effect of clouds on surface temperature"
+    },
+    {
+      "from": "atmospheric_circulation",
+      "to": "cloud_cover",
+      "mechanism": "Atmospheric circulation influences cloud formation"
+    },
+    {
+      "from": "atmospheric_circulation",
+      "to": "solar_irradiance",
+      "mechanism": "Atmospheric circulation affects solar radiation distribution"
+    },
+    {
+      "from": "seasonal_pattern",
+      "to": "outcome",
+      "mechanism": "Typical temperature patterns influence the outcome"
+    },
+    {
+      "from": "surface_temperature",
+      "to": "outcome",
+      "mechanism": "Surface temperature is a key determinant of daily average temperature"
+    },
+    {
+      "from": "temperature_anomalies",
+      "to": "outcome",
+      "mechanism": "Recent temperature deviations influence the outcome"
+    },
+    {
+      "from": "surface_temperature",
+      "to": "temperature_anomalies",
+      "mechanism": "Recent temperature deviations are influenced by surface temperature"
+    }
+  ],
+  "reasoning": "Based on the analysis of historical climate data and meteorological factors, we expect the daily average temperature at Limoges-Bellegarde Airport to be higher on 2025-12-28 than on 2025-12-21 due to the typical late-December temperature pattern in Limoges, France, and recent temperature anomalies. However, we also consider the influence of solar irradiance, cloud cover, atmospheric circulation, and surface temperature, which may affect the outcome.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 8,
+    "density": 0.1905,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "solar_irradiance",
+        "description": "Total solar radiation at Limoges-Bellegarde Airport",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.1667,
+        "pagerank": 0.0884,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "cloud_cover",
+        "description": "Cloud cover percentage over Limoges-Bellegarde Airport",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.1667,
+        "pagerank": 0.0884,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "atmospheric_circulation",
+        "description": "Large-scale atmospheric circulation patterns (e.g., high/low pressure systems)",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.062,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "seasonal_pattern",
+        "description": "Typical temperature patterns for late December in Limoges, France",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.062,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "temperature_anomalies",
+        "description": "Recent temperature deviations from the seasonal average",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.3333,
+        "pagerank": 0.1523,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "Daily average temperature at Limoges-Bellegarde Airport on 2025-12-28 compared to 2025-12-21",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.6,
+        "pagerank": 0.3345,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "surface_temperature",
+        "description": "Current temperature of the land surface at Limoges-Bellegarde Airport",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.2,
+        "closeness": 0.375,
+        "pagerank": 0.2123,
+        "path_relevance": 0.5714
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "solar_irradiance",
+        "target": "surface_temperature",
+        "mechanism": "Heat transfer from solar radiation",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "cloud_cover",
+        "target": "surface_temperature",
+        "mechanism": "Insulating effect of clouds on surface temperature",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "atmospheric_circulation",
+        "target": "cloud_cover",
+        "mechanism": "Atmospheric circulation influences cloud formation",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "atmospheric_circulation",
+        "target": "solar_irradiance",
+        "mechanism": "Atmospheric circulation affects solar radiation distribution",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_pattern",
+        "target": "outcome",
+        "mechanism": "Typical temperature patterns influence the outcome",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "temperature_anomalies",
+        "target": "outcome",
+        "mechanism": "Recent temperature deviations influence the outcome",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "surface_temperature",
+        "target": "outcome",
+        "mechanism": "Surface temperature is a key determinant of daily average temperature",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "surface_temperature",
+        "target": "temperature_anomalies",
+        "mechanism": "Recent temperature deviations are influenced by surface temperature",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": false
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "surface_temperature",
+        "description": "Current temperature of the land surface at Limoges-Bellegarde Airport",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "solar_irradiance",
+        "description": "Total solar radiation at Limoges-Bellegarde Airport",
+        "importance": 0.05,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atmospheric_circulation",
+        "description": "Large-scale atmospheric circulation patterns (e.g., high/low pressure systems)",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "temperature_anomalies",
+        "description": "Recent temperature deviations from the seasonal average",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "surface_temperature",
+        "description": "Current temperature of the land surface at Limoges-Bellegarde Airport",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "solar_irradiance",
+        "description": "Total solar radiation at Limoges-Bellegarde Airport",
+        "importance": 0.05,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "solar_irradiance->surface_temperature",
+        "description": "Heat transfer from solar radiation",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "cloud_cover->surface_temperature",
+        "description": "Insulating effect of clouds on surface temperature",
+        "importance": 0.1071,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "surface_temperature->temperature_anomalies",
+        "description": "Recent temperature deviations are influenced by surface temperature",
+        "importance": 0.0952,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "solar_irradiance->surface_temperature",
+        "description": "Heat transfer from solar radiation",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "surface_temperature->seasonal_pattern",
+        "description": "Potential link: Current temperature of the land surface at Limoges-Bellegarde Airport -> Typical temperature patterns for late December in Limoges, France",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "seasonal_pattern->temperature_anomalies",
+        "description": "Potential link: Typical temperature patterns for late December in Limoges, France -> Recent temperature deviations from the seasonal average",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "surface_temperature",
+      "description": "Current temperature of the land surface at Limoges-Bellegarde Airport",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "solar_irradiance",
+      "description": "Total solar radiation at Limoges-Bellegarde Airport",
+      "importance": 0.05,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atmospheric_circulation",
+      "description": "Large-scale atmospheric circulation patterns (e.g., high/low pressure systems)",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "temperature_anomalies",
+      "description": "Recent temperature deviations from the seasonal average",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "surface_temperature",
+      "description": "Current temperature of the land surface at Limoges-Bellegarde Airport",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "solar_irradiance",
+      "description": "Total solar radiation at Limoges-Bellegarde Airport",
+      "importance": 0.05,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "solar_irradiance->surface_temperature",
+      "description": "Heat transfer from solar radiation",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "cloud_cover->surface_temperature",
+      "description": "Insulating effect of clouds on surface temperature",
+      "importance": 0.1071,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "surface_temperature->temperature_anomalies",
+      "description": "Recent temperature deviations are influenced by surface temperature",
+      "importance": 0.0952,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "solar_irradiance->surface_temperature",
+      "description": "Heat transfer from solar radiation",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "surface_temperature->seasonal_pattern",
+      "description": "Potential link: Current temperature of the land surface at Limoges-Bellegarde Airport -> Typical temperature patterns for late December in Limoges, France",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "seasonal_pattern->temperature_anomalies",
+      "description": "Potential link: Typical temperature patterns for late December in Limoges, France -> Recent temperature deviations from the seasonal average",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Suppose there's a significant underground water reservoir beneath Limoges-Bellegarde Airport that's currently being recharged from an unexpected source, effectively acting as a massive heat sink and greatly moderating the surface temperature. This might make surface temperature a less reliable indicator of the daily average temperature.",
+      "probe_type": "node_negate_high",
+      "target_id": "surface_temperature",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Current temperature of the land surface at Limoges-Bellegarde Airport"
+    },
+    {
+      "probe_text": "Suppose there was a significant increase in pollution levels near Limoges-Bellegarde Airport in the lead-up to 2025-12-28, which might have created a persistent haze blocking a substantial amount of solar radiation. In this scenario, would the forecaster still expect the temperature on 2025-12-28 to be higher than on 2025-12-21, or would they revise their estimate downward in light of this new information affecting solar irradiance levels at the site? This probe challenges the causal link between solar irradiance and surface temperature, questioning its importance in the forecaster's causal model.",
+      "probe_type": "node_negate_high",
+      "target_id": "solar_irradiance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Total solar radiation at Limoges-Bellegarde Airport"
+    },
+    {
+      "probe_text": "We received a report from a local weather radar system indicating that a strong high-pressure system is expected to be replaced by a low-pressure system in the days leading up to December 28, but the forecaster had previously assumed that a high-pressure system would dominate the region.",
+      "probe_type": "node_negate_medium",
+      "target_id": "atmospheric_circulation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Large-scale atmospheric circulation patterns (e.g., high/low pressure systems)"
+    },
+    {
+      "probe_text": "Assume that the recent temperature deviations from the seasonal average at Limoges-Bellegarde Airport have been precisely corrected for and are now zero. Would this information change your estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_type": "node_negate_low",
+      "target_id": "temperature_anomalies",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Recent temperature deviations from the seasonal average"
+    },
+    {
+      "probe_text": "The French meteorological agency announces the installation of a new, highly accurate thermometer at Limoges-Bellegarde Airport, which provides a direct and reliable measurement of the surface temperature, reducing uncertainty and increasing confidence in the role of surface temperature in determining the daily average temperature.",
+      "probe_type": "node_strengthen",
+      "target_id": "surface_temperature",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Current temperature of the land surface at Limoges-Bellegarde Airport"
+    },
+    {
+      "probe_text": "A new study published in the Journal of Atmospheric Science reveals that a 10% increase in solar irradiance in December is associated with a 2.5°C rise in surface temperature at Limoges-Bellegarde Airport, as measured over a 10-year period.",
+      "probe_type": "node_strengthen",
+      "target_id": "solar_irradiance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Total solar radiation at Limoges-Bellegarde Airport"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21, given that the airport's surface temperature on 2025-12-21 was significantly higher than the seasonal average due to an unexpected heat retention effect from a nearby industrial site, which is not accounted for in the current model?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "solar_irradiance->surface_temperature",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Heat transfer from solar radiation"
+    },
+    {
+      "probe_text": "A recent study has found that the surface temperature at Limoges-Bellegarde Airport has a more significant correlation with nearby urban heat island effects than with cloud cover, suggesting that the insulating effect of clouds on surface temperature may be overstated.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "cloud_cover->surface_temperature",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Insulating effect of clouds on surface temperature"
+    },
+    {
+      "probe_text": "Reports have emerged about a sudden and unexpected change in the airport's land surface temperature measurement system, suggesting that it may be malfunctioning and providing inaccurate readings. This raises concerns about the reliability of the surface temperature data used in the forecast. How would this impact the forecaster's estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "surface_temperature->temperature_anomalies",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Recent temperature deviations are influenced by surface temperature"
+    },
+    {
+      "probe_text": "Given that the surface temperature at Limoges-Bellegarde Airport has been consistently warmer than usual over the past week, and considering that the airport's asphalt and concrete surfaces have been absorbing and storing heat from the sun, how would you revise your estimate for the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21, if you learned that the solar irradiance on the 28th is expected to be 10% lower than on the 21st?",
+      "probe_type": "edge_reverse",
+      "target_id": "solar_irradiance->surface_temperature",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Heat transfer from solar radiation"
+    },
+    {
+      "probe_text": "You've been informed that a recent heatwave in Western Europe has led to an unusually warm surface temperature at the beginning of December, which has been reported by multiple weather stations in the region. This unusual warmth has caused you to wonder whether it will impact the typical temperature patterns for late December in Limoges, France. Would you consider adjusting your estimate of the probability that the temperature will be higher on 2025-12-28 than on 2025-12-21 if you were to learn that the surface temperature at Limoges-Bellegarde Airport has been significantly warmer than usual for the past few weeks? What is the updated probability in this scenario, and what factors led you to this conclusion, specifically considering the relationship between surface temperature and seasonal patterns? ",
+      "probe_type": "edge_spurious",
+      "target_id": "surface_temperature->seasonal_pattern",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Current temperature of the land surface at Limoges-Bellegarde Airport -> Typical temperature patterns for late December in Limoges, France"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport on 2025-12-28 will be higher than expected for late December in Limoges, France, if the temperature deviations from the seasonal average between 2025-12-15 and 2025-12-21 were 1°C above the expected value?",
+      "probe_type": "edge_spurious",
+      "target_id": "seasonal_pattern->temperature_anomalies",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Typical temperature patterns for late December in Limoges, France -> Recent temperature deviations from the seasonal average"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21, given that a strong high-pressure system will be present over Western Europe during the week leading up to 2025-12-28?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21, given that the airport's surrounding land use has changed significantly since 2020, with more urban development and reduced agricultural areas?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The city of Limoges has announced plans to increase its number of Christmas markets and festive events in the lead-up to 2025-12-21, in an effort to boost local tourism and economic activity.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A severe storm system is forecasted to affect the region surrounding Limoges-Bellegarde Airport on 2025-12-23, causing significant disruptions to air traffic and local activities.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose there's a significant underground water reservoir beneath Limoges-Bellegarde Airport that's currently being recharged from an unexpected source, effectively acting as a massive heat sink and greatly moderating the surface temperature. This might make surface temperature a less reliable indicator of the daily average temperature.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'surface_temperature' affects the causal paths leading to the outcome, specifically the relationship between 'surface_temperature' and 'outcome'. Since the surface temperature is now less reliable due to the underground water reservoir, its influence on the outcome is diminished. As a result, I update my probability estimate from 0.72 to 0.65, reflecting the reduced confidence in the surface temperature's ability to predict the daily average temperature. The causal path 'seasonal_pattern' -> 'outcome' remains unaffected, but its influence is now more prominent in determining the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'surface_temperature' affects the causal paths leading to the outcome, specifically the relationship between 'surface_temperature' and 'outcome'. Since the surface temperature is now less reliable due to the underground water reservoir, its influence on the outcome is diminished. As a result, I update my probability estimate from 0.72 to 0.65, reflecting the reduced confidence in the surface temperature's ability to predict the daily average temperature. The causal path 'seasonal_pattern' -> 'outcome' remains unaffected, but its influence is now more prominent in determining the outcome.\"\n}",
+      "target_id": "surface_temperature",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose there was a significant increase in pollution levels near Limoges-Bellegarde Airport in the lead-up to 2025-12-28, which might have created a persistent haze blocking a substantial amount of solar radiation. In this scenario, would the forecaster still expect the temperature on 2025-12-28 to be higher than on 2025-12-21, or would they revise their estimate downward in light of this new information affecting solar irradiance levels at the site? This probe challenges the causal link between solar irradiance and surface temperature, questioning its importance in the forecaster's causal model.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link between solar_irradiance and surface_temperature is significant. Given the expected increase in pollution levels near Limoges-Bellegarde Airport, it's likely that a substantial amount of solar radiation will be blocked, reducing the surface temperature. This affects the causal paths leading to the outcome, as the decreased solar irradiance will reduce the surface temperature, which in turn will influence the outcome. As a result, I revise my estimate downward, as the causal link between solar irradiance and surface temperature is structurally important to my reasoning.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link between solar_irradiance and surface_temperature is significant. Given the expected increase in pollution levels near Limoges-Bellegarde Airport, it's likely that a substantial amount of solar radiation will be blocked, reducing the surface temperature. This affects the causal paths leading to the outcome, as the decreased solar irradiance will reduce the surface temperature, which in turn will influence the outcome. As a result, I revise my estimate downward, as the causal link between solar irradiance and surface temperature is structurally important to my reasoning.\"\n}",
+      "target_id": "solar_irradiance",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "We received a report from a local weather radar system indicating that a strong high-pressure system is expected to be replaced by a low-pressure system in the days leading up to December 28, but the forecaster had previously assumed that a high-pressure system would dominate the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.83,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal factor 'atmospheric_circulation' affects the causal paths leading to the outcome by altering the expected influence of atmospheric circulation on cloud cover and solar irradiance. This change, in turn, influences the surface temperature on December 21 and 28. Since low-pressure systems often bring more clouds and potentially cooler temperatures, this shift reduces the likelihood of higher temperatures on December 28 compared to December 21. Consequently, my updated estimate is 0.83, a decrease from the initial estimate of 0.72.",
+      "raw_response": "{\n  \"updated_probability\": 0.83,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal factor 'atmospheric_circulation' affects the causal paths leading to the outcome by altering the expected influence of atmospheric circulation on cloud cover and solar irradiance. This change, in turn, influences the surface temperature on December 21 and 28. Since low-pressure systems often bring more clouds and potentially cooler temperatures, this shift reduces the likelihood of higher temperatures on December 28 compared to December 21. Consequently, my updated estimate is 0.83, a decrease from the initial estimate of 0.72.\"\n}",
+      "target_id": "atmospheric_circulation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Assume that the recent temperature deviations from the seasonal average at Limoges-Bellegarde Airport have been precisely corrected for and are now zero. Would this information change your estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.13,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'temperature_anomalies' weakens the causal path from 'temperature_anomalies' to 'outcome'. However, this path is not critical to my initial estimate of 0.72. The 'seasonal_pattern' node still strongly influences the 'outcome' through a robust causal path. Additionally, the 'surface_temperature' node maintains a direct causal link to the 'outcome'. Given these remaining robust causal connections, I update my estimate to 0.85, acknowledging a slight decrease in confidence due to the weakened link.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'temperature_anomalies' weakens the causal path from 'temperature_anomalies' to 'outcome'. However, this path is not critical to my initial estimate of 0.72. The 'seasonal_pattern' node still strongly influences the 'outcome' through a robust causal path. Additionally, the 'surface_temperature' node maintains a direct causal link to the 'outcome'. Given these remaining robust causal connections, I update my estimate to 0.85, acknowledging a slight decrease in confidence due to the weakened link.\"\n}",
+      "target_id": "temperature_anomalies",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The French meteorological agency announces the installation of a new, highly accurate thermometer at Limoges-Bellegarde Airport, which provides a direct and reliable measurement of the surface temperature, reducing uncertainty and increasing confidence in the role of surface temperature in determining the daily average temperature.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.76,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "unchanged",
+      "reasoning": "The installation of a new, highly accurate thermometer at Limoges-Bellegarde Airport strengthens the causal link between surface_temperature and the outcome. This increases our confidence in the role of surface temperature in determining the daily average temperature, but since the effect of surface_temperature on the outcome is already well-established, the update is relatively small. The causal paths leading to the outcome that are affected are: surface_temperature -> outcome and surface_temperature -> temperature_anomalies. This increased confidence in surface_temperature leads to a slight increase in the estimated probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.76,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The installation of a new, highly accurate thermometer at Limoges-Bellegarde Airport strengthens the causal link between surface_temperature and the outcome. This increases our confidence in the role of surface temperature in determining the daily average temperature, but since the effect of surface_temperature on the outcome is already well-established, the update is relatively small. The causal paths leading to the outcome that are affected are: surface_temperature -> outcome and surface_temperature -> temperature_anomalies. This increased confidence in surface_temperature leads to a slight increase in the estimated probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "surface_temperature",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study published in the Journal of Atmospheric Science reveals that a 10% increase in solar irradiance in December is associated with a 2.5°C rise in surface temperature at Limoges-Bellegarde Airport, as measured over a 10-year period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The new study's finding strengthens the causal link between solar_irradiance and surface_temperature, increasing the likelihood of higher surface temperatures. This, in turn, enhances the causal influence of surface_temperature on the outcome, making it more probable that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21. The updated causal network now indicates a stronger connection between solar irradiance and the outcome, leading to an increased probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study's finding strengthens the causal link between solar_irradiance and surface_temperature, increasing the likelihood of higher surface temperatures. This, in turn, enhances the causal influence of surface_temperature on the outcome, making it more probable that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21. The updated causal network now indicates a stronger connection between solar irradiance and the outcome, leading to an increased probability estimate.\"\n}",
+      "target_id": "solar_irradiance",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21, given that the airport's surface temperature on 2025-12-21 was significantly higher than the seasonal average due to an unexpected heat retention effect from a nearby industrial site, which is not accounted for in the current model?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.83,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The challenged causal link 'solar_irradiance -> surface_temperature' affects the causal path from solar irradiance to surface temperature. However, the new information about the unexpected heat retention effect from the nearby industrial site is not directly related to solar irradiance. Instead, it explains why the surface temperature on 2025-12-21 was higher than expected. This new information strengthens the causal path from surface temperature to the outcome, as it suggests that surface temperature is a more significant determinant of the daily average temperature than initially thought. Consequently, I increase my estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.83,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenged causal link 'solar_irradiance -> surface_temperature' affects the causal path from solar irradiance to surface temperature. However, the new information about the unexpected heat retention effect from the nearby industrial site is not directly related to solar irradiance. Instead, it explains why the surface temperature on 2025-12-21 was higher than expected. This new information strengthens the causal path from surface temperature to the outcome, as it suggests that surface temperature is a more significant determinant of the daily average temperature than initially thought. Consequently, I increase my estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "solar_irradiance->surface_temperature",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study has found that the surface temperature at Limoges-Bellegarde Airport has a more significant correlation with nearby urban heat island effects than with cloud cover, suggesting that the insulating effect of clouds on surface temperature may be overstated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.64,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'cloud_cover->surface_temperature' affects the causal path from 'atmospheric_circulation' to 'outcome' through 'cloud_cover' and then 'surface_temperature'. This path is now less influential as the insulating effect of clouds on surface temperature is overstated. However, the path from 'atmospheric_circulation' to 'outcome' through 'solar_irradiance' and 'surface_temperature' remains intact. Additionally, the path from 'seasonal_pattern' to 'outcome' is unaffected. Considering these changes, I have decreased my probability estimate from 0.72 to 0.64, as the challenged causal link is structurally important to my reasoning.",
+      "raw_response": "{\n  \"updated_probability\": 0.64,\n   \"shift_direction\": \"decreased\",\n   \"reasoning\": \"The challenge to the causal link 'cloud_cover->surface_temperature' affects the causal path from 'atmospheric_circulation' to 'outcome' through 'cloud_cover' and then 'surface_temperature'. This path is now less influential as the insulating effect of clouds on surface temperature is overstated. However, the path from 'atmospheric_circulation' to 'outcome' through 'solar_irradiance' and 'surface_temperature' remains intact. Additionally, the path from 'seasonal_pattern' to 'outcome' is unaffected. Considering these changes, I have decreased my probability estimate from 0.72 to 0.64, as the challenged causal link is structurally important to my reasoning.\"\n}",
+      "target_id": "cloud_cover->surface_temperature",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Reports have emerged about a sudden and unexpected change in the airport's land surface temperature measurement system, suggesting that it may be malfunctioning and providing inaccurate readings. This raises concerns about the reliability of the surface temperature data used in the forecast. How would this impact the forecaster's estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'urface_temperature->temperature_anomalies' affects the causal path from surface_temperature to outcome via temperature_anomalies. This path is no longer reliable due to the potential malfunction in the surface temperature measurement system. As a result, I must reduce the weight of temperature_anomalies in my estimate, which in turn decreases the overall probability of the outcome. Although seasonal_pattern and atmospheric_circulation still influence the outcome, the loss of the surface_temperature->temperature_anomalies link reduces the confidence in my initial estimate. Given the uncertainty surrounding the malfunction, I have decreased the probability by 14% from the initial 0.72.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'urface_temperature->temperature_anomalies' affects the causal path from surface_temperature to outcome via temperature_anomalies. This path is no longer reliable due to the potential malfunction in the surface temperature measurement system. As a result, I must reduce the weight of temperature_anomalies in my estimate, which in turn decreases the overall probability of the outcome. Although seasonal_pattern and atmospheric_circulation still influence the outcome, the loss of the surface_temperature->temperature_anomalies link reduces the confidence in my initial estimate. Given the uncertainty surrounding the malfunction, I have decreased the probability by 14% from the initial 0.72.\"\n}",
+      "target_id": "surface_temperature->temperature_anomalies",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Given that the surface temperature at Limoges-Bellegarde Airport has been consistently warmer than usual over the past week, and considering that the airport's asphalt and concrete surfaces have been absorbing and storing heat from the sun, how would you revise your estimate for the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21, if you learned that the solar irradiance on the 28th is expected to be 10% lower than on the 21st?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'solar_irradiance->surface_temperature' suggests that surface temperature is being influenced by other factors, such as heat storage in the airport's infrastructure. This reduces the importance of solar irradiance as a causal factor. Given the expected 10% decrease in solar irradiance on the 28th, this reduces the expected surface temperature on the 28th. However, the consistently warmer-than-usual surface temperature over the past week still suggests that there are other contributing factors to the outcome. The decreased solar irradiance on the 28th, combined with the warmer-than-usual surface temperature, leads to a moderate decrease in the expected outcome probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'solar_irradiance->surface_temperature' suggests that surface temperature is being influenced by other factors, such as heat storage in the airport's infrastructure. This reduces the importance of solar irradiance as a causal factor. Given the expected 10% decrease in solar irradiance on the 28th, this reduces the expected surface temperature on the 28th. However, the consistently warmer-than-usual surface temperature over the past week still suggests that there are other contributing factors to the outcome. The decreased solar irradiance on the 28th, combined with the warmer-than-usual surface temperature, leads to a moderate decrease in the expected outcome probability.\"\n}",
+      "target_id": "solar_irradiance->surface_temperature",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "You've been informed that a recent heatwave in Western Europe has led to an unusually warm surface temperature at the beginning of December, which has been reported by multiple weather stations in the region. This unusual warmth has caused you to wonder whether it will impact the typical temperature patterns for late December in Limoges, France. Would you consider adjusting your estimate of the probability that the temperature will be higher on 2025-12-28 than on 2025-12-21 if you were to learn that the surface temperature at Limoges-Bellegarde Airport has been significantly warmer than usual for the past few weeks? What is the updated probability in this scenario, and what factors led you to this conclusion, specifically considering the relationship between surface temperature and seasonal patterns? ",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'surface_temperature->seasonal_pattern' suggests that the unusually warm surface temperature at the beginning of December might impact the typical temperature patterns for late December in Limoges, France. This could alter the expected temperature on 2025-12-28 compared to 2025-12-21. Upon re-evaluation, I consider the increased likelihood of a warmer-than-expected surface temperature in late December due to the potential lingering effects of the heatwave. This change affects the causal path from seasonal_pattern to outcome, making it less likely for the temperature to be higher on 2025-12-28 than on 2025-12-21. As a result, I update my probability estimate to 0.65, reflecting the decreased likelihood of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'surface_temperature->seasonal_pattern' suggests that the unusually warm surface temperature at the beginning of December might impact the typical temperature patterns for late December in Limoges, France. This could alter the expected temperature on 2025-12-28 compared to 2025-12-21. Upon re-evaluation, I consider the increased likelihood of a warmer-than-expected surface temperature in late December due to the potential lingering effects of the heatwave. This change affects the causal path from seasonal_pattern to outcome, making it less likely for the temperature to be higher on 2025-12-28 than on 2025-12-21. As a result, I update my probability estimate to 0.65, reflecting the decreased likelihood of the outcome.\"\n}",
+      "target_id": "surface_temperature->seasonal_pattern",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport on 2025-12-28 will be higher than expected for late December in Limoges, France, if the temperature deviations from the seasonal average between 2025-12-15 and 2025-12-21 were 1°C above the expected value?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.755,
+      "absolute_shift": 0.03500000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'seasonal_pattern->temperature_anomalies' causal link affects the causal path 'seasonal_pattern -> outcome' directly. A 1°C anomaly above the expected value between 2025-12-15 and 2025-12-21 suggests that the temperature pattern for late December in Limoges, France might not hold as strongly as initially thought. This reduces the influence of 'seasonal_pattern' on the 'outcome', making it less likely for the daily average temperature on 2025-12-28 to be higher than on 2025-12-21. The influence of 'temperature_anomalies' on 'outcome' remains, but its net effect is reduced due to the challenged link. As a result, I decrease my initial probability estimate of 0.72 to 0.755.",
+      "raw_response": "{\n  \"updated_probability\": 0.755,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'seasonal_pattern->temperature_anomalies' causal link affects the causal path 'seasonal_pattern -> outcome' directly. A 1°C anomaly above the expected value between 2025-12-15 and 2025-12-21 suggests that the temperature pattern for late December in Limoges, France might not hold as strongly as initially thought. This reduces the influence of 'seasonal_pattern' on the 'outcome', making it less likely for the daily average temperature on 2025-12-28 to be higher than on 2025-12-21. The influence of 'temperature_anomalies' on 'outcome' remains, but its net effect is reduced due to the challenged link. As a result, I decrease my initial probability estimate of 0.72 to 0.755.\"\n}",
+      "target_id": "seasonal_pattern->temperature_anomalies",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21, given that a strong high-pressure system will be present over Western Europe during the week leading up to 2025-12-28?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The strong high-pressure system over Western Europe during the week leading up to 2025-12-28 will influence the atmospheric circulation patterns (atmospheric_circulation node), which in turn will affect the cloud cover percentage (cloud_cover node) and the total solar radiation (solar_irradiance node). This will lead to a warmer surface temperature (surface_temperature node) due to reduced cloud cover and increased solar radiation. As a result, the probability of the daily average temperature at Limoges-Bellegarde Airport being higher on 2025-12-28 than on 2025-12-21 increases. The strong high-pressure system also implies a more stable atmospheric circulation, which will reduce the likelihood of temperature anomalies (temperature_anomalies node) that could have otherwise cooled the surface temperature. The seasonal pattern (seasonal_pattern node) still influences the outcome, but the increased surface temperature due to the high-pressure system dominates this effect.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strong high-pressure system over Western Europe during the week leading up to 2025-12-28 will influence the atmospheric circulation patterns (atmospheric_circulation node), which in turn will affect the cloud cover percentage (cloud_cover node) and the total solar radiation (solar_irradiance node). This will lead to a warmer surface temperature (surface_temperature node) due to reduced cloud cover and increased solar radiation. As a result, the probability of the daily average temperature at Limoges-Bellegarde Airport being higher on 2025-12-28 than on 2025-12-21 increases. The strong high-pressure system also implies a more stable atmospheric circulation, which will reduce the likelihood of temperature anomalies (temperature_anomalies node) that could have otherwise cooled the surface temperature. The seasonal pattern (seasonal_pattern node) still influences the outcome, but the increased surface temperature due to the high-pressure system dominates this effect.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21, given that the airport's surrounding land use has changed significantly since 2020, with more urban development and reduced agricultural areas?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The change in land use from agricultural areas to urban development may affect the surface temperature through the heat island effect, leading to increased surface temperatures. However, this effect is not explicitly modeled in our causal network. Given the lack of direct causal links between land use and surface temperature, and the potential for increased heat island effects to counteract typical seasonal patterns, I update my estimate downward to reflect increased uncertainty. The challenged element (land use change) is structurally peripheral to the causal paths leading to the outcome, but the potential for a significant impact on surface temperature warrants a moderate update.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The change in land use from agricultural areas to urban development may affect the surface temperature through the heat island effect, leading to increased surface temperatures. However, this effect is not explicitly modeled in our causal network. Given the lack of direct causal links between land use and surface temperature, and the potential for increased heat island effects to counteract typical seasonal patterns, I update my estimate downward to reflect increased uncertainty. The challenged element (land use change) is structurally peripheral to the causal paths leading to the outcome, but the potential for a significant impact on surface temperature warrants a moderate update.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The city of Limoges has announced plans to increase its number of Christmas markets and festive events in the lead-up to 2025-12-21, in an effort to boost local tourism and economic activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.039999999999999925,
+      "shift_direction": "decreased",
+      "reasoning": "The announcement of increased Christmas markets and festive events in Limoges is likely to attract more tourists and visitors to the area, potentially increasing the energy consumption and emissions from heating and other sources. This could lead to a slight warming of the local surface temperature due to the urban heat island effect. However, the impact of this warming on the daily average temperature on 2025-12-28 compared to 2025-12-21 is expected to be small, as the seasonal pattern and atmospheric circulation patterns will still dominate the temperature trends. Therefore, I am decreasing the probability of higher temperatures on 2025-12-28 by 4% to 0.68.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announcement of increased Christmas markets and festive events in Limoges is likely to attract more tourists and visitors to the area, potentially increasing the energy consumption and emissions from heating and other sources. This could lead to a slight warming of the local surface temperature due to the urban heat island effect. However, the impact of this warming on the daily average temperature on 2025-12-28 compared to 2025-12-21 is expected to be small, as the seasonal pattern and atmospheric circulation patterns will still dominate the temperature trends. Therefore, I am decreasing the probability of higher temperatures on 2025-12-28 by 4% to 0.68.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A severe storm system is forecasted to affect the region surrounding Limoges-Bellegarde Airport on 2025-12-23, causing significant disruptions to air traffic and local activities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The severe storm system forecasted to affect the region on 2025-12-23 will likely disrupt atmospheric circulation patterns (atmospheric_circulation node), leading to changes in cloud cover (cloud_cover node) and potentially altering the distribution of solar radiation (solar_irradiance node). These changes will in turn affect the surface temperature (surface_temperature node) and, subsequently, the outcome (outcome node). Given the expected disruptions to atmospheric circulation, I expect a higher likelihood of a warmer temperature on 2025-12-28 compared to 2025-12-21. The increased uncertainty due to the storm system will lead to a moderate increase in the probability estimate from 0.72 to 0.85.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The severe storm system forecasted to affect the region on 2025-12-23 will likely disrupt atmospheric circulation patterns (atmospheric_circulation node), leading to changes in cloud cover (cloud_cover node) and potentially altering the distribution of solar radiation (solar_irradiance node). These changes will in turn affect the surface temperature (surface_temperature node) and, subsequently, the outcome (outcome node). Given the expected disruptions to atmospheric circulation, I expect a higher likelihood of a warmer temperature on 2025-12-28 compared to 2025-12-21. The increased uncertainty due to the storm system will lead to a moderate increase in the probability estimate from 0.72 to 0.85.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "The forecaster is informed that a strong high-pressure system is forecasted to dominate the region over the next two weeks, leading to a prolonged period of clear skies and calm winds, which will allow for more direct solar radiation to reach the surface.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to atmospheric_circulation affects the causal paths leading to the outcome. The prolonged period of clear skies and calm winds, resulting from the strong high-pressure system, will increase the amount of direct solar radiation reaching the surface (solar_irradiance -> surface_temperature). This, in turn, will lead to a higher surface temperature (surface_temperature -> outcome). Additionally, the clear skies will reduce the insulating effect of clouds on surface temperature (cloud_cover -> surface_temperature), further increasing the likelihood of a higher temperature on 2025-12-28 compared to 2025-12-21. Considering these changes, I update my estimate to 0.85, as the increased solar radiation and reduced cloud cover will likely lead to a warmer temperature on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to atmospheric_circulation affects the causal paths leading to the outcome. The prolonged period of clear skies and calm winds, resulting from the strong high-pressure system, will increase the amount of direct solar radiation reaching the surface (solar_irradiance -> surface_temperature). This, in turn, will lead to a higher surface temperature (surface_temperature -> outcome). Additionally, the clear skies will reduce the insulating effect of clouds on surface temperature (cloud_cover -> surface_temperature), further increasing the likelihood of a higher temperature on 2025-12-28 compared to 2025-12-21. Considering these changes, I update my estimate to 0.85, as the increased solar radiation and reduced cloud cover will likely lead to a warmer temperature on the later date.\"\n}",
+      "target_id": "atmospheric_circulation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery reveals a persistent high-pressure system over western Europe, leading to a prolonged period of cold air advection from the north. This has resulted in a notable temperature drop in the region, with Limoges-Bellegarde Airport experiencing a 2°C deviation from its seasonal average over the past week. The forecaster notes that this unusual cold spell is likely to influence the temperature on 2025-12-28, making it more likely to be lower than on 2025-12-21.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.48,
+      "shift_direction": "decreased",
+      "reasoning": "The recent satellite imagery reveals a persistent high-pressure system over western Europe, leading to a prolonged period of cold air advection from the north. This has resulted in a notable temperature drop in the region, with Limoges-Bellegarde Airport experiencing a 2°C deviation from its seasonal average over the past week. This new information affects the causal path from 'temperature_anomalies' to 'outcome' as it now suggests that temperature anomalies will be more likely to influence the outcome in a negative direction. As 'temperature_anomalies' now has a stronger causal effect on 'outcome', I update my estimate to a lower probability. The causal paths from 'solar_irradiance', 'cloud_cover', and 'atmospheric_circulation' to 'outcome' are not directly affected by this new information, and the influence of 'seasonal_pattern' is still expected to contribute to a higher temperature on 2025-12-28. However, the increased influence of 'temperature_anomalies' on 'outcome' dominates the reasoning and leads to a substantial decrease in the estimated probability of a higher temperature on 2025-12-28 compared to 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.24,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The recent satellite imagery reveals a persistent high-pressure system over western Europe, leading to a prolonged period of cold air advection from the north. This has resulted in a notable temperature drop in the region, with Limoges-Bellegarde Airport experiencing a 2°C deviation from its seasonal average over the past week. This new information affects the causal path from 'temperature_anomalies' to 'outcome' as it now suggests that temperature anomalies will be more likely to influence the outcome in a negative direction. As 'temperature_anomalies' now has a stronger causal effect on 'outcome', I update my estimate to a lower probability. The causal paths from 'solar_irradiance', 'cloud_cover', and 'atmospheric_circulation' to 'outcome' are not directly affected by this new information, and the influence of 'seasonal_pattern' is still expected to contribute to a higher temperature on 2025-12-28. However, the increased influence of 'temperature_anomalies' on 'outcome' dominates the reasoning and leads to a substantial decrease in the estimated probability of a higher temperature on 2025-12-28 compared to 2025-12-21.\"\n}",
+      "target_id": "temperature_anomalies",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A team of scientists from the French National Centre for Meteorological Research conducted an experiment in 2023, where they deployed a network of ground-based and airborne instruments to measure the solar irradiance and surface temperature at Limoges-Bellegarde Airport during the winter months. Their findings, published in a peer-reviewed journal, showed a statistically significant correlation between the amount of solar irradiance and the subsequent surface temperature, with a daily lag of 24 hours, further strengthening the causal link between these two variables.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.76,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "unchanged",
+      "reasoning": "The new information strengthens the causal link between 'solar_irradiance' and 'surface_temperature', which in turn affects the outcome. The daily lag of 24 hours between solar irradiance and surface temperature is accounted for in the causal network. This strengthens the causal path from 'solar_irradiance' to 'outcome' through 'surface_temperature'. As a result, the probability of the outcome is slightly increased, reflecting the improved confidence in the causal link. The other causal paths and nodes remain unchanged, so the overall shift direction is 'unchanged'.",
+      "raw_response": "{\n  \"updated_probability\": 0.76,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The new information strengthens the causal link between 'solar_irradiance' and 'surface_temperature', which in turn affects the outcome. The daily lag of 24 hours between solar irradiance and surface temperature is accounted for in the causal network. This strengthens the causal path from 'solar_irradiance' to 'outcome' through 'surface_temperature'. As a result, the probability of the outcome is slightly increased, reflecting the improved confidence in the causal link. The other causal paths and nodes remain unchanged, so the overall shift direction is 'unchanged'.\"\n}",
+      "target_id": "solar_irradiance->surface_temperature",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Imagine a sudden, unexpected increase in cloud cover over Limoges-Bellegarde Airport due to a large-scale low-pressure system moving into the region. This would lead to a significant increase in precipitation, causing the surface temperature to drop due to the cooling effect of the rain-soaked surface. Additionally, the increased cloud cover would block direct sunlight, further reducing the surface temperature. Can you update your probability of a higher temperature on 2025-12-28 compared to 2025-12-21, given this new information?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'cloud_cover->surface_temperature' affects the outcome by changing the relationship between cloud cover and surface temperature. The sudden increase in cloud cover would lead to a decrease in surface temperature due to the cooling effect of the rain-soaked surface and reduced direct sunlight. This, in turn, would decrease the probability of a higher temperature on 2025-12-28 compared to 2025-12-21. The affected causal paths leading to the outcome are: 1) cloud_cover -> surface_temperature, 2) surface_temperature -> outcome, and 3) seasonal_pattern -> outcome and temperature_anomalies -> outcome remain unaffected, but their influence is now more complex due to the altered relationship between cloud cover and surface temperature.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'cloud_cover->surface_temperature' affects the outcome by changing the relationship between cloud cover and surface temperature. The sudden increase in cloud cover would lead to a decrease in surface temperature due to the cooling effect of the rain-soaked surface and reduced direct sunlight. This, in turn, would decrease the probability of a higher temperature on 2025-12-28 compared to 2025-12-21. The affected causal paths leading to the outcome are: 1) cloud_cover -> surface_temperature, 2) surface_temperature -> outcome, and 3) seasonal_pattern -> outcome and temperature_anomalies -> outcome remain unaffected, but their influence is now more complex due to the altered relationship between cloud cover and surface temperature.\"\n}",
+      "target_id": "cloud_cover->surface_temperature",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Imagine that on 2025-12-20, a strong high-pressure system develops over Limoges, leading to clear skies and an unusually warm day, causing the surface temperature to rise by 2°C above the seasonal average. How would this information affect your estimate of the probability that the daily average temperature on 2025-12-28 will be higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'surface_temperature->temperature_anomalies' suggests that recent temperature deviations are less influenced by surface temperature on 2025-12-20 due to the unusual weather conditions. However, this does not directly affect the causal paths leading to the outcome on 2025-12-28. The seasonal pattern and the typical temperature deviation for late December in Limoges, France are still expected to dominate the outcome. Nevertheless, the increased surface temperature on 2025-12-20 may lead to a slightly warmer surface temperature on 2025-12-21, which in turn may result in a slightly warmer daily average temperature on 2025-12-28. Therefore, I increase the probability of the outcome by 0.13, from 0.72 to 0.85, reflecting a moderate increase in the likelihood of the daily average temperature being higher on 2025-12-28 than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'surface_temperature->temperature_anomalies' suggests that recent temperature deviations are less influenced by surface temperature on 2025-12-20 due to the unusual weather conditions. However, this does not directly affect the causal paths leading to the outcome on 2025-12-28. The seasonal pattern and the typical temperature deviation for late December in Limoges, France are still expected to dominate the outcome. Nevertheless, the increased surface temperature on 2025-12-20 may lead to a slightly warmer surface temperature on 2025-12-21, which in turn may result in a slightly warmer daily average temperature on 2025-12-28. Therefore, I increase the probability of the outcome by 0.13, from 0.72 to 0.85, reflecting a moderate increase in the likelihood of the daily average temperature being higher on 2025-12-28 than on 2025-12-21.\"\n}",
+      "target_id": "surface_temperature->temperature_anomalies",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07434.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Limoges – Bellegarde Airport will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.72,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.09156249999999999,
+    "max_absolute_shift": 0.14
+  },
+  "model": "llama-8b",
+  "model_label": "Llama 3.1 8B",
+  "aggregate_metrics": {
+    "ssr": 0.4642857142857143,
+    "mean_shift_high": 0.08124999999999999,
+    "mean_shift_low": 0.17499999999999996,
+    "asymmetry_index": 0.7019230769230768,
+    "mean_shift_negate": 0.10428571428571427,
+    "mean_shift_strengthen": 0.14857142857142858,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": -0.050694444444444445,
+    "mean_shift_on_path": 0.08222222222222221,
+    "mean_shift_off_path": 0.13291666666666666,
+    "importance_sensitivity_correlation": -0.5272727272727273,
+    "control_sensitivity": 0.5
+  }
+}

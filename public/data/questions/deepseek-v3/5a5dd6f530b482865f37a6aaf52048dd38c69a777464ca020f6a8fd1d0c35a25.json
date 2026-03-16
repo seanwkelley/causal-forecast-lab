@@ -1,0 +1,1035 @@
+{
+  "question_id": "5a5dd6f530b482865f37a6aaf52048dd38c69a777464ca020f6a8fd1d0c35a25",
+  "question_text": "Will there be more than ten times as many 'Violence against civilians' in Mayotte for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.18,
+  "nodes": [
+    {
+      "id": "baseline_incident_rate",
+      "description": "The historical average level of 'Violence against civilians' incidents in Mayotte over the 360 days preceding the forecast period.",
+      "role": "factor"
+    },
+    {
+      "id": "political_tensions",
+      "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence.",
+      "role": "factor"
+    },
+    {
+      "id": "economic_conditions",
+      "description": "Economic factors like unemployment, poverty, and inequality that may increase the risk of civil violence.",
+      "role": "factor"
+    },
+    {
+      "id": "security_force_presence",
+      "description": "The operational capacity and activity of police and military forces to prevent or suppress violence.",
+      "role": "factor"
+    },
+    {
+      "id": "external_influences",
+      "description": "Influence from regional conflicts, migration pressures, or transnational criminal activity affecting Mayotte.",
+      "role": "factor"
+    },
+    {
+      "id": "short_term_triggers",
+      "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence.",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The event: More than ten times as many 'Violence against civilians' incidents in Mayotte for the 30 days before 2025-12-28 compared to one plus the 30-day average over the preceding 360 days.",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "political_tensions",
+      "to": "short_term_triggers",
+      "mechanism": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence."
+    },
+    {
+      "from": "economic_conditions",
+      "to": "political_tensions",
+      "mechanism": "Poor economic conditions fuel public dissatisfaction and social grievances, increasing political instability."
+    },
+    {
+      "from": "external_influences",
+      "to": "political_tensions",
+      "mechanism": "Regional instability or migration crises can exacerbate local tensions and conflict dynamics."
+    },
+    {
+      "from": "security_force_presence",
+      "to": "short_term_triggers",
+      "mechanism": "A heavy-handed or insufficient security response to an event can amplify violence rather than contain it."
+    },
+    {
+      "from": "baseline_incident_rate",
+      "to": "outcome",
+      "mechanism": "A low historical baseline makes the required tenfold increase in absolute terms easier to achieve, while a high baseline makes it harder."
+    },
+    {
+      "from": "short_term_triggers",
+      "to": "outcome",
+      "mechanism": "A major triggering event can cause a sharp, temporary spike in incident counts, potentially meeting the high threshold."
+    },
+    {
+      "from": "political_tensions",
+      "to": "baseline_incident_rate",
+      "mechanism": "Chronic political instability sustains a higher underlying rate of violence over the long term."
+    }
+  ],
+  "reasoning": "The forecast requires an extreme, order-of-magnitude spike in violence over a specific 30-day window. Mayotte has experienced tensions, but such a dramatic surge is rare. The baseline rate is likely moderate, making the absolute number needed substantial. While political and economic factors create risk, and a short-term trigger is plausible, a tenfold increase is a very high bar. Security forces would likely intervene to contain outbreaks. Therefore, the event is possible but improbable. The probability reflects a low-likelihood, high-impact tail risk.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "baseline_incident_rate",
+        "description": "The historical average level of 'Violence against civilians' incidents in Mayotte over the 360 days preceding the forecast period.",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.3,
+        "pagerank": 0.1324,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "political_tensions",
+        "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence.",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.2,
+        "closeness": 0.3333,
+        "pagerank": 0.1665,
+        "path_relevance": 0.4444
+      },
+      {
+        "node_id": "economic_conditions",
+        "description": "Economic factors like unemployment, poverty, and inequality that may increase the risk of civil violence.",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "security_force_presence",
+        "description": "The operational capacity and activity of police and military forces to prevent or suppress violence.",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_influences",
+        "description": "Influence from regional conflicts, migration pressures, or transnational criminal activity affecting Mayotte.",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0617,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "short_term_triggers",
+        "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence.",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0833,
+        "closeness": 0.4444,
+        "pagerank": 0.1848,
+        "path_relevance": 0.4444
+      },
+      {
+        "node_id": "outcome",
+        "description": "The event: More than ten times as many 'Violence against civilians' incidents in Mayotte for the 30 days before 2025-12-28 compared to one plus the 30-day average over the preceding 360 days.",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3313,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "baseline_incident_rate",
+        "target": "outcome",
+        "mechanism": "A low historical baseline makes the required tenfold increase in absolute terms easier to achieve, while a high baseline makes it harder.",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_tensions",
+        "target": "short_term_triggers",
+        "mechanism": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence.",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_tensions",
+        "target": "baseline_incident_rate",
+        "mechanism": "Chronic political instability sustains a higher underlying rate of violence over the long term.",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_conditions",
+        "target": "political_tensions",
+        "mechanism": "Poor economic conditions fuel public dissatisfaction and social grievances, increasing political instability.",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "security_force_presence",
+        "target": "short_term_triggers",
+        "mechanism": "A heavy-handed or insufficient security response to an event can amplify violence rather than contain it.",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_influences",
+        "target": "political_tensions",
+        "mechanism": "Regional instability or migration crises can exacerbate local tensions and conflict dynamics.",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "short_term_triggers",
+        "target": "outcome",
+        "mechanism": "A major triggering event can cause a sharp, temporary spike in incident counts, potentially meeting the high threshold.",
+        "edge_betweenness": 0.0833,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "political_tensions",
+        "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence.",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "short_term_triggers",
+        "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence.",
+        "importance": 0.0833,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_conditions",
+        "description": "Economic factors like unemployment, poverty, and inequality that may increase the risk of civil violence.",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "external_influences",
+        "description": "Influence from regional conflicts, migration pressures, or transnational criminal activity affecting Mayotte.",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_tensions",
+        "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence.",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "short_term_triggers",
+        "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence.",
+        "importance": 0.0833,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_tensions->short_term_triggers",
+        "description": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence.",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_tensions->baseline_incident_rate",
+        "description": "Chronic political instability sustains a higher underlying rate of violence over the long term.",
+        "importance": 0.1071,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "security_force_presence->short_term_triggers",
+        "description": "A heavy-handed or insufficient security response to an event can amplify violence rather than contain it.",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_tensions->short_term_triggers",
+        "description": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence.",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "short_term_triggers->baseline_incident_rate",
+        "description": "Potential link: Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence. -> The historical average level of 'Violence against civilians' incidents in Mayotte over the 360 days preceding the forecast period.",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "political_tensions",
+      "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence.",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "short_term_triggers",
+      "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence.",
+      "importance": 0.0833,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_conditions",
+      "description": "Economic factors like unemployment, poverty, and inequality that may increase the risk of civil violence.",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "external_influences",
+      "description": "Influence from regional conflicts, migration pressures, or transnational criminal activity affecting Mayotte.",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_tensions",
+      "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence.",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "short_term_triggers",
+      "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence.",
+      "importance": 0.0833,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_tensions->short_term_triggers",
+      "description": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence.",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_tensions->baseline_incident_rate",
+      "description": "Chronic political instability sustains a higher underlying rate of violence over the long term.",
+      "importance": 0.1071,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "security_force_presence->short_term_triggers",
+      "description": "A heavy-handed or insufficient security response to an event can amplify violence rather than contain it.",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_tensions->short_term_triggers",
+      "description": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence.",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "short_term_triggers->baseline_incident_rate",
+      "description": "Potential link: Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence. -> The historical average level of 'Violence against civilians' incidents in Mayotte over the 360 days preceding the forecast period.",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if political tensions in Mayotte are actually negligible or irrelevant for violence against civilians? Suppose the French government implements a comprehensive, long-term stability plan that successfully addresses grievances through economic development and community policing, making local political disputes non-violent and managed through dialogue. Even if political tensions exist, they might be decoupled from violence because security forces are highly professional and trusted, and incidents are driven almost entirely by transnational criminal networks that operate independently of local politics.",
+      "probe_type": "node_negate_high",
+      "target_id": "political_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence."
+    },
+    {
+      "probe_text": "Suppose that due to effective community mediation and pre-emptive conflict resolution efforts in Mayotte, even when specific proximate events like protests or arrests occur, they are consistently de-escalated without leading to broader violence. This means short-term triggers are systematically neutralized by local social cohesion and rapid, non-confrontational interventions, making them irrelevant as drivers of sudden surges in violence.",
+      "probe_type": "node_negate_high",
+      "target_id": "short_term_triggers",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0833,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence."
+    },
+    {
+      "probe_text": "Recent data shows that unemployment in Mayotte has actually decreased significantly due to a major infrastructure investment program, and poverty rates have remained stable despite global economic pressures. Moreover, analysis of past incidents indicates no correlation between fluctuations in economic indicators and spikes in civilian violence; instead, violence appears more closely linked to specific political or security events unrelated to economic grievances. Therefore, the assumed causal link from economic conditions to political tensions may be overstated or incorrect in this context.",
+      "probe_type": "node_negate_medium",
+      "target_id": "economic_conditions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Economic factors like unemployment, poverty, and inequality that may increase the risk of civil violence."
+    },
+    {
+      "probe_text": "New intelligence suggests that regional conflicts and migration flows around Mayotte have been effectively contained by French and regional security cooperation over the past year, and there is no evidence these external factors have meaningfully impacted local political stability or violence rates recently. The primary drivers of tension appear to be entirely domestic, such as local governance disputes and economic planning. Therefore, external influences are unlikely to be a relevant factor in forecasting violence in Mayotte over the coming period.",
+      "probe_type": "node_negate_low",
+      "target_id": "external_influences",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Influence from regional conflicts, migration pressures, or transnational criminal activity affecting Mayotte."
+    },
+    {
+      "probe_text": "A recent report from the French National Assembly's oversight committee indicates that Mayotte has experienced a 40% increase in politically motivated protests and clashes between rival political factions over the past six months, with local government officials warning of escalating rhetoric and polarization ahead of regional elections in early 2025. This is compounded by leaked intelligence assessments suggesting that key political leaders in Mayotte are actively mobilizing supporters for potential confrontations, framing grievances in ways that explicitly link political disputes to justified civil violence. Experts from the Institute for Security Studies note that this level of organized political mobilization significantly heightens the probability of sustained instability and violence-triggering events in the coming months.",
+      "probe_type": "node_strengthen",
+      "target_id": "political_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Level of political instability, social unrest, or government actions in Mayotte that could trigger violence."
+    },
+    {
+      "probe_text": "Recent intelligence reports indicate that a major opposition rally planned for early December 2025 in Mamoudzou has a high likelihood of being met with a heavy-handed police response, following a pattern of escalating confrontations. The rally's organizers have explicitly stated they will defy any ban, and security forces are reportedly preparing for a significant operation, creating a classic flashpoint scenario. Local analysts point to this specific event as having the potential to trigger widespread clashes and retaliatory attacks across the island.",
+      "probe_type": "node_strengthen",
+      "target_id": "short_term_triggers",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0833,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence."
+    },
+    {
+      "probe_text": "Recent evidence from Mayotte suggests that despite high political tensions, the island's tight-knit community structures and strong local mediation traditions often prevent isolated events from escalating into widespread violence. For instance, after the controversial 2024 eviction operations, local elders and religious leaders successfully de-escalated potential retaliatory violence through immediate community dialogues, showing that social cohesion can buffer against tension-trigger links. Additionally, Mayotte's small geographic size and pervasive security surveillance mean that even in tense periods, any emerging incident is quickly contained before it can spiral, weakening the assumed volatility mechanism.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_tensions->short_term_triggers",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence."
+    },
+    {
+      "probe_text": "Recent data from Mayotte shows that despite persistent political tensions over migration and governance, the baseline rate of 'Violence against civilians' has remained low and stable, suggesting that local community mediation and informal conflict-resolution mechanisms effectively decouple chronic instability from actual violence. For example, during the 2024–2025 period, political protests and disputes were frequent, yet incident counts rarely spiked, indicating that tensions are often channeled into non-violent political processes rather than escalating into civilian-targeted violence. This implies that the link between political tensions and baseline incident rates may be weak or mediated by other factors, such as strong social cohesion or effective de-escalation practices.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_tensions->baseline_incident_rate",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Chronic political instability sustains a higher underlying rate of violence over the long term."
+    },
+    {
+      "probe_text": "Recent data from Mayotte suggests that security forces have been adopting a more calibrated, community-policing approach, focusing on de-escalation and local cooperation. This strategy has proven effective at containing isolated incidents without provoking wider unrest, meaning a security response is now less likely to inadvertently amplify violence. Therefore, the causal link where security force presence leads to more significant short-term triggers may be weaker than assumed.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "security_force_presence->short_term_triggers",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "A heavy-handed or insufficient security response to an event can amplify violence rather than contain it."
+    },
+    {
+      "probe_text": "Consider the possibility that short-term triggers, such as a high-profile attack or a controversial arrest, are often the primary drivers of sudden political tensions in Mayotte. For example, a violent incident against civilians can immediately spark protests, accusations against the government, and calls for political action, thereby escalating political instability. In this view, political tensions are not the cause of triggers but rather a consequence of them, suggesting the causal arrow should point from short_term_triggers to political_tensions.",
+      "probe_type": "edge_reverse",
+      "target_id": "political_tensions->short_term_triggers",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "High political tensions create a volatile environment where a single event is more likely to escalate into widespread violence."
+    },
+    {
+      "probe_text": "Recent analyses of conflict data in Mayotte suggest that specific triggering events, such as large-scale protests or targeted attacks, often lead to prolonged retaliatory cycles and sustained low-level violence that persist for months. For instance, a major crackdown on migrant communities in early 2025 could provoke ongoing sporadic clashes, elevating the average incident rate over the subsequent 360 days. This means short-term triggers don't just cause temporary spikes; they can durably shift the baseline by altering local security dynamics and community tensions.",
+      "probe_type": "edge_spurious",
+      "target_id": "short_term_triggers->baseline_incident_rate",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Specific, proximate events (e.g., a protest, arrest, or attack) that could spark a sudden surge in violence. -> The historical average level of 'Violence against civilians' incidents in Mayotte over the 360 days preceding the forecast period."
+    },
+    {
+      "probe_text": "Consider the role of climate-related events such as severe droughts or cyclones, which are common in Mayotte. These events can lead to resource scarcity, displacement, and competition for aid, directly increasing grievances and the likelihood of violence. They could also strain security forces and infrastructure, reducing the capacity to prevent incidents, thereby raising the risk of a short-term surge in violence against civilians.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider that weather conditions, such as heavy rainfall or cyclones, could disrupt security patrols and emergency responses in Mayotte, while also exacerbating social tensions by damaging infrastructure and displacing populations. These disruptions may lower the effectiveness of security forces in preventing violence and increase the likelihood of short-term triggers like protests or riots. How would incorporating weather-related disruptions as a factor influence your probability estimate for the outcome?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Recent reports indicate that the French government is planning to increase funding for cultural preservation programs in Mayotte, aiming to strengthen local heritage and community identity. These programs include museum expansions, traditional dance festivals, and historical site restorations, which are expected to boost cultural tourism and community pride. While these initiatives may enhance social cohesion in the long term, they are unlikely to directly impact short-term political tensions, economic conditions, or security dynamics that drive violence against civilians in the 30-day forecast window.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The government of Mayotte has announced a new initiative to rename several streets in the capital, Mamoudzou, to honor local historical figures from the 19th century. The renaming ceremony is scheduled for early 2026, with planning and public consultations beginning in late 2025. This symbolic gesture is intended to promote cultural heritage and national pride.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if political tensions in Mayotte are actually negligible or irrelevant for violence against civilians? Suppose the French government implements a comprehensive, long-term stability plan that successfully addresses grievances through economic development and community policing, making local political disputes non-violent and managed through dialogue. Even if political tensions exist, they might be decoupled from violence because security forces are highly professional and trusted, and incidents are driven almost entirely by transnational criminal networks that operate independently of local politics.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.06999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly targets 'political_tensions', which is a central node in the causal network affecting multiple paths to the outcome. If political tensions are negligible or decoupled from violence due to effective government interventions, this weakens or removes several key edges: political_tensions -> short_term_triggers (fewer volatile events), political_tensions -> baseline_incident_rate (lower historical baseline), and economic_conditions/external_influences -> political_tensions (reduced cascading effects). However, the outcome could still occur via other paths like external_influences (transnational criminal networks) directly driving incidents or via short_term_triggers unrelated to politics, but these are less likely to produce a tenfold spike without political instability amplifying them. The baseline might also be lower, making the tenfold increase easier in relative terms but harder in absolute terms due to fewer incidents overall. Given the structural importance of political tensions in the original reasoning, this challenge warrants a moderate decrease in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.11,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly targets 'political_tensions', which is a central node in the causal network affecting multiple paths to the outcome. If political tensions are negligible or decoupled from violence due to effective government interventions, this weakens or removes several key edges: political_tensions -> short_term_triggers (fewer volatile events), political_tensions -> baseline_incident_rate (lower historical baseline), and economic_conditions/external_influences -> political_tensions (reduced cascading effects). However, the outcome could still occur via other paths like external_influences (transnational criminal networks) directly driving incidents or via short_term_triggers unrelated to politics, but these are less likely to produce a tenfold spike without political instability amplifying them. The baseline might also be lower, making the tenfold increase easier in relative terms but harder in absolute terms due to fewer incidents overall. Given the structural importance of political tensions in the original reasoning, this challenge warrants a moderate decrease in probability.\"\n}",
+      "target_id": "political_tensions",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose that due to effective community mediation and pre-emptive conflict resolution efforts in Mayotte, even when specific proximate events like protests or arrests occur, they are consistently de-escalated without leading to broader violence. This means short-term triggers are systematically neutralized by local social cohesion and rapid, non-confrontational interventions, making them irrelevant as drivers of sudden surges in violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.09999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly targets 'short_term_triggers', which is a critical node in the causal network. Specifically, it breaks the causal link from short_term_triggers -> outcome, as the described mediation and de-escalation efforts neutralize proximate events from sparking sudden surges in violence. This eliminates the primary mechanism for a sharp, temporary spike in incident counts that could meet the high tenfold threshold. While other factors like baseline_incident_rate, political_tensions, and economic_conditions still influence the outcome indirectly, the removal of short-term triggers as a driver substantially reduces the likelihood of an extreme, short-term increase in violence. The update is significant because short_term_triggers was a key pathway to achieving the outcome, but not zero because other causal paths (e.g., chronic instability from political_tensions affecting baseline_incident_rate) remain, though they are less likely to produce such a dramatic short-term spike without triggers.",
+      "raw_response": "{\n  \"updated_probability\": 0.08,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly targets 'short_term_triggers', which is a critical node in the causal network. Specifically, it breaks the causal link from short_term_triggers -> outcome, as the described mediation and de-escalation efforts neutralize proximate events from sparking sudden surges in violence. This eliminates the primary mechanism for a sharp, temporary spike in incident counts that could meet the high tenfold threshold. While other factors like baseline_incident_rate, political_tensions, and economic_conditions still influence the outcome indirectly, the removal of short-term triggers as a driver substantially reduces the likelihood of an extreme, short-term increase in violence. The update is significant because short_term_triggers was a key pathway to achieving the outcome, but not zero because other causal paths (e.g., chronic instability from political_tensions affecting baseline_incident_rate) remain, though they are less likely to produce such a dramatic short-term spike without triggers.\"\n}",
+      "target_id": "short_term_triggers",
+      "target_type": "node",
+      "target_importance": 0.0833,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that unemployment in Mayotte has actually decreased significantly due to a major infrastructure investment program, and poverty rates have remained stable despite global economic pressures. Moreover, analysis of past incidents indicates no correlation between fluctuations in economic indicators and spikes in civilian violence; instead, violence appears more closely linked to specific political or security events unrelated to economic grievances. Therefore, the assumed causal link from economic conditions to political tensions may be overstated or incorrect in this context.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal path from economic_conditions to political_tensions by presenting evidence that economic conditions have improved (decreased unemployment, stable poverty) and that historical data shows no correlation between economic fluctuations and violence spikes. This reduces the likelihood that economic factors will fuel political tensions, which in turn lowers the probability of short_term_triggers and a sustained high baseline_incident_rate. However, political tensions can still arise from external_influences or other factors, and short_term_triggers may occur independently, so the update is moderate rather than large.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal path from economic_conditions to political_tensions by presenting evidence that economic conditions have improved (decreased unemployment, stable poverty) and that historical data shows no correlation between economic fluctuations and violence spikes. This reduces the likelihood that economic factors will fuel political tensions, which in turn lowers the probability of short_term_triggers and a sustained high baseline_incident_rate. However, political tensions can still arise from external_influences or other factors, and short_term_triggers may occur independently, so the update is moderate rather than large.\"\n}",
+      "target_id": "economic_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "New intelligence suggests that regional conflicts and migration flows around Mayotte have been effectively contained by French and regional security cooperation over the past year, and there is no evidence these external factors have meaningfully impacted local political stability or violence rates recently. The primary drivers of tension appear to be entirely domestic, such as local governance disputes and economic planning. Therefore, external influences are unlikely to be a relevant factor in forecasting violence in Mayotte over the coming period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.009999999999999981,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly targets the 'external_influences' node, arguing it has been effectively contained and is not a relevant factor. In my causal network, external_influences has one edge: it contributes to political_tensions. Removing or significantly reducing this influence weakens one causal path to the outcome (external_influences -> political_tensions -> [baseline_incident_rate & short_term_triggers] -> outcome). However, this path is not the only or primary driver; political_tensions are also driven by economic_conditions and can exist from purely domestic sources as noted in the challenge. The outcome depends heavily on short_term_triggers and the baseline rate. Since the challenge suggests external factors are not currently impactful, it slightly reduces the overall probability of elevated political tensions and thus the potential for a violence spike. The update is small because external_influences was likely a secondary factor, and domestic drivers remain active.",
+      "raw_response": "{\n    \"updated_probability\": 0.17,\n    \"shift_direction\": \"decreased\",\n    \"reasoning\": \"The challenge directly targets the 'external_influences' node, arguing it has been effectively contained and is not a relevant factor. In my causal network, external_influences has one edge: it contributes to political_tensions. Removing or significantly reducing this influence weakens one causal path to the outcome (external_influences -> political_tensions -> [baseline_incident_rate & short_term_triggers] -> outcome). However, this path is not the only or primary driver; political_tensions are also driven by economic_conditions and can exist from purely domestic sources as noted in the challenge. The outcome depends heavily on short_term_triggers and the baseline rate. Since the challenge suggests external factors are not currently impactful, it slightly reduces the overall probability of elevated political tensions and thus the potential for a violence spike. The update is small because external_influences was likely a secondary factor, and domestic drivers remain active.\"\n}",
+      "target_id": "external_influences",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent report from the French National Assembly's oversight committee indicates that Mayotte has experienced a 40% increase in politically motivated protests and clashes between rival political factions over the past six months, with local government officials warning of escalating rhetoric and polarization ahead of regional elections in early 2025. This is compounded by leaked intelligence assessments suggesting that key political leaders in Mayotte are actively mobilizing supporters for potential confrontations, framing grievances in ways that explicitly link political disputes to justified civil violence. Experts from the Institute for Security Studies note that this level of organized political mobilization significantly heightens the probability of sustained instability and violence-triggering events in the coming months.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new information strongly suggests a significant and organized increase in political tensions in Mayotte, which is a central node in my causal network. This affects multiple causal paths: 1) It directly increases the likelihood of short_term_triggers (like protests or clashes escalating into violence), which is a key driver of the outcome. 2) It is likely to sustain or increase the baseline_incident_rate over the coming months, which influences the outcome's threshold. The information indicates a clear trend of mobilization and escalation, making a volatility-driven spike in the 30-day window before the resolution date more plausible. The update is moderate because the outcome requires an extreme tenfold increase from a baseline, and while political tensions are a critical factor, achieving such a high absolute count still depends on other contingent factors like specific trigger events and security force responses.",
+      "raw_response": "{\n  \"updated_probability\": 0.26,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strongly suggests a significant and organized increase in political tensions in Mayotte, which is a central node in my causal network. This affects multiple causal paths: 1) It directly increases the likelihood of short_term_triggers (like protests or clashes escalating into violence), which is a key driver of the outcome. 2) It is likely to sustain or increase the baseline_incident_rate over the coming months, which influences the outcome's threshold. The information indicates a clear trend of mobilization and escalation, making a volatility-driven spike in the 30-day window before the resolution date more plausible. The update is moderate because the outcome requires an extreme tenfold increase from a baseline, and while political tensions are a critical factor, achieving such a high absolute count still depends on other contingent factors like specific trigger events and security force responses.\"\n}",
+      "target_id": "political_tensions",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that a major opposition rally planned for early December 2025 in Mamoudzou has a high likelihood of being met with a heavy-handed police response, following a pattern of escalating confrontations. The rally's organizers have explicitly stated they will defy any ban, and security forces are reportedly preparing for a significant operation, creating a classic flashpoint scenario. Local analysts point to this specific event as having the potential to trigger widespread clashes and retaliatory attacks across the island.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal path from 'short_term_triggers' to the outcome by providing concrete evidence of a high-probability flashpoint event (a major opposition rally with expected heavy-handed police response in early December 2025). This directly affects the 'short_term_triggers -> outcome' edge, making a sharp, temporary spike in violence more likely. It also reinforces the 'political_tensions -> short_term_triggers' and 'security_force_presence -> short_term_triggers' edges, as political tensions are manifesting in this planned event and security forces' actions may amplify violence. While the baseline incident rate and other factors remain uncertain, this specific, proximate trigger significantly increases the likelihood of meeting the high threshold (ten times the historical average) within the 30-day window before 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal path from 'short_term_triggers' to the outcome by providing concrete evidence of a high-probability flashpoint event (a major opposition rally with expected heavy-handed police response in early December 2025). This directly affects the 'short_term_triggers -> outcome' edge, making a sharp, temporary spike in violence more likely. It also reinforces the 'political_tensions -> short_term_triggers' and 'security_force_presence -> short_term_triggers' edges, as political tensions are manifesting in this planned event and security forces' actions may amplify violence. While the baseline incident rate and other factors remain uncertain, this specific, proximate trigger significantly increases the likelihood of meeting the high threshold (ten times the historical average) within the 30-day window before 2025-12-28.\"\n}",
+      "target_id": "short_term_triggers",
+      "target_type": "node",
+      "target_importance": 0.0833,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent evidence from Mayotte suggests that despite high political tensions, the island's tight-knit community structures and strong local mediation traditions often prevent isolated events from escalating into widespread violence. For instance, after the controversial 2024 eviction operations, local elders and religious leaders successfully de-escalated potential retaliatory violence through immediate community dialogues, showing that social cohesion can buffer against tension-trigger links. Additionally, Mayotte's small geographic size and pervasive security surveillance mean that even in tense periods, any emerging incident is quickly contained before it can spiral, weakening the assumed volatility mechanism.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link from 'political_tensions' to 'short_term_triggers' by highlighting that strong community structures, mediation traditions, and rapid security containment in Mayotte reduce the likelihood of isolated events escalating into widespread violence, even amid high tensions. This affects the key path 'political_tensions -> short_term_triggers -> outcome', making a sharp, temporary spike in incidents less probable. The outcome relies heavily on such spikes to achieve a tenfold increase, so the probability decreases moderately. However, other factors like economic conditions, external influences, and baseline rates remain relevant, preventing a collapse to near-zero.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link from 'political_tensions' to 'short_term_triggers' by highlighting that strong community structures, mediation traditions, and rapid security containment in Mayotte reduce the likelihood of isolated events escalating into widespread violence, even amid high tensions. This affects the key path 'political_tensions -> short_term_triggers -> outcome', making a sharp, temporary spike in incidents less probable. The outcome relies heavily on such spikes to achieve a tenfold increase, so the probability decreases moderately. However, other factors like economic conditions, external influences, and baseline rates remain relevant, preventing a collapse to near-zero.\"\n}",
+      "target_id": "political_tensions->short_term_triggers",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Mayotte shows that despite persistent political tensions over migration and governance, the baseline rate of 'Violence against civilians' has remained low and stable, suggesting that local community mediation and informal conflict-resolution mechanisms effectively decouple chronic instability from actual violence. For example, during the 2024–2025 period, political protests and disputes were frequent, yet incident counts rarely spiked, indicating that tensions are often channeled into non-violent political processes rather than escalating into civilian-targeted violence. This implies that the link between political tensions and baseline incident rates may be weak or mediated by other factors, such as strong social cohesion or effective de-escalation practices.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link from political_tensions to baseline_incident_rate. This affects the outcome in two ways: 1) It suggests the baseline_incident_rate may be lower than previously estimated, which, per the 'baseline_incident_rate -> outcome' link, makes achieving a tenfold increase in absolute terms easier (a factor that would slightly increase the probability). However, 2) and more importantly, it weakens a reinforcing feedback loop where political tensions sustain a higher baseline. A lower and more stable baseline implies that even if a short-term trigger occurs, it is sparking violence from a lower base, making a massive, order-of-magnitude spike less likely because the underlying propensity for violence is not chronically elevated. The 'short_term_triggers -> outcome' path is thus less potent. The primary effect is a decrease in probability, as the decoupling of chronic tension from violence makes an extreme spike less probable, outweighing the minor arithmetic effect of a potentially lower baseline.",
+      "raw_response": "{\n  \"updated_probability\": 0.13,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link from political_tensions to baseline_incident_rate. This affects the outcome in two ways: 1) It suggests the baseline_incident_rate may be lower than previously estimated, which, per the 'baseline_incident_rate -> outcome' link, makes achieving a tenfold increase in absolute terms easier (a factor that would slightly increase the probability). However, 2) and more importantly, it weakens a reinforcing feedback loop where political tensions sustain a higher baseline. A lower and more stable baseline implies that even if a short-term trigger occurs, it is sparking violence from a lower base, making a massive, order-of-magnitude spike less likely because the underlying propensity for violence is not chronically elevated. The 'short_term_triggers -> outcome' path is thus less potent. The primary effect is a decrease in probability, as the decoupling of chronic tension from violence makes an extreme spike less probable, outweighing the minor arithmetic effect of a potentially lower baseline.\"\n}",
+      "target_id": "political_tensions->baseline_incident_rate",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Mayotte suggests that security forces have been adopting a more calibrated, community-policing approach, focusing on de-escalation and local cooperation. This strategy has proven effective at containing isolated incidents without provoking wider unrest, meaning a security response is now less likely to inadvertently amplify violence. Therefore, the causal link where security force presence leads to more significant short-term triggers may be weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.16,
+      "absolute_shift": 0.01999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link from 'security_force_presence' to 'short_term_triggers'. In the original model, this link represented a mechanism where a heavy-handed security response could inadvertently amplify a minor incident into a significant trigger for widespread violence. With the reported shift towards calibrated, de-escalatory community policing, the risk that security force actions themselves will create or escalate a major short-term trigger is reduced. This affects the causal path to the outcome by making a sharp, temporary spike in violence from a triggered event less likely. However, this link was not the primary driver of the outcome; the main paths remain via 'political_tensions' and 'economic_conditions' feeding into the baseline and potential triggers, and 'external_influences'. The update is modest because the security force link was a secondary amplifier, not a fundamental generator, of violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.16,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link from 'security_force_presence' to 'short_term_triggers'. In the original model, this link represented a mechanism where a heavy-handed security response could inadvertently amplify a minor incident into a significant trigger for widespread violence. With the reported shift towards calibrated, de-escalatory community policing, the risk that security force actions themselves will create or escalate a major short-term trigger is reduced. This affects the causal path to the outcome by making a sharp, temporary spike in violence from a triggered event less likely. However, this link was not the primary driver of the outcome; the main paths remain via 'political_tensions' and 'economic_conditions' feeding into the baseline and potential triggers, and 'external_influences'. The update is modest because the security force link was a secondary amplifier, not a fundamental generator, of violence.\"\n}",
+      "target_id": "security_force_presence->short_term_triggers",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Consider the possibility that short-term triggers, such as a high-profile attack or a controversial arrest, are often the primary drivers of sudden political tensions in Mayotte. For example, a violent incident against civilians can immediately spark protests, accusations against the government, and calls for political action, thereby escalating political instability. In this view, political tensions are not the cause of triggers but rather a consequence of them, suggesting the causal arrow should point from short_term_triggers to political_tensions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests the causal link from political_tensions to short_term_triggers might be reversed or at least bidirectional, with short_term_triggers being a primary driver of political tensions. This weakens a key causal path to the outcome: high political tensions would no longer be a reliable precursor or amplifier for the specific triggering events needed to cause a sharp 30-day spike. Instead, the occurrence of a major trigger becomes more exogenous and less predictable from the model's state variables. This reduces the model's ability to anticipate conditions favorable for the extreme outcome. However, the core logic that a major short-term trigger can directly cause the outcome remains valid, and other paths (e.g., from external_influences or security_force_presence) still exist. The update is moderate because the challenged link was important but not the sole driver of short_term_triggers.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests the causal link from political_tensions to short_term_triggers might be reversed or at least bidirectional, with short_term_triggers being a primary driver of political tensions. This weakens a key causal path to the outcome: high political tensions would no longer be a reliable precursor or amplifier for the specific triggering events needed to cause a sharp 30-day spike. Instead, the occurrence of a major trigger becomes more exogenous and less predictable from the model's state variables. This reduces the model's ability to anticipate conditions favorable for the extreme outcome. However, the core logic that a major short-term trigger can directly cause the outcome remains valid, and other paths (e.g., from external_influences or security_force_presence) still exist. The update is moderate because the challenged link was important but not the sole driver of short_term_triggers.\"\n}",
+      "target_id": "political_tensions->short_term_triggers",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses of conflict data in Mayotte suggest that specific triggering events, such as large-scale protests or targeted attacks, often lead to prolonged retaliatory cycles and sustained low-level violence that persist for months. For instance, a major crackdown on migrant communities in early 2025 could provoke ongoing sporadic clashes, elevating the average incident rate over the subsequent 360 days. This means short-term triggers don't just cause temporary spikes; they can durably shift the baseline by altering local security dynamics and community tensions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.06,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link from 'short_term_triggers' to 'baseline_incident_rate', establishing a new, important reinforcing feedback loop in the network. Previously, a short-term trigger could cause a temporary spike (short_term_triggers -> outcome), but the baseline was influenced primarily by chronic factors like political_tensions. Now, a short-term trigger can also durably elevate the baseline_incident_rate itself. This creates a more dangerous cycle: a trigger causes a spike, which then raises the baseline, making the tenfold multiplication target easier to hit in the future because the denominator (one plus the 30-day average over the preceding 360 days) becomes larger. This new path (short_term_triggers -> baseline_incident_rate -> outcome) interacts with the existing short-term spike path, increasing the overall likelihood that a single major event could set in motion conditions that satisfy the high-threshold outcome. Therefore, the probability is increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.24,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link from 'short_term_triggers' to 'baseline_incident_rate', establishing a new, important reinforcing feedback loop in the network. Previously, a short-term trigger could cause a temporary spike (short_term_triggers -> outcome), but the baseline was influenced primarily by chronic factors like political_tensions. Now, a short-term trigger can also durably elevate the baseline_incident_rate itself. This creates a more dangerous cycle: a trigger causes a spike, which then raises the baseline, making the tenfold multiplication target easier to hit in the future because the denominator (one plus the 30-day average over the preceding 360 days) becomes larger. This new path (short_term_triggers -> baseline_incident_rate -> outcome) interacts with the existing short-term spike path, increasing the overall likelihood that a single major event could set in motion conditions that satisfy the high-threshold outcome. Therefore, the probability is increased.\"\n}",
+      "target_id": "short_term_triggers->baseline_incident_rate",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of climate-related events such as severe droughts or cyclones, which are common in Mayotte. These events can lead to resource scarcity, displacement, and competition for aid, directly increasing grievances and the likelihood of violence. They could also strain security forces and infrastructure, reducing the capacity to prevent incidents, thereby raising the risk of a short-term surge in violence against civilians.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.21,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new, significant causal factor: climate-related events (e.g., droughts, cyclones). This directly affects multiple paths in the network. It creates a new causal link from climate events to economic_conditions (via resource scarcity and displacement) and to security_force_presence (by straining resources and infrastructure). These effects amplify political_tensions and reduce the capacity to prevent violence, thereby increasing the likelihood of short_term_triggers and a subsequent surge in incidents. While the historical baseline is not directly altered, the probability of a short-term spike that could meet the high threshold is increased. The update is moderate because climate events are a known but previously unmodeled risk factor that strengthens existing causal pathways toward the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.21,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new, significant causal factor: climate-related events (e.g., droughts, cyclones). This directly affects multiple paths in the network. It creates a new causal link from climate events to economic_conditions (via resource scarcity and displacement) and to security_force_presence (by straining resources and infrastructure). These effects amplify political_tensions and reduce the capacity to prevent violence, thereby increasing the likelihood of short_term_triggers and a subsequent surge in incidents. While the historical baseline is not directly altered, the probability of a short-term spike that could meet the high threshold is increased. The update is moderate because climate events are a known but previously unmodeled risk factor that strengthens existing causal pathways toward the outcome.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider that weather conditions, such as heavy rainfall or cyclones, could disrupt security patrols and emergency responses in Mayotte, while also exacerbating social tensions by damaging infrastructure and displacing populations. These disruptions may lower the effectiveness of security forces in preventing violence and increase the likelihood of short-term triggers like protests or riots. How would incorporating weather-related disruptions as a factor influence your probability estimate for the outcome?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.21,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces 'weather-related disruptions' as a new factor. This affects two key causal paths: 1) It directly impairs 'security_force_presence' by disrupting patrols and responses, making a 'short_term_trigger' more likely to escalate into violence (via the existing link from security_force_presence to short_term_triggers). 2) It can act as an 'external_influence' that exacerbates 'political_tensions' and 'economic_conditions' by damaging infrastructure and displacing populations, creating a more volatile environment for triggers. This strengthens the pathways leading to a potential spike in violence. However, the effect is moderate because the outcome requires an extreme tenfold increase relative to the baseline, and weather is a transient, variable factor not guaranteed to coincide with the specific 30-day window. The increase is therefore modest.",
+      "raw_response": "{\n  \"updated_probability\": 0.21,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces 'weather-related disruptions' as a new factor. This affects two key causal paths: 1) It directly impairs 'security_force_presence' by disrupting patrols and responses, making a 'short_term_trigger' more likely to escalate into violence (via the existing link from security_force_presence to short_term_triggers). 2) It can act as an 'external_influence' that exacerbates 'political_tensions' and 'economic_conditions' by damaging infrastructure and displacing populations, creating a more volatile environment for triggers. This strengthens the pathways leading to a potential spike in violence. However, the effect is moderate because the outcome requires an extreme tenfold increase relative to the baseline, and weather is a transient, variable factor not guaranteed to coincide with the specific 30-day window. The increase is therefore modest.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that the French government is planning to increase funding for cultural preservation programs in Mayotte, aiming to strengthen local heritage and community identity. These programs include museum expansions, traditional dance festivals, and historical site restorations, which are expected to boost cultural tourism and community pride. While these initiatives may enhance social cohesion in the long term, they are unlikely to directly impact short-term political tensions, economic conditions, or security dynamics that drive violence against civilians in the 30-day forecast window.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge describes cultural preservation programs that are acknowledged as unlikely to directly impact the short-term drivers of violence (political tensions, economic conditions, security dynamics) within the 30-day forecast window. These programs target long-term social cohesion, which is not a node in my causal network. My network's key causal paths to the outcome (via political_tensions, economic_conditions, security_force_presence, and short_term_triggers) remain unaffected by this information. Therefore, the structural challenge does not alter the probability estimate for the specific, short-term outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge describes cultural preservation programs that are acknowledged as unlikely to directly impact the short-term drivers of violence (political tensions, economic conditions, security dynamics) within the 30-day forecast window. These programs target long-term social cohesion, which is not a node in my causal network. My network's key causal paths to the outcome (via political_tensions, economic_conditions, security_force_presence, and short_term_triggers) remain unaffected by this information. Therefore, the structural challenge does not alter the probability estimate for the specific, short-term outcome.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The government of Mayotte has announced a new initiative to rename several streets in the capital, Mamoudzou, to honor local historical figures from the 19th century. The renaming ceremony is scheduled for early 2026, with planning and public consultations beginning in late 2025. This symbolic gesture is intended to promote cultural heritage and national pride.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge describes a symbolic, non-confrontational government initiative focused on cultural heritage and scheduled for after the forecast period. This action is unlikely to affect the core causal drivers of 'Violence against civilians': political tensions, economic conditions, security force presence, or external influences. It does not create a short-term trigger for violence, nor does it meaningfully alter the baseline incident rate. The initiative appears peripheral to the causal network and does not provide evidence for or against a sharp, tenfold spike in incidents during the specific 30-day window before 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge describes a symbolic, non-confrontational government initiative focused on cultural heritage and scheduled for after the forecast period. This action is unlikely to affect the core causal drivers of 'Violence against civilians': political tensions, economic conditions, security force presence, or external influences. It does not create a short-term trigger for violence, nor does it meaningfully alter the baseline incident rate. The initiative appears peripheral to the causal network and does not provide evidence for or against a sharp, tenfold spike in incidents during the specific 30-day window before 2025-12-28.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that unemployment in Mayotte has surged to 35%, the highest level in a decade, coupled with a 20% increase in food prices over the past six months. Additionally, the government has announced austerity measures that will reduce social welfare programs by 30%, exacerbating poverty and inequality.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a significant deterioration in economic conditions in Mayotte, including rising unemployment, food prices, and reduced social welfare. This directly affects the 'economic_conditions' node, which feeds into 'political_tensions' and subsequently 'short_term_triggers' and 'baseline_incident_rate'. Poor economic conditions are likely to fuel public dissatisfaction and social grievances, increasing political instability ('economic_conditions -> political_tensions'). Higher political tensions create a more volatile environment where specific events are more likely to escalate into widespread violence ('political_tensions -> short_term_triggers'). Additionally, chronic political instability can sustain a higher underlying rate of violence ('political_tensions -> baseline_incident_rate'). Given these strengthened causal paths, the probability of the outcome has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a significant deterioration in economic conditions in Mayotte, including rising unemployment, food prices, and reduced social welfare. This directly affects the 'economic_conditions' node, which feeds into 'political_tensions' and subsequently 'short_term_triggers' and 'baseline_incident_rate'. Poor economic conditions are likely to fuel public dissatisfaction and social grievances, increasing political instability ('economic_conditions -> political_tensions'). Higher political tensions create a more volatile environment where specific events are more likely to escalate into widespread violence ('political_tensions -> short_term_triggers'). Additionally, chronic political instability can sustain a higher underlying rate of violence ('political_tensions -> baseline_incident_rate'). Given these strengthened causal paths, the probability of the outcome has increased.\"\n}",
+      "target_id": "economic_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate a significant increase in transnational criminal activity in the Indian Ocean region, with Mayotte being identified as a key transit point for drug and arms smuggling. Additionally, neighboring Comoros has experienced escalating political violence, leading to a surge in migration attempts towards Mayotte, further straining local resources and social cohesion.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the 'external_influences' node, indicating heightened transnational criminal activity and migration pressures from Comoros. This directly affects the 'political_tensions' node by exacerbating local tensions and conflict dynamics, which in turn influences both the 'baseline_incident_rate' and the likelihood of 'short_term_triggers'. The increased political tensions and potential for triggering events raise the probability of a significant spike in violence against civilians. Therefore, the overall probability of the outcome has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the 'external_influences' node, indicating heightened transnational criminal activity and migration pressures from Comoros. This directly affects the 'political_tensions' node by exacerbating local tensions and conflict dynamics, which in turn influences both the 'baseline_incident_rate' and the likelihood of 'short_term_triggers'. The increased political tensions and potential for triggering events raise the probability of a significant spike in violence against civilians. Therefore, the overall probability of the outcome has increased.\"\n}",
+      "target_id": "external_influences",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that political tensions in Mayotte have escalated significantly due to contentious immigration policies and resource allocation disputes between local and national authorities. This heightened tension has led to frequent protests and clashes, with local leaders warning that the situation is a 'powder keg' ready to explode with any minor incident. Historical data from similar contexts shows that such environments see a 40% higher likelihood of minor events escalating into widespread violence compared to periods of lower tension.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'political_tensions -> short_term_triggers' by providing evidence that heightened political tensions significantly increase the likelihood of minor events escalating into widespread violence. This affects the path from political_tensions through short_term_triggers to the outcome, making a sharp spike in violence more probable. Given the critical role of short_term_triggers in achieving the high threshold required for the outcome, the probability is increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'political_tensions -> short_term_triggers' by providing evidence that heightened political tensions significantly increase the likelihood of minor events escalating into widespread violence. This affects the path from political_tensions through short_term_triggers to the outcome, making a sharp spike in violence more probable. Given the critical role of short_term_triggers in achieving the high threshold required for the outcome, the probability is increased.\"\n}",
+      "target_id": "political_tensions->short_term_triggers",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports from Mayotte indicate that ongoing disputes over immigration and citizenship rights have led to sustained protests and clashes between local communities and security forces over the past year. This persistent political tension has correlated with a 40% increase in recorded 'Violence against civilians' incidents compared to the previous 360-day period, demonstrating how chronic instability directly elevates the baseline incident rate.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reinforces the causal link between political_tensions and baseline_incident_rate, demonstrating that sustained political instability has directly elevated the baseline rate of violence. This strengthens the pathway from political_tensions through baseline_incident_rate to the outcome. While the absolute increase in baseline incidents makes the tenfold multiplication harder in relative terms, the demonstrated volatility and capacity for sustained elevated violence increases the probability of extreme spikes that could meet the threshold.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reinforces the causal link between political_tensions and baseline_incident_rate, demonstrating that sustained political instability has directly elevated the baseline rate of violence. This strengthens the pathway from political_tensions through baseline_incident_rate to the outcome. While the absolute increase in baseline incidents makes the tenfold multiplication harder in relative terms, the demonstrated volatility and capacity for sustained elevated violence increases the probability of extreme spikes that could meet the threshold.\"\n}",
+      "target_id": "political_tensions->baseline_incident_rate",
+      "target_type": "edge",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "5a5dd6f530b482865f37a6aaf52048dd38c69a777464ca020f6a8fd1d0c35a25",
+    "question_text": "Will there be more than ten times as many 'Violence against civilians' in Mayotte for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.18,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.04466666666666666,
+    "max_absolute_shift": 0.10000000000000003
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 3.7500000000000013,
+    "mean_shift_high": 0.07500000000000001,
+    "mean_shift_low": 0.019999999999999997,
+    "asymmetry_index": 0.6335403726708073,
+    "mean_shift_negate": 0.048571428571428564,
+    "mean_shift_strengthen": 0.07666666666666667,
+    "fnar": 0.3333333333333333,
+    "n_accepted": 1,
+    "n_spurious": 3,
+    "critical_path_premium": 0.03166666666666668,
+    "mean_shift_on_path": 0.06500000000000002,
+    "mean_shift_off_path": 0.03333333333333333,
+    "importance_sensitivity_correlation": 0.1333333333333333,
+    "control_sensitivity": 0
+  }
+}

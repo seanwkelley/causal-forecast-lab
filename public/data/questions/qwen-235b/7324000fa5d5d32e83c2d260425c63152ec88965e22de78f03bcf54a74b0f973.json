@@ -1,0 +1,1053 @@
+{
+  "question_id": "7324000fa5d5d32e83c2d260425c63152ec88965e22de78f03bcf54a74b0f973",
+  "question_text": "Will there be more 'Violence against civilians' in Peru for the 30 days before 2025-12-28 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "political_instability",
+      "description": "Level of political unrest and turnover in government leadership in Peru",
+      "role": "factor"
+    },
+    {
+      "id": "economic_stress",
+      "description": "Economic conditions such as inflation, unemployment, and inequality that strain households",
+      "role": "factor"
+    },
+    {
+      "id": "social_protests",
+      "description": "Frequency and scale of organized public demonstrations, especially those turning violent",
+      "role": "factor"
+    },
+    {
+      "id": "state_response",
+      "description": "Aggressiveness and tactics used by security forces in responding to unrest",
+      "role": "factor"
+    },
+    {
+      "id": "historical_violence_trend",
+      "description": "30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21",
+      "role": "factor"
+    },
+    {
+      "id": "information_environment",
+      "description": "Spread of misinformation, media freedom, and public trust in institutions",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Whether 'Violence against civilians' in the 30 days before 2025-12-28 exceeds the prior 360-day 30-day average",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "political_instability",
+      "to": "social_protests",
+      "mechanism": "Political instability increases public distrust and motivates mass mobilization"
+    },
+    {
+      "from": "economic_stress",
+      "to": "social_protests",
+      "mechanism": "Economic hardship drives民众 frustration, increasing participation in protests"
+    },
+    {
+      "from": "social_protests",
+      "to": "state_response",
+      "mechanism": "Larger or more disruptive protests provoke stronger responses from security forces"
+    },
+    {
+      "from": "state_response",
+      "to": "outcome",
+      "mechanism": "Heavy-handed state responses directly increase incidents of violence against civilians"
+    },
+    {
+      "from": "information_environment",
+      "to": "social_protests",
+      "mechanism": "Misinformation and low trust amplify protest mobilization and polarization"
+    },
+    {
+      "from": "historical_violence_trend",
+      "to": "outcome",
+      "mechanism": "Baseline levels of violence anchor expectations; deviations depend on new shocks"
+    },
+    {
+      "from": "political_instability",
+      "to": "information_environment",
+      "mechanism": "Chronic instability erodes trust in official narratives and fuels conspiracy theories"
+    }
+  ],
+  "reasoning": "Peru has experienced recurring political instability and social unrest since 2022, with elevated levels of protest activity and state violence. Economic stressors, including inequality and regional disparities, continue to fuel discontent. While the historical trend of violence may be moderate, the combination of ongoing political fragility, economic pressure, and a polarized information environment increases the likelihood of protest surges. These protests, in turn, are likely to elicit strong responses from security forces, which are the primary drivers of violence against civilians. This causal chain makes a spike in violence above the 360-day smoothed average somewhat more likely than not in the final month before 2025-12-28.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "political_instability",
+        "description": "Level of political unrest and turnover in government leadership in Peru",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0585,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_stress",
+        "description": "Economic conditions such as inflation, unemployment, and inequality that strain households",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0585,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "social_protests",
+        "description": "Frequency and scale of organized public demonstrations, especially those turning violent",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.2,
+        "closeness": 0.5,
+        "pagerank": 0.204,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "state_response",
+        "description": "Aggressiveness and tactics used by security forces in responding to unrest",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.381,
+        "pagerank": 0.2319,
+        "path_relevance": 0.6667
+      },
+      {
+        "node_id": "historical_violence_trend",
+        "description": "30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0585,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "information_environment",
+        "description": "Spread of misinformation, media freedom, and public trust in institutions",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.1667,
+        "pagerank": 0.0834,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "Whether 'Violence against civilians' in the 30 days before 2025-12-28 exceeds the prior 360-day 30-day average",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4615,
+        "pagerank": 0.3053,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "political_instability",
+        "target": "social_protests",
+        "mechanism": "Political instability increases public distrust and motivates mass mobilization",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_instability",
+        "target": "information_environment",
+        "mechanism": "Chronic instability erodes trust in official narratives and fuels conspiracy theories",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": false
+      },
+      {
+        "source": "economic_stress",
+        "target": "social_protests",
+        "mechanism": "Economic hardship drives民众 frustration, increasing participation in protests",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "social_protests",
+        "target": "state_response",
+        "mechanism": "Larger or more disruptive protests provoke stronger responses from security forces",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "state_response",
+        "target": "outcome",
+        "mechanism": "Heavy-handed state responses directly increase incidents of violence against civilians",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "historical_violence_trend",
+        "target": "outcome",
+        "mechanism": "Baseline levels of violence anchor expectations; deviations depend on new shocks",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "information_environment",
+        "target": "social_protests",
+        "mechanism": "Misinformation and low trust amplify protest mobilization and polarization",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "social_protests",
+        "description": "Frequency and scale of organized public demonstrations, especially those turning violent",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "state_response",
+        "description": "Aggressiveness and tactics used by security forces in responding to unrest",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_stress",
+        "description": "Economic conditions such as inflation, unemployment, and inequality that strain households",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "information_environment",
+        "description": "Spread of misinformation, media freedom, and public trust in institutions",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "social_protests",
+        "description": "Frequency and scale of organized public demonstrations, especially those turning violent",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "state_response",
+        "description": "Aggressiveness and tactics used by security forces in responding to unrest",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_protests->state_response",
+        "description": "Larger or more disruptive protests provoke stronger responses from security forces",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "state_response->outcome",
+        "description": "Heavy-handed state responses directly increase incidents of violence against civilians",
+        "importance": 0.119,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_instability->information_environment",
+        "description": "Chronic instability erodes trust in official narratives and fuels conspiracy theories",
+        "importance": 0.0238,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_protests->state_response",
+        "description": "Larger or more disruptive protests provoke stronger responses from security forces",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "historical_violence_trend->state_response",
+        "description": "Potential link: 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21 -> Aggressiveness and tactics used by security forces in responding to unrest",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "social_protests",
+      "description": "Frequency and scale of organized public demonstrations, especially those turning violent",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "state_response",
+      "description": "Aggressiveness and tactics used by security forces in responding to unrest",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_stress",
+      "description": "Economic conditions such as inflation, unemployment, and inequality that strain households",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "information_environment",
+      "description": "Spread of misinformation, media freedom, and public trust in institutions",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "social_protests",
+      "description": "Frequency and scale of organized public demonstrations, especially those turning violent",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "state_response",
+      "description": "Aggressiveness and tactics used by security forces in responding to unrest",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_protests->state_response",
+      "description": "Larger or more disruptive protests provoke stronger responses from security forces",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "state_response->outcome",
+      "description": "Heavy-handed state responses directly increase incidents of violence against civilians",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_instability->information_environment",
+      "description": "Chronic instability erodes trust in official narratives and fuels conspiracy theories",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_protests->state_response",
+      "description": "Larger or more disruptive protests provoke stronger responses from security forces",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "historical_violence_trend->state_response",
+      "description": "Potential link: 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21 -> Aggressiveness and tactics used by security forces in responding to unrest",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if organized social protests, even large or violent ones, do not lead to increased state violence or civilian casualties in Peru? In recent years, security forces may have adopted restrained, de-escalation-focused protocols during protests, meaning that even significant demonstrations are met with minimal force, making the scale of protests a poor predictor of civilian violence. Additionally, most violence against civilians could be occurring in remote regions unrelated to protest activity, such as in rural counterinsurgency operations, decoupling the outcome from urban or politically motivated demonstrations.",
+      "probe_type": "node_negate_high",
+      "target_id": "social_protests",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Frequency and scale of organized public demonstrations, especially those turning violent"
+    },
+    {
+      "probe_text": "What if the aggressiveness and tactics of security forces have no significant impact on violence against civilians in Peru? It's possible that most violence stems from intra-protest clashes, criminal actors exploiting unrest, or decentralized attacks unrelated to state action, meaning that even a restrained or escalated state response would not meaningfully alter the overall level of civilian violence.",
+      "probe_type": "node_negate_high",
+      "target_id": "state_response",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Aggressiveness and tactics used by security forces in responding to unrest"
+    },
+    {
+      "probe_text": "Recent economic data from Peru shows that inflation and unemployment have stabilized over the past six months, with real wages gradually increasing due to targeted social spending. Despite this improvement, social protests have intensified due to non-economic grievances such as corruption scandals and demands for constitutional reform, suggesting that economic stress is not a primary driver of the unrest leading to violence.",
+      "probe_type": "node_negate_medium",
+      "target_id": "economic_stress",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Economic conditions such as inflation, unemployment, and inequality that strain households"
+    },
+    {
+      "probe_text": "Recent surveys show that Peruvian media remains highly localized and traditional, with most citizens relying on family and community networks rather than mass media or social platforms for news. Given low internet penetration in rural areas and consistent public trust in local leaders, the spread of misinformation and national media narratives has had negligible impact on protest behavior in the past year.",
+      "probe_type": "node_negate_low",
+      "target_id": "information_environment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Spread of misinformation, media freedom, and public trust in institutions"
+    },
+    {
+      "probe_text": "On 2025-11-15, a nationwide general strike organized by Peru’s largest labor confederation drew over 200,000 participants across ten cities, with sustained blockades of major highways and ports. Over 60% of reported protest events in the past two weeks involved violent clashes between demonstrators and police, marking a 40% increase in protest-related violence compared to the previous month. This escalation has been directly linked to growing coordination among indigenous and rural movements opposing proposed mining legislation.",
+      "probe_type": "node_strengthen",
+      "target_id": "social_protests",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Frequency and scale of organized public demonstrations, especially those turning violent"
+    },
+    {
+      "probe_text": "On 2025-11-15, Peru's Interior Ministry released internal guidelines authorizing security forces to use live ammunition in crowd control during civil disturbances, marking a significant escalation in permitted tactics. Human Rights Watch documented three separate incidents in the following week where these protocols were applied, resulting in civilian casualties and widespread condemnation.",
+      "probe_type": "node_strengthen",
+      "target_id": "state_response",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Aggressiveness and tactics used by security forces in responding to unrest"
+    },
+    {
+      "probe_text": "Recent reforms in Peru's national police doctrine have emphasized de-escalation and human rights compliance, with binding rules of engagement that limit the use of force during protests. Training and oversight have been strengthened, and incidents of excessive force are now subject to rapid investigation, which may decouple the link between protest size and state aggressiveness.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "social_protests->state_response",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Larger or more disruptive protests provoke stronger responses from security forces"
+    },
+    {
+      "probe_text": "Recent reforms in Peru's national police doctrine emphasize de-escalation and human rights compliance, with independent monitoring showing a 40% reduction in use-of-force incidents during protests since 2024. In several recent demonstrations, even large-scale ones, security forces have refrained from intervention unless extreme violence occurred, suggesting that state response intensity may no longer directly translate into increased civilian violence.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "state_response->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Heavy-handed state responses directly increase incidents of violence against civilians"
+    },
+    {
+      "probe_text": "Political instability in Peru may not necessarily degrade the information environment if independent media outlets and civil society institutions remain resilient. For example, during previous episodes of governmental turnover, fact-checking organizations and regional news networks maintained public trust by providing consistent, accurate reporting, limiting the spread of conspiracy theories despite political chaos.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "political_instability->information_environment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Chronic instability erodes trust in official narratives and fuels conspiracy theories"
+    },
+    {
+      "probe_text": "Security forces in Peru often preemptively escalate their posture in response to intelligence about planned protests, regardless of the protests' actual size or disruption. This means that aggressive state responses can occur before protests even begin, shaping the nature and intensity of the gatherings themselves, thereby making state_response a driver of social_protests rather than a reaction to them.",
+      "probe_type": "edge_reverse",
+      "target_id": "social_protests->state_response",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Larger or more disruptive protests provoke stronger responses from security forces"
+    },
+    {
+      "probe_text": "Suppose the 30-day average of 'Violence against civilians' over the preceding 360 days has been consistently high. Would security forces be more likely to escalate their response tactics due to perceived normalization of violence or operational fatigue, even in the absence of new political or economic shocks? Consider that prolonged exposure to elevated violence may desensitize authorities to aggressive tactics, leading to a higher baseline of force used during protests.",
+      "probe_type": "edge_spurious",
+      "target_id": "historical_violence_trend->state_response",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21 -> Aggressiveness and tactics used by security forces in responding to unrest"
+    },
+    {
+      "probe_text": "Consider the role of upcoming national elections in Peru scheduled within six months of the forecast period. Elections can heighten political tensions, increase mobilization by opposition groups, and incentivize both state actors and protest organizers to escalate actions, potentially increasing violence. Would the proximity of elections meaningfully alter the expected trajectory of violence beyond the current model’s predictions?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of international pressure on human rights practices in Peru. When foreign governments or international organizations publicly condemn excessive use of force by Peruvian security forces, it can constrain state response tactics by increasing the political cost of violent repression. This moderation in state response may reduce the likelihood of violence against civilians, especially during large-scale protests.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early December 2025, a popular Peruvian influencer launched a nationwide tour promoting financial literacy, drawing large crowds in Lima, Arequipa, and Cusco. The tour received significant media coverage and was praised for its positive social impact.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In early November 2025, a popular Peruvian celebrity announced a nationwide tour to promote mental health awareness, visiting major cities including Lima, Arequipa, and Trujillo. The tour included public concerts and collaborations with local NGOs focused on youth well-being.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if organized social protests, even large or violent ones, do not lead to increased state violence or civilian casualties in Peru? In recent years, security forces may have adopted restrained, de-escalation-focused protocols during protests, meaning that even significant demonstrations are met with minimal force, making the scale of protests a poor predictor of civilian violence. Additionally, most violence against civilians could be occurring in remote regions unrelated to protest activity, such as in rural counterinsurgency operations, decoupling the outcome from urban or politically motivated demonstrations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly undermines the causal path from social_protests -> state_response -> outcome, which was a key amplifier in my original model. If large or violent protests no longer reliably trigger aggressive state responses due to revised security protocols, then the link between protest activity and civilian violence is significantly weakened. Furthermore, if most violence against civilians occurs in remote, non-protest contexts—such as counterinsurgency operations—then urban social protests are less relevant to the overall outcome. This decouples social_protests from the final outcome, reducing the predictive power of political_instability and economic_stress (which acted through social_protests). The outcome now depends more heavily on the historical_violence_trend and localized, non-protest drivers not well captured in the current network. Given this, the probability of exceeding the historical average decreases, as protest surges are no longer strong leading indicators of increased violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly undermines the causal path from social_protests -> state_response -> outcome, which was a key amplifier in my original model. If large or violent protests no longer reliably trigger aggressive state responses due to revised security protocols, then the link between protest activity and civilian violence is significantly weakened. Furthermore, if most violence against civilians occurs in remote, non-protest contexts—such as counterinsurgency operations—then urban social protests are less relevant to the overall outcome. This decouples social_protests from the final outcome, reducing the predictive power of political_instability and economic_stress (which acted through social_protests). The outcome now depends more heavily on the historical_violence_trend and localized, non-protest drivers not well captured in the current network. Given this, the probability of exceeding the historical average decreases, as protest surges are no longer strong leading indicators of increased violence.\"\n}",
+      "target_id": "social_protests",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the aggressiveness and tactics of security forces have no significant impact on violence against civilians in Peru? It's possible that most violence stems from intra-protest clashes, criminal actors exploiting unrest, or decentralized attacks unrelated to state action, meaning that even a restrained or escalated state response would not meaningfully alter the overall level of civilian violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'state_response' node significantly affects a key causal path: social_protests -> state_response -> outcome. If state actions do not meaningfully contribute to violence against civilians, then the primary mechanism through which protests escalate into measurable violence is weakened. This severs an important amplification pathway in the causal model. While other paths remain (e.g., social_protests driven by political_instability and economic_stress, potentially leading to violence via non-state actors), these are less directly linked to the outcome and introduce more uncertainty. The historical_violence_trend becomes a stronger anchor in the absence of a potent state_response effect, and given that the baseline trend would need to be overcome for the outcome to resolve positively, the likelihood of an increase diminishes. Thus, the removal of a major causal lever (state_response) reduces the probability of exceeding the historical average, leading to a downward update.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'state_response' node significantly affects a key causal path: social_protests -> state_response -> outcome. If state actions do not meaningfully contribute to violence against civilians, then the primary mechanism through which protests escalate into measurable violence is weakened. This severs an important amplification pathway in the causal model. While other paths remain (e.g., social_protests driven by political_instability and economic_stress, potentially leading to violence via non-state actors), these are less directly linked to the outcome and introduce more uncertainty. The historical_violence_trend becomes a stronger anchor in the absence of a potent state_response effect, and given that the baseline trend would need to be overcome for the outcome to resolve positively, the likelihood of an increase diminishes. Thus, the removal of a major causal lever (state_response) reduces the probability of exceeding the historical average, leading to a downward update.\"\n}",
+      "target_id": "state_response",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent economic data from Peru shows that inflation and unemployment have stabilized over the past six months, with real wages gradually increasing due to targeted social spending. Despite this improvement, social protests have intensified due to non-economic grievances such as corruption scandals and demands for constitutional reform, suggesting that economic stress is not a primary driver of the unrest leading to violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'economic_stress' weakens its role as a driver of social_protests, which in turn reduces its indirect influence on state_response and the outcome. However, since the primary causal paths to the outcome—via political_instability, information_environment, and social_protests—remain intact and protests are intensifying due to non-economic factors, the overall pathway to violence is still operative. The fact that unrest is continuing despite improved economic conditions suggests that economic_stress was a secondary amplifier rather than a core driver. Thus, while the causal link from economic_stress -> social_protests is weakened, the broader network (especially political_instability -> social_protests -> state_response -> outcome) remains robust. This leads to a modest downward revision in the probability, as one potential moderating factor (improved economy) is less likely to reduce violence than previously assumed, but not enough to offset the ongoing structural drivers.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'economic_stress' weakens its role as a driver of social_protests, which in turn reduces its indirect influence on state_response and the outcome. However, since the primary causal paths to the outcome—via political_instability, information_environment, and social_protests—remain intact and protests are intensifying due to non-economic factors, the overall pathway to violence is still operative. The fact that unrest is continuing despite improved economic conditions suggests that economic_stress was a secondary amplifier rather than a core driver. Thus, while the causal link from economic_stress -> social_protests is weakened, the broader network (especially political_instability -> social_protests -> state_response -> outcome) remains robust. This leads to a modest downward revision in the probability, as one potential moderating factor (improved economy) is less likely to reduce violence than previously assumed, but not enough to offset the ongoing structural drivers.\"\n}",
+      "target_id": "economic_stress",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys show that Peruvian media remains highly localized and traditional, with most citizens relying on family and community networks rather than mass media or social platforms for news. Given low internet penetration in rural areas and consistent public trust in local leaders, the spread of misinformation and national media narratives has had negligible impact on protest behavior in the past year.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'information_environment' node indicates that misinformation and national media narratives have had negligible impact on protest behavior, due to localized information networks and high trust in local leaders. This weakens the causal path from 'information_environment' to 'social_protests', reducing the influence of media-driven polarization on mobilization. As a result, one driver of protest escalation is less relevant than previously assumed, which indirectly dampens the chain leading from protests to state response and ultimately to violence against civilians. However, this node was not the central driver in the causal network—economic stress, political instability, and state response remain strong and intact. Therefore, while the challenge downgrades the importance of the information environment, it does not break a critical path, warranting only a modest downward revision in the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'information_environment' node indicates that misinformation and national media narratives have had negligible impact on protest behavior, due to localized information networks and high trust in local leaders. This weakens the causal path from 'information_environment' to 'social_protests', reducing the influence of media-driven polarization on mobilization. As a result, one driver of protest escalation is less relevant than previously assumed, which indirectly dampens the chain leading from protests to state response and ultimately to violence against civilians. However, this node was not the central driver in the causal network—economic stress, political instability, and state response remain strong and intact. Therefore, while the challenge downgrades the importance of the information environment, it does not break a critical path, warranting only a modest downward revision in the probability.\"\n}",
+      "target_id": "information_environment",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, a nationwide general strike organized by Peru’s largest labor confederation drew over 200,000 participants across ten cities, with sustained blockades of major highways and ports. Over 60% of reported protest events in the past two weeks involved violent clashes between demonstrators and police, marking a 40% increase in protest-related violence compared to the previous month. This escalation has been directly linked to growing coordination among indigenous and rural movements opposing proposed mining legislation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.83,
+      "absolute_shift": 0.20999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The reported escalation in social protests—particularly the nationwide general strike with over 200,000 participants, sustained infrastructure blockades, and a 40% increase in violent clashes—directly strengthens the causal path from social_protests to state_response, and subsequently to outcome. The increased scale and violence of protests are likely to provoke a more aggressive state_response, which is a primary mechanism through which violence against civilians rises. Additionally, the coordination among indigenous and rural movements indicates more sustained and organized resistance, reinforcing the social_protests node. This also indirectly amplifies the information_environment -> social_protests link, as polarization and distrust are likely heightened around contentious mining legislation. Given that social_protests is a central mediator between structural drivers (political_instability, economic_stress) and the outcome, and given the observed surge in both protest activity and associated violence, the likelihood of exceeding the historical_violence_trend has increased substantially. Therefore, the probability is updated upward from 0.62 to 0.83.",
+      "raw_response": "{\n  \"updated_probability\": 0.83,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reported escalation in social protests—particularly the nationwide general strike with over 200,000 participants, sustained infrastructure blockades, and a 40% increase in violent clashes—directly strengthens the causal path from social_protests to state_response, and subsequently to outcome. The increased scale and violence of protests are likely to provoke a more aggressive state_response, which is a primary mechanism through which violence against civilians rises. Additionally, the coordination among indigenous and rural movements indicates more sustained and organized resistance, reinforcing the social_protests node. This also indirectly amplifies the information_environment -> social_protests link, as polarization and distrust are likely heightened around contentious mining legislation. Given that social_protests is a central mediator between structural drivers (political_instability, economic_stress) and the outcome, and given the observed surge in both protest activity and associated violence, the likelihood of exceeding the historical_violence_trend has increased substantially. Therefore, the probability is updated upward from 0.62 to 0.83.\"\n}",
+      "target_id": "social_protests",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, Peru's Interior Ministry released internal guidelines authorizing security forces to use live ammunition in crowd control during civil disturbances, marking a significant escalation in permitted tactics. Human Rights Watch documented three separate incidents in the following week where these protocols were applied, resulting in civilian casualties and widespread condemnation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.84,
+      "absolute_shift": 0.21999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'state_response' node in the causal network, which is a key proximate driver of the outcome. The authorization of live ammunition in crowd control represents a significant escalation in state coercive capacity and willingness to use lethal force, and HRW documentation confirms this policy is being implemented and already resulting in civilian casualties. This intensifies the causal path from 'social_protests' to 'state_response' and, crucially, strengthens the direct link from 'state_response' to 'outcome', making violence against civilians more likely even at similar levels of protest activity. Given that this policy shift occurred just weeks before the forecast window (2025-11-15 to 2025-12-28), it is highly likely to affect the level of violence during the observation period. The prior probability of 0.62 already accounted for elevated risk due to political and economic factors, but this institutional change significantly raises the baseline risk of state-perpetrated violence, warranting a substantial upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.84,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'state_response' node in the causal network, which is a key proximate driver of the outcome. The authorization of live ammunition in crowd control represents a significant escalation in state coercive capacity and willingness to use lethal force, and HRW documentation confirms this policy is being implemented and already resulting in civilian casualties. This intensifies the causal path from 'social_protests' to 'state_response' and, crucially, strengthens the direct link from 'state_response' to 'outcome', making violence against civilians more likely even at similar levels of protest activity. Given that this policy shift occurred just weeks before the forecast window (2025-11-15 to 2025-12-28), it is highly likely to affect the level of violence during the observation period. The prior probability of 0.62 already accounted for elevated risk due to political and economic factors, but this institutional change significantly raises the baseline risk of state-perpetrated violence, warranting a substantial upward revision.\"\n}",
+      "target_id": "state_response",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reforms in Peru's national police doctrine have emphasized de-escalation and human rights compliance, with binding rules of engagement that limit the use of force during protests. Training and oversight have been strengthened, and incidents of excessive force are now subject to rapid investigation, which may decouple the link between protest size and state aggressiveness.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'social_protests -> state_response' directly weakens a key transmission mechanism in my original model: that larger or more disruptive protests inevitably trigger stronger, more violent state responses. The introduction of binding de-escalation protocols, improved training, oversight, and accountability mechanisms suggests that the Peruvian state may now respond to social protests with reduced aggressiveness, even in the face of significant unrest. This weakens the causal path from social_protests through state_response to the outcome, thereby reducing the likelihood of elevated violence against civilians. While political instability, economic stress, and protest activity may still increase, their impact on violence is now partially blocked at the state_response node. Historical_violence_trend still anchors expectations, but without automatic escalation from protests, the probability of exceeding the baseline declines. Thus, I substantially reduce my forecast, reflecting the structural weakening of a central causal pathway leading to the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'social_protests -> state_response' directly weakens a key transmission mechanism in my original model: that larger or more disruptive protests inevitably trigger stronger, more violent state responses. The introduction of binding de-escalation protocols, improved training, oversight, and accountability mechanisms suggests that the Peruvian state may now respond to social protests with reduced aggressiveness, even in the face of significant unrest. This weakens the causal path from social_protests through state_response to the outcome, thereby reducing the likelihood of elevated violence against civilians. While political instability, economic stress, and protest activity may still increase, their impact on violence is now partially blocked at the state_response node. Historical_violence_trend still anchors expectations, but without automatic escalation from protests, the probability of exceeding the baseline declines. Thus, I substantially reduce my forecast, reflecting the structural weakening of a central causal pathway leading to the outcome.\"\n}",
+      "target_id": "social_protests->state_response",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reforms in Peru's national police doctrine emphasize de-escalation and human rights compliance, with independent monitoring showing a 40% reduction in use-of-force incidents during protests since 2024. In several recent demonstrations, even large-scale ones, security forces have refrained from intervention unless extreme violence occurred, suggesting that state response intensity may no longer directly translate into increased civilian violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenged causal link 'state_response -> outcome' was a key pathway in my original model: I assumed that stronger state responses directly increased violence against civilians. The new evidence—that police doctrine has shifted toward de-escalation, with verified 40% reduction in use-of-force incidents and restrained conduct during recent protests—suggests this link is now significantly weaker. This breaks or attenuates a major causal path from social_protests through state_response to the outcome. While political instability, economic stress, and protest levels may still increase, their impact on the outcome is now mediated by a less violent state response. The historical_violence_trend and information_environment still support some baseline risk, but without the amplification via aggressive state action, the likelihood of exceeding the historical average declines. Thus, I substantially reduce my estimate from 0.62 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenged causal link 'state_response -> outcome' was a key pathway in my original model: I assumed that stronger state responses directly increased violence against civilians. The new evidence—that police doctrine has shifted toward de-escalation, with verified 40% reduction in use-of-force incidents and restrained conduct during recent protests—suggests this link is now significantly weaker. This breaks or attenuates a major causal path from social_protests through state_response to the outcome. While political instability, economic stress, and protest levels may still increase, their impact on the outcome is now mediated by a less violent state response. The historical_violence_trend and information_environment still support some baseline risk, but without the amplification via aggressive state action, the likelihood of exceeding the historical average declines. Thus, I substantially reduce my estimate from 0.62 to 0.48.\"\n}",
+      "target_id": "state_response->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Political instability in Peru may not necessarily degrade the information environment if independent media outlets and civil society institutions remain resilient. For example, during previous episodes of governmental turnover, fact-checking organizations and regional news networks maintained public trust by providing consistent, accurate reporting, limiting the spread of conspiracy theories despite political chaos.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link between political_instability and information_environment suggests that political instability does not inevitably erode trust or increase misinformation, particularly when independent media and civil society are resilient. This weakens the indirect path from political_instability → information_environment → social_protests → state_response → outcome. As a result, one amplification mechanism for protest escalation—via distorted information environments—is less certain. However, political_instability still directly feeds into social_protests and may indirectly affect violence through other channels (e.g., economic_stress, state_response), so the overall effect on the outcome is reduced but not eliminated. Given that the challenged link was a secondary pathway, not the core driver of the outcome, the update is modest. The expectation of elevated violence remains, but with slightly lower confidence due to the potential stabilizing role of information institutions.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link between political_instability and information_environment suggests that political instability does not inevitably erode trust or increase misinformation, particularly when independent media and civil society are resilient. This weakens the indirect path from political_instability → information_environment → social_protests → state_response → outcome. As a result, one amplification mechanism for protest escalation—via distorted information environments—is less certain. However, political_instability still directly feeds into social_protests and may indirectly affect violence through other channels (e.g., economic_stress, state_response), so the overall effect on the outcome is reduced but not eliminated. Given that the challenged link was a secondary pathway, not the core driver of the outcome, the update is modest. The expectation of elevated violence remains, but with slightly lower confidence due to the potential stabilizing role of information institutions.\"\n}",
+      "target_id": "political_instability->information_environment",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Security forces in Peru often preemptively escalate their posture in response to intelligence about planned protests, regardless of the protests' actual size or disruption. This means that aggressive state responses can occur before protests even begin, shaping the nature and intensity of the gatherings themselves, thereby making state_response a driver of social_protests rather than a reaction to them.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reframes 'state_response' as a proactive, preemptive force that can shape the emergence and intensity of 'social_protests', rather than merely reacting to them. This suggests a reversal or bidirectionality in the causal link between social_protests and state_response, where aggressive state posturing based on intelligence may itself provoke or escalate protests. This strengthens the influence of 'state_response' in the causal network, positioning it as an independent driver of both protests and direct violence. Consequently, the path from state_response -> outcome gains additional weight, as does the indirect effect via state_response -> social_protests -> state_response -> outcome (a feedback loop). Given Peru's history of heavy-handed security responses and the potential for such actions to incite rather than suppress unrest, the likelihood of elevated violence against civilians increases. This reinforces the pathways leading to the outcome, especially if state actions preemptively inflame tensions. Therefore, the probability is updated upward to reflect the heightened risk from autonomous, anticipatory state aggression.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reframes 'state_response' as a proactive, preemptive force that can shape the emergence and intensity of 'social_protests', rather than merely reacting to them. This suggests a reversal or bidirectionality in the causal link between social_protests and state_response, where aggressive state posturing based on intelligence may itself provoke or escalate protests. This strengthens the influence of 'state_response' in the causal network, positioning it as an independent driver of both protests and direct violence. Consequently, the path from state_response -> outcome gains additional weight, as does the indirect effect via state_response -> social_protests -> state_response -> outcome (a feedback loop). Given Peru's history of heavy-handed security responses and the potential for such actions to incite rather than suppress unrest, the likelihood of elevated violence against civilians increases. This reinforces the pathways leading to the outcome, especially if state actions preemptively inflame tensions. Therefore, the probability is updated upward to reflect the heightened risk from autonomous, anticipatory state aggression.\"\n}",
+      "target_id": "social_protests->state_response",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose the 30-day average of 'Violence against civilians' over the preceding 360 days has been consistently high. Would security forces be more likely to escalate their response tactics due to perceived normalization of violence or operational fatigue, even in the absence of new political or economic shocks? Consider that prolonged exposure to elevated violence may desensitize authorities to aggressive tactics, leading to a higher baseline of force used during protests.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a plausible feedback mechanism whereby a high historical_violence_trend could directly influence state_response by normalizing aggressive tactics or inducing operational fatigue, thereby increasing the likelihood of violence against civilians even in the absence of new political or economic shocks. This strengthens the causal path from historical_violence_trend to outcome via state_response, an indirect link not originally in the model. While the original network treated historical_violence_trend as a passive baseline, this challenge suggests it may actively shape state behavior, making escalation more likely when violence has been consistently high. This increases the probability of exceeding the historical average in the final 30 days, particularly if security forces operate with a higher baseline of force. Thus, the updated estimate reflects a modest upward revision due to the enhanced risk of sustained or escalating state violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a plausible feedback mechanism whereby a high historical_violence_trend could directly influence state_response by normalizing aggressive tactics or inducing operational fatigue, thereby increasing the likelihood of violence against civilians even in the absence of new political or economic shocks. This strengthens the causal path from historical_violence_trend to outcome via state_response, an indirect link not originally in the model. While the original network treated historical_violence_trend as a passive baseline, this challenge suggests it may actively shape state behavior, making escalation more likely when violence has been consistently high. This increases the probability of exceeding the historical average in the final 30 days, particularly if security forces operate with a higher baseline of force. Thus, the updated estimate reflects a modest upward revision due to the enhanced risk of sustained or escalating state violence.\"\n}",
+      "target_id": "historical_violence_trend->state_response",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of upcoming national elections in Peru scheduled within six months of the forecast period. Elections can heighten political tensions, increase mobilization by opposition groups, and incentivize both state actors and protest organizers to escalate actions, potentially increasing violence. Would the proximity of elections meaningfully alter the expected trajectory of violence beyond the current model’s predictions?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The proximity of national elections introduces a significant exogenous shock that amplifies several causal paths in the model. Elections act as a catalyst that intensifies political_instability, which in turn strengthens the path to social_protests. Furthermore, election periods increase the incentives for both state actors and opposition groups to use coercive or confrontational tactics, thereby reinforcing the social_protests -> state_response -> outcome pathway. The information_environment is also likely to deteriorate during elections due to heightened disinformation and polarization, strengthening its link to social_protests. While historical_violence_trend provides baseline continuity, election-related escalations represent a known driver of short-term volatility not fully captured in the original model. This structural addition justifies a meaningful upward revision in the probability of exceeding the historical average violence level.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The proximity of national elections introduces a significant exogenous shock that amplifies several causal paths in the model. Elections act as a catalyst that intensifies political_instability, which in turn strengthens the path to social_protests. Furthermore, election periods increase the incentives for both state actors and opposition groups to use coercive or confrontational tactics, thereby reinforcing the social_protests -> state_response -> outcome pathway. The information_environment is also likely to deteriorate during elections due to heightened disinformation and polarization, strengthening its link to social_protests. While historical_violence_trend provides baseline continuity, election-related escalations represent a known driver of short-term volatility not fully captured in the original model. This structural addition justifies a meaningful upward revision in the probability of exceeding the historical average violence level.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of international pressure on human rights practices in Peru. When foreign governments or international organizations publicly condemn excessive use of force by Peruvian security forces, it can constrain state response tactics by increasing the political cost of violent repression. This moderation in state response may reduce the likelihood of violence against civilians, especially during large-scale protests.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The structural challenge introduces a new causal pathway: international pressure -> state_response -> outcome. This implies that even if social_protests increase due to political_instability, economic_stress, or information_environment, the state_response may be moderated by external accountability mechanisms. The original model assumed state_response was driven primarily by the intensity of protests, but with international pressure acting as a constraint, the link between social_protests and state_response becomes partially dampened. This weakens the causal path from social_protests through state_response to the outcome, reducing the expected incidence of violence against civilians during protest surges. Since state_response was a key mediator to the outcome, this update meaningfully reduces the likelihood of exceeding the historical baseline. However, because Peru's responsiveness to international pressure is moderate and enforcement mechanisms are weak, the effect is not decisive—hence a moderate downward adjustment from 0.62 to 0.54.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The structural challenge introduces a new causal pathway: international pressure -> state_response -> outcome. This implies that even if social_protests increase due to political_instability, economic_stress, or information_environment, the state_response may be moderated by external accountability mechanisms. The original model assumed state_response was driven primarily by the intensity of protests, but with international pressure acting as a constraint, the link between social_protests and state_response becomes partially dampened. This weakens the causal path from social_protests through state_response to the outcome, reducing the expected incidence of violence against civilians during protest surges. Since state_response was a key mediator to the outcome, this update meaningfully reduces the likelihood of exceeding the historical baseline. However, because Peru's responsiveness to international pressure is moderate and enforcement mechanisms are weak, the effect is not decisive—hence a moderate downward adjustment from 0.62 to 0.54.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early December 2025, a popular Peruvian influencer launched a nationwide tour promoting financial literacy, drawing large crowds in Lima, Arequipa, and Cusco. The tour received significant media coverage and was praised for its positive social impact.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The influencer's nationwide tour promoting financial literacy and drawing large crowds had a positive social impact and received favorable media coverage. This event indirectly affects the 'information_environment' node by fostering constructive public discourse and potentially increasing trust in institutions through non-confrontational civic engagement. A more constructive information environment may slightly dampen polarization and reduce the likelihood of protest escalation, thereby weakening the path from 'information_environment -> social_protests'. In turn, this reduces pressure along the causal chain: social_protests -> state_response -> outcome. However, this effect is modest because the tour is a temporary and localized intervention that does not address structural drivers like political_instability or economic_stress. Therefore, only a minor downward adjustment is warranted, as the core drivers of violence remain largely unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The influencer's nationwide tour promoting financial literacy and drawing large crowds had a positive social impact and received favorable media coverage. This event indirectly affects the 'information_environment' node by fostering constructive public discourse and potentially increasing trust in institutions through non-confrontational civic engagement. A more constructive information environment may slightly dampen polarization and reduce the likelihood of protest escalation, thereby weakening the path from 'information_environment -> social_protests'. In turn, this reduces pressure along the causal chain: social_protests -> state_response -> outcome. However, this effect is modest because the tour is a temporary and localized intervention that does not address structural drivers like political_instability or economic_stress. Therefore, only a minor downward adjustment is warranted, as the core drivers of violence remain largely unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early November 2025, a popular Peruvian celebrity announced a nationwide tour to promote mental health awareness, visiting major cities including Lima, Arequipa, and Trujillo. The tour included public concerts and collaborations with local NGOs focused on youth well-being.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "unchanged",
+      "reasoning": "The celebrity mental health awareness tour, while potentially influential on public mood and social cohesion, does not directly affect any core causal paths in the model. It does not significantly alter political_instability, economic_stress, or state_response—key drivers of violence. Any influence on social_protests would be indirect and likely minimal, as the tour is focused on mental health and well-being rather than political or economic grievances. Similarly, the information_environment may see a temporary shift toward more positive or health-focused narratives, but this is unlikely to disrupt the broader dynamics of misinformation or institutional distrust that fuel unrest. Given the peripheral nature of this event to the primary drivers of violence against civilians, the probability remains effectively unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The celebrity mental health awareness tour, while potentially influential on public mood and social cohesion, does not directly affect any core causal paths in the model. It does not significantly alter political_instability, economic_stress, or state_response—key drivers of violence. Any influence on social_protests would be indirect and likely minimal, as the tour is focused on mental health and well-being rather than political or economic grievances. Similarly, the information_environment may see a temporary shift toward more positive or health-focused narratives, but this is unlikely to disrupt the broader dynamics of misinformation or institutional distrust that fuel unrest. Given the peripheral nature of this event to the primary drivers of violence against civilians, the probability remains effectively unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In early November 2025, Peru's national unemployment rate rises to 10.3%, the highest in three years, driven by sharp contractions in mining and agriculture. Simultaneously, annual inflation rebounds to 8.7% after months of erratic food supply chains, eroding household purchasing power and increasing desperation in low-income urban and rural communities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.74,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the 'economic_stress' node significantly, with unemployment rising to 10.3% and inflation reaching 8.7%—both indicators pointing to severe economic hardship. This reinforces the causal path from economic_stress -> social_protests, as deteriorating conditions increase public frustration and likelihood of mobilization. Given that social_protests -> state_response -> outcome, and assuming protests are met with force, this amplifies the risk of violence against civilians. Additionally, economic_stress likely exacerbates the information_environment by reducing trust in institutions, further fueling protest participation via the information_environment -> social_protests link. While economic_stress does not directly cause violence, it is a key driver of the upstream conditions that feed into the primary causal pathway leading to the outcome. The historical_violence_trend may still anchor baseline levels, but the magnitude of the economic shock suggests a meaningful deviation is more likely. Therefore, the probability is updated upward to reflect heightened risk along multiple reinforcing causal paths.",
+      "raw_response": "{\n  \"updated_probability\": 0.74,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the 'economic_stress' node significantly, with unemployment rising to 10.3% and inflation reaching 8.7%—both indicators pointing to severe economic hardship. This reinforces the causal path from economic_stress -> social_protests, as deteriorating conditions increase public frustration and likelihood of mobilization. Given that social_protests -> state_response -> outcome, and assuming protests are met with force, this amplifies the risk of violence against civilians. Additionally, economic_stress likely exacerbates the information_environment by reducing trust in institutions, further fueling protest participation via the information_environment -> social_protests link. While economic_stress does not directly cause violence, it is a key driver of the upstream conditions that feed into the primary causal pathway leading to the outcome. The historical_violence_trend may still anchor baseline levels, but the magnitude of the economic shock suggests a meaningful deviation is more likely. Therefore, the probability is updated upward to reflect heightened risk along multiple reinforcing causal paths.\"\n}",
+      "target_id": "economic_stress",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A recent report from a local media watchdog indicates a 40% increase in the spread of political misinformation on social media platforms in Peru over the past three months, particularly in regions with low access to independent news outlets. Concurrently, public opinion surveys show a sharp decline in trust in government-aligned media, with over 60% of respondents in urban centers saying they 'rarely' or 'never' trust official broadcasts. This growing information vacuum and polarization are being exploited by activist groups to mobilize protests, often using emotionally charged but unverified claims.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the 'information_environment' node significantly, particularly along the causal path from information_environment -> social_protests. The 40% increase in political misinformation and the sharp decline in trust in official media amplify polarization and erode shared factual baselines, making populations more susceptible to mobilization based on emotionally charged, unverified claims. This directly increases the likelihood and intensity of social_protests, which in turn activates the downstream path social_protests -> state_response -> outcome. Given that activist groups are exploiting the information vacuum to organize protests, the pathway from information_environment to violence is now more active and consequential. This does not alter the historical_violence_trend, but it increases the probability of a deviation from that trend. Since information_environment was already a key amplifier in the network and is now empirically worsening, the upward revision is substantial but bounded by the fact that other factors (e.g., economic_stress, political_instability) have not yet shown corresponding escalation.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the 'information_environment' node significantly, particularly along the causal path from information_environment -> social_protests. The 40% increase in political misinformation and the sharp decline in trust in official media amplify polarization and erode shared factual baselines, making populations more susceptible to mobilization based on emotionally charged, unverified claims. This directly increases the likelihood and intensity of social_protests, which in turn activates the downstream path social_protests -> state_response -> outcome. Given that activist groups are exploiting the information vacuum to organize protests, the pathway from information_environment to violence is now more active and consequential. This does not alter the historical_violence_trend, but it increases the probability of a deviation from that trend. Since information_environment was already a key amplifier in the network and is now empirically worsening, the upward revision is substantial but bounded by the fact that other factors (e.g., economic_stress, political_instability) have not yet shown corresponding escalation.\"\n}",
+      "target_id": "information_environment",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2024, a series of nationwide protests in Peru over proposed constitutional reforms turned violent in Lima and Arequipa, with demonstrators blockading highways and clashing with police. In response, the Peruvian National Police deployed riot squads and used tear gas, rubber bullets, and mass detentions—marking one of the most aggressive state responses since 2022. This escalation demonstrates that larger, disruptive protests directly trigger heightened force from security forces, reinforcing the causal link between social_protests and state_response.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The new information reinforces the causal link between social_protests and state_response, confirming that large and disruptive protests in Peru trigger aggressive responses from security forces. This strengthens a key pathway in the causal network: increased social_protests lead to more forceful state_response, which directly increases the likelihood of violence against civilians. Since this link was already part of the model, the evidence does not introduce a new mechanism but increases confidence in the robustness and operational reality of this path. Given that political instability and economic stress are ongoing in Peru, the strengthened expectation of protest-driven state violence raises the probability of exceeding the historical baseline. The update is moderate because the link was already accounted for, but the real-world demonstration of its potency justifies a upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information reinforces the causal link between social_protests and state_response, confirming that large and disruptive protests in Peru trigger aggressive responses from security forces. This strengthens a key pathway in the causal network: increased social_protests lead to more forceful state_response, which directly increases the likelihood of violence against civilians. Since this link was already part of the model, the evidence does not introduce a new mechanism but increases confidence in the robustness and operational reality of this path. Given that political instability and economic stress are ongoing in Peru, the strengthened expectation of protest-driven state violence raises the probability of exceeding the historical baseline. The update is moderate because the link was already accounted for, but the real-world demonstration of its potency justifies a upward revision.\"\n}",
+      "target_id": "social_protests->state_response",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2025, Peruvian security forces used live ammunition against protesters in Ayacucho during demonstrations over mining reforms, resulting in 7 civilian deaths and 34 injuries—Peru's highest single-day toll of state-perpetrated violence since 2023. Forensic reports confirmed that most victims were shot in the back or limbs, indicating excessive force. This incident underscores how aggressive state tactics directly escalate violence against civilians, particularly in politically sensitive regions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.74,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The June 2025 incident in Ayacucho provides concrete, recent evidence that the causal link 'state_response -> outcome' is strong and operational. The use of live ammunition resulting in multiple civilian deaths and injuries—documented as excessive force—demonstrates that aggressive state responses actively generate violence against civilians. This reinforces the pathway from social_protests (when met with harsh state_response) directly increasing the outcome. Given that political_instability and economic_stress are ongoing in Peru, and likely to fuel further social_protests, the confirmed propensity for violent state responses now appears more entrenched. This strengthens the overall causal chain leading to elevated violence, particularly in flashpoint regions. The historical_violence_trend may have suggested moderation, but this event indicates a shift toward higher baseline risk. Thus, the probability of exceeding the prior 30-day average has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.74,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The June 2025 incident in Ayacucho provides concrete, recent evidence that the causal link 'state_response -> outcome' is strong and operational. The use of live ammunition resulting in multiple civilian deaths and injuries—documented as excessive force—demonstrates that aggressive state responses actively generate violence against civilians. This reinforces the pathway from social_protests (when met with harsh state_response) directly increasing the outcome. Given that political_instability and economic_stress are ongoing in Peru, and likely to fuel further social_protests, the confirmed propensity for violent state responses now appears more entrenched. This strengthens the overall causal chain leading to elevated violence, particularly in flashpoint regions. The historical_violence_trend may have suggested moderation, but this event indicates a shift toward higher baseline risk. Thus, the probability of exceeding the prior 30-day average has increased.\"\n}",
+      "target_id": "state_response->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "In late 2024, Peru experiences a constitutional crisis when the president dissolves Congress amid allegations of corruption, only for Congress to reciprocally declare the presidency vacant, creating a power vacuum. This back-and-forth legal and political limbo is broadcast daily, with rival government figures presenting conflicting 'official' accounts of legitimacy, causing widespread public confusion. Surveys from early December 2024 show a 40-point drop in trust in both government and mainstream media compared to the start of the year, while encrypted messaging apps see a surge in circulation of unverified claims about election sabotage and foreign interference.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.78,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strongly reinforces, rather than undermines, the causal link between political_instability and information_environment. The constitutional crisis described intensifies political instability, which in turn severely degrades public trust and floods the information environment with conflicting narratives and misinformation. This amplifies the pathway from political_instability -> information_environment -> social_protests, increasing the likelihood of large-scale or radicalized protests. These protests are more likely to provoke a strong state_response, which directly increases the outcome of violence against civilians. Additionally, the erosion in trust and rise in misinformation weakens institutional legitimacy, making de-escalation less likely. As a result, the causal path from political instability to violence is strengthened through an increasingly toxic information environment, justifying a substantial upward revision in the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.78,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strongly reinforces, rather than undermines, the causal link between political_instability and information_environment. The constitutional crisis described intensifies political instability, which in turn severely degrades public trust and floods the information environment with conflicting narratives and misinformation. This amplifies the pathway from political_instability -> information_environment -> social_protests, increasing the likelihood of large-scale or radicalized protests. These protests are more likely to provoke a strong state_response, which directly increases the outcome of violence against civilians. Additionally, the erosion in trust and rise in misinformation weakens institutional legitimacy, making de-escalation less likely. As a result, the causal path from political instability to violence is strengthened through an increasingly toxic information environment, justifying a substantial upward revision in the probability.\"\n}",
+      "target_id": "political_instability->information_environment",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "7324000fa5d5d32e83c2d260425c63152ec88965e22de78f03bcf54a74b0f973",
+    "question_text": "Will there be more 'Violence against civilians' in Peru for the 30 days before 2025-12-28 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.09933333333333334,
+    "max_absolute_shift": 0.21999999999999997
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.371621621621621,
+    "mean_shift_high": 0.14625,
+    "mean_shift_low": 0.06166666666666668,
+    "asymmetry_index": 0.6800000000000003,
+    "mean_shift_negate": 0.09714285714285717,
+    "mean_shift_strengthen": 0.14285714285714285,
+    "fnar": 1,
+    "n_accepted": 3,
+    "n_spurious": 3,
+    "critical_path_premium": 0.06727272727272728,
+    "mean_shift_on_path": 0.14,
+    "mean_shift_off_path": 0.07272727272727274,
+    "importance_sensitivity_correlation": 0.20454545454545459,
+    "control_sensitivity": 0
+  }
+}

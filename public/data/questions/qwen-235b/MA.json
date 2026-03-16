@@ -1,0 +1,1100 @@
+{
+  "question_id": "MA",
+  "question_text": "Will MA's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "economic_growth",
+      "description": "Expected US macroeconomic growth in late 2025, influencing corporate earnings and investor sentiment",
+      "role": "factor"
+    },
+    {
+      "id": "fed_policy",
+      "description": "Federal Reserve interest rate policy decisions affecting discount rates and market liquidity",
+      "role": "factor"
+    },
+    {
+      "id": "market_sentiment",
+      "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors",
+      "role": "factor"
+    },
+    {
+      "id": "earnings_trend",
+      "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025",
+      "role": "factor"
+    },
+    {
+      "id": "sector_performance",
+      "description": "Relative strength of the financial services and payments sector compared to broader market",
+      "role": "factor"
+    },
+    {
+      "id": "stock_volatility",
+      "description": "Historical and implied volatility of MA stock in the weeks leading up to December 2025",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "MA's market close price on 2025-12-28 is higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_growth",
+      "to": "earnings_trend",
+      "mechanism": "Stronger economic growth increases consumer spending, boosting Mastercard's transaction volume and earnings"
+    },
+    {
+      "from": "fed_policy",
+      "to": "market_sentiment",
+      "mechanism": "Easing monetary policy improves investor confidence and promotes risk-taking in equities"
+    },
+    {
+      "from": "market_sentiment",
+      "to": "sector_performance",
+      "mechanism": "Positive sentiment disproportionately benefits cyclical sectors like financials"
+    },
+    {
+      "from": "earnings_trend",
+      "to": "stock_volatility",
+      "mechanism": "Earnings surprises or instability increase short-term stock price volatility"
+    },
+    {
+      "from": "stock_volatility",
+      "to": "outcome",
+      "mechanism": "High volatility increases the range of potential price outcomes, making weekly price changes less predictable"
+    },
+    {
+      "from": "sector_performance",
+      "to": "outcome",
+      "mechanism": "Outperformance of the financial sector lifts Mastercard's stock price relative to previous week"
+    },
+    {
+      "from": "market_sentiment",
+      "to": "outcome",
+      "mechanism": "Broad bullish sentiment increases buying pressure on individual stocks including Mastercard"
+    }
+  ],
+  "reasoning": "Mastercard's stock price movement in late December 2025 will depend on macroeconomic conditions, Fed policy, and company-specific fundamentals. While economic growth and positive earnings trends support upward momentum, high market volatility and uncertainty around year-end trading behavior limit confidence. The probability is slightly above 50% due to expected long-term growth in digital payments and modest macroeconomic tailwinds, but the one-week horizon introduces significant noise.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "economic_growth",
+        "description": "Expected US macroeconomic growth in late 2025, influencing corporate earnings and investor sentiment",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0643,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "fed_policy",
+        "description": "Federal Reserve interest rate policy decisions affecting discount rates and market liquidity",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0643,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "market_sentiment",
+        "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.119,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "earnings_trend",
+        "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.119,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "sector_performance",
+        "description": "Relative strength of the financial services and payments sector compared to broader market",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.2222,
+        "pagerank": 0.1149,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "stock_volatility",
+        "description": "Historical and implied volatility of MA stock in the weeks leading up to December 2025",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.2222,
+        "pagerank": 0.1654,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "outcome",
+        "description": "MA's market close price on 2025-12-28 is higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.6,
+        "pagerank": 0.3531,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "economic_growth",
+        "target": "earnings_trend",
+        "mechanism": "Stronger economic growth increases consumer spending, boosting Mastercard's transaction volume and earnings",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "fed_policy",
+        "target": "market_sentiment",
+        "mechanism": "Easing monetary policy improves investor confidence and promotes risk-taking in equities",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "market_sentiment",
+        "target": "sector_performance",
+        "mechanism": "Positive sentiment disproportionately benefits cyclical sectors like financials",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": false
+      },
+      {
+        "source": "market_sentiment",
+        "target": "outcome",
+        "mechanism": "Broad bullish sentiment increases buying pressure on individual stocks including Mastercard",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "earnings_trend",
+        "target": "stock_volatility",
+        "mechanism": "Earnings surprises or instability increase short-term stock price volatility",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "sector_performance",
+        "target": "outcome",
+        "mechanism": "Outperformance of the financial sector lifts Mastercard's stock price relative to previous week",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "stock_volatility",
+        "target": "outcome",
+        "mechanism": "High volatility increases the range of potential price outcomes, making weekly price changes less predictable",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment",
+        "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "earnings_trend",
+        "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "Expected US macroeconomic growth in late 2025, influencing corporate earnings and investor sentiment",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "sector_performance",
+        "description": "Relative strength of the financial services and payments sector compared to broader market",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment",
+        "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "earnings_trend",
+        "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025",
+        "importance": 0.0667,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "earnings_trend->stock_volatility",
+        "description": "Earnings surprises or instability increase short-term stock price volatility",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_growth->earnings_trend",
+        "description": "Stronger economic growth increases consumer spending, boosting Mastercard's transaction volume and earnings",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment->sector_performance",
+        "description": "Positive sentiment disproportionately benefits cyclical sectors like financials",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "earnings_trend->stock_volatility",
+        "description": "Earnings surprises or instability increase short-term stock price volatility",
+        "importance": 0.0952,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "market_sentiment->stock_volatility",
+        "description": "Potential link: Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors -> Historical and implied volatility of MA stock in the weeks leading up to December 2025",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "sector_performance->stock_volatility",
+        "description": "Potential link: Relative strength of the financial services and payments sector compared to broader market -> Historical and implied volatility of MA stock in the weeks leading up to December 2025",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment",
+      "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "earnings_trend",
+      "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "Expected US macroeconomic growth in late 2025, influencing corporate earnings and investor sentiment",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "sector_performance",
+      "description": "Relative strength of the financial services and payments sector compared to broader market",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment",
+      "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "earnings_trend",
+      "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "earnings_trend->stock_volatility",
+      "description": "Earnings surprises or instability increase short-term stock price volatility",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_growth->earnings_trend",
+      "description": "Stronger economic growth increases consumer spending, boosting Mastercard's transaction volume and earnings",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment->sector_performance",
+      "description": "Positive sentiment disproportionately benefits cyclical sectors like financials",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "earnings_trend->stock_volatility",
+      "description": "Earnings surprises or instability increase short-term stock price volatility",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "market_sentiment->stock_volatility",
+      "description": "Potential link: Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors -> Historical and implied volatility of MA stock in the weeks leading up to December 2025",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "sector_performance->stock_volatility",
+      "description": "Potential link: Relative strength of the financial services and payments sector compared to broader market -> Historical and implied volatility of MA stock in the weeks leading up to December 2025",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if overall investor mood and risk appetite in December 2025 have little impact on Mastercard's stock price movement? During periods of low market liquidity or company-specific dominance in earnings news, individual stock performance may decouple from broad sentiment, especially if MA's price action is driven more by transaction volume fundamentals or regulatory developments in the payments sector than by speculative investor behavior.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors"
+    },
+    {
+      "probe_text": "What if Mastercard's earnings performance in Q4 2025 has little impact on its stock price because the market has already fully priced in all expected earnings growth by December 21, and subsequent price movement is driven primarily by sector-wide repositioning and macroeconomic surprises rather than company-specific fundamentals? In this scenario, even strong earnings trends fail to move the stock, as they are seen as backward-looking and already reflected in valuation.",
+      "probe_type": "node_negate_high",
+      "target_id": "earnings_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025"
+    },
+    {
+      "probe_text": "Growth in US consumer spending stalled in Q4 2025 despite earlier momentum, with retail sales flatlining and credit card delinquencies rising, suggesting that macroeconomic conditions had weakened even as Mastercard's transaction volumes remained resilient due to international growth and digital payment adoption. This disconnect implies that domestic economic growth may not be a key driver of Mastercard's late-year performance. As a result, expectations about US macroeconomic growth might have limited predictive power for MA's stock price movement in December 2025.",
+      "probe_type": "node_negate_medium",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Expected US macroeconomic growth in late 2025, influencing corporate earnings and investor sentiment"
+    },
+    {
+      "probe_text": "Recent data suggests the financial services and payments sector will underperform the broader market in December 2025 due to tighter regulatory scrutiny and declining interchange fee growth. However, Mastercard's diversified revenue model and cost optimization efforts may allow it to outperform its sector peers, weakening the link between sector-wide trends and MA's individual stock performance.",
+      "probe_type": "node_negate_low",
+      "target_id": "sector_performance",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Relative strength of the financial services and payments sector compared to broader market"
+    },
+    {
+      "probe_text": "In November 2025, the University of Michigan's Consumer Sentiment Index reaches a five-year high, driven by improved economic optimism and reduced geopolitical tensions, with investor surveys from AAII showing a sharp rise in bullish equity market outlooks. This surge in sentiment coincides with increased retail trading activity and inflows into financial sector ETFs, reinforcing the influence of broad market mood on stock performance.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors"
+    },
+    {
+      "probe_text": "In October 2025, Mastercard reports Q3 earnings that beat analyst expectations by 8%, driven by strong international transaction volume growth and higher-than-expected net revenue margins. Analysts at JPMorgan raise their forward earnings estimates for Q4 2025, citing sustained momentum in consumer spending and pricing power.",
+      "probe_type": "node_strengthen",
+      "target_id": "earnings_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Mastercard's trailing and forward earnings performance leading into Q4 2025"
+    },
+    {
+      "probe_text": "Earnings trend may not substantially drive MA's stock volatility in December 2025 because the stock has historically exhibited muted price reactions to earnings announcements during holiday-season trading, when volume is low and institutional positioning dominates. Additionally, if the earnings trend is stable and in line with expectations, volatility could be more sensitive to macro events or sector rotation than to earnings dynamics.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "earnings_trend->stock_volatility",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Earnings surprises or instability increase short-term stock price volatility"
+    },
+    {
+      "probe_text": "In late 2025, US economic growth may be driven primarily by government spending and defense contracts rather than consumer discretionary spending, limiting the pass-through to Mastercard's transaction volumes. Additionally, if wage growth stagnates or consumer debt levels rise, households may curtail spending despite overall GDP growth, weakening the link between macro growth and Mastercard's earnings.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "economic_growth->earnings_trend",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Stronger economic growth increases consumer spending, boosting Mastercard's transaction volume and earnings"
+    },
+    {
+      "probe_text": "In December 2025, widespread negative reactions to year-end regulatory proposals targeting payment processing fees could dampen financial sector performance even amid otherwise positive market sentiment, limiting the usual cyclical boost from investor optimism. This regulatory overhang may cause the financial sector to underperform relative to other sectors despite broad risk-on conditions.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "market_sentiment->sector_performance",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Positive sentiment disproportionately benefits cyclical sectors like financials"
+    },
+    {
+      "probe_text": "High stock volatility in MA during December 2025 could signal increased uncertainty among investors about future earnings, leading analysts to revise earnings estimates more frequently and widen forecast ranges. This increased dispersion in expectations, in turn, amplifies perceived earnings instability, suggesting that volatility drives the assessment of earnings trend rather than the other way around.",
+      "probe_type": "edge_reverse",
+      "target_id": "earnings_trend->stock_volatility",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Earnings surprises or instability increase short-term stock price volatility"
+    },
+    {
+      "probe_text": "Suppose new data reveals that during periods of heightened market sentiment—driven by optimistic macroeconomic expectations and stable geopolitical conditions—investors exhibit stronger momentum trading behavior in large-cap financial stocks like Mastercard. This increased momentum activity has been historically linked to larger intraday price swings and spikes in options demand, raising both historical and implied volatility despite the positive mood. Could strong market sentiment paradoxically increase MA's stock volatility in December 2025 by amplifying trading intensity and leverage?",
+      "probe_type": "edge_spurious",
+      "target_id": "market_sentiment->stock_volatility",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Overall investor mood and risk appetite during December 2025, influenced by macro and geopolitical factors -> Historical and implied volatility of MA stock in the weeks leading up to December 2025"
+    },
+    {
+      "probe_text": "Suppose the financial services and payments sector shows strong relative performance in December 2025, driven by a wave of merger announcements and rising interest rate margins. This sector-wide momentum attracts speculative trading and increases correlation among financial stocks, including Mastercard. Could this sector strength amplify trading volume and price swings in MA stock, thereby increasing its historical and implied volatility independently of its own earnings news?",
+      "probe_type": "edge_spurious",
+      "target_id": "sector_performance->stock_volatility",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Relative strength of the financial services and payments sector compared to broader market -> Historical and implied volatility of MA stock in the weeks leading up to December 2025"
+    },
+    {
+      "probe_text": "Consider the potential impact of a major cybersecurity breach at Mastercard in early December 2025. Such an event could trigger regulatory scrutiny, loss of consumer trust, and operational disruptions, leading to a sharp decline in stock price regardless of broader economic or sector trends. This idiosyncratic risk is not captured by existing nodes like earnings_trend or market_sentiment, yet could directly influence the stock's weekly price movement.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the potential impact of a major cybersecurity breach at Mastercard in early December 2025. Such an event could trigger regulatory scrutiny, loss of consumer trust, and operational disruptions, leading to a sharp decline in stock price regardless of broader market or sector trends. This idiosyncratic risk is not captured by the current model but could directly affect the stock's weekly price movement.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Mastercard announced a new partnership with a major cryptocurrency exchange to facilitate fiat on-ramps for digital asset users. The collaboration is set to launch in early 2026 and will integrate Mastercard's payment rails into the exchange's deposit infrastructure.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Mastercard announced a new partnership with a major cryptocurrency exchange in November 2025, allowing users to convert digital assets into fiat currency directly through Mastercard-linked accounts. The feature is set to launch in early 2026, after the evaluation period of the stock price in question.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if overall investor mood and risk appetite in December 2025 have little impact on Mastercard's stock price movement? During periods of low market liquidity or company-specific dominance in earnings news, individual stock performance may decouple from broad sentiment, especially if MA's price action is driven more by transaction volume fundamentals or regulatory developments in the payments sector than by speculative investor behavior.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link between market_sentiment and outcome, as well as market_sentiment -> sector_performance. If investor mood has limited impact on MA's stock price in December 2025—particularly if company-specific fundamentals or regulatory factors dominate—then the pathways through which broad sentiment influences the outcome are weakened. This reduces the explanatory power of market_sentiment in the network. However, market_sentiment was not the sole driver of the outcome; earnings_trend and sector_performance (influenced by economic_growth and fed_policy) remain intact. The weakening of one input into sector_performance and a direct input into outcome leads to a modest reduction in confidence, as the outcome becomes more dependent on narrower, potentially more volatile drivers. The effect is small because the core earnings and macroeconomic links remain robust, and stock_volatility still captures some of the uncertainty from sentiment shifts indirectly. Thus, the probability shifts slightly downward due to increased uncertainty, but not substantially because the challenged node was one of several contributors.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link between market_sentiment and outcome, as well as market_sentiment -> sector_performance. If investor mood has limited impact on MA's stock price in December 2025—particularly if company-specific fundamentals or regulatory factors dominate—then the pathways through which broad sentiment influences the outcome are weakened. This reduces the explanatory power of market_sentiment in the network. However, market_sentiment was not the sole driver of the outcome; earnings_trend and sector_performance (influenced by economic_growth and fed_policy) remain intact. The weakening of one input into sector_performance and a direct input into outcome leads to a modest reduction in confidence, as the outcome becomes more dependent on narrower, potentially more volatile drivers. The effect is small because the core earnings and macroeconomic links remain robust, and stock_volatility still captures some of the uncertainty from sentiment shifts indirectly. Thus, the probability shifts slightly downward due to increased uncertainty, but not substantially because the challenged node was one of several contributors.\"\n}",
+      "target_id": "market_sentiment",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Mastercard's earnings performance in Q4 2025 has little impact on its stock price because the market has already fully priced in all expected earnings growth by December 21, and subsequent price movement is driven primarily by sector-wide repositioning and macroeconomic surprises rather than company-specific fundamentals? In this scenario, even strong earnings trends fail to move the stock, as they are seen as backward-looking and already reflected in valuation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link from earnings_trend to stock_volatility, and indirectly to outcome. If MA's earnings are already fully priced in by December 21, 2025, then the earnings_trend node becomes less influential on short-term price movements, weakening its downstream effects on stock_volatility and the outcome. However, this effect is partially offset by the continued relevance of sector_performance and market_sentiment, which remain key drivers in the final week. The path from earnings_trend to outcome is attenuated, but not central compared to broader macro and sector-level forces. Thus, the weakening of this one causal path reduces the predictive power of fundamentals slightly, but does not overturn the slight upward bias from macro and sentiment trends. The change is minor because earnings_trend was not the dominant path to the outcome in the original network.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link from earnings_trend to stock_volatility, and indirectly to outcome. If MA's earnings are already fully priced in by December 21, 2025, then the earnings_trend node becomes less influential on short-term price movements, weakening its downstream effects on stock_volatility and the outcome. However, this effect is partially offset by the continued relevance of sector_performance and market_sentiment, which remain key drivers in the final week. The path from earnings_trend to outcome is attenuated, but not central compared to broader macro and sector-level forces. Thus, the weakening of this one causal path reduces the predictive power of fundamentals slightly, but does not overturn the slight upward bias from macro and sentiment trends. The change is minor because earnings_trend was not the dominant path to the outcome in the original network.\"\n}",
+      "target_id": "earnings_trend",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Growth in US consumer spending stalled in Q4 2025 despite earlier momentum, with retail sales flatlining and credit card delinquencies rising, suggesting that macroeconomic conditions had weakened even as Mastercard's transaction volumes remained resilient due to international growth and digital payment adoption. This disconnect implies that domestic economic growth may not be a key driver of Mastercard's late-year performance. As a result, expectations about US macroeconomic growth might have limited predictive power for MA's stock price movement in December 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens the causal link between economic_growth and earnings_trend, suggesting that U.S. macroeconomic growth is less influential on Mastercard's earnings than previously thought due to resilient international transaction volumes and digital payment adoption. However, this does not break the overall causal path to the outcome, as earnings_trend can still be driven by non-domestic factors. The structural importance of earnings_trend in influencing stock_volatility and indirectly affecting the outcome remains intact. Additionally, sector_performance and market_sentiment retain their influence, and the latter is still tied to fed_policy and broader conditions. The reduced dependence on U.S. economic_growth slightly decouples MA from a potentially weak domestic environment, which could insulate it from negative macro sentiment. This modestly increases the likelihood of a positive price movement, hence a small upward adjustment. The update is limited because economic_growth was never the dominant driver in the network—its effect was mediated through multiple intermediate nodes—and the core drivers (market_sentiment, sector_performance, and global earnings trends) remain operative.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens the causal link between economic_growth and earnings_trend, suggesting that U.S. macroeconomic growth is less influential on Mastercard's earnings than previously thought due to resilient international transaction volumes and digital payment adoption. However, this does not break the overall causal path to the outcome, as earnings_trend can still be driven by non-domestic factors. The structural importance of earnings_trend in influencing stock_volatility and indirectly affecting the outcome remains intact. Additionally, sector_performance and market_sentiment retain their influence, and the latter is still tied to fed_policy and broader conditions. The reduced dependence on U.S. economic_growth slightly decouples MA from a potentially weak domestic environment, which could insulate it from negative macro sentiment. This modestly increases the likelihood of a positive price movement, hence a small upward adjustment. The update is limited because economic_growth was never the dominant driver in the network—its effect was mediated through multiple intermediate nodes—and the core drivers (market_sentiment, sector_performance, and global earnings trends) remain operative.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent data suggests the financial services and payments sector will underperform the broader market in December 2025 due to tighter regulatory scrutiny and declining interchange fee growth. However, Mastercard's diversified revenue model and cost optimization efforts may allow it to outperform its sector peers, weakening the link between sector-wide trends and MA's individual stock performance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens the causal link between sector_performance and outcome by suggesting that Mastercard may decouple from negative sector trends due to its diversified revenue model and cost optimization. This reduces the negative impact of anticipated financial sector underperformance on MA's stock price. While sector_performance still influences the outcome, the resilience of MA relative to peers strengthens the direct path from earnings_trend and market_sentiment to outcome, and partially insulates the stock from sector-wide headwinds. As a result, the likelihood of MA outperforming over the week increases slightly, particularly if firm-specific fundamentals remain strong. The update is modest because sector performance remains a relevant factor, but the reduced sensitivity to it allows for a small upward revision in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens the causal link between sector_performance and outcome by suggesting that Mastercard may decouple from negative sector trends due to its diversified revenue model and cost optimization. This reduces the negative impact of anticipated financial sector underperformance on MA's stock price. While sector_performance still influences the outcome, the resilience of MA relative to peers strengthens the direct path from earnings_trend and market_sentiment to outcome, and partially insulates the stock from sector-wide headwinds. As a result, the likelihood of MA outperforming over the week increases slightly, particularly if firm-specific fundamentals remain strong. The update is modest because sector performance remains a relevant factor, but the reduced sensitivity to it allows for a small upward revision in probability.\"\n}",
+      "target_id": "sector_performance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In November 2025, the University of Michigan's Consumer Sentiment Index reaches a five-year high, driven by improved economic optimism and reduced geopolitical tensions, with investor surveys from AAII showing a sharp rise in bullish equity market outlooks. This surge in sentiment coincides with increased retail trading activity and inflows into financial sector ETFs, reinforcing the influence of broad market mood on stock performance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information strongly reinforces the 'market_sentiment' node, a key driver in multiple causal paths leading to the outcome. The University of Michigan's Consumer Sentiment Index reaching a five-year high, combined with bullish investor surveys from AAII and increased retail trading activity, provides concrete evidence of elevated market sentiment in late 2025. This directly strengthens the 'market_sentiment -> outcome' path by increasing buying pressure on stocks like MA. It also strengthens the 'market_sentiment -> sector_performance' path, which in turn boosts the 'sector_performance -> outcome' link—especially relevant given inflows into financial sector ETFs. Additionally, improved sentiment may indirectly support 'fed_policy -> market_sentiment' if optimistic conditions reduce pressure for aggressive monetary tightening. While 'stock_volatility' could moderate due to stable sentiment, the dominant effect is a more favorable environment for upward price movement. Since market sentiment feeds directly and indirectly into the outcome through two causal pathways, this update is substantial but not maximal due to residual uncertainty around earnings and macro conditions.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strongly reinforces the 'market_sentiment' node, a key driver in multiple causal paths leading to the outcome. The University of Michigan's Consumer Sentiment Index reaching a five-year high, combined with bullish investor surveys from AAII and increased retail trading activity, provides concrete evidence of elevated market sentiment in late 2025. This directly strengthens the 'market_sentiment -> outcome' path by increasing buying pressure on stocks like MA. It also strengthens the 'market_sentiment -> sector_performance' path, which in turn boosts the 'sector_performance -> outcome' link—especially relevant given inflows into financial sector ETFs. Additionally, improved sentiment may indirectly support 'fed_policy -> market_sentiment' if optimistic conditions reduce pressure for aggressive monetary tightening. While 'stock_volatility' could moderate due to stable sentiment, the dominant effect is a more favorable environment for upward price movement. Since market sentiment feeds directly and indirectly into the outcome through two causal pathways, this update is substantial but not maximal due to residual uncertainty around earnings and macro conditions.\"\n}",
+      "target_id": "market_sentiment",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In October 2025, Mastercard reports Q3 earnings that beat analyst expectations by 8%, driven by strong international transaction volume growth and higher-than-expected net revenue margins. Analysts at JPMorgan raise their forward earnings estimates for Q4 2025, citing sustained momentum in consumer spending and pricing power.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.64,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The strong Q3 earnings beat and upward revision to Q4 earnings estimates directly strengthen the 'earnings_trend' node, which is a key input to both 'stock_volatility' and the overall bullish momentum feeding into market sentiment and sector performance. A positive earnings trend reduces uncertainty, potentially lowering volatility (stock_volatility -> outcome), while also reinforcing positive investor perception. This improves the likelihood of continued buying pressure (market_sentiment -> outcome) and sector outperformance (sector_performance -> outcome). The causal path from earnings_trend to outcome is indirect but amplified through multiple reinforcing channels, justifying a moderate increase in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.64,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strong Q3 earnings beat and upward revision to Q4 earnings estimates directly strengthen the 'earnings_trend' node, which is a key input to both 'stock_volatility' and the overall bullish momentum feeding into market sentiment and sector performance. A positive earnings trend reduces uncertainty, potentially lowering volatility (stock_volatility -> outcome), while also reinforcing positive investor perception. This improves the likelihood of continued buying pressure (market_sentiment -> outcome) and sector outperformance (sector_performance -> outcome). The causal path from earnings_trend to outcome is indirect but amplified through multiple reinforcing channels, justifying a moderate increase in probability.\"\n}",
+      "target_id": "earnings_trend",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Earnings trend may not substantially drive MA's stock volatility in December 2025 because the stock has historically exhibited muted price reactions to earnings announcements during holiday-season trading, when volume is low and institutional positioning dominates. Additionally, if the earnings trend is stable and in line with expectations, volatility could be more sensitive to macro events or sector rotation than to earnings dynamics.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link between earnings_trend and stock_volatility, arguing that MA's stock volatility in December 2025 is less likely to be driven by earnings trends due to seasonally low trading volume and dominant macro drivers. If earnings surprises have historically had muted effects during the holiday season, especially when in line with expectations, then the pathway from earnings_trend -> stock_volatility is weakened. This reduces the indirect influence of earnings_trend on the outcome through volatility. However, earnings_trend still affects the outcome via sector_performance and investor sentiment more broadly, so the node is not disconnected entirely. The weakening of one secondary path (via volatility) slightly reduces the overall weight of earnings-driven factors, increasing uncertainty slightly and marginally lowering the probability of a positive price change. Other stronger paths—particularly from market_sentiment, fed_policy, and sector_performance—remain intact and continue to dominate the causal structure. Thus, the update is small, reflecting the peripheral role of the challenged link in the full network.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link between earnings_trend and stock_volatility, arguing that MA's stock volatility in December 2025 is less likely to be driven by earnings trends due to seasonally low trading volume and dominant macro drivers. If earnings surprises have historically had muted effects during the holiday season, especially when in line with expectations, then the pathway from earnings_trend -> stock_volatility is weakened. This reduces the indirect influence of earnings_trend on the outcome through volatility. However, earnings_trend still affects the outcome via sector_performance and investor sentiment more broadly, so the node is not disconnected entirely. The weakening of one secondary path (via volatility) slightly reduces the overall weight of earnings-driven factors, increasing uncertainty slightly and marginally lowering the probability of a positive price change. Other stronger paths—particularly from market_sentiment, fed_policy, and sector_performance—remain intact and continue to dominate the causal structure. Thus, the update is small, reflecting the peripheral role of the challenged link in the full network.\"\n}",
+      "target_id": "earnings_trend->stock_volatility",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "In late 2025, US economic growth may be driven primarily by government spending and defense contracts rather than consumer discretionary spending, limiting the pass-through to Mastercard's transaction volumes. Additionally, if wage growth stagnates or consumer debt levels rise, households may curtail spending despite overall GDP growth, weakening the link between macro growth and Mastercard's earnings.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between economic_growth and earnings_trend, which is a key pathway in my original reasoning: stronger economic growth was expected to boost consumer spending and thus Mastercard's transaction volumes and earnings. The new information suggests that late 2025 US growth may be driven by government and defense spending—sectors with limited spillover to consumer payment activity—and that consumer financial constraints (stagnant wages, rising debt) could dampen discretionary spending even if GDP rises. This weakens the pass-through from macroeconomic growth to Mastercard-specific earnings, reducing the expected strength of earnings_trend as a driver. As a result, the influence of economic_growth on the final outcome is diminished, particularly through the earnings_trend -> stock_volatility and sector_performance -> outcome paths (since weaker earnings momentum may reduce sector outperformance). While other factors like market_sentiment and fed_policy remain intact, the degradation of a core fundamental link justifies a downward revision. The shift is moderate because the outcome still depends significantly on sentiment, sector trends, and volatility, which are less affected by this challenge.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between economic_growth and earnings_trend, which is a key pathway in my original reasoning: stronger economic growth was expected to boost consumer spending and thus Mastercard's transaction volumes and earnings. The new information suggests that late 2025 US growth may be driven by government and defense spending—sectors with limited spillover to consumer payment activity—and that consumer financial constraints (stagnant wages, rising debt) could dampen discretionary spending even if GDP rises. This weakens the pass-through from macroeconomic growth to Mastercard-specific earnings, reducing the expected strength of earnings_trend as a driver. As a result, the influence of economic_growth on the final outcome is diminished, particularly through the earnings_trend -> stock_volatility and sector_performance -> outcome paths (since weaker earnings momentum may reduce sector outperformance). While other factors like market_sentiment and fed_policy remain intact, the degradation of a core fundamental link justifies a downward revision. The shift is moderate because the outcome still depends significantly on sentiment, sector trends, and volatility, which are less affected by this challenge.\"\n}",
+      "target_id": "economic_growth->earnings_trend",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "In December 2025, widespread negative reactions to year-end regulatory proposals targeting payment processing fees could dampen financial sector performance even amid otherwise positive market sentiment, limiting the usual cyclical boost from investor optimism. This regulatory overhang may cause the financial sector to underperform relative to other sectors despite broad risk-on conditions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between market_sentiment and sector_performance, suggesting that even if overall market sentiment is positive, negative regulatory news specific to payment processing fees could cause the financial sector to underperform. This weakens the pathway through which positive market sentiment typically boosts Mastercard's stock via sector-level outperformance. While market_sentiment still directly influences outcome and affects other paths, the dampening effect on sector_performance reduces one key amplification mechanism. As a result, the likelihood that MA's price rises in the final week of 2025 is moderately reduced, particularly if sector headwinds emerge despite broad optimism. This leads to a downward adjustment in the probability from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between market_sentiment and sector_performance, suggesting that even if overall market sentiment is positive, negative regulatory news specific to payment processing fees could cause the financial sector to underperform. This weakens the pathway through which positive market sentiment typically boosts Mastercard's stock via sector-level outperformance. While market_sentiment still directly influences outcome and affects other paths, the dampening effect on sector_performance reduces one key amplification mechanism. As a result, the likelihood that MA's price rises in the final week of 2025 is moderately reduced, particularly if sector headwinds emerge despite broad optimism. This leads to a downward adjustment in the probability from 0.52 to 0.48.\"\n}",
+      "target_id": "market_sentiment->sector_performance",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "High stock volatility in MA during December 2025 could signal increased uncertainty among investors about future earnings, leading analysts to revise earnings estimates more frequently and widen forecast ranges. This increased dispersion in expectations, in turn, amplifies perceived earnings instability, suggesting that volatility drives the assessment of earnings trend rather than the other way around.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge reverses the direction of causality between earnings_trend and stock_volatility, suggesting that volatility may drive perceived earnings instability rather than the other way around. This weakens the original causal path where earnings_trend influenced stock_volatility, which then fed into outcome through increased unpredictability. However, stock_volatility remains an important node affecting the outcome directly, and the core drivers—economic_growth, fed_policy, market_sentiment, and sector_performance—remain intact. The revised understanding implies that volatility could be more exogenous and sentiment-driven, slightly reducing confidence in earnings stability as a moderating force. Since the original link was secondary to the main paths leading to outcome (via sector_performance and market_sentiment), the structural impact is modest, warranting only a small downward adjustment in probability due to increased uncertainty in earnings interpretation.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge reverses the direction of causality between earnings_trend and stock_volatility, suggesting that volatility may drive perceived earnings instability rather than the other way around. This weakens the original causal path where earnings_trend influenced stock_volatility, which then fed into outcome through increased unpredictability. However, stock_volatility remains an important node affecting the outcome directly, and the core drivers—economic_growth, fed_policy, market_sentiment, and sector_performance—remain intact. The revised understanding implies that volatility could be more exogenous and sentiment-driven, slightly reducing confidence in earnings stability as a moderating force. Since the original link was secondary to the main paths leading to outcome (via sector_performance and market_sentiment), the structural impact is modest, warranting only a small downward adjustment in probability due to increased uncertainty in earnings interpretation.\"\n}",
+      "target_id": "earnings_trend->stock_volatility",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose new data reveals that during periods of heightened market sentiment—driven by optimistic macroeconomic expectations and stable geopolitical conditions—investors exhibit stronger momentum trading behavior in large-cap financial stocks like Mastercard. This increased momentum activity has been historically linked to larger intraday price swings and spikes in options demand, raising both historical and implied volatility despite the positive mood. Could strong market sentiment paradoxically increase MA's stock volatility in December 2025 by amplifying trading intensity and leverage?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a previously unmodeled causal link: strong market_sentiment can increase stock_volatility through momentum trading and options demand in large-cap financial stocks like MA. This modifies the causal structure by adding a direct path from market_sentiment -> stock_volatility, which interacts with the existing path stock_volatility -> outcome. While high volatility typically increases uncertainty and reduces predictability of positive price movements, in this context, the volatility is driven by bullish momentum and leveraged buying, which are also captured in the market_sentiment -> outcome link. Therefore, the sentiment-driven volatility is not noise—it's signal-rich and aligned with upward price pressure. This strengthens the overall effect of positive market sentiment on the outcome, as it now operates through both a direct path (market_sentiment -> outcome) and an indirect, previously unrecognized path (market_sentiment -> stock_volatility -> outcome) that, in this case, reinforces rather than dampens the upward move. As a result, if market sentiment is positive in December 2025, it's more likely to produce both higher volatility and higher prices, increasing the probability that MA closes higher on 2025-12-28 vs. 2025-12-21. The estimate shifts from 0.52 to 0.56, reflecting this enhanced transmission mechanism.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a previously unmodeled causal link: strong market_sentiment can increase stock_volatility through momentum trading and options demand in large-cap financial stocks like MA. This modifies the causal structure by adding a direct path from market_sentiment -> stock_volatility, which interacts with the existing path stock_volatility -> outcome. While high volatility typically increases uncertainty and reduces predictability of positive price movements, in this context, the volatility is driven by bullish momentum and leveraged buying, which are also captured in the market_sentiment -> outcome link. Therefore, the sentiment-driven volatility is not noise—it's signal-rich and aligned with upward price pressure. This strengthens the overall effect of positive market sentiment on the outcome, as it now operates through both a direct path (market_sentiment -> outcome) and an indirect, previously unrecognized path (market_sentiment -> stock_volatility -> outcome) that, in this case, reinforces rather than dampens the upward move. As a result, if market sentiment is positive in December 2025, it's more likely to produce both higher volatility and higher prices, increasing the probability that MA closes higher on 2025-12-28 vs. 2025-12-21. The estimate shifts from 0.52 to 0.56, reflecting this enhanced transmission mechanism.\"\n}",
+      "target_id": "market_sentiment->stock_volatility",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose the financial services and payments sector shows strong relative performance in December 2025, driven by a wave of merger announcements and rising interest rate margins. This sector-wide momentum attracts speculative trading and increases correlation among financial stocks, including Mastercard. Could this sector strength amplify trading volume and price swings in MA stock, thereby increasing its historical and implied volatility independently of its own earnings news?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge proposes an additional causal path: sector_performance -> stock_volatility, suggesting that strong sector performance could increase MA's stock volatility via speculative trading and higher correlations, independent of earnings. However, this new link does not significantly alter the existing causal structure leading to the outcome. The original model already includes sector_performance -> outcome (direct positive effect) and stock_volatility -> outcome (increasing uncertainty, slightly flattening expectations). While adding this link could amplify volatility during sector strength, the net effect on the probability of a price increase is ambiguous: higher volatility increases both upside and downside potential. Since the original estimate of 0.52 reflects a near-neutral stance (slightly above chance due to long-term market drift), and because the new path does not decisively shift the balance of likely outcomes, the overall probability remains unchanged. The challenged link is plausible but not structurally critical to the dominant causal paths (sector_performance and market_sentiment directly influencing outcome).",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge proposes an additional causal path: sector_performance -> stock_volatility, suggesting that strong sector performance could increase MA's stock volatility via speculative trading and higher correlations, independent of earnings. However, this new link does not significantly alter the existing causal structure leading to the outcome. The original model already includes sector_performance -> outcome (direct positive effect) and stock_volatility -> outcome (increasing uncertainty, slightly flattening expectations). While adding this link could amplify volatility during sector strength, the net effect on the probability of a price increase is ambiguous: higher volatility increases both upside and downside potential. Since the original estimate of 0.52 reflects a near-neutral stance (slightly above chance due to long-term market drift), and because the new path does not decisively shift the balance of likely outcomes, the overall probability remains unchanged. The challenged link is plausible but not structurally critical to the dominant causal paths (sector_performance and market_sentiment directly influencing outcome).\"\n}",
+      "target_id": "sector_performance->stock_volatility",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential impact of a major cybersecurity breach at Mastercard in early December 2025. Such an event could trigger regulatory scrutiny, loss of consumer trust, and operational disruptions, leading to a sharp decline in stock price regardless of broader economic or sector trends. This idiosyncratic risk is not captured by existing nodes like earnings_trend or market_sentiment, yet could directly influence the stock's weekly price movement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a major cybersecurity breach at Mastercard in early December 2025 represents a significant idiosyncratic risk not captured by the original causal network. This event would directly affect the 'outcome' through new causal paths such as reputational damage, regulatory penalties, and operational disruption, which are largely independent of the previously modeled factors like economic_growth, market_sentiment, or sector_performance. While 'earnings_trend' and 'stock_volatility' might partially reflect the aftermath, the immediacy and severity of a breach could dominate short-term price movements. This creates a new direct path from an unmodeled risk node to the outcome, increasing downside risk and reducing the probability of a positive weekly price change. As such, the original 0.52 probability is downwardly revised to 0.42 to account for this previously unconsidered but high-impact shock.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a major cybersecurity breach at Mastercard in early December 2025 represents a significant idiosyncratic risk not captured by the original causal network. This event would directly affect the 'outcome' through new causal paths such as reputational damage, regulatory penalties, and operational disruption, which are largely independent of the previously modeled factors like economic_growth, market_sentiment, or sector_performance. While 'earnings_trend' and 'stock_volatility' might partially reflect the aftermath, the immediacy and severity of a breach could dominate short-term price movements. This creates a new direct path from an unmodeled risk node to the outcome, increasing downside risk and reducing the probability of a positive weekly price change. As such, the original 0.52 probability is downwardly revised to 0.42 to account for this previously unconsidered but high-impact shock.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential impact of a major cybersecurity breach at Mastercard in early December 2025. Such an event could trigger regulatory scrutiny, loss of consumer trust, and operational disruptions, leading to a sharp decline in stock price regardless of broader market or sector trends. This idiosyncratic risk is not captured by the current model but could directly affect the stock's weekly price movement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.44,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a major cybersecurity breach at Mastercard represents a significant idiosyncratic risk that directly impacts the 'outcome' node by introducing a strong downward shock to the stock price independent of existing causal pathways. This event bypasses or weakens the influence of macro-level factors such as economic_growth, fed_policy, and market_sentiment, which were previously central to the model. Instead, it creates a new direct causal link from an unmodeled node—'company-specific risk'—to the outcome, which can dominate weekly price movements. Such a breach would likely trigger negative earnings_trend revisions and increase stock_volatility, thereby activating and amplifying existing paths to the outcome through those nodes. Additionally, sector_performance may also be indirectly affected if the breach causes broader concerns in the financial services sector. Since the original model did not account for this type of firm-specific tail risk, and given the potential severity of a cybersecurity incident on investor confidence and regulatory outlook, the probability of a higher closing price on 2025-12-28 versus 2025-12-21 is meaningfully reduced. The shift reflects both the added downside risk and the increased uncertainty (volatility) concentrated around a negative shock.",
+      "raw_response": "{\n  \"updated_probability\": 0.44,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a major cybersecurity breach at Mastercard represents a significant idiosyncratic risk that directly impacts the 'outcome' node by introducing a strong downward shock to the stock price independent of existing causal pathways. This event bypasses or weakens the influence of macro-level factors such as economic_growth, fed_policy, and market_sentiment, which were previously central to the model. Instead, it creates a new direct causal link from an unmodeled node—'company-specific risk'—to the outcome, which can dominate weekly price movements. Such a breach would likely trigger negative earnings_trend revisions and increase stock_volatility, thereby activating and amplifying existing paths to the outcome through those nodes. Additionally, sector_performance may also be indirectly affected if the breach causes broader concerns in the financial services sector. Since the original model did not account for this type of firm-specific tail risk, and given the potential severity of a cybersecurity incident on investor confidence and regulatory outlook, the probability of a higher closing price on 2025-12-28 versus 2025-12-21 is meaningfully reduced. The shift reflects both the added downside risk and the increased uncertainty (volatility) concentrated around a negative shock.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Mastercard announced a new partnership with a major cryptocurrency exchange to facilitate fiat on-ramps for digital asset users. The collaboration is set to launch in early 2026 and will integrate Mastercard's payment rails into the exchange's deposit infrastructure.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new partnership with a major cryptocurrency exchange represents a positive structural development for Mastercard that strengthens the 'earnings_trend' node. This collaboration, set to launch in early 2026, signals future revenue growth potential through increased transaction volume from fiat on-ramps, which investors are likely to price in during late 2025. This directly enhances the 'earnings_trend' node, reinforcing expectations of strong forward earnings. A stronger earnings trend positively influences 'sector_performance' and 'market_sentiment', as Mastercard would be seen as innovating and capturing new market opportunities in the growing crypto-fiat interface space. This, in turn, strengthens the causal paths from 'earnings_trend' -> 'sector_performance' -> 'outcome' and 'market_sentiment' -> 'outcome'. Additionally, the news may temporarily increase 'stock_volatility', but the directional bias of that volatility is likely upward due to positive sentiment, reinforcing the likelihood of a higher close on 2025-12-28. The overall effect is a meaningful but not extreme increase in probability, as the event is forward-looking and not immediately revenue-impacting.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new partnership with a major cryptocurrency exchange represents a positive structural development for Mastercard that strengthens the 'earnings_trend' node. This collaboration, set to launch in early 2026, signals future revenue growth potential through increased transaction volume from fiat on-ramps, which investors are likely to price in during late 2025. This directly enhances the 'earnings_trend' node, reinforcing expectations of strong forward earnings. A stronger earnings trend positively influences 'sector_performance' and 'market_sentiment', as Mastercard would be seen as innovating and capturing new market opportunities in the growing crypto-fiat interface space. This, in turn, strengthens the causal paths from 'earnings_trend' -> 'sector_performance' -> 'outcome' and 'market_sentiment' -> 'outcome'. Additionally, the news may temporarily increase 'stock_volatility', but the directional bias of that volatility is likely upward due to positive sentiment, reinforcing the likelihood of a higher close on 2025-12-28. The overall effect is a meaningful but not extreme increase in probability, as the event is forward-looking and not immediately revenue-impacting.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Mastercard announced a new partnership with a major cryptocurrency exchange in November 2025, allowing users to convert digital assets into fiat currency directly through Mastercard-linked accounts. The feature is set to launch in early 2026, after the evaluation period of the stock price in question.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a new partnership with a major cryptocurrency exchange affects the causal path through market_sentiment and sector_performance. Although the feature launches in early 2026, post-dating the evaluation period, such news is likely to boost investor sentiment in December 2025 as it signals innovation and future revenue potential, thereby increasing market_sentiment. This positively impacts sector_performance, particularly if the financial/payments sector views the move as a competitive advantage. Additionally, positive market_sentiment directly increases buying pressure on MA stock, reinforcing the market_sentiment -> outcome and market_sentiment -> sector_performance -> outcome paths. While earnings_trend and economic_growth remain unchanged, the sentiment-driven uplift in stock price momentum during the final weeks of 2025 raises the likelihood of a higher close on 2025-12-28 compared to 2025-12-21. The update is moderate because the actual financial impact occurs after the period, limiting the strength of the causal effect.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of a new partnership with a major cryptocurrency exchange affects the causal path through market_sentiment and sector_performance. Although the feature launches in early 2026, post-dating the evaluation period, such news is likely to boost investor sentiment in December 2025 as it signals innovation and future revenue potential, thereby increasing market_sentiment. This positively impacts sector_performance, particularly if the financial/payments sector views the move as a competitive advantage. Additionally, positive market_sentiment directly increases buying pressure on MA stock, reinforcing the market_sentiment -> outcome and market_sentiment -> sector_performance -> outcome paths. While earnings_trend and economic_growth remain unchanged, the sentiment-driven uplift in stock price momentum during the final weeks of 2025 raises the likelihood of a higher close on 2025-12-28 compared to 2025-12-21. The update is moderate because the actual financial impact occurs after the period, limiting the strength of the causal effect.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In Q3 2025, U.S. GDP growth exceeds expectations with a 3.1% annualized increase, driven by strong consumer spending and business investment. This sustained economic momentum boosts corporate earnings forecasts for the remainder of the year, particularly in consumer-facing sectors like payment processing.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The stronger-than-expected U.S. GDP growth in Q3 2025 directly strengthens the 'economic_growth' node, which positively impacts the 'earnings_trend' node via the causal link economic_growth -> earnings_trend. Given that Mastercard is a consumer-facing payment processor, strong consumer spending directly boosts transaction volumes and revenue growth, improving earnings expectations. This improved earnings trend does not directly reduce stock volatility, but it increases the likelihood of positive market reaction and supports upward price momentum. Additionally, stronger economic growth contributes to positive 'market_sentiment', which in turn enhances 'sector_performance' and directly increases buying pressure on MA stock via the market_sentiment -> outcome link. Although the effect is moderate due to the outcome being a short-term weekly price comparison, the confluence of improved fundamentals and sentiment tilts the probability meaningfully upward. Therefore, the causal paths through both earnings_trend and market_sentiment to the outcome are strengthened, justifying an increase from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The stronger-than-expected U.S. GDP growth in Q3 2025 directly strengthens the 'economic_growth' node, which positively impacts the 'earnings_trend' node via the causal link economic_growth -> earnings_trend. Given that Mastercard is a consumer-facing payment processor, strong consumer spending directly boosts transaction volumes and revenue growth, improving earnings expectations. This improved earnings trend does not directly reduce stock volatility, but it increases the likelihood of positive market reaction and supports upward price momentum. Additionally, stronger economic growth contributes to positive 'market_sentiment', which in turn enhances 'sector_performance' and directly increases buying pressure on MA stock via the market_sentiment -> outcome link. Although the effect is moderate due to the outcome being a short-term weekly price comparison, the confluence of improved fundamentals and sentiment tilts the probability meaningfully upward. Therefore, the causal paths through both earnings_trend and market_sentiment to the outcome are strengthened, justifying an increase from 0.52 to 0.58.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "In December 2025, the financial services sector receives a boost from stronger-than-expected bank lending data and rising credit card transaction volumes, leading to sector-wide outperformance. Mastercard benefits directly as a core holding in financial ETFs, which see significant inflows, amplifying its stock gains relative to the broader market.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.64,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the 'sector_performance' node by providing a concrete mechanism—stronger bank lending and rising credit card transaction volumes—that boosts the financial services sector. This directly enhances Mastercard's position due to its core role in financial ETFs, leading to significant inflows and amplified stock gains. The causal path 'sector_performance -> outcome' is therefore reinforced, increasing the likelihood of MA's price rising from 2025-12-21 to 2025-12-28. Additionally, the link from 'economic_growth -> earnings_trend' is indirectly supported by higher transaction volumes, which may further stabilize positive earnings expectations. The 'market_sentiment -> sector_performance' path is also activated, as the positive data improves sentiment specifically within the sector. Since sector performance is a direct driver of the outcome and the new evidence strengthens both its input and its effect size, the probability is updated substantially upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.64,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the 'sector_performance' node by providing a concrete mechanism—stronger bank lending and rising credit card transaction volumes—that boosts the financial services sector. This directly enhances Mastercard's position due to its core role in financial ETFs, leading to significant inflows and amplified stock gains. The causal path 'sector_performance -> outcome' is therefore reinforced, increasing the likelihood of MA's price rising from 2025-12-21 to 2025-12-28. Additionally, the link from 'economic_growth -> earnings_trend' is indirectly supported by higher transaction volumes, which may further stabilize positive earnings expectations. The 'market_sentiment -> sector_performance' path is also activated, as the positive data improves sentiment specifically within the sector. Since sector performance is a direct driver of the outcome and the new evidence strengthens both its input and its effect size, the probability is updated substantially upward.\"\n}",
+      "target_id": "sector_performance",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by the Journal of Financial Economics (2024) found that earnings volatility in S&P 500 financial firms led to a 40% increase in 5-day implied volatility post-earnings announcement, with Mastercard exhibiting above-sector sensitivity due to its reliance on transaction volume elasticity. This feedback loop between earnings uncertainty and stock price swings has intensified since 2023 as high-frequency trading now amplifies earnings surprise reactions in the financial sector.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence strengthens the causal link between earnings_trend and stock_volatility, confirming and even amplifying its importance. The study shows that earnings volatility in financial firms like Mastercard significantly increases short-term stock volatility—especially due to heightened market sensitivity post-2023 from high-frequency trading. This reinforces the path earnings_trend -> stock_volatility -> outcome, implying that any uncertainty or weakness in Mastercard's earnings trend could lead to larger price swings, increasing the likelihood of downward volatility spiking. While this doesn't directly shift expected returns, it increases the probability of negative price shocks in the short term, making a positive weekly change less likely. As a result, the causal path from earnings to outcome via volatility is more influential than previously estimated, warranting a modest downward revision in the probability of a higher close on 2025-12-28.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between earnings_trend and stock_volatility, confirming and even amplifying its importance. The study shows that earnings volatility in financial firms like Mastercard significantly increases short-term stock volatility—especially due to heightened market sensitivity post-2023 from high-frequency trading. This reinforces the path earnings_trend -> stock_volatility -> outcome, implying that any uncertainty or weakness in Mastercard's earnings trend could lead to larger price swings, increasing the likelihood of downward volatility spiking. While this doesn't directly shift expected returns, it increases the probability of negative price shocks in the short term, making a positive weekly change less likely. As a result, the causal path from earnings to outcome via volatility is more influential than previously estimated, warranting a modest downward revision in the probability of a higher close on 2025-12-28.\"\n}",
+      "target_id": "earnings_trend->stock_volatility",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent Q3 2025 data shows that U.S. consumer spending rose 0.8% month-over-month, the highest in two years, driven by increased retail and travel activity. Mastercard's earnings call highlighted a direct 12% year-over-year increase in processed transaction volume, attributing the surge to robust macroeconomic conditions. This confirms that stronger economic growth has a pronounced and immediate effect on Mastercard's earnings trajectory.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between economic_growth and earnings_trend by showing a clear, recent, and quantifiable transmission mechanism: strong consumer spending directly drove a 12% YoY increase in Mastercard's transaction volume. This reinforces the plausibility and magnitude of the pathway from macroeconomic growth to Mastercard's earnings performance. Since earnings_trend feeds into stock_volatility and indirectly influences outcome through sector_performance and market_sentiment, a stronger and more reliable link here increases confidence that favorable economic conditions will translate into positive earnings momentum, supporting higher stock prices. While not guaranteeing a weekly price increase, it increases the expected drift in MA's price, justifying a moderate upward revision in the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between economic_growth and earnings_trend by showing a clear, recent, and quantifiable transmission mechanism: strong consumer spending directly drove a 12% YoY increase in Mastercard's transaction volume. This reinforces the plausibility and magnitude of the pathway from macroeconomic growth to Mastercard's earnings performance. Since earnings_trend feeds into stock_volatility and indirectly influences outcome through sector_performance and market_sentiment, a stronger and more reliable link here increases confidence that favorable economic conditions will translate into positive earnings momentum, supporting higher stock prices. While not guaranteeing a weekly price increase, it increases the expected drift in MA's price, justifying a moderate upward revision in the probability.\"\n}",
+      "target_id": "economic_growth->earnings_trend",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "In December 2025, a surge in consumer confidence and retail investment inflows, driven by positive inflation surprises and strong holiday spending data, leads to a disproportionate rally in financial and cyclical sectors. Historically, such sentiment shocks have had amplified effects on financials due to their high beta and leverage to economic optimism. This pattern is particularly strong in the two weeks following the Fed's dovish guidance, which further elevates risk appetite.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between market_sentiment and sector_performance, confirming and amplifying the mechanism by which positive sentiment—especially when driven by dovish Fed policy and strong consumer data—disproportionately lifts financial stocks like MA. This reinforces the path market_sentiment -> sector_performance -> outcome and also bolsters market_sentiment -> outcome directly. The historical pattern of amplified sector response under such conditions increases confidence that MA will outperform in late December 2025 relative to the prior week. This raises the likelihood of a higher closing price on 2025-12-28, leading to a moderate upward revision in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between market_sentiment and sector_performance, confirming and amplifying the mechanism by which positive sentiment—especially when driven by dovish Fed policy and strong consumer data—disproportionately lifts financial stocks like MA. This reinforces the path market_sentiment -> sector_performance -> outcome and also bolsters market_sentiment -> outcome directly. The historical pattern of amplified sector response under such conditions increases confidence that MA will outperform in late December 2025 relative to the prior week. This raises the likelihood of a higher closing price on 2025-12-28, leading to a moderate upward revision in the probability estimate.\"\n}",
+      "target_id": "market_sentiment->sector_performance",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "MA",
+    "question_text": "Will MA's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.05125000000000001,
+    "max_absolute_shift": 0.16000000000000003
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 0.7848837209302328,
+    "mean_shift_high": 0.05625000000000001,
+    "mean_shift_low": 0.07166666666666666,
+    "asymmetry_index": 0.23076923076923098,
+    "mean_shift_negate": 0.021428571428571446,
+    "mean_shift_strengthen": 0.09285714285714285,
+    "fnar": 0.5,
+    "n_accepted": 2,
+    "n_spurious": 4,
+    "critical_path_premium": -0.009722222222222208,
+    "mean_shift_on_path": 0.05111111111111112,
+    "mean_shift_off_path": 0.06083333333333333,
+    "importance_sensitivity_correlation": -0.5909090909090908,
+    "control_sensitivity": 1
+  }
+}

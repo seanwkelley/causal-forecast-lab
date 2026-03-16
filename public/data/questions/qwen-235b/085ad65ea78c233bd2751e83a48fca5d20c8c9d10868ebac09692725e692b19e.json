@@ -1,0 +1,1100 @@
+{
+  "question_id": "085ad65ea78c233bd2751e83a48fca5d20c8c9d10868ebac09692725e692b19e",
+  "question_text": "Will there be more 'Protests' in Ireland for the 30 days before 2025-12-28 compared to the 30-day average of 'Protests' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Protests' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "economic_stress",
+      "description": "Level of economic hardship in Ireland, including inflation and cost of living pressures",
+      "role": "factor"
+    },
+    {
+      "id": "government_policy_changes",
+      "description": "Recent or announced policy changes by the Irish government that may provoke public backlash",
+      "role": "factor"
+    },
+    {
+      "id": "political_stability",
+      "description": "Perceived stability and legitimacy of the current Irish government",
+      "role": "factor"
+    },
+    {
+      "id": "preceding_protest_momentum",
+      "description": "Level of protest activity in the 90 days before the forecast period",
+      "role": "factor"
+    },
+    {
+      "id": "social_movement_mobilization",
+      "description": "Strength and organization of activist networks capable of mobilizing protests",
+      "role": "factor"
+    },
+    {
+      "id": "media_coverage_amplification",
+      "description": "Extent to which protest-related issues receive prominent media coverage",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "There will be more 'Protests' in Ireland in the 30 days before 2025-12-28 than the 30-day average over the preceding 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_stress",
+      "to": "social_movement_mobilization",
+      "mechanism": "Higher economic stress increases public grievances, motivating social movements to organize"
+    },
+    {
+      "from": "government_policy_changes",
+      "to": "political_stability",
+      "mechanism": "Controversial policy changes reduce public trust and weaken perceived government legitimacy"
+    },
+    {
+      "from": "political_stability",
+      "to": "social_movement_mobilization",
+      "mechanism": "Lower political stability emboldens activists to challenge the government through protests"
+    },
+    {
+      "from": "preceding_protest_momentum",
+      "to": "social_movement_mobilization",
+      "mechanism": "Recent protest activity sustains organizational capacity and lowers barriers to further mobilization"
+    },
+    {
+      "from": "social_movement_mobilization",
+      "to": "media_coverage_amplification",
+      "mechanism": "Large or frequent protests attract greater media attention and public discourse"
+    },
+    {
+      "from": "media_coverage_amplification",
+      "to": "outcome",
+      "mechanism": "Increased media coverage spreads awareness and encourages broader participation in protests"
+    },
+    {
+      "from": "social_movement_mobilization",
+      "to": "outcome",
+      "mechanism": "Stronger mobilization directly increases the frequency and scale of protests"
+    }
+  ],
+  "reasoning": "Ireland has seen periodic protest activity driven by housing crises, healthcare demands, and climate policy disputes. Economic stress remains moderate but persistent, and any major policy shift—especially on housing or taxation—could reignite mobilization. The current government is relatively stable, but coalition dynamics create vulnerability to backlash. Preceding protest momentum over the past year has been low-to-moderate, but activist networks remain intact. Given the typical lag between rising grievances and protest spikes, and assuming no major shock, the probability of exceeding the 30-day average is modestly above baseline due to structural pressures and the amplifying potential of media coverage.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "economic_stress",
+        "description": "Level of economic hardship in Ireland, including inflation and cost of living pressures",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0583,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "government_policy_changes",
+        "description": "Recent or announced policy changes by the Irish government that may provoke public backlash",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0583,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "political_stability",
+        "description": "Perceived stability and legitimacy of the current Irish government",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.1667,
+        "pagerank": 0.1079,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "preceding_protest_momentum",
+        "description": "Level of protest activity in the 90 days before the forecast period",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0583,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "social_movement_mobilization",
+        "description": "Strength and organization of activist networks capable of mobilizing protests",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 2,
+        "betweenness": 0.2667,
+        "closeness": 0.5333,
+        "pagerank": 0.2492,
+        "path_relevance": 0.6667
+      },
+      {
+        "node_id": "media_coverage_amplification",
+        "description": "Extent to which protest-related issues receive prominent media coverage",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.4167,
+        "pagerank": 0.1642,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "There will be more 'Protests' in Ireland in the 30 days before 2025-12-28 than the 30-day average over the preceding 360 days",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.3038,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "economic_stress",
+        "target": "social_movement_mobilization",
+        "mechanism": "Higher economic stress increases public grievances, motivating social movements to organize",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "government_policy_changes",
+        "target": "political_stability",
+        "mechanism": "Controversial policy changes reduce public trust and weaken perceived government legitimacy",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_stability",
+        "target": "social_movement_mobilization",
+        "mechanism": "Lower political stability emboldens activists to challenge the government through protests",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "preceding_protest_momentum",
+        "target": "social_movement_mobilization",
+        "mechanism": "Recent protest activity sustains organizational capacity and lowers barriers to further mobilization",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "social_movement_mobilization",
+        "target": "media_coverage_amplification",
+        "mechanism": "Large or frequent protests attract greater media attention and public discourse",
+        "edge_betweenness": 0.119,
+        "on_critical_path": false
+      },
+      {
+        "source": "social_movement_mobilization",
+        "target": "outcome",
+        "mechanism": "Stronger mobilization directly increases the frequency and scale of protests",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "media_coverage_amplification",
+        "target": "outcome",
+        "mechanism": "Increased media coverage spreads awareness and encourages broader participation in protests",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "social_movement_mobilization",
+        "description": "Strength and organization of activist networks capable of mobilizing protests",
+        "importance": 0.2667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_stability",
+        "description": "Perceived stability and legitimacy of the current Irish government",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "government_policy_changes",
+        "description": "Recent or announced policy changes by the Irish government that may provoke public backlash",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "media_coverage_amplification",
+        "description": "Extent to which protest-related issues receive prominent media coverage",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "social_movement_mobilization",
+        "description": "Strength and organization of activist networks capable of mobilizing protests",
+        "importance": 0.2667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_stability",
+        "description": "Perceived stability and legitimacy of the current Irish government",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_stability->social_movement_mobilization",
+        "description": "Lower political stability emboldens activists to challenge the government through protests",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_movement_mobilization->outcome",
+        "description": "Stronger mobilization directly increases the frequency and scale of protests",
+        "importance": 0.119,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_movement_mobilization->media_coverage_amplification",
+        "description": "Large or frequent protests attract greater media attention and public discourse",
+        "importance": 0.119,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_stability->social_movement_mobilization",
+        "description": "Lower political stability emboldens activists to challenge the government through protests",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "media_coverage_amplification->government_policy_changes",
+        "description": "Potential link: Extent to which protest-related issues receive prominent media coverage -> Recent or announced policy changes by the Irish government that may provoke public backlash",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "media_coverage_amplification->political_stability",
+        "description": "Potential link: Extent to which protest-related issues receive prominent media coverage -> Perceived stability and legitimacy of the current Irish government",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "social_movement_mobilization",
+      "description": "Strength and organization of activist networks capable of mobilizing protests",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_stability",
+      "description": "Perceived stability and legitimacy of the current Irish government",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "government_policy_changes",
+      "description": "Recent or announced policy changes by the Irish government that may provoke public backlash",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "media_coverage_amplification",
+      "description": "Extent to which protest-related issues receive prominent media coverage",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "social_movement_mobilization",
+      "description": "Strength and organization of activist networks capable of mobilizing protests",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_stability",
+      "description": "Perceived stability and legitimacy of the current Irish government",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_stability->social_movement_mobilization",
+      "description": "Lower political stability emboldens activists to challenge the government through protests",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_movement_mobilization->outcome",
+      "description": "Stronger mobilization directly increases the frequency and scale of protests",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_movement_mobilization->media_coverage_amplification",
+      "description": "Large or frequent protests attract greater media attention and public discourse",
+      "importance": 0.119,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_stability->social_movement_mobilization",
+      "description": "Lower political stability emboldens activists to challenge the government through protests",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "media_coverage_amplification->government_policy_changes",
+      "description": "Potential link: Extent to which protest-related issues receive prominent media coverage -> Recent or announced policy changes by the Irish government that may provoke public backlash",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "media_coverage_amplification->political_stability",
+      "description": "Potential link: Extent to which protest-related issues receive prominent media coverage -> Perceived stability and legitimacy of the current Irish government",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the strength and organization of activist networks have little impact on protest levels in Ireland? Even with high social movement mobilization, widespread public apathy or effective state co-optation of civil society institutions could prevent organized groups from translating their capacity into actual protests, rendering mobilization efforts ineffective.",
+      "probe_type": "node_negate_high",
+      "target_id": "social_movement_mobilization",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Strength and organization of activist networks capable of mobilizing protests"
+    },
+    {
+      "probe_text": "What if perceived political stability has no real impact on protest mobilization in Ireland? In highly institutionalized democracies like Ireland, even when public confidence in government legitimacy is low, protest movements may still face structural barriers—such as party incorporation or electoral engagement—that dampen spillover into street mobilization. Conversely, periods of high stability might coincide with complacency, allowing grievances to accumulate until they erupt suddenly, suggesting instability isn't a reliable predictor of mobilization.",
+      "probe_type": "node_negate_high",
+      "target_id": "political_stability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Perceived stability and legitimacy of the current Irish government"
+    },
+    {
+      "probe_text": "Recent Irish government policy announcements have been largely incremental and non-controversial, focusing on long-term infrastructure and climate goals rather than immediate austerity or social reforms. Historical data from 2023–2024 shows that similar low-salience policies did not trigger public backlash, even during periods of high economic stress, suggesting that policy changes alone are insufficient to drive protest spikes without a salient 'trigger event'.",
+      "probe_type": "node_negate_medium",
+      "target_id": "government_policy_changes",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Recent or announced policy changes by the Irish government that may provoke public backlash"
+    },
+    {
+      "probe_text": "Suppose a major scandal involving Irish political corruption emerges just before the forecast period, dominating media coverage and completely overshadowing any protest-related issues. Even if social movement mobilization is high, the public discourse is saturated with the scandal, leaving little room for protest events to gain visibility. In this case, media coverage amplification would not occur despite strong underlying mobilization, suggesting it may not be a critical link in driving protest levels.",
+      "probe_type": "node_negate_low",
+      "target_id": "media_coverage_amplification",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Extent to which protest-related issues receive prominent media coverage"
+    },
+    {
+      "probe_text": "In early October 2025, a coalition of housing rights, climate, and labor groups in Ireland launched a coordinated national network with shared resources, training programs, and a unified digital platform for organizing protests. This new alliance has already mobilized over 15,000 participants in coordinated actions across five major cities, demonstrating significantly enhanced capacity for sustained and large-scale protest organization.",
+      "probe_type": "node_strengthen",
+      "target_id": "social_movement_mobilization",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Strength and organization of activist networks capable of mobilizing protests"
+    },
+    {
+      "probe_text": "A recent opinion poll conducted by a reputable Irish polling firm shows a 15-point increase in public approval of the government's handling of national affairs over the past three months, reaching the highest level since 2021. This rise in confidence follows a series of successful legislative compromises and cross-party support for key budgetary measures, reinforcing perceptions of stable and effective governance.",
+      "probe_type": "node_strengthen",
+      "target_id": "political_stability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Perceived stability and legitimacy of the current Irish government"
+    },
+    {
+      "probe_text": "In Ireland's current political context, even if political stability is low due to coalition tensions or leadership changes, established social movements may remain cautious about mobilizing due to strong legal restrictions on public assembly or high thresholds for protest permits. Additionally, recent precedent—such as the muted protest response during the 2023 government crisis—suggests that low political stability does not reliably translate into increased mobilization, particularly when opposition parties channel dissent through parliamentary rather than street-level action.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_stability->social_movement_mobilization",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Lower political stability emboldens activists to challenge the government through protests"
+    },
+    {
+      "probe_text": "Suppose social movement organizations in Ireland face a sudden wave of internal leadership resignations due to scandal, severely disrupting their operational capacity despite high public sentiment. Would widespread mobilization intent still translate into actual protest events if key coordinating groups are incapacitated?",
+      "probe_type": "edge_negate_critical",
+      "target_id": "social_movement_mobilization->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Stronger mobilization directly increases the frequency and scale of protests"
+    },
+    {
+      "probe_text": "Suppose social movement mobilization increases in Ireland, with more frequent and better-organized protests, but mainstream media outlets continue to give minimal coverage due to editorial policies prioritizing 'neutral reporting' and avoiding amplification of protest narratives. In this case, public discourse remains largely unaffected despite growing mobilization. Could strong social movement activity fail to increase media coverage if media institutions systematically downplay protest events?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "social_movement_mobilization->media_coverage_amplification",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Large or frequent protests attract greater media attention and public discourse"
+    },
+    {
+      "probe_text": "Suppose a wave of large-scale protests erupted in Ireland due to housing shortages, leading to sustained public demonstrations and opposition pressure. This increased protest activity directly undermined confidence in the government's ability to govern effectively, resulting in cabinet reshuffles and declining approval ratings. Could it be that declining political stability is a consequence rather than a cause of heightened social movement mobilization?",
+      "probe_type": "edge_reverse",
+      "target_id": "political_stability->social_movement_mobilization",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Lower political stability emboldens activists to challenge the government through protests"
+    },
+    {
+      "probe_text": "Suppose there is a surge in media coverage of housing affordability protests in Ireland, with major outlets running daily stories and prime-time segments highlighting public anger. This widespread attention pressures the government to announce an emergency housing policy reform within weeks, despite no prior legislative plans. Could this media-driven spotlight directly provoke new policy changes that might otherwise not have been prioritized?",
+      "probe_type": "edge_spurious",
+      "target_id": "media_coverage_amplification->government_policy_changes",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Extent to which protest-related issues receive prominent media coverage -> Recent or announced policy changes by the Irish government that may provoke public backlash"
+    },
+    {
+      "probe_text": "Suppose a major Irish broadcaster runs a sustained investigative series highlighting government mismanagement in housing policy, closely tied to ongoing protests. This coverage increases public scrutiny and erodes trust in the government's competence. Would this shift in media coverage independently undermine perceptions of political stability, even if protest levels and economic conditions remain unchanged?",
+      "probe_type": "edge_spurious",
+      "target_id": "media_coverage_amplification->political_stability",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Extent to which protest-related issues receive prominent media coverage -> Perceived stability and legitimacy of the current Irish government"
+    },
+    {
+      "probe_text": "Consider the role of international events, such as major global protests or transnational activist campaigns, that could inspire or coordinate protest activity in Ireland. Such events can provide tactical models, increase solidarity, and motivate local groups to act, thereby increasing the likelihood of protests even if domestic conditions remain stable.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of international events, such as major global protests or international summits held in Ireland, which could inspire or enable domestic protest activity. For example, if a high-profile climate summit were held in Dublin during the forecast period, it could attract international activists, increase media attention, and catalyze local mobilization around related issues. This could significantly increase the likelihood of protest activity surpassing historical averages, independent of domestic factors like economic stress or policy changes.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent survey by a Dublin-based think tank found that 68% of Irish citizens express concern about long-term climate change impacts, up from 62% six months ago. The survey also indicated increased public support for green infrastructure investment across all age groups.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent survey by a Dublin-based think tank found that 68% of Irish adults believe climate change is a critical issue requiring urgent government action. The survey also indicated a slight increase in public trust in scientific institutions over the past year.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the strength and organization of activist networks have little impact on protest levels in Ireland? Even with high social movement mobilization, widespread public apathy or effective state co-optation of civil society institutions could prevent organized groups from translating their capacity into actual protests, rendering mobilization efforts ineffective.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly undermines 'social_movement_mobilization', a central node in the causal network that mediates multiple upstream factors (economic_stress, political_stability, preceding_protest_momentum) and directly feeds into both 'media_coverage_amplification' and the 'outcome'. If mobilization capacity does not reliably translate into actual protests due to public apathy or state co-optation, then the primary mechanism through which grievances and political conditions lead to protest activity is weakened. This severs or attenuates key causal paths: economic_stress → social_movement_mobilization → outcome, political_stability → social_movement_mobilization → outcome, and preceding_protest_momentum → social_movement_mobilization → outcome. While media amplification may still occur independently, its link also depends on mobilization. With the main conduit between structural conditions and protest events impaired, the likelihood of a protest surge decreases substantially, warranting a downward revision from 0.62 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly undermines 'social_movement_mobilization', a central node in the causal network that mediates multiple upstream factors (economic_stress, political_stability, preceding_protest_momentum) and directly feeds into both 'media_coverage_amplification' and the 'outcome'. If mobilization capacity does not reliably translate into actual protests due to public apathy or state co-optation, then the primary mechanism through which grievances and political conditions lead to protest activity is weakened. This severs or attenuates key causal paths: economic_stress → social_movement_mobilization → outcome, political_stability → social_movement_mobilization → outcome, and preceding_protest_momentum → social_movement_mobilization → outcome. While media amplification may still occur independently, its link also depends on mobilization. With the main conduit between structural conditions and protest events impaired, the likelihood of a protest surge decreases substantially, warranting a downward revision from 0.62 to 0.48.\"\n}",
+      "target_id": "social_movement_mobilization",
+      "target_type": "node",
+      "target_importance": 0.2667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if perceived political stability has no real impact on protest mobilization in Ireland? In highly institutionalized democracies like Ireland, even when public confidence in government legitimacy is low, protest movements may still face structural barriers—such as party incorporation or electoral engagement—that dampen spillover into street mobilization. Conversely, periods of high stability might coincide with complacency, allowing grievances to accumulate until they erupt suddenly, suggesting instability isn't a reliable predictor of mobilization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the causal link between political_stability and social_movement_mobilization, suggesting that in Ireland's institutionalized democracy, fluctuations in perceived political stability may not reliably influence protest mobilization. This weakens one of the pathways leading to social_movement_mobilization, reducing its overall expected strength. However, because political_stability was not the dominant driver in the network—preceding_protest_momentum, economic_stress, and government_policy_changes play more central roles—the impact on the outcome is moderate. The pathway from political_stability -> social_movement_mobilization -> outcome is downgraded in credibility, but other key paths (e.g., economic_stress -> social_movement_mobilization -> outcome) remain intact. Therefore, the probability decreases slightly, reflecting reduced confidence in one contributing mechanism, but not a fundamental collapse of the causal case for increased protests.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the causal link between political_stability and social_movement_mobilization, suggesting that in Ireland's institutionalized democracy, fluctuations in perceived political stability may not reliably influence protest mobilization. This weakens one of the pathways leading to social_movement_mobilization, reducing its overall expected strength. However, because political_stability was not the dominant driver in the network—preceding_protest_momentum, economic_stress, and government_policy_changes play more central roles—the impact on the outcome is moderate. The pathway from political_stability -> social_movement_mobilization -> outcome is downgraded in credibility, but other key paths (e.g., economic_stress -> social_movement_mobilization -> outcome) remain intact. Therefore, the probability decreases slightly, reflecting reduced confidence in one contributing mechanism, but not a fundamental collapse of the causal case for increased protests.\"\n}",
+      "target_id": "political_stability",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent Irish government policy announcements have been largely incremental and non-controversial, focusing on long-term infrastructure and climate goals rather than immediate austerity or social reforms. Historical data from 2023–2024 shows that similar low-salience policies did not trigger public backlash, even during periods of high economic stress, suggesting that policy changes alone are insufficient to drive protest spikes without a salient 'trigger event'.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between government_policy_changes and political_stability, and by extension, its downstream effects on social_movement_mobilization and the outcome. While government policy changes were initially assumed to be a potential catalyst for protest activity, the evidence suggests that recent policies are low-salience and historically insufficient to provoke backlash without a triggering event. This reduces the expected contribution of this pathway to protest mobilization. However, other pathways—particularly those driven by economic_stress, preceding_protest_momentum, and media_coverage_amplification—remain intact and continue to support a non-negligible probability of increased protests. Thus, the update is moderate because government_policy_changes was a secondary driver in the network, not the primary one. The overall likelihood of heightened protest activity decreases slightly in the absence of a strong policy-triggered cascade, but baseline mobilization forces remain active.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between government_policy_changes and political_stability, and by extension, its downstream effects on social_movement_mobilization and the outcome. While government policy changes were initially assumed to be a potential catalyst for protest activity, the evidence suggests that recent policies are low-salience and historically insufficient to provoke backlash without a triggering event. This reduces the expected contribution of this pathway to protest mobilization. However, other pathways—particularly those driven by economic_stress, preceding_protest_momentum, and media_coverage_amplification—remain intact and continue to support a non-negligible probability of increased protests. Thus, the update is moderate because government_policy_changes was a secondary driver in the network, not the primary one. The overall likelihood of heightened protest activity decreases slightly in the absence of a strong policy-triggered cascade, but baseline mobilization forces remain active.\"\n}",
+      "target_id": "government_policy_changes",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Suppose a major scandal involving Irish political corruption emerges just before the forecast period, dominating media coverage and completely overshadowing any protest-related issues. Even if social movement mobilization is high, the public discourse is saturated with the scandal, leaving little room for protest events to gain visibility. In this case, media coverage amplification would not occur despite strong underlying mobilization, suggesting it may not be a critical link in driving protest levels.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the 'media_coverage_amplification' node, suggesting it may not reliably transmit the effect of social_movement_mobilization to the outcome when external events (like a political scandal) dominate media space. This weakens the causal path: social_movement_mobilization -> media_coverage_amplification -> outcome. However, the direct link from social_movement_mobilization -> outcome remains intact, preserving a core mechanism driving protest levels. Since media coverage amplification acts as a force multiplier rather than the primary driver, its reduced reliability in this scenario diminishes the likelihood of widespread participation but does not eliminate the potential for increased protests. Thus, the probability decreases slightly, reflecting diminished amplification potential without a collapse in mobilization capacity.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the 'media_coverage_amplification' node, suggesting it may not reliably transmit the effect of social_movement_mobilization to the outcome when external events (like a political scandal) dominate media space. This weakens the causal path: social_movement_mobilization -> media_coverage_amplification -> outcome. However, the direct link from social_movement_mobilization -> outcome remains intact, preserving a core mechanism driving protest levels. Since media coverage amplification acts as a force multiplier rather than the primary driver, its reduced reliability in this scenario diminishes the likelihood of widespread participation but does not eliminate the potential for increased protests. Thus, the probability decreases slightly, reflecting diminished amplification potential without a collapse in mobilization capacity.\"\n}",
+      "target_id": "media_coverage_amplification",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In early October 2025, a coalition of housing rights, climate, and labor groups in Ireland launched a coordinated national network with shared resources, training programs, and a unified digital platform for organizing protests. This new alliance has already mobilized over 15,000 participants in coordinated actions across five major cities, demonstrating significantly enhanced capacity for sustained and large-scale protest organization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.85,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly strengthens the 'social_movement_mobilization' node, a central causal driver in the network. The formation of a coordinated national coalition with shared resources, training, and a unified digital platform represents a structural enhancement in mobilization capacity, which was previously uncertain. This development boosts the 'social_movement_mobilization' node, which has two direct causal paths to the outcome: one direct path (social_movement_mobilization -> outcome) and one indirect path through media_coverage_amplification (social_movement_mobilization -> media_coverage_amplification -> outcome). The reported mobilization of over 15,000 participants in coordinated actions provides empirical evidence of heightened capacity and reach, increasing the likelihood of exceeding the historical 30-day average. Given that social_movement_mobilization is a key proximate cause of protest frequency, and this new development substantially reinforces it, the probability of increased protests rises significantly.",
+      "raw_response": "{\n  \"updated_probability\": 0.85,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly strengthens the 'social_movement_mobilization' node, a central causal driver in the network. The formation of a coordinated national coalition with shared resources, training, and a unified digital platform represents a structural enhancement in mobilization capacity, which was previously uncertain. This development boosts the 'social_movement_mobilization' node, which has two direct causal paths to the outcome: one direct path (social_movement_mobilization -> outcome) and one indirect path through media_coverage_amplification (social_movement_mobilization -> media_coverage_amplification -> outcome). The reported mobilization of over 15,000 participants in coordinated actions provides empirical evidence of heightened capacity and reach, increasing the likelihood of exceeding the historical 30-day average. Given that social_movement_mobilization is a key proximate cause of protest frequency, and this new development substantially reinforces it, the probability of increased protests rises significantly.\"\n}",
+      "target_id": "social_movement_mobilization",
+      "target_type": "node",
+      "target_importance": 0.2667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent opinion poll conducted by a reputable Irish polling firm shows a 15-point increase in public approval of the government's handling of national affairs over the past three months, reaching the highest level since 2021. This rise in confidence follows a series of successful legislative compromises and cross-party support for key budgetary measures, reinforcing perceptions of stable and effective governance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new information directly challenges the 'political_stability' node by indicating a significant improvement in public approval of the government, suggesting increased perceived legitimacy and stability. This weakens the causal path from government_policy_changes -> political_stability -> social_movement_mobilization, making it less likely that activists will feel emboldened to mobilize. While economic_stress and preceding_protest_momentum may still drive mobilization, the increased political stability reduces the likelihood of government actions triggering backlash and lowers the incentive for social movements to escalate protest activity. This update affects a core causal path leading to both media_coverage_amplification and the outcome, warranting a moderate downward revision in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information directly challenges the 'political_stability' node by indicating a significant improvement in public approval of the government, suggesting increased perceived legitimacy and stability. This weakens the causal path from government_policy_changes -> political_stability -> social_movement_mobilization, making it less likely that activists will feel emboldened to mobilize. While economic_stress and preceding_protest_momentum may still drive mobilization, the increased political stability reduces the likelihood of government actions triggering backlash and lowers the incentive for social movements to escalate protest activity. This update affects a core causal path leading to both media_coverage_amplification and the outcome, warranting a moderate downward revision in the probability estimate.\"\n}",
+      "target_id": "political_stability",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "In Ireland's current political context, even if political stability is low due to coalition tensions or leadership changes, established social movements may remain cautious about mobilizing due to strong legal restrictions on public assembly or high thresholds for protest permits. Additionally, recent precedent—such as the muted protest response during the 2023 government crisis—suggests that low political stability does not reliably translate into increased mobilization, particularly when opposition parties channel dissent through parliamentary rather than street-level action.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between political_stability and social_movement_mobilization, arguing that in Ireland's current context, low political stability does not reliably increase protest mobilization due to institutionalized dissent channels and legal constraints on assembly. This weakens a key pathway through which government instability could have amplified protest activity. While other drivers like economic_stress and preceding_protest_momentum still support mobilization, the dampened responsiveness of social movements to political instability reduces the likelihood that latent tensions will translate into observable protest surges. This disrupts the path: political_stability -> social_movement_mobilization -> outcome, and slightly weakens the parallel indirect path via media_coverage_amplification. However, since this link was not the dominant driver in the original network (economic stress and recent momentum were more central), the update is moderate rather than drastic. The probability is therefore lowered, but not substantially.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between political_stability and social_movement_mobilization, arguing that in Ireland's current context, low political stability does not reliably increase protest mobilization due to institutionalized dissent channels and legal constraints on assembly. This weakens a key pathway through which government instability could have amplified protest activity. While other drivers like economic_stress and preceding_protest_momentum still support mobilization, the dampened responsiveness of social movements to political instability reduces the likelihood that latent tensions will translate into observable protest surges. This disrupts the path: political_stability -> social_movement_mobilization -> outcome, and slightly weakens the parallel indirect path via media_coverage_amplification. However, since this link was not the dominant driver in the original network (economic stress and recent momentum were more central), the update is moderate rather than drastic. The probability is therefore lowered, but not substantially.\"\n}",
+      "target_id": "political_stability->social_movement_mobilization",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Suppose social movement organizations in Ireland face a sudden wave of internal leadership resignations due to scandal, severely disrupting their operational capacity despite high public sentiment. Would widespread mobilization intent still translate into actual protest events if key coordinating groups are incapacitated?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link 'social_movement_mobilization -> outcome', which is a central and direct pathway in the network. If key social movement organizations are incapacitated by a sudden wave of leadership resignations due to scandal, their operational capacity to organize, coordinate, and sustain protest events would be significantly impaired—even if public sentiment and mobilization intent remain high. This weakens the direct path from social movement mobilization to actual protest events. Additionally, the indirect path through media_coverage_amplification is also likely weakened, as fewer or smaller protests due to poor coordination may fail to attract significant media attention. Given that both direct and indirect pathways from social_movement_mobilization to the outcome are disrupted, the likelihood of exceeding the historical average in protest activity decreases. The change is substantial but not maximal because underlying conditions (economic stress, policy grievances) could still enable decentralized or grassroots actions to emerge. Thus, the probability is reduced from 0.62 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link 'social_movement_mobilization -> outcome', which is a central and direct pathway in the network. If key social movement organizations are incapacitated by a sudden wave of leadership resignations due to scandal, their operational capacity to organize, coordinate, and sustain protest events would be significantly impaired—even if public sentiment and mobilization intent remain high. This weakens the direct path from social movement mobilization to actual protest events. Additionally, the indirect path through media_coverage_amplification is also likely weakened, as fewer or smaller protests due to poor coordination may fail to attract significant media attention. Given that both direct and indirect pathways from social_movement_mobilization to the outcome are disrupted, the likelihood of exceeding the historical average in protest activity decreases. The change is substantial but not maximal because underlying conditions (economic stress, policy grievances) could still enable decentralized or grassroots actions to emerge. Thus, the probability is reduced from 0.62 to 0.48.\"\n}",
+      "target_id": "social_movement_mobilization->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Suppose social movement mobilization increases in Ireland, with more frequent and better-organized protests, but mainstream media outlets continue to give minimal coverage due to editorial policies prioritizing 'neutral reporting' and avoiding amplification of protest narratives. In this case, public discourse remains largely unaffected despite growing mobilization. Could strong social movement activity fail to increase media coverage if media institutions systematically downplay protest events?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between social_movement_mobilization and media_coverage_amplification, suggesting that even if mobilization increases, media coverage may not follow due to institutional editorial policies that downplay protest narratives. This weakens the pathway from mobilization to media amplification, which in turn reduces the indirect effect of media_coverage_amplification on the outcome. While the direct path from social_movement_mobilization to outcome remains intact, the blocked amplification effect diminishes the likelihood that protest activity will scale beyond core activist circles. This makes it less probable that protest frequency will exceed the baseline average, particularly if public awareness and participation are constrained without media spread. The link being challenged is important but not central to all mobilization effects—since mobilization still directly drives protests—so the update is moderate. However, the loss of feedback via media reduces growth potential, warranting a downward revision from 0.62 to 0.54.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between social_movement_mobilization and media_coverage_amplification, suggesting that even if mobilization increases, media coverage may not follow due to institutional editorial policies that downplay protest narratives. This weakens the pathway from mobilization to media amplification, which in turn reduces the indirect effect of media_coverage_amplification on the outcome. While the direct path from social_movement_mobilization to outcome remains intact, the blocked amplification effect diminishes the likelihood that protest activity will scale beyond core activist circles. This makes it less probable that protest frequency will exceed the baseline average, particularly if public awareness and participation are constrained without media spread. The link being challenged is important but not central to all mobilization effects—since mobilization still directly drives protests—so the update is moderate. However, the loss of feedback via media reduces growth potential, warranting a downward revision from 0.62 to 0.54.\"\n}",
+      "target_id": "social_movement_mobilization->media_coverage_amplification",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Suppose a wave of large-scale protests erupted in Ireland due to housing shortages, leading to sustained public demonstrations and opposition pressure. This increased protest activity directly undermined confidence in the government's ability to govern effectively, resulting in cabinet reshuffles and declining approval ratings. Could it be that declining political stability is a consequence rather than a cause of heightened social movement mobilization?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that political_stability may be an effect rather than a cause of social_movement_mobilization, reversing the causal direction of the link political_stability -> social_movement_mobilization. This weakens the explanatory power of political_stability as an independent driver of protest mobilization in the model. However, this link was only one of several feeding into social_movement_mobilization, with economic_stress, preceding_protest_momentum, and government_policy_changes remaining intact as key upstream causes. The reversed causality implies that protest momentum can self-reinforce via feedback loops (e.g., protests → declining stability → further protests), but in forecasting forward, this reduces the predictive value of current political_stability as an early warning signal. Since the outcome still depends strongly on social_movement_mobilization and its other robust inputs (especially economic_stress and preceding_protest_momentum), the overall probability decreases only modestly due to reduced confidence in one causal pathway. The shift is downward because the reversal implies that political instability observed today may not presage new mobilization, but rather reflect ongoing protest activity already accounted for in other nodes.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that political_stability may be an effect rather than a cause of social_movement_mobilization, reversing the causal direction of the link political_stability -> social_movement_mobilization. This weakens the explanatory power of political_stability as an independent driver of protest mobilization in the model. However, this link was only one of several feeding into social_movement_mobilization, with economic_stress, preceding_protest_momentum, and government_policy_changes remaining intact as key upstream causes. The reversed causality implies that protest momentum can self-reinforce via feedback loops (e.g., protests → declining stability → further protests), but in forecasting forward, this reduces the predictive value of current political_stability as an early warning signal. Since the outcome still depends strongly on social_movement_mobilization and its other robust inputs (especially economic_stress and preceding_protest_momentum), the overall probability decreases only modestly due to reduced confidence in one causal pathway. The shift is downward because the reversal implies that political instability observed today may not presage new mobilization, but rather reflect ongoing protest activity already accounted for in other nodes.\"\n}",
+      "target_id": "political_stability->social_movement_mobilization",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose there is a surge in media coverage of housing affordability protests in Ireland, with major outlets running daily stories and prime-time segments highlighting public anger. This widespread attention pressures the government to announce an emergency housing policy reform within weeks, despite no prior legislative plans. Could this media-driven spotlight directly provoke new policy changes that might otherwise not have been prioritized?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a previously unmodeled reverse causal pathway: media_coverage_amplification -> government_policy_changes. This implies that intense media coverage of protests (e.g., on housing affordability) can force the government to implement policy changes it had not planned, thereby increasing the likelihood of government_policy_changes as an outcome of protest visibility rather than solely as an input. This creates a feedback loop: protests boost media coverage, which triggers new policy changes, which may further affect political_stability (especially if reforms are seen as inadequate or controversial), and in turn reinvigorate social_movement_mobilization. This strengthens the overall protest likelihood through multiple pathways—especially via political_stability and social_movement_mobilization—even if the initial trigger was economic stress. As a result, the system becomes more sensitive to protest momentum and media dynamics, increasing the probability of elevated protest activity in the target window. The causal network is now more responsive to early protest signals, justifying an upward revision from 0.62 to 0.71.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a previously unmodeled reverse causal pathway: media_coverage_amplification -> government_policy_changes. This implies that intense media coverage of protests (e.g., on housing affordability) can force the government to implement policy changes it had not planned, thereby increasing the likelihood of government_policy_changes as an outcome of protest visibility rather than solely as an input. This creates a feedback loop: protests boost media coverage, which triggers new policy changes, which may further affect political_stability (especially if reforms are seen as inadequate or controversial), and in turn reinvigorate social_movement_mobilization. This strengthens the overall protest likelihood through multiple pathways—especially via political_stability and social_movement_mobilization—even if the initial trigger was economic stress. As a result, the system becomes more sensitive to protest momentum and media dynamics, increasing the probability of elevated protest activity in the target window. The causal network is now more responsive to early protest signals, justifying an upward revision from 0.62 to 0.71.\"\n}",
+      "target_id": "media_coverage_amplification->government_policy_changes",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a major Irish broadcaster runs a sustained investigative series highlighting government mismanagement in housing policy, closely tied to ongoing protests. This coverage increases public scrutiny and erodes trust in the government's competence. Would this shift in media coverage independently undermine perceptions of political stability, even if protest levels and economic conditions remain unchanged?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new causal path—media_coverage_amplification -> political_stability—that was not originally in the network. The scenario describes how intense media scrutiny can erode political stability independently of protest levels or economic conditions. This strengthens the overall pathway from media coverage to the outcome: by weakening political stability, it feeds back into increased social_movement_mobilization (via the existing link political_stability -> social_movement_mobilization), which in turn boosts both media_coverage_amplification and the outcome directly. This creates a reinforcing loop that amplifies protest potential. While the original estimate accounted for media coverage increasing participation, it did not account for media-driven destabilization of the government, which indirectly enhances mobilization. This newly emphasized pathway increases the likelihood of heightened protest activity, justifying a moderate upward revision in the forecast.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new causal path—media_coverage_amplification -> political_stability—that was not originally in the network. The scenario describes how intense media scrutiny can erode political stability independently of protest levels or economic conditions. This strengthens the overall pathway from media coverage to the outcome: by weakening political stability, it feeds back into increased social_movement_mobilization (via the existing link political_stability -> social_movement_mobilization), which in turn boosts both media_coverage_amplification and the outcome directly. This creates a reinforcing loop that amplifies protest potential. While the original estimate accounted for media coverage increasing participation, it did not account for media-driven destabilization of the government, which indirectly enhances mobilization. This newly emphasized pathway increases the likelihood of heightened protest activity, justifying a moderate upward revision in the forecast.\"\n}",
+      "target_id": "media_coverage_amplification->political_stability",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of international events, such as major global protests or transnational activist campaigns, that could inspire or coordinate protest activity in Ireland. Such events can provide tactical models, increase solidarity, and motivate local groups to act, thereby increasing the likelihood of protests even if domestic conditions remain stable.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.66,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The structural challenge introduces a new causal pathway—international events influencing social_movement_mobilization and media_coverage_amplification—via transnational solidarity, tactical diffusion, and global media attention. This adds an additional input into social_movement_mobilization, which is already a central hub in the causal network, directly affecting both media_coverage_amplification and the outcome. While domestic conditions (economic_stress, government_policy_changes, etc.) remain the primary drivers, the inclusion of international spillover effects increases the likelihood of protest mobilization even if domestic grievances are stable. This expands the set of plausible triggers for protest activity in Ireland, particularly through activist networks that are connected to global movements (e.g., climate justice, Palestine solidarity). Since this pathway supplements rather than replaces existing causal mechanisms, and because Ireland has shown responsiveness to international activist waves in the past (e.g., Black Lives Matter, climate strikes), the overall probability increases modestly. The shift is not large because domestic factors still dominate the causal structure, but the added vulnerability to global mobilization justifies a small upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.66,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The structural challenge introduces a new causal pathway—international events influencing social_movement_mobilization and media_coverage_amplification—via transnational solidarity, tactical diffusion, and global media attention. This adds an additional input into social_movement_mobilization, which is already a central hub in the causal network, directly affecting both media_coverage_amplification and the outcome. While domestic conditions (economic_stress, government_policy_changes, etc.) remain the primary drivers, the inclusion of international spillover effects increases the likelihood of protest mobilization even if domestic grievances are stable. This expands the set of plausible triggers for protest activity in Ireland, particularly through activist networks that are connected to global movements (e.g., climate justice, Palestine solidarity). Since this pathway supplements rather than replaces existing causal mechanisms, and because Ireland has shown responsiveness to international activist waves in the past (e.g., Black Lives Matter, climate strikes), the overall probability increases modestly. The shift is not large because domestic factors still dominate the causal structure, but the added vulnerability to global mobilization justifies a small upward revision.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of international events, such as major global protests or international summits held in Ireland, which could inspire or enable domestic protest activity. For example, if a high-profile climate summit were held in Dublin during the forecast period, it could attract international activists, increase media attention, and catalyze local mobilization around related issues. This could significantly increase the likelihood of protest activity surpassing historical averages, independent of domestic factors like economic stress or policy changes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.06000000000000005,
+      "shift_direction": "increased",
+      "reasoning": "The structural challenge introduces a new exogenous pathway—international events—that can independently activate key nodes in the existing causal network, particularly social_movement_mobilization and media_coverage_amplification. A major international summit in Ireland (e.g., a climate summit) would act as a catalyst by drawing global activist networks, increasing local organizing capacity, and attracting amplified media coverage even in the absence of heightened domestic economic stress or controversial policy changes. This creates parallel paths to the outcome: one bypassing the original domestic drivers (economic_stress, government_policy_changes) and directly boosting social_movement_mobilization and media_coverage_amplification. As a result, the baseline probability increases because there is now an additional plausible mechanism—outside the original model—that could elevate protest activity above historical averages. However, since such events are relatively rare and their occurrence not yet observed or confirmed, the update is moderate rather than large. The core domestic pathways remain intact and continue to dominate the forecast, but the added possibility of an international trigger justifies a modest upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The structural challenge introduces a new exogenous pathway—international events—that can independently activate key nodes in the existing causal network, particularly social_movement_mobilization and media_coverage_amplification. A major international summit in Ireland (e.g., a climate summit) would act as a catalyst by drawing global activist networks, increasing local organizing capacity, and attracting amplified media coverage even in the absence of heightened domestic economic stress or controversial policy changes. This creates parallel paths to the outcome: one bypassing the original domestic drivers (economic_stress, government_policy_changes) and directly boosting social_movement_mobilization and media_coverage_amplification. As a result, the baseline probability increases because there is now an additional plausible mechanism—outside the original model—that could elevate protest activity above historical averages. However, since such events are relatively rare and their occurrence not yet observed or confirmed, the update is moderate rather than large. The core domestic pathways remain intact and continue to dominate the forecast, but the added possibility of an international trigger justifies a modest upward revision.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent survey by a Dublin-based think tank found that 68% of Irish citizens express concern about long-term climate change impacts, up from 62% six months ago. The survey also indicated increased public support for green infrastructure investment across all age groups.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The survey data on increased public concern about climate change and support for green infrastructure does not directly affect any of the core causal paths in the model. While rising environmental concern could, in theory, feed into social_movement_mobilization, there is no evidence yet of actual mobilization, protest momentum, or policy triggers related to climate issues. The nodes that drive the outcome—economic_stress, government_policy_changes, political_stability, preceding_protest_momentum, and media_coverage_amplification—remain unchanged in their assessed states. Without a link from climate concern to active mobilization or policy conflict, the pathway to the outcome is unaltered. Therefore, the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The survey data on increased public concern about climate change and support for green infrastructure does not directly affect any of the core causal paths in the model. While rising environmental concern could, in theory, feed into social_movement_mobilization, there is no evidence yet of actual mobilization, protest momentum, or policy triggers related to climate issues. The nodes that drive the outcome—economic_stress, government_policy_changes, political_stability, preceding_protest_momentum, and media_coverage_amplification—remain unchanged in their assessed states. Without a link from climate concern to active mobilization or policy conflict, the pathway to the outcome is unaltered. Therefore, the probability remains unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent survey by a Dublin-based think tank found that 68% of Irish adults believe climate change is a critical issue requiring urgent government action. The survey also indicated a slight increase in public trust in scientific institutions over the past year.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The survey findings strengthen the 'social_movement_mobilization' node indirectly through heightened public concern about climate change, a key issue area for organized activism in Ireland. While the causal network does not explicitly include environmental issue salience as a driver, the 'economic_stress' and 'government_policy_changes' nodes are not the only pathways to mobilization. The increased public urgency around climate change—coupled with rising trust in scientific institutions—can enhance the legitimacy and appeal of climate-focused protest movements, thereby reinforcing 'social_movement_mobilization'. This, in turn, strengthens two direct paths to the outcome: (1) via direct mobilization leading to more protests, and (2) through increased media coverage as climate actions gain broader public resonance. The effect is not transformative—since actual policy triggers or economic shocks are not yet evident—but it does tilt the balance slightly toward greater protest likelihood. Therefore, the update is modest, reflecting a reinforced but not dominant causal pathway.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The survey findings strengthen the 'social_movement_mobilization' node indirectly through heightened public concern about climate change, a key issue area for organized activism in Ireland. While the causal network does not explicitly include environmental issue salience as a driver, the 'economic_stress' and 'government_policy_changes' nodes are not the only pathways to mobilization. The increased public urgency around climate change—coupled with rising trust in scientific institutions—can enhance the legitimacy and appeal of climate-focused protest movements, thereby reinforcing 'social_movement_mobilization'. This, in turn, strengthens two direct paths to the outcome: (1) via direct mobilization leading to more protests, and (2) through increased media coverage as climate actions gain broader public resonance. The effect is not transformative—since actual policy triggers or economic shocks are not yet evident—but it does tilt the balance slightly toward greater protest likelihood. Therefore, the update is modest, reflecting a reinforced but not dominant causal pathway.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "The Irish government has announced a new austerity measure involving cuts to public transportation subsidies, effective 2025-11-01, sparking immediate condemnation from trade unions and opposition parties. This policy change is expected to disproportionately affect low- and middle-income households, increasing perceptions of unfair economic burden-sharing.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of austerity measures cutting public transportation subsidies directly strengthens the 'government_policy_changes' node, which negatively impacts 'political_stability' due to perceived unfair economic burden-sharing and backlash from unions and opposition parties. Lower political stability, in turn, enhances 'social_movement_mobilization' as activists are emboldened to act. Additionally, the policy disproportionately affects economically vulnerable groups, amplifying 'economic_stress', which further feeds into 'social_movement_mobilization'. This convergence of heightened economic stress and controversial policy change creates a stronger impetus for organized protest activity. The causal paths from 'government_policy_changes' → 'political_stability' → 'social_movement_mobilization' → 'outcome' and 'economic_stress' → 'social_movement_mobilization' → 'outcome' are both reinforced, increasing the likelihood of elevated protest levels in the 30-day window. Therefore, the probability of more protests relative to the 30-day average is updated upward.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of austerity measures cutting public transportation subsidies directly strengthens the 'government_policy_changes' node, which negatively impacts 'political_stability' due to perceived unfair economic burden-sharing and backlash from unions and opposition parties. Lower political stability, in turn, enhances 'social_movement_mobilization' as activists are emboldened to act. Additionally, the policy disproportionately affects economically vulnerable groups, amplifying 'economic_stress', which further feeds into 'social_movement_mobilization'. This convergence of heightened economic stress and controversial policy change creates a stronger impetus for organized protest activity. The causal paths from 'government_policy_changes' → 'political_stability' → 'social_movement_mobilization' → 'outcome' and 'economic_stress' → 'social_movement_mobilization' → 'outcome' are both reinforced, increasing the likelihood of elevated protest levels in the 30-day window. Therefore, the probability of more protests relative to the 30-day average is updated upward.\"\n}",
+      "target_id": "government_policy_changes",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Major Irish broadcasters, including RTÉ and Virgin Media, have recently announced dedicated weekly segments focusing on ongoing housing rights protests, significantly increasing the visibility of related issues. This sustained coverage is expected to continue into the forecast period, amplifying public awareness and engagement with protest movements.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of dedicated weekly segments by major Irish broadcasters (RTÉ and Virgin Media) directly strengthens the 'media_coverage_amplification' node, which is a direct causal precursor to the outcome. This sustained and institutionalized media coverage increases the likelihood that protest-related issues will remain visible and salient to the public, thereby lowering the threshold for participation and encouraging broader engagement. The causal path from 'social_movement_mobilization -> media_coverage_amplification -> outcome' is reinforced, and the strengthened 'media_coverage_amplification' node also indirectly supports further mobilization through feedback loops not explicitly modeled (e.g., media coverage inspiring new activists). While media coverage alone is not sufficient to drive protest frequency, in the context of existing grievances (e.g., housing rights), it acts as a force multiplier. Given that the original estimate already accounted for some level of media effects, this new structural commitment to coverage represents a meaningful exogenous boost to a key amplification mechanism, justifying a moderate upward revision.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of dedicated weekly segments by major Irish broadcasters (RTÉ and Virgin Media) directly strengthens the 'media_coverage_amplification' node, which is a direct causal precursor to the outcome. This sustained and institutionalized media coverage increases the likelihood that protest-related issues will remain visible and salient to the public, thereby lowering the threshold for participation and encouraging broader engagement. The causal path from 'social_movement_mobilization -> media_coverage_amplification -> outcome' is reinforced, and the strengthened 'media_coverage_amplification' node also indirectly supports further mobilization through feedback loops not explicitly modeled (e.g., media coverage inspiring new activists). While media coverage alone is not sufficient to drive protest frequency, in the context of existing grievances (e.g., housing rights), it acts as a force multiplier. Given that the original estimate already accounted for some level of media effects, this new structural commitment to coverage represents a meaningful exogenous boost to a key amplification mechanism, justifying a moderate upward revision.\"\n}",
+      "target_id": "media_coverage_amplification",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2025, Ireland's coalition government collapsed following a no-confidence vote triggered by internal disputes over housing policy, leading to widespread uncertainty about political leadership. This sudden drop in political stability was immediately followed by a 40% increase in protest mobilization within two weeks, as activist groups like the People's Assembly on Housing and Climate Action launched coordinated demonstrations, citing the government's fragility as an opportunity to push for systemic change.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.75,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The observed event in June 2025—where a sudden collapse in political stability led to a rapid 40% increase in protest mobilization—provides strong empirical support for the causal link between political_stability and social_movement_mobilization. This challenges any skepticism about the strength or existence of that link and confirms that reduced political stability can act as a catalyst for protest organizing, especially when activist networks frame the moment as an opportunity for change. This strengthens the pathway: political_stability -> social_movement_mobilization -> outcome, and also reinforces the indirect path through media_coverage_amplification. Given that the broader causal structure remains intact and this event validates a key mechanism in the network, the likelihood of observing above-average protest levels in the target period increases. The update is substantial but bounded, as other factors (e.g., economic_stress, policy triggers) still modulate the overall probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.75,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The observed event in June 2025—where a sudden collapse in political stability led to a rapid 40% increase in protest mobilization—provides strong empirical support for the causal link between political_stability and social_movement_mobilization. This challenges any skepticism about the strength or existence of that link and confirms that reduced political stability can act as a catalyst for protest organizing, especially when activist networks frame the moment as an opportunity for change. This strengthens the pathway: political_stability -> social_movement_mobilization -> outcome, and also reinforces the indirect path through media_coverage_amplification. Given that the broader causal structure remains intact and this event validates a key mechanism in the network, the likelihood of observing above-average protest levels in the target period increases. The update is substantial but bounded, as other factors (e.g., economic_stress, policy triggers) still modulate the overall probability.\"\n}",
+      "target_id": "political_stability->social_movement_mobilization",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2024, Ireland's housing rights movement 'Take Back the City' successfully coordinated a nationwide day of action, mobilizing over 15,000 participants across five cities following a centralized campaign strategy. This surge in organized mobilization directly preceded a 300% increase in protest events related to housing over the subsequent month, far exceeding previous levels despite stable economic and policy conditions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The evidence from the 'Take Back the City' mobilization in early 2024 strengthens the causal link between social_movement_mobilization and outcome. This case demonstrates that strong, organized social movement activity can directly drive a significant increase in protest frequency, even in the absence of worsening economic or policy conditions. This reinforces the importance of the social_movement_mobilization -> outcome path in the causal network, suggesting that mobilization capacity alone can act as a powerful independent driver of protest surges. As a result, the likelihood of exceeding the 30-day average protest level by the end of 2025 is now judged higher, particularly if similar mobilization efforts occur in the forecast window. The update reflects greater confidence in the direct effect of mobilization on protest outcomes.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The evidence from the 'Take Back the City' mobilization in early 2024 strengthens the causal link between social_movement_mobilization and outcome. This case demonstrates that strong, organized social movement activity can directly drive a significant increase in protest frequency, even in the absence of worsening economic or policy conditions. This reinforces the importance of the social_movement_mobilization -> outcome path in the causal network, suggesting that mobilization capacity alone can act as a powerful independent driver of protest surges. As a result, the likelihood of exceeding the 30-day average protest level by the end of 2025 is now judged higher, particularly if similar mobilization efforts occur in the forecast window. The update reflects greater confidence in the direct effect of mobilization on protest outcomes.\"\n}",
+      "target_id": "social_movement_mobilization->outcome",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent changes in Irish media consumption patterns, including a surge in real-time reporting by digital outlets and increased use of social media by mainstream journalists, have created a feedback loop where even small protests quickly gain visibility. This dynamic amplifies the relationship between social movement mobilization and media coverage, as sustained or coordinated actions are now more likely to be documented and shared widely, accelerating public discourse beyond what traditional media alone would generate.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.71,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between social_movement_mobilization and media_coverage_amplification by highlighting a more responsive and accelerated media environment in Ireland. This means that even modest levels of protest activity are now more likely to trigger widespread media coverage due to real-time reporting and social media amplification. As a result, the pathway from social_movement_mobilization → media_coverage_amplification → outcome becomes more efficient and sensitive, increasing the likelihood that mobilization efforts will translate into observable increases in protest frequency. This reinforcement of a key amplification mechanism in the causal network raises the probability of exceeding the historical 30-day average of protests during the forecast window.",
+      "raw_response": "{\n  \"updated_probability\": 0.71,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between social_movement_mobilization and media_coverage_amplification by highlighting a more responsive and accelerated media environment in Ireland. This means that even modest levels of protest activity are now more likely to trigger widespread media coverage due to real-time reporting and social media amplification. As a result, the pathway from social_movement_mobilization → media_coverage_amplification → outcome becomes more efficient and sensitive, increasing the likelihood that mobilization efforts will translate into observable increases in protest frequency. This reinforcement of a key amplification mechanism in the causal network raises the probability of exceeding the historical 30-day average of protests during the forecast window.\"\n}",
+      "target_id": "social_movement_mobilization->media_coverage_amplification",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "085ad65ea78c233bd2751e83a48fca5d20c8c9d10868ebac09692725e692b19e",
+    "question_text": "Will there be more 'Protests' in Ireland for the 30 days before 2025-12-28 compared to the 30-day average of 'Protests' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Protests' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.076875,
+    "max_absolute_shift": 0.22999999999999998
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.1363636363636367,
+    "mean_shift_high": 0.1175,
+    "mean_shift_low": 0.05499999999999999,
+    "asymmetry_index": 0.6666666666666667,
+    "mean_shift_negate": 0.08285714285714285,
+    "mean_shift_strengthen": 0.12428571428571426,
+    "fnar": 0.75,
+    "n_accepted": 3,
+    "n_spurious": 4,
+    "critical_path_premium": 0.04305555555555554,
+    "mean_shift_on_path": 0.10888888888888888,
+    "mean_shift_off_path": 0.06583333333333334,
+    "importance_sensitivity_correlation": 0.40909090909090906,
+    "control_sensitivity": 0
+  }
+}

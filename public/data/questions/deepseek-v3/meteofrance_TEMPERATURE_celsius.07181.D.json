@@ -1,0 +1,1053 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07181.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.45,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "General temperature decline in late December in Nancy region",
+      "role": "factor"
+    },
+    {
+      "id": "weather_system_variability",
+      "description": "Natural fluctuations in atmospheric conditions over a week",
+      "role": "factor"
+    },
+    {
+      "id": "jet_stream_position",
+      "description": "Location and strength of the jet stream influencing European weather",
+      "role": "factor"
+    },
+    {
+      "id": "atlantic_depressions",
+      "description": "Movement of low-pressure systems from the Atlantic towards France",
+      "role": "factor"
+    },
+    {
+      "id": "snow_cover",
+      "description": "Presence or absence of snow affecting local temperature through albedo and insulation",
+      "role": "factor"
+    },
+    {
+      "id": "high_pressure_blocking",
+      "description": "Persistent high-pressure systems causing stable, potentially colder conditions",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Daily average temperature on 2025-12-28 is higher than on 2025-12-21 at Nancy – Ochey Air Base",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_trend",
+      "to": "jet_stream_position",
+      "mechanism": "Seasonal cooling typically shifts jet stream south, increasing cold air advection"
+    },
+    {
+      "from": "jet_stream_position",
+      "to": "atlantic_depressions",
+      "mechanism": "Jet stream position steers Atlantic depressions north or south of France"
+    },
+    {
+      "from": "atlantic_depressions",
+      "to": "high_pressure_blocking",
+      "mechanism": "Active depressions can disrupt or prevent high-pressure blocking patterns"
+    },
+    {
+      "from": "atlantic_depressions",
+      "to": "snow_cover",
+      "mechanism": "Depressions bring precipitation which may fall as snow if temperatures are low"
+    },
+    {
+      "from": "high_pressure_blocking",
+      "to": "snow_cover",
+      "mechanism": "Blocking highs can lead to clear skies, promoting snow melt or accumulation depending on conditions"
+    },
+    {
+      "from": "snow_cover",
+      "to": "outcome",
+      "mechanism": "Snow cover reflects sunlight and cools air, reducing temperatures"
+    },
+    {
+      "from": "weather_system_variability",
+      "to": "outcome",
+      "mechanism": "Random week-to-week fluctuations can cause temperature differences independent of trends"
+    }
+  ],
+  "reasoning": "The probability is slightly below 50% because late December in Nancy typically shows a cooling seasonal trend, making a warmer temperature a week later less likely. However, significant weather variability from Atlantic systems and blocking patterns can override this trend. Given the inherent unpredictability of specific daily temperatures a year in advance, the forecast reflects moderate uncertainty leaning toward a slight decrease, but with substantial chance of the opposite due to natural atmospheric randomness.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "General temperature decline in late December in Nancy region",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_system_variability",
+        "description": "Natural fluctuations in atmospheric conditions over a week",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.057,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "jet_stream_position",
+        "description": "Location and strength of the jet stream influencing European weather",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.1667,
+        "pagerank": 0.1055,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "atlantic_depressions",
+        "description": "Movement of low-pressure systems from the Atlantic towards France",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.2,
+        "closeness": 0.2222,
+        "pagerank": 0.1467,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "snow_cover",
+        "description": "Presence or absence of snow affecting local temperature through albedo and insulation",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.381,
+        "pagerank": 0.2209,
+        "path_relevance": 0.6667
+      },
+      {
+        "node_id": "high_pressure_blocking",
+        "description": "Persistent high-pressure systems causing stable, potentially colder conditions",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.25,
+        "pagerank": 0.1194,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "Daily average temperature on 2025-12-28 is higher than on 2025-12-21 at Nancy – Ochey Air Base",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4615,
+        "pagerank": 0.2933,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "jet_stream_position",
+        "mechanism": "Seasonal cooling typically shifts jet stream south, increasing cold air advection",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_system_variability",
+        "target": "outcome",
+        "mechanism": "Random week-to-week fluctuations can cause temperature differences independent of trends",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "jet_stream_position",
+        "target": "atlantic_depressions",
+        "mechanism": "Jet stream position steers Atlantic depressions north or south of France",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "atlantic_depressions",
+        "target": "high_pressure_blocking",
+        "mechanism": "Active depressions can disrupt or prevent high-pressure blocking patterns",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": false
+      },
+      {
+        "source": "atlantic_depressions",
+        "target": "snow_cover",
+        "mechanism": "Depressions bring precipitation which may fall as snow if temperatures are low",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "snow_cover",
+        "target": "outcome",
+        "mechanism": "Snow cover reflects sunlight and cools air, reducing temperatures",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "high_pressure_blocking",
+        "target": "snow_cover",
+        "mechanism": "Blocking highs can lead to clear skies, promoting snow melt or accumulation depending on conditions",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "atlantic_depressions",
+        "description": "Movement of low-pressure systems from the Atlantic towards France",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "jet_stream_position",
+        "description": "Location and strength of the jet stream influencing European weather",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_trend",
+        "description": "General temperature decline in late December in Nancy region",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "high_pressure_blocking",
+        "description": "Persistent high-pressure systems causing stable, potentially colder conditions",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atlantic_depressions",
+        "description": "Movement of low-pressure systems from the Atlantic towards France",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "jet_stream_position",
+        "description": "Location and strength of the jet stream influencing European weather",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "jet_stream_position->atlantic_depressions",
+        "description": "Jet stream position steers Atlantic depressions north or south of France",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atlantic_depressions->snow_cover",
+        "description": "Depressions bring precipitation which may fall as snow if temperatures are low",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atlantic_depressions->high_pressure_blocking",
+        "description": "Active depressions can disrupt or prevent high-pressure blocking patterns",
+        "importance": 0.0714,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "jet_stream_position->atlantic_depressions",
+        "description": "Jet stream position steers Atlantic depressions north or south of France",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "weather_system_variability->snow_cover",
+        "description": "Potential link: Natural fluctuations in atmospheric conditions over a week -> Presence or absence of snow affecting local temperature through albedo and insulation",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "atlantic_depressions",
+      "description": "Movement of low-pressure systems from the Atlantic towards France",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "jet_stream_position",
+      "description": "Location and strength of the jet stream influencing European weather",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_trend",
+      "description": "General temperature decline in late December in Nancy region",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "high_pressure_blocking",
+      "description": "Persistent high-pressure systems causing stable, potentially colder conditions",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atlantic_depressions",
+      "description": "Movement of low-pressure systems from the Atlantic towards France",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "jet_stream_position",
+      "description": "Location and strength of the jet stream influencing European weather",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "description": "Jet stream position steers Atlantic depressions north or south of France",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atlantic_depressions->snow_cover",
+      "description": "Depressions bring precipitation which may fall as snow if temperatures are low",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atlantic_depressions->high_pressure_blocking",
+      "description": "Active depressions can disrupt or prevent high-pressure blocking patterns",
+      "importance": 0.0714,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "description": "Jet stream position steers Atlantic depressions north or south of France",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "weather_system_variability->snow_cover",
+      "description": "Potential link: Natural fluctuations in atmospheric conditions over a week -> Presence or absence of snow affecting local temperature through albedo and insulation",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Suppose that due to a persistent high-pressure ridge over the Atlantic throughout late December 2025, low-pressure systems are consistently deflected northward toward Scandinavia, with virtually none reaching France. This would mean Atlantic depressions have minimal direct influence on weather in the Nancy region during this period, making them largely irrelevant for the temperature comparison.",
+      "probe_type": "node_negate_high",
+      "target_id": "atlantic_depressions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Movement of low-pressure systems from the Atlantic towards France"
+    },
+    {
+      "probe_text": "Consider that new research indicates the jet stream's influence on European weather in late December may be greatly overstated for the Nancy region. Specifically, a persistent, anomalous pattern of localized high pressure over Eastern France could decouple local conditions from the jet stream's position, rendering its typical steering effects on Atlantic depressions irrelevant for the week in question. What if the jet stream's location has minimal direct impact on temperatures at Nancy-Ochey during this specific period?",
+      "probe_type": "node_negate_high",
+      "target_id": "jet_stream_position",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Location and strength of the jet stream influencing European weather"
+    },
+    {
+      "probe_text": "The seasonal trend of temperature decline in late December might be weaker or even reversed this year due to a forecasted strong positive phase of the Arctic Oscillation (AO) in late 2025. A strong positive AO is typically associated with a strengthened and more northerly jet stream, which can trap cold Arctic air at high latitudes and lead to anomalously mild conditions in Western Europe, including the Nancy region, during winter. This could significantly dampen the expected seasonal cooling signal for the week in question.",
+      "probe_type": "node_negate_medium",
+      "target_id": "seasonal_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "General temperature decline in late December in Nancy region"
+    },
+    {
+      "probe_text": "High-pressure blocking events in late December are historically rare in the Nancy region due to the strong influence of Atlantic systems during this period. Recent climate models also suggest that warming trends may further suppress the formation of persistent high-pressure systems in Western Europe in winter, making this factor less relevant for weekly temperature comparisons.",
+      "probe_type": "node_negate_low",
+      "target_id": "high_pressure_blocking",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Persistent high-pressure systems causing stable, potentially colder conditions"
+    },
+    {
+      "probe_text": "A new climate model analysis from Météo-France, published this week, shows that the North Atlantic Oscillation (NAO) is entering a strongly negative phase in late December 2025. This phase is historically associated with a 60% increase in the frequency and intensity of Atlantic depressions tracking directly into northern France, as the jet stream becomes more amplified and positions these systems precisely over the Nancy region.",
+      "probe_type": "node_strengthen",
+      "target_id": "atlantic_depressions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Movement of low-pressure systems from the Atlantic towards France"
+    },
+    {
+      "probe_text": "The latest seasonal forecast models from the European Centre for Medium-Range Weather Forecasts (ECMWF) and Meteo-France show a strong consensus predicting a significantly more meridional (wavy) jet stream pattern over the North Atlantic and Europe for late December 2025. This pattern is expected to feature deeper, more persistent troughs and ridges, which greatly amplifies the influence of jet stream positioning on surface weather systems across France compared to a typical, flatter zonal flow.",
+      "probe_type": "node_strengthen",
+      "target_id": "jet_stream_position",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Location and strength of the jet stream influencing European weather"
+    },
+    {
+      "probe_text": "Recent studies have shown that the relationship between jet stream position and Atlantic depression tracks can be decoupled by persistent tropical convection anomalies, such as those associated with the Madden-Julian Oscillation (MJO). During specific phases of the MJO, enhanced convection over the tropical Atlantic can force Rossby wave trains that steer depressions independently of the mid-latitude jet's mean position. For instance, in December 2025, a strong MJO event in phases 2-3 could push Atlantic depressions directly toward France regardless of the jet stream's southward seasonal shift, weakening the assumed causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Jet stream position steers Atlantic depressions north or south of France"
+    },
+    {
+      "probe_text": "Recent climate data for the Nancy region shows that late December temperatures have increasingly remained above freezing, even during Atlantic depressions. This is due to warmer air masses being advected from the south and west, causing precipitation to fall predominantly as rain rather than snow. Additionally, urban heat effects and changing soil moisture conditions further reduce the likelihood of snow accumulation from these systems.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "atlantic_depressions->snow_cover",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Depressions bring precipitation which may fall as snow if temperatures are low"
+    },
+    {
+      "probe_text": "Recent studies of European winter weather patterns indicate that Atlantic depressions can sometimes reinforce high-pressure blocking through downstream Rossby wave breaking, particularly when depressions are deep and slow-moving. In some scenarios, the diabatic heating from these systems can actually amplify and stabilize blocking highs over Scandinavia or Eastern Europe rather than disrupting them. This suggests the relationship between Atlantic depressions and high-pressure blocking may be more conditional or even opposite in certain synoptic configurations.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "atlantic_depressions->high_pressure_blocking",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Active depressions can disrupt or prevent high-pressure blocking patterns"
+    },
+    {
+      "probe_text": "Recent climatological studies of the North Atlantic suggest that persistent, intense Atlantic depressions can significantly alter the jet stream's position through diabatic heating and vorticity forcing. Specifically, a strong cluster of depressions can create a downstream ridge that forces the jet stream to shift northward or southward, effectively steering the jet rather than being steered by it. Therefore, the primary causal direction for this weekly timescale might be from atlantic_depressions to jet_stream_position.",
+      "probe_type": "edge_reverse",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Jet stream position steers Atlantic depressions north or south of France"
+    },
+    {
+      "probe_text": "Consider that natural week-to-week atmospheric fluctuations can cause rapid temperature shifts even within the same seasonal trend. A sudden cold snap from an unexpected Arctic air mass, part of normal weather system variability, could lead to snowfall even if Atlantic depressions are absent. This would directly create or maintain snow cover, which then influences temperatures through albedo effects.",
+      "probe_type": "edge_spurious",
+      "target_id": "weather_system_variability->snow_cover",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Natural fluctuations in atmospheric conditions over a week -> Presence or absence of snow affecting local temperature through albedo and insulation"
+    },
+    {
+      "probe_text": "The forecaster's network does not include the influence of soil moisture anomalies. Dry soil in the preceding weeks would lead to lower latent heat flux and more efficient heating of the surface air during daytime hours, potentially increasing the daily average temperature. This effect can be significant over a weekly timescale, especially if a high-pressure system coincides with dry conditions, and could alter the probability of a temperature increase independent of the listed factors.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What if there is a significant Arctic outbreak during this period, where cold air masses from the Arctic are advected directly over northeastern France? This could cause a sharp drop in temperatures around December 21 or 28, overriding seasonal trends and other weather systems, and would not be captured by the existing nodes like jet_stream_position or atlantic_depressions alone.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The Nancy – Ochey Air Base weather station recently installed new digital thermometers with higher precision (0.01°C resolution) compared to the old analog ones, which were accurate to 0.1°C. This upgrade was completed in November 2025, so both temperature measurements on December 21 and 28 will use the new equipment. However, the calibration standards and measurement protocols remain unchanged.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The Nancy – Ochey Air Base weather station recently upgraded its temperature sensors to a more precise digital model, which will provide more accurate daily average temperature readings starting in 2025. This improvement ensures that the recorded temperatures for both December 21 and 28 will have higher fidelity, reducing measurement errors compared to previous years.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose that due to a persistent high-pressure ridge over the Atlantic throughout late December 2025, low-pressure systems are consistently deflected northward toward Scandinavia, with virtually none reaching France. This would mean Atlantic depressions have minimal direct influence on weather in the Nancy region during this period, making them largely irrelevant for the temperature comparison.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.4,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly targets the node 'atlantic_depressions', which is a central hub in the causal network. If Atlantic depressions are consistently deflected and have minimal influence on France during this period, several causal paths are disrupted or weakened: 1) The path atlantic_depressions -> high_pressure_blocking is broken, making high-pressure blocking more likely due to reduced disruption. 2) The path atlantic_depressions -> snow_cover is weakened, reducing a source of precipitation that could lead to snow. 3) This indirectly affects the path from high_pressure_blocking -> snow_cover, as blocking highs may become more persistent. The overall effect is to make the weather regime more dominated by stable, potentially colder high-pressure conditions (due to increased blocking likelihood and reduced Atlantic influence bringing milder, maritime air). This slightly favors the seasonal cooling trend, making it marginally less likely that Dec 28 is warmer than Dec 21. The update is moderate (not large) because the direct causal link from atlantic_depressions to the outcome is indirect, and the 'weather_system_variability' node remains as an independent source of fluctuation.",
+      "raw_response": "{\n  \"updated_probability\": 0.40,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly targets the node 'atlantic_depressions', which is a central hub in the causal network. If Atlantic depressions are consistently deflected and have minimal influence on France during this period, several causal paths are disrupted or weakened: 1) The path atlantic_depressions -> high_pressure_blocking is broken, making high-pressure blocking more likely due to reduced disruption. 2) The path atlantic_depressions -> snow_cover is weakened, reducing a source of precipitation that could lead to snow. 3) This indirectly affects the path from high_pressure_blocking -> snow_cover, as blocking highs may become more persistent. The overall effect is to make the weather regime more dominated by stable, potentially colder high-pressure conditions (due to increased blocking likelihood and reduced Atlantic influence bringing milder, maritime air). This slightly favors the seasonal cooling trend, making it marginally less likely that Dec 28 is warmer than Dec 21. The update is moderate (not large) because the direct causal link from atlantic_depressions to the outcome is indirect, and the 'weather_system_variability' node remains as an independent source of fluctuation.\"\n}",
+      "target_id": "atlantic_depressions",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Consider that new research indicates the jet stream's influence on European weather in late December may be greatly overstated for the Nancy region. Specifically, a persistent, anomalous pattern of localized high pressure over Eastern France could decouple local conditions from the jet stream's position, rendering its typical steering effects on Atlantic depressions irrelevant for the week in question. What if the jet stream's location has minimal direct impact on temperatures at Nancy-Ochey during this specific period?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.02999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens the causal path from 'jet_stream_position' to 'atlantic_depressions' to 'high_pressure_blocking' and 'snow_cover', reducing the influence of seasonal cooling trends on local temperatures via these mechanisms. This makes the outcome more dependent on 'weather_system_variability' and direct effects, slightly increasing uncertainty and shifting the probability closer to 0.5, but the update is moderate because other factors like 'seasonal_trend' and 'high_pressure_blocking' still provide some predictive structure.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens the causal path from 'jet_stream_position' to 'atlantic_depressions' to 'high_pressure_blocking' and 'snow_cover', reducing the influence of seasonal cooling trends on local temperatures via these mechanisms. This makes the outcome more dependent on 'weather_system_variability' and direct effects, slightly increasing uncertainty and shifting the probability closer to 0.5, but the update is moderate because other factors like 'seasonal_trend' and 'high_pressure_blocking' still provide some predictive structure.\"\n}",
+      "target_id": "jet_stream_position",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "The seasonal trend of temperature decline in late December might be weaker or even reversed this year due to a forecasted strong positive phase of the Arctic Oscillation (AO) in late 2025. A strong positive AO is typically associated with a strengthened and more northerly jet stream, which can trap cold Arctic air at high latitudes and lead to anomalously mild conditions in Western Europe, including the Nancy region, during winter. This could significantly dampen the expected seasonal cooling signal for the week in question.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly affects the 'seasonal_trend' node, which is a root cause influencing the jet stream position and subsequent weather patterns. A strong positive Arctic Oscillation (AO) weakens or reverses the typical late December cooling trend by shifting the jet stream northward, reducing cold air advection and increasing the likelihood of mild conditions. This impacts causal paths: seasonal_trend -> jet_stream_position -> atlantic_depressions (increasing Atlantic influence and warmth) and seasonal_trend -> jet_stream_position -> atlantic_depressions -> high_pressure_blocking/snow_cover (reducing blocking and snow cover, both warming effects). As seasonal_trend is structurally important, the probability of higher temperatures on Dec 28 compared to Dec 21 increases, though weather_system_variability and other factors maintain uncertainty.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly affects the 'seasonal_trend' node, which is a root cause influencing the jet stream position and subsequent weather patterns. A strong positive Arctic Oscillation (AO) weakens or reverses the typical late December cooling trend by shifting the jet stream northward, reducing cold air advection and increasing the likelihood of mild conditions. This impacts causal paths: seasonal_trend -> jet_stream_position -> atlantic_depressions (increasing Atlantic influence and warmth) and seasonal_trend -> jet_stream_position -> atlantic_depressions -> high_pressure_blocking/snow_cover (reducing blocking and snow cover, both warming effects). As seasonal_trend is structurally important, the probability of higher temperatures on Dec 28 compared to Dec 21 increases, though weather_system_variability and other factors maintain uncertainty.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "High-pressure blocking events in late December are historically rare in the Nancy region due to the strong influence of Atlantic systems during this period. Recent climate models also suggest that warming trends may further suppress the formation of persistent high-pressure systems in Western Europe in winter, making this factor less relevant for weekly temperature comparisons.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.46,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reduces the expected influence of high-pressure blocking on the outcome, as it is historically rare and may be further suppressed by warming trends. This affects two causal paths: (1) high_pressure_blocking -> snow_cover, where blocking patterns can influence snow accumulation or melt, and (2) atlantic_depressions -> high_pressure_blocking, where depressions can disrupt blocking. With blocking less likely, the system may be more dominated by atlantic_depressions and weather_system_variability, which increase week-to-week temperature fluctuations. This slightly increases the probability of the 28th being warmer than the 21st, as blocking tends to stabilize temperatures (often cooler in winter), but the update is small because high_pressure_blocking was not a primary driver in the initial estimate, and seasonal_trend and other factors remain influential.",
+      "raw_response": "{\n  \"updated_probability\": 0.46,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reduces the expected influence of high-pressure blocking on the outcome, as it is historically rare and may be further suppressed by warming trends. This affects two causal paths: (1) high_pressure_blocking -> snow_cover, where blocking patterns can influence snow accumulation or melt, and (2) atlantic_depressions -> high_pressure_blocking, where depressions can disrupt blocking. With blocking less likely, the system may be more dominated by atlantic_depressions and weather_system_variability, which increase week-to-week temperature fluctuations. This slightly increases the probability of the 28th being warmer than the 21st, as blocking tends to stabilize temperatures (often cooler in winter), but the update is small because high_pressure_blocking was not a primary driver in the initial estimate, and seasonal_trend and other factors remain influential.\"\n}",
+      "target_id": "high_pressure_blocking",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new climate model analysis from Météo-France, published this week, shows that the North Atlantic Oscillation (NAO) is entering a strongly negative phase in late December 2025. This phase is historically associated with a 60% increase in the frequency and intensity of Atlantic depressions tracking directly into northern France, as the jet stream becomes more amplified and positions these systems precisely over the Nancy region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.36,
+      "absolute_shift": 0.09000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge strengthens the causal influence of atlantic_depressions. A strongly negative NAO increases the likelihood of frequent, intense Atlantic depressions tracking directly into northern France. This affects multiple causal paths: (1) increased atlantic_depressions → high_pressure_blocking: more depressions disrupt high-pressure blocking, reducing stable cold conditions; (2) increased atlantic_depressions → snow_cover: more precipitation, potentially as snow if temperatures are low, increasing snow cover probability; (3) snow_cover → outcome: increased snow cover would cool temperatures on 2025-12-28 relative to 2025-12-21. However, depressions also bring milder Atlantic air, which could raise temperatures. Given the seasonal context (late December) and Nancy's location, the snow-cooling effect from increased precipitation likely dominates over the mild air advection, making lower temperatures on 2025-12-28 more probable. This strengthens the seasonal cooling trend and reduces the chance of 2025-12-28 being warmer.",
+      "raw_response": "{\n  \"updated_probability\": 0.36,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge strengthens the causal influence of atlantic_depressions. A strongly negative NAO increases the likelihood of frequent, intense Atlantic depressions tracking directly into northern France. This affects multiple causal paths: (1) increased atlantic_depressions → high_pressure_blocking: more depressions disrupt high-pressure blocking, reducing stable cold conditions; (2) increased atlantic_depressions → snow_cover: more precipitation, potentially as snow if temperatures are low, increasing snow cover probability; (3) snow_cover → outcome: increased snow cover would cool temperatures on 2025-12-28 relative to 2025-12-21. However, depressions also bring milder Atlantic air, which could raise temperatures. Given the seasonal context (late December) and Nancy's location, the snow-cooling effect from increased precipitation likely dominates over the mild air advection, making lower temperatures on 2025-12-28 more probable. This strengthens the seasonal cooling trend and reduces the chance of 2025-12-28 being warmer.\"\n}",
+      "target_id": "atlantic_depressions",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The latest seasonal forecast models from the European Centre for Medium-Range Weather Forecasts (ECMWF) and Meteo-France show a strong consensus predicting a significantly more meridional (wavy) jet stream pattern over the North Atlantic and Europe for late December 2025. This pattern is expected to feature deeper, more persistent troughs and ridges, which greatly amplifies the influence of jet stream positioning on surface weather systems across France compared to a typical, flatter zonal flow.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.02999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the influence of 'jet_stream_position' by indicating a more meridional (wavy) pattern, which amplifies its effects on downstream nodes. Specifically, it enhances the causal paths: 'jet_stream_position -> atlantic_depressions' (more variable steering of depressions), 'atlantic_depressions -> high_pressure_blocking' (increased disruption or promotion of blocking), and 'atlantic_depressions -> snow_cover' (more variable precipitation types). This increased variability in weather systems ('weather_system_variability') makes temperature differences between the two dates less predictable based on seasonal trends alone, slightly raising the probability of the outcome from random fluctuations. However, the update is modest because the meridional pattern does not fundamentally break the network; it merely increases uncertainty and the potential for both warming and cooling influences.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the influence of 'jet_stream_position' by indicating a more meridional (wavy) pattern, which amplifies its effects on downstream nodes. Specifically, it enhances the causal paths: 'jet_stream_position -> atlantic_depressions' (more variable steering of depressions), 'atlantic_depressions -> high_pressure_blocking' (increased disruption or promotion of blocking), and 'atlantic_depressions -> snow_cover' (more variable precipitation types). This increased variability in weather systems ('weather_system_variability') makes temperature differences between the two dates less predictable based on seasonal trends alone, slightly raising the probability of the outcome from random fluctuations. However, the update is modest because the meridional pattern does not fundamentally break the network; it merely increases uncertainty and the potential for both warming and cooling influences.\"\n}",
+      "target_id": "jet_stream_position",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the relationship between jet stream position and Atlantic depression tracks can be decoupled by persistent tropical convection anomalies, such as those associated with the Madden-Julian Oscillation (MJO). During specific phases of the MJO, enhanced convection over the tropical Atlantic can force Rossby wave trains that steer depressions independently of the mid-latitude jet's mean position. For instance, in December 2025, a strong MJO event in phases 2-3 could push Atlantic depressions directly toward France regardless of the jet stream's southward seasonal shift, weakening the assumed causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.02999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens the causal link from 'jet_stream_position -> atlantic_depressions' by introducing the Madden-Julian Oscillation (MJO) as a decoupling factor. This reduces the predictability of Atlantic depression tracks based solely on the seasonal southward shift of the jet stream. In my initial model, a southward jet stream shift (seasonal_trend) would steer depressions away from France, reducing precipitation and snow cover, and potentially allowing high-pressure blocking—all contributing to a lower probability of Dec 28 being warmer. With this link weakened, the deterministic cooling influence of the seasonal trend is diminished. Atlantic depressions (and associated cloud/precipitation) could reach France more readily in late December 2025 despite the seasonal jet stream position, increasing weather system variability and the chance of a warmer day on Dec 28 relative to Dec 21 (e.g., via advection of milder Atlantic air or cloud cover preventing radiative cooling). However, the update is moderate because: 1) The MJO's specific phase and strength for Dec 2025 is uncertain, 2) Other causal paths (e.g., direct weather_system_variability -> outcome, snow_cover -> outcome) remain intact, and 3) The seasonal_trend still exerts some direct influence on temperature via other mechanisms not fully captured in the network.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens the causal link from 'jet_stream_position -> atlantic_depressions' by introducing the Madden-Julian Oscillation (MJO) as a decoupling factor. This reduces the predictability of Atlantic depression tracks based solely on the seasonal southward shift of the jet stream. In my initial model, a southward jet stream shift (seasonal_trend) would steer depressions away from France, reducing precipitation and snow cover, and potentially allowing high-pressure blocking—all contributing to a lower probability of Dec 28 being warmer. With this link weakened, the deterministic cooling influence of the seasonal trend is diminished. Atlantic depressions (and associated cloud/precipitation) could reach France more readily in late December 2025 despite the seasonal jet stream position, increasing weather system variability and the chance of a warmer day on Dec 28 relative to Dec 21 (e.g., via advection of milder Atlantic air or cloud cover preventing radiative cooling). However, the update is moderate because: 1) The MJO's specific phase and strength for Dec 2025 is uncertain, 2) Other causal paths (e.g., direct weather_system_variability -> outcome, snow_cover -> outcome) remain intact, and 3) The seasonal_trend still exerts some direct influence on temperature via other mechanisms not fully captured in the network.\"\n}",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent climate data for the Nancy region shows that late December temperatures have increasingly remained above freezing, even during Atlantic depressions. This is due to warmer air masses being advected from the south and west, causing precipitation to fall predominantly as rain rather than snow. Additionally, urban heat effects and changing soil moisture conditions further reduce the likelihood of snow accumulation from these systems.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.02999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens the causal link from atlantic_depressions to snow_cover, as it suggests that depressions are less likely to produce snow due to warmer conditions. This reduces the likelihood of snow cover, which typically lowers temperatures via albedo effects. With snow cover less probable from depressions, temperatures on both dates may be less suppressed, but the outcome depends on relative differences. Since seasonal trends and other factors still favor cooling by Dec 28, the effect is modest: the reduced snow risk slightly increases the chance that Dec 28 could be warmer if other variability factors align, but the overall probability remains near even due to persistent seasonal cooling influences.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens the causal link from atlantic_depressions to snow_cover, as it suggests that depressions are less likely to produce snow due to warmer conditions. This reduces the likelihood of snow cover, which typically lowers temperatures via albedo effects. With snow cover less probable from depressions, temperatures on both dates may be less suppressed, but the outcome depends on relative differences. Since seasonal trends and other factors still favor cooling by Dec 28, the effect is modest: the reduced snow risk slightly increases the chance that Dec 28 could be warmer if other variability factors align, but the overall probability remains near even due to persistent seasonal cooling influences.\"\n}",
+      "target_id": "atlantic_depressions->snow_cover",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies of European winter weather patterns indicate that Atlantic depressions can sometimes reinforce high-pressure blocking through downstream Rossby wave breaking, particularly when depressions are deep and slow-moving. In some scenarios, the diabatic heating from these systems can actually amplify and stabilize blocking highs over Scandinavia or Eastern Europe rather than disrupting them. This suggests the relationship between Atlantic depressions and high-pressure blocking may be more conditional or even opposite in certain synoptic configurations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.46,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The challenge targets the causal link 'atlantic_depressions -> high_pressure_blocking', which previously assumed depressions generally disrupt or prevent blocking highs. The new information indicates that in some scenarios, deep, slow-moving Atlantic depressions can actually reinforce and stabilize blocking highs through Rossby wave breaking and diabatic heating. This introduces more conditional variability into the network: it weakens the certainty that active Atlantic depressions will lead to a disruption of high-pressure blocking. Since high-pressure blocking typically promotes colder conditions (especially in winter in Nancy), and snow cover can persist or accumulate under such conditions, the outcome (temperature on Dec 28 vs. Dec 21) becomes slightly less predictable towards colder scenarios. However, the effect is modest because: (1) the relationship is described as conditional ('sometimes', 'in some scenarios'), not a complete reversal; (2) other causal paths (seasonal trend, weather system variability, direct snow cover effects) remain intact and dominate the overall uncertainty. The slight increase in probability (from 0.45 to 0.46) reflects a small reduction in the expected strength of the causal path that would favor colder conditions on Dec 28 via blocking highs, making a temperature increase marginally more likely, but the update is small due to the conditional and scenario-dependent nature of the challenge.",
+      "raw_response": "{\n  \"updated_probability\": 0.46,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge targets the causal link 'atlantic_depressions -> high_pressure_blocking', which previously assumed depressions generally disrupt or prevent blocking highs. The new information indicates that in some scenarios, deep, slow-moving Atlantic depressions can actually reinforce and stabilize blocking highs through Rossby wave breaking and diabatic heating. This introduces more conditional variability into the network: it weakens the certainty that active Atlantic depressions will lead to a disruption of high-pressure blocking. Since high-pressure blocking typically promotes colder conditions (especially in winter in Nancy), and snow cover can persist or accumulate under such conditions, the outcome (temperature on Dec 28 vs. Dec 21) becomes slightly less predictable towards colder scenarios. However, the effect is modest because: (1) the relationship is described as conditional ('sometimes', 'in some scenarios'), not a complete reversal; (2) other causal paths (seasonal trend, weather system variability, direct snow cover effects) remain intact and dominate the overall uncertainty. The slight increase in probability (from 0.45 to 0.46) reflects a small reduction in the expected strength of the causal path that would favor colder conditions on Dec 28 via blocking highs, making a temperature increase marginally more likely, but the update is small due to the conditional and scenario-dependent nature of the challenge.\"\n}",
+      "target_id": "atlantic_depressions->high_pressure_blocking",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent climatological studies of the North Atlantic suggest that persistent, intense Atlantic depressions can significantly alter the jet stream's position through diabatic heating and vorticity forcing. Specifically, a strong cluster of depressions can create a downstream ridge that forces the jet stream to shift northward or southward, effectively steering the jet rather than being steered by it. Therefore, the primary causal direction for this weekly timescale might be from atlantic_depressions to jet_stream_position.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.02999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge suggests that the causal link from jet_stream_position to atlantic_depressions may be weakened or bidirectional, with atlantic_depressions also influencing jet_stream_position on weekly timescales. This primarily affects the causal path seasonal_trend -> jet_stream_position -> atlantic_depressions -> high_pressure_blocking/snow_cover -> outcome, making it less deterministic. However, since weather_system_variability -> outcome remains a strong independent factor, and other paths (e.g., atlantic_depressions -> snow_cover -> outcome) persist, the overall uncertainty increases slightly. The initial estimate of 0.45 already accounted for variability, so the update is modest, reflecting reduced confidence in the directional influence of seasonal trends via the jet stream, but not fundamentally altering the balance of factors.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge suggests that the causal link from jet_stream_position to atlantic_depressions may be weakened or bidirectional, with atlantic_depressions also influencing jet_stream_position on weekly timescales. This primarily affects the causal path seasonal_trend -> jet_stream_position -> atlantic_depressions -> high_pressure_blocking/snow_cover -> outcome, making it less deterministic. However, since weather_system_variability -> outcome remains a strong independent factor, and other paths (e.g., atlantic_depressions -> snow_cover -> outcome) persist, the overall uncertainty increases slightly. The initial estimate of 0.45 already accounted for variability, so the update is modest, reflecting reduced confidence in the directional influence of seasonal trends via the jet stream, but not fundamentally altering the balance of factors.\"\n}",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider that natural week-to-week atmospheric fluctuations can cause rapid temperature shifts even within the same seasonal trend. A sudden cold snap from an unexpected Arctic air mass, part of normal weather system variability, could lead to snowfall even if Atlantic depressions are absent. This would directly create or maintain snow cover, which then influences temperatures through albedo effects.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.44,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge correctly points out that 'weather_system_variability' can directly affect 'snow_cover' through mechanisms like an unexpected Arctic air mass causing a cold snap and snowfall. This introduces an additional causal path (weather_system_variability -> snow_cover -> outcome) that was not in the original model. This new path strengthens the influence of random week-to-week fluctuations on the temperature outcome via snow cover's cooling effect. Since snow cover generally reduces temperatures, and variability can now more directly cause or maintain snow cover, this slightly increases the likelihood of a colder day on the 28th relative to the 21st due to random cold snaps. However, the update is small because 1) the original network already had 'weather_system_variability -> outcome' as a direct link accounting for random fluctuations, and 2) the new path is just one additional mechanism among many (e.g., Atlantic depressions, blocking highs) that influence snow cover. The core seasonal trend and other system interactions remain dominant. Thus, the probability of the 28th being warmer decreases slightly.",
+      "raw_response": "{\n  \"updated_probability\": 0.44,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge correctly points out that 'weather_system_variability' can directly affect 'snow_cover' through mechanisms like an unexpected Arctic air mass causing a cold snap and snowfall. This introduces an additional causal path (weather_system_variability -> snow_cover -> outcome) that was not in the original model. This new path strengthens the influence of random week-to-week fluctuations on the temperature outcome via snow cover's cooling effect. Since snow cover generally reduces temperatures, and variability can now more directly cause or maintain snow cover, this slightly increases the likelihood of a colder day on the 28th relative to the 21st due to random cold snaps. However, the update is small because 1) the original network already had 'weather_system_variability -> outcome' as a direct link accounting for random fluctuations, and 2) the new path is just one additional mechanism among many (e.g., Atlantic depressions, blocking highs) that influence snow cover. The core seasonal trend and other system interactions remain dominant. Thus, the probability of the 28th being warmer decreases slightly.\"\n}",
+      "target_id": "weather_system_variability->snow_cover",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "The forecaster's network does not include the influence of soil moisture anomalies. Dry soil in the preceding weeks would lead to lower latent heat flux and more efficient heating of the surface air during daytime hours, potentially increasing the daily average temperature. This effect can be significant over a weekly timescale, especially if a high-pressure system coincides with dry conditions, and could alter the probability of a temperature increase independent of the listed factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.47,
+      "absolute_shift": 0.019999999999999962,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a plausible missing causal factor—soil moisture anomalies affecting surface heating—that could increase the daily average temperature under specific conditions (e.g., high-pressure systems with dry soil). This factor adds a potential warming bias to the outcome, particularly if dry conditions precede the forecast period, acting through a path similar to high_pressure_blocking but with an amplifying effect on daytime temperatures. However, the effect is conditional and not guaranteed to dominate over other factors like seasonal trends or weather system variability. Since the original network already accounted for variability via weather_system_variability and other influences, this adds a modest upward adjustment to the probability, reflecting the increased chance of a temperature rise due to this additional mechanism.",
+      "raw_response": "{\n  \"updated_probability\": 0.47,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a plausible missing causal factor—soil moisture anomalies affecting surface heating—that could increase the daily average temperature under specific conditions (e.g., high-pressure systems with dry soil). This factor adds a potential warming bias to the outcome, particularly if dry conditions precede the forecast period, acting through a path similar to high_pressure_blocking but with an amplifying effect on daytime temperatures. However, the effect is conditional and not guaranteed to dominate over other factors like seasonal trends or weather system variability. Since the original network already accounted for variability via weather_system_variability and other influences, this adds a modest upward adjustment to the probability, reflecting the increased chance of a temperature rise due to this additional mechanism.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if there is a significant Arctic outbreak during this period, where cold air masses from the Arctic are advected directly over northeastern France? This could cause a sharp drop in temperatures around December 21 or 28, overriding seasonal trends and other weather systems, and would not be captured by the existing nodes like jet_stream_position or atlantic_depressions alone.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The Arctic outbreak challenge introduces a new, potent causal mechanism not captured in the original model: direct advection of cold Arctic air masses over northeastern France. This affects multiple causal paths: (1) It overrides or amplifies the seasonal_trend by introducing abrupt, extreme cooling independent of gradual seasonal decline. (2) It interacts with jet_stream_position by potentially representing an extreme southward shift or buckling of the jet stream, but its direct impact is more immediate and severe than typical jet stream influences. (3) It can override atlantic_depressions by pushing cold air ahead of or behind systems, and may enhance snow_cover through associated precipitation in cold conditions. (4) It directly influences the outcome by causing sharp temperature drops on either December 21 or 28, increasing the likelihood that one day is anomalously cold relative to the other. Since the original model did not account for such extreme, localized cold air advection, and given its potential to dominate over other factors, the probability of December 28 being warmer than December 21 decreases, as the Arctic outbreak raises the chance of a cold spike on either date, making the comparison more volatile and skewed toward colder outcomes during the outbreak period.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The Arctic outbreak challenge introduces a new, potent causal mechanism not captured in the original model: direct advection of cold Arctic air masses over northeastern France. This affects multiple causal paths: (1) It overrides or amplifies the seasonal_trend by introducing abrupt, extreme cooling independent of gradual seasonal decline. (2) It interacts with jet_stream_position by potentially representing an extreme southward shift or buckling of the jet stream, but its direct impact is more immediate and severe than typical jet stream influences. (3) It can override atlantic_depressions by pushing cold air ahead of or behind systems, and may enhance snow_cover through associated precipitation in cold conditions. (4) It directly influences the outcome by causing sharp temperature drops on either December 21 or 28, increasing the likelihood that one day is anomalously cold relative to the other. Since the original model did not account for such extreme, localized cold air advection, and given its potential to dominate over other factors, the probability of December 28 being warmer than December 21 decreases, as the Arctic outbreak raises the chance of a cold spike on either date, making the comparison more volatile and skewed toward colder outcomes during the outbreak period.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Nancy – Ochey Air Base weather station recently installed new digital thermometers with higher precision (0.01°C resolution) compared to the old analog ones, which were accurate to 0.1°C. This upgrade was completed in November 2025, so both temperature measurements on December 21 and 28 will use the new equipment. However, the calibration standards and measurement protocols remain unchanged.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge addresses measurement precision, not the underlying causal drivers of temperature differences. The causal network models physical atmospheric processes (seasonal trends, weather system variability, jet stream, etc.) that determine the actual air temperature. The upgrade from 0.1°C to 0.01°C resolution increases the precision of recording the outcome but does not alter the causal relationships or probabilities governing which day is warmer. The measurement protocols and calibration standards remain unchanged, ensuring consistency. Therefore, no causal paths in the network are affected, and the probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge addresses measurement precision, not the underlying causal drivers of temperature differences. The causal network models physical atmospheric processes (seasonal trends, weather system variability, jet stream, etc.) that determine the actual air temperature. The upgrade from 0.1°C to 0.01°C resolution increases the precision of recording the outcome but does not alter the causal relationships or probabilities governing which day is warmer. The measurement protocols and calibration standards remain unchanged, ensuring consistency. Therefore, no causal paths in the network are affected, and the probability estimate remains unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Nancy – Ochey Air Base weather station recently upgraded its temperature sensors to a more precise digital model, which will provide more accurate daily average temperature readings starting in 2025. This improvement ensures that the recorded temperatures for both December 21 and 28 will have higher fidelity, reducing measurement errors compared to previous years.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge addresses measurement accuracy, not the underlying causal factors that determine actual temperature differences. The causal network models physical and atmospheric processes (seasonal trends, weather systems, jet stream, depressions, snow cover) that affect the true temperatures. The sensor upgrade improves the fidelity of recorded temperatures but does not alter the physical mechanisms or their probabilities. Therefore, the probability that the actual daily average temperature on 2025-12-28 is higher than on 2025-12-21 remains unchanged. The outcome node in the causal network refers to the actual temperature comparison, not the measurement accuracy.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge addresses measurement accuracy, not the underlying causal factors that determine actual temperature differences. The causal network models physical and atmospheric processes (seasonal trends, weather systems, jet stream, depressions, snow cover) that affect the true temperatures. The sensor upgrade improves the fidelity of recorded temperatures but does not alter the physical mechanisms or their probabilities. Therefore, the probability that the actual daily average temperature on 2025-12-28 is higher than on 2025-12-21 remains unchanged. The outcome node in the causal network refers to the actual temperature comparison, not the measurement accuracy.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "New climate analysis shows that the Nancy region has experienced a statistically significant increase in the rate of seasonal cooling during the last week of December over the past 15 years, with temperatures now dropping 0.5°C faster in this period compared to earlier decades.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.4,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge indicates a stronger seasonal cooling trend in the Nancy region during the last week of December, which affects the 'seasonal_trend' node. This node influences the 'jet_stream_position', leading to increased cold air advection. The stronger cooling trend would likely enhance the probability of colder conditions by 2025-12-28 compared to 2025-12-21, thus decreasing the probability that the temperature on 2025-12-28 is higher. The change is moderate because while the seasonal trend is important, other factors like 'weather_system_variability' and 'atlantic_depressions' still play significant roles in the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.4,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge indicates a stronger seasonal cooling trend in the Nancy region during the last week of December, which affects the 'seasonal_trend' node. This node influences the 'jet_stream_position', leading to increased cold air advection. The stronger cooling trend would likely enhance the probability of colder conditions by 2025-12-28 compared to 2025-12-21, thus decreasing the probability that the temperature on 2025-12-28 is higher. The change is moderate because while the seasonal trend is important, other factors like 'weather_system_variability' and 'atlantic_depressions' still play significant roles in the outcome.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent meteorological studies have shown that high-pressure blocking events over Western Europe are becoming more persistent due to changes in Arctic amplification patterns. Specifically, research from the European Centre for Medium-Range Weather Forecasts indicates that these blocking highs now last 30% longer than in previous decades, significantly increasing their influence on local temperature patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.4,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge affects the 'high_pressure_blocking' node, which is structurally important in the causal network. Longer-lasting blocking highs increase their influence on local temperature patterns, making colder conditions more likely due to persistent clear skies and potential snow cover retention. This strengthens the path from 'high_pressure_blocking' to 'snow_cover' and subsequently to 'outcome', making higher temperatures on 2025-12-28 compared to 2025-12-21 less likely.",
+      "raw_response": "{\n  \"updated_probability\": 0.4,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge affects the 'high_pressure_blocking' node, which is structurally important in the causal network. Longer-lasting blocking highs increase their influence on local temperature patterns, making colder conditions more likely due to persistent clear skies and potential snow cover retention. This strengthens the path from 'high_pressure_blocking' to 'snow_cover' and subsequently to 'outcome', making higher temperatures on 2025-12-28 compared to 2025-12-21 less likely.\"\n}",
+      "target_id": "high_pressure_blocking",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies analyzing the 2023-2024 winter season show an exceptionally strong correlation (r=0.92) between jet stream meridionality (north-south displacement) and depression trajectories across Western Europe. When the jet stream was positioned >3° latitude further south than climatological norms, 93% of Atlantic depressions missed France entirely, tracking instead over the British Isles and Scandinavia.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge strengthens the causal link between jet_stream_position and atlantic_depressions, indicating that a southward shift in the jet stream is even more likely to steer Atlantic depressions away from France. This reduces the likelihood of atlantic_depressions influencing high_pressure_blocking and snow_cover, both of which are key factors in determining temperature differences. With fewer depressions, high-pressure blocking becomes more likely, leading to colder conditions, and snow cover is less likely to be replenished, reducing its cooling effect. Thus, the probability of the temperature being higher on 2025-12-28 than on 2025-12-21 decreases.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge strengthens the causal link between jet_stream_position and atlantic_depressions, indicating that a southward shift in the jet stream is even more likely to steer Atlantic depressions away from France. This reduces the likelihood of atlantic_depressions influencing high_pressure_blocking and snow_cover, both of which are key factors in determining temperature differences. With fewer depressions, high-pressure blocking becomes more likely, leading to colder conditions, and snow cover is less likely to be replenished, reducing its cooling effect. Thus, the probability of the temperature being higher on 2025-12-28 than on 2025-12-21 decreases.\"\n}",
+      "target_id": "jet_stream_position->atlantic_depressions",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies of winter 2023-2024 show that Atlantic depressions reaching northern France had an exceptionally high probability (78%) of producing snowfall when temperatures were between -2°C and +2°C at Nancy – Ochey, due to increased moisture content from warmer Atlantic surface temperatures. This represents a 22% increase in snow likelihood from historical baselines for similar depression tracks.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.4,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge strengthens the causal link between atlantic_depressions and snow_cover, indicating that Atlantic depressions are more likely to produce snowfall in the Nancy region under certain temperature conditions. This enhanced link increases the likelihood of snow cover, which in turn is likely to reduce temperatures due to the albedo effect. Since snow cover has a cooling effect on the outcome (temperature difference between the two dates), this strengthens the path that would lead to lower temperatures on 2025-12-28 compared to 2025-12-21, thus slightly decreasing the probability of the outcome (higher temperature on 2025-12-28).",
+      "raw_response": "{\n  \"updated_probability\": 0.40,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge strengthens the causal link between atlantic_depressions and snow_cover, indicating that Atlantic depressions are more likely to produce snowfall in the Nancy region under certain temperature conditions. This enhanced link increases the likelihood of snow cover, which in turn is likely to reduce temperatures due to the albedo effect. Since snow cover has a cooling effect on the outcome (temperature difference between the two dates), this strengthens the path that would lead to lower temperatures on 2025-12-28 compared to 2025-12-21, thus slightly decreasing the probability of the outcome (higher temperature on 2025-12-28).\"\n}",
+      "target_id": "atlantic_depressions->snow_cover",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent climatological studies of Western Europe have shown that Atlantic depressions are particularly effective at disrupting high-pressure blocking when they follow a specific track south of Iceland. This occurs because the strong cyclonic circulation around these depressions actively breaks down the atmospheric ridges that sustain blocking highs, with a demonstrated 60% reduction in blocking persistence when 3+ depressions pass through this corridor within a week. Given Nancy's position, this mechanism would be especially relevant for December weather patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between Atlantic depressions and high-pressure blocking, indicating that depressions following a specific track south of Iceland are particularly effective at disrupting blocking highs. This increases the likelihood that Atlantic depressions will prevent persistent high-pressure systems, which are associated with colder conditions. Consequently, the probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21 increases slightly, as the disruption of high-pressure blocking reduces the chance of sustained colder temperatures.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between Atlantic depressions and high-pressure blocking, indicating that depressions following a specific track south of Iceland are particularly effective at disrupting blocking highs. This increases the likelihood that Atlantic depressions will prevent persistent high-pressure systems, which are associated with colder conditions. Consequently, the probability of the daily average temperature being higher on 2025-12-28 than on 2025-12-21 increases slightly, as the disruption of high-pressure blocking reduces the chance of sustained colder temperatures.\"\n}",
+      "target_id": "atlantic_depressions->high_pressure_blocking",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07181.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.45,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.036,
+    "max_absolute_shift": 0.10000000000000003
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 2.374999999999999,
+    "mean_shift_high": 0.04749999999999999,
+    "mean_shift_low": 0.02,
+    "asymmetry_index": 0.6666666666666666,
+    "mean_shift_negate": 0.03714285714285714,
+    "mean_shift_strengthen": 0.05571428571428571,
+    "fnar": 0.3333333333333333,
+    "n_accepted": 1,
+    "n_spurious": 3,
+    "critical_path_premium": 0.009191919191919175,
+    "mean_shift_on_path": 0.045555555555555544,
+    "mean_shift_off_path": 0.03636363636363637,
+    "importance_sensitivity_correlation": 0.4545454545454546,
+    "control_sensitivity": 0
+  }
+}

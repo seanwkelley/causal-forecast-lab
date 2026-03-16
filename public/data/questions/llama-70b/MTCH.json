@@ -1,0 +1,1100 @@
+{
+  "question_id": "MTCH",
+  "question_text": "Will MTCH's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+  "source": "yfinance",
+  "initial_probability": 0.62,
+  "nodes": [
+    {
+      "id": "market_sentiment",
+      "description": "Overall investor attitude towards the market",
+      "role": "factor"
+    },
+    {
+      "id": "economic_growth",
+      "description": "State of the economy, including GDP and employment rates",
+      "role": "factor"
+    },
+    {
+      "id": "company_performance",
+      "description": "MTCH's financial health and performance",
+      "role": "factor"
+    },
+    {
+      "id": "industry_trends",
+      "description": "Trends and outlook for the online dating and social media industry",
+      "role": "factor"
+    },
+    {
+      "id": "interest_rates",
+      "description": "Level of interest rates set by central banks",
+      "role": "factor"
+    },
+    {
+      "id": "global_events",
+      "description": "Significant global events that could impact markets",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "MTCH's market close price on 2025-12-28 being higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "market_sentiment",
+      "to": "company_performance",
+      "mechanism": "Investor confidence affects company stock performance"
+    },
+    {
+      "from": "economic_growth",
+      "to": "market_sentiment",
+      "mechanism": "Economic growth influences investor attitudes"
+    },
+    {
+      "from": "industry_trends",
+      "to": "company_performance",
+      "mechanism": "Industry trends impact company financials"
+    },
+    {
+      "from": "interest_rates",
+      "to": "economic_growth",
+      "mechanism": "Interest rates affect economic activity"
+    },
+    {
+      "from": "global_events",
+      "to": "market_sentiment",
+      "mechanism": "Global events can suddenly change investor sentiment"
+    },
+    {
+      "from": "company_performance",
+      "to": "outcome",
+      "mechanism": "Company performance directly affects its stock price"
+    },
+    {
+      "from": "market_sentiment",
+      "to": "outcome",
+      "mechanism": "Overall market sentiment can influence specific stock prices"
+    }
+  ],
+  "reasoning": "The forecasted probability that MTCH's market close price on 2025-12-28 will be higher than its market close price on 2025-12-21 is based on the interplay of several factors, including market sentiment, economic growth, company performance, industry trends, interest rates, and global events. A positive market sentiment, fueled by strong economic growth and favorable industry trends, is likely to boost MTCH's stock price. However, global events and changes in interest rates can introduce uncertainty and volatility. Given these considerations, a probability of 0.62 reflects a slightly positive outlook for MTCH's stock price over the specified period.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "market_sentiment",
+        "description": "Overall investor attitude towards the market",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.2,
+        "closeness": 0.375,
+        "pagerank": 0.2032,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "economic_growth",
+        "description": "State of the economy, including GDP and employment rates",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.1667,
+        "pagerank": 0.1099,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "company_performance",
+        "description": "MTCH's financial health and performance",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.463,
+        "pagerank": 0.1962,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "industry_trends",
+        "description": "Trends and outlook for the online dating and social media industry",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0594,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "interest_rates",
+        "description": "Level of interest rates set by central banks",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0594,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_events",
+        "description": "Significant global events that could impact markets",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0594,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "MTCH's market close price on 2025-12-28 being higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5455,
+        "pagerank": 0.3125,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "market_sentiment",
+        "target": "company_performance",
+        "mechanism": "Investor confidence affects company stock performance",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": false
+      },
+      {
+        "source": "market_sentiment",
+        "target": "outcome",
+        "mechanism": "Overall market sentiment can influence specific stock prices",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_growth",
+        "target": "market_sentiment",
+        "mechanism": "Economic growth influences investor attitudes",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "company_performance",
+        "target": "outcome",
+        "mechanism": "Company performance directly affects its stock price",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "industry_trends",
+        "target": "company_performance",
+        "mechanism": "Industry trends impact company financials",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "interest_rates",
+        "target": "economic_growth",
+        "mechanism": "Interest rates affect economic activity",
+        "edge_betweenness": 0.0952,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_events",
+        "target": "market_sentiment",
+        "mechanism": "Global events can suddenly change investor sentiment",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment",
+        "description": "Overall investor attitude towards the market",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "State of the economy, including GDP and employment rates",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "industry_trends",
+        "description": "Trends and outlook for the online dating and social media industry",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_events",
+        "description": "Significant global events that could impact markets",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment",
+        "description": "Overall investor attitude towards the market",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_growth",
+        "description": "State of the economy, including GDP and employment rates",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_growth->market_sentiment",
+        "description": "Economic growth influences investor attitudes",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment->outcome",
+        "description": "Overall market sentiment can influence specific stock prices",
+        "importance": 0.0952,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment->company_performance",
+        "description": "Investor confidence affects company stock performance",
+        "importance": 0.0952,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_growth->market_sentiment",
+        "description": "Economic growth influences investor attitudes",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->company_performance",
+        "description": "Potential link: State of the economy, including GDP and employment rates -> MTCH's financial health and performance",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "economic_growth->interest_rates",
+        "description": "Potential link: State of the economy, including GDP and employment rates -> Level of interest rates set by central banks",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment",
+      "description": "Overall investor attitude towards the market",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "State of the economy, including GDP and employment rates",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "industry_trends",
+      "description": "Trends and outlook for the online dating and social media industry",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_events",
+      "description": "Significant global events that could impact markets",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment",
+      "description": "Overall investor attitude towards the market",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_growth",
+      "description": "State of the economy, including GDP and employment rates",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_growth->market_sentiment",
+      "description": "Economic growth influences investor attitudes",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment->outcome",
+      "description": "Overall market sentiment can influence specific stock prices",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment->company_performance",
+      "description": "Investor confidence affects company stock performance",
+      "importance": 0.0952,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_growth->market_sentiment",
+      "description": "Economic growth influences investor attitudes",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->company_performance",
+      "description": "Potential link: State of the economy, including GDP and employment rates -> MTCH's financial health and performance",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "economic_growth->interest_rates",
+      "description": "Potential link: State of the economy, including GDP and employment rates -> Level of interest rates set by central banks",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if a recent survey of institutional investors reveals a significant disconnect between their attitudes towards the market and their actual investment decisions, suggesting that market sentiment has little to no impact on stock prices? In fact, the survey finds that investors are increasingly relying on quantitative models and AI-driven insights, rather than emotional or psychological factors, to guide their investment choices. As a result, market sentiment may be a lagging indicator rather than a leading driver of stock performance. This could render the overall investor attitude towards the market largely irrelevant in predicting MTCH's stock price movement.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall investor attitude towards the market"
+    },
+    {
+      "probe_text": "What if the current economic indicators, such as GDP and employment rates, are not accurately reflecting the true state of the economy, and thus are not influencing market sentiment as previously thought? Perhaps the economy is actually in a state of stagnation, but recent stock market gains have created a false sense of security, making economic growth a non-factor in MTCH's stock price. Alternatively, it's possible that MTCH's business model is resilient to economic downturns, making economic growth irrelevant to its stock performance. This could mean that the forecaster's emphasis on economic growth is misplaced.",
+      "probe_type": "node_negate_high",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "State of the economy, including GDP and employment rates"
+    },
+    {
+      "probe_text": "Recent surveys indicate a significant decline in the usage of online dating platforms among younger generations, suggesting a potential shift away from the industry. Furthermore, emerging trends in social media point towards increased privacy concerns and decreased engagement, which could negatively impact the online dating and social media industry's outlook. This raises questions about the continued growth and relevance of MTCH's services within this changing landscape. As a result, the influence of industry trends on MTCH's performance might be less significant than initially thought.",
+      "probe_type": "node_negate_medium",
+      "target_id": "industry_trends",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Trends and outlook for the online dating and social media industry"
+    },
+    {
+      "probe_text": "Recent geopolitical developments have been relatively stable, and experts predict a calm period in international relations, suggesting that significant global events are unlikely to impact markets in the near future. Furthermore, MTCH's business model is less exposed to global events compared to other companies, making it less susceptible to sudden changes in investor sentiment due to international developments. As a result, the influence of global events on MTCH's stock price may be negligible. This stability in global events could render their impact on market sentiment and, subsequently, MTCH's stock price insignificant.",
+      "probe_type": "node_negate_low",
+      "target_id": "global_events",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Significant global events that could impact markets"
+    },
+    {
+      "probe_text": "A recent survey of institutional investors by a reputable financial research firm found that 75% of respondents believed the overall market sentiment would significantly improve in the last quarter of 2025 due to expected easing of monetary policies, which historically has had a positive correlation with the performance of tech stocks like MTCH. This survey's findings were widely reported and endorsed by several prominent market analysts, suggesting a broad consensus on the improving market outlook. Furthermore, historical data shows that when such a high percentage of institutional investors express optimism, it often precedes a notable uptrend in the stock market. This could imply that market sentiment will play an even more crucial role in influencing stock prices in the coming weeks.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_sentiment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Overall investor attitude towards the market"
+    },
+    {
+      "probe_text": "The Bureau of Economic Analysis announced that the US GDP growth rate for the third quarter of 2025 exceeded expectations, with a significant increase in consumer spending and business investments. This growth is anticipated to continue into the fourth quarter, driven by a strong labor market and low unemployment rates. As a result, several prominent economists have upgraded their forecasts for the US economy, predicting a higher-than-expected growth rate for 2025. This development is expected to boost investor confidence and market sentiment.",
+      "probe_type": "node_strengthen",
+      "target_id": "economic_growth",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "State of the economy, including GDP and employment rates"
+    },
+    {
+      "probe_text": "Recent studies have shown that investor attitudes are increasingly driven by social media and news headlines rather than traditional economic indicators, suggesting that the relationship between economic growth and market sentiment may be weakening. Additionally, the rise of algorithmic trading and passive investment strategies has reduced the influence of human sentiment on market movements. This could indicate that economic growth has a much weaker effect on market sentiment than previously thought. For instance, the 2023 market rally occurred despite slowing economic growth, highlighting a potential disconnect between the two.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "economic_growth->market_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Economic growth influences investor attitudes"
+    },
+    {
+      "probe_text": "Recent studies have shown that MTCH's stock price has historically been more resilient to overall market sentiment due to its strong brand loyalty and subscription-based revenue model, suggesting that the influence of market sentiment on its stock price may be weaker than assumed. Furthermore, MTCH's performance is more closely tied to the growth of the online dating industry, which has consistently demonstrated a low correlation with broader market trends. This raises questions about the strength of the causal link between market sentiment and MTCH's stock price. In light of this, it's possible that the relationship between market sentiment and MTCH's outcome is not as direct or significant as initially thought.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "market_sentiment->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Overall market sentiment can influence specific stock prices"
+    },
+    {
+      "probe_text": "Recent studies have shown that MTCH's stock performance is largely driven by its unique business model and niche market position, making it less susceptible to broader market sentiment. In fact, during times of high market volatility, MTCH's stock has historically shown a low correlation with overall market trends. This suggests that investor confidence may have a limited impact on the company's stock performance. As a result, the relationship between market sentiment and MTCH's company performance may be weaker than initially thought.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "market_sentiment->company_performance",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0952,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Investor confidence affects company stock performance"
+    },
+    {
+      "probe_text": "Recent studies have shown that investor attitudes, as reflected in market sentiment, can have a profound impact on consumer and business confidence, thereby influencing economic growth. For instance, a bullish market sentiment can lead to increased investment, hiring, and spending, which in turn can boost economic activity. This suggests that the relationship between economic growth and market sentiment may be more bidirectional than previously thought. Can you reassess your forecast in light of this potential reverse causality?",
+      "probe_type": "edge_reverse",
+      "target_id": "economic_growth->market_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Economic growth influences investor attitudes"
+    },
+    {
+      "probe_text": "A recent report by the Bureau of Labor Statistics indicates a significant increase in employment rates among young adults, a key demographic for MTCH's services, which is expected to boost consumer spending on online dating and social media platforms. This uptick in economic growth is likely to have a direct and positive impact on MTCH's financial health and performance. However, the forecaster's current model does not account for this potential link between economic growth and company performance. How will this new information affect your forecast?",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->company_performance",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: State of the economy, including GDP and employment rates -> MTCH's financial health and performance"
+    },
+    {
+      "probe_text": "Central banks often adjust interest rates in response to changes in economic growth, as a strong economy with low unemployment may lead to inflation, prompting higher interest rates to curb growth and control prices. Conversely, a slowing economy may lead to lower interest rates to stimulate growth. Recent data shows the economy is experiencing a surge in GDP and employment rates. Will this growth lead to an increase in interest rates, and how will this impact MTCH's stock price?",
+      "probe_type": "edge_spurious",
+      "target_id": "economic_growth->interest_rates",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: State of the economy, including GDP and employment rates -> Level of interest rates set by central banks"
+    },
+    {
+      "probe_text": "Consider the impact of regulatory changes on MTCH's operations, such as potential updates to data privacy laws or antitrust regulations that could significantly affect the company's ability to operate and innovate. The absence of a 'regulatory_environment' node in the causal network overlooks how these changes could influence company_performance and, by extension, the outcome. Regulatory shifts can alter the competitive landscape and impose new costs or restrictions on MTCH. How would you update your forecast to account for such regulatory factors?",
+      "probe_type": "missing_node",
+      "target_id": "regulatory_environment",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "What if a major tech company announces a competing online dating platform, potentially disrupting MTCH's business model and affecting its market close price on 2025-12-28? This new information introduces a competitive pressure factor that could significantly influence MTCH's stock price. The forecaster should consider how this new competitor would affect MTCH's market performance, given the existing industry trends and company performance. The introduction of this competitor could be a new node, 'competitive_pressure', with edges from 'industry_trends' and to 'company_performance' and 'outcome'.",
+      "probe_type": "missing_node",
+      "target_id": "competitive_pressure",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "MTCH has announced plans to expand its office space in its current headquarters location, citing the need for more collaborative work areas and improved employee amenities. This expansion is expected to be completed by the end of the first quarter of 2026. The company believes this will enhance its work environment and contribute to the well-being of its employees. However, the financial impact of this expansion on the company's bottom line is expected to be minimal.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "MTCH's headquarters is planning to introduce a new, environmentally-friendly cafeteria menu for its employees, which is expected to reduce the company's carbon footprint. This change is part of a broader initiative to improve employee well-being and promote sustainability within the company. The new menu will be launched in early 2026. Experts believe this move could enhance the company's reputation among environmentally-conscious job seekers.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if a recent survey of institutional investors reveals a significant disconnect between their attitudes towards the market and their actual investment decisions, suggesting that market sentiment has little to no impact on stock prices? In fact, the survey finds that investors are increasingly relying on quantitative models and AI-driven insights, rather than emotional or psychological factors, to guide their investment choices. As a result, market sentiment may be a lagging indicator rather than a leading driver of stock performance. This could render the overall investor attitude towards the market largely irrelevant in predicting MTCH's stock price movement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'market_sentiment' affects two causal paths: 'market_sentiment -> company_performance' and 'market_sentiment -> outcome'. Given that market sentiment may have little to no impact on stock prices due to investors relying more on quantitative models and AI-driven insights, these paths are significantly weakened. However, 'market_sentiment' is not the sole driver of 'company_performance' or 'outcome', as other factors like 'industry_trends', 'economic_growth', and 'company_performance' itself still directly influence the outcome. The reduction in the importance of 'market_sentiment' decreases the overall probability but does not negate the potential for MTCH's stock price to increase, considering other causal factors remain unaffected.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'market_sentiment' affects two causal paths: 'market_sentiment -> company_performance' and 'market_sentiment -> outcome'. Given that market sentiment may have little to no impact on stock prices due to investors relying more on quantitative models and AI-driven insights, these paths are significantly weakened. However, 'market_sentiment' is not the sole driver of 'company_performance' or 'outcome', as other factors like 'industry_trends', 'economic_growth', and 'company_performance' itself still directly influence the outcome. The reduction in the importance of 'market_sentiment' decreases the overall probability but does not negate the potential for MTCH's stock price to increase, considering other causal factors remain unaffected.\"\n}",
+      "target_id": "market_sentiment",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the current economic indicators, such as GDP and employment rates, are not accurately reflecting the true state of the economy, and thus are not influencing market sentiment as previously thought? Perhaps the economy is actually in a state of stagnation, but recent stock market gains have created a false sense of security, making economic growth a non-factor in MTCH's stock price. Alternatively, it's possible that MTCH's business model is resilient to economic downturns, making economic growth irrelevant to its stock performance. This could mean that the forecaster's emphasis on economic growth is misplaced.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'economic_growth' affects the causal path 'economic_growth -> market_sentiment -> company_performance' and 'economic_growth -> market_sentiment -> outcome'. If economic indicators are not accurately reflecting the economy's state and economic growth is a non-factor, then the influence of 'economic_growth' on 'market_sentiment' and subsequently on 'company_performance' and 'outcome' is diminished. However, 'company_performance' is also directly influenced by 'industry_trends', and 'outcome' is directly influenced by 'company_performance' and 'market_sentiment', which can still be affected by 'global_events'. Given that MTCH's business model might be resilient to economic downturns, the impact of 'economic_growth' on 'outcome' through 'company_performance' is reduced. The update is moderate because while 'economic_growth' is a significant factor, it is not the only influence on 'market_sentiment' and 'company_performance', and other paths can still drive the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'economic_growth' affects the causal path 'economic_growth -> market_sentiment -> company_performance' and 'economic_growth -> market_sentiment -> outcome'. If economic indicators are not accurately reflecting the economy's state and economic growth is a non-factor, then the influence of 'economic_growth' on 'market_sentiment' and subsequently on 'company_performance' and 'outcome' is diminished. However, 'company_performance' is also directly influenced by 'industry_trends', and 'outcome' is directly influenced by 'company_performance' and 'market_sentiment', which can still be affected by 'global_events'. Given that MTCH's business model might be resilient to economic downturns, the impact of 'economic_growth' on 'outcome' through 'company_performance' is reduced. The update is moderate because while 'economic_growth' is a significant factor, it is not the only influence on 'market_sentiment' and 'company_performance', and other paths can still drive the outcome.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys indicate a significant decline in the usage of online dating platforms among younger generations, suggesting a potential shift away from the industry. Furthermore, emerging trends in social media point towards increased privacy concerns and decreased engagement, which could negatively impact the online dating and social media industry's outlook. This raises questions about the continued growth and relevance of MTCH's services within this changing landscape. As a result, the influence of industry trends on MTCH's performance might be less significant than initially thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'industry_trends' affects the causal path 'industry_trends -> company_performance', potentially weakening the influence of industry trends on MTCH's financial health. However, 'industry_trends' is not the sole determinant of 'company_performance', as 'market_sentiment' also plays a significant role. The overall impact on the outcome is thus moderate. Given the decline in online dating platform usage and emerging trends in social media, I've adjusted my estimate downward to reflect the potential negative impact on MTCH's performance, but the change is not drastic due to the presence of other influential factors in the causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'industry_trends' affects the causal path 'industry_trends -> company_performance', potentially weakening the influence of industry trends on MTCH's financial health. However, 'industry_trends' is not the sole determinant of 'company_performance', as 'market_sentiment' also plays a significant role. The overall impact on the outcome is thus moderate. Given the decline in online dating platform usage and emerging trends in social media, I've adjusted my estimate downward to reflect the potential negative impact on MTCH's performance, but the change is not drastic due to the presence of other influential factors in the causal network.\"\n}",
+      "target_id": "industry_trends",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent geopolitical developments have been relatively stable, and experts predict a calm period in international relations, suggesting that significant global events are unlikely to impact markets in the near future. Furthermore, MTCH's business model is less exposed to global events compared to other companies, making it less susceptible to sudden changes in investor sentiment due to international developments. As a result, the influence of global events on MTCH's stock price may be negligible. This stability in global events could render their impact on market sentiment and, subsequently, MTCH's stock price insignificant.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'global_events' suggests that its impact on 'market_sentiment' and subsequently on 'outcome' is negligible. Given that 'global_events' was a peripheral element in the causal network, its reduced influence does not significantly alter the primary causal paths leading to the outcome, which are more directly influenced by 'economic_growth', 'industry_trends', and 'company_performance'. However, the stability in global events reduces a potential source of negative impact on 'market_sentiment', slightly increasing the likelihood of a positive outcome for MTCH's stock price. The update reflects a modest increase in confidence due to the removal of a potential downside risk, without drastically altering the overall forecast.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'global_events' suggests that its impact on 'market_sentiment' and subsequently on 'outcome' is negligible. Given that 'global_events' was a peripheral element in the causal network, its reduced influence does not significantly alter the primary causal paths leading to the outcome, which are more directly influenced by 'economic_growth', 'industry_trends', and 'company_performance'. However, the stability in global events reduces a potential source of negative impact on 'market_sentiment', slightly increasing the likelihood of a positive outcome for MTCH's stock price. The update reflects a modest increase in confidence due to the removal of a potential downside risk, without drastically altering the overall forecast.\"\n}",
+      "target_id": "global_events",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of institutional investors by a reputable financial research firm found that 75% of respondents believed the overall market sentiment would significantly improve in the last quarter of 2025 due to expected easing of monetary policies, which historically has had a positive correlation with the performance of tech stocks like MTCH. This survey's findings were widely reported and endorsed by several prominent market analysts, suggesting a broad consensus on the improving market outlook. Furthermore, historical data shows that when such a high percentage of institutional investors express optimism, it often precedes a notable uptrend in the stock market. This could imply that market sentiment will play an even more crucial role in influencing stock prices in the coming weeks.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'market_sentiment' suggests an improvement in overall investor attitude, which would positively affect 'company_performance' and directly influence the 'outcome'. Given the historical correlation between easing monetary policies and the performance of tech stocks, and the broad consensus among institutional investors, the causal paths 'market_sentiment -> company_performance' and 'market_sentiment -> outcome' are strengthened. This leads to an increased confidence in MTCH's market close price on 2025-12-28 being higher than on 2025-12-21, as improved market sentiment can boost the stock's performance.",
+      "raw_response": "{\"updated_probability\": 0.72, \"shift_direction\": \"increased\", \"reasoning\": \"The challenge to 'market_sentiment' suggests an improvement in overall investor attitude, which would positively affect 'company_performance' and directly influence the 'outcome'. Given the historical correlation between easing monetary policies and the performance of tech stocks, and the broad consensus among institutional investors, the causal paths 'market_sentiment -> company_performance' and 'market_sentiment -> outcome' are strengthened. This leads to an increased confidence in MTCH's market close price on 2025-12-28 being higher than on 2025-12-21, as improved market sentiment can boost the stock's performance.\"}",
+      "target_id": "market_sentiment",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The Bureau of Economic Analysis announced that the US GDP growth rate for the third quarter of 2025 exceeded expectations, with a significant increase in consumer spending and business investments. This growth is anticipated to continue into the fourth quarter, driven by a strong labor market and low unemployment rates. As a result, several prominent economists have upgraded their forecasts for the US economy, predicting a higher-than-expected growth rate for 2025. This development is expected to boost investor confidence and market sentiment.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The announced increase in US GDP growth rate and the anticipated continuation of this growth into the fourth quarter strengthens the causal path from economic_growth to market_sentiment. This, in turn, positively affects the path from market_sentiment to company_performance and directly to the outcome. As investor confidence is expected to boost due to the strong economic indicators, this challenges the initial estimate by suggesting a more favorable market environment for MTCH's stock price. The increase in consumer spending and business investments, driven by a strong labor market and low unemployment rates, further supports the notion that the overall market sentiment will be positively influenced, thereby increasing the likelihood that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announced increase in US GDP growth rate and the anticipated continuation of this growth into the fourth quarter strengthens the causal path from economic_growth to market_sentiment. This, in turn, positively affects the path from market_sentiment to company_performance and directly to the outcome. As investor confidence is expected to boost due to the strong economic indicators, this challenges the initial estimate by suggesting a more favorable market environment for MTCH's stock price. The increase in consumer spending and business investments, driven by a strong labor market and low unemployment rates, further supports the notion that the overall market sentiment will be positively influenced, thereby increasing the likelihood that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "economic_growth",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that investor attitudes are increasingly driven by social media and news headlines rather than traditional economic indicators, suggesting that the relationship between economic growth and market sentiment may be weakening. Additionally, the rise of algorithmic trading and passive investment strategies has reduced the influence of human sentiment on market movements. This could indicate that economic growth has a much weaker effect on market sentiment than previously thought. For instance, the 2023 market rally occurred despite slowing economic growth, highlighting a potential disconnect between the two.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.59,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'economic_growth->market_sentiment' suggests a weakening relationship between economic growth and market sentiment. This affects the causal path 'economic_growth -> market_sentiment -> company_performance' and 'economic_growth -> market_sentiment -> outcome', reducing the influence of economic growth on both company performance and overall market sentiment. However, the direct link 'company_performance -> outcome' and 'industry_trends -> company_performance' remain intact, limiting the extent of the update. Given the reduced impact of economic growth on market sentiment, the overall probability of MTCH's market close price being higher on 2025-12-28 than on 2025-12-21 decreases, but not substantially, as other factors such as industry trends and company performance continue to play significant roles.",
+      "raw_response": "{\n  \"updated_probability\": 0.59,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_growth->market_sentiment' suggests a weakening relationship between economic growth and market sentiment. This affects the causal path 'economic_growth -> market_sentiment -> company_performance' and 'economic_growth -> market_sentiment -> outcome', reducing the influence of economic growth on both company performance and overall market sentiment. However, the direct link 'company_performance -> outcome' and 'industry_trends -> company_performance' remain intact, limiting the extent of the update. Given the reduced impact of economic growth on market sentiment, the overall probability of MTCH's market close price being higher on 2025-12-28 than on 2025-12-21 decreases, but not substantially, as other factors such as industry trends and company performance continue to play significant roles.\"\n}",
+      "target_id": "economic_growth->market_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that MTCH's stock price has historically been more resilient to overall market sentiment due to its strong brand loyalty and subscription-based revenue model, suggesting that the influence of market sentiment on its stock price may be weaker than assumed. Furthermore, MTCH's performance is more closely tied to the growth of the online dating industry, which has consistently demonstrated a low correlation with broader market trends. This raises questions about the strength of the causal link between market sentiment and MTCH's stock price. In light of this, it's possible that the relationship between market sentiment and MTCH's outcome is not as direct or significant as initially thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link 'market_sentiment->outcome', suggesting it may be weaker than initially thought due to MTCH's strong brand loyalty, subscription-based revenue model, and low correlation with broader market trends. This affects the direct path from 'market_sentiment' to 'outcome', potentially reducing the influence of overall market sentiment on MTCH's stock price. However, other causal paths such as 'economic_growth->market_sentiment->company_performance', 'industry_trends->company_performance', and 'company_performance->outcome' remain intact. Given the specific nature of MTCH's business and its historical resilience to market sentiment, the update to the probability reflects a decreased reliance on market sentiment as a predictor but still acknowledges the role of other factors in determining the stock's performance.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link 'market_sentiment->outcome', suggesting it may be weaker than initially thought due to MTCH's strong brand loyalty, subscription-based revenue model, and low correlation with broader market trends. This affects the direct path from 'market_sentiment' to 'outcome', potentially reducing the influence of overall market sentiment on MTCH's stock price. However, other causal paths such as 'economic_growth->market_sentiment->company_performance', 'industry_trends->company_performance', and 'company_performance->outcome' remain intact. Given the specific nature of MTCH's business and its historical resilience to market sentiment, the update to the probability reflects a decreased reliance on market sentiment as a predictor but still acknowledges the role of other factors in determining the stock's performance.\"\n}",
+      "target_id": "market_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that MTCH's stock performance is largely driven by its unique business model and niche market position, making it less susceptible to broader market sentiment. In fact, during times of high market volatility, MTCH's stock has historically shown a low correlation with overall market trends. This suggests that investor confidence may have a limited impact on the company's stock performance. As a result, the relationship between market sentiment and MTCH's company performance may be weaker than initially thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'market_sentiment->company_performance' suggests that the relationship between market sentiment and MTCH's company performance may be weaker than initially thought. This primarily affects the causal path from market_sentiment to company_performance to outcome. Given that MTCH's stock performance is less susceptible to broader market sentiment, the influence of market_sentiment on the outcome through company_performance is diminished. However, market_sentiment still directly influences the outcome, and other paths such as economic_growth to market_sentiment, industry_trends to company_performance, and interest_rates to economic_growth remain unaffected. The update reflects a reduced reliance on market sentiment's impact on MTCH's stock performance but acknowledges that other factors continue to support a positive outlook for MTCH's stock price by the end of 2025.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'market_sentiment->company_performance' suggests that the relationship between market sentiment and MTCH's company performance may be weaker than initially thought. This primarily affects the causal path from market_sentiment to company_performance to outcome. Given that MTCH's stock performance is less susceptible to broader market sentiment, the influence of market_sentiment on the outcome through company_performance is diminished. However, market_sentiment still directly influences the outcome, and other paths such as economic_growth to market_sentiment, industry_trends to company_performance, and interest_rates to economic_growth remain unaffected. The update reflects a reduced reliance on market sentiment's impact on MTCH's stock performance but acknowledges that other factors continue to support a positive outlook for MTCH's stock price by the end of 2025.\"\n}",
+      "target_id": "market_sentiment->company_performance",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that investor attitudes, as reflected in market sentiment, can have a profound impact on consumer and business confidence, thereby influencing economic growth. For instance, a bullish market sentiment can lead to increased investment, hiring, and spending, which in turn can boost economic activity. This suggests that the relationship between economic growth and market sentiment may be more bidirectional than previously thought. Can you reassess your forecast in light of this potential reverse causality?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'economic_growth->market_sentiment' suggests a potential reverse causality, where market sentiment also influences economic growth. This affects the causal path 'economic_growth -> market_sentiment -> company_performance' and 'economic_growth -> market_sentiment -> outcome'. Given that market sentiment can now influence economic growth, the predictive power of economic growth on market sentiment, and subsequently on company performance and the outcome, is reduced. However, this does not break the critical causal paths leading to the outcome, as 'company_performance -> outcome' and 'market_sentiment -> outcome' remain intact. The update is moderate, reflecting the nuanced impact of this reverse causality on the overall network, but the decrease in probability acknowledges the slightly diminished role of economic growth as a direct predictor of market sentiment and, by extension, the stock price.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_growth->market_sentiment' suggests a potential reverse causality, where market sentiment also influences economic growth. This affects the causal path 'economic_growth -> market_sentiment -> company_performance' and 'economic_growth -> market_sentiment -> outcome'. Given that market sentiment can now influence economic growth, the predictive power of economic growth on market sentiment, and subsequently on company performance and the outcome, is reduced. However, this does not break the critical causal paths leading to the outcome, as 'company_performance -> outcome' and 'market_sentiment -> outcome' remain intact. The update is moderate, reflecting the nuanced impact of this reverse causality on the overall network, but the decrease in probability acknowledges the slightly diminished role of economic growth as a direct predictor of market sentiment and, by extension, the stock price.\"\n}",
+      "target_id": "economic_growth->market_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "A recent report by the Bureau of Labor Statistics indicates a significant increase in employment rates among young adults, a key demographic for MTCH's services, which is expected to boost consumer spending on online dating and social media platforms. This uptick in economic growth is likely to have a direct and positive impact on MTCH's financial health and performance. However, the forecaster's current model does not account for this potential link between economic growth and company performance. How will this new information affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information introduces a direct link between economic_growth and company_performance, which was previously not accounted for. This additional causal path strengthens the positive impact of economic growth on MTCH's financial health, thereby influencing the outcome. The existing paths, such as market_sentiment -> company_performance and industry_trends -> company_performance, are reinforced by this new link, as increased consumer spending due to higher employment rates among young adults can lead to improved market sentiment and favorable industry trends. Given the significance of this demographic for MTCH's services, the introduction of this direct link between economic growth and company performance substantially increases the likelihood of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information introduces a direct link between economic_growth and company_performance, which was previously not accounted for. This additional causal path strengthens the positive impact of economic growth on MTCH's financial health, thereby influencing the outcome. The existing paths, such as market_sentiment -> company_performance and industry_trends -> company_performance, are reinforced by this new link, as increased consumer spending due to higher employment rates among young adults can lead to improved market sentiment and favorable industry trends. Given the significance of this demographic for MTCH's services, the introduction of this direct link between economic growth and company performance substantially increases the likelihood of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21.\"\n}",
+      "target_id": "economic_growth->company_performance",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Central banks often adjust interest rates in response to changes in economic growth, as a strong economy with low unemployment may lead to inflation, prompting higher interest rates to curb growth and control prices. Conversely, a slowing economy may lead to lower interest rates to stimulate growth. Recent data shows the economy is experiencing a surge in GDP and employment rates. Will this growth lead to an increase in interest rates, and how will this impact MTCH's stock price?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the causal link 'economic_growth->interest_rates' suggests a stronger economy may lead to higher interest rates. This affects the causal path 'economic_growth -> interest_rates -> economic_growth -> market_sentiment -> outcome' and 'economic_growth -> interest_rates -> economic_growth -> market_sentiment -> company_performance -> outcome'. Higher interest rates could initially slow economic growth, but the overall effect on MTCH's stock price depends on how the market and the company's performance respond to these changes. Given that MTCH operates in the online dating and social media industry, which can be less directly influenced by interest rate changes compared to other sectors, the impact might be less significant. However, the surge in GDP and employment rates indicates a strong economy, which could boost market sentiment and company performance, potentially outweighing the negative effects of higher interest rates on borrowing and consumer spending. Thus, the update reflects a slightly increased probability that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21, considering the complexity of these interactions and the resilience of the tech industry to interest rate fluctuations.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_growth->interest_rates' suggests a stronger economy may lead to higher interest rates. This affects the causal path 'economic_growth -> interest_rates -> economic_growth -> market_sentiment -> outcome' and 'economic_growth -> interest_rates -> economic_growth -> market_sentiment -> company_performance -> outcome'. Higher interest rates could initially slow economic growth, but the overall effect on MTCH's stock price depends on how the market and the company's performance respond to these changes. Given that MTCH operates in the online dating and social media industry, which can be less directly influenced by interest rate changes compared to other sectors, the impact might be less significant. However, the surge in GDP and employment rates indicates a strong economy, which could boost market sentiment and company performance, potentially outweighing the negative effects of higher interest rates on borrowing and consumer spending. Thus, the update reflects a slightly increased probability that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21, considering the complexity of these interactions and the resilience of the tech industry to interest rate fluctuations.\"\n}",
+      "target_id": "economic_growth->interest_rates",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the impact of regulatory changes on MTCH's operations, such as potential updates to data privacy laws or antitrust regulations that could significantly affect the company's ability to operate and innovate. The absence of a 'regulatory_environment' node in the causal network overlooks how these changes could influence company_performance and, by extension, the outcome. Regulatory shifts can alter the competitive landscape and impose new costs or restrictions on MTCH. How would you update your forecast to account for such regulatory factors?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a 'regulatory_environment' node highlights a previously overlooked factor that could significantly impact 'company_performance' and, by extension, the 'outcome'. Regulatory changes, especially those related to data privacy or antitrust, could impose new costs, alter the competitive landscape, or restrict MTCH's ability to innovate. This omission primarily affects the causal path 'regulatory_environment -> company_performance -> outcome' and indirectly influences 'market_sentiment -> company_performance' and 'industry_trends -> company_performance' if regulatory changes impact the broader industry or investor confidence. Given the potential for regulatory shifts to negatively impact MTCH, the probability of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21 decreases. The update is moderate, reflecting the uncertainty and variability in how regulatory changes might affect the company and the market's reaction to such changes.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a 'regulatory_environment' node highlights a previously overlooked factor that could significantly impact 'company_performance' and, by extension, the 'outcome'. Regulatory changes, especially those related to data privacy or antitrust, could impose new costs, alter the competitive landscape, or restrict MTCH's ability to innovate. This omission primarily affects the causal path 'regulatory_environment -> company_performance -> outcome' and indirectly influences 'market_sentiment -> company_performance' and 'industry_trends -> company_performance' if regulatory changes impact the broader industry or investor confidence. Given the potential for regulatory shifts to negatively impact MTCH, the probability of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21 decreases. The update is moderate, reflecting the uncertainty and variability in how regulatory changes might affect the company and the market's reaction to such changes.\"\n}",
+      "target_id": "regulatory_environment",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "What if a major tech company announces a competing online dating platform, potentially disrupting MTCH's business model and affecting its market close price on 2025-12-28? This new information introduces a competitive pressure factor that could significantly influence MTCH's stock price. The forecaster should consider how this new competitor would affect MTCH's market performance, given the existing industry trends and company performance. The introduction of this competitor could be a new node, 'competitive_pressure', with edges from 'industry_trends' and to 'company_performance' and 'outcome'.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a new competing online dating platform by a major tech company significantly affects the 'company_performance' node through increased 'competitive_pressure'. This directly challenges the 'industry_trends' to 'company_performance' and 'company_performance' to 'outcome' causal paths. Given that 'company_performance' is a critical factor influencing MTCH's stock price, the emergence of a major competitor disrupts the positive outlook, thus decreasing the likelihood of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21. The updated probability reflects a substantial decrease due to the potential disruption in MTCH's business model and the impact of competitive pressure on its market performance.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a new competing online dating platform by a major tech company significantly affects the 'company_performance' node through increased 'competitive_pressure'. This directly challenges the 'industry_trends' to 'company_performance' and 'company_performance' to 'outcome' causal paths. Given that 'company_performance' is a critical factor influencing MTCH's stock price, the emergence of a major competitor disrupts the positive outlook, thus decreasing the likelihood of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21. The updated probability reflects a substantial decrease due to the potential disruption in MTCH's business model and the impact of competitive pressure on its market performance.\"\n}",
+      "target_id": "competitive_pressure",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "MTCH has announced plans to expand its office space in its current headquarters location, citing the need for more collaborative work areas and improved employee amenities. This expansion is expected to be completed by the end of the first quarter of 2026. The company believes this will enhance its work environment and contribute to the well-being of its employees. However, the financial impact of this expansion on the company's bottom line is expected to be minimal.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of MTCH's office space expansion primarily affects the 'company_performance' node through its potential to enhance the work environment and employee well-being, which could lead to improved productivity and morale. However, the financial impact is stated to be minimal, suggesting that this change does not significantly alter the 'economic_growth' or 'interest_rates' nodes. The effect on 'company_performance' is mildly positive but limited due to the minimal financial impact. This mild improvement in 'company_performance' slightly increases the likelihood of a higher market close price on 2025-12-28 compared to 2025-12-21, as it can positively influence the 'outcome' through the 'company_performance -> outcome' causal link. The overall increase in probability is small because the expansion's financial impact is minimal and the primary causal paths driving the outcome remain largely unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of MTCH's office space expansion primarily affects the 'company_performance' node through its potential to enhance the work environment and employee well-being, which could lead to improved productivity and morale. However, the financial impact is stated to be minimal, suggesting that this change does not significantly alter the 'economic_growth' or 'interest_rates' nodes. The effect on 'company_performance' is mildly positive but limited due to the minimal financial impact. This mild improvement in 'company_performance' slightly increases the likelihood of a higher market close price on 2025-12-28 compared to 2025-12-21, as it can positively influence the 'outcome' through the 'company_performance -> outcome' causal link. The overall increase in probability is small because the expansion's financial impact is minimal and the primary causal paths driving the outcome remain largely unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "MTCH's headquarters is planning to introduce a new, environmentally-friendly cafeteria menu for its employees, which is expected to reduce the company's carbon footprint. This change is part of a broader initiative to improve employee well-being and promote sustainability within the company. The new menu will be launched in early 2026. Experts believe this move could enhance the company's reputation among environmentally-conscious job seekers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of an environmentally-friendly cafeteria menu, while primarily aimed at enhancing employee well-being and promoting sustainability, could have a minor positive effect on MTCH's reputation, particularly among environmentally-conscious job seekers. However, this change is not directly linked to any of the major causal paths leading to the outcome, such as economic_growth, market_sentiment, or company_performance, which are the primary drivers of MTCH's stock price. The impact on the company's reputation might slightly influence market_sentiment or company_performance, but given the indirect and potentially minor nature of this effect, especially considering the launch is in early 2026 and thus after the relevant date, the update to the probability estimate remains small.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of an environmentally-friendly cafeteria menu, while primarily aimed at enhancing employee well-being and promoting sustainability, could have a minor positive effect on MTCH's reputation, particularly among environmentally-conscious job seekers. However, this change is not directly linked to any of the major causal paths leading to the outcome, such as economic_growth, market_sentiment, or company_performance, which are the primary drivers of MTCH's stock price. The impact on the company's reputation might slightly influence market_sentiment or company_performance, but given the indirect and potentially minor nature of this effect, especially considering the launch is in early 2026 and thus after the relevant date, the update to the probability estimate remains small.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A recent report by a leading market research firm indicates that the online dating industry is expected to see a significant surge in growth over the next quarter, driven by increased adoption of virtual and augmented reality technologies. This growth is anticipated to particularly benefit companies like MTCH, which have already begun investing in these technologies. As a result, several major industry analysts have upgraded their outlook for the sector, predicting higher revenues and user engagement for key players. This shift in industry trends is likely to have a positive impact on MTCH's financial performance.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'industry_trends' indicates a positive shift in the online dating industry's outlook, particularly benefiting MTCH due to its investments in virtual and augmented reality technologies. This affects the causal path 'industry_trends -> company_performance', strengthening the likelihood of improved financial health for MTCH. Consequently, this also positively influences the path 'company_performance -> outcome', as better company performance is more likely to result in a higher stock price. Additionally, the upgraded outlook by major industry analysts could contribute to improved 'market_sentiment', further supporting the potential for MTCH's stock price to increase, thus also influencing the path 'market_sentiment -> outcome'. The cumulative effect of these changes is an increased probability that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'industry_trends' indicates a positive shift in the online dating industry's outlook, particularly benefiting MTCH due to its investments in virtual and augmented reality technologies. This affects the causal path 'industry_trends -> company_performance', strengthening the likelihood of improved financial health for MTCH. Consequently, this also positively influences the path 'company_performance -> outcome', as better company performance is more likely to result in a higher stock price. Additionally, the upgraded outlook by major industry analysts could contribute to improved 'market_sentiment', further supporting the potential for MTCH's stock price to increase, thus also influencing the path 'market_sentiment -> outcome'. The cumulative effect of these changes is an increased probability that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "industry_trends",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "On December 20, 2025, news broke out that a major global tech conference, scheduled for early 2026, will feature a keynote speech from a prominent figure in the online dating industry, sparking widespread speculation about potential new developments and partnerships in the sector. This announcement has been trending on social media and financial news outlets, with many analysts predicting it could have a significant impact on the stock prices of companies like MTCH. As a result, investors are becoming increasingly cautious and are re-evaluating their portfolios in anticipation of potential market fluctuations. This sudden shift in attention towards the online dating industry could be a sign of more volatility to come.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'global_events' introduces a new factor that could impact 'market_sentiment' and, by extension, 'company_performance' and the 'outcome'. The announcement of a prominent figure's keynote speech at a major global tech conference, sparking speculation about new developments and partnerships in the online dating industry, makes investors cautious and prone to re-evaluate their portfolios. This affects the causal path 'global_events -> market_sentiment -> outcome' and 'global_events -> market_sentiment -> company_performance -> outcome'. Given the potential for increased volatility and the cautious stance of investors, the likelihood of MTCH's market close price being higher on 2025-12-28 compared to 2025-12-21 decreases. However, the decrease is moderate because the actual impact of the conference and the keynote speech on MTCH's stock price remains speculative at this point.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'global_events' introduces a new factor that could impact 'market_sentiment' and, by extension, 'company_performance' and the 'outcome'. The announcement of a prominent figure's keynote speech at a major global tech conference, sparking speculation about new developments and partnerships in the online dating industry, makes investors cautious and prone to re-evaluate their portfolios. This affects the causal path 'global_events -> market_sentiment -> outcome' and 'global_events -> market_sentiment -> company_performance -> outcome'. Given the potential for increased volatility and the cautious stance of investors, the likelihood of MTCH's market close price being higher on 2025-12-28 compared to 2025-12-21 decreases. However, the decrease is moderate because the actual impact of the conference and the keynote speech on MTCH's stock price remains speculative at this point.\"\n}",
+      "target_id": "global_events",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by the National Bureau of Economic Research found that for every 1% increase in GDP, investor confidence, as measured by market sentiment indices, increases by 1.5%. This suggests a stronger link between economic growth and market sentiment than previously thought. Furthermore, the latest GDP report showed a 2.5% increase in the third quarter of 2025, which could lead to a significant boost in investor attitudes. How does this new information affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.73,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between economic_growth and market_sentiment, suggesting a more direct and amplified impact of economic growth on investor confidence. This affects the causal path economic_growth -> market_sentiment -> outcome, as well as economic_growth -> market_sentiment -> company_performance -> outcome. Given the recent 2.5% increase in GDP, which is expected to boost investor attitudes significantly due to the stronger link found by the National Bureau of Economic Research, the overall market sentiment is likely to improve, thus increasing the probability that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.73,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between economic_growth and market_sentiment, suggesting a more direct and amplified impact of economic growth on investor confidence. This affects the causal path economic_growth -> market_sentiment -> outcome, as well as economic_growth -> market_sentiment -> company_performance -> outcome. Given the recent 2.5% increase in GDP, which is expected to boost investor attitudes significantly due to the stronger link found by the National Bureau of Economic Research, the overall market sentiment is likely to improve, thus increasing the probability that MTCH's market close price on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "economic_growth->market_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent study by a reputable financial research firm found that in the last quarter, stocks of companies in the technology and services sector, including MTCH, exhibited a significant positive correlation with overall market sentiment, with a beta coefficient of 1.2, indicating that these stocks are more sensitive to market-wide sentiment shifts than previously thought. Furthermore, the study revealed that this correlation has been increasing over the past year, suggesting a strengthening of the relationship between market sentiment and individual stock prices. This trend is expected to continue into 2025, potentially amplifying the impact of market sentiment on MTCH's stock price. As a result, the influence of market sentiment on MTCH's market close price may be even more pronounced than initially estimated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'market_sentiment->outcome', indicating a more significant impact of overall market sentiment on MTCH's stock price. This affects the causal path 'economic_growth->market_sentiment->outcome' and 'global_events->market_sentiment->outcome', making them more influential. Given the increased sensitivity of MTCH's stock to market sentiment, the probability of its market close price being higher on 2025-12-28 than on 2025-12-21 increases, as positive market sentiment can have a more pronounced effect on the stock's performance.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'market_sentiment->outcome', indicating a more significant impact of overall market sentiment on MTCH's stock price. This affects the causal path 'economic_growth->market_sentiment->outcome' and 'global_events->market_sentiment->outcome', making them more influential. Given the increased sensitivity of MTCH's stock to market sentiment, the probability of its market close price being higher on 2025-12-28 than on 2025-12-21 increases, as positive market sentiment can have a more pronounced effect on the stock's performance.\"\n}",
+      "target_id": "market_sentiment->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "A recent survey of institutional investors revealed a significant increase in bullish sentiment towards the technology sector, with 75% of respondents expressing confidence in the industry's growth prospects. This shift in sentiment has been particularly pronounced among investors who have historically been skeptical of MTCH's business model. As a result, several prominent investment firms have upgraded their ratings for MTCH, citing improved market conditions as a key factor. How does this new information impact your forecast for MTCH's market close price on 2025-12-28 being higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.72,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between market_sentiment and company_performance, as well as between market_sentiment and outcome. With increased bullish sentiment towards the technology sector and specific upgrades in ratings for MTCH, the overall market sentiment is more likely to positively influence MTCH's stock price. This affects the causal paths leading to the outcome, particularly through the edges market_sentiment -> company_performance and market_sentiment -> outcome. Given the direct impact on investor confidence and the subsequent upgrades by investment firms, the probability of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21 increases.",
+      "raw_response": "{\n  \"updated_probability\": 0.72,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between market_sentiment and company_performance, as well as between market_sentiment and outcome. With increased bullish sentiment towards the technology sector and specific upgrades in ratings for MTCH, the overall market sentiment is more likely to positively influence MTCH's stock price. This affects the causal paths leading to the outcome, particularly through the edges market_sentiment -> company_performance and market_sentiment -> outcome. Given the direct impact on investor confidence and the subsequent upgrades by investment firms, the probability of MTCH's market close price on 2025-12-28 being higher than on 2025-12-21 increases.\"\n}",
+      "target_id": "market_sentiment->company_performance",
+      "target_type": "edge",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "MTCH",
+    "question_text": "Will MTCH's market close price on 2025-12-28 be higher than its market close price on 2025-12-21?\n\nStock splits and reverse splits will be accounted for in resolving this question. Forecasts on questions about companies that have been delisted (through mergers or bankruptcy) will resolve to their final close price.",
+    "source": "yfinance",
+    "condition": "one-turn",
+    "initial_probability": 0.62,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.05312500000000002,
+    "max_absolute_shift": 0.16999999999999998
+  },
+  "model": "llama-70b",
+  "model_label": "Llama 3.3 70B",
+  "aggregate_metrics": {
+    "ssr": 1.8260869565217384,
+    "mean_shift_high": 0.07,
+    "mean_shift_low": 0.03833333333333335,
+    "asymmetry_index": 0.4000000000000004,
+    "mean_shift_negate": 0.03714285714285718,
+    "mean_shift_strengthen": 0.09285714285714285,
+    "fnar": 0.5,
+    "n_accepted": 2,
+    "n_spurious": 4,
+    "critical_path_premium": 0.004444444444444452,
+    "mean_shift_on_path": 0.06444444444444446,
+    "mean_shift_off_path": 0.060000000000000005,
+    "importance_sensitivity_correlation": -0.013636363636363669,
+    "control_sensitivity": 0
+  }
+}

@@ -1,0 +1,1100 @@
+{
+  "question_id": "e25d20b75343fb0c9cd67b0891dac2d5045e3485a0e79247f5c66e1fad02c66c",
+  "question_text": "Will there be more 'Violence against civilians' in Romania for the 30 days before 2025-12-28 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.32,
+  "nodes": [
+    {
+      "id": "political_stability",
+      "description": "Level of political cohesion and government effectiveness in Romania",
+      "role": "factor"
+    },
+    {
+      "id": "economic_stress",
+      "description": "Economic pressures such as inflation, unemployment, and cost of living",
+      "role": "factor"
+    },
+    {
+      "id": "social_unrest",
+      "description": "Public protests, strikes, and civil disobedience levels",
+      "role": "factor"
+    },
+    {
+      "id": "refugee_influx",
+      "description": "Volume of refugees or displaced persons entering Romania, especially from conflict zones",
+      "role": "factor"
+    },
+    {
+      "id": "law_enforcement_capacity",
+      "description": "Ability of police and security forces to prevent and respond to violence",
+      "role": "factor"
+    },
+    {
+      "id": "xenophobic_sentiment",
+      "description": "Prevalence of anti-immigrant or ethnic hostility in public discourse",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Whether 'Violence against civilians' in Romania increases in the 30 days before 2025-12-28 compared to the prior 30-day average over 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "political_stability",
+      "to": "law_enforcement_capacity",
+      "mechanism": "Lower political stability undermines coordination and funding for law enforcement"
+    },
+    {
+      "from": "economic_stress",
+      "to": "social_unrest",
+      "mechanism": "Rising unemployment and inflation increase public frustration and protest activity"
+    },
+    {
+      "from": "social_unrest",
+      "to": "xenophobic_sentiment",
+      "mechanism": "During periods of unrest, scapegoating of minority or immigrant groups tends to rise"
+    },
+    {
+      "from": "refugee_influx",
+      "to": "xenophobic_sentiment",
+      "mechanism": "Increased refugee presence can amplify nationalist rhetoric and fear-based narratives"
+    },
+    {
+      "from": "xenophobic_sentiment",
+      "to": "outcome",
+      "mechanism": "Higher levels of xenophobia correlate with increased risk of targeted violence against civilians"
+    },
+    {
+      "from": "law_enforcement_capacity",
+      "to": "outcome",
+      "mechanism": "Weaker law enforcement reduces deterrence and response to violent incidents"
+    },
+    {
+      "from": "social_unrest",
+      "to": "outcome",
+      "mechanism": "High unrest can escalate into violence, either state-perpetrated or between civilian groups"
+    }
+  ],
+  "reasoning": "Romania has remained relatively stable with low baseline levels of violence against civilians. No major political crises or economic shocks are currently anticipated through late 2025. However, potential stressors such as regional refugee flows and rising cost of living could amplify social tensions and xenophobic sentiment, especially if exploited by extremist actors. Law enforcement capacity is expected to remain adequate, limiting escalation. The causal chain from economic stress and refugee influx to xenophobia and reduced state capacity suggests a non-negligible but low probability of a short-term spike in violence. Historical patterns indicate such events are rare but not impossible during periods of confluence.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "political_stability",
+        "description": "Level of political cohesion and government effectiveness in Romania",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.067,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_stress",
+        "description": "Economic pressures such as inflation, unemployment, and cost of living",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.067,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "social_unrest",
+        "description": "Public protests, strikes, and civil disobedience levels",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0667,
+        "closeness": 0.1667,
+        "pagerank": 0.1239,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "refugee_influx",
+        "description": "Volume of refugees or displaced persons entering Romania, especially from conflict zones",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.067,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "law_enforcement_capacity",
+        "description": "Ability of police and security forces to prevent and respond to violence",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.1667,
+        "pagerank": 0.1239,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "xenophobic_sentiment",
+        "description": "Prevalence of anti-immigrant or ethnic hostility in public discourse",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0333,
+        "closeness": 0.375,
+        "pagerank": 0.1765,
+        "path_relevance": 0.1667
+      },
+      {
+        "node_id": "outcome",
+        "description": "Whether 'Violence against civilians' in Romania increases in the 30 days before 2025-12-28 compared to the prior 30-day average over 360 days",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.6667,
+        "pagerank": 0.3749,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "political_stability",
+        "target": "law_enforcement_capacity",
+        "mechanism": "Lower political stability undermines coordination and funding for law enforcement",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_stress",
+        "target": "social_unrest",
+        "mechanism": "Rising unemployment and inflation increase public frustration and protest activity",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "social_unrest",
+        "target": "xenophobic_sentiment",
+        "mechanism": "During periods of unrest, scapegoating of minority or immigrant groups tends to rise",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": false
+      },
+      {
+        "source": "social_unrest",
+        "target": "outcome",
+        "mechanism": "High unrest can escalate into violence, either state-perpetrated or between civilian groups",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "refugee_influx",
+        "target": "xenophobic_sentiment",
+        "mechanism": "Increased refugee presence can amplify nationalist rhetoric and fear-based narratives",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "law_enforcement_capacity",
+        "target": "outcome",
+        "mechanism": "Weaker law enforcement reduces deterrence and response to violent incidents",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "xenophobic_sentiment",
+        "target": "outcome",
+        "mechanism": "Higher levels of xenophobia correlate with increased risk of targeted violence against civilians",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "social_unrest",
+        "description": "Public protests, strikes, and civil disobedience levels",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "law_enforcement_capacity",
+        "description": "Ability of police and security forces to prevent and respond to violence",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_stability",
+        "description": "Level of political cohesion and government effectiveness in Romania",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "refugee_influx",
+        "description": "Volume of refugees or displaced persons entering Romania, especially from conflict zones",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "social_unrest",
+        "description": "Public protests, strikes, and civil disobedience levels",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "law_enforcement_capacity",
+        "description": "Ability of police and security forces to prevent and respond to violence",
+        "importance": 0.0333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_stress->social_unrest",
+        "description": "Rising unemployment and inflation increase public frustration and protest activity",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_stability->law_enforcement_capacity",
+        "description": "Lower political stability undermines coordination and funding for law enforcement",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_unrest->xenophobic_sentiment",
+        "description": "During periods of unrest, scapegoating of minority or immigrant groups tends to rise",
+        "importance": 0.0476,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_stress->social_unrest",
+        "description": "Rising unemployment and inflation increase public frustration and protest activity",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "social_unrest->law_enforcement_capacity",
+        "description": "Potential link: Public protests, strikes, and civil disobedience levels -> Ability of police and security forces to prevent and respond to violence",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "xenophobic_sentiment->law_enforcement_capacity",
+        "description": "Potential link: Prevalence of anti-immigrant or ethnic hostility in public discourse -> Ability of police and security forces to prevent and respond to violence",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "social_unrest",
+      "description": "Public protests, strikes, and civil disobedience levels",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "law_enforcement_capacity",
+      "description": "Ability of police and security forces to prevent and respond to violence",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_stability",
+      "description": "Level of political cohesion and government effectiveness in Romania",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "refugee_influx",
+      "description": "Volume of refugees or displaced persons entering Romania, especially from conflict zones",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "social_unrest",
+      "description": "Public protests, strikes, and civil disobedience levels",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "law_enforcement_capacity",
+      "description": "Ability of police and security forces to prevent and respond to violence",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_stress->social_unrest",
+      "description": "Rising unemployment and inflation increase public frustration and protest activity",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_stability->law_enforcement_capacity",
+      "description": "Lower political stability undermines coordination and funding for law enforcement",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_unrest->xenophobic_sentiment",
+      "description": "During periods of unrest, scapegoating of minority or immigrant groups tends to rise",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_stress->social_unrest",
+      "description": "Rising unemployment and inflation increase public frustration and protest activity",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "social_unrest->law_enforcement_capacity",
+      "description": "Potential link: Public protests, strikes, and civil disobedience levels -> Ability of police and security forces to prevent and respond to violence",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "xenophobic_sentiment->law_enforcement_capacity",
+      "description": "Potential link: Prevalence of anti-immigrant or ethnic hostility in public discourse -> Ability of police and security forces to prevent and respond to violence",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if widespread social unrest does not lead to increased violence against civilians in Romania? In fact, large-scale protests and strikes could actually reduce violence by providing a legitimate outlet for public grievances, thereby decreasing the likelihood of uncoordinated or targeted attacks. Historically, peaceful mass mobilization in Romania has often led to political concessions without escalation, suggesting that unrest may act as a pressure valve rather than a catalyst for violence.",
+      "probe_type": "node_negate_high",
+      "target_id": "social_unrest",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public protests, strikes, and civil disobedience levels"
+    },
+    {
+      "probe_text": "What if law enforcement capacity has little impact on violence against civilians in Romania because most incidents occur in isolated, rural areas where police presence is already minimal, and improvements in capacity do not translate to faster response or deterrence due to geographic and bureaucratic constraints? In such cases, even a well-funded and coordinated national force may fail to prevent violence driven by local tensions, suggesting that structural factors like xenophobia or economic stress dominate over enforcement capability.",
+      "probe_type": "node_negate_high",
+      "target_id": "law_enforcement_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Ability of police and security forces to prevent and respond to violence"
+    },
+    {
+      "probe_text": "Despite low political stability, Romania's law enforcement agencies have maintained operational independence and funding through EU-backed programs, allowing them to sustain preventive policing and rapid response capabilities regardless of domestic political shifts. For example, during the 2023 government crisis, police performance metrics and public order outcomes showed no significant deterioration compared to stable periods.",
+      "probe_type": "node_negate_medium",
+      "target_id": "political_stability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Level of political cohesion and government effectiveness in Romania"
+    },
+    {
+      "probe_text": "Recent data shows that Romania has maintained strict border controls and limited asylum approvals, resulting in a negligible number of refugees entering the country over the past year. Given this, the volume of refugee influx is unlikely to shift significantly or influence public sentiment or violence levels.",
+      "probe_type": "node_negate_low",
+      "target_id": "refugee_influx",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Volume of refugees or displaced persons entering Romania, especially from conflict zones"
+    },
+    {
+      "probe_text": "On 2025-11-15, Romania witnessed nationwide coordinated strikes involving public transport, healthcare, and education sectors, with over 150,000 participants across 20 cities, marking the largest labor mobilization in a decade. Clashes between protesters and police were reported in Bucharest and Cluj-Napoca, resulting in 34 injuries and 12 arrests, signaling a significant escalation from previous demonstrations.",
+      "probe_type": "node_strengthen",
+      "target_id": "social_unrest",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public protests, strikes, and civil disobedience levels"
+    },
+    {
+      "probe_text": "Romania's Ministry of Internal Affairs announced a 20% budget increase for local police forces in 2025, with specific allocations for rapid response units and community policing in urban centers. A recent EU assessment rated Romania's law enforcement preparedness as 'high' for crisis intervention, noting improved coordination between national and regional forces.",
+      "probe_type": "node_strengthen",
+      "target_id": "law_enforcement_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Ability of police and security forces to prevent and respond to violence"
+    },
+    {
+      "probe_text": "Recent data from Romania shows that despite a 7% unemployment rate and 10% inflation in 2025, public trust in government social support programs remains high, and consumer confidence has stabilized due to effective subsidy policies. Historically, Romania has experienced lower-than-expected protest activity during economic stress due to fragmented labor unions and low civic mobilization, suggesting that economic stress does not reliably translate into measurable social unrest.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "economic_stress->social_unrest",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Rising unemployment and inflation increase public frustration and protest activity"
+    },
+    {
+      "probe_text": "Romania's law enforcement agencies have maintained high operational autonomy and stable funding through independent budgeting mechanisms, even during periods of political turnover. For instance, between 2017 and 2019, despite significant government instability and three prime ministers in two years, interior ministry spending on police and gendarmerie remained within 2% of the annual average, and crime response times did not deteriorate, suggesting that political instability does not necessarily impair law enforcement capacity.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_stability->law_enforcement_capacity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Lower political stability undermines coordination and funding for law enforcement"
+    },
+    {
+      "probe_text": "In Romania, social unrest has historically been driven by labor strikes and anti-corruption protests, which are typically inclusive and civic-minded, often organized by urban, educated coalitions that explicitly reject xenophobia. There is no strong evidence that such domestically focused, policy-driven unrest leads to increased scapegoating of minorities or immigrants, especially in the absence of prominent far-right mobilization.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "social_unrest->xenophobic_sentiment",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "During periods of unrest, scapegoating of minority or immigrant groups tends to rise"
+    },
+    {
+      "probe_text": "Large-scale social unrest, such as prolonged strikes and blockades in key sectors like transportation and energy, has recently disrupted economic activity in Romania. These disruptions have directly contributed to supply chain delays, reduced business output, and increased inflationary pressures, suggesting that social unrest may be driving economic stress rather than resulting from it.",
+      "probe_type": "edge_reverse",
+      "target_id": "economic_stress->social_unrest",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Rising unemployment and inflation increase public frustration and protest activity"
+    },
+    {
+      "probe_text": "Suppose a wave of nationwide strikes and protests in Romania over the past month has led to sustained deployment of police forces in urban centers, resulting in officer fatigue, reduced patrol coverage in rural areas, and delayed response times to emergency calls. Would this strain on personnel and resources degrade the overall ability of law enforcement to prevent and respond to incidents of violence against civilians, even in regions not directly involved in the unrest?",
+      "probe_type": "edge_spurious",
+      "target_id": "social_unrest->law_enforcement_capacity",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Public protests, strikes, and civil disobedience levels -> Ability of police and security forces to prevent and respond to violence"
+    },
+    {
+      "probe_text": "Suppose a recent surge in xenophobic sentiment has led to widespread public distrust of ethnic minority communities in Romania, with influential media figures accusing these groups of criminality. How would this affect law enforcement's ability to gather community intelligence, maintain cooperation, and deploy resources effectively in diverse neighborhoods? Consider whether rising hostility could erode the civilian-police collaboration necessary for preventing violence.",
+      "probe_type": "edge_spurious",
+      "target_id": "xenophobic_sentiment->law_enforcement_capacity",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Prevalence of anti-immigrant or ethnic hostility in public discourse -> Ability of police and security forces to prevent and respond to violence"
+    },
+    {
+      "probe_text": "Consider the role of international military tensions, particularly Romania's proximity to the war in Ukraine and its involvement in NATO operations. Escalation in regional conflict could lead to increased troop movements, defense mobilization, or cross-border incidents, which may heighten civilian anxiety and risk of violence, especially near border areas. This factor is not captured in the current causal model but could directly influence both social unrest and the likelihood of violence against civilians.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of international military tensions, particularly Romania's proximity to the war in Ukraine and its participation in NATO deployments. Escalation in cross-border incidents or heightened military alertness could strain domestic security resources and increase the risk of civilian-targeted violence, either through spillover attacks or internal sabotage. This factor is not captured in the current causal model but could significantly influence the outcome.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Romania's national football team qualified for the 2026 FIFA World Cup after a successful qualifying campaign, boosting national pride and media attention on sports throughout the country in early December 2025.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Recent reports indicate that Romania has increased funding for cultural heritage preservation projects, including the restoration of several historical monuments in Bucharest and Transylvania. This initiative has been widely covered in local media and praised for promoting national identity.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if widespread social unrest does not lead to increased violence against civilians in Romania? In fact, large-scale protests and strikes could actually reduce violence by providing a legitimate outlet for public grievances, thereby decreasing the likelihood of uncoordinated or targeted attacks. Historically, peaceful mass mobilization in Romania has often led to political concessions without escalation, suggesting that unrest may act as a pressure valve rather than a catalyst for violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the causal link between social_unrest -> outcome and social_unrest -> xenophobic_sentiment, proposing that social unrest may act as a pressure valve rather than a catalyst for violence. This weakens two pathways in the causal network: (1) the direct path from social unrest to increased violence, and (2) the indirect path where unrest fuels xenophobic sentiment. While historical examples in Romania (e.g., 2017-2019 protests) show that large-scale mobilization can remain largely peaceful and even reduce tensions, I retain some concern that *if* unrest becomes fragmented or met with repression, it could still escalate. However, the overall weight of the evidence suggests that sustained, organized social unrest is less likely to increase violence than previously assumed. Therefore, the probability of increased 'Violence against civilians' decreases, though not eliminated, due to the persistence of other pathways (e.g., refugee_influx -> xenophobic_sentiment -> outcome and economic_stress -> law_enforcement_capacity via political_stability). The update is moderate because social unrest was a mid-weight driver in the original model, not the dominant one.",
+      "raw_response": "{\n  \"updated_probability\": 0.26,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the causal link between social_unrest -> outcome and social_unrest -> xenophobic_sentiment, proposing that social unrest may act as a pressure valve rather than a catalyst for violence. This weakens two pathways in the causal network: (1) the direct path from social unrest to increased violence, and (2) the indirect path where unrest fuels xenophobic sentiment. While historical examples in Romania (e.g., 2017-2019 protests) show that large-scale mobilization can remain largely peaceful and even reduce tensions, I retain some concern that *if* unrest becomes fragmented or met with repression, it could still escalate. However, the overall weight of the evidence suggests that sustained, organized social unrest is less likely to increase violence than previously assumed. Therefore, the probability of increased 'Violence against civilians' decreases, though not eliminated, due to the persistence of other pathways (e.g., refugee_influx -> xenophobic_sentiment -> outcome and economic_stress -> law_enforcement_capacity via political_stability). The update is moderate because social unrest was a mid-weight driver in the original model, not the dominant one.\"\n}",
+      "target_id": "social_unrest",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if law enforcement capacity has little impact on violence against civilians in Romania because most incidents occur in isolated, rural areas where police presence is already minimal, and improvements in capacity do not translate to faster response or deterrence due to geographic and bureaucratic constraints? In such cases, even a well-funded and coordinated national force may fail to prevent violence driven by local tensions, suggesting that structural factors like xenophobia or economic stress dominate over enforcement capability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.41,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to 'law_enforcement_capacity' weakens a key moderating path in the causal network. If law enforcement has limited impact on preventing violence against civilians—especially in rural areas where structural and social drivers dominate—then the protective effect of strong institutions is diminished. This increases the relative importance of unmitigated causal paths such as economic_stress -> social_unrest -> outcome and refugee_influx -> xenophobic_sentiment -> outcome. Since law enforcement can no longer be relied upon to suppress escalation along these paths, the baseline risk of increased violence rises. The node 'law_enforcement_capacity' was a key dampening factor on the outcome; weakening its influence shifts the balance toward higher vulnerability, particularly from entrenched social and economic stressors. Therefore, the probability of increased violence is updated upward, though not drastically, because the core drivers (xenophobia, economic stress, unrest) were already accounted for—just partially offset by assumed enforcement efficacy.",
+      "raw_response": "{\n  \"updated_probability\": 0.41,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to 'law_enforcement_capacity' weakens a key moderating path in the causal network. If law enforcement has limited impact on preventing violence against civilians—especially in rural areas where structural and social drivers dominate—then the protective effect of strong institutions is diminished. This increases the relative importance of unmitigated causal paths such as economic_stress -> social_unrest -> outcome and refugee_influx -> xenophobic_sentiment -> outcome. Since law enforcement can no longer be relied upon to suppress escalation along these paths, the baseline risk of increased violence rises. The node 'law_enforcement_capacity' was a key dampening factor on the outcome; weakening its influence shifts the balance toward higher vulnerability, particularly from entrenched social and economic stressors. Therefore, the probability of increased violence is updated upward, though not drastically, because the core drivers (xenophobia, economic stress, unrest) were already accounted for—just partially offset by assumed enforcement efficacy.\"\n}",
+      "target_id": "law_enforcement_capacity",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Despite low political stability, Romania's law enforcement agencies have maintained operational independence and funding through EU-backed programs, allowing them to sustain preventive policing and rapid response capabilities regardless of domestic political shifts. For example, during the 2023 government crisis, police performance metrics and public order outcomes showed no significant deterioration compared to stable periods.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between political_stability and law_enforcement_capacity. Evidence that law enforcement in Romania maintains operational independence and funding through EU-backed programs—even during political crises—suggests that fluctuations in political stability are less likely to degrade police performance. This reduces the risk that political instability will indirectly increase violence via weakened law enforcement. As a result, the pathway political_stability -> law_enforcement_capacity -> outcome is attenuated, decreasing the overall likelihood of increased violence. However, this pathway was only one of several contributing to the outcome, and other drivers—such as economic_stress, xenophobic_sentiment, and refugee_influx—remain operative. Therefore, while the update is meaningful, it does not eliminate the primary risk factors, warranting a moderate downward adjustment rather than a large shift.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between political_stability and law_enforcement_capacity. Evidence that law enforcement in Romania maintains operational independence and funding through EU-backed programs—even during political crises—suggests that fluctuations in political stability are less likely to degrade police performance. This reduces the risk that political instability will indirectly increase violence via weakened law enforcement. As a result, the pathway political_stability -> law_enforcement_capacity -> outcome is attenuated, decreasing the overall likelihood of increased violence. However, this pathway was only one of several contributing to the outcome, and other drivers—such as economic_stress, xenophobic_sentiment, and refugee_influx—remain operative. Therefore, while the update is meaningful, it does not eliminate the primary risk factors, warranting a moderate downward adjustment rather than a large shift.\"\n}",
+      "target_id": "political_stability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that Romania has maintained strict border controls and limited asylum approvals, resulting in a negligible number of refugees entering the country over the past year. Given this, the volume of refugee influx is unlikely to shift significantly or influence public sentiment or violence levels.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'refugee_influx' indicates that this factor is negligible due to strict border controls and low asylum approvals, meaning it is unlikely to increase xenophobic sentiment. This weakens the causal path refugee_influx -> xenophobic_sentiment -> outcome. While xenophobic_sentiment can still be influenced by other factors (e.g., social_unrest), removing refugee_influx as a meaningful driver reduces the likelihood of that pathway activating. However, since xenophobic sentiment is only one of several pathways to the outcome—and other drivers like economic_stress, social_unrest, and law_enforcement_capacity remain operative—the overall effect is a modest downward adjustment. The structural importance of refugee_influx is moderate but not central, so the update is small but justified.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'refugee_influx' indicates that this factor is negligible due to strict border controls and low asylum approvals, meaning it is unlikely to increase xenophobic sentiment. This weakens the causal path refugee_influx -> xenophobic_sentiment -> outcome. While xenophobic_sentiment can still be influenced by other factors (e.g., social_unrest), removing refugee_influx as a meaningful driver reduces the likelihood of that pathway activating. However, since xenophobic sentiment is only one of several pathways to the outcome—and other drivers like economic_stress, social_unrest, and law_enforcement_capacity remain operative—the overall effect is a modest downward adjustment. The structural importance of refugee_influx is moderate but not central, so the update is small but justified.\"\n}",
+      "target_id": "refugee_influx",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "On 2025-11-15, Romania witnessed nationwide coordinated strikes involving public transport, healthcare, and education sectors, with over 150,000 participants across 20 cities, marking the largest labor mobilization in a decade. Clashes between protesters and police were reported in Bucharest and Cluj-Napoca, resulting in 34 injuries and 12 arrests, signaling a significant escalation from previous demonstrations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.25999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The nationwide strikes on 2025-11-15 represent a significant increase in social_unrest, a key node in the causal network. This event directly strengthens the path from social_unrest to outcome, as the scale and escalation of protests—especially with clashes, injuries, and arrests—raise the likelihood of violence against civilians. Additionally, heightened social_unrest increases pressure on law_enforcement_capacity through overextension or reactive policing, weakening its ability to deter violence (affecting the law_enforcement_capacity -> outcome path). Furthermore, social_unrest may amplify xenophobic_sentiment through scapegoating dynamics, indirectly reinforcing the path to violence. Given that this event is both large-scale and unusually confrontational compared to prior unrest, it substantially increases the probability of the outcome. The update reflects the strengthened causal paths from social_unrest to outcome, both directly and via intermediary nodes.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The nationwide strikes on 2025-11-15 represent a significant increase in social_unrest, a key node in the causal network. This event directly strengthens the path from social_unrest to outcome, as the scale and escalation of protests—especially with clashes, injuries, and arrests—raise the likelihood of violence against civilians. Additionally, heightened social_unrest increases pressure on law_enforcement_capacity through overextension or reactive policing, weakening its ability to deter violence (affecting the law_enforcement_capacity -> outcome path). Furthermore, social_unrest may amplify xenophobic_sentiment through scapegoating dynamics, indirectly reinforcing the path to violence. Given that this event is both large-scale and unusually confrontational compared to prior unrest, it substantially increases the probability of the outcome. The update reflects the strengthened causal paths from social_unrest to outcome, both directly and via intermediary nodes.\"\n}",
+      "target_id": "social_unrest",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Romania's Ministry of Internal Affairs announced a 20% budget increase for local police forces in 2025, with specific allocations for rapid response units and community policing in urban centers. A recent EU assessment rated Romania's law enforcement preparedness as 'high' for crisis intervention, noting improved coordination between national and regional forces.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The announcement of a 20% budget increase for local police forces and the EU assessment of 'high' preparedness directly strengthen the 'law_enforcement_capacity' node. This enhances the capacity of law enforcement to deter and respond to violent incidents, reinforcing the causal path from 'law_enforcement_capacity' to 'outcome'. Stronger law enforcement capacity reduces the likelihood of uncontrolled violence, especially during periods of social unrest or heightened xenophobic sentiment. While other risk factors (e.g., economic_stress, xenophobic_sentiment) remain relevant, the improved structural capability of security forces makes the escalation of violence less probable. This update modestly reduces the estimated probability, but does not eliminate risk entirely due to potential pressures from other causal paths such as social_unrest and xenophobic_sentiment. The shift is moderate because 'law_enforcement_capacity' is an important but not dominant driver in the network — it interacts with other factors rather than being the sole determinant.",
+      "raw_response": "{\n  \"updated_probability\": 0.26,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announcement of a 20% budget increase for local police forces and the EU assessment of 'high' preparedness directly strengthen the 'law_enforcement_capacity' node. This enhances the capacity of law enforcement to deter and respond to violent incidents, reinforcing the causal path from 'law_enforcement_capacity' to 'outcome'. Stronger law enforcement capacity reduces the likelihood of uncontrolled violence, especially during periods of social unrest or heightened xenophobic sentiment. While other risk factors (e.g., economic_stress, xenophobic_sentiment) remain relevant, the improved structural capability of security forces makes the escalation of violence less probable. This update modestly reduces the estimated probability, but does not eliminate risk entirely due to potential pressures from other causal paths such as social_unrest and xenophobic_sentiment. The shift is moderate because 'law_enforcement_capacity' is an important but not dominant driver in the network — it interacts with other factors rather than being the sole determinant.\"\n}",
+      "target_id": "law_enforcement_capacity",
+      "target_type": "node",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Romania shows that despite a 7% unemployment rate and 10% inflation in 2025, public trust in government social support programs remains high, and consumer confidence has stabilized due to effective subsidy policies. Historically, Romania has experienced lower-than-expected protest activity during economic stress due to fragmented labor unions and low civic mobilization, suggesting that economic stress does not reliably translate into measurable social unrest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'economic_stress -> social_unrest' undermines a key pathway through which economic pressures could lead to increased violence against civilians. The evidence suggests that in Romania, economic stress does not reliably produce social unrest due to high public trust in social support, stabilized consumer confidence, and structural barriers to mobilization like fragmented labor unions. This weakens the causal chain: economic_stress -> social_unrest -> xenophobic_sentiment -> outcome and economic_stress -> social_unrest -> outcome. As a result, one of the major amplifying mechanisms for violence is less likely to activate, reducing the overall risk. However, other pathways (e.g., refugee_influx -> xenophobic_sentiment -> outcome and political_stability -> law_enforcement_capacity -> outcome) remain intact, so the effect is substantial but not decisive. The probability is therefore lowered moderately from 0.32 to 0.26.",
+      "raw_response": "{\n  \"updated_probability\": 0.26,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'economic_stress -> social_unrest' undermines a key pathway through which economic pressures could lead to increased violence against civilians. The evidence suggests that in Romania, economic stress does not reliably produce social unrest due to high public trust in social support, stabilized consumer confidence, and structural barriers to mobilization like fragmented labor unions. This weakens the causal chain: economic_stress -> social_unrest -> xenophobic_sentiment -> outcome and economic_stress -> social_unrest -> outcome. As a result, one of the major amplifying mechanisms for violence is less likely to activate, reducing the overall risk. However, other pathways (e.g., refugee_influx -> xenophobic_sentiment -> outcome and political_stability -> law_enforcement_capacity -> outcome) remain intact, so the effect is substantial but not decisive. The probability is therefore lowered moderately from 0.32 to 0.26.\"\n}",
+      "target_id": "economic_stress->social_unrest",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Romania's law enforcement agencies have maintained high operational autonomy and stable funding through independent budgeting mechanisms, even during periods of political turnover. For instance, between 2017 and 2019, despite significant government instability and three prime ministers in two years, interior ministry spending on police and gendarmerie remained within 2% of the annual average, and crime response times did not deteriorate, suggesting that political instability does not necessarily impair law enforcement capacity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link between political_stability and law_enforcement_capacity weakens a secondary path leading to the outcome. While political instability was previously assumed to degrade law enforcement capacity, evidence shows that Romania's law enforcement maintains stable funding and performance despite political turnover, reducing the strength of this causal link. However, this pathway is not the dominant driver of the outcome; the primary risks remain economic_stress, social_unrest, refugee_influx, and xenophobic_sentiment, all of which are unaffected. The weakening of one indirect path (political_stability -> law_enforcement_capacity -> outcome) slightly reduces the likelihood of increased violence, but not substantially, as other major causal pathways remain intact. Hence, a very small downward adjustment is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link between political_stability and law_enforcement_capacity weakens a secondary path leading to the outcome. While political instability was previously assumed to degrade law enforcement capacity, evidence shows that Romania's law enforcement maintains stable funding and performance despite political turnover, reducing the strength of this causal link. However, this pathway is not the dominant driver of the outcome; the primary risks remain economic_stress, social_unrest, refugee_influx, and xenophobic_sentiment, all of which are unaffected. The weakening of one indirect path (political_stability -> law_enforcement_capacity -> outcome) slightly reduces the likelihood of increased violence, but not substantially, as other major causal pathways remain intact. Hence, a very small downward adjustment is warranted.\"\n}",
+      "target_id": "political_stability->law_enforcement_capacity",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "In Romania, social unrest has historically been driven by labor strikes and anti-corruption protests, which are typically inclusive and civic-minded, often organized by urban, educated coalitions that explicitly reject xenophobia. There is no strong evidence that such domestically focused, policy-driven unrest leads to increased scapegoating of minorities or immigrants, especially in the absence of prominent far-right mobilization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link 'social_unrest -> xenophobic_sentiment' undermines a key pathway through which social unrest indirectly affects the outcome. In the original model, social unrest contributed to xenophobic sentiment, which in turn increased the risk of violence against civilians. However, the evidence that Romanian social unrest is largely policy-driven, inclusive, and not associated with far-right mobilization weakens this link. This reduces the plausibility that general unrest will lead to ethnically or xenophobically motivated violence. As a result, one indirect path from social_unrest to outcome (via xenophobic_sentiment) is substantially weakened. The direct path from social_unrest to outcome remains intact, as unrest can still escalate into violence independently. Given that the severed path was secondary rather than primary, and that other key drivers (e.g., economic_stress, refugee_influx, law_enforcement_capacity) remain unchanged, the update is modest. The overall likelihood of increased violence decreases slightly due to reduced concern about unrest spilling into identity-based violence.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link 'social_unrest -> xenophobic_sentiment' undermines a key pathway through which social unrest indirectly affects the outcome. In the original model, social unrest contributed to xenophobic sentiment, which in turn increased the risk of violence against civilians. However, the evidence that Romanian social unrest is largely policy-driven, inclusive, and not associated with far-right mobilization weakens this link. This reduces the plausibility that general unrest will lead to ethnically or xenophobically motivated violence. As a result, one indirect path from social_unrest to outcome (via xenophobic_sentiment) is substantially weakened. The direct path from social_unrest to outcome remains intact, as unrest can still escalate into violence independently. Given that the severed path was secondary rather than primary, and that other key drivers (e.g., economic_stress, refugee_influx, law_enforcement_capacity) remain unchanged, the update is modest. The overall likelihood of increased violence decreases slightly due to reduced concern about unrest spilling into identity-based violence.\"\n}",
+      "target_id": "social_unrest->xenophobic_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Large-scale social unrest, such as prolonged strikes and blockades in key sectors like transportation and energy, has recently disrupted economic activity in Romania. These disruptions have directly contributed to supply chain delays, reduced business output, and increased inflationary pressures, suggesting that social unrest may be driving economic stress rather than resulting from it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.34,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge reverses the causal direction of 'economic_stress -> social_unrest' to suggest that social_unrest may be a driver of economic_stress rather than a consequence. This weakens the original pathway by which economic stress leads to unrest, but does not eliminate the relevance of social_unrest as a node. Instead, it implies that social_unrest can arise independently (e.g., from political or identity-based grievances) and still propagate through the network: social_unrest increases xenophobic_sentiment and directly contributes to the outcome, while also now causing economic_stress. This reinforces social_unrest as a central driver in the network. However, since the original model already emphasized social_unrest as a key mediator, and the outcome depends more directly on xenophobic_sentiment, law_enforcement_capacity, and direct unrest-to-violence pathways, the reversal of this single link does not fundamentally break the network. The overall risk of violence against civilians is slightly increased in expectation because social_unrest now appears more potent — capable of generating both economic stress and violence — but the shift is modest because the downstream links remain unchanged and Romania’s law enforcement and political stability remain moderate. Thus, the probability increases slightly from 0.32 to 0.34.",
+      "raw_response": "{\n  \"updated_probability\": 0.34,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge reverses the causal direction of 'economic_stress -> social_unrest' to suggest that social_unrest may be a driver of economic_stress rather than a consequence. This weakens the original pathway by which economic stress leads to unrest, but does not eliminate the relevance of social_unrest as a node. Instead, it implies that social_unrest can arise independently (e.g., from political or identity-based grievances) and still propagate through the network: social_unrest increases xenophobic_sentiment and directly contributes to the outcome, while also now causing economic_stress. This reinforces social_unrest as a central driver in the network. However, since the original model already emphasized social_unrest as a key mediator, and the outcome depends more directly on xenophobic_sentiment, law_enforcement_capacity, and direct unrest-to-violence pathways, the reversal of this single link does not fundamentally break the network. The overall risk of violence against civilians is slightly increased in expectation because social_unrest now appears more potent — capable of generating both economic stress and violence — but the shift is modest because the downstream links remain unchanged and Romania’s law enforcement and political stability remain moderate. Thus, the probability increases slightly from 0.32 to 0.34.\"\n}",
+      "target_id": "economic_stress->social_unrest",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a wave of nationwide strikes and protests in Romania over the past month has led to sustained deployment of police forces in urban centers, resulting in officer fatigue, reduced patrol coverage in rural areas, and delayed response times to emergency calls. Would this strain on personnel and resources degrade the overall ability of law enforcement to prevent and respond to incidents of violence against civilians, even in regions not directly involved in the unrest?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a previously unmodeled causal link: social_unrest -> law_enforcement_capacity (negative impact), which strengthens the overall pathway from social_unrest to the outcome. While my original network included social_unrest's direct effect on outcome and its indirect effect via xenophobic_sentiment, it did not account for how unrest could degrade law enforcement capacity through operational strain. This new link reinforces the causal path by adding a mechanism through which high social unrest reduces the effectiveness of law enforcement, thereby increasing the risk of violence against civilians. Given that this affects a key protective factor (law_enforcement_capacity) and strengthens two paths to the outcome—both directly and via weakened deterrence—the probability estimate is revised upward. However, the increase is moderate because political stability and economic stress remain stable in baseline projections, limiting immediate escalation risk.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a previously unmodeled causal link: social_unrest -> law_enforcement_capacity (negative impact), which strengthens the overall pathway from social_unrest to the outcome. While my original network included social_unrest's direct effect on outcome and its indirect effect via xenophobic_sentiment, it did not account for how unrest could degrade law enforcement capacity through operational strain. This new link reinforces the causal path by adding a mechanism through which high social unrest reduces the effectiveness of law enforcement, thereby increasing the risk of violence against civilians. Given that this affects a key protective factor (law_enforcement_capacity) and strengthens two paths to the outcome—both directly and via weakened deterrence—the probability estimate is revised upward. However, the increase is moderate because political stability and economic stress remain stable in baseline projections, limiting immediate escalation risk.\"\n}",
+      "target_id": "social_unrest->law_enforcement_capacity",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a recent surge in xenophobic sentiment has led to widespread public distrust of ethnic minority communities in Romania, with influential media figures accusing these groups of criminality. How would this affect law enforcement's ability to gather community intelligence, maintain cooperation, and deploy resources effectively in diverse neighborhoods? Consider whether rising hostility could erode the civilian-police collaboration necessary for preventing violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a previously unmodeled causal link: xenophobic_sentiment -> law_enforcement_capacity, operating through the erosion of community trust and cooperation. If rising xenophobia leads to stigmatization of minority communities, law enforcement may face reduced intelligence sharing, lower reporting of crimes, and resistance to policing in affected neighborhoods. This weakens law_enforcement_capacity independently of political_stability, creating a new pathway through which xenophobic_sentiment amplifies the risk of violence. This strengthens the overall influence of xenophobic_sentiment in the network: it now affects the outcome both directly (via targeted violence) and indirectly (via degraded law enforcement). As a result, the weight of evidence pointing toward higher violence increases, particularly if xenophobic sentiment rises. Given that this newly acknowledged path reinforces two existing links (xenophobic_sentiment -> outcome and law_enforcement_capacity -> outcome), the probability of increased violence against civilians is revised upward from 0.32 to 0.45.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a previously unmodeled causal link: xenophobic_sentiment -> law_enforcement_capacity, operating through the erosion of community trust and cooperation. If rising xenophobia leads to stigmatization of minority communities, law enforcement may face reduced intelligence sharing, lower reporting of crimes, and resistance to policing in affected neighborhoods. This weakens law_enforcement_capacity independently of political_stability, creating a new pathway through which xenophobic_sentiment amplifies the risk of violence. This strengthens the overall influence of xenophobic_sentiment in the network: it now affects the outcome both directly (via targeted violence) and indirectly (via degraded law enforcement). As a result, the weight of evidence pointing toward higher violence increases, particularly if xenophobic sentiment rises. Given that this newly acknowledged path reinforces two existing links (xenophobic_sentiment -> outcome and law_enforcement_capacity -> outcome), the probability of increased violence against civilians is revised upward from 0.32 to 0.45.\"\n}",
+      "target_id": "xenophobic_sentiment->law_enforcement_capacity",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of international military tensions, particularly Romania's proximity to the war in Ukraine and its involvement in NATO operations. Escalation in regional conflict could lead to increased troop movements, defense mobilization, or cross-border incidents, which may heighten civilian anxiety and risk of violence, especially near border areas. This factor is not captured in the current causal model but could directly influence both social unrest and the likelihood of violence against civilians.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.41,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The structural challenge introduces a new causal pathway through international military tensions—particularly Romania's proximity to the war in Ukraine and its NATO involvement—that can directly influence social_unrest and, via heightened civilian anxiety and potential cross-border incidents, the outcome. This factor also indirectly affects law_enforcement_capacity, as defense mobilization may divert resources from civilian policing. The new pathway (military_tensions -> social_unrest -> outcome) and the potential direct link (military_tensions -> outcome via border incidents or panic-induced violence) strengthen the overall risk profile. While current conditions remain relatively stable, the possibility of escalation in the Black Sea or eastern NATO flank increases tail risks for localized violence, especially in border or military transit regions. This adds a previously unmodeled but plausible upward pressure on the outcome, justifying a moderate increase in probability from 0.32 to 0.41.",
+      "raw_response": "{\n  \"updated_probability\": 0.41,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The structural challenge introduces a new causal pathway through international military tensions—particularly Romania's proximity to the war in Ukraine and its NATO involvement—that can directly influence social_unrest and, via heightened civilian anxiety and potential cross-border incidents, the outcome. This factor also indirectly affects law_enforcement_capacity, as defense mobilization may divert resources from civilian policing. The new pathway (military_tensions -> social_unrest -> outcome) and the potential direct link (military_tensions -> outcome via border incidents or panic-induced violence) strengthen the overall risk profile. While current conditions remain relatively stable, the possibility of escalation in the Black Sea or eastern NATO flank increases tail risks for localized violence, especially in border or military transit regions. This adds a previously unmodeled but plausible upward pressure on the outcome, justifying a moderate increase in probability from 0.32 to 0.41.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of international military tensions, particularly Romania's proximity to the war in Ukraine and its participation in NATO deployments. Escalation in cross-border incidents or heightened military alertness could strain domestic security resources and increase the risk of civilian-targeted violence, either through spillover attacks or internal sabotage. This factor is not captured in the current causal model but could significantly influence the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.15999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The structural challenge introduces a new causal pathway through international military tensions—particularly Romania's proximity to the Ukraine conflict and its NATO commitments—that can affect the outcome via strain on domestic security and potential spillover violence. This creates two new or strengthened causal paths: (1) international_military_tensions -> law_enforcement_capacity, where heightened military alertness diverts resources from civilian policing, weakening law enforcement capacity and thereby increasing the risk of violence against civilians; and (2) international_military_tensions -> outcome, through direct spillover risks such as cross-border incidents, sabotage, or attacks targeting civilians. These pathways interact with existing nodes—especially law_enforcement_capacity and xenophobic_sentiment (as heightened tensions may amplify nationalist or anti-refugee rhetoric). While Romania has not experienced direct spillover to date, the risk is non-trivial given ongoing regional instability. This factor was not accounted for in the original model, and its inclusion strengthens the overall risk profile, particularly in the 30-day window near year-end 2025 when geopolitical volatility could peak. Therefore, the probability is revised upward to reflect this additional risk channel.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The structural challenge introduces a new causal pathway through international military tensions—particularly Romania's proximity to the Ukraine conflict and its NATO commitments—that can affect the outcome via strain on domestic security and potential spillover violence. This creates two new or strengthened causal paths: (1) international_military_tensions -> law_enforcement_capacity, where heightened military alertness diverts resources from civilian policing, weakening law enforcement capacity and thereby increasing the risk of violence against civilians; and (2) international_military_tensions -> outcome, through direct spillover risks such as cross-border incidents, sabotage, or attacks targeting civilians. These pathways interact with existing nodes—especially law_enforcement_capacity and xenophobic_sentiment (as heightened tensions may amplify nationalist or anti-refugee rhetoric). While Romania has not experienced direct spillover to date, the risk is non-trivial given ongoing regional instability. This factor was not accounted for in the original model, and its inclusion strengthens the overall risk profile, particularly in the 30-day window near year-end 2025 when geopolitical volatility could peak. Therefore, the probability is revised upward to reflect this additional risk channel.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Romania's national football team qualified for the 2026 FIFA World Cup after a successful qualifying campaign, boosting national pride and media attention on sports throughout the country in early December 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The qualification of Romania's national football team for the 2026 FIFA World Cup in early December 2025 introduces a positive national sentiment shock that indirectly affects several nodes in the causal network. This event is likely to temporarily boost political_stability and reduce social_unrest, as widespread public attention shifts toward a unifying, non-political event. Reduced social_unrest in turn lowers pressure on both xenophobic_sentiment and the direct pathway from unrest to violence, weakening those causal links to the outcome. Additionally, heightened national pride may dampen xenophobic_sentiment by promoting inclusive national identity, thereby weakening that pathway to violence. While the structural core of the model remains intact, the timing of this event—within the 30-day window before the resolution—means it could suppress baseline levels of tension that contribute to violence. However, the effect is likely temporary and limited, so the downward adjustment is modest. No key causal pathways are eliminated, but several are attenuated. Hence, the probability of increased violence decreases slightly from 0.32 to 0.28.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The qualification of Romania's national football team for the 2026 FIFA World Cup in early December 2025 introduces a positive national sentiment shock that indirectly affects several nodes in the causal network. This event is likely to temporarily boost political_stability and reduce social_unrest, as widespread public attention shifts toward a unifying, non-political event. Reduced social_unrest in turn lowers pressure on both xenophobic_sentiment and the direct pathway from unrest to violence, weakening those causal links to the outcome. Additionally, heightened national pride may dampen xenophobic_sentiment by promoting inclusive national identity, thereby weakening that pathway to violence. While the structural core of the model remains intact, the timing of this event—within the 30-day window before the resolution—means it could suppress baseline levels of tension that contribute to violence. However, the effect is likely temporary and limited, so the downward adjustment is modest. No key causal pathways are eliminated, but several are attenuated. Hence, the probability of increased violence decreases slightly from 0.32 to 0.28.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Romania has increased funding for cultural heritage preservation projects, including the restoration of several historical monuments in Bucharest and Transylvania. This initiative has been widely covered in local media and praised for promoting national identity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The increased funding for cultural heritage preservation may positively influence national identity and social cohesion, potentially affecting the 'xenophobic_sentiment' node indirectly. However, this effect is likely small and ambiguous—such initiatives could either reduce xenophobic sentiment by fostering inclusive patriotism or exacerbate it if framed in ethnonationalist terms. In this case, the media portrayal is positive and focuses on national pride, which might slightly dampen social tensions, marginally reducing the likelihood of violence. This primarily affects the 'xenophobic_sentiment -> outcome' and possibly 'social_unrest -> outcome' paths, but the structural importance of these paths is limited given the absence of major unrest or refugee pressures. The initiative does not directly impact core drivers like economic stress, political stability, or law enforcement capacity. Therefore, the change is minor, warranting only a negligible downward adjustment in probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The increased funding for cultural heritage preservation may positively influence national identity and social cohesion, potentially affecting the 'xenophobic_sentiment' node indirectly. However, this effect is likely small and ambiguous—such initiatives could either reduce xenophobic sentiment by fostering inclusive patriotism or exacerbate it if framed in ethnonationalist terms. In this case, the media portrayal is positive and focuses on national pride, which might slightly dampen social tensions, marginally reducing the likelihood of violence. This primarily affects the 'xenophobic_sentiment -> outcome' and possibly 'social_unrest -> outcome' paths, but the structural importance of these paths is limited given the absence of major unrest or refugee pressures. The initiative does not directly impact core drivers like economic stress, political stability, or law enforcement capacity. Therefore, the change is minor, warranting only a negligible downward adjustment in probability.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, Romania's parliament passed a rare cross-party bill reinforcing independent oversight of the police and judicial appointments, signaling improved institutional cooperation. This move followed a period of political tension and was widely interpreted as a step toward restoring public trust in governance. The stability in leadership and reduced frequency of cabinet reshuffles since late 2024 have contributed to more consistent policy implementation, particularly in internal security.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The reported cross-party institutional reform and increased political stability since late 2024 directly strengthen the 'political_stability' node, which positively affects 'law_enforcement_capacity' through improved coordination, funding, and oversight. This weakens the causal path from law_enforcement_capacity -> outcome by increasing the capacity to deter and respond to violence, thereby reducing the likelihood of increased 'Violence against civilians'. Additionally, greater institutional trust may dampen social_unrest and indirectly reduce pressure on xenophobic_sentiment. While economic_stress, refugee_influx, and other factors remain potential drivers, the strengthening of this key structural node—political_stability—alters a central causal pathway to the outcome. Given that political instability was a key upstream risk factor in the original model, its mitigation warrants a downward revision, though not a drastic one, as other risks (e.g., xenophobia, refugee inflows) persist. Thus, the probability is reduced from 0.32 to 0.25.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The reported cross-party institutional reform and increased political stability since late 2024 directly strengthen the 'political_stability' node, which positively affects 'law_enforcement_capacity' through improved coordination, funding, and oversight. This weakens the causal path from law_enforcement_capacity -> outcome by increasing the capacity to deter and respond to violence, thereby reducing the likelihood of increased 'Violence against civilians'. Additionally, greater institutional trust may dampen social_unrest and indirectly reduce pressure on xenophobic_sentiment. While economic_stress, refugee_influx, and other factors remain potential drivers, the strengthening of this key structural node—political_stability—alters a central causal pathway to the outcome. Given that political instability was a key upstream risk factor in the original model, its mitigation warrants a downward revision, though not a drastic one, as other risks (e.g., xenophobia, refugee inflows) persist. Thus, the probability is reduced from 0.32 to 0.25.\"\n}",
+      "target_id": "political_stability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Romania has announced the acceptance of an additional 10,000 refugees from Ukraine over the next three months, with temporary housing facilities being set up near major urban centers. Local officials have reported a rise in media coverage linking refugee settlements to crime, amplifying public concern and nationalist sentiment in surrounding communities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of an additional 10,000 Ukrainian refugees increases the 'refugee_influx' node, which directly feeds into 'xenophobic_sentiment' in the causal network. The reported rise in media coverage linking refugees to crime and the amplification of nationalist sentiment indicate a strengthening of this causal link. This, in turn, elevates the risk of 'Violence against civilians' through the path refugee_influx -> xenophobic_sentiment -> outcome. Additionally, heightened xenophobic sentiment may exacerbate 'social_unrest', reinforcing another path to the outcome (social_unrest -> outcome). While Romania's political and institutional context remains stable and law enforcement capacity is not yet strained, the symbolic and discursive impact of this influx—especially with urban proximity and media framing—amplifies the salience of xenophobia as a driver of violence. This does not break any critical causal links but strengthens a mid-level pathway. Hence, the probability is updated upward from 0.32 to 0.45, reflecting increased risk through these activated pathways.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The announcement of an additional 10,000 Ukrainian refugees increases the 'refugee_influx' node, which directly feeds into 'xenophobic_sentiment' in the causal network. The reported rise in media coverage linking refugees to crime and the amplification of nationalist sentiment indicate a strengthening of this causal link. This, in turn, elevates the risk of 'Violence against civilians' through the path refugee_influx -> xenophobic_sentiment -> outcome. Additionally, heightened xenophobic sentiment may exacerbate 'social_unrest', reinforcing another path to the outcome (social_unrest -> outcome). While Romania's political and institutional context remains stable and law enforcement capacity is not yet strained, the symbolic and discursive impact of this influx—especially with urban proximity and media framing—amplifies the salience of xenophobia as a driver of violence. This does not break any critical causal links but strengthens a mid-level pathway. Hence, the probability is updated upward from 0.32 to 0.45, reflecting increased risk through these activated pathways.\"\n}",
+      "target_id": "refugee_influx",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In early 2024, Romania experienced a 15% year-over-year increase in food prices and unemployment rose to 7.8%, the highest in five years. This was immediately followed by a nationwide wave of labor strikes and public protests in March and April 2024, involving over 50,000 participants across 15 cities, directly linking worsening economic conditions to heightened social unrest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The observed events in early 2024 provide strong empirical support for the causal link between economic_stress and social_unrest, reinforcing this pathway in the network. The 15% rise in food prices and spike in unemployment directly preceded a significant wave of strikes and protests, confirming that economic stressors can rapidly translate into large-scale social unrest in Romania. This strengthens the credibility and weight of the economic_stress -> social_unrest -> outcome path, as well as the indirect route through social_unrest -> xenophobic_sentiment -> outcome. As a result, the overall likelihood of increased violence against civilians is now assessed as higher, due to the validated mechanism by which economic pressures escalate into civil disturbance and associated violence. The update is substantial but bounded, as other pathways (e.g., political stability, law enforcement capacity) remain uncertain and could still mitigate escalation.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The observed events in early 2024 provide strong empirical support for the causal link between economic_stress and social_unrest, reinforcing this pathway in the network. The 15% rise in food prices and spike in unemployment directly preceded a significant wave of strikes and protests, confirming that economic stressors can rapidly translate into large-scale social unrest in Romania. This strengthens the credibility and weight of the economic_stress -> social_unrest -> outcome path, as well as the indirect route through social_unrest -> xenophobic_sentiment -> outcome. As a result, the overall likelihood of increased violence against civilians is now assessed as higher, due to the validated mechanism by which economic pressures escalate into civil disturbance and associated violence. The update is substantial but bounded, as other pathways (e.g., political stability, law enforcement capacity) remain uncertain and could still mitigate escalation.\"\n}",
+      "target_id": "economic_stress->social_unrest",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In June 2025, Romania's parliament narrowly avoided a government collapse following a no-confidence vote triggered by disputes over defense spending and police funding. Amid the crisis, the Interior Ministry postponed a nationwide recruitment drive for 5,000 new police officers and delayed disbursement of €200 million in modernization funds, directly weakening operational readiness.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.41,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge provides strong evidence that the causal link between political_stability and law_enforcement_capacity is operative and currently under strain. The June 2025 political crisis directly led to the postponement of police recruitment and delayed modernization funding, weakening law_enforcement_capacity. This affects two key causal paths to the outcome: (1) political_stability -> law_enforcement_capacity -> outcome, and (2) the indirect path through reduced deterrence during periods of social_unrest. With lower operational readiness, the capacity to prevent and respond to violence is impaired, increasing the likelihood of 'Violence against civilians' going undeterred or escalating. While political stability was already a factor in the original model, this event confirms the mechanism is active and currently degrading a key protective factor. Therefore, the probability is increased from 0.32 to 0.41, reflecting a moderate upward shift due to the concrete weakening of law enforcement amidst ongoing political fragility.",
+      "raw_response": "{\n  \"updated_probability\": 0.41,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge provides strong evidence that the causal link between political_stability and law_enforcement_capacity is operative and currently under strain. The June 2025 political crisis directly led to the postponement of police recruitment and delayed modernization funding, weakening law_enforcement_capacity. This affects two key causal paths to the outcome: (1) political_stability -> law_enforcement_capacity -> outcome, and (2) the indirect path through reduced deterrence during periods of social_unrest. With lower operational readiness, the capacity to prevent and respond to violence is impaired, increasing the likelihood of 'Violence against civilians' going undeterred or escalating. While political stability was already a factor in the original model, this event confirms the mechanism is active and currently degrading a key protective factor. Therefore, the probability is increased from 0.32 to 0.41, reflecting a moderate upward shift due to the concrete weakening of law enforcement amidst ongoing political fragility.\"\n}",
+      "target_id": "political_stability->law_enforcement_capacity",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Romania shows that during the 2023 nationwide public sector strikes, media coverage linking refugees to crime increased by 40%, and far-right online engagement rose sharply, suggesting that social unrest amplified xenophobic narratives. This pattern aligns with sociological research indicating that economic and political instability activate in-group/out-group dynamics, accelerating scapegoating. The causal link between social unrest and rising xenophobic sentiment may therefore be stronger and faster-acting than typically modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.41,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between social_unrest and xenophobic_sentiment, supported by empirical evidence from Romania's 2023 strikes showing increased media scapegoating and far-right engagement during unrest. This reinforces two pathways to the outcome: (1) social_unrest -> xenophobic_sentiment -> outcome, and (2) social_unrest -> outcome (via heightened intergroup tensions). Given that social unrest is itself influenced by economic_stress—a plausible ongoing condition—and that xenophobic_sentiment now appears more responsive to unrest, the overall risk of increased violence against civilians rises. The update reflects greater confidence in this transmission mechanism, though other factors (e.g., political_stability, law_enforcement_capacity) remain stable, preventing a larger shift.",
+      "raw_response": "{\n  \"updated_probability\": 0.41,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between social_unrest and xenophobic_sentiment, supported by empirical evidence from Romania's 2023 strikes showing increased media scapegoating and far-right engagement during unrest. This reinforces two pathways to the outcome: (1) social_unrest -> xenophobic_sentiment -> outcome, and (2) social_unrest -> outcome (via heightened intergroup tensions). Given that social unrest is itself influenced by economic_stress—a plausible ongoing condition—and that xenophobic_sentiment now appears more responsive to unrest, the overall risk of increased violence against civilians rises. The update reflects greater confidence in this transmission mechanism, though other factors (e.g., political_stability, law_enforcement_capacity) remain stable, preventing a larger shift.\"\n}",
+      "target_id": "social_unrest->xenophobic_sentiment",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "e25d20b75343fb0c9cd67b0891dac2d5045e3485a0e79247f5c66e1fad02c66c",
+    "question_text": "Will there be more 'Violence against civilians' in Romania for the 30 days before 2025-12-28 compared to the 30-day average of 'Violence against civilians' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: (1+2)/12=0.25.\n\nIn this example, for the question to resolve positively, 1 or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.32,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.07749999999999999,
+    "max_absolute_shift": 0.25999999999999995
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 1.6285714285714288,
+    "mean_shift_high": 0.09499999999999999,
+    "mean_shift_low": 0.05833333333333332,
+    "asymmetry_index": 0.4096385542168674,
+    "mean_shift_negate": 0.04857142857142856,
+    "mean_shift_strengthen": 0.11857142857142856,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.005833333333333329,
+    "mean_shift_on_path": 0.08666666666666666,
+    "mean_shift_off_path": 0.08083333333333333,
+    "importance_sensitivity_correlation": 0.17727272727272725,
+    "control_sensitivity": 0
+  }
+}

@@ -1,0 +1,1070 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07607.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Mont-de-Marsan will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.55,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "Typical temperature trends in late December",
+      "role": "factor"
+    },
+    {
+      "id": "weather_systems",
+      "description": "Movement and intensity of high/low pressure systems",
+      "role": "factor"
+    },
+    {
+      "id": "atlantic_oscillation",
+      "description": "North Atlantic Oscillation phase affecting European weather",
+      "role": "factor"
+    },
+    {
+      "id": "jet_stream",
+      "description": "Position and strength of the jet stream",
+      "role": "factor"
+    },
+    {
+      "id": "local_variability",
+      "description": "Day-to-day weather variability at this location",
+      "role": "factor"
+    },
+    {
+      "id": "climate_change",
+      "description": "Long-term warming trend affecting baseline temperatures",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Temperature on 2025-12-28 is higher than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "seasonal_trend",
+      "to": "outcome",
+      "mechanism": "General cooling trend might favor earlier date"
+    },
+    {
+      "from": "weather_systems",
+      "to": "outcome",
+      "mechanism": "Specific systems can cause warm/cold spells"
+    },
+    {
+      "from": "atlantic_oscillation",
+      "to": "weather_systems",
+      "mechanism": "Influences storm tracks and pressure patterns"
+    },
+    {
+      "from": "jet_stream",
+      "to": "weather_systems",
+      "mechanism": "Determines movement of weather systems"
+    },
+    {
+      "from": "local_variability",
+      "to": "outcome",
+      "mechanism": "Random day-to-day fluctuations"
+    },
+    {
+      "from": "climate_change",
+      "to": "outcome",
+      "mechanism": "Increases probability of warmer temperatures"
+    }
+  ],
+  "reasoning": "The probability is slightly above 50% due to climate change increasing baseline temperatures, though seasonal trends typically show cooling in late December. Weather system variability dominates the uncertainty, with NAO and jet stream patterns influencing whether warmer or colder air masses prevail. Local variability adds noise to the comparison.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "Typical temperature trends in late December",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_systems",
+        "description": "Movement and intensity of high/low pressure systems",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.3333,
+        "pagerank": 0.1993,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "atlantic_oscillation",
+        "description": "North Atlantic Oscillation phase affecting European weather",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "jet_stream",
+        "description": "Position and strength of the jet stream",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "local_variability",
+        "description": "Day-to-day weather variability at this location",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "climate_change",
+        "description": "Long-term warming trend affecting baseline temperatures",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "Temperature on 2025-12-28 is higher than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 4,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.75,
+        "pagerank": 0.4315,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "outcome",
+        "mechanism": "General cooling trend might favor earlier date",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "outcome",
+        "mechanism": "Specific systems can cause warm/cold spells",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "atlantic_oscillation",
+        "target": "weather_systems",
+        "mechanism": "Influences storm tracks and pressure patterns",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "jet_stream",
+        "target": "weather_systems",
+        "mechanism": "Determines movement of weather systems",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "local_variability",
+        "target": "outcome",
+        "mechanism": "Random day-to-day fluctuations",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "climate_change",
+        "target": "outcome",
+        "mechanism": "Increases probability of warmer temperatures",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Movement and intensity of high/low pressure systems",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_trend",
+        "description": "Typical temperature trends in late December",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "jet_stream",
+        "description": "Position and strength of the jet stream",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "climate_change",
+        "description": "Long-term warming trend affecting baseline temperatures",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Movement and intensity of high/low pressure systems",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_trend",
+        "description": "Typical temperature trends in late December",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_systems->outcome",
+        "description": "Specific systems can cause warm/cold spells",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atlantic_oscillation->weather_systems",
+        "description": "Influences storm tracks and pressure patterns",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "climate_change->outcome",
+        "description": "Increases probability of warmer temperatures",
+        "importance": 0.0238,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_systems->outcome",
+        "description": "Specific systems can cause warm/cold spells",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "weather_systems->climate_change",
+        "description": "Potential link: Movement and intensity of high/low pressure systems -> Long-term warming trend affecting baseline temperatures",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "weather_systems->local_variability",
+        "description": "Potential link: Movement and intensity of high/low pressure systems -> Day-to-day weather variability at this location",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Movement and intensity of high/low pressure systems",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_trend",
+      "description": "Typical temperature trends in late December",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "jet_stream",
+      "description": "Position and strength of the jet stream",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "climate_change",
+      "description": "Long-term warming trend affecting baseline temperatures",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Movement and intensity of high/low pressure systems",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_trend",
+      "description": "Typical temperature trends in late December",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_systems->outcome",
+      "description": "Specific systems can cause warm/cold spells",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atlantic_oscillation->weather_systems",
+      "description": "Influences storm tracks and pressure patterns",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "climate_change->outcome",
+      "description": "Increases probability of warmer temperatures",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_systems->outcome",
+      "description": "Specific systems can cause warm/cold spells",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "weather_systems->climate_change",
+      "description": "Potential link: Movement and intensity of high/low pressure systems -> Long-term warming trend affecting baseline temperatures",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "weather_systems->local_variability",
+      "description": "Potential link: Movement and intensity of high/low pressure systems -> Day-to-day weather variability at this location",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Suppose that high and low pressure systems in the North Atlantic region become unusually stagnant and uniform during late December 2025, leading to minimal variability in weather patterns. How would your probability estimate change if weather systems had almost no influence on temperature differences between these two dates?",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Movement and intensity of high/low pressure systems"
+    },
+    {
+      "probe_text": "What if historical temperature data shows that Mont-de-Marsan experiences no significant cooling trend in late December, or even a slight warming trend due to localized urban heat effects from the nearby airbase? This would make the seasonal_trend factor irrelevant or opposite to the initial assumption.",
+      "probe_type": "node_negate_high",
+      "target_id": "seasonal_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Typical temperature trends in late December"
+    },
+    {
+      "probe_text": "Recent studies suggest that the jet stream's influence on European weather systems has weakened due to Arctic amplification, reducing its predictability and impact on temperature variability. Given this, how would your probability estimate change if the jet stream's effect on weather systems was negligible for this specific week in December?",
+      "probe_type": "node_negate_medium",
+      "target_id": "jet_stream",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Position and strength of the jet stream"
+    },
+    {
+      "probe_text": "Recent studies suggest that localized cooling effects, such as increased cloud cover or changes in land use around Mont-de-Marsan, might counteract the global warming trend in this specific region. Given this, how would your probability estimate change if we assume that climate change has had no net effect on temperatures in this area?",
+      "probe_type": "node_negate_low",
+      "target_id": "climate_change",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Long-term warming trend affecting baseline temperatures"
+    },
+    {
+      "probe_text": "New ensemble forecast models from ECMWF show a high-confidence prediction of a strong high-pressure system developing over Western Europe between 2025-12-21 and 2025-12-28, which historically leads to significant warming in southwestern France. This system is projected to be unusually persistent and intense for late December.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Movement and intensity of high/low pressure systems"
+    },
+    {
+      "probe_text": "A comprehensive analysis of historical temperature data from Mont-de-Marsan over the past 50 years shows that December temperatures exhibit a consistent cooling trend in the last two weeks of the month, with December 21st being on average 1.2°C warmer than December 28th. This pattern has been remarkably stable, occurring in 80% of years regardless of other weather factors.",
+      "probe_type": "node_strengthen",
+      "target_id": "seasonal_trend",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Typical temperature trends in late December"
+    },
+    {
+      "probe_text": "Recent studies suggest that the Mont-de-Marsan region has become increasingly decoupled from large-scale weather systems due to localized topographic effects and urban heat island development. Station data shows temperature anomalies persist regardless of passing pressure systems, indicating weather systems may have less direct influence than previously assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "weather_systems->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Specific systems can cause warm/cold spells"
+    },
+    {
+      "probe_text": "Recent studies suggest that the North Atlantic Oscillation's influence on European weather systems has weakened over the past decade due to Arctic amplification, which alters the temperature gradient that drives the NAO. If this trend continues, the NAO phase in 2025 may have less predictable impact on storm tracks and pressure patterns than historical data would suggest.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "atlantic_oscillation->weather_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Influences storm tracks and pressure patterns"
+    },
+    {
+      "probe_text": "Recent studies suggest that climate change may lead to increased variability in winter temperatures, including more frequent cold snaps in Europe due to disruptions in the polar vortex. Could this mean that climate change might not uniformly increase the probability of warmer temperatures for these specific December dates?",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "climate_change->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "Increases probability of warmer temperatures"
+    },
+    {
+      "probe_text": "Recent research suggests that temperature anomalies in specific regions can influence the development and movement of weather systems. For example, a persistent warm anomaly over Western Europe, such as higher temperatures at Mont-de-Marsan, can alter pressure gradients and potentially weaken or divert approaching low-pressure systems. This would mean the temperature outcome could actually influence the weather systems in the area, not just vice versa.",
+      "probe_type": "edge_reverse",
+      "target_id": "weather_systems->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Specific systems can cause warm/cold spells"
+    },
+    {
+      "probe_text": "Recent research suggests that persistent high-pressure systems over Europe can lead to prolonged heatwaves, which increase surface warming and contribute to long-term temperature trends. If such systems become more frequent due to changes in atmospheric circulation patterns, they could directly amplify the effects of climate change. Shouldn't this direct influence of weather systems on long-term warming be included in your causal network?",
+      "probe_type": "edge_spurious",
+      "target_id": "weather_systems->climate_change",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Movement and intensity of high/low pressure systems -> Long-term warming trend affecting baseline temperatures"
+    },
+    {
+      "probe_text": "Consider that the intensity and positioning of high/low pressure systems can directly influence local wind patterns and cloud cover, which are key drivers of day-to-day temperature variability. For instance, a rapidly intensifying low-pressure system near Mont-de-Marsan could lead to unexpected wind shifts and precipitation, causing larger-than-normal daily temperature fluctuations compared to stable pressure conditions. Shouldn't this direct influence of weather systems on local variability be included in your causal model?",
+      "probe_type": "edge_spurious",
+      "target_id": "weather_systems->local_variability",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Movement and intensity of high/low pressure systems -> Day-to-day weather variability at this location"
+    },
+    {
+      "probe_text": "The forecaster's model does not account for the potential influence of Arctic sea ice extent on European winter temperatures. Reduced sea ice can weaken the polar vortex, leading to more frequent cold air outbreaks over Europe. How would incorporating this factor affect your probability estimate?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "The forecaster did not consider the influence of Arctic sea ice extent on European winter temperatures. Reduced sea ice can weaken the polar vortex, leading to more frequent cold air outbreaks in Europe, which could lower temperatures on either date. How would incorporating this factor affect your probability estimate?",
+      "probe_type": "missing_node",
+      "target_id": "arctic_sea_ice",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Recent studies have shown that the pine trees surrounding the Mont-de-Marsan weather station release more pollen during warmer December days, which some researchers speculate could slightly influence local humidity levels.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Recent studies show that the Mont-de-Marsan weather station has upgraded its temperature sensors to a new model with higher precision. The installation was completed in early 2025 and all measurements since then have been more accurate.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose that high and low pressure systems in the North Atlantic region become unusually stagnant and uniform during late December 2025, leading to minimal variability in weather patterns. How would your probability estimate change if weather systems had almost no influence on temperature differences between these two dates?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets 'weather_systems' which is a central node influencing temperature differences through pressure systems and storm tracks. If weather systems become stagnant and uniform, this reduces variability in temperature differences between the two dates, making the outcome more dependent on other factors like 'seasonal_trend' and 'local_variability'. This slightly decreases the probability as 'weather_systems' was a key driver of potential temperature differences.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets 'weather_systems' which is a central node influencing temperature differences through pressure systems and storm tracks. If weather systems become stagnant and uniform, this reduces variability in temperature differences between the two dates, making the outcome more dependent on other factors like 'seasonal_trend' and 'local_variability'. This slightly decreases the probability as 'weather_systems' was a key driver of potential temperature differences.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if historical temperature data shows that Mont-de-Marsan experiences no significant cooling trend in late December, or even a slight warming trend due to localized urban heat effects from the nearby airbase? This would make the seasonal_trend factor irrelevant or opposite to the initial assumption.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.029999999999999916,
+      "shift_direction": "increased",
+      "reasoning": "The challenge to the 'seasonal_trend' factor suggests that the typical cooling trend in late December might not apply, or could even reverse due to localized urban heat effects. This weakens the causal link from 'seasonal_trend' to 'outcome', which previously slightly favored the earlier date being warmer. Without this cooling trend, the probability of the later date being warmer increases slightly. Other factors like 'weather_systems', 'local_variability', and 'climate_change' remain influential.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge to the 'seasonal_trend' factor suggests that the typical cooling trend in late December might not apply, or could even reverse due to localized urban heat effects. This weakens the causal link from 'seasonal_trend' to 'outcome', which previously slightly favored the earlier date being warmer. Without this cooling trend, the probability of the later date being warmer increases slightly. Other factors like 'weather_systems', 'local_variability', and 'climate_change' remain influential.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that the jet stream's influence on European weather systems has weakened due to Arctic amplification, reducing its predictability and impact on temperature variability. Given this, how would your probability estimate change if the jet stream's effect on weather systems was negligible for this specific week in December?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The jet_stream's influence on weather_systems was a significant causal path, affecting the movement and intensity of weather systems that determine temperature variability. If the jet stream's effect is negligible, the predictability of weather_systems decreases, making the outcome more dependent on local_variability and seasonal_trend. This reduces the confidence in the initial estimate, leading to a more neutral probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The jet_stream's influence on weather_systems was a significant causal path, affecting the movement and intensity of weather systems that determine temperature variability. If the jet stream's effect is negligible, the predictability of weather_systems decreases, making the outcome more dependent on local_variability and seasonal_trend. This reduces the confidence in the initial estimate, leading to a more neutral probability.\"\n}",
+      "target_id": "jet_stream",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that localized cooling effects, such as increased cloud cover or changes in land use around Mont-de-Marsan, might counteract the global warming trend in this specific region. Given this, how would your probability estimate change if we assume that climate change has had no net effect on temperatures in this area?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The 'climate_change' factor was contributing a small but consistent warming influence on the outcome. Removing this effect slightly reduces the probability of the later date being warmer, as one of the factors favoring warmer temperatures is now neutralized. However, since other factors like 'weather_systems' and 'local_variability' remain dominant in determining the outcome, the adjustment is modest.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The 'climate_change' factor was contributing a small but consistent warming influence on the outcome. Removing this effect slightly reduces the probability of the later date being warmer, as one of the factors favoring warmer temperatures is now neutralized. However, since other factors like 'weather_systems' and 'local_variability' remain dominant in determining the outcome, the adjustment is modest.\"\n}",
+      "target_id": "climate_change",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "New ensemble forecast models from ECMWF show a high-confidence prediction of a strong high-pressure system developing over Western Europe between 2025-12-21 and 2025-12-28, which historically leads to significant warming in southwestern France. This system is projected to be unusually persistent and intense for late December.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.7,
+      "absolute_shift": 0.1499999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information about a strong and persistent high-pressure system developing over Western Europe directly affects the 'weather_systems' node, which is a critical causal factor in the network. Historically, such systems lead to significant warming in southwestern France, which strongly influences the outcome. This intensifies the causal path from 'weather_systems' to 'outcome', increasing the likelihood that the temperature on 2025-12-28 will be higher than on 2025-12-21. The high-confidence prediction from ECMWF adds weight to this update.",
+      "raw_response": "{\n  \"updated_probability\": 0.7,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information about a strong and persistent high-pressure system developing over Western Europe directly affects the 'weather_systems' node, which is a critical causal factor in the network. Historically, such systems lead to significant warming in southwestern France, which strongly influences the outcome. This intensifies the causal path from 'weather_systems' to 'outcome', increasing the likelihood that the temperature on 2025-12-28 will be higher than on 2025-12-21. The high-confidence prediction from ECMWF adds weight to this update.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A comprehensive analysis of historical temperature data from Mont-de-Marsan over the past 50 years shows that December temperatures exhibit a consistent cooling trend in the last two weeks of the month, with December 21st being on average 1.2°C warmer than December 28th. This pattern has been remarkably stable, occurring in 80% of years regardless of other weather factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge strengthens the evidence for a consistent seasonal cooling trend in late December at Mont-de-Marsan, which directly affects the 'seasonal_trend -> outcome' causal path. Given that this pattern occurs in 80% of years regardless of other factors, it significantly increases the likelihood that December 21st will be warmer than December 28th. This adjustment outweighs some of the other factors like climate_change and local_variability that might push temperatures higher on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge strengthens the evidence for a consistent seasonal cooling trend in late December at Mont-de-Marsan, which directly affects the 'seasonal_trend -> outcome' causal path. Given that this pattern occurs in 80% of years regardless of other factors, it significantly increases the likelihood that December 21st will be warmer than December 28th. This adjustment outweighs some of the other factors like climate_change and local_variability that might push temperatures higher on the later date.\"\n}",
+      "target_id": "seasonal_trend",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that the Mont-de-Marsan region has become increasingly decoupled from large-scale weather systems due to localized topographic effects and urban heat island development. Station data shows temperature anomalies persist regardless of passing pressure systems, indicating weather systems may have less direct influence than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the 'weather_systems->outcome' link, which was a significant factor in predicting temperature differences. With weather systems having less direct influence, the outcome becomes more dependent on 'local_variability' and 'climate_change', reducing predictability and slightly lowering the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the 'weather_systems->outcome' link, which was a significant factor in predicting temperature differences. With weather systems having less direct influence, the outcome becomes more dependent on 'local_variability' and 'climate_change', reducing predictability and slightly lowering the probability.\"\n}",
+      "target_id": "weather_systems->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that the North Atlantic Oscillation's influence on European weather systems has weakened over the past decade due to Arctic amplification, which alters the temperature gradient that drives the NAO. If this trend continues, the NAO phase in 2025 may have less predictable impact on storm tracks and pressure patterns than historical data would suggest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the link between atlantic_oscillation and weather_systems, which in turn reduces the predictability of weather_systems' influence on the outcome. Since weather_systems are a significant factor in determining temperature differences between the two dates, this reduction in predictability slightly decreases confidence in the initial estimate. However, other factors like local_variability and climate_change remain influential, so the adjustment is modest.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the link between atlantic_oscillation and weather_systems, which in turn reduces the predictability of weather_systems' influence on the outcome. Since weather_systems are a significant factor in determining temperature differences between the two dates, this reduction in predictability slightly decreases confidence in the initial estimate. However, other factors like local_variability and climate_change remain influential, so the adjustment is modest.\"\n}",
+      "target_id": "atlantic_oscillation->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that climate change may lead to increased variability in winter temperatures, including more frequent cold snaps in Europe due to disruptions in the polar vortex. Could this mean that climate change might not uniformly increase the probability of warmer temperatures for these specific December dates?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that climate change may not uniformly increase temperatures due to increased variability and potential cold snaps from polar vortex disruptions. This affects the 'climate_change->outcome' causal link, reducing its positive influence on the outcome. However, other factors like seasonal_trend, weather_systems, and local_variability still play significant roles, so the adjustment is modest.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that climate change may not uniformly increase temperatures due to increased variability and potential cold snaps from polar vortex disruptions. This affects the 'climate_change->outcome' causal link, reducing its positive influence on the outcome. However, other factors like seasonal_trend, weather_systems, and local_variability still play significant roles, so the adjustment is modest.\"\n}",
+      "target_id": "climate_change->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that temperature anomalies in specific regions can influence the development and movement of weather systems. For example, a persistent warm anomaly over Western Europe, such as higher temperatures at Mont-de-Marsan, can alter pressure gradients and potentially weaken or divert approaching low-pressure systems. This would mean the temperature outcome could actually influence the weather systems in the area, not just vice versa.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.019999999999999907,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a feedback loop where higher temperatures can influence weather systems, potentially reinforcing warm conditions. This affects the 'weather_systems->outcome' path by adding a reinforcing mechanism that could sustain or amplify warm anomalies. Given this, the probability of the later date being warmer slightly increases.",
+      "raw_response": "{\n  \"updated_probability\": 0.57,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a feedback loop where higher temperatures can influence weather systems, potentially reinforcing warm conditions. This affects the 'weather_systems->outcome' path by adding a reinforcing mechanism that could sustain or amplify warm anomalies. Given this, the probability of the later date being warmer slightly increases.\"\n}",
+      "target_id": "weather_systems->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that persistent high-pressure systems over Europe can lead to prolonged heatwaves, which increase surface warming and contribute to long-term temperature trends. If such systems become more frequent due to changes in atmospheric circulation patterns, they could directly amplify the effects of climate change. Shouldn't this direct influence of weather systems on long-term warming be included in your causal network?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.019999999999999907,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a feedback loop where weather_systems can influence climate_change, which in turn affects the outcome. This strengthens the causal path from weather_systems to the outcome via climate_change, suggesting a slightly higher probability that the temperature on 2025-12-28 will be higher than on 2025-12-21 due to the potential for weather systems to contribute to long-term warming trends.",
+      "raw_response": "{\n  \"updated_probability\": 0.57,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a feedback loop where weather_systems can influence climate_change, which in turn affects the outcome. This strengthens the causal path from weather_systems to the outcome via climate_change, suggesting a slightly higher probability that the temperature on 2025-12-28 will be higher than on 2025-12-21 due to the potential for weather systems to contribute to long-term warming trends.\"\n}",
+      "target_id": "weather_systems->climate_change",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider that the intensity and positioning of high/low pressure systems can directly influence local wind patterns and cloud cover, which are key drivers of day-to-day temperature variability. For instance, a rapidly intensifying low-pressure system near Mont-de-Marsan could lead to unexpected wind shifts and precipitation, causing larger-than-normal daily temperature fluctuations compared to stable pressure conditions. Shouldn't this direct influence of weather systems on local variability be included in your causal model?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge correctly identifies that weather_systems can directly influence local_variability through mechanisms like wind shifts and cloud cover. This adds a causal link (weather_systems -> local_variability) that was previously missing. Since local_variability affects the outcome, this strengthens the influence of weather_systems on the outcome. However, weather_systems were already a significant factor in the model, so the update is modest. The slight decrease in probability reflects the increased complexity and potential for more variable outcomes due to this additional causal path.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge correctly identifies that weather_systems can directly influence local_variability through mechanisms like wind shifts and cloud cover. This adds a causal link (weather_systems -> local_variability) that was previously missing. Since local_variability affects the outcome, this strengthens the influence of weather_systems on the outcome. However, weather_systems were already a significant factor in the model, so the update is modest. The slight decrease in probability reflects the increased complexity and potential for more variable outcomes due to this additional causal path.\"\n}",
+      "target_id": "weather_systems->local_variability",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "The forecaster's model does not account for the potential influence of Arctic sea ice extent on European winter temperatures. Reduced sea ice can weaken the polar vortex, leading to more frequent cold air outbreaks over Europe. How would incorporating this factor affect your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "Incorporating Arctic sea ice extent introduces a new causal path that could lead to colder temperatures in Europe, including France, during winter. This factor can influence the polar vortex and jet stream, potentially leading to more frequent cold air outbreaks. Since this could counteract some of the warming influence from climate_change and affect the weather_systems, the probability of the later date being warmer is slightly reduced.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"Incorporating Arctic sea ice extent introduces a new causal path that could lead to colder temperatures in Europe, including France, during winter. This factor can influence the polar vortex and jet stream, potentially leading to more frequent cold air outbreaks. Since this could counteract some of the warming influence from climate_change and affect the weather_systems, the probability of the later date being warmer is slightly reduced.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "The forecaster did not consider the influence of Arctic sea ice extent on European winter temperatures. Reduced sea ice can weaken the polar vortex, leading to more frequent cold air outbreaks in Europe, which could lower temperatures on either date. How would incorporating this factor affect your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.5,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "Incorporating Arctic sea ice extent introduces a new causal path that can influence European winter temperatures. Reduced sea ice can weaken the polar vortex, leading to more frequent cold air outbreaks in Europe. This affects the 'weather_systems' node by potentially increasing the likelihood of colder temperatures on either date. Since this factor could lower temperatures unpredictably on either date, it introduces additional uncertainty, slightly decreasing the probability that 2025-12-28 will be warmer than 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.50,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"Incorporating Arctic sea ice extent introduces a new causal path that can influence European winter temperatures. Reduced sea ice can weaken the polar vortex, leading to more frequent cold air outbreaks in Europe. This affects the 'weather_systems' node by potentially increasing the likelihood of colder temperatures on either date. Since this factor could lower temperatures unpredictably on either date, it introduces additional uncertainty, slightly decreasing the probability that 2025-12-28 will be warmer than 2025-12-21.\"\n}",
+      "target_id": "arctic_sea_ice",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the pine trees surrounding the Mont-de-Marsan weather station release more pollen during warmer December days, which some researchers speculate could slightly influence local humidity levels.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "increased",
+      "reasoning": "The new information introduces a minor feedback loop where warmer temperatures could lead to increased pollen release from pine trees, potentially influencing local humidity levels. This could slightly amplify local warming effects, particularly on warmer days. However, this effect is likely to be very small compared to other factors like weather systems and climate change. Therefore, the update to the probability is minimal.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information introduces a minor feedback loop where warmer temperatures could lead to increased pollen release from pine trees, potentially influencing local humidity levels. This could slightly amplify local warming effects, particularly on warmer days. However, this effect is likely to be very small compared to other factors like weather systems and climate change. Therefore, the update to the probability is minimal.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent studies show that the Mont-de-Marsan weather station has upgraded its temperature sensors to a new model with higher precision. The installation was completed in early 2025 and all measurements since then have been more accurate.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The upgrade in temperature sensors improves measurement accuracy but does not affect the underlying causal factors influencing temperature differences between the two dates. The causal paths related to seasonal trends, weather systems, and other factors remain unchanged. Therefore, the probability estimate remains the same.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The upgrade in temperature sensors improves measurement accuracy but does not affect the underlying causal factors influencing temperature differences between the two dates. The causal paths related to seasonal trends, weather systems, and other factors remain unchanged. Therefore, the probability estimate remains the same.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "New climate model projections show a significant strengthening of the jet stream over the North Atlantic in late December 2025, driven by an unusually large temperature gradient between the Arctic and mid-latitudes. This stronger jet stream is expected to steer more intense weather systems directly across western France.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The strengthening of the jet stream is expected to steer more intense weather systems directly across western France, which affects the 'weather_systems' node. This could lead to more pronounced temperature variations due to the movement of these systems. Given that the jet stream is a critical factor in determining weather system movements, this update suggests a higher likelihood of significant temperature differences between the two dates. The increased intensity and direct path of weather systems could override the general seasonal cooling trend, leading to a higher probability that the temperature on 2025-12-28 will be higher than on 2025-12-21.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The strengthening of the jet stream is expected to steer more intense weather systems directly across western France, which affects the 'weather_systems' node. This could lead to more pronounced temperature variations due to the movement of these systems. Given that the jet stream is a critical factor in determining weather system movements, this update suggests a higher likelihood of significant temperature differences between the two dates. The increased intensity and direct path of weather systems could override the general seasonal cooling trend, leading to a higher probability that the temperature on 2025-12-28 will be higher than on 2025-12-21.\"\n}",
+      "target_id": "jet_stream",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that the warming trend in southwestern France has accelerated over the past decade, with December temperatures increasing at a rate 20% faster than the global average. This localized acceleration is particularly pronounced in the Mont-de-Marsan region due to reduced cloud cover and changing land use patterns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge indicates that the 'climate_change' factor has a stronger localized effect than previously considered, directly influencing the outcome by increasing the baseline probability of warmer temperatures. This strengthens the causal path from 'climate_change' to 'outcome', justifying a moderate increase in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.6,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge indicates that the 'climate_change' factor has a stronger localized effect than previously considered, directly influencing the outcome by increasing the baseline probability of warmer temperatures. This strengthens the causal path from 'climate_change' to 'outcome', justifying a moderate increase in the probability estimate.\"\n}",
+      "target_id": "climate_change",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of the 2023-2024 winter season shows that specific high-pressure systems over Western Europe caused temperature anomalies of +5-8°C for periods of 5-7 days, while low-pressure systems brought similar magnitude cooling. This demonstrates that individual weather systems have even stronger and more persistent temperature impacts than previously modeled, particularly in the Mont-de-Marsan region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link 'weather_systems->outcome' by providing evidence that individual weather systems have stronger and more persistent temperature impacts than previously modeled. This increases the influence of weather systems on the outcome, making the temperature comparison more dependent on the specific systems present during those dates. Given that climate change generally increases the probability of warmer temperatures and the stronger influence of weather systems, the probability that the temperature on 2025-12-28 will be higher than on 2025-12-21 has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.6,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link 'weather_systems->outcome' by providing evidence that individual weather systems have stronger and more persistent temperature impacts than previously modeled. This increases the influence of weather systems on the outcome, making the temperature comparison more dependent on the specific systems present during those dates. Given that climate change generally increases the probability of warmer temperatures and the stronger influence of weather systems, the probability that the temperature on 2025-12-28 will be higher than on 2025-12-21 has increased.\"\n}",
+      "target_id": "weather_systems->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent research published in Nature Climate Change (2024) shows that the North Atlantic Oscillation's influence on European weather systems has intensified by 15-20% over the past decade due to Arctic amplification. Specifically, the NAO's positive phase now correlates even more strongly with deepened low-pressure systems over Western Europe, making its impact on storm tracks and temperature patterns more deterministic than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.029999999999999916,
+      "shift_direction": "increased",
+      "reasoning": "The challenge indicates that the North Atlantic Oscillation's influence on weather systems has intensified, making its impact more deterministic. This strengthens the causal link 'atlantic_oscillation -> weather_systems', which in turn affects the 'weather_systems -> outcome' path. Given that a positive NAO phase correlates with deepened low-pressure systems over Western Europe, this could lead to warmer temperatures in the region, including Mont-de-Marsan. Therefore, the probability of the temperature being higher on 2025-12-28 than on 2025-12-21 increases slightly.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge indicates that the North Atlantic Oscillation's influence on weather systems has intensified, making its impact more deterministic. This strengthens the causal link 'atlantic_oscillation -> weather_systems', which in turn affects the 'weather_systems -> outcome' path. Given that a positive NAO phase correlates with deepened low-pressure systems over Western Europe, this could lead to warmer temperatures in the region, including Mont-de-Marsan. Therefore, the probability of the temperature being higher on 2025-12-28 than on 2025-12-21 increases slightly.\"\n}",
+      "target_id": "atlantic_oscillation->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07607.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Mont-de-Marsan will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.55,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.039999999999999994,
+    "max_absolute_shift": 0.1499999999999999
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 2.2916666666666656,
+    "mean_shift_high": 0.05499999999999997,
+    "mean_shift_low": 0.024,
+    "asymmetry_index": 0.4385382059800669,
+    "mean_shift_negate": 0.03142857142857144,
+    "mean_shift_strengthen": 0.07166666666666661,
+    "fnar": 0.5,
+    "n_accepted": 2,
+    "n_spurious": 4,
+    "critical_path_premium": 0.006666666666666647,
+    "mean_shift_on_path": 0.04499999999999997,
+    "mean_shift_off_path": 0.03833333333333332,
+    "importance_sensitivity_correlation": 0.33333333333333337,
+    "control_sensitivity": 0
+  }
+}

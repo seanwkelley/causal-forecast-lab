@@ -1,0 +1,1070 @@
+{
+  "question_id": "8a531050a50c0b37027e4e2ef0fed0009a62ed5767e0953cb67cc75be496816d",
+  "question_text": "Will there be more than ten times as many 'Protests' in Oman for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Protests' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.15,
+  "nodes": [
+    {
+      "id": "historical_protest_rate",
+      "description": "Average number of protests in Oman over the preceding 360 days",
+      "role": "factor"
+    },
+    {
+      "id": "political_tension",
+      "description": "Level of political tension or unrest in Oman",
+      "role": "factor"
+    },
+    {
+      "id": "economic_conditions",
+      "description": "Economic stability or instability in Oman",
+      "role": "factor"
+    },
+    {
+      "id": "government_response",
+      "description": "Government's response to protests or unrest",
+      "role": "factor"
+    },
+    {
+      "id": "external_influence",
+      "description": "Influence from external actors or events on Oman's internal affairs",
+      "role": "factor"
+    },
+    {
+      "id": "social_media_activity",
+      "description": "Level of social media activity related to protests or unrest",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "More than ten times as many protests in the 30 days before 2025-12-28 compared to one plus the 30-day average over the preceding 360 days",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "historical_protest_rate",
+      "to": "outcome",
+      "mechanism": "Baseline protest rate influences the threshold for the outcome"
+    },
+    {
+      "from": "political_tension",
+      "to": "outcome",
+      "mechanism": "Higher political tension increases likelihood of protests"
+    },
+    {
+      "from": "economic_conditions",
+      "to": "political_tension",
+      "mechanism": "Poor economic conditions can increase political tension"
+    },
+    {
+      "from": "government_response",
+      "to": "outcome",
+      "mechanism": "Harsh government responses can either suppress or escalate protests"
+    },
+    {
+      "from": "external_influence",
+      "to": "political_tension",
+      "mechanism": "External events or actors can heighten internal tensions"
+    },
+    {
+      "from": "social_media_activity",
+      "to": "outcome",
+      "mechanism": "Increased social media activity can mobilize protesters"
+    }
+  ],
+  "reasoning": "Given Oman's historically low protest rates and stable political environment, a sudden tenfold increase in protests is unlikely. However, factors like economic downturns, external influences, or government missteps could potentially escalate tensions. The probability reflects the low baseline but acknowledges possible rare triggers.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "historical_protest_rate",
+        "description": "Average number of protests in Oman over the preceding 360 days",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "political_tension",
+        "description": "Level of political tension or unrest in Oman",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0667,
+        "closeness": 0.3333,
+        "pagerank": 0.1993,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "economic_conditions",
+        "description": "Economic stability or instability in Oman",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "government_response",
+        "description": "Government's response to protests or unrest",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_influence",
+        "description": "Influence from external actors or events on Oman's internal affairs",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "social_media_activity",
+        "description": "Level of social media activity related to protests or unrest",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0738,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "outcome",
+        "description": "More than ten times as many protests in the 30 days before 2025-12-28 compared to one plus the 30-day average over the preceding 360 days",
+        "role": "outcome",
+        "in_degree": 4,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.75,
+        "pagerank": 0.4315,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "historical_protest_rate",
+        "target": "outcome",
+        "mechanism": "Baseline protest rate influences the threshold for the outcome",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_tension",
+        "target": "outcome",
+        "mechanism": "Higher political tension increases likelihood of protests",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_conditions",
+        "target": "political_tension",
+        "mechanism": "Poor economic conditions can increase political tension",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "government_response",
+        "target": "outcome",
+        "mechanism": "Harsh government responses can either suppress or escalate protests",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_influence",
+        "target": "political_tension",
+        "mechanism": "External events or actors can heighten internal tensions",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "social_media_activity",
+        "target": "outcome",
+        "mechanism": "Increased social media activity can mobilize protesters",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "political_tension",
+        "description": "Level of political tension or unrest in Oman",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "historical_protest_rate",
+        "description": "Average number of protests in Oman over the preceding 360 days",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "government_response",
+        "description": "Government's response to protests or unrest",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "social_media_activity",
+        "description": "Level of social media activity related to protests or unrest",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_tension",
+        "description": "Level of political tension or unrest in Oman",
+        "importance": 0.0667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "historical_protest_rate",
+        "description": "Average number of protests in Oman over the preceding 360 days",
+        "importance": 0,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_tension->outcome",
+        "description": "Higher political tension increases likelihood of protests",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_conditions->political_tension",
+        "description": "Poor economic conditions can increase political tension",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "social_media_activity->outcome",
+        "description": "Increased social media activity can mobilize protesters",
+        "importance": 0.0238,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_tension->outcome",
+        "description": "Higher political tension increases likelihood of protests",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "social_media_activity->political_tension",
+        "description": "Potential link: Level of social media activity related to protests or unrest -> Level of political tension or unrest in Oman",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "social_media_activity->government_response",
+        "description": "Potential link: Level of social media activity related to protests or unrest -> Government's response to protests or unrest",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "political_tension",
+      "description": "Level of political tension or unrest in Oman",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "historical_protest_rate",
+      "description": "Average number of protests in Oman over the preceding 360 days",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "government_response",
+      "description": "Government's response to protests or unrest",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "social_media_activity",
+      "description": "Level of social media activity related to protests or unrest",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_tension",
+      "description": "Level of political tension or unrest in Oman",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "historical_protest_rate",
+      "description": "Average number of protests in Oman over the preceding 360 days",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_tension->outcome",
+      "description": "Higher political tension increases likelihood of protests",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_conditions->political_tension",
+      "description": "Poor economic conditions can increase political tension",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "social_media_activity->outcome",
+      "description": "Increased social media activity can mobilize protesters",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_tension->outcome",
+      "description": "Higher political tension increases likelihood of protests",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "social_media_activity->political_tension",
+      "description": "Potential link: Level of social media activity related to protests or unrest -> Level of political tension or unrest in Oman",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "social_media_activity->government_response",
+      "description": "Potential link: Level of social media activity related to protests or unrest -> Government's response to protests or unrest",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if Oman's political system is uniquely resilient to tension, with strong social cohesion and effective conflict resolution mechanisms that prevent unrest regardless of political tensions? Given Oman's history of stable governance and low levels of unrest, could political tension be less predictive of protests than assumed?",
+      "probe_type": "node_negate_high",
+      "target_id": "political_tension",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Level of political tension or unrest in Oman"
+    },
+    {
+      "probe_text": "What if the historical protest rate in Oman is not predictive of future protests because a recent major political event, such as a sudden leadership change or a significant policy shift, has fundamentally altered the dynamics of public dissent? In this case, past protest data might be irrelevant as the population's willingness to protest could be driven entirely by new, unprecedented factors.",
+      "probe_type": "node_negate_high",
+      "target_id": "historical_protest_rate",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Average number of protests in Oman over the preceding 360 days"
+    },
+    {
+      "probe_text": "Recent reports indicate that the Omani government has adopted a policy of minimal intervention in protests, focusing instead on dialogue and economic concessions. Given this shift, the traditional impact of government response on protest escalation or suppression may no longer hold, making this factor less relevant to the outcome.",
+      "probe_type": "node_negate_medium",
+      "target_id": "government_response",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Government's response to protests or unrest"
+    },
+    {
+      "probe_text": "Recent studies suggest that social media activity in Oman has minimal impact on actual protest mobilization due to high government surveillance and censorship. Additionally, the majority of protest organization occurs through offline networks, making social media a less relevant factor in this context.",
+      "probe_type": "node_negate_low",
+      "target_id": "social_media_activity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Level of social media activity related to protests or unrest"
+    },
+    {
+      "probe_text": "Recent reports indicate that Oman's government has arrested several prominent opposition leaders, sparking widespread outrage and calls for mass demonstrations. This escalation in political repression is likely to significantly increase political tension, making large-scale protests more probable.",
+      "probe_type": "node_strengthen",
+      "target_id": "political_tension",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Level of political tension or unrest in Oman"
+    },
+    {
+      "probe_text": "Recent data from the Omani Ministry of Interior shows that protest rates over the past 360 days have been consistently higher than the previous 5-year average, with a 40% increase in frequency. Experts attribute this to a growing pattern of civic engagement and dissatisfaction with slow-moving reforms, suggesting that the historical protest rate is a more reliable predictor than previously thought.",
+      "probe_type": "node_strengthen",
+      "target_id": "historical_protest_rate",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Average number of protests in Oman over the preceding 360 days"
+    },
+    {
+      "probe_text": "Recent studies in Oman suggest that political tension does not necessarily lead to protests due to strong tribal structures that mediate grievances internally. Additionally, the government has effectively co-opted potential protest leaders, reducing the likelihood that tension translates into public demonstrations.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_tension->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher political tension increases likelihood of protests"
+    },
+    {
+      "probe_text": "Recent studies in Oman suggest that despite economic downturns, political tension may not rise due to strong tribal and familial support networks that provide economic safety nets, reducing discontent. Additionally, the government's targeted welfare programs during economic crises have historically mitigated public unrest, weakening the direct link between economic conditions and political tension.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "economic_conditions->political_tension",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Poor economic conditions can increase political tension"
+    },
+    {
+      "probe_text": "Recent studies in Oman suggest that increased social media activity does not necessarily translate to physical protests due to strict government monitoring and censorship. Additionally, many citizens may engage in online discussions without the intent or means to participate in actual protests, making the link between social media activity and protest mobilization weaker than assumed.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "social_media_activity->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "Increased social media activity can mobilize protesters"
+    },
+    {
+      "probe_text": "Recent studies in Oman suggest that large-scale protests can actually reduce political tension by forcing the government to address grievances, leading to policy changes or concessions. For example, the 2011 protests resulted in increased public spending and political reforms, which temporarily lowered tensions. Could this reverse causality mean that protests (outcome) reduce political tension rather than increase it?",
+      "probe_type": "edge_reverse",
+      "target_id": "political_tension->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher political tension increases likelihood of protests"
+    },
+    {
+      "probe_text": "Social media activity can amplify political tension by spreading information about protests or grievances more rapidly and widely, which can mobilize larger groups and escalate unrest. For example, viral posts about government actions or economic hardships can quickly increase public dissatisfaction and organize collective action, directly increasing political tension.",
+      "probe_type": "edge_spurious",
+      "target_id": "social_media_activity->political_tension",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Level of social media activity related to protests or unrest -> Level of political tension or unrest in Oman"
+    },
+    {
+      "probe_text": "Given that social media can amplify protest visibility and public sentiment, wouldn't heightened social media activity prompt the government to adjust its response strategies, either by increasing repression to prevent mobilization or offering concessions to mitigate unrest? For instance, if viral videos of protests gain traction, the government might deploy more security forces or initiate dialogue to address grievances, directly linking social media activity to government response.",
+      "probe_type": "edge_spurious",
+      "target_id": "social_media_activity->government_response",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Level of social media activity related to protests or unrest -> Government's response to protests or unrest"
+    },
+    {
+      "probe_text": "How would your forecast change if you considered the impact of 'weather conditions' on protest likelihood? Extreme heat or adverse weather could discourage protest turnout, while mild weather might facilitate larger gatherings.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "The forecaster's network does not include 'religious_events', which can significantly influence protest activity in Oman. Large religious gatherings or events may either mobilize protesters or divert attention away from political grievances, depending on the context. How would incorporating 'religious_events' as a node influencing 'political_tension' and 'outcome' affect your probability estimate?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Recent reports indicate that Oman has seen a significant increase in tourism over the past year, with visitor numbers rising by 15% compared to the previous year. This surge is attributed to new marketing campaigns and improved airport facilities.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Recent reports indicate that Oman has seen a significant increase in tourism over the past year, with visitor numbers rising by 15% compared to the previous year. This surge is attributed to new marketing campaigns and improved flight connectivity.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if Oman's political system is uniquely resilient to tension, with strong social cohesion and effective conflict resolution mechanisms that prevent unrest regardless of political tensions? Given Oman's history of stable governance and low levels of unrest, could political tension be less predictive of protests than assumed?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that political tension may not lead to protests as directly as initially assumed due to Oman's resilient political system, strong social cohesion, and effective conflict resolution mechanisms. This affects the causal path from political_tension to outcome, reducing the likelihood that increased political tension will result in a significant rise in protests. Given that political_tension is a central node influencing the outcome, this leads to a moderate decrease in the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.10,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that political tension may not lead to protests as directly as initially assumed due to Oman's resilient political system, strong social cohesion, and effective conflict resolution mechanisms. This affects the causal path from political_tension to outcome, reducing the likelihood that increased political tension will result in a significant rise in protests. Given that political_tension is a central node influencing the outcome, this leads to a moderate decrease in the estimated probability.\"\n}",
+      "target_id": "political_tension",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the historical protest rate in Oman is not predictive of future protests because a recent major political event, such as a sudden leadership change or a significant policy shift, has fundamentally altered the dynamics of public dissent? In this case, past protest data might be irrelevant as the population's willingness to protest could be driven entirely by new, unprecedented factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge suggests that the historical_protest_rate may no longer be predictive due to a major political event altering protest dynamics. This weakens the causal link from historical_protest_rate to outcome, making the baseline less relevant. Instead, other factors like political_tension, government_response, and external_influence become more critical. Given that these factors could now drive protests independently of past rates, the likelihood of a significant increase in protests is higher, leading to an increased probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge suggests that the historical_protest_rate may no longer be predictive due to a major political event altering protest dynamics. This weakens the causal link from historical_protest_rate to outcome, making the baseline less relevant. Instead, other factors like political_tension, government_response, and external_influence become more critical. Given that these factors could now drive protests independently of past rates, the likelihood of a significant increase in protests is higher, leading to an increased probability estimate.\"\n}",
+      "target_id": "historical_protest_rate",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that the Omani government has adopted a policy of minimal intervention in protests, focusing instead on dialogue and economic concessions. Given this shift, the traditional impact of government response on protest escalation or suppression may no longer hold, making this factor less relevant to the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The shift in government response policy from harsh intervention to dialogue and economic concessions reduces the likelihood of protest suppression and may decrease the risk of escalation. This change weakens the causal link from government_response to outcome, suggesting a slightly higher likelihood of protests occurring without suppression. However, the overall impact is moderate as other factors like political_tension and economic_conditions remain influential.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The shift in government response policy from harsh intervention to dialogue and economic concessions reduces the likelihood of protest suppression and may decrease the risk of escalation. This change weakens the causal link from government_response to outcome, suggesting a slightly higher likelihood of protests occurring without suppression. However, the overall impact is moderate as other factors like political_tension and economic_conditions remain influential.\"\n}",
+      "target_id": "government_response",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent studies suggest that social media activity in Oman has minimal impact on actual protest mobilization due to high government surveillance and censorship. Additionally, the majority of protest organization occurs through offline networks, making social media a less relevant factor in this context.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the 'social_media_activity' node, which was previously considered a factor that could mobilize protesters. Given the new information that social media has minimal impact on actual protest mobilization in Oman due to high government surveillance and censorship, and that protest organization primarily occurs offline, the causal link from 'social_media_activity' to 'outcome' is weakened. This reduces the likelihood of the outcome, as one of the potential mobilizing factors is less effective than initially thought. However, the update is modest because 'social_media_activity' was not the most critical node in the causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the 'social_media_activity' node, which was previously considered a factor that could mobilize protesters. Given the new information that social media has minimal impact on actual protest mobilization in Oman due to high government surveillance and censorship, and that protest organization primarily occurs offline, the causal link from 'social_media_activity' to 'outcome' is weakened. This reduces the likelihood of the outcome, as one of the potential mobilizing factors is less effective than initially thought. However, the update is modest because 'social_media_activity' was not the most critical node in the causal network.\"\n}",
+      "target_id": "social_media_activity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Oman's government has arrested several prominent opposition leaders, sparking widespread outrage and calls for mass demonstrations. This escalation in political repression is likely to significantly increase political tension, making large-scale protests more probable.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge directly affects the 'political_tension' node, which is a critical causal factor leading to the outcome. The arrest of prominent opposition leaders and subsequent widespread outrage significantly increases political tension, which in turn increases the likelihood of protests. This escalation also potentially affects the 'social_media_activity' node, as calls for mass demonstrations are likely to be amplified through social media, further mobilizing protesters. Given the centrality of 'political_tension' in the causal network and the strong evidence of its increase, the probability of the outcome is substantially increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge directly affects the 'political_tension' node, which is a critical causal factor leading to the outcome. The arrest of prominent opposition leaders and subsequent widespread outrage significantly increases political tension, which in turn increases the likelihood of protests. This escalation also potentially affects the 'social_media_activity' node, as calls for mass demonstrations are likely to be amplified through social media, further mobilizing protesters. Given the centrality of 'political_tension' in the causal network and the strong evidence of its increase, the probability of the outcome is substantially increased.\"\n}",
+      "target_id": "political_tension",
+      "target_type": "node",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent data from the Omani Ministry of Interior shows that protest rates over the past 360 days have been consistently higher than the previous 5-year average, with a 40% increase in frequency. Experts attribute this to a growing pattern of civic engagement and dissatisfaction with slow-moving reforms, suggesting that the historical protest rate is a more reliable predictor than previously thought.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge indicates that the historical_protest_rate has been consistently higher than previously thought, suggesting a growing pattern of civic engagement and dissatisfaction. This affects the causal path from historical_protest_rate to outcome by increasing the baseline protest rate, which in turn raises the threshold for the outcome. Given this new information, the likelihood of meeting the tenfold increase condition is higher, as the underlying trend of protests is stronger than initially estimated.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge indicates that the historical_protest_rate has been consistently higher than previously thought, suggesting a growing pattern of civic engagement and dissatisfaction. This affects the causal path from historical_protest_rate to outcome by increasing the baseline protest rate, which in turn raises the threshold for the outcome. Given this new information, the likelihood of meeting the tenfold increase condition is higher, as the underlying trend of protests is stronger than initially estimated.\"\n}",
+      "target_id": "historical_protest_rate",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies in Oman suggest that political tension does not necessarily lead to protests due to strong tribal structures that mediate grievances internally. Additionally, the government has effectively co-opted potential protest leaders, reducing the likelihood that tension translates into public demonstrations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.06999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly affects the causal link 'political_tension -> outcome', which was a significant factor in the initial estimate. Given that political tension is less likely to translate into protests due to strong tribal structures and government co-optation of protest leaders, the likelihood of the outcome decreases. This weakens a major causal path leading to the outcome, justifying a substantial decrease in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.08,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly affects the causal link 'political_tension -> outcome', which was a significant factor in the initial estimate. Given that political tension is less likely to translate into protests due to strong tribal structures and government co-optation of protest leaders, the likelihood of the outcome decreases. This weakens a major causal path leading to the outcome, justifying a substantial decrease in the probability estimate.\"\n}",
+      "target_id": "political_tension->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies in Oman suggest that despite economic downturns, political tension may not rise due to strong tribal and familial support networks that provide economic safety nets, reducing discontent. Additionally, the government's targeted welfare programs during economic crises have historically mitigated public unrest, weakening the direct link between economic conditions and political tension.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between economic_conditions and political_tension, suggesting that economic downturns may not lead to increased political tension as previously thought. This affects the path economic_conditions -> political_tension -> outcome, reducing the likelihood that poor economic conditions will escalate protests. Given that economic instability was a significant factor in increasing political tension, this update moderately decreases the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between economic_conditions and political_tension, suggesting that economic downturns may not lead to increased political tension as previously thought. This affects the path economic_conditions -> political_tension -> outcome, reducing the likelihood that poor economic conditions will escalate protests. Given that economic instability was a significant factor in increasing political tension, this update moderately decreases the probability of the outcome.\"\n}",
+      "target_id": "economic_conditions->political_tension",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies in Oman suggest that increased social media activity does not necessarily translate to physical protests due to strict government monitoring and censorship. Additionally, many citizens may engage in online discussions without the intent or means to participate in actual protests, making the link between social media activity and protest mobilization weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the causal link between social_media_activity and the outcome, suggesting that increased online activity may not lead to physical protests as previously assumed. This reduces one of the potential pathways for protest mobilization, thereby slightly decreasing the likelihood of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the causal link between social_media_activity and the outcome, suggesting that increased online activity may not lead to physical protests as previously assumed. This reduces one of the potential pathways for protest mobilization, thereby slightly decreasing the likelihood of the outcome.\"\n}",
+      "target_id": "social_media_activity->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent studies in Oman suggest that large-scale protests can actually reduce political tension by forcing the government to address grievances, leading to policy changes or concessions. For example, the 2011 protests resulted in increased public spending and political reforms, which temporarily lowered tensions. Could this reverse causality mean that protests (outcome) reduce political tension rather than increase it?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge suggests that political tension may not linearly increase the likelihood of protests, as protests can lead to government concessions that reduce tension. This weakens the 'political_tension -> outcome' causal link, which was a significant factor in the initial estimate. However, other factors like economic conditions, government response, and external influence still play roles, so the adjustment is moderate.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge suggests that political tension may not linearly increase the likelihood of protests, as protests can lead to government concessions that reduce tension. This weakens the 'political_tension -> outcome' causal link, which was a significant factor in the initial estimate. However, other factors like economic conditions, government response, and external influence still play roles, so the adjustment is moderate.\"\n}",
+      "target_id": "political_tension->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Social media activity can amplify political tension by spreading information about protests or grievances more rapidly and widely, which can mobilize larger groups and escalate unrest. For example, viral posts about government actions or economic hardships can quickly increase public dissatisfaction and organize collective action, directly increasing political tension.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.03,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between social_media_activity and political_tension, adding a new pathway (social_media_activity -> political_tension -> outcome) that was previously not explicitly considered. This increases the likelihood of higher political tension leading to more protests, thereby slightly increasing the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between social_media_activity and political_tension, adding a new pathway (social_media_activity -> political_tension -> outcome) that was previously not explicitly considered. This increases the likelihood of higher political tension leading to more protests, thereby slightly increasing the probability of the outcome.\"\n}",
+      "target_id": "social_media_activity->political_tension",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Given that social media can amplify protest visibility and public sentiment, wouldn't heightened social media activity prompt the government to adjust its response strategies, either by increasing repression to prevent mobilization or offering concessions to mitigate unrest? For instance, if viral videos of protests gain traction, the government might deploy more security forces or initiate dialogue to address grievances, directly linking social media activity to government response.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new causal link from 'social_media_activity' to 'government_response', suggesting that heightened social media activity could lead to changes in government strategies. This could either suppress protests through increased repression or escalate them if concessions are perceived as insufficient. Given the potential for both outcomes, the net effect is a slight increase in uncertainty and thus a modest increase in the probability estimate. The primary causal paths affected are those involving 'government_response' and 'social_media_activity', adding complexity to the model but not fundamentally altering the core dynamics.",
+      "raw_response": "{\n  \"updated_probability\": 0.17,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new causal link from 'social_media_activity' to 'government_response', suggesting that heightened social media activity could lead to changes in government strategies. This could either suppress protests through increased repression or escalate them if concessions are perceived as insufficient. Given the potential for both outcomes, the net effect is a slight increase in uncertainty and thus a modest increase in the probability estimate. The primary causal paths affected are those involving 'government_response' and 'social_media_activity', adding complexity to the model but not fundamentally altering the core dynamics.\"\n}",
+      "target_id": "social_media_activity->government_response",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "How would your forecast change if you considered the impact of 'weather conditions' on protest likelihood? Extreme heat or adverse weather could discourage protest turnout, while mild weather might facilitate larger gatherings.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of 'weather conditions' as a factor affects the causal path to the outcome by potentially influencing protest turnout directly. Given Oman's climate, extreme heat is a common occurrence, which could discourage protest participation, thereby reducing the likelihood of reaching the threshold for the outcome. This addition slightly decreases the probability as it introduces a moderating factor that was previously unaccounted for in the causal network.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of 'weather conditions' as a factor affects the causal path to the outcome by potentially influencing protest turnout directly. Given Oman's climate, extreme heat is a common occurrence, which could discourage protest participation, thereby reducing the likelihood of reaching the threshold for the outcome. This addition slightly decreases the probability as it introduces a moderating factor that was previously unaccounted for in the causal network.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "The forecaster's network does not include 'religious_events', which can significantly influence protest activity in Oman. Large religious gatherings or events may either mobilize protesters or divert attention away from political grievances, depending on the context. How would incorporating 'religious_events' as a node influencing 'political_tension' and 'outcome' affect your probability estimate?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "Incorporating 'religious_events' as a node introduces a new causal path that can either increase or decrease political tension and protest activity. Given Oman's context, religious events are more likely to divert attention from political grievances or provide a platform for government-controlled narratives, thereby potentially reducing protest activity. This addition weakens the existing causal paths from political_tension to outcome, leading to a slight decrease in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"Incorporating 'religious_events' as a node introduces a new causal path that can either increase or decrease political tension and protest activity. Given Oman's context, religious events are more likely to divert attention from political grievances or provide a platform for government-controlled narratives, thereby potentially reducing protest activity. This addition weakens the existing causal paths from political_tension to outcome, leading to a slight decrease in the probability estimate.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Oman has seen a significant increase in tourism over the past year, with visitor numbers rising by 15% compared to the previous year. This surge is attributed to new marketing campaigns and improved airport facilities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The increase in tourism could indirectly affect economic conditions positively, potentially reducing political tension. This would weaken the causal path from economic_conditions to political_tension and subsequently to the outcome. However, the impact is likely moderate as tourism is just one factor among many influencing economic conditions and political tension.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The increase in tourism could indirectly affect economic conditions positively, potentially reducing political tension. This would weaken the causal path from economic_conditions to political_tension and subsequently to the outcome. However, the impact is likely moderate as tourism is just one factor among many influencing economic conditions and political tension.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Oman has seen a significant increase in tourism over the past year, with visitor numbers rising by 15% compared to the previous year. This surge is attributed to new marketing campaigns and improved flight connectivity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.03,
+      "shift_direction": "decreased",
+      "reasoning": "The increase in tourism could improve economic conditions in Oman, which may reduce political tension. This affects the causal path from economic_conditions to political_tension and subsequently to the outcome. Improved economic conditions might lead to fewer protests, thus slightly decreasing the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The increase in tourism could improve economic conditions in Oman, which may reduce political tension. This affects the causal path from economic_conditions to political_tension and subsequently to the outcome. Improved economic conditions might lead to fewer protests, thus slightly decreasing the probability of the outcome.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that the Omani government has begun implementing a new, more aggressive policy of preemptive arrests and internet censorship specifically targeting known protest organizers ahead of the 2025-12-28 period. This suggests a heightened and more systematic government response to potential unrest.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The causal path 'government_response -> outcome' is directly affected by the new information. The more aggressive policy of preemptive arrests and internet censorship is likely to suppress protest activity by targeting organizers and limiting mobilization capabilities. This reduces the likelihood of reaching the high protest count required for a positive outcome. Given the systematic nature of the government's response, this is a significant update.",
+      "raw_response": "{\n  \"updated_probability\": 0.10,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The causal path 'government_response -> outcome' is directly affected by the new information. The more aggressive policy of preemptive arrests and internet censorship is likely to suppress protest activity by targeting organizers and limiting mobilization capabilities. This reduces the likelihood of reaching the high protest count required for a positive outcome. Given the systematic nature of the government's response, this is a significant update.\"\n}",
+      "target_id": "government_response",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate a significant surge in the use of social media platforms in Oman, particularly for organizing and discussing protests. This increase is attributed to the government's temporary relaxation of internet restrictions, allowing for more open communication among activists. Given that social media has been a critical tool for mobilizing protests in similar contexts, this development likely amplifies the role of social_media_activity in driving protest numbers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a significant surge in social media activity in Oman, which is a critical factor in mobilizing protests. Given that social media has been a key tool for organizing protests in similar contexts, this development strengthens the causal path from 'social_media_activity' to 'outcome'. The increased openness and communication among activists due to relaxed internet restrictions are likely to amplify protest numbers, thus increasing the probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a significant surge in social media activity in Oman, which is a critical factor in mobilizing protests. Given that social media has been a key tool for organizing protests in similar contexts, this development strengthens the causal path from 'social_media_activity' to 'outcome'. The increased openness and communication among activists due to relaxed internet restrictions are likely to amplify protest numbers, thus increasing the probability of the outcome.\"\n}",
+      "target_id": "social_media_activity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that political tension in Oman has escalated significantly due to controversial new labor laws that favor foreign workers over locals, leading to widespread public dissatisfaction. This has already sparked several small protests, suggesting a direct and immediate link between rising political tension and increased protest activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a significant escalation in political tension due to controversial new labor laws, which directly affects the causal path from political_tension to outcome. This escalation has already led to increased protest activity, suggesting a stronger link between rising political tension and protests than previously considered. Given this direct and immediate impact, the probability of the outcome has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a significant escalation in political tension due to controversial new labor laws, which directly affects the causal path from political_tension to outcome. This escalation has already led to increased protest activity, suggesting a stronger link between rising political tension and protests than previously considered. Given this direct and immediate impact, the probability of the outcome has increased.\"\n}",
+      "target_id": "political_tension->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Oman's unemployment rate has risen to 15%, with youth unemployment exceeding 30%. This economic downturn has led to visible discontent among young Omanis, who have begun organizing through social media to demand economic reforms, directly linking deteriorating economic conditions to increased political tension.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between economic_conditions and political_tension, as evidenced by rising unemployment rates and visible discontent among young Omanis. This heightened political tension directly increases the likelihood of protests, affecting the path from economic_conditions -> political_tension -> outcome. Additionally, the mention of social media organizing suggests an increase in social_media_activity, which further mobilizes protesters, affecting the social_media_activity -> outcome path. Both of these strengthened paths contribute to a higher probability of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between economic_conditions and political_tension, as evidenced by rising unemployment rates and visible discontent among young Omanis. This heightened political tension directly increases the likelihood of protests, affecting the path from economic_conditions -> political_tension -> outcome. Additionally, the mention of social media organizing suggests an increase in social_media_activity, which further mobilizes protesters, affecting the social_media_activity -> outcome path. Both of these strengthened paths contribute to a higher probability of the outcome.\"\n}",
+      "target_id": "economic_conditions->political_tension",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "8a531050a50c0b37027e4e2ef0fed0009a62ed5767e0953cb67cc75be496816d",
+    "question_text": "Will there be more than ten times as many 'Protests' in Oman for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Protests' over the 360 days preceding 2025-12-21?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.15,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.0525,
+    "max_absolute_shift": 0.19999999999999998
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 2.130681818181818,
+    "mean_shift_high": 0.09374999999999999,
+    "mean_shift_low": 0.044,
+    "asymmetry_index": 0.4483516483516483,
+    "mean_shift_negate": 0.048571428571428564,
+    "mean_shift_strengthen": 0.10833333333333332,
+    "fnar": 0,
+    "n_accepted": 0,
+    "n_spurious": 4,
+    "critical_path_premium": 0.027916666666666652,
+    "mean_shift_on_path": 0.07625,
+    "mean_shift_off_path": 0.048333333333333346,
+    "importance_sensitivity_correlation": 0.29761904761904767,
+    "control_sensitivity": 0
+  }
+}

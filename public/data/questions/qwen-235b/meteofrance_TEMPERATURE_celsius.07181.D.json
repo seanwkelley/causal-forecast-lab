@@ -1,0 +1,1070 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07181.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "climate_trend",
+      "description": "Long-term warming trend in France due to climate change",
+      "role": "factor"
+    },
+    {
+      "id": "seasonal_cycle",
+      "description": "Typical seasonal temperature variation in eastern France",
+      "role": "factor"
+    },
+    {
+      "id": "weather_variability",
+      "description": "Short-term meteorological fluctuations in December",
+      "role": "factor"
+    },
+    {
+      "id": "arctic_outflow",
+      "description": "Influence of Arctic air masses on cold snaps in France",
+      "role": "factor"
+    },
+    {
+      "id": "atlantic_influence",
+      "description": "Modulating effect of Atlantic storm systems on temperature",
+      "role": "factor"
+    },
+    {
+      "id": "temp_anomaly_2025",
+      "description": "Year-specific deviation from average December temperatures",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The daily average temperature at Nancy – Ochey Air Base is higher on 2025-12-28 than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "climate_trend",
+      "to": "temp_anomaly_2025",
+      "mechanism": "Long-term warming increases likelihood of above-average temperatures in 2025"
+    },
+    {
+      "from": "seasonal_cycle",
+      "to": "temp_anomaly_2025",
+      "mechanism": "December near winter solstice has stable, cold baseline affecting anomalies"
+    },
+    {
+      "from": "weather_variability",
+      "to": "temp_anomaly_2025",
+      "mechanism": "Random atmospheric variability causes day-to-day temperature noise"
+    },
+    {
+      "from": "arctic_outflow",
+      "to": "weather_variability",
+      "mechanism": "Arctic outbreaks increase frequency of cold extremes in eastern France"
+    },
+    {
+      "from": "atlantic_influence",
+      "to": "weather_variability",
+      "mechanism": "Atlantic systems bring warmth or cold depending on pressure patterns"
+    },
+    {
+      "from": "temp_anomaly_2025",
+      "to": "outcome",
+      "mechanism": "Higher anomaly increases chance that 2025-12-28 is warmer than 2025-12-21"
+    }
+  ],
+  "reasoning": "The outcome depends on small differences in daily averages within a narrow winter window. The seasonal cycle dominates, but random variability is the key driver of day-to-day differences. Climate trends slightly favor warming, while Atlantic and Arctic influences modulate short-term patterns. Given the symmetry of two close dates, the probability is only slightly above 50% due to long-term warming.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 6,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "climate_trend",
+        "description": "Long-term warming trend in France due to climate change",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "seasonal_cycle",
+        "description": "Typical seasonal temperature variation in eastern France",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_variability",
+        "description": "Short-term meteorological fluctuations in December",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.3333,
+        "pagerank": 0.1594,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "arctic_outflow",
+        "description": "Influence of Arctic air masses on cold snaps in France",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "atlantic_influence",
+        "description": "Modulating effect of Atlantic storm systems on temperature",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.059,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "temp_anomaly_2025",
+        "description": "Year-specific deviation from average December temperatures",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.1667,
+        "closeness": 0.5952,
+        "pagerank": 0.2949,
+        "path_relevance": 0.8333
+      },
+      {
+        "node_id": "outcome",
+        "description": "The daily average temperature at Nancy – Ochey Air Base is higher on 2025-12-28 than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4615,
+        "pagerank": 0.3097,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "climate_trend",
+        "target": "temp_anomaly_2025",
+        "mechanism": "Long-term warming increases likelihood of above-average temperatures in 2025",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_cycle",
+        "target": "temp_anomaly_2025",
+        "mechanism": "December near winter solstice has stable, cold baseline affecting anomalies",
+        "edge_betweenness": 0.0476,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_variability",
+        "target": "temp_anomaly_2025",
+        "mechanism": "Random atmospheric variability causes day-to-day temperature noise",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "arctic_outflow",
+        "target": "weather_variability",
+        "mechanism": "Arctic outbreaks increase frequency of cold extremes in eastern France",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "atlantic_influence",
+        "target": "weather_variability",
+        "mechanism": "Atlantic systems bring warmth or cold depending on pressure patterns",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "temp_anomaly_2025",
+        "target": "outcome",
+        "mechanism": "Higher anomaly increases chance that 2025-12-28 is warmer than 2025-12-21",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "temp_anomaly_2025",
+        "description": "Year-specific deviation from average December temperatures",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_variability",
+        "description": "Short-term meteorological fluctuations in December",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_cycle",
+        "description": "Typical seasonal temperature variation in eastern France",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atlantic_influence",
+        "description": "Modulating effect of Atlantic storm systems on temperature",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "temp_anomaly_2025",
+        "description": "Year-specific deviation from average December temperatures",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_variability",
+        "description": "Short-term meteorological fluctuations in December",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_variability->temp_anomaly_2025",
+        "description": "Random atmospheric variability causes day-to-day temperature noise",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "temp_anomaly_2025->outcome",
+        "description": "Higher anomaly increases chance that 2025-12-28 is warmer than 2025-12-21",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_cycle->temp_anomaly_2025",
+        "description": "December near winter solstice has stable, cold baseline affecting anomalies",
+        "importance": 0.0476,
+        "centrality_rank": 6,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "weather_variability->temp_anomaly_2025",
+        "description": "Random atmospheric variability causes day-to-day temperature noise",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "atlantic_influence->temp_anomaly_2025",
+        "description": "Potential link: Modulating effect of Atlantic storm systems on temperature -> Year-specific deviation from average December temperatures",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "atlantic_influence->seasonal_cycle",
+        "description": "Potential link: Modulating effect of Atlantic storm systems on temperature -> Typical seasonal temperature variation in eastern France",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "temp_anomaly_2025",
+      "description": "Year-specific deviation from average December temperatures",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_variability",
+      "description": "Short-term meteorological fluctuations in December",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_cycle",
+      "description": "Typical seasonal temperature variation in eastern France",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atlantic_influence",
+      "description": "Modulating effect of Atlantic storm systems on temperature",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "temp_anomaly_2025",
+      "description": "Year-specific deviation from average December temperatures",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_variability",
+      "description": "Short-term meteorological fluctuations in December",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "description": "Random atmospheric variability causes day-to-day temperature noise",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "temp_anomaly_2025->outcome",
+      "description": "Higher anomaly increases chance that 2025-12-28 is warmer than 2025-12-21",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_cycle->temp_anomaly_2025",
+      "description": "December near winter solstice has stable, cold baseline affecting anomalies",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "description": "Random atmospheric variability causes day-to-day temperature noise",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "atlantic_influence->temp_anomaly_2025",
+      "description": "Potential link: Modulating effect of Atlantic storm systems on temperature -> Year-specific deviation from average December temperatures",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "atlantic_influence->seasonal_cycle",
+      "description": "Potential link: Modulating effect of Atlantic storm systems on temperature -> Typical seasonal temperature variation in eastern France",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if the year-specific temperature anomaly in 2025 is irrelevant to the comparison between the two days? December 2025 could be strongly influenced by short-term weather patterns that dominate any annual anomaly, such as a persistent high-pressure block or a sudden stratospheric warming event, making the day-to-day difference independent of broader yearly deviations.",
+      "probe_type": "node_negate_high",
+      "target_id": "temp_anomaly_2025",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Year-specific deviation from average December temperatures"
+    },
+    {
+      "probe_text": "What if short-term meteorological fluctuations have no meaningful impact on December temperature differences at Nancy – Ochey Air Base? In stable high-pressure winters, especially under persistent blocking patterns like the Scandinavian High, the region experiences minimal weather variability, with nearly identical day-to-day conditions throughout December, making random fluctuations irrelevant compared to larger-scale seasonal and climate drivers.",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_variability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Short-term meteorological fluctuations in December"
+    },
+    {
+      "probe_text": "Recent analysis of temperature records from eastern France shows that in December, the solar insolation-driven seasonal cycle has minimal day-to-day influence on temperature variance compared to synoptic-scale weather patterns. Given the dominance of Atlantic and Arctic air mass advection during this month, the gradual seasonal cooling trend may be too slow and predictable to meaningfully affect the year-to-year variation in weekly temperature differences, effectively making it negligible in this short-term comparison.",
+      "probe_type": "node_negate_medium",
+      "target_id": "seasonal_cycle",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Typical seasonal temperature variation in eastern France"
+    },
+    {
+      "probe_text": "Recent climatological analysis shows that in December 2025, persistent high-pressure blocking over the North Atlantic significantly reduced the number of Atlantic storm systems reaching eastern France, including the Nancy region. This suggests that Atlantic influence played a negligible role in modulating December 2025 temperatures, with most variability instead driven by continental air masses.",
+      "probe_type": "node_negate_low",
+      "target_id": "atlantic_influence",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Modulating effect of Atlantic storm systems on temperature"
+    },
+    {
+      "probe_text": "In early 2025, a comprehensive analysis by Météo-France confirms that the December 2025 temperature anomaly in northeastern France is among the highest on record, driven by an exceptional combination of sustained high-pressure systems over Greenland and above-average sea surface temperatures in the North Atlantic. This large-scale pattern has led to a persistent +3.2°C deviation from the 1991–2020 average for the month, reinforcing the dominance of year-specific anomalies in shaping daily temperatures at Nancy – Ochey Air Base.",
+      "probe_type": "node_strengthen",
+      "target_id": "temp_anomaly_2025",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Year-specific deviation from average December temperatures"
+    },
+    {
+      "probe_text": "A recent analysis of high-resolution meteorological data from Meteo-France shows that December temperature swings at inland French stations like Nancy – Ochey have increased by 15% over the past decade, with no significant change in seasonal or climate trends. The study attributes this rise in day-to-day variability directly to more frequent and erratic mid-latitude cyclones and blocking patterns, reinforcing the dominance of short-term weather fluctuations in determining December temperature outcomes.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_variability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Short-term meteorological fluctuations in December"
+    },
+    {
+      "probe_text": "Recent reanalysis data from Météo-France shows that in December 2024, persistent blocking high-pressure systems over Scandinavia reduced synoptic-scale variability in eastern France by 40% compared to the 1991–2020 average, suggesting that weather variability may be constrained by large-scale atmospheric regimes rather than acting as an independent driver of temperature anomalies. This indicates that 'weather_variability' might not directly cause 'temp_anomaly_2025' but instead be suppressed or modulated by circulatory regimes, weakening the assumed causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Random atmospheric variability causes day-to-day temperature noise"
+    },
+    {
+      "probe_text": "A strong temp_anomaly_2025 would elevate temperatures across all of December 2025, affecting both 2025-12-21 and 2025-12-28 nearly equally, meaning the anomaly cancels out when comparing two close dates. The actual difference in daily averages is more dependent on synoptic-scale weather patterns (e.g., a late-month blocking high or cold front) than on the overall monthly anomaly, making this causal link weak or misleading.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "temp_anomaly_2025->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher anomaly increases chance that 2025-12-28 is warmer than 2025-12-21"
+    },
+    {
+      "probe_text": "December at Nancy – Ochey Air Base is near the winter solstice, but the baseline seasonal temperature is highly variable due to competing Arctic and Atlantic influences, making the 'stable, cold baseline' assumption questionable. In recent years, mid-December anomalies have shown low autocorrelation with late-December ones, suggesting the seasonal cycle does not strongly anchor short-term temperature anomalies in this period.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "seasonal_cycle->temp_anomaly_2025",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0476,
+      "centrality_rank": 6,
+      "on_critical_path": true,
+      "description": "December near winter solstice has stable, cold baseline affecting anomalies"
+    },
+    {
+      "probe_text": "Suppose that in 2025, December in eastern France experiences an unusually stable atmospheric pattern due to a persistent high-pressure block, which suppresses short-term weather variability. In this scenario, the reduced day-to-day fluctuations are a consequence of the broader temp_anomaly_2025 being driven by a sustained warm deviation, rather than random noise causing the anomaly. Could it be that temp_anomaly_2025 influences the magnitude of weather_variability, rather than the other way around?",
+      "probe_type": "edge_reverse",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Random atmospheric variability causes day-to-day temperature noise"
+    },
+    {
+      "probe_text": "Suppose a persistent positive North Atlantic Oscillation pattern in winter 2025 steers more frequent and intense Atlantic storm systems toward France, increasing zonal flow and maritime air advection. This would systematically raise December baseline temperatures at Nancy – Ochey Air Base, contributing directly to a positive temp_anomaly_2025 independent of long-term trends or seasonal cycles. Shouldn't atlantic_influence therefore have a direct causal effect on temp_anomaly_2025, not just through modulating short-term weather_variability?",
+      "probe_type": "edge_spurious",
+      "target_id": "atlantic_influence->temp_anomaly_2025",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Modulating effect of Atlantic storm systems on temperature -> Year-specific deviation from average December temperatures"
+    },
+    {
+      "probe_text": "Suppose strong evidence emerges that Atlantic storm systems have systematically altered the shape of the seasonal temperature cycle in eastern France over the past two decades, such that December temperatures are now consistently milder and less variable due to increased maritime air intrusion. How would the forecaster update their model if Atlantic influence directly modulates the baseline seasonal_cycle, rather than acting only through short-term weather noise?",
+      "probe_type": "edge_spurious",
+      "target_id": "atlantic_influence->seasonal_cycle",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Modulating effect of Atlantic storm systems on temperature -> Typical seasonal temperature variation in eastern France"
+    },
+    {
+      "probe_text": "Consider the potential impact of a sudden stratospheric warming (SSW) event in December 2025. Such an event can disrupt the polar vortex, leading to prolonged periods of abnormal cold or warmth in Western Europe by altering the jet stream and increasing the likelihood of blocking high-pressure systems over France. This mechanism would directly influence weather_variability and temp_anomaly_2025, and thus affect the outcome.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose a strong and persistent blocking high-pressure system over Scandinavia develops in late December 2025, leading to a stable anticyclonic pattern that diverts Atlantic storm systems away from France and causes prolonged calm and cold conditions in eastern France. This atmospheric blocking pattern is not represented in the current causal model. How would the inclusion of this factor, which can suppress both Atlantic influence and increase the persistence of cold air from Arctic outflows, alter the probability assessment for the temperature outcome?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent study found that air traffic at Nancy – Ochey Air Base has decreased by 15% over the past decade due to reduced military training exercises. This has led to fewer jet contrails and localized changes in cloud formation around the airfield during December operations.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "In 2024, the French Ministry of Transport announced plans to upgrade the runway lighting system at Nancy – Ochey Air Base, with construction scheduled to begin in early 2025. The project is expected to increase nighttime operational capacity but will not alter local land use or surface albedo significantly.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the year-specific temperature anomaly in 2025 is irrelevant to the comparison between the two days? December 2025 could be strongly influenced by short-term weather patterns that dominate any annual anomaly, such as a persistent high-pressure block or a sudden stratospheric warming event, making the day-to-day difference independent of broader yearly deviations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the centrality of temp_anomaly_2025 in driving the outcome, suggesting that short-term weather patterns (e.g., blocking highs or sudden stratospheric warming) could dominate the temperature difference between the two days, rendering the year-specific anomaly less relevant. This weakens the causal path from temp_anomaly_2025 to outcome, which was previously a key link integrating climate_trend, seasonal_cycle, and weather_variability. However, temp_anomaly_2025 still captures some aggregate of these influences, and the outcome remains sensitive to day-to-day variability governed by arctic_outflow and atlantic_influence. Since the challenge emphasizes short-term dominance but does not eliminate the correlation between anomalies and daily temperatures, the effect on the outcome is moderate. The weakened link reduces the predictive power of long-term trends slightly, but the overall symmetry of temperature fluctuations around a stable seasonal mean in late December implies near-50% chance regardless. Hence, the probability shifts only slightly downward from 0.52 to 0.51, reflecting marginally greater weight on noise-dominated, independent daily swings.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the centrality of temp_anomaly_2025 in driving the outcome, suggesting that short-term weather patterns (e.g., blocking highs or sudden stratospheric warming) could dominate the temperature difference between the two days, rendering the year-specific anomaly less relevant. This weakens the causal path from temp_anomaly_2025 to outcome, which was previously a key link integrating climate_trend, seasonal_cycle, and weather_variability. However, temp_anomaly_2025 still captures some aggregate of these influences, and the outcome remains sensitive to day-to-day variability governed by arctic_outflow and atlantic_influence. Since the challenge emphasizes short-term dominance but does not eliminate the correlation between anomalies and daily temperatures, the effect on the outcome is moderate. The weakened link reduces the predictive power of long-term trends slightly, but the overall symmetry of temperature fluctuations around a stable seasonal mean in late December implies near-50% chance regardless. Hence, the probability shifts only slightly downward from 0.52 to 0.51, reflecting marginally greater weight on noise-dominated, independent daily swings.\"\n}",
+      "target_id": "temp_anomaly_2025",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if short-term meteorological fluctuations have no meaningful impact on December temperature differences at Nancy – Ochey Air Base? In stable high-pressure winters, especially under persistent blocking patterns like the Scandinavian High, the region experiences minimal weather variability, with nearly identical day-to-day conditions throughout December, making random fluctuations irrelevant compared to larger-scale seasonal and climate drivers.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets 'weather_variability', which is a key input to 'temp_anomaly_2025' and also influenced by 'arctic_outflow' and 'atlantic_influence'. If short-term meteorological fluctuations are minimal due to persistent high-pressure or blocking patterns, then 'weather_variability' contributes less to temperature differences between the two dates. This weakens the path from 'arctic_outflow' and 'atlantic_influence' through 'weather_variability' to 'temp_anomaly_2025', effectively reducing the noise in daily temperatures. With less day-to-day variation, the outcome becomes more deterministic based on the seasonal cycle and long-term climate trend. However, since the two dates are only one week apart in late December — near the solstice with minimal seasonal change — the seasonal_cycle effect is nearly flat, and climate_trend affects both days equally. Thus, removing weather noise slightly increases the chance that temperatures remain stable, making a rise from 2025-12-21 to 2025-12-28 marginally less likely than a symmetric random fluctuation would suggest. Hence, the probability decreases slightly from 0.52 to 0.51, reflecting a small shift due to reduced variability, but the impact is limited because the dominant drivers (seasonal and climate trends) do not strongly favor warming over that interval.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets 'weather_variability', which is a key input to 'temp_anomaly_2025' and also influenced by 'arctic_outflow' and 'atlantic_influence'. If short-term meteorological fluctuations are minimal due to persistent high-pressure or blocking patterns, then 'weather_variability' contributes less to temperature differences between the two dates. This weakens the path from 'arctic_outflow' and 'atlantic_influence' through 'weather_variability' to 'temp_anomaly_2025', effectively reducing the noise in daily temperatures. With less day-to-day variation, the outcome becomes more deterministic based on the seasonal cycle and long-term climate trend. However, since the two dates are only one week apart in late December — near the solstice with minimal seasonal change — the seasonal_cycle effect is nearly flat, and climate_trend affects both days equally. Thus, removing weather noise slightly increases the chance that temperatures remain stable, making a rise from 2025-12-21 to 2025-12-28 marginally less likely than a symmetric random fluctuation would suggest. Hence, the probability decreases slightly from 0.52 to 0.51, reflecting a small shift due to reduced variability, but the impact is limited because the dominant drivers (seasonal and climate trends) do not strongly favor warming over that interval.\"\n}",
+      "target_id": "weather_variability",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of temperature records from eastern France shows that in December, the solar insolation-driven seasonal cycle has minimal day-to-day influence on temperature variance compared to synoptic-scale weather patterns. Given the dominance of Atlantic and Arctic air mass advection during this month, the gradual seasonal cooling trend may be too slow and predictable to meaningfully affect the year-to-year variation in weekly temperature differences, effectively making it negligible in this short-term comparison.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'seasonal_cycle' suggests that its influence on temperature variance in December is negligible compared to synoptic-scale weather patterns like Atlantic and Arctic air mass movements. This weakens the causal path from seasonal_cycle to temp_anomaly_2025, reducing the structural importance of a previously assumed baseline seasonal trend. However, because the outcome depends on a week-to-week comparison within the same December month (2025-12-21 vs 2025-12-28), the seasonal trend would have had only a small effect even if active—temperatures change very little from week to week near the solstice. Thus, while the seasonal cycle's role was overstated, it was not a dominant driver of the outcome. The main drivers remain weather_variability and its modulators (arctic_outflow and atlantic_influence), with a small boost from climate_trend. Removing seasonal_cycle’s contribution slightly reduces the expected warming bias in temp_anomaly_2025, leading to a minimal downward adjustment in the probability. The change is small because seasonal_cycle was not a critical link in the causal chain for this short-term comparison.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'seasonal_cycle' suggests that its influence on temperature variance in December is negligible compared to synoptic-scale weather patterns like Atlantic and Arctic air mass movements. This weakens the causal path from seasonal_cycle to temp_anomaly_2025, reducing the structural importance of a previously assumed baseline seasonal trend. However, because the outcome depends on a week-to-week comparison within the same December month (2025-12-21 vs 2025-12-28), the seasonal trend would have had only a small effect even if active—temperatures change very little from week to week near the solstice. Thus, while the seasonal cycle's role was overstated, it was not a dominant driver of the outcome. The main drivers remain weather_variability and its modulators (arctic_outflow and atlantic_influence), with a small boost from climate_trend. Removing seasonal_cycle’s contribution slightly reduces the expected warming bias in temp_anomaly_2025, leading to a minimal downward adjustment in the probability. The change is small because seasonal_cycle was not a critical link in the causal chain for this short-term comparison.\"\n}",
+      "target_id": "seasonal_cycle",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent climatological analysis shows that in December 2025, persistent high-pressure blocking over the North Atlantic significantly reduced the number of Atlantic storm systems reaching eastern France, including the Nancy region. This suggests that Atlantic influence played a negligible role in modulating December 2025 temperatures, with most variability instead driven by continental air masses.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge weakens the 'atlantic_influence' node, which previously contributed to weather_variability by modulating temperature via storm systems. With reduced Atlantic influence in December 2025, variability is now dominated by continental air masses, likely reducing the amplitude of short-term temperature swings. This makes large warm anomalies less frequent, slightly decreasing the chance that 2025-12-28 is warmer than 2025-12-21. However, since 'atlantic_influence' was only one of several drivers of weather_variability and the outcome depends primarily on temp_anomaly_2025 (driven by climate_trend, seasonal_cycle, and residual variability), the overall effect on the outcome is small. Thus, the probability shifts only slightly downward.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge weakens the 'atlantic_influence' node, which previously contributed to weather_variability by modulating temperature via storm systems. With reduced Atlantic influence in December 2025, variability is now dominated by continental air masses, likely reducing the amplitude of short-term temperature swings. This makes large warm anomalies less frequent, slightly decreasing the chance that 2025-12-28 is warmer than 2025-12-21. However, since 'atlantic_influence' was only one of several drivers of weather_variability and the outcome depends primarily on temp_anomaly_2025 (driven by climate_trend, seasonal_cycle, and residual variability), the overall effect on the outcome is small. Thus, the probability shifts only slightly downward.\"\n}",
+      "target_id": "atlantic_influence",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "In early 2025, a comprehensive analysis by Météo-France confirms that the December 2025 temperature anomaly in northeastern France is among the highest on record, driven by an exceptional combination of sustained high-pressure systems over Greenland and above-average sea surface temperatures in the North Atlantic. This large-scale pattern has led to a persistent +3.2°C deviation from the 1991–2020 average for the month, reinforcing the dominance of year-specific anomalies in shaping daily temperatures at Nancy – Ochey Air Base.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.68,
+      "absolute_shift": 0.16000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information strongly reinforces the 'temp_anomaly_2025' node, confirming a large and persistent positive temperature anomaly (+3.2°C) for December 2025 in northeastern France. This directly strengthens the causal path from temp_anomaly_2025 to the outcome: a higher anomaly increases the baseline temperature throughout the month, making it more likely that the later date (2025-12-28) is warmer than the earlier one (2025-12-21), even if only by virtue of elevated average conditions. The reported drivers—Greenland high-pressure systems and warm North Atlantic SSTs—also indirectly support this via the existing 'atlantic_influence' and 'arctic_outflow' nodes by suppressing cold air advection and enhancing warmth, further consolidating the dominance of the temp_anomaly_2025 effect. Since temp_anomaly_2025 is a direct antecedent to the outcome and this evidence substantially increases confidence in a warm monthly deviation, the probability estimate shifts upward from 0.52 to 0.68.",
+      "raw_response": "{\n  \"updated_probability\": 0.68,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strongly reinforces the 'temp_anomaly_2025' node, confirming a large and persistent positive temperature anomaly (+3.2°C) for December 2025 in northeastern France. This directly strengthens the causal path from temp_anomaly_2025 to the outcome: a higher anomaly increases the baseline temperature throughout the month, making it more likely that the later date (2025-12-28) is warmer than the earlier one (2025-12-21), even if only by virtue of elevated average conditions. The reported drivers—Greenland high-pressure systems and warm North Atlantic SSTs—also indirectly support this via the existing 'atlantic_influence' and 'arctic_outflow' nodes by suppressing cold air advection and enhancing warmth, further consolidating the dominance of the temp_anomaly_2025 effect. Since temp_anomaly_2025 is a direct antecedent to the outcome and this evidence substantially increases confidence in a warm monthly deviation, the probability estimate shifts upward from 0.52 to 0.68.\"\n}",
+      "target_id": "temp_anomaly_2025",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent analysis of high-resolution meteorological data from Meteo-France shows that December temperature swings at inland French stations like Nancy – Ochey have increased by 15% over the past decade, with no significant change in seasonal or climate trends. The study attributes this rise in day-to-day variability directly to more frequent and erratic mid-latitude cyclones and blocking patterns, reinforcing the dominance of short-term weather fluctuations in determining December temperature outcomes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence strengthens the role of weather_variability in driving temperature outcomes at Nancy – Ochey, particularly by showing a 15% increase in day-to-day temperature swings due to more erratic mid-latitude cyclones and blocking patterns. This reinforces the influence of the weather_variability node, which feeds directly into temp_anomaly_2025 and thus the outcome. However, because the outcome compares two close dates (2025-12-21 vs. 2025-12-28), increased short-term variability increases uncertainty but does not systematically favor warming or cooling. The slight decrease in probability reflects a modest adjustment: higher volatility makes large temperature increases less predictable and slightly reduces confidence in a warm shift toward the end of the period, given the symmetric nature of the outcome. The core causal path through temp_anomaly_2025 remains intact, but the increased noise slightly erodes the edge from temp_anomaly_2025 to outcome, pushing the probability marginally toward 0.5. Thus, the update is small because the challenge affects a secondary aspect of the causal structure—amplifying a source of noise rather than altering a directional bias.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new evidence strengthens the role of weather_variability in driving temperature outcomes at Nancy – Ochey, particularly by showing a 15% increase in day-to-day temperature swings due to more erratic mid-latitude cyclones and blocking patterns. This reinforces the influence of the weather_variability node, which feeds directly into temp_anomaly_2025 and thus the outcome. However, because the outcome compares two close dates (2025-12-21 vs. 2025-12-28), increased short-term variability increases uncertainty but does not systematically favor warming or cooling. The slight decrease in probability reflects a modest adjustment: higher volatility makes large temperature increases less predictable and slightly reduces confidence in a warm shift toward the end of the period, given the symmetric nature of the outcome. The core causal path through temp_anomaly_2025 remains intact, but the increased noise slightly erodes the edge from temp_anomaly_2025 to outcome, pushing the probability marginally toward 0.5. Thus, the update is small because the challenge affects a secondary aspect of the causal structure—amplifying a source of noise rather than altering a directional bias.\"\n}",
+      "target_id": "weather_variability",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reanalysis data from Météo-France shows that in December 2024, persistent blocking high-pressure systems over Scandinavia reduced synoptic-scale variability in eastern France by 40% compared to the 1991–2020 average, suggesting that weather variability may be constrained by large-scale atmospheric regimes rather than acting as an independent driver of temperature anomalies. This indicates that 'weather_variability' might not directly cause 'temp_anomaly_2025' but instead be suppressed or modulated by circulatory regimes, weakening the assumed causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link 'weather_variability -> temp_anomaly_2025', suggesting that short-term meteorological fluctuations are not an independent driver but are instead modulated by large-scale atmospheric regimes such as blocking patterns. This weakens the direct influence of 'weather_variability' on 'temp_anomaly_2025', implying that anomalies may be more constrained in years with persistent circulation patterns. However, 'weather_variability' was not the dominant path to 'temp_anomaly_2025'—the primary drivers remain 'climate_trend' and 'seasonal_cycle', with 'temp_anomaly_2025' still influenced by 'arctic_outflow' and 'atlantic_influence' via modulation of weather regimes. Thus, while the independence and strength of 'weather_variability' as a causal input is reduced, the overall impact on the outcome is modest because temperature anomalies in December 2025 are still governed by broader climatic and seasonal factors. The weakening of this link slightly reduces confidence in short-term noise boosting the chance of a warmer end-of-month reading, leading to a small downward adjustment from 0.52 to 0.51.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link 'weather_variability -> temp_anomaly_2025', suggesting that short-term meteorological fluctuations are not an independent driver but are instead modulated by large-scale atmospheric regimes such as blocking patterns. This weakens the direct influence of 'weather_variability' on 'temp_anomaly_2025', implying that anomalies may be more constrained in years with persistent circulation patterns. However, 'weather_variability' was not the dominant path to 'temp_anomaly_2025'—the primary drivers remain 'climate_trend' and 'seasonal_cycle', with 'temp_anomaly_2025' still influenced by 'arctic_outflow' and 'atlantic_influence' via modulation of weather regimes. Thus, while the independence and strength of 'weather_variability' as a causal input is reduced, the overall impact on the outcome is modest because temperature anomalies in December 2025 are still governed by broader climatic and seasonal factors. The weakening of this link slightly reduces confidence in short-term noise boosting the chance of a warmer end-of-month reading, leading to a small downward adjustment from 0.52 to 0.51.\"\n}",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "A strong temp_anomaly_2025 would elevate temperatures across all of December 2025, affecting both 2025-12-21 and 2025-12-28 nearly equally, meaning the anomaly cancels out when comparing two close dates. The actual difference in daily averages is more dependent on synoptic-scale weather patterns (e.g., a late-month blocking high or cold front) than on the overall monthly anomaly, making this causal link weak or misleading.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge correctly identifies that temp_anomaly_2025, while influencing absolute temperatures on both dates, has limited impact on the relative difference between two closely spaced days in late December. This weakens the causal link temp_anomaly_2025 -> outcome, as the anomaly affects both days nearly equally. The outcome is instead more strongly determined by synoptic-scale variability—such as transient high-pressure systems, cold fronts, or blocking patterns—mediated through weather_variability and its drivers (arctic_outflow and atlantic_influence). These shorter-term dynamics remain active pathways to the outcome, but the downgrading of temp_anomaly_2025 reduces the influence of long-term trends and seasonal anomalies. However, since the original estimate was only slightly above 0.5 due to weak warming bias and uncertainty, the weakening of this link results in only a small decrease in probability, bringing it marginally closer to a null expectation. The core uncertainty remains dominated by unpredictable weather_variability, so the shift is minimal.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge correctly identifies that temp_anomaly_2025, while influencing absolute temperatures on both dates, has limited impact on the relative difference between two closely spaced days in late December. This weakens the causal link temp_anomaly_2025 -> outcome, as the anomaly affects both days nearly equally. The outcome is instead more strongly determined by synoptic-scale variability—such as transient high-pressure systems, cold fronts, or blocking patterns—mediated through weather_variability and its drivers (arctic_outflow and atlantic_influence). These shorter-term dynamics remain active pathways to the outcome, but the downgrading of temp_anomaly_2025 reduces the influence of long-term trends and seasonal anomalies. However, since the original estimate was only slightly above 0.5 due to weak warming bias and uncertainty, the weakening of this link results in only a small decrease in probability, bringing it marginally closer to a null expectation. The core uncertainty remains dominated by unpredictable weather_variability, so the shift is minimal.\"\n}",
+      "target_id": "temp_anomaly_2025->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "December at Nancy – Ochey Air Base is near the winter solstice, but the baseline seasonal temperature is highly variable due to competing Arctic and Atlantic influences, making the 'stable, cold baseline' assumption questionable. In recent years, mid-December anomalies have shown low autocorrelation with late-December ones, suggesting the seasonal cycle does not strongly anchor short-term temperature anomalies in this period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link between seasonal_cycle and temp_anomaly_2025, arguing that the seasonal baseline in December at this location is not stable due to competing Arctic and Atlantic influences, and that anomalies in mid-December do not strongly predict late-December anomalies. This weakens the influence of the seasonal_cycle node on temp_anomaly_2025, reducing its constraining effect on short-term temperature deviations. As a result, temp_anomaly_2025 becomes more driven by weather_variability and its upstream drivers (arctic_outflow and atlantic_influence), increasing uncertainty in the temperature trajectory between the two dates. However, since the outcome depends on the relative ordering of two close-in-time days rather than absolute anomaly levels, and given that weather_variability already accounted for much of the short-term noise, the overall impact on the outcome is modest. The weakening of a stabilizing seasonal signal slightly reduces predictability, marginally lowering confidence in a warming tendency, hence a small decrease from 0.52 to 0.51.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link between seasonal_cycle and temp_anomaly_2025, arguing that the seasonal baseline in December at this location is not stable due to competing Arctic and Atlantic influences, and that anomalies in mid-December do not strongly predict late-December anomalies. This weakens the influence of the seasonal_cycle node on temp_anomaly_2025, reducing its constraining effect on short-term temperature deviations. As a result, temp_anomaly_2025 becomes more driven by weather_variability and its upstream drivers (arctic_outflow and atlantic_influence), increasing uncertainty in the temperature trajectory between the two dates. However, since the outcome depends on the relative ordering of two close-in-time days rather than absolute anomaly levels, and given that weather_variability already accounted for much of the short-term noise, the overall impact on the outcome is modest. The weakening of a stabilizing seasonal signal slightly reduces predictability, marginally lowering confidence in a warming tendency, hence a small decrease from 0.52 to 0.51.\"\n}",
+      "target_id": "seasonal_cycle->temp_anomaly_2025",
+      "target_type": "edge",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Suppose that in 2025, December in eastern France experiences an unusually stable atmospheric pattern due to a persistent high-pressure block, which suppresses short-term weather variability. In this scenario, the reduced day-to-day fluctuations are a consequence of the broader temp_anomaly_2025 being driven by a sustained warm deviation, rather than random noise causing the anomaly. Could it be that temp_anomaly_2025 influences the magnitude of weather_variability, rather than the other way around?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge suggests a potential reversal or bidirectional relationship between weather_variability and temp_anomaly_2025, where a persistent warm anomaly in December 2025 could suppress short-term variability via a stable high-pressure block, rather than variability driving the anomaly. However, in the context of the outcome—comparing two specific days (2025-12-28 vs. 2025-12-21)—the dominant causal path remains temp_anomaly_2025 influencing the likelihood of a warmer end-of-month reading. Even if weather_variability is reduced due to a stable pattern, this does not break or significantly alter the core logic: a sustained warm anomaly (driven by climate_trend, seasonal_cycle, and large-scale patterns like atlantic_influence or arctic_outflow) still increases the chance that the later date is warmer. The direction of causality between variability and anomaly is of secondary importance to the outcome, as both scenarios imply coherent warmth across the period. Thus, the structural integrity of the network leading to the outcome is preserved, and no meaningful update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge suggests a potential reversal or bidirectional relationship between weather_variability and temp_anomaly_2025, where a persistent warm anomaly in December 2025 could suppress short-term variability via a stable high-pressure block, rather than variability driving the anomaly. However, in the context of the outcome—comparing two specific days (2025-12-28 vs. 2025-12-21)—the dominant causal path remains temp_anomaly_2025 influencing the likelihood of a warmer end-of-month reading. Even if weather_variability is reduced due to a stable pattern, this does not break or significantly alter the core logic: a sustained warm anomaly (driven by climate_trend, seasonal_cycle, and large-scale patterns like atlantic_influence or arctic_outflow) still increases the chance that the later date is warmer. The direction of causality between variability and anomaly is of secondary importance to the outcome, as both scenarios imply coherent warmth across the period. Thus, the structural integrity of the network leading to the outcome is preserved, and no meaningful update to the probability is warranted.\"\n}",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose a persistent positive North Atlantic Oscillation pattern in winter 2025 steers more frequent and intense Atlantic storm systems toward France, increasing zonal flow and maritime air advection. This would systematically raise December baseline temperatures at Nancy – Ochey Air Base, contributing directly to a positive temp_anomaly_2025 independent of long-term trends or seasonal cycles. Shouldn't atlantic_influence therefore have a direct causal effect on temp_anomaly_2025, not just through modulating short-term weather_variability?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The challenge correctly identifies a structural limitation in the original causal network: atlantic_influence was modeled only as a modulator of short-term weather_variability, but under a persistent positive North Atlantic Oscillation (NAO) in winter 2025, Atlantic storm systems can systematically alter the December temperature baseline at Nancy – Ochey Air Base. This establishes a direct causal path from atlantic_influence to temp_anomaly_2025, independent of weather_variability. This strengthens the influence of Atlantic dynamics on the overall temperature anomaly, increasing the likelihood of above-average temperatures during December 2025. Since warmer baseline conditions make it more probable that the temperature on 2025-12-28 exceeds that of 2025-12-21 (especially given the proximity of the dates), the outcome probability increases. The shift is moderate because the original network already captured some of this influence indirectly via weather_variability, but the newly acknowledged direct effect enhances the expected anomaly magnitude.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge correctly identifies a structural limitation in the original causal network: atlantic_influence was modeled only as a modulator of short-term weather_variability, but under a persistent positive North Atlantic Oscillation (NAO) in winter 2025, Atlantic storm systems can systematically alter the December temperature baseline at Nancy – Ochey Air Base. This establishes a direct causal path from atlantic_influence to temp_anomaly_2025, independent of weather_variability. This strengthens the influence of Atlantic dynamics on the overall temperature anomaly, increasing the likelihood of above-average temperatures during December 2025. Since warmer baseline conditions make it more probable that the temperature on 2025-12-28 exceeds that of 2025-12-21 (especially given the proximity of the dates), the outcome probability increases. The shift is moderate because the original network already captured some of this influence indirectly via weather_variability, but the newly acknowledged direct effect enhances the expected anomaly magnitude.\"\n}",
+      "target_id": "atlantic_influence->temp_anomaly_2025",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose strong evidence emerges that Atlantic storm systems have systematically altered the shape of the seasonal temperature cycle in eastern France over the past two decades, such that December temperatures are now consistently milder and less variable due to increased maritime air intrusion. How would the forecaster update their model if Atlantic influence directly modulates the baseline seasonal_cycle, rather than acting only through short-term weather noise?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence suggests that atlantic_influence directly modulates seasonal_cycle, not just weather_variability. This strengthens the causal pathway from atlantic_influence to temp_anomaly_2025 by adding a direct link through seasonal_cycle (now: atlantic_influence -> seasonal_cycle -> temp_anomaly_2025). With increased maritime air intrusion making December temperatures milder and less variable, the baseline seasonal_cycle shifts toward warmer average conditions and reduced variance. This increases the likelihood of above-average temperatures during both dates, but particularly benefits the later date (2025-12-28), which is closer to the post-solstice period when Atlantic warming influence is climatologically more dominant. Additionally, reduced variability implies less chance of sharp cold drops late in the month, increasing the relative stability and predictability of warmer conditions. Combined with the existing climate_trend, this reinforces temp_anomaly_2025 as positive, thereby increasing the probability that the temperature on 2025-12-28 exceeds that of 2025-12-21. The outcome node is thus shifted upward due to a strengthened and more direct causal path from atlantic_influence through both seasonal_cycle and weather_variability to temp_anomaly_2025 and then to outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence suggests that atlantic_influence directly modulates seasonal_cycle, not just weather_variability. This strengthens the causal pathway from atlantic_influence to temp_anomaly_2025 by adding a direct link through seasonal_cycle (now: atlantic_influence -> seasonal_cycle -> temp_anomaly_2025). With increased maritime air intrusion making December temperatures milder and less variable, the baseline seasonal_cycle shifts toward warmer average conditions and reduced variance. This increases the likelihood of above-average temperatures during both dates, but particularly benefits the later date (2025-12-28), which is closer to the post-solstice period when Atlantic warming influence is climatologically more dominant. Additionally, reduced variability implies less chance of sharp cold drops late in the month, increasing the relative stability and predictability of warmer conditions. Combined with the existing climate_trend, this reinforces temp_anomaly_2025 as positive, thereby increasing the probability that the temperature on 2025-12-28 exceeds that of 2025-12-21. The outcome node is thus shifted upward due to a strengthened and more direct causal path from atlantic_influence through both seasonal_cycle and weather_variability to temp_anomaly_2025 and then to outcome.\"\n}",
+      "target_id": "atlantic_influence->seasonal_cycle",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential impact of a sudden stratospheric warming (SSW) event in December 2025. Such an event can disrupt the polar vortex, leading to prolonged periods of abnormal cold or warmth in Western Europe by altering the jet stream and increasing the likelihood of blocking high-pressure systems over France. This mechanism would directly influence weather_variability and temp_anomaly_2025, and thus affect the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The introduction of sudden stratospheric warming (SSW) as a potential driver is relevant to weather_variability and temp_anomaly_2025, and could influence the outcome through altered jet stream patterns and blocking systems. However, SSW events are themselves a component of weather_variability and act through the same causal pathways already represented in the model—particularly via arctic_outflow and atlantic_influence. Since SSW is not a deterministic predictor of specific temperature outcomes (its effects vary by event and can lead to either cold or warm anomalies depending on downstream dynamics), and because the base forecast already incorporates uncertainty through weather_variability and temp_anomaly_2025, the structural addition of SSW does not fundamentally alter the causal structure or justify a directional shift. The net effect remains symmetric enough in expectation that the slight upward bias from climate_trend is unchanged. Therefore, no probability update is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The introduction of sudden stratospheric warming (SSW) as a potential driver is relevant to weather_variability and temp_anomaly_2025, and could influence the outcome through altered jet stream patterns and blocking systems. However, SSW events are themselves a component of weather_variability and act through the same causal pathways already represented in the model—particularly via arctic_outflow and atlantic_influence. Since SSW is not a deterministic predictor of specific temperature outcomes (its effects vary by event and can lead to either cold or warm anomalies depending on downstream dynamics), and because the base forecast already incorporates uncertainty through weather_variability and temp_anomaly_2025, the structural addition of SSW does not fundamentally alter the causal structure or justify a directional shift. The net effect remains symmetric enough in expectation that the slight upward bias from climate_trend is unchanged. Therefore, no probability update is warranted.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose a strong and persistent blocking high-pressure system over Scandinavia develops in late December 2025, leading to a stable anticyclonic pattern that diverts Atlantic storm systems away from France and causes prolonged calm and cold conditions in eastern France. This atmospheric blocking pattern is not represented in the current causal model. How would the inclusion of this factor, which can suppress both Atlantic influence and increase the persistence of cold air from Arctic outflows, alter the probability assessment for the temperature outcome?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.14,
+      "shift_direction": "decreased",
+      "reasoning": "The introduction of a persistent Scandinavian blocking high-pressure system represents a significant meteorological driver that suppresses Atlantic influence and enhances the persistence of cold Arctic air over eastern France, including Nancy – Ochey Air Base. This factor directly affects two existing nodes: it inhibits atlantic_influence (diverting warming storm systems away) and amplifies arctic_outflow (allowing cold air to stagnate). Moreover, it introduces a new source of temporal persistence in weather_variability, reducing day-to-day fluctuations but locking in sustained cold conditions. This strengthens the likelihood of below-average temperatures throughout late December 2025, thereby reducing temp_anomaly_2025 and decreasing the chance that 2025-12-28 is warmer than 2025-12-21. Since this blocking pattern creates a dominant, prolonged synoptic condition not accounted for in the original model—which assumed more typical variability—the causal path from weather_variability to outcome is effectively restructured. Given the strong impact on temperature persistence and the regional climatology, the probability is substantially reduced from 0.52 to 0.38.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The introduction of a persistent Scandinavian blocking high-pressure system represents a significant meteorological driver that suppresses Atlantic influence and enhances the persistence of cold Arctic air over eastern France, including Nancy – Ochey Air Base. This factor directly affects two existing nodes: it inhibits atlantic_influence (diverting warming storm systems away) and amplifies arctic_outflow (allowing cold air to stagnate). Moreover, it introduces a new source of temporal persistence in weather_variability, reducing day-to-day fluctuations but locking in sustained cold conditions. This strengthens the likelihood of below-average temperatures throughout late December 2025, thereby reducing temp_anomaly_2025 and decreasing the chance that 2025-12-28 is warmer than 2025-12-21. Since this blocking pattern creates a dominant, prolonged synoptic condition not accounted for in the original model—which assumed more typical variability—the causal path from weather_variability to outcome is effectively restructured. Given the strong impact on temperature persistence and the regional climatology, the probability is substantially reduced from 0.52 to 0.38.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study found that air traffic at Nancy – Ochey Air Base has decreased by 15% over the past decade due to reduced military training exercises. This has led to fewer jet contrails and localized changes in cloud formation around the airfield during December operations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The reduction in air traffic and associated decrease in jet contrails may have a localized effect on cloud formation and surface temperature near the airfield. However, this effect is likely very small compared to the dominant climatological and meteorological drivers in the causal network, such as seasonal_cycle, weather_variability, and climate_trend. The outcome depends on large-scale temperature patterns and year-specific anomalies, which are not meaningfully influenced by localized changes in contrail-induced cloudiness. Therefore, the causal path from air traffic to outcome is weak and peripheral, and the challenge does not affect any structurally important links in the model. No significant update to the probability is warranted.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The reduction in air traffic and associated decrease in jet contrails may have a localized effect on cloud formation and surface temperature near the airfield. However, this effect is likely very small compared to the dominant climatological and meteorological drivers in the causal network, such as seasonal_cycle, weather_variability, and climate_trend. The outcome depends on large-scale temperature patterns and year-specific anomalies, which are not meaningfully influenced by localized changes in contrail-induced cloudiness. Therefore, the causal path from air traffic to outcome is weak and peripheral, and the challenge does not affect any structurally important links in the model. No significant update to the probability is warranted.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In 2024, the French Ministry of Transport announced plans to upgrade the runway lighting system at Nancy – Ochey Air Base, with construction scheduled to begin in early 2025. The project is expected to increase nighttime operational capacity but will not alter local land use or surface albedo significantly.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The announced runway lighting upgrade at Nancy – Ochey Air Base does not affect any of the causal paths leading to the outcome. The intervention is limited to operational infrastructure and explicitly stated to not alter local land use or surface albedo, meaning no expected change in local temperature conditions. As such, nodes like weather_variability, atlantic_influence, arctic_outflow, seasonal_cycle, climate_trend, and temp_anomaly_2025 remain unaffected. Since the physical drivers of temperature at the station are unchanged, the probability remains the same.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The announced runway lighting upgrade at Nancy – Ochey Air Base does not affect any of the causal paths leading to the outcome. The intervention is limited to operational infrastructure and explicitly stated to not alter local land use or surface albedo, meaning no expected change in local temperature conditions. As such, nodes like weather_variability, atlantic_influence, arctic_outflow, seasonal_cycle, climate_trend, and temp_anomaly_2025 remain unaffected. Since the physical drivers of temperature at the station are unchanged, the probability remains the same.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "In early December 2025, satellite and ground observations confirm that eastern France has entered a stable, high-pressure regime typical of the winter solstice period, reinforcing the expected seasonal cooling pattern. Historical analysis shows that during such meteorologically stable Decembers, the daily temperature variation at Nancy – Ochey Air Base is tightly constrained around the climatological mean, reducing the impact of short-term weather noise and amplifying the predictability of the seasonal cycle.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The new information strengthens the role of the seasonal_cycle node by confirming a stable high-pressure regime that reinforces the typical winter solstice cooling pattern and reduces the influence of short-term weather_variability. This increases the dominance of the seasonal_cycle over temp_anomaly_2025, which in turn slightly reduces the expected magnitude of temperature fluctuations between 2025-12-21 and 2025-12-28. With temperatures more tightly constrained around the climatological mean, the likelihood of a meaningful warming trend or random fluctuation causing a higher temperature on the later date diminishes slightly. As a result, the influence of climate_trend and weather_variability on the outcome is muted, and the outcome becomes more neutral—closer to a 50:50 chance. Since the original estimate was already close to neutral (0.52), this shift only marginally decreases the probability, reflecting slightly reduced volatility without overturning the near-even odds.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information strengthens the role of the seasonal_cycle node by confirming a stable high-pressure regime that reinforces the typical winter solstice cooling pattern and reduces the influence of short-term weather_variability. This increases the dominance of the seasonal_cycle over temp_anomaly_2025, which in turn slightly reduces the expected magnitude of temperature fluctuations between 2025-12-21 and 2025-12-28. With temperatures more tightly constrained around the climatological mean, the likelihood of a meaningful warming trend or random fluctuation causing a higher temperature on the later date diminishes slightly. As a result, the influence of climate_trend and weather_variability on the outcome is muted, and the outcome becomes more neutral—closer to a 50:50 chance. Since the original estimate was already close to neutral (0.52), this shift only marginally decreases the probability, reflecting slightly reduced volatility without overturning the near-even odds.\"\n}",
+      "target_id": "seasonal_cycle",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent reanalysis of December weather patterns in eastern France shows that years with stronger Atlantic storm tracks correlate with increased temperature volatility at inland stations like Nancy – Ochey Air Base. Specifically, data from 2015 to 2024 indicate that 70% of unseasonably warm December days coincided with active Atlantic low-pressure systems advecting mild maritime air. This supports the role of Atlantic influence in modulating short-term temperature fluctuations relevant to 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between atlantic_influence and weather_variability, confirming that Atlantic storm systems significantly modulate short-term temperature fluctuations at inland French stations like Nancy – Ochey Air Base. This reinforces the pathway atlantic_influence -> weather_variability -> temp_anomaly_2025 -> outcome. Specifically, the data show that active Atlantic systems are associated with warm extremes, increasing the likelihood of positive temperature anomalies later in December. Since 2025-12-28 is eight days after 2025-12-21, and Atlantic-driven variability increases both volatility and the chance of warming pulses, this raises the probability that the later date is warmer. The update is moderate because weather_variability remains stochastic, and the outcome still depends on specific 2025 conditions, but the strengthened evidence for Atlantic modulation of warmth justifies a shift from 0.52 to 0.56.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between atlantic_influence and weather_variability, confirming that Atlantic storm systems significantly modulate short-term temperature fluctuations at inland French stations like Nancy – Ochey Air Base. This reinforces the pathway atlantic_influence -> weather_variability -> temp_anomaly_2025 -> outcome. Specifically, the data show that active Atlantic systems are associated with warm extremes, increasing the likelihood of positive temperature anomalies later in December. Since 2025-12-28 is eight days after 2025-12-21, and Atlantic-driven variability increases both volatility and the chance of warming pulses, this raises the probability that the later date is warmer. The update is moderate because weather_variability remains stochastic, and the outcome still depends on specific 2025 conditions, but the strengthened evidence for Atlantic modulation of warmth justifies a shift from 0.52 to 0.56.\"\n}",
+      "target_id": "atlantic_influence",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis from Météo-France shows that short-term atmospheric variability in December 2024 led to unprecedented day-to-day temperature swings across northeastern France, with Nancy experiencing a 14°C spike over 48 hours due to rapid shifts in jet stream positioning. This increased volatility is consistent with climate models predicting enhanced weather variability under current warming, reinforcing the direct impact of weather_variability on temp_anomaly_2025 beyond historical baselines.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between weather_variability and temp_anomaly_2025 by showing that short-term atmospheric fluctuations are not only active but intensifying, leading to larger temperature swings than historically observed. This enhances the role of weather_variability as a driver of temp_anomaly_2025, particularly in December, and increases the likelihood of positive temperature deviations due to rapid warming events (e.g., jet stream shifts bringing warm air). Since temp_anomaly_2025 directly influences the outcome, a stronger contribution from weather_variability tilts the distribution of anomalies toward more extreme and volatile outcomes, including higher temperatures. Given that the comparison is between two close dates (12/21 and 12/28), increased variability raises the chance of a net upward swing. Thus, the strengthened path from weather_variability → temp_anomaly_2025 → outcome increases the probability that 12/28 is warmer than 12/21, especially if such volatility favors sharp warming episodes.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between weather_variability and temp_anomaly_2025 by showing that short-term atmospheric fluctuations are not only active but intensifying, leading to larger temperature swings than historically observed. This enhances the role of weather_variability as a driver of temp_anomaly_2025, particularly in December, and increases the likelihood of positive temperature deviations due to rapid warming events (e.g., jet stream shifts bringing warm air). Since temp_anomaly_2025 directly influences the outcome, a stronger contribution from weather_variability tilts the distribution of anomalies toward more extreme and volatile outcomes, including higher temperatures. Given that the comparison is between two close dates (12/21 and 12/28), increased variability raises the chance of a net upward swing. Thus, the strengthened path from weather_variability → temp_anomaly_2025 → outcome increases the probability that 12/28 is warmer than 12/21, especially if such volatility favors sharp warming episodes.\"\n}",
+      "target_id": "weather_variability->temp_anomaly_2025",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A 2024 study by Météo-France found that in eastern France, interannual temperature anomalies during December have become increasingly persistent due to amplified Arctic warming, leading to multi-day temperature regimes that last longer than historically observed. This means that when 2025 exhibits a strong positive temperature anomaly, it is more likely to sustain elevated temperatures across both 2025-12-21 and 2025-12-28, but with a higher probability that the later date is warmer due to prolonged anomalous conditions. This persistence strengthens the influence of temp_anomaly_2025 on the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces new evidence that temp_anomaly_2025 has a stronger and more persistent influence on daily temperatures in eastern France due to increased regime longevity from Arctic amplification. This strengthens the causal link temp_anomaly_2025 -> outcome, as a positive anomaly in 2025 is more likely to result in sustained warmth, increasing the probability that the later date (2025-12-28) is warmer than the earlier one (2025-12-21). The persistence effect enhances the predictive power of the annual anomaly on the relative temperature between the two dates, making the outcome more sensitive to temp_anomaly_2025. This reinforces the existing causal path rather than creating a new one, warranting a moderate upward adjustment from 0.52 to 0.61.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces new evidence that temp_anomaly_2025 has a stronger and more persistent influence on daily temperatures in eastern France due to increased regime longevity from Arctic amplification. This strengthens the causal link temp_anomaly_2025 -> outcome, as a positive anomaly in 2025 is more likely to result in sustained warmth, increasing the probability that the later date (2025-12-28) is warmer than the earlier one (2025-12-21). The persistence effect enhances the predictive power of the annual anomaly on the relative temperature between the two dates, making the outcome more sensitive to temp_anomaly_2025. This reinforces the existing causal path rather than creating a new one, warranting a moderate upward adjustment from 0.52 to 0.61.\"\n}",
+      "target_id": "temp_anomaly_2025->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07181.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Nancy – Ochey Air Base will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.030000000000000006,
+    "max_absolute_shift": 0.16000000000000003
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 3.7499999999999964,
+    "mean_shift_high": 0.045,
+    "mean_shift_low": 0.01200000000000001,
+    "asymmetry_index": 0.1621621621621623,
+    "mean_shift_negate": 0.010000000000000009,
+    "mean_shift_strengthen": 0.06166666666666667,
+    "fnar": 0.5,
+    "n_accepted": 2,
+    "n_spurious": 4,
+    "critical_path_premium": 0.0059999999999999915,
+    "mean_shift_on_path": 0.037,
+    "mean_shift_off_path": 0.031000000000000007,
+    "importance_sensitivity_correlation": 0.33939393939393936,
+    "control_sensitivity": 0
+  }
+}

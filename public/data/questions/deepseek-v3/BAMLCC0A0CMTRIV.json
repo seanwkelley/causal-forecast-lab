@@ -1,0 +1,1037 @@
+{
+  "question_id": "BAMLCC0A0CMTRIV",
+  "question_text": "Will the total return of the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+  "source": "fred",
+  "initial_probability": 0.55,
+  "nodes": [
+    {
+      "id": "macro_economic_conditions",
+      "description": "Overall health of the US economy including GDP growth and corporate earnings",
+      "role": "factor"
+    },
+    {
+      "id": "interest_rate_path",
+      "description": "The trajectory of benchmark interest rates, primarily set by the Federal Reserve",
+      "role": "factor"
+    },
+    {
+      "id": "credit_spreads",
+      "description": "The yield difference between corporate bonds and comparable US Treasury bonds",
+      "role": "factor"
+    },
+    {
+      "id": "market_sentiment_risk_appetite",
+      "description": "Investor willingness to take on risk, influencing demand for corporate debt",
+      "role": "factor"
+    },
+    {
+      "id": "issuance_and_flows",
+      "description": "Net supply of new corporate bonds and investor capital flows into/out of the asset class",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "Total return of the ICE BofA US Corporate Index is higher on 2025-12-28 than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "macro_economic_conditions",
+      "to": "credit_spreads",
+      "mechanism": "Stronger economic conditions improve corporate creditworthiness, compressing spreads, while a weaker outlook widens them."
+    },
+    {
+      "from": "interest_rate_path",
+      "to": "credit_spreads",
+      "mechanism": "A rising rate environment can increase stress on corporate borrowers, potentially widening spreads. Falling rates have the opposite effect."
+    },
+    {
+      "from": "macro_economic_conditions",
+      "to": "market_sentiment_risk_appetite",
+      "mechanism": "Positive economic data boosts investor confidence and risk appetite, increasing demand for corporate bonds."
+    },
+    {
+      "from": "interest_rate_path",
+      "to": "market_sentiment_risk_appetite",
+      "mechanism": "A stable or dovish rate outlook supports risk sentiment, while a hawkish surprise can trigger risk-off sentiment."
+    },
+    {
+      "from": "credit_spreads",
+      "to": "outcome",
+      "mechanism": "Narrowing credit spreads provide a price gain for existing bonds, boosting total return. Widening spreads cause price losses."
+    },
+    {
+      "from": "market_sentiment_risk_appetite",
+      "to": "issuance_and_flows",
+      "mechanism": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices."
+    },
+    {
+      "from": "issuance_and_flows",
+      "to": "outcome",
+      "mechanism": "Strong net demand (high inflows, low net issuance) pushes bond prices up, increasing total return. Weak demand has the opposite effect."
+    }
+  ],
+  "reasoning": "The forecast concerns a very short-term (one-week) change in a corporate bond index total return. Over such a brief horizon, the outcome is highly sensitive to daily market moves driven by news on monetary policy, economic data, and risk sentiment, rather than long-term fundamentals. The probability is slightly above 0.5 because, in the absence of major scheduled events, markets often exhibit a mild positive drift. However, the period includes the Christmas holiday, which can lead to thin, volatile trading, and year-end portfolio rebalancing flows are unpredictable, introducing significant uncertainty. The causal model links core drivers like economic conditions and Fed policy to intermediate factors like spreads and sentiment, which directly influence prices and thus the weekly return.",
+  "network_analysis": {
+    "n_nodes": 6,
+    "n_edges": 7,
+    "density": 0.2333,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 6,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "macro_economic_conditions",
+        "description": "Overall health of the US economy including GDP growth and corporate earnings",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0767,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "interest_rate_path",
+        "description": "The trajectory of benchmark interest rates, primarily set by the Federal Reserve",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0767,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "credit_spreads",
+        "description": "The yield difference between corporate bonds and comparable US Treasury bonds",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.4,
+        "pagerank": 0.142,
+        "path_relevance": 0.4
+      },
+      {
+        "node_id": "market_sentiment_risk_appetite",
+        "description": "Investor willingness to take on risk, influencing demand for corporate debt",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1,
+        "closeness": 0.4,
+        "pagerank": 0.142,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "issuance_and_flows",
+        "description": "Net supply of new corporate bonds and investor capital flows into/out of the asset class",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.36,
+        "pagerank": 0.1974,
+        "path_relevance": 0.2
+      },
+      {
+        "node_id": "outcome",
+        "description": "Total return of the ICE BofA US Corporate Index is higher on 2025-12-28 than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.625,
+        "pagerank": 0.3652,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "macro_economic_conditions",
+        "target": "credit_spreads",
+        "mechanism": "Stronger economic conditions improve corporate creditworthiness, compressing spreads, while a weaker outlook widens them.",
+        "edge_betweenness": 0.0667,
+        "on_critical_path": true
+      },
+      {
+        "source": "macro_economic_conditions",
+        "target": "market_sentiment_risk_appetite",
+        "mechanism": "Positive economic data boosts investor confidence and risk appetite, increasing demand for corporate bonds.",
+        "edge_betweenness": 0.0667,
+        "on_critical_path": false
+      },
+      {
+        "source": "interest_rate_path",
+        "target": "credit_spreads",
+        "mechanism": "A rising rate environment can increase stress on corporate borrowers, potentially widening spreads. Falling rates have the opposite effect.",
+        "edge_betweenness": 0.0667,
+        "on_critical_path": true
+      },
+      {
+        "source": "interest_rate_path",
+        "target": "market_sentiment_risk_appetite",
+        "mechanism": "A stable or dovish rate outlook supports risk sentiment, while a hawkish surprise can trigger risk-off sentiment.",
+        "edge_betweenness": 0.0667,
+        "on_critical_path": false
+      },
+      {
+        "source": "credit_spreads",
+        "target": "outcome",
+        "mechanism": "Narrowing credit spreads provide a price gain for existing bonds, boosting total return. Widening spreads cause price losses.",
+        "edge_betweenness": 0.1,
+        "on_critical_path": true
+      },
+      {
+        "source": "market_sentiment_risk_appetite",
+        "target": "issuance_and_flows",
+        "mechanism": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices.",
+        "edge_betweenness": 0.1333,
+        "on_critical_path": true
+      },
+      {
+        "source": "issuance_and_flows",
+        "target": "outcome",
+        "mechanism": "Strong net demand (high inflows, low net issuance) pushes bond prices up, increasing total return. Weak demand has the opposite effect.",
+        "edge_betweenness": 0.0667,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "credit_spreads",
+        "description": "The yield difference between corporate bonds and comparable US Treasury bonds",
+        "importance": 0.1,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment_risk_appetite",
+        "description": "Investor willingness to take on risk, influencing demand for corporate debt",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "issuance_and_flows",
+        "description": "Net supply of new corporate bonds and investor capital flows into/out of the asset class",
+        "importance": 0.05,
+        "centrality_rank": 3,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "interest_rate_path",
+        "description": "The trajectory of benchmark interest rates, primarily set by the Federal Reserve",
+        "importance": 0,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "credit_spreads",
+        "description": "The yield difference between corporate bonds and comparable US Treasury bonds",
+        "importance": 0.1,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "market_sentiment_risk_appetite",
+        "description": "Investor willingness to take on risk, influencing demand for corporate debt",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+        "description": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices.",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "credit_spreads->outcome",
+        "description": "Narrowing credit spreads provide a price gain for existing bonds, boosting total return. Widening spreads cause price losses.",
+        "importance": 0.1,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "macro_economic_conditions->market_sentiment_risk_appetite",
+        "description": "Positive economic data boosts investor confidence and risk appetite, increasing demand for corporate bonds.",
+        "importance": 0.0667,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+        "description": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices.",
+        "importance": 0.1333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "issuance_and_flows->credit_spreads",
+        "description": "Potential link: Net supply of new corporate bonds and investor capital flows into/out of the asset class -> The yield difference between corporate bonds and comparable US Treasury bonds",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "credit_spreads",
+      "description": "The yield difference between corporate bonds and comparable US Treasury bonds",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment_risk_appetite",
+      "description": "Investor willingness to take on risk, influencing demand for corporate debt",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "issuance_and_flows",
+      "description": "Net supply of new corporate bonds and investor capital flows into/out of the asset class",
+      "importance": 0.05,
+      "centrality_rank": 3,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "interest_rate_path",
+      "description": "The trajectory of benchmark interest rates, primarily set by the Federal Reserve",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "credit_spreads",
+      "description": "The yield difference between corporate bonds and comparable US Treasury bonds",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "market_sentiment_risk_appetite",
+      "description": "Investor willingness to take on risk, influencing demand for corporate debt",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "description": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices.",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "credit_spreads->outcome",
+      "description": "Narrowing credit spreads provide a price gain for existing bonds, boosting total return. Widening spreads cause price losses.",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "macro_economic_conditions->market_sentiment_risk_appetite",
+      "description": "Positive economic data boosts investor confidence and risk appetite, increasing demand for corporate bonds.",
+      "importance": 0.0667,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "description": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices.",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "issuance_and_flows->credit_spreads",
+      "description": "Potential link: Net supply of new corporate bonds and investor capital flows into/out of the asset class -> The yield difference between corporate bonds and comparable US Treasury bonds",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Consider a scenario where the ICE BofA US Corporate Index's total return over this one-week period is dominated by large, pre-scheduled coupon payments from its constituent bonds. In such a case, the price effect from any change in credit spreads could be negligible compared to this significant, deterministic income component, making the spread factor largely irrelevant for the specific weekly return outcome.",
+      "probe_type": "node_negate_high",
+      "target_id": "credit_spreads",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The yield difference between corporate bonds and comparable US Treasury bonds"
+    },
+    {
+      "probe_text": "Suppose that, due to structural changes in the market, investor risk appetite has become entirely decoupled from corporate bond returns for this specific weekly horizon. For example, corporate bond markets might now be dominated by price-insensitive institutional buyers (like pension funds or central banks) that mechanically roll over positions regardless of sentiment, or algorithmic trading could neutralize sentiment-driven flows. In such a scenario, shifts in risk appetite would have negligible impact on demand or pricing for the ICE BofA Index over this period.",
+      "probe_type": "node_negate_high",
+      "target_id": "market_sentiment_risk_appetite",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Investor willingness to take on risk, influencing demand for corporate debt"
+    },
+    {
+      "probe_text": "Recent analysis shows that despite record capital inflows into corporate bond ETFs in late 2025, the ICE BofA US Corporate Index's total return remained flat due to an unprecedented surge in new corporate bond issuance. This suggests that net supply has completely offset investor demand, making issuance_and_flows a poor predictor of short-term returns.",
+      "probe_type": "node_negate_medium",
+      "target_id": "issuance_and_flows",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 3,
+      "on_critical_path": true,
+      "description": "Net supply of new corporate bonds and investor capital flows into/out of the asset class"
+    },
+    {
+      "probe_text": "Recent analysis shows that the Federal Reserve's benchmark rates have become increasingly decoupled from corporate borrowing costs in the current market structure, as large institutional investors now set pricing primarily based on direct liquidity provisions and sector-specific risk assessments. For the week ending 2025-12-28, the interest rate path is expected to have minimal marginal impact because corporate debt markets are already pricing in a long-term neutral stance, and short-term fluctuations in Fed guidance are being ignored by credit traders focused on fiscal stimulus tailwinds.",
+      "probe_type": "node_negate_low",
+      "target_id": "interest_rate_path",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "The trajectory of benchmark interest rates, primarily set by the Federal Reserve"
+    },
+    {
+      "probe_text": "The Federal Reserve's latest Senior Loan Officer Opinion Survey shows a sharp tightening in lending standards for commercial and industrial loans, which historically precedes widening corporate credit spreads as banks become more cautious about corporate credit risk. Additionally, recent high-frequency data indicates that corporate bond market liquidity has deteriorated significantly, a condition that typically amplifies spread movements in response to any economic or market stress. This combination suggests credit spreads are not only highly sensitive to current conditions but are also likely to be the primary driver of short-term total return fluctuations in the ICE BofA US Corporate Index over the next week.",
+      "probe_type": "node_strengthen",
+      "target_id": "credit_spreads",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "The yield difference between corporate bonds and comparable US Treasury bonds"
+    },
+    {
+      "probe_text": "A major global asset manager just announced a strategic shift, doubling its allocation to US corporate bonds due to a conviction that investor risk appetite is at a decade high and will persist through 2025, driven by strong corporate earnings and stable inflation. Their CIO stated, 'We see market sentiment as the primary driver of corporate bond returns in the near term, overshadowing even rate changes.' This endorsement, backed by a planned $20 billion inflow into the sector, directly reinforces the importance of market sentiment and risk appetite.",
+      "probe_type": "node_strengthen",
+      "target_id": "market_sentiment_risk_appetite",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Investor willingness to take on risk, influencing demand for corporate debt"
+    },
+    {
+      "probe_text": "Recent analysis shows that, in the current market, a surge in investor risk appetite has increasingly favored equity ETFs and direct stock purchases over corporate bond funds, due to the higher perceived upside and liquidity of equities during optimistic periods. This shift means that strong market sentiment may not translate into proportional inflows to corporate debt, as capital is diverted to riskier assets, weakening the assumed causal link. Furthermore, corporate bond fund flows have recently exhibited low sensitivity to general risk appetite indices, being more driven by specific regulatory changes and institutional rebalancing needs.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices."
+    },
+    {
+      "probe_text": "Suppose that over the week in question, the Federal Reserve unexpectedly signals a much more aggressive rate-cutting path than anticipated, leading to a sharp, parallel downward shift in the entire Treasury yield curve. In this scenario, even if corporate credit spreads widen modestly due to concerns about the economic outlook prompting the cuts, the dominant driver of corporate bond total returns could be the large drop in risk-free rates, causing substantial price appreciation for all bonds that overwhelms the negative impact from spread widening. Historical analysis, such as during the 2008 crisis or the 2020 pandemic panic, shows that periods of extreme flight-to-quality and monetary policy intervention can decouple spread moves from total returns over short horizons, as duration effects dominate.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "credit_spreads->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Narrowing credit spreads provide a price gain for existing bonds, boosting total return. Widening spreads cause price losses."
+    },
+    {
+      "probe_text": "Recent economic data shows strong GDP growth and low unemployment, but market sentiment has turned sharply negative due to concerns about fiscal sustainability and escalating geopolitical tensions. Investors are interpreting the strong economic conditions as a sign that the Federal Reserve will have to maintain higher interest rates for longer, which is triggering a risk-off shift. This suggests that positive macroeconomic news can sometimes suppress risk appetite rather than boost it.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "macro_economic_conditions->market_sentiment_risk_appetite",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0667,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Positive economic data boosts investor confidence and risk appetite, increasing demand for corporate bonds."
+    },
+    {
+      "probe_text": "Consider that heavy corporate bond issuance can overwhelm market capacity, causing spreads to widen and investors to become more cautious, thereby dampening risk appetite. For example, a surge in supply from companies refinancing debt could lead to indigestion, reducing fund inflows and shifting sentiment negative as investors fear oversupply.",
+      "probe_type": "edge_reverse",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "High risk appetite leads to strong demand and capital inflows into corporate bond funds, supporting prices."
+    },
+    {
+      "probe_text": "Consider a scenario where corporate bond issuance spikes due to firms rushing to lock in financing before an anticipated rate hike, significantly increasing net supply. This surge in issuance could overwhelm investor demand, even if risk appetite is stable, leading to excess supply that forces corporate bond yields to rise relative to Treasuries, thereby widening credit spreads directly through market mechanics. This direct pressure from supply-demand imbalances on spreads is a key mechanism missing from your network.",
+      "probe_type": "edge_spurious",
+      "target_id": "issuance_and_flows->credit_spreads",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Net supply of new corporate bonds and investor capital flows into/out of the asset class -> The yield difference between corporate bonds and comparable US Treasury bonds"
+    },
+    {
+      "probe_text": "Consider the impact of a sharp, unexpected decline in the US dollar against major currencies, which could trigger significant foreign buying of US corporate bonds due to improved relative value and currency-hedged returns. This would increase demand, push prices up, and boost total returns independently of domestic economic conditions or Federal Reserve policy. How would you adjust your probability estimate to account for this missing factor?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the potential for a significant geopolitical event, such as a major conflict or a severe diplomatic crisis, occurring within the week. Such an event could directly trigger a 'flight-to-safety' in financial markets, causing a sharp sell-off in corporate bonds and a widening of credit spreads, regardless of the current macro conditions or interest rate path. This factor is missing from your network, which currently assumes market sentiment is driven only by economic and monetary policy factors.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A major credit rating agency announced it will revise its methodology for assessing corporate governance factors in credit ratings starting in Q2 2026. The announcement has sparked debate among analysts about long-term rating trends, but the agency confirmed no immediate rating changes will occur before 2026.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A new study by a major consulting firm shows that the average CEO tenure at S&P 500 companies has decreased by six months over the past decade. This trend is expected to continue, with boards becoming quicker to replace underperforming leadership.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where the ICE BofA US Corporate Index's total return over this one-week period is dominated by large, pre-scheduled coupon payments from its constituent bonds. In such a case, the price effect from any change in credit spreads could be negligible compared to this significant, deterministic income component, making the spread factor largely irrelevant for the specific weekly return outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge highlights that for a one-week period, deterministic coupon payments could dominate total return, making credit spreads (and thus price changes) less relevant. This weakens the causal path from credit_spreads -> outcome, which was a key driver in my initial model. However, other paths remain intact: market_sentiment_risk_appetite -> issuance_and_flows -> outcome and direct macro/interest rate effects on demand still influence returns. The outcome is now more uncertain and less predictable based on causal factors, slightly lowering my confidence in a positive return, but not drastically since spreads are not the only factor and coupon payments could themselves contribute positively to the return.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge highlights that for a one-week period, deterministic coupon payments could dominate total return, making credit spreads (and thus price changes) less relevant. This weakens the causal path from credit_spreads -> outcome, which was a key driver in my initial model. However, other paths remain intact: market_sentiment_risk_appetite -> issuance_and_flows -> outcome and direct macro/interest rate effects on demand still influence returns. The outcome is now more uncertain and less predictable based on causal factors, slightly lowering my confidence in a positive return, but not drastically since spreads are not the only factor and coupon payments could themselves contribute positively to the return.\"\n}",
+      "target_id": "credit_spreads",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose that, due to structural changes in the market, investor risk appetite has become entirely decoupled from corporate bond returns for this specific weekly horizon. For example, corporate bond markets might now be dominated by price-insensitive institutional buyers (like pension funds or central banks) that mechanically roll over positions regardless of sentiment, or algorithmic trading could neutralize sentiment-driven flows. In such a scenario, shifts in risk appetite would have negligible impact on demand or pricing for the ICE BofA Index over this period.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the link from 'market_sentiment_risk_appetite' to 'issuance_and_flows' and its subsequent effect on the outcome. In the original network, positive sentiment could boost demand and inflows, supporting returns. If sentiment is fully decoupled from demand over this weekly horizon, that specific causal path is broken. However, several other important paths remain intact: 'macro_economic_conditions' and 'interest_rate_path' still influence 'credit_spreads', which directly affects the outcome via price changes. Also, 'macro_economic_conditions' and 'interest_rate_path' could still influence flows through channels other than general risk appetite (e.g., relative value decisions). The outcome is over a very short period (one week), where price movements are often dominated by rate and spread changes rather than sustained sentiment-driven flows. Therefore, while the challenge weakens a supporting factor, the core drivers related to credit spreads and interest rates remain, leading to a small downward adjustment from 0.55 to 0.52.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the link from 'market_sentiment_risk_appetite' to 'issuance_and_flows' and its subsequent effect on the outcome. In the original network, positive sentiment could boost demand and inflows, supporting returns. If sentiment is fully decoupled from demand over this weekly horizon, that specific causal path is broken. However, several other important paths remain intact: 'macro_economic_conditions' and 'interest_rate_path' still influence 'credit_spreads', which directly affects the outcome via price changes. Also, 'macro_economic_conditions' and 'interest_rate_path' could still influence flows through channels other than general risk appetite (e.g., relative value decisions). The outcome is over a very short period (one week), where price movements are often dominated by rate and spread changes rather than sustained sentiment-driven flows. Therefore, while the challenge weakens a supporting factor, the core drivers related to credit spreads and interest rates remain, leading to a small downward adjustment from 0.55 to 0.52.\"\n}",
+      "target_id": "market_sentiment_risk_appetite",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis shows that despite record capital inflows into corporate bond ETFs in late 2025, the ICE BofA US Corporate Index's total return remained flat due to an unprecedented surge in new corporate bond issuance. This suggests that net supply has completely offset investor demand, making issuance_and_flows a poor predictor of short-term returns.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link from issuance_and_flows to outcome by showing that strong inflows can be neutralized by high issuance, reducing its predictive power for short-term returns. This removes a supporting factor for higher total returns. However, the outcome still depends on other paths: credit_spreads -> outcome (via macro conditions and interest rates) and market_sentiment_risk_appetite -> outcome (via direct price effects from sentiment, though its link to issuance_and_flows is now less reliable). The weakening of issuance_and_flows as a reliable predictor reduces confidence in positive scenarios, but not drastically since it was one of several factors. The initial estimate of 0.55 assumed some contribution from this path; without it, the probability shifts modestly downward.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link from issuance_and_flows to outcome by showing that strong inflows can be neutralized by high issuance, reducing its predictive power for short-term returns. This removes a supporting factor for higher total returns. However, the outcome still depends on other paths: credit_spreads -> outcome (via macro conditions and interest rates) and market_sentiment_risk_appetite -> outcome (via direct price effects from sentiment, though its link to issuance_and_flows is now less reliable). The weakening of issuance_and_flows as a reliable predictor reduces confidence in positive scenarios, but not drastically since it was one of several factors. The initial estimate of 0.55 assumed some contribution from this path; without it, the probability shifts modestly downward.\"\n}",
+      "target_id": "issuance_and_flows",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 3,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis shows that the Federal Reserve's benchmark rates have become increasingly decoupled from corporate borrowing costs in the current market structure, as large institutional investors now set pricing primarily based on direct liquidity provisions and sector-specific risk assessments. For the week ending 2025-12-28, the interest rate path is expected to have minimal marginal impact because corporate debt markets are already pricing in a long-term neutral stance, and short-term fluctuations in Fed guidance are being ignored by credit traders focused on fiscal stimulus tailwinds.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.029999999999999916,
+      "shift_direction": "increased",
+      "reasoning": "The challenge weakens two causal paths: 'interest_rate_path -> credit_spreads' and 'interest_rate_path -> market_sentiment_risk_appetite'. If the Fed's rate path has minimal marginal impact on corporate borrowing costs and is being ignored by credit traders, then the influence of interest rates on spreads and sentiment is reduced for this specific one-week forecast horizon. This makes the outcome more dependent on the direct drivers of 'macro_economic_conditions' and 'market_sentiment_risk_appetite' (driven by fiscal stimulus tailwinds). The challenge suggests a stable, ignored rate environment, which removes a potential source of negative volatility (hawkish surprise) and leans slightly positive due to the cited 'fiscal stimulus tailwinds' boosting risk appetite. Therefore, the probability of a positive weekly return increases modestly, as the main remaining drivers (economic conditions and risk appetite from fiscal stimulus) are viewed as supportive.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge weakens two causal paths: 'interest_rate_path -> credit_spreads' and 'interest_rate_path -> market_sentiment_risk_appetite'. If the Fed's rate path has minimal marginal impact on corporate borrowing costs and is being ignored by credit traders, then the influence of interest rates on spreads and sentiment is reduced for this specific one-week forecast horizon. This makes the outcome more dependent on the direct drivers of 'macro_economic_conditions' and 'market_sentiment_risk_appetite' (driven by fiscal stimulus tailwinds). The challenge suggests a stable, ignored rate environment, which removes a potential source of negative volatility (hawkish surprise) and leans slightly positive due to the cited 'fiscal stimulus tailwinds' boosting risk appetite. Therefore, the probability of a positive weekly return increases modestly, as the main remaining drivers (economic conditions and risk appetite from fiscal stimulus) are viewed as supportive.\"\n}",
+      "target_id": "interest_rate_path",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve's latest Senior Loan Officer Opinion Survey shows a sharp tightening in lending standards for commercial and industrial loans, which historically precedes widening corporate credit spreads as banks become more cautious about corporate credit risk. Additionally, recent high-frequency data indicates that corporate bond market liquidity has deteriorated significantly, a condition that typically amplifies spread movements in response to any economic or market stress. This combination suggests credit spreads are not only highly sensitive to current conditions but are also likely to be the primary driver of short-term total return fluctuations in the ICE BofA US Corporate Index over the next week.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge strengthens the causal path from credit_spreads to the outcome by highlighting two factors that make spreads more sensitive and influential: tightening lending standards (historically preceding spread widening) and deteriorating liquidity (amplifying spread movements). This increases the likelihood that credit spreads will widen, directly reducing total return via price losses. While other paths (e.g., market_sentiment_risk_appetite) remain relevant, the emphasis on spreads as the primary short-term driver shifts weight toward this negative influence, lowering the probability of a positive total return. The update is moderate because the one-week timeframe limits the impact of other factors, but uncertainty persists as spreads could still narrow if offset by positive macro or rate developments.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge strengthens the causal path from credit_spreads to the outcome by highlighting two factors that make spreads more sensitive and influential: tightening lending standards (historically preceding spread widening) and deteriorating liquidity (amplifying spread movements). This increases the likelihood that credit spreads will widen, directly reducing total return via price losses. While other paths (e.g., market_sentiment_risk_appetite) remain relevant, the emphasis on spreads as the primary short-term driver shifts weight toward this negative influence, lowering the probability of a positive total return. The update is moderate because the one-week timeframe limits the impact of other factors, but uncertainty persists as spreads could still narrow if offset by positive macro or rate developments.\"\n}",
+      "target_id": "credit_spreads",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A major global asset manager just announced a strategic shift, doubling its allocation to US corporate bonds due to a conviction that investor risk appetite is at a decade high and will persist through 2025, driven by strong corporate earnings and stable inflation. Their CIO stated, 'We see market sentiment as the primary driver of corporate bond returns in the near term, overshadowing even rate changes.' This endorsement, backed by a planned $20 billion inflow into the sector, directly reinforces the importance of market sentiment and risk appetite.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.63,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strongly reinforces the 'market_sentiment_risk_appetite' node and its downstream causal paths. Specifically, the announced strategic shift and planned $20 billion inflow directly strengthen the link from market_sentiment_risk_appetite to issuance_and_flows, increasing the likelihood of strong net demand. This, in turn, bolsters the issuance_and_flows -> outcome path. The endorsement from a major asset manager also amplifies the macro_economic_conditions -> market_sentiment_risk_appetite path by validating the positive economic narrative. While the core causal structure remains intact, the new information increases the weight and certainty of the sentiment-driven paths, making a positive outcome more probable. The update is moderate because sentiment is already a key factor in the network, and other factors like interest rates and credit spreads remain influential.",
+      "raw_response": "{\n  \"updated_probability\": 0.63,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strongly reinforces the 'market_sentiment_risk_appetite' node and its downstream causal paths. Specifically, the announced strategic shift and planned $20 billion inflow directly strengthen the link from market_sentiment_risk_appetite to issuance_and_flows, increasing the likelihood of strong net demand. This, in turn, bolsters the issuance_and_flows -> outcome path. The endorsement from a major asset manager also amplifies the macro_economic_conditions -> market_sentiment_risk_appetite path by validating the positive economic narrative. While the core causal structure remains intact, the new information increases the weight and certainty of the sentiment-driven paths, making a positive outcome more probable. The update is moderate because sentiment is already a key factor in the network, and other factors like interest rates and credit spreads remain influential.\"\n}",
+      "target_id": "market_sentiment_risk_appetite",
+      "target_type": "node",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis shows that, in the current market, a surge in investor risk appetite has increasingly favored equity ETFs and direct stock purchases over corporate bond funds, due to the higher perceived upside and liquidity of equities during optimistic periods. This shift means that strong market sentiment may not translate into proportional inflows to corporate debt, as capital is diverted to riskier assets, weakening the assumed causal link. Furthermore, corporate bond fund flows have recently exhibited low sensitivity to general risk appetite indices, being more driven by specific regulatory changes and institutional rebalancing needs.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the causal link from 'market_sentiment_risk_appetite' to 'issuance_and_flows'. This disrupts a key positive feedback path where high risk appetite supports corporate bond prices via capital inflows. The argument suggests that in the current market, improved sentiment may disproportionately benefit equities, diverting capital away from corporate bonds and reducing the strength of this driver for the index's total return. While other paths remain (e.g., credit_spreads -> outcome, and interest_rate_path effects), the reduced efficacy of sentiment-driven inflows removes a supportive factor, making a positive weekly return slightly less likely. The update is moderate because the link is important but not the sole determinant, and the forecast period is very short-term (one week), where flows can be volatile and driven by other specific factors.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the causal link from 'market_sentiment_risk_appetite' to 'issuance_and_flows'. This disrupts a key positive feedback path where high risk appetite supports corporate bond prices via capital inflows. The argument suggests that in the current market, improved sentiment may disproportionately benefit equities, diverting capital away from corporate bonds and reducing the strength of this driver for the index's total return. While other paths remain (e.g., credit_spreads -> outcome, and interest_rate_path effects), the reduced efficacy of sentiment-driven inflows removes a supportive factor, making a positive weekly return slightly less likely. The update is moderate because the link is important but not the sole determinant, and the forecast period is very short-term (one week), where flows can be volatile and driven by other specific factors.\"\n}",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "target_type": "edge",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Suppose that over the week in question, the Federal Reserve unexpectedly signals a much more aggressive rate-cutting path than anticipated, leading to a sharp, parallel downward shift in the entire Treasury yield curve. In this scenario, even if corporate credit spreads widen modestly due to concerns about the economic outlook prompting the cuts, the dominant driver of corporate bond total returns could be the large drop in risk-free rates, causing substantial price appreciation for all bonds that overwhelms the negative impact from spread widening. Historical analysis, such as during the 2008 crisis or the 2020 pandemic panic, shows that periods of extreme flight-to-quality and monetary policy intervention can decouple spread moves from total returns over short horizons, as duration effects dominate.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.62,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The challenge highlights a scenario where a large drop in risk-free rates (via a sharp downward shift in the Treasury yield curve) can cause substantial price appreciation in corporate bonds due to their duration component, potentially overwhelming the negative impact from modest credit spread widening. This directly challenges the 'credit_spreads->outcome' link by showing that, over a short horizon (one week), total returns can be dominated by the interest rate/duration effect rather than spread moves. The causal path 'interest_rate_path -> outcome' (via duration effect) is strengthened and becomes more dominant in this specific scenario, while the 'credit_spreads -> outcome' link is weakened for this short-term forecast. The scenario described (aggressive Fed rate-cut signal) would likely also positively affect 'market_sentiment_risk_appetite' (a dovish surprise supports risk sentiment) and 'issuance_and_flows' (increased demand), further supporting total returns. Therefore, the probability of a positive weekly total return increases, as the proposed scenario introduces a powerful positive driver (large rate drop) that was not fully emphasized in the initial network, which focused more on spread dynamics.",
+      "raw_response": "{\n  \"updated_probability\": 0.62,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge highlights a scenario where a large drop in risk-free rates (via a sharp downward shift in the Treasury yield curve) can cause substantial price appreciation in corporate bonds due to their duration component, potentially overwhelming the negative impact from modest credit spread widening. This directly challenges the 'credit_spreads->outcome' link by showing that, over a short horizon (one week), total returns can be dominated by the interest rate/duration effect rather than spread moves. The causal path 'interest_rate_path -> outcome' (via duration effect) is strengthened and becomes more dominant in this specific scenario, while the 'credit_spreads -> outcome' link is weakened for this short-term forecast. The scenario described (aggressive Fed rate-cut signal) would likely also positively affect 'market_sentiment_risk_appetite' (a dovish surprise supports risk sentiment) and 'issuance_and_flows' (increased demand), further supporting total returns. Therefore, the probability of a positive weekly total return increases, as the proposed scenario introduces a powerful positive driver (large rate drop) that was not fully emphasized in the initial network, which focused more on spread dynamics.\"\n}",
+      "target_id": "credit_spreads->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent economic data shows strong GDP growth and low unemployment, but market sentiment has turned sharply negative due to concerns about fiscal sustainability and escalating geopolitical tensions. Investors are interpreting the strong economic conditions as a sign that the Federal Reserve will have to maintain higher interest rates for longer, which is triggering a risk-off shift. This suggests that positive macroeconomic news can sometimes suppress risk appetite rather than boost it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge directly weakens the positive causal link from 'macro_economic_conditions' to 'market_sentiment_risk_appetite' in my network. Previously, strong economic data was assumed to boost investor confidence and demand for corporate bonds. Now, the link is conditional: strong data can, through the channel of a more hawkish Fed reaction function, lead to higher expected rates and a risk-off sentiment. This introduces a new negative causal path (macro -> higher expected rates -> lower risk appetite) that partially offsets the original positive path. This weakens a key supportive driver for demand (via 'issuance_and_flows') for corporate bonds, making a positive total return over a one-week period less likely. The primary remaining positive path is via 'macro_economic_conditions -> credit_spreads' (strong economy improves creditworthiness), but this could also be offset if the rate channel dominates. My estimate decreases, moving below 0.5, as the net effect of strong macro news on the outcome is now more ambiguous and potentially negative in the short term.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge directly weakens the positive causal link from 'macro_economic_conditions' to 'market_sentiment_risk_appetite' in my network. Previously, strong economic data was assumed to boost investor confidence and demand for corporate bonds. Now, the link is conditional: strong data can, through the channel of a more hawkish Fed reaction function, lead to higher expected rates and a risk-off sentiment. This introduces a new negative causal path (macro -> higher expected rates -> lower risk appetite) that partially offsets the original positive path. This weakens a key supportive driver for demand (via 'issuance_and_flows') for corporate bonds, making a positive total return over a one-week period less likely. The primary remaining positive path is via 'macro_economic_conditions -> credit_spreads' (strong economy improves creditworthiness), but this could also be offset if the rate channel dominates. My estimate decreases, moving below 0.5, as the net effect of strong macro news on the outcome is now more ambiguous and potentially negative in the short term.\"\n}",
+      "target_id": "macro_economic_conditions->market_sentiment_risk_appetite",
+      "target_type": "edge",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Consider that heavy corporate bond issuance can overwhelm market capacity, causing spreads to widen and investors to become more cautious, thereby dampening risk appetite. For example, a surge in supply from companies refinancing debt could lead to indigestion, reducing fund inflows and shifting sentiment negative as investors fear oversupply.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a reverse causal link from issuance to market sentiment, suggesting that heavy issuance can dampen risk appetite, potentially creating a negative feedback loop. This weakens the original unidirectional causal link from sentiment to issuance and adds a counteracting mechanism: strong issuance (which might occur in positive conditions) could itself suppress sentiment and subsequent flows, partially offsetting the positive effect. This adds uncertainty and slightly reduces the net positive influence of the sentiment->issuance->outcome path on the one-week return forecast. However, the update is small because the challenge describes a specific scenario (heavy issuance overwhelming capacity) rather than invalidating the core link, and other primary paths (macro conditions and interest rates directly affecting credit spreads and sentiment) remain intact and dominant for a short-term, one-week horizon.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a reverse causal link from issuance to market sentiment, suggesting that heavy issuance can dampen risk appetite, potentially creating a negative feedback loop. This weakens the original unidirectional causal link from sentiment to issuance and adds a counteracting mechanism: strong issuance (which might occur in positive conditions) could itself suppress sentiment and subsequent flows, partially offsetting the positive effect. This adds uncertainty and slightly reduces the net positive influence of the sentiment->issuance->outcome path on the one-week return forecast. However, the update is small because the challenge describes a specific scenario (heavy issuance overwhelming capacity) rather than invalidating the core link, and other primary paths (macro conditions and interest rates directly affecting credit spreads and sentiment) remain intact and dominant for a short-term, one-week horizon.\"\n}",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "target_type": "edge",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Consider a scenario where corporate bond issuance spikes due to firms rushing to lock in financing before an anticipated rate hike, significantly increasing net supply. This surge in issuance could overwhelm investor demand, even if risk appetite is stable, leading to excess supply that forces corporate bond yields to rise relative to Treasuries, thereby widening credit spreads directly through market mechanics. This direct pressure from supply-demand imbalances on spreads is a key mechanism missing from your network.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a new, direct causal link from 'issuance_and_flows' to 'credit_spreads'. In the original network, issuance and flows affected the outcome only indirectly through price pressure from demand/supply imbalances. The new link adds a more immediate and potent mechanism: a surge in issuance can directly widen credit spreads, independent of broader economic conditions or risk appetite. This strengthens the negative path from increased issuance to lower total returns (via wider spreads and subsequent price losses). Since the outcome is over a very short, one-week horizon, such a specific supply shock scenario becomes more plausible and impactful. However, the probability of such a coordinated issuance spike precisely in that week remains uncertain. Therefore, the initial estimate is slightly decreased, as the risk of a negative outcome from supply-side pressures is now more salient and structurally integrated into the causal model.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a new, direct causal link from 'issuance_and_flows' to 'credit_spreads'. In the original network, issuance and flows affected the outcome only indirectly through price pressure from demand/supply imbalances. The new link adds a more immediate and potent mechanism: a surge in issuance can directly widen credit spreads, independent of broader economic conditions or risk appetite. This strengthens the negative path from increased issuance to lower total returns (via wider spreads and subsequent price losses). Since the outcome is over a very short, one-week horizon, such a specific supply shock scenario becomes more plausible and impactful. However, the probability of such a coordinated issuance spike precisely in that week remains uncertain. Therefore, the initial estimate is slightly decreased, as the risk of a negative outcome from supply-side pressures is now more salient and structurally integrated into the causal model.\"\n}",
+      "target_id": "issuance_and_flows->credit_spreads",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the impact of a sharp, unexpected decline in the US dollar against major currencies, which could trigger significant foreign buying of US corporate bonds due to improved relative value and currency-hedged returns. This would increase demand, push prices up, and boost total returns independently of domestic economic conditions or Federal Reserve policy. How would you adjust your probability estimate to account for this missing factor?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge introduces a new, independent causal factor (sharp USD decline -> foreign buying) that directly increases demand for US corporate bonds, strengthening the 'issuance_and_flows -> outcome' path. This factor operates somewhat independently of the existing domestic-focused nodes (macro_economic_conditions, interest_rate_path), adding an additional upward bias to total returns. However, the effect is time-limited (one week horizon) and the magnitude of a 'sharp, unexpected' move is uncertain. Therefore, I increase the probability moderately, as this adds a supportive path but does not fundamentally break or dominate the existing network.",
+      "raw_response": "{\n  \"updated_probability\": 0.6,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge introduces a new, independent causal factor (sharp USD decline -> foreign buying) that directly increases demand for US corporate bonds, strengthening the 'issuance_and_flows -> outcome' path. This factor operates somewhat independently of the existing domestic-focused nodes (macro_economic_conditions, interest_rate_path), adding an additional upward bias to total returns. However, the effect is time-limited (one week horizon) and the magnitude of a 'sharp, unexpected' move is uncertain. Therefore, I increase the probability moderately, as this adds a supportive path but does not fundamentally break or dominate the existing network.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the potential for a significant geopolitical event, such as a major conflict or a severe diplomatic crisis, occurring within the week. Such an event could directly trigger a 'flight-to-safety' in financial markets, causing a sharp sell-off in corporate bonds and a widening of credit spreads, regardless of the current macro conditions or interest rate path. This factor is missing from your network, which currently assumes market sentiment is driven only by economic and monetary policy factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge introduces a significant, independent causal path (geopolitical event -> flight-to-safety -> credit_spreads widening & market_sentiment_risk_appetite falling) that directly impacts two key drivers of the outcome (credit_spreads and issuance_and_flows via market sentiment). This path can override or dominate the existing economic/monetary policy-driven paths within the short one-week forecast horizon. The probability of such an event occurring within a specific week is low, but its potential impact is severe and asymmetric (more likely to cause a negative return). My initial estimate of 0.55 assumed a relatively stable environment. Incorporating this new, high-impact tail risk factor reduces the expected probability of a positive return. The update is moderate (not extreme) because the base probability of a major geopolitical shock in a given week remains relatively low, but its inclusion meaningfully increases the weight of negative outcomes.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge introduces a significant, independent causal path (geopolitical event -> flight-to-safety -> credit_spreads widening & market_sentiment_risk_appetite falling) that directly impacts two key drivers of the outcome (credit_spreads and issuance_and_flows via market sentiment). This path can override or dominate the existing economic/monetary policy-driven paths within the short one-week forecast horizon. The probability of such an event occurring within a specific week is low, but its potential impact is severe and asymmetric (more likely to cause a negative return). My initial estimate of 0.55 assumed a relatively stable environment. Incorporating this new, high-impact tail risk factor reduces the expected probability of a positive return. The update is moderate (not extreme) because the base probability of a major geopolitical shock in a given week remains relatively low, but its inclusion meaningfully increases the weight of negative outcomes.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A major credit rating agency announced it will revise its methodology for assessing corporate governance factors in credit ratings starting in Q2 2026. The announcement has sparked debate among analysts about long-term rating trends, but the agency confirmed no immediate rating changes will occur before 2026.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.53,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge involves a future, announced methodology change (Q2 2026) for credit rating assessments with no immediate rating changes before 2026. This could potentially affect long-term credit spreads by altering the perceived creditworthiness of issuers. However, the forecast horizon is extremely short (one week, ending 2025-12-28), and the announced change is both distant and not yet implemented. The primary causal paths (macro_economic_conditions, interest_rate_path, and immediate market_sentiment) that drive short-term credit spread movements and flows remain unaffected. The announcement might introduce a minor, diffuse increase in uncertainty into the 'market_sentiment_risk_appetite' node as analysts debate long-term trends, but this effect is marginal for a one-week window. Therefore, the challenge is to a peripheral and temporally distant element, warranting only a very small downward adjustment in probability due to a negligible increase in uncertainty.",
+      "raw_response": "{\n  \"updated_probability\": 0.53,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge involves a future, announced methodology change (Q2 2026) for credit rating assessments with no immediate rating changes before 2026. This could potentially affect long-term credit spreads by altering the perceived creditworthiness of issuers. However, the forecast horizon is extremely short (one week, ending 2025-12-28), and the announced change is both distant and not yet implemented. The primary causal paths (macro_economic_conditions, interest_rate_path, and immediate market_sentiment) that drive short-term credit spread movements and flows remain unaffected. The announcement might introduce a minor, diffuse increase in uncertainty into the 'market_sentiment_risk_appetite' node as analysts debate long-term trends, but this effect is marginal for a one-week window. Therefore, the challenge is to a peripheral and temporally distant element, warranting only a very small downward adjustment in probability due to a negligible increase in uncertainty.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A new study by a major consulting firm shows that the average CEO tenure at S&P 500 companies has decreased by six months over the past decade. This trend is expected to continue, with boards becoming quicker to replace underperforming leadership.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge points to a potential increase in corporate management instability due to shorter CEO tenures and quicker board replacements. This could indirectly affect the causal network by slightly increasing perceived corporate risk, which might modestly widen credit spreads (affecting the 'credit_spreads -> outcome' path) or dampen market sentiment (affecting the 'market_sentiment_risk_appetite -> issuance_and_flows -> outcome' path). However, the effect is peripheral and uncertain: shorter tenures could also lead to more responsive leadership. The impact on the one-week total return forecast is minimal, as this structural trend operates over longer timeframes. The probability is decreased slightly to reflect a marginal increase in downside risk.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge points to a potential increase in corporate management instability due to shorter CEO tenures and quicker board replacements. This could indirectly affect the causal network by slightly increasing perceived corporate risk, which might modestly widen credit spreads (affecting the 'credit_spreads -> outcome' path) or dampen market sentiment (affecting the 'market_sentiment_risk_appetite -> issuance_and_flows -> outcome' path). However, the effect is peripheral and uncertain: shorter tenures could also lead to more responsive leadership. The impact on the one-week total return forecast is minimal, as this structural trend operates over longer timeframes. The probability is decreased slightly to reflect a marginal increase in downside risk.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows a significant increase in corporate bond issuance, with companies taking advantage of favorable market conditions to refinance debt at lower rates. Additionally, there has been a notable inflow of investor capital into corporate bond funds, driven by higher yields compared to government securities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The challenge indicates a significant increase in corporate bond issuance, which would typically increase supply and put downward pressure on prices. However, it also notes a notable inflow of investor capital into corporate bond funds, which increases demand. The net effect is likely positive for total returns, as the strong demand (high inflows) appears to be outweighing the increased supply (issuance). This affects the 'issuance_and_flows -> outcome' causal path, suggesting a stronger support for the outcome than previously estimated.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge indicates a significant increase in corporate bond issuance, which would typically increase supply and put downward pressure on prices. However, it also notes a notable inflow of investor capital into corporate bond funds, which increases demand. The net effect is likely positive for total returns, as the strong demand (high inflows) appears to be outweighing the increased supply (issuance). This affects the 'issuance_and_flows -> outcome' causal path, suggesting a stronger support for the outcome than previously estimated.\"\n}",
+      "target_id": "issuance_and_flows",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 3,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "The Federal Reserve has just released minutes indicating a unanimous consensus among policymakers to maintain a restrictive monetary policy stance through 2025, with projections showing benchmark rates remaining at current elevated levels. This clear forward guidance reduces uncertainty about the interest rate path and makes it a more significant driver of corporate bond market dynamics in the near term.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.07000000000000006,
+      "shift_direction": "decreased",
+      "reasoning": "The Federal Reserve's clear forward guidance on maintaining restrictive monetary policy through 2025 increases the significance of the interest_rate_path node in the causal network. This affects multiple paths: 1) interest_rate_path -> credit_spreads: elevated rates increase stress on corporate borrowers, likely widening spreads. 2) interest_rate_path -> market_sentiment_risk_appetite: restrictive policy could dampen risk appetite. Both paths negatively impact the outcome (total return). While the reduced uncertainty might have some stabilizing effect, the net impact is expected to be negative for corporate bond returns.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The Federal Reserve's clear forward guidance on maintaining restrictive monetary policy through 2025 increases the significance of the interest_rate_path node in the causal network. This affects multiple paths: 1) interest_rate_path -> credit_spreads: elevated rates increase stress on corporate borrowers, likely widening spreads. 2) interest_rate_path -> market_sentiment_risk_appetite: restrictive policy could dampen risk appetite. Both paths negatively impact the outcome (total return). While the reduced uncertainty might have some stabilizing effect, the net impact is expected to be negative for corporate bond returns.\"\n}",
+      "target_id": "interest_rate_path",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows corporate bond funds experienced their largest weekly inflows in 18 months following the Fed's dovish pivot in December 2024, with high-yield funds capturing over 60% of these flows. This surge occurred despite elevated issuance volumes, demonstrating how acute improvements in risk appetite can overwhelm supply effects and drive net positive flows.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between 'market_sentiment_risk_appetite' and 'issuance_and_flows' by providing empirical evidence that improvements in risk appetite can lead to significant capital inflows into corporate bond funds, even in the face of elevated issuance volumes. This reinforces the path from improved market sentiment to stronger net demand for corporate bonds, which supports higher total returns. The effect is moderate because while the link is strengthened, other factors like macro_economic_conditions and interest_rate_path remain influential.",
+      "raw_response": "{\n  \"updated_probability\": 0.6,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between 'market_sentiment_risk_appetite' and 'issuance_and_flows' by providing empirical evidence that improvements in risk appetite can lead to significant capital inflows into corporate bond funds, even in the face of elevated issuance volumes. This reinforces the path from improved market sentiment to stronger net demand for corporate bonds, which supports higher total returns. The effect is moderate because while the link is strengthened, other factors like macro_economic_conditions and interest_rate_path remain influential.\"\n}",
+      "target_id": "market_sentiment_risk_appetite->issuance_and_flows",
+      "target_type": "edge",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis from J.P. Morgan shows that during the December 2023 market rally, a 20 basis point compression in investment-grade credit spreads directly translated to a 1.8% price return contribution for corporate bonds, accounting for nearly 80% of total return that month. This demonstrates an even tighter empirical relationship between spread movements and total returns than standard duration-based models would predict.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge confirms and strengthens the causal link between credit_spreads and outcome, showing that spread movements have an even larger impact on total returns than initially modeled. This makes the credit_spreads -> outcome path more influential in the network. Since this is a central causal path, the increased sensitivity of returns to spread changes justifies a higher probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.6,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge confirms and strengthens the causal link between credit_spreads and outcome, showing that spread movements have an even larger impact on total returns than initially modeled. This makes the credit_spreads -> outcome path more influential in the network. Since this is a central causal path, the increased sensitivity of returns to spread changes justifies a higher probability estimate.\"\n}",
+      "target_id": "credit_spreads->outcome",
+      "target_type": "edge",
+      "target_importance": 0.1,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent studies show that during periods of strong GDP growth and rising corporate earnings, institutional investors systematically increase their allocations to corporate bonds by 15-20% due to improved confidence in corporate solvency. This behavioral shift is more pronounced than previously thought, with economic indicators now accounting for over 40% of risk appetite variance in fixed-income markets according to Fed research.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.04999999999999993,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal link between macro_economic_conditions and market_sentiment_risk_appetite by providing empirical evidence that positive economic indicators lead to significantly higher institutional allocations to corporate bonds. This reinforces the path from strong economic conditions to increased demand for corporate debt, which supports prices and total returns. The stronger link increases the likelihood that positive economic data will translate into higher index returns.",
+      "raw_response": "{\n  \"updated_probability\": 0.60,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal link between macro_economic_conditions and market_sentiment_risk_appetite by providing empirical evidence that positive economic indicators lead to significantly higher institutional allocations to corporate bonds. This reinforces the path from strong economic conditions to increased demand for corporate debt, which supports prices and total returns. The stronger link increases the likelihood that positive economic data will translate into higher index returns.\"\n}",
+      "target_id": "macro_economic_conditions->market_sentiment_risk_appetite",
+      "target_type": "edge",
+      "target_importance": 0.0667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "BAMLCC0A0CMTRIV",
+    "question_text": "Will the total return of the ICE BofA US Corporate Index, which tracks the performance of corporate debt issued in the US domestic market, have increased by 2025-12-28 as compared to its value on 2025-12-21?",
+    "source": "fred",
+    "condition": "one-turn",
+    "initial_probability": 0.55,
+    "n_probes": 15,
+    "n_successful": 15,
+    "mean_absolute_shift": 0.052666666666666674,
+    "max_absolute_shift": 0.10000000000000003
+  },
+  "model": "deepseek-v3",
+  "model_label": "DeepSeek V3",
+  "aggregate_metrics": {
+    "ssr": 1.2857142857142856,
+    "mean_shift_high": 0.05999999999999999,
+    "mean_shift_low": 0.04666666666666666,
+    "asymmetry_index": 0.8000000000000004,
+    "mean_shift_negate": 0.057142857142857155,
+    "mean_shift_strengthen": 0.07142857142857141,
+    "fnar": 0.3333333333333333,
+    "n_accepted": 1,
+    "n_spurious": 3,
+    "critical_path_premium": 0.01424242424242423,
+    "mean_shift_on_path": 0.06333333333333332,
+    "mean_shift_off_path": 0.049090909090909095,
+    "importance_sensitivity_correlation": -0.37362637362637363,
+    "control_sensitivity": 0
+  }
+}

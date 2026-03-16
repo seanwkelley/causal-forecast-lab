@@ -1,0 +1,1082 @@
+{
+  "question_id": "meteofrance_TEMPERATURE_celsius.07020.D",
+  "question_text": "What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21?",
+  "source": "dbnomics",
+  "initial_probability": 0.52,
+  "nodes": [
+    {
+      "id": "seasonal_trend",
+      "description": "Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend",
+      "role": "factor"
+    },
+    {
+      "id": "weather_systems",
+      "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy",
+      "role": "factor"
+    },
+    {
+      "id": "atlantic_sst",
+      "description": "Sea surface temperatures in the eastern North Atlantic, influencing air mass characteristics",
+      "role": "factor"
+    },
+    {
+      "id": "north_atlantic_oscillation",
+      "description": "NAO index state, modulating storm track and westerly winds into Western Europe",
+      "role": "factor"
+    },
+    {
+      "id": "cloud_cover",
+      "description": "Projected cloudiness during the two dates, affecting diurnal temperature variation",
+      "role": "factor"
+    },
+    {
+      "id": "wind_direction",
+      "description": "Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate",
+      "role": "factor"
+    },
+    {
+      "id": "outcome",
+      "description": "The daily average temperature at Pointe De La Hague is higher on 2025-12-28 than on 2025-12-21",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "atlantic_sst",
+      "to": "north_atlantic_oscillation",
+      "mechanism": "Warmer sea surface temperatures can influence the phase of the NAO by altering pressure gradients"
+    },
+    {
+      "from": "north_atlantic_oscillation",
+      "to": "weather_systems",
+      "mechanism": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France"
+    },
+    {
+      "from": "weather_systems",
+      "to": "wind_direction",
+      "mechanism": "Dominant storm tracks and pressure patterns determine the prevailing wind direction over Pointe De La Hague"
+    },
+    {
+      "from": "weather_systems",
+      "to": "cloud_cover",
+      "mechanism": "Frontal systems associated with low-pressure areas increase cloud cover, reducing solar heating"
+    },
+    {
+      "from": "wind_direction",
+      "to": "outcome",
+      "mechanism": "Southwesterly winds bring warmer maritime air, raising temperatures, while northeasterlies bring colder continental air"
+    },
+    {
+      "from": "cloud_cover",
+      "to": "outcome",
+      "mechanism": "High cloud cover during winter reduces daytime warming and increases nighttime insulation, moderating extremes"
+    },
+    {
+      "from": "seasonal_trend",
+      "to": "outcome",
+      "mechanism": "In late December, temperatures tend to slowly decline; a later date being warmer counters this slight downward trend"
+    }
+  ],
+  "reasoning": "The two dates are only one week apart, so seasonal trends are weak but slightly favor cooling. The outcome depends heavily on transient weather patterns, which are unpredictable at this range. Atlantic SSTs and the NAO modulate storm tracks and air mass advection, which in turn influence cloud cover and wind direction—key proximate drivers of temperature. Given the symmetry of short-term variability and lack of long-term trend dominance, the probability is slightly above 0.5 due to potential for warming weather systems and the oceanic moderating influence, but uncertainty is high.",
+  "network_analysis": {
+    "n_nodes": 7,
+    "n_edges": 7,
+    "density": 0.1667,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "outcome",
+    "node_metrics": [
+      {
+        "node_id": "seasonal_trend",
+        "description": "Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0624,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "weather_systems",
+        "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.2,
+        "closeness": 0.2222,
+        "pagerank": 0.1606,
+        "path_relevance": 0.4444
+      },
+      {
+        "node_id": "atlantic_sst",
+        "description": "Sea surface temperatures in the eastern North Atlantic, influencing air mass characteristics",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0624,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "north_atlantic_oscillation",
+        "description": "NAO index state, modulating storm track and westerly winds into Western Europe",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1333,
+        "closeness": 0.1667,
+        "pagerank": 0.1155,
+        "path_relevance": 0.2222
+      },
+      {
+        "node_id": "cloud_cover",
+        "description": "Projected cloudiness during the two dates, affecting diurnal temperature variation",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.25,
+        "pagerank": 0.1307,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "wind_direction",
+        "description": "Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.05,
+        "closeness": 0.25,
+        "pagerank": 0.1307,
+        "path_relevance": 0.3333
+      },
+      {
+        "node_id": "outcome",
+        "description": "The daily average temperature at Pointe De La Hague is higher on 2025-12-28 than on 2025-12-21",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5,
+        "pagerank": 0.3377,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "seasonal_trend",
+        "target": "outcome",
+        "mechanism": "In late December, temperatures tend to slowly decline; a later date being warmer counters this slight downward trend",
+        "edge_betweenness": 0.0238,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "wind_direction",
+        "mechanism": "Dominant storm tracks and pressure patterns determine the prevailing wind direction over Pointe De La Hague",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "weather_systems",
+        "target": "cloud_cover",
+        "mechanism": "Frontal systems associated with low-pressure areas increase cloud cover, reducing solar heating",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "atlantic_sst",
+        "target": "north_atlantic_oscillation",
+        "mechanism": "Warmer sea surface temperatures can influence the phase of the NAO by altering pressure gradients",
+        "edge_betweenness": 0.119,
+        "on_critical_path": true
+      },
+      {
+        "source": "north_atlantic_oscillation",
+        "target": "weather_systems",
+        "mechanism": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France",
+        "edge_betweenness": 0.1905,
+        "on_critical_path": true
+      },
+      {
+        "source": "cloud_cover",
+        "target": "outcome",
+        "mechanism": "High cloud cover during winter reduces daytime warming and increases nighttime insulation, moderating extremes",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      },
+      {
+        "source": "wind_direction",
+        "target": "outcome",
+        "mechanism": "Southwesterly winds bring warmer maritime air, raising temperatures, while northeasterlies bring colder continental air",
+        "edge_betweenness": 0.0595,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "north_atlantic_oscillation",
+        "description": "NAO index state, modulating storm track and westerly winds into Western Europe",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "wind_direction",
+        "description": "Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate",
+        "importance": 0.05,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "atlantic_sst",
+        "description": "Sea surface temperatures in the eastern North Atlantic, influencing air mass characteristics",
+        "importance": 0,
+        "centrality_rank": 6,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "weather_systems",
+        "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy",
+        "importance": 0.2,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "north_atlantic_oscillation",
+        "description": "NAO index state, modulating storm track and westerly winds into Western Europe",
+        "importance": 0.1333,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "north_atlantic_oscillation->weather_systems",
+        "description": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "atlantic_sst->north_atlantic_oscillation",
+        "description": "Warmer sea surface temperatures can influence the phase of the NAO by altering pressure gradients",
+        "importance": 0.119,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "seasonal_trend->outcome",
+        "description": "In late December, temperatures tend to slowly decline; a later date being warmer counters this slight downward trend",
+        "importance": 0.0238,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "north_atlantic_oscillation->weather_systems",
+        "description": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "seasonal_trend->cloud_cover",
+        "description": "Potential link: Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend -> Projected cloudiness during the two dates, affecting diurnal temperature variation",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "seasonal_trend->wind_direction",
+        "description": "Potential link: Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend -> Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "north_atlantic_oscillation",
+      "description": "NAO index state, modulating storm track and westerly winds into Western Europe",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "wind_direction",
+      "description": "Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate",
+      "importance": 0.05,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "atlantic_sst",
+      "description": "Sea surface temperatures in the eastern North Atlantic, influencing air mass characteristics",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "weather_systems",
+      "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "north_atlantic_oscillation",
+      "description": "NAO index state, modulating storm track and westerly winds into Western Europe",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "description": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "atlantic_sst->north_atlantic_oscillation",
+      "description": "Warmer sea surface temperatures can influence the phase of the NAO by altering pressure gradients",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "seasonal_trend->outcome",
+      "description": "In late December, temperatures tend to slowly decline; a later date being warmer counters this slight downward trend",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "description": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "seasonal_trend->cloud_cover",
+      "description": "Potential link: Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend -> Projected cloudiness during the two dates, affecting diurnal temperature variation",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "seasonal_trend->wind_direction",
+      "description": "Potential link: Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend -> Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "What if synoptic-scale weather systems like high or low-pressure fronts have no meaningful impact on temperature variations at Pointe De La Hague in late December? It's possible that local maritime influences and persistent fog or inversion layers dampen the temperature effects of large-scale weather systems, making microclimatic conditions far more influential than broader frontal passages.",
+      "probe_type": "node_negate_high",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy"
+    },
+    {
+      "probe_text": "What if the North Atlantic Oscillation (NAO) has no significant influence on weather systems over Normandy in December 2025? Recent research suggests that during strong El Niño years, the teleconnection patterns linking the NAO to European storm tracks break down, making the NAO a poor predictor of westerly flow and storm activity regardless of its phase.",
+      "probe_type": "node_negate_high",
+      "target_id": "north_atlantic_oscillation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "NAO index state, modulating storm track and westerly winds into Western Europe"
+    },
+    {
+      "probe_text": "Recent analysis of wind impact on coastal temperatures at Pointe De La Hague shows that in winter, the thermal inertia of the Atlantic Ocean dampens air temperature changes regardless of wind direction. On synoptic timescales, advection of air masses has minimal effect because sea-breeze coupling and maritime air saturation limit temperature variance, suggesting wind direction may not significantly influence daily average temperatures at this location.",
+      "probe_type": "node_negate_medium",
+      "target_id": "wind_direction",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.05,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate"
+    },
+    {
+      "probe_text": "Recent research suggests that sea surface temperatures in the eastern North Atlantic have minimal direct influence on the North Atlantic Oscillation during winter months, as atmospheric variability is dominated by stratospheric processes and internal dynamics rather than ocean forcing. Satellite data from the past decade shows no statistically significant correlation between December SST anomalies in that region and subsequent NAO phase shifts, implying that atlantic_sst may not meaningfully drive weather patterns at Pointe De La Hague.",
+      "probe_type": "node_negate_low",
+      "target_id": "atlantic_sst",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 6,
+      "on_critical_path": false,
+      "description": "Sea surface temperatures in the eastern North Atlantic, influencing air mass characteristics"
+    },
+    {
+      "probe_text": "A recent high-resolution meteorological model ensemble consistently shows that synoptic-scale weather systems during late December 2025 will drive significant temperature variability at Pointe De La Hague, with individual storm passages correlating strongly with rapid warm-air advection events. Historical reanalysis confirms that over the past 30 years, 78% of anomalous midwinter temperature increases at the station were preceded by identifiable Atlantic weather systems, reinforcing their dominant role over other factors.",
+      "probe_type": "node_strengthen",
+      "target_id": "weather_systems",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.2,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Short-term synoptic-scale weather systems such as high or low-pressure fronts affecting Normandy"
+    },
+    {
+      "probe_text": "A recent study published in *Nature Climate Change* analyzes reanalysis data from 1950–2024 and finds that during positive NAO phases, the likelihood of mild Atlantic weather systems reaching Normandy in December increases by 40% compared to neutral phases. The study also reports a strong correlation (r = 0.78) between the NAO index and zonal wind strength over the eastern North Atlantic, directly reinforcing its role in steering weather systems that affect temperature at Pointe De La Hague.",
+      "probe_type": "node_strengthen",
+      "target_id": "north_atlantic_oscillation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1333,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "NAO index state, modulating storm track and westerly winds into Western Europe"
+    },
+    {
+      "probe_text": "Recent studies have shown that during strong El Niño events, the jet stream over the North Atlantic tends to reconfigure in a way that decouples the NAO from its typical influence on storm tracks, leading to blocked or reversed westerly flow regardless of NAO phase. Given the potential for a strong El Niño in winter 2025–2026, the usual strengthening of westerly winds and mild Atlantic systems over France during a positive NAO may not hold, undermining the assumed causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France"
+    },
+    {
+      "probe_text": "Recent reanalyses of North Atlantic climate dynamics suggest that sea surface temperatures may be more of a passive tracer than an active driver of NAO variability, with upper-atmospheric processes like stratospheric polar vortex disruptions showing stronger statistical and dynamical links to NAO phase shifts. In particular, studies using AMIP-model simulations show negligible NAO response to prescribed eastern North Atlantic SST anomalies, indicating the causal influence of atlantic_sst on north_atlantic_oscillation may be weak or confounded by reverse causality where NAO drives SST patterns via wind stress.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "atlantic_sst->north_atlantic_oscillation",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.119,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Warmer sea surface temperatures can influence the phase of the NAO by altering pressure gradients"
+    },
+    {
+      "probe_text": "Although late December typically shows a gradual cooling trend, this pattern is often overshadowed by synoptic-scale weather variability in coastal Normandy. Given the strong maritime influence and frequent passage of Atlantic systems, interannual fluctuations in wind direction and cloud cover may render the seasonal trend negligible in determining temperature differences over just one week.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "seasonal_trend->outcome",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0238,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "In late December, temperatures tend to slowly decline; a later date being warmer counters this slight downward trend"
+    },
+    {
+      "probe_text": "Recent research suggests that persistent patterns of storm tracks and zonal wind strength over the North Atlantic may actually drive shifts in the North Atlantic Oscillation index, rather than the reverse. Specifically, the cumulative effect of successive high-latitude cyclones and enhanced westerly flow can reorganize large-scale pressure gradients, thereby reinforcing the positive phase of the NAO. This implies that weather_systems could be a driver of north_atlantic_oscillation, not merely a response to it.",
+      "probe_type": "edge_reverse",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Positive NAO strengthens westerly flow, increasing frequency of mild Atlantic weather systems over France"
+    },
+    {
+      "probe_text": "Suppose new climatological analysis shows that the late-December cooling trend at Pointe De La Hague is associated with a gradual southward shift in storm tracks, leading to increased frequency of Atlantic frontal systems reaching Normandy by month-end. This would increase average cloud cover on later December dates compared to earlier ones, independent of short-term weather systems. Doesn't this imply that the seasonal trend influences the expected cloud cover, making the seasonal_trend->cloud_cover link necessary?",
+      "probe_type": "edge_spurious",
+      "target_id": "seasonal_trend->cloud_cover",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend -> Projected cloudiness during the two dates, affecting diurnal temperature variation"
+    },
+    {
+      "probe_text": "Suppose strong radiative cooling over continental Europe in late December increases the frequency of high-pressure systems over eastern Europe, reinforcing northeasterly winds at Pointe De La Hague. This suggests the seasonal cooling trend itself may enhance the persistence of cold continental air advection through large-scale pressure pattern shifts. Does this make the seasonal trend a driver of wind direction, not just a direct temperature influence?",
+      "probe_type": "edge_spurious",
+      "target_id": "seasonal_trend->wind_direction",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Typical temperature pattern in December at Pointe De La Hague, showing gradual cooling trend -> Prevailing wind direction, determining whether maritime, continental, or polar air masses dominate"
+    },
+    {
+      "probe_text": "Suppose a strong urban heat island effect from nearby Cherbourg-en-Cotentin significantly raises minimum temperatures at Pointe De La Hague, particularly during calm, clear winter nights. This effect is not accounted for in the current model. How would the inclusion of this localized warming influence the probability that the temperature on 2025-12-28 is higher than on 2025-12-21, especially if one night is significantly clearer and calmer than the other?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Suppose a strong urban heat island effect emerges around nearby Cherbourg due to unexpected expansion of heat-retaining infrastructure, which increases nighttime minimum temperatures in the region. This effect is not accounted for in the current model. How would this influence the likelihood that the temperature on 2025-12-28 is higher than on 2025-12-21?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent study published by the French Meteorological Society indicates that the number of lightning strikes in Brittany during December 2025 is projected to be 15% above the 10-year average. This increase is attributed to heightened convective instability in the upper atmosphere during sporadic storm events.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent study published by the French Meteorological Society indicates that bird migration patterns over coastal Normandy have shifted slightly earlier in December compared to the previous decade, likely due to long-term changes in local ecosystem indicators. This shift has been most noticeable around the Cap de la Hague peninsula, where increased bird activity was recorded between 2015 and 2024.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if synoptic-scale weather systems like high or low-pressure fronts have no meaningful impact on temperature variations at Pointe De La Hague in late December? It's possible that local maritime influences and persistent fog or inversion layers dampen the temperature effects of large-scale weather systems, making microclimatic conditions far more influential than broader frontal passages.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal role of weather_systems disrupts key pathways in the network. If synoptic-scale systems do not meaningfully affect temperature at Pointe De La Hague due to dampening by local maritime conditions, fog, or inversion layers, then the causal links from weather_systems to wind_direction, cloud_cover, and subsequently to outcome are weakened or nullified. This removes a primary mechanism through which atlantic_sst and north_atlantic_oscillation influence temperatures, effectively decoupling large-scale climate drivers from the outcome. As a result, the prediction must rely more heavily on seasonal_trend and local microclimatic factors, which would slightly favor cooler temperatures on the later date (2025-12-28). Thus, the probability that the later date is warmer decreases, shifting the estimate from 0.52 to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal role of weather_systems disrupts key pathways in the network. If synoptic-scale systems do not meaningfully affect temperature at Pointe De La Hague due to dampening by local maritime conditions, fog, or inversion layers, then the causal links from weather_systems to wind_direction, cloud_cover, and subsequently to outcome are weakened or nullified. This removes a primary mechanism through which atlantic_sst and north_atlantic_oscillation influence temperatures, effectively decoupling large-scale climate drivers from the outcome. As a result, the prediction must rely more heavily on seasonal_trend and local microclimatic factors, which would slightly favor cooler temperatures on the later date (2025-12-28). Thus, the probability that the later date is warmer decreases, shifting the estimate from 0.52 to 0.48.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "What if the North Atlantic Oscillation (NAO) has no significant influence on weather systems over Normandy in December 2025? Recent research suggests that during strong El Niño years, the teleconnection patterns linking the NAO to European storm tracks break down, making the NAO a poor predictor of westerly flow and storm activity regardless of its phase.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'north_atlantic_oscillation' node weakens a key causal path: north_atlantic_oscillation -> weather_systems. If the NAO does not reliably influence storm tracks and westerly flow over Normandy in December 2025 due to a breakdown in teleconnections during a strong El Niño, then the predictive power of the NAO for weather systems—and by extension wind direction and cloud cover—is diminished. This increases uncertainty in the mid-level drivers of temperature variation. However, the impact on the final outcome is modest because the seasonal trend and short-term weather systems still dominate local temperature differences, and weather systems can still vary independently of the NAO. The weakened link reduces the influence of a moderating mechanism (westerly flow bringing mild air), slightly favoring cooler conditions on the later date, but not enough to shift the balance strongly. Thus, the probability shifts only slightly downward from 0.52 to 0.51, reflecting a minimal decrease in the likelihood of a warmer temperature on 2025-12-28 due to reduced confidence in mild Atlantic air dominance.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'north_atlantic_oscillation' node weakens a key causal path: north_atlantic_oscillation -> weather_systems. If the NAO does not reliably influence storm tracks and westerly flow over Normandy in December 2025 due to a breakdown in teleconnections during a strong El Niño, then the predictive power of the NAO for weather systems—and by extension wind direction and cloud cover—is diminished. This increases uncertainty in the mid-level drivers of temperature variation. However, the impact on the final outcome is modest because the seasonal trend and short-term weather systems still dominate local temperature differences, and weather systems can still vary independently of the NAO. The weakened link reduces the influence of a moderating mechanism (westerly flow bringing mild air), slightly favoring cooler conditions on the later date, but not enough to shift the balance strongly. Thus, the probability shifts only slightly downward from 0.52 to 0.51, reflecting a minimal decrease in the likelihood of a warmer temperature on 2025-12-28 due to reduced confidence in mild Atlantic air dominance.\"\n}",
+      "target_id": "north_atlantic_oscillation",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of wind impact on coastal temperatures at Pointe De La Hague shows that in winter, the thermal inertia of the Atlantic Ocean dampens air temperature changes regardless of wind direction. On synoptic timescales, advection of air masses has minimal effect because sea-breeze coupling and maritime air saturation limit temperature variance, suggesting wind direction may not significantly influence daily average temperatures at this location.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the 'wind_direction' node suggests that its influence on the outcome is weaker than previously assumed, due to the thermal inertia of the Atlantic Ocean dampening temperature responses to wind-driven air mass advection at Pointe De La Hague. This weakens the causal path from wind_direction -> outcome, and indirectly reduces the importance of the weather_systems -> wind_direction -> outcome chain. However, wind_direction was not the dominant pathway in the network; other factors such as weather_systems directly affecting cloud_cover and the broader influence of north_atlantic_oscillation on storm tracks and temperature variability remain intact. The seasonal_trend and cloud_cover paths are unaffected. Given that wind_direction played a moderate but not central role in the original reasoning, the reduction in its efficacy slightly lowers the confidence that conditions on 2025-12-28 would be warmer than 2025-12-21, especially since the late December cooling trend slightly favors lower temperatures later in the month. Thus, the probability shifts only slightly downward from 0.52 to 0.51.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the 'wind_direction' node suggests that its influence on the outcome is weaker than previously assumed, due to the thermal inertia of the Atlantic Ocean dampening temperature responses to wind-driven air mass advection at Pointe De La Hague. This weakens the causal path from wind_direction -> outcome, and indirectly reduces the importance of the weather_systems -> wind_direction -> outcome chain. However, wind_direction was not the dominant pathway in the network; other factors such as weather_systems directly affecting cloud_cover and the broader influence of north_atlantic_oscillation on storm tracks and temperature variability remain intact. The seasonal_trend and cloud_cover paths are unaffected. Given that wind_direction played a moderate but not central role in the original reasoning, the reduction in its efficacy slightly lowers the confidence that conditions on 2025-12-28 would be warmer than 2025-12-21, especially since the late December cooling trend slightly favors lower temperatures later in the month. Thus, the probability shifts only slightly downward from 0.52 to 0.51.\"\n}",
+      "target_id": "wind_direction",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that sea surface temperatures in the eastern North Atlantic have minimal direct influence on the North Atlantic Oscillation during winter months, as atmospheric variability is dominated by stratospheric processes and internal dynamics rather than ocean forcing. Satellite data from the past decade shows no statistically significant correlation between December SST anomalies in that region and subsequent NAO phase shifts, implying that atlantic_sst may not meaningfully drive weather patterns at Pointe De La Hague.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to 'atlantic_sst' weakens the causal link between sea surface temperatures and the North Atlantic Oscillation (NAO) during winter, specifically in December. This severs the indirect path from atlantic_sst -> north_atlantic_oscillation -> weather_systems -> wind_direction/cloud_cover -> outcome. However, 'atlantic_sst' was not a dominant or structurally central node in the network; it acted as a potential modulator of NAO but not the primary driver. The NAO itself remains influential on weather_systems and downstream variables, but its connection to oceanic forcing in this region and season appears less robust than previously assumed. As a result, uncertainty increases in the predictability of westerly flow and storm track patterns, but the core drivers of wind_direction, cloud_cover, and seasonal_trend remain intact. The weakening of this upstream link slightly reduces the expected persistence or predictability of mild Atlantic-influenced conditions, marginally favoring the baseline seasonal cooling trend. Thus, the probability is slightly decreased from 0.52 to 0.51, reflecting a minor adjustment due to reduced oceanic influence on atmospheric circulation, but no substantial shift as the key proximal drivers of temperature remain operative.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to 'atlantic_sst' weakens the causal link between sea surface temperatures and the North Atlantic Oscillation (NAO) during winter, specifically in December. This severs the indirect path from atlantic_sst -> north_atlantic_oscillation -> weather_systems -> wind_direction/cloud_cover -> outcome. However, 'atlantic_sst' was not a dominant or structurally central node in the network; it acted as a potential modulator of NAO but not the primary driver. The NAO itself remains influential on weather_systems and downstream variables, but its connection to oceanic forcing in this region and season appears less robust than previously assumed. As a result, uncertainty increases in the predictability of westerly flow and storm track patterns, but the core drivers of wind_direction, cloud_cover, and seasonal_trend remain intact. The weakening of this upstream link slightly reduces the expected persistence or predictability of mild Atlantic-influenced conditions, marginally favoring the baseline seasonal cooling trend. Thus, the probability is slightly decreased from 0.52 to 0.51, reflecting a minor adjustment due to reduced oceanic influence on atmospheric circulation, but no substantial shift as the key proximal drivers of temperature remain operative.\"\n}",
+      "target_id": "atlantic_sst",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent high-resolution meteorological model ensemble consistently shows that synoptic-scale weather systems during late December 2025 will drive significant temperature variability at Pointe De La Hague, with individual storm passages correlating strongly with rapid warm-air advection events. Historical reanalysis confirms that over the past 30 years, 78% of anomalous midwinter temperature increases at the station were preceded by identifiable Atlantic weather systems, reinforcing their dominant role over other factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.64,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal path from weather_systems to outcome via wind_direction and cloud_cover. The evidence shows that Atlantic weather systems are the dominant driver of midwinter temperature increases at Pointe De La Hague, with strong historical correlation (78%) and mechanistic support through warm-air advection. This increases the weight of weather_systems in the causal network, particularly its influence on wind_direction (e.g., southwesterly flows) and cloud_cover, both of which directly affect daily average temperatures. As a result, the likelihood that a later date (2025-12-28) is warmer than an earlier one (2025-12-21) increases, especially given the typical variability introduced by storm passages in late December. The seasonal_trend still exerts a slight downward pressure, but the enhanced role of weather_systems makes a temperature increase over the week more probable than initially estimated.",
+      "raw_response": "{\n  \"updated_probability\": 0.64,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal path from weather_systems to outcome via wind_direction and cloud_cover. The evidence shows that Atlantic weather systems are the dominant driver of midwinter temperature increases at Pointe De La Hague, with strong historical correlation (78%) and mechanistic support through warm-air advection. This increases the weight of weather_systems in the causal network, particularly its influence on wind_direction (e.g., southwesterly flows) and cloud_cover, both of which directly affect daily average temperatures. As a result, the likelihood that a later date (2025-12-28) is warmer than an earlier one (2025-12-21) increases, especially given the typical variability introduced by storm passages in late December. The seasonal_trend still exerts a slight downward pressure, but the enhanced role of weather_systems makes a temperature increase over the week more probable than initially estimated.\"\n}",
+      "target_id": "weather_systems",
+      "target_type": "node",
+      "target_importance": 0.2,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent study published in *Nature Climate Change* analyzes reanalysis data from 1950–2024 and finds that during positive NAO phases, the likelihood of mild Atlantic weather systems reaching Normandy in December increases by 40% compared to neutral phases. The study also reports a strong correlation (r = 0.78) between the NAO index and zonal wind strength over the eastern North Atlantic, directly reinforcing its role in steering weather systems that affect temperature at Pointe De La Hague.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal path from north_atlantic_oscillation to weather_systems, confirming a 40% increase in the likelihood of mild Atlantic systems reaching Normandy during positive NAO phases and a strong correlation (r = 0.78) with zonal wind strength. This reinforces the mechanism by which the NAO modulates temperature at Pointe De La Hague: a positive NAO enhances westerly flow, steering mild maritime air masses toward the region. Since weather_systems influences both wind_direction and cloud_cover, and these in turn affect the outcome, the validated strength of this pathway increases confidence that a positive NAO state would lead to higher temperatures on 2025-12-28 compared to 2025-12-21, especially if the later date coincides with a stronger westerly regime. The seasonal_trend still slightly favors cooling, but the enhanced weight of the NAO-driven weather system pathway tilts the balance. Thus, the probability is updated upward from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal path from north_atlantic_oscillation to weather_systems, confirming a 40% increase in the likelihood of mild Atlantic systems reaching Normandy during positive NAO phases and a strong correlation (r = 0.78) with zonal wind strength. This reinforces the mechanism by which the NAO modulates temperature at Pointe De La Hague: a positive NAO enhances westerly flow, steering mild maritime air masses toward the region. Since weather_systems influences both wind_direction and cloud_cover, and these in turn affect the outcome, the validated strength of this pathway increases confidence that a positive NAO state would lead to higher temperatures on 2025-12-28 compared to 2025-12-21, especially if the later date coincides with a stronger westerly regime. The seasonal_trend still slightly favors cooling, but the enhanced weight of the NAO-driven weather system pathway tilts the balance. Thus, the probability is updated upward from 0.52 to 0.58.\"\n}",
+      "target_id": "north_atlantic_oscillation",
+      "target_type": "node",
+      "target_importance": 0.1333,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent studies have shown that during strong El Niño events, the jet stream over the North Atlantic tends to reconfigure in a way that decouples the NAO from its typical influence on storm tracks, leading to blocked or reversed westerly flow regardless of NAO phase. Given the potential for a strong El Niño in winter 2025–2026, the usual strengthening of westerly winds and mild Atlantic systems over France during a positive NAO may not hold, undermining the assumed causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge targets the causal link between north_atlantic_oscillation and weather_systems, which is a key pathway through which large-scale climate variability influences local weather in Normandy. The introduction of a strong El Niño in winter 2025–2026 potentially disrupts this link by reconfiguring the jet stream and decoupling the NAO's typical control over storm tracks and westerly flow. This means that even if the NAO is positive, the expected increase in mild Atlantic weather systems over France may not occur, reducing the predictive power of the NAO in this context. As a result, the influence of atlantic_sst and north_atlantic_oscillation on the outcome—mediated through weather_systems, wind_direction, and cloud_cover—is weakened. However, because the outcome still depends heavily on short-term weather_systems and local factors like wind_direction and cloud_cover, and because El Niño's precise impact remains uncertain, the overall effect on the probability is modest. The slight downward adjustment reflects reduced confidence in the mild-winter signal typically associated with a positive NAO, but not a fundamental shift in the balance of likely temperature outcomes.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge targets the causal link between north_atlantic_oscillation and weather_systems, which is a key pathway through which large-scale climate variability influences local weather in Normandy. The introduction of a strong El Niño in winter 2025–2026 potentially disrupts this link by reconfiguring the jet stream and decoupling the NAO's typical control over storm tracks and westerly flow. This means that even if the NAO is positive, the expected increase in mild Atlantic weather systems over France may not occur, reducing the predictive power of the NAO in this context. As a result, the influence of atlantic_sst and north_atlantic_oscillation on the outcome—mediated through weather_systems, wind_direction, and cloud_cover—is weakened. However, because the outcome still depends heavily on short-term weather_systems and local factors like wind_direction and cloud_cover, and because El Niño's precise impact remains uncertain, the overall effect on the probability is modest. The slight downward adjustment reflects reduced confidence in the mild-winter signal typically associated with a positive NAO, but not a fundamental shift in the balance of likely temperature outcomes.\"\n}",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reanalyses of North Atlantic climate dynamics suggest that sea surface temperatures may be more of a passive tracer than an active driver of NAO variability, with upper-atmospheric processes like stratospheric polar vortex disruptions showing stronger statistical and dynamical links to NAO phase shifts. In particular, studies using AMIP-model simulations show negligible NAO response to prescribed eastern North Atlantic SST anomalies, indicating the causal influence of atlantic_sst on north_atlantic_oscillation may be weak or confounded by reverse causality where NAO drives SST patterns via wind stress.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge to the causal link atlantic_sst -> north_atlantic_oscillation weakens a pathway that previously allowed sea surface temperatures to influence the NAO phase, which in turn affected weather systems, wind direction, and ultimately temperature. However, the NAO remains influenced by other drivers (e.g., stratospheric dynamics), and the direct impacts of weather_systems, wind_direction, and cloud_cover on the outcome are still intact. Since atlantic_sst was an upstream and somewhat uncertain driver of NAO variability, and given that NAO itself is only one input into the weather systems affecting Pointe De La Hague, the broken link reduces the explanatory power of the SST-related path but does not disrupt the core short-term meteorological drivers. The seasonal trend slightly favors cooling, so without a reinforcing mechanism via SST-driven NAO shifts, the probability of a warmer end date decreases marginally. The change is small because the causal path from atlantic_sst to outcome was indirect and already uncertain.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge to the causal link atlantic_sst -> north_atlantic_oscillation weakens a pathway that previously allowed sea surface temperatures to influence the NAO phase, which in turn affected weather systems, wind direction, and ultimately temperature. However, the NAO remains influenced by other drivers (e.g., stratospheric dynamics), and the direct impacts of weather_systems, wind_direction, and cloud_cover on the outcome are still intact. Since atlantic_sst was an upstream and somewhat uncertain driver of NAO variability, and given that NAO itself is only one input into the weather systems affecting Pointe De La Hague, the broken link reduces the explanatory power of the SST-related path but does not disrupt the core short-term meteorological drivers. The seasonal trend slightly favors cooling, so without a reinforcing mechanism via SST-driven NAO shifts, the probability of a warmer end date decreases marginally. The change is small because the causal path from atlantic_sst to outcome was indirect and already uncertain.\"\n}",
+      "target_id": "atlantic_sst->north_atlantic_oscillation",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Although late December typically shows a gradual cooling trend, this pattern is often overshadowed by synoptic-scale weather variability in coastal Normandy. Given the strong maritime influence and frequent passage of Atlantic systems, interannual fluctuations in wind direction and cloud cover may render the seasonal trend negligible in determining temperature differences over just one week.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.51,
+      "absolute_shift": 0.010000000000000009,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge questions the strength of the causal link between seasonal_trend and outcome, arguing that synoptic-scale variability—driven by weather_systems, wind_direction, and cloud_cover—dominates over the weak seasonal cooling trend in coastal Normandy. This suggests that the seasonal_trend->outcome path is relatively weak compared to other pathways, particularly those involving atmospheric dynamics and maritime influences. As a result, the slight downward trend in late December temperatures has less bearing on the one-week comparison than previously assumed. However, since the original estimate already assigned only a modest weight to seasonal_trend (reflected in the small deviation from 0.5), and the dominant drivers (e.g., weather_systems, wind_direction) remain intact, the update is minor. The probability decreases slightly because the absence of a meaningful seasonal trend brings the estimate closer to 0.5, but a small bias remains due to potential persistence in weather patterns (e.g., a blocking high or persistent westerly flow) that could make consecutive weeks more similar than not.",
+      "raw_response": "{\n  \"updated_probability\": 0.51,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge questions the strength of the causal link between seasonal_trend and outcome, arguing that synoptic-scale variability—driven by weather_systems, wind_direction, and cloud_cover—dominates over the weak seasonal cooling trend in coastal Normandy. This suggests that the seasonal_trend->outcome path is relatively weak compared to other pathways, particularly those involving atmospheric dynamics and maritime influences. As a result, the slight downward trend in late December temperatures has less bearing on the one-week comparison than previously assumed. However, since the original estimate already assigned only a modest weight to seasonal_trend (reflected in the small deviation from 0.5), and the dominant drivers (e.g., weather_systems, wind_direction) remain intact, the update is minor. The probability decreases slightly because the absence of a meaningful seasonal trend brings the estimate closer to 0.5, but a small bias remains due to potential persistence in weather patterns (e.g., a blocking high or persistent westerly flow) that could make consecutive weeks more similar than not.\"\n}",
+      "target_id": "seasonal_trend->outcome",
+      "target_type": "edge",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent research suggests that persistent patterns of storm tracks and zonal wind strength over the North Atlantic may actually drive shifts in the North Atlantic Oscillation index, rather than the reverse. Specifically, the cumulative effect of successive high-latitude cyclones and enhanced westerly flow can reorganize large-scale pressure gradients, thereby reinforcing the positive phase of the NAO. This implies that weather_systems could be a driver of north_atlantic_oscillation, not merely a response to it.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The challenge reverses the direction of causality between north_atlantic_oscillation and weather_systems, suggesting that weather_systems may drive the NAO state rather than being driven by it. However, for the purpose of forecasting the temperature comparison, the key causal pathways from atmospheric circulation to wind_direction, cloud_cover, and ultimately to the outcome remain intact regardless of the direction of this link. The mutual association between NAO phase and westerly weather systems over Western Europe is well-established, and the practical implication—whether a positive NAO is a cause or consequence of enhanced westerlies—is less important for predicting temperature outcomes than the presence of those weather patterns themselves. Thus, the reversal does not break or significantly alter the effective causal pathways leading to the outcome. The overall uncertainty in seasonal-to-subseasonal weather remains dominant, and the initial 0.52 estimate, reflecting near-chance odds with a slight lean due to weak seasonal and climatological tendencies, remains appropriate.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The challenge reverses the direction of causality between north_atlantic_oscillation and weather_systems, suggesting that weather_systems may drive the NAO state rather than being driven by it. However, for the purpose of forecasting the temperature comparison, the key causal pathways from atmospheric circulation to wind_direction, cloud_cover, and ultimately to the outcome remain intact regardless of the direction of this link. The mutual association between NAO phase and westerly weather systems over Western Europe is well-established, and the practical implication—whether a positive NAO is a cause or consequence of enhanced westerlies—is less important for predicting temperature outcomes than the presence of those weather patterns themselves. Thus, the reversal does not break or significantly alter the effective causal pathways leading to the outcome. The overall uncertainty in seasonal-to-subseasonal weather remains dominant, and the initial 0.52 estimate, reflecting near-chance odds with a slight lean due to weak seasonal and climatological tendencies, remains appropriate.\"\n}",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose new climatological analysis shows that the late-December cooling trend at Pointe De La Hague is associated with a gradual southward shift in storm tracks, leading to increased frequency of Atlantic frontal systems reaching Normandy by month-end. This would increase average cloud cover on later December dates compared to earlier ones, independent of short-term weather systems. Doesn't this imply that the seasonal trend influences the expected cloud cover, making the seasonal_trend->cloud_cover link necessary?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.56,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "increased",
+      "reasoning": "The new information introduces a previously unmodeled causal link: seasonal_trend -> cloud_cover, mediated by a southward shift in storm tracks that increases frontal cloudiness toward the end of December. This strengthens the expectation that 2025-12-28 will have higher cloud cover than 2025-12-21 due to climatological patterns, independent of transient weather systems. Since cloud_cover -> outcome and higher cloud cover in winter tends to moderate temperatures (reducing daytime warming but increasing nighttime lows), and given the maritime setting, the net effect is a relative warming influence—warmer nighttime lows dominate the daily average. Thus, the later date is more likely to have a higher daily average temperature due to this cloud-mediated seasonal effect. This adds a new causal path: seasonal_trend -> cloud_cover -> outcome, reinforcing any existing weak warming signal. Consequently, the probability that the temperature is higher on 2025-12-28 increases from 0.52 to 0.56.",
+      "raw_response": "{\n  \"updated_probability\": 0.56,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information introduces a previously unmodeled causal link: seasonal_trend -> cloud_cover, mediated by a southward shift in storm tracks that increases frontal cloudiness toward the end of December. This strengthens the expectation that 2025-12-28 will have higher cloud cover than 2025-12-21 due to climatological patterns, independent of transient weather systems. Since cloud_cover -> outcome and higher cloud cover in winter tends to moderate temperatures (reducing daytime warming but increasing nighttime lows), and given the maritime setting, the net effect is a relative warming influence—warmer nighttime lows dominate the daily average. Thus, the later date is more likely to have a higher daily average temperature due to this cloud-mediated seasonal effect. This adds a new causal path: seasonal_trend -> cloud_cover -> outcome, reinforcing any existing weak warming signal. Consequently, the probability that the temperature is higher on 2025-12-28 increases from 0.52 to 0.56.\"\n}",
+      "target_id": "seasonal_trend->cloud_cover",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Suppose strong radiative cooling over continental Europe in late December increases the frequency of high-pressure systems over eastern Europe, reinforcing northeasterly winds at Pointe De La Hague. This suggests the seasonal cooling trend itself may enhance the persistence of cold continental air advection through large-scale pressure pattern shifts. Does this make the seasonal trend a driver of wind direction, not just a direct temperature influence?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.040000000000000036,
+      "shift_direction": "decreased",
+      "reasoning": "The challenge proposes a new causal link: seasonal_trend → wind_direction, suggesting that late December cooling over continental Europe strengthens high-pressure systems in the east, leading to more persistent northeasterly winds advecting cold air toward Pointe De La Hague. This adds a reinforcing pathway through which the seasonal trend indirectly reduces temperatures, beyond its direct effect. This strengthens the causal influence of the seasonal trend on the outcome via wind_direction, making colder conditions on 2025-12-28 more likely relative to 2025-12-21. As a result, the probability that the later date is warmer decreases. The original estimate of 0.52 already slightly discounted warming due to seasonal decline, but this new path increases the systemic tendency toward cooler, continentally influenced conditions at the end of December, warranting a downward adjustment to 0.48.",
+      "raw_response": "{\n  \"updated_probability\": 0.48,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The challenge proposes a new causal link: seasonal_trend → wind_direction, suggesting that late December cooling over continental Europe strengthens high-pressure systems in the east, leading to more persistent northeasterly winds advecting cold air toward Pointe De La Hague. This adds a reinforcing pathway through which the seasonal trend indirectly reduces temperatures, beyond its direct effect. This strengthens the causal influence of the seasonal trend on the outcome via wind_direction, making colder conditions on 2025-12-28 more likely relative to 2025-12-21. As a result, the probability that the later date is warmer decreases. The original estimate of 0.52 already slightly discounted warming due to seasonal decline, but this new path increases the systemic tendency toward cooler, continentally influenced conditions at the end of December, warranting a downward adjustment to 0.48.\"\n}",
+      "target_id": "seasonal_trend->wind_direction",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose a strong urban heat island effect from nearby Cherbourg-en-Cotentin significantly raises minimum temperatures at Pointe De La Hague, particularly during calm, clear winter nights. This effect is not accounted for in the current model. How would the inclusion of this localized warming influence the probability that the temperature on 2025-12-28 is higher than on 2025-12-21, especially if one night is significantly clearer and calmer than the other?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The inclusion of a localized urban heat island (UHI) effect from Cherbourg-en-Cotentin introduces a new causal pathway influencing the outcome, particularly through nighttime minimum temperatures. This effect is especially relevant under calm, clear conditions, which favor radiative cooling but are counteracted by UHI-induced warming. Since daily average temperature includes both daytime and nighttime values, a calmer, clearer night on either date—especially December 27–28—could result in a higher minimum temperature due to enhanced UHI retention, disproportionately raising the daily average. This effect is not mediated through existing nodes like cloud_cover or wind_direction but interacts with them: clear skies and low wind amplify the UHI impact. Thus, if 2025-12-28 has calmer conditions than 2025-12-21, the UHI could make the later date warmer despite the slight seasonal cooling trend. This adds a small asymmetric upward bias to the probability of a higher temperature on the later date, particularly in plausible weather scenarios. Therefore, the causal path from wind_direction and cloud_cover to outcome is augmented by this localized effect, slightly increasing the overall probability from 0.52 to 0.54.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The inclusion of a localized urban heat island (UHI) effect from Cherbourg-en-Cotentin introduces a new causal pathway influencing the outcome, particularly through nighttime minimum temperatures. This effect is especially relevant under calm, clear conditions, which favor radiative cooling but are counteracted by UHI-induced warming. Since daily average temperature includes both daytime and nighttime values, a calmer, clearer night on either date—especially December 27–28—could result in a higher minimum temperature due to enhanced UHI retention, disproportionately raising the daily average. This effect is not mediated through existing nodes like cloud_cover or wind_direction but interacts with them: clear skies and low wind amplify the UHI impact. Thus, if 2025-12-28 has calmer conditions than 2025-12-21, the UHI could make the later date warmer despite the slight seasonal cooling trend. This adds a small asymmetric upward bias to the probability of a higher temperature on the later date, particularly in plausible weather scenarios. Therefore, the causal path from wind_direction and cloud_cover to outcome is augmented by this localized effect, slightly increasing the overall probability from 0.52 to 0.54.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Suppose a strong urban heat island effect emerges around nearby Cherbourg due to unexpected expansion of heat-retaining infrastructure, which increases nighttime minimum temperatures in the region. This effect is not accounted for in the current model. How would this influence the likelihood that the temperature on 2025-12-28 is higher than on 2025-12-21?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.54,
+      "absolute_shift": 0.020000000000000018,
+      "shift_direction": "increased",
+      "reasoning": "The emergence of a strong urban heat island (UHI) effect near Cherbourg introduces an additional warming influence, particularly on nighttime minimum temperatures, which would elevate daily average temperatures at nearby Pointe De La Hague. This effect is not directly represented in the current causal network but would act as a localized forcing that systematically raises baseline temperatures, especially during calm, clear nights typical in winter. While the UHI effect does not alter the existing causal paths (e.g., seasonal trends, weather systems, NAO influences), it adds a persistent warming bias that affects both dates. However, because the later date (2025-12-28) is more likely to benefit from any cumulative or sustained UHI contribution—particularly if the effect intensifies over the week—and because winter temperature differences are often driven by nighttime minima (which UHI elevates), the balance slightly favors the later date being warmer. This strengthens the likelihood that 2025-12-28 is warmer than 2025-12-21, particularly by mitigating the expected seasonal cooling trend. Thus, the probability increases modestly from 0.52 to 0.54, reflecting a small upward adjustment due to this additional warming mechanism acting more strongly on the later date.",
+      "raw_response": "{\n  \"updated_probability\": 0.54,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The emergence of a strong urban heat island (UHI) effect near Cherbourg introduces an additional warming influence, particularly on nighttime minimum temperatures, which would elevate daily average temperatures at nearby Pointe De La Hague. This effect is not directly represented in the current causal network but would act as a localized forcing that systematically raises baseline temperatures, especially during calm, clear nights typical in winter. While the UHI effect does not alter the existing causal paths (e.g., seasonal trends, weather systems, NAO influences), it adds a persistent warming bias that affects both dates. However, because the later date (2025-12-28) is more likely to benefit from any cumulative or sustained UHI contribution—particularly if the effect intensifies over the week—and because winter temperature differences are often driven by nighttime minima (which UHI elevates), the balance slightly favors the later date being warmer. This strengthens the likelihood that 2025-12-28 is warmer than 2025-12-21, particularly by mitigating the expected seasonal cooling trend. Thus, the probability increases modestly from 0.52 to 0.54, reflecting a small upward adjustment due to this additional warming mechanism acting more strongly on the later date.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study published by the French Meteorological Society indicates that the number of lightning strikes in Brittany during December 2025 is projected to be 15% above the 10-year average. This increase is attributed to heightened convective instability in the upper atmosphere during sporadic storm events.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The reported increase in lightning strikes in Brittany during December 2025 reflects heightened convective instability during sporadic storm events. However, lightning activity is a peripheral meteorological phenomenon that does not directly influence the core causal drivers of daily average temperature at Pointe De La Hague, such as seasonal trends, prevailing wind direction, cloud cover, or large-scale circulation patterns like the North Atlantic Oscillation. While increased convection may correlate with certain weather systems, it is not a primary driver of temperature differences between two specific days and is already implicitly accounted for within the 'weather_systems' node. No critical causal path in the network is altered by this information, and the outcome remains governed by the same dominant factors. Therefore, the probability estimate remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The reported increase in lightning strikes in Brittany during December 2025 reflects heightened convective instability during sporadic storm events. However, lightning activity is a peripheral meteorological phenomenon that does not directly influence the core causal drivers of daily average temperature at Pointe De La Hague, such as seasonal trends, prevailing wind direction, cloud cover, or large-scale circulation patterns like the North Atlantic Oscillation. While increased convection may correlate with certain weather systems, it is not a primary driver of temperature differences between two specific days and is already implicitly accounted for within the 'weather_systems' node. No critical causal path in the network is altered by this information, and the outcome remains governed by the same dominant factors. Therefore, the probability estimate remains unchanged.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent study published by the French Meteorological Society indicates that bird migration patterns over coastal Normandy have shifted slightly earlier in December compared to the previous decade, likely due to long-term changes in local ecosystem indicators. This shift has been most noticeable around the Cap de la Hague peninsula, where increased bird activity was recorded between 2015 and 2024.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.52,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The observed shift in bird migration patterns, while potentially indicative of broader ecological changes, does not directly affect any of the causal pathways in the model that determine daily average temperatures at Pointe De La Hague. The nodes in the causal network—such as seasonal trend, weather systems, Atlantic SST, NAO, cloud cover, and wind direction—are driven by atmospheric and oceanic physics, not by bird behavior. There is no known mechanistic link from bird migration to temperature outcomes, nor does the migration shift provide actionable information that updates our understanding of the existing causal drivers. Therefore, the evidence presented does not alter the likelihood of the temperature being higher on 2025-12-28 versus 2025-12-21, and the probability remains unchanged.",
+      "raw_response": "{\n  \"updated_probability\": 0.52,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The observed shift in bird migration patterns, while potentially indicative of broader ecological changes, does not directly affect any of the causal pathways in the model that determine daily average temperatures at Pointe De La Hague. The nodes in the causal network—such as seasonal trend, weather systems, Atlantic SST, NAO, cloud cover, and wind direction—are driven by atmospheric and oceanic physics, not by bird behavior. There is no known mechanistic link from bird migration to temperature outcomes, nor does the migration shift provide actionable information that updates our understanding of the existing causal drivers. Therefore, the evidence presented does not alter the likelihood of the temperature being higher on 2025-12-28 versus 2025-12-21, and the probability remains unchanged.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent climate modeling shows that under a positive North Atlantic Oscillation phase, persistent southwesterly wind anomalies are projected to occur more frequently over Normandy in late December, bringing milder maritime air from the Atlantic. This pattern is expected to strengthen in 2025 due to warmer-than-average eastern North Atlantic sea surface temperatures, increasing the likelihood that wind direction will dominate short-term temperature variations at Pointe De La Hague.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The challenge strengthens the causal path from north_atlantic_oscillation to weather_systems, and subsequently to wind_direction, by emphasizing that a positive NAO phase in 2025—driven by warmer atlantic_sst—is likely to produce persistent southwesterly wind anomalies over Normandy. This enhances the influence of wind_direction on the outcome, as milder maritime air from the southwest is projected to dominate temperature variations. Previously, wind_direction was one of several moderating factors, but the new information suggests it will be a dominant driver. This increases the probability that the later date (2025-12-28) will be warmer despite the slight seasonal cooling trend, as the persistence of warm air advection could override typical variability. The key causal paths (atlantic_sst → north_atlantic_oscillation → weather_systems → wind_direction → outcome) are reinforced and made more deterministic, justifying a moderate upward shift in the probability estimate.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The challenge strengthens the causal path from north_atlantic_oscillation to weather_systems, and subsequently to wind_direction, by emphasizing that a positive NAO phase in 2025—driven by warmer atlantic_sst—is likely to produce persistent southwesterly wind anomalies over Normandy. This enhances the influence of wind_direction on the outcome, as milder maritime air from the southwest is projected to dominate temperature variations. Previously, wind_direction was one of several moderating factors, but the new information suggests it will be a dominant driver. This increases the probability that the later date (2025-12-28) will be warmer despite the slight seasonal cooling trend, as the persistence of warm air advection could override typical variability. The key causal paths (atlantic_sst → north_atlantic_oscillation → weather_systems → wind_direction → outcome) are reinforced and made more deterministic, justifying a moderate upward shift in the probability estimate.\"\n}",
+      "target_id": "wind_direction",
+      "target_type": "node",
+      "target_importance": 0.05,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite observations show that sea surface temperatures in the eastern North Atlantic have been 1.2°C above the 1991–2020 average during November and early December 2025, particularly in the region southwest of Iceland where ocean-atmosphere coupling strongly influences the development of meridional pressure gradients. Climate models consistently link such anomalies to a higher likelihood of a positive North Atlantic Oscillation phase, reinforcing the pathway from warmer Atlantic SSTs to milder winter conditions in Normandy.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.61,
+      "absolute_shift": 0.08999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The observed +1.2°C anomaly in eastern North Atlantic sea surface temperatures (atlantic_sst) strengthens the causal path from atlantic_sst to north_atlantic_oscillation, increasing the likelihood of a positive NAO phase. This, in turn, reinforces the chain: positive north_atlantic_oscillation → enhanced westerly flow → more frequent mild Atlantic weather systems (weather_systems) → increased likelihood of southwesterly wind_direction and lower cloud_cover variability. These conditions favor warmer air masses reaching Pointe De La Hague, directly increasing the probability of higher temperatures on 2025-12-28 relative to 2025-12-21. The seasonal_trend still slightly favors cooling, but the amplified ocean-driven atmospheric response shifts the balance. As atlantic_sst is a key driver of the NAO and hence downstream weather patterns in this region, the update is meaningful but not overwhelming due to inherent short-term weather noise. Thus, the probability increases from 0.52 to 0.61.",
+      "raw_response": "{\n  \"updated_probability\": 0.61,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The observed +1.2°C anomaly in eastern North Atlantic sea surface temperatures (atlantic_sst) strengthens the causal path from atlantic_sst to north_atlantic_oscillation, increasing the likelihood of a positive NAO phase. This, in turn, reinforces the chain: positive north_atlantic_oscillation → enhanced westerly flow → more frequent mild Atlantic weather systems (weather_systems) → increased likelihood of southwesterly wind_direction and lower cloud_cover variability. These conditions favor warmer air masses reaching Pointe De La Hague, directly increasing the probability of higher temperatures on 2025-12-28 relative to 2025-12-21. The seasonal_trend still slightly favors cooling, but the amplified ocean-driven atmospheric response shifts the balance. As atlantic_sst is a key driver of the NAO and hence downstream weather patterns in this region, the update is meaningful but not overwhelming due to inherent short-term weather noise. Thus, the probability increases from 0.52 to 0.61.\"\n}",
+      "target_id": "atlantic_sst",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 6,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reanalysis data from ECMWF (2023–2024) shows that during strongly positive NAO phases, the frequency of intense Atlantic low-pressure systems tracking northeastward across Western Europe increased by 18% compared to the 1990–2020 average, leading to more persistent westerly flow and milder air intrusions into northern France. This intensification of the NAO–weather system linkage is consistent with climate model projections under enhanced Arctic warming, suggesting the causal influence of the NAO on synoptic patterns is strengthening.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between the North Atlantic Oscillation (NAO) and weather systems, indicating that a positive NAO phase is more reliably associated with increased frequency of intense Atlantic low-pressure systems and persistent westerly flow. This enhances the likelihood of milder maritime air reaching Normandy during periods of positive NAO, which directly affects the 'weather_systems' node by making warm air intrusions more probable. Since this strengthens the pathway from 'north_atlantic_oscillation' through 'weather_systems' to 'wind_direction' and ultimately to higher temperatures at Pointe De La Hague, the probability that the temperature on 2025-12-28 is higher than on 2025-12-21 increases. The late December seasonal trend still slightly favors cooling, but the amplified influence of the NAO makes transient warming events more likely, justifying an upward revision from 0.52 to 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between the North Atlantic Oscillation (NAO) and weather systems, indicating that a positive NAO phase is more reliably associated with increased frequency of intense Atlantic low-pressure systems and persistent westerly flow. This enhances the likelihood of milder maritime air reaching Normandy during periods of positive NAO, which directly affects the 'weather_systems' node by making warm air intrusions more probable. Since this strengthens the pathway from 'north_atlantic_oscillation' through 'weather_systems' to 'wind_direction' and ultimately to higher temperatures at Pointe De La Hague, the probability that the temperature on 2025-12-28 is higher than on 2025-12-21 increases. The late December seasonal trend still slightly favors cooling, but the amplified influence of the NAO makes transient warming events more likely, justifying an upward revision from 0.52 to 0.58.\"\n}",
+      "target_id": "north_atlantic_oscillation->weather_systems",
+      "target_type": "edge",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite and buoy observations from 2024 show that anomalously warm sea surface temperatures (>1.5°C above average) in the eastern North Atlantic during autumn 2024 have coincided with a persistent dipole pressure anomaly favoring a strongly positive North Atlantic Oscillation (NAO) index, reinforcing the hypothesis that warmer atlantic_sst enhances the thermal contrast that strengthens the Icelandic Low and Azores High. Climate models initialized with these observed SSTs have accurately predicted the sustained positive NAO phase into winter 2025, suggesting the atlantic_sst->north_atlantic_oscillation link is both physically robust and operationally predictive.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.05999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence strengthens the causal link between atlantic_sst and north_atlantic_oscillation, confirming that anomalously warm sea surface temperatures in the eastern North Atlantic are reinforcing a positive NAO phase. This enhances confidence in a sustained positive NAO during winter 2025, which propagates through the causal network: a positive NAO increases the likelihood of strong westerly flow (north_atlantic_oscillation -> weather_systems), leading to more frequent mild Atlantic weather systems affecting Normandy. This in turn increases the probability of southwesterly wind_direction and lower cloud_cover variability, both of which favor milder conditions. Since the outcome compares a later date (2025-12-28) to an earlier one (2025-12-21), a persistent positive NAO regime increases the chance that the later date is warmer, counteracting the slight seasonal cooling trend. Thus, the strengthened atlantic_sst -> north_atlantic_oscillation link amplifies the influence of a key driver favoring warmer conditions at the end of December, justifying an upward revision in the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence strengthens the causal link between atlantic_sst and north_atlantic_oscillation, confirming that anomalously warm sea surface temperatures in the eastern North Atlantic are reinforcing a positive NAO phase. This enhances confidence in a sustained positive NAO during winter 2025, which propagates through the causal network: a positive NAO increases the likelihood of strong westerly flow (north_atlantic_oscillation -> weather_systems), leading to more frequent mild Atlantic weather systems affecting Normandy. This in turn increases the probability of southwesterly wind_direction and lower cloud_cover variability, both of which favor milder conditions. Since the outcome compares a later date (2025-12-28) to an earlier one (2025-12-21), a persistent positive NAO regime increases the chance that the later date is warmer, counteracting the slight seasonal cooling trend. Thus, the strengthened atlantic_sst -> north_atlantic_oscillation link amplifies the influence of a key driver favoring warmer conditions at the end of December, justifying an upward revision in the probability.\"\n}",
+      "target_id": "atlantic_sst->north_atlantic_oscillation",
+      "target_type": "edge",
+      "target_importance": 0.119,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    }
+  ],
+  "summary": {
+    "question_id": "meteofrance_TEMPERATURE_celsius.07020.D",
+    "question_text": "What is the probability that the daily average temperature at the French weather station at Pointe De La Hague will be higher on 2025-12-28 than on 2025-12-21?",
+    "source": "dbnomics",
+    "condition": "one-turn",
+    "initial_probability": 0.52,
+    "n_probes": 16,
+    "n_successful": 16,
+    "mean_absolute_shift": 0.02500000000000001,
+    "max_absolute_shift": 0.12
+  },
+  "model": "qwen-235b",
+  "model_label": "Qwen3 235B",
+  "aggregate_metrics": {
+    "ssr": 2.1022727272727266,
+    "mean_shift_high": 0.046249999999999986,
+    "mean_shift_low": 0.022,
+    "asymmetry_index": 0.17857142857142883,
+    "mean_shift_negate": 0.0142857142857143,
+    "mean_shift_strengthen": 0.07999999999999996,
+    "fnar": 0,
+    "n_accepted": 0,
+    "n_spurious": 4,
+    "critical_path_premium": 0.012499999999999976,
+    "mean_shift_on_path": 0.03999999999999999,
+    "mean_shift_off_path": 0.02750000000000001,
+    "importance_sensitivity_correlation": 0.21678321678321677,
+    "control_sensitivity": 0
+  }
+}
