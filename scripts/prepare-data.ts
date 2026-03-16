@@ -339,11 +339,10 @@ function main() {
       category: string;
       market_probability: number | null;
       models: string[]; // which models have data for this question
-      // Per-model probabilities for cross-model comparison
+      // Per-model probabilities and metrics for cross-model comparison
       model_probabilities: Record<string, number>;
-      // Metrics from default model (llama-70b) for card display
-      ssr: number | null;
-      mean_absolute_shift: number | null;
+      model_ssr: Record<string, number | null>;
+      model_mean_shift: Record<string, number | null>;
     }
   > = {};
 
@@ -420,18 +419,14 @@ function main() {
             market_probability: mktProb,
             models: [],
             model_probabilities: {},
-            ssr: null,
-            mean_absolute_shift: null,
+            model_ssr: {},
+            model_mean_shift: {},
           };
         }
         questionIndex[q.question_id].models.push(modelKey);
         questionIndex[q.question_id].model_probabilities[modelKey] = q.initial_probability;
-
-        // Use llama-70b metrics for card display (or first model if not available)
-        if (modelKey === "llama-70b" || questionIndex[q.question_id].ssr == null) {
-          questionIndex[q.question_id].ssr = metrics.ssr;
-          questionIndex[q.question_id].mean_absolute_shift = q.summary?.mean_absolute_shift ?? null;
-        }
+        questionIndex[q.question_id].model_ssr[modelKey] = metrics.ssr;
+        questionIndex[q.question_id].model_mean_shift[modelKey] = q.summary?.mean_absolute_shift ?? null;
 
         if (metrics.ssr != null) {
           totalSSR += metrics.ssr;

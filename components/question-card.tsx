@@ -13,6 +13,8 @@ interface QuestionEntry {
   n_edges?: number;
   mean_absolute_shift?: number | null;
   ssr?: number | null;
+  model_ssr?: Record<string, number | null>;
+  model_mean_shift?: Record<string, number | null>;
 }
 
 export function QuestionCard({
@@ -25,6 +27,14 @@ export function QuestionCard({
   const href = model
     ? `/explore/${q.question_id}?model=${model}`
     : `/explore/${q.question_id}`;
+
+  // Use selected model's metrics if available, fall back to legacy fields
+  const ssr = model && q.model_ssr?.[model] !== undefined
+    ? q.model_ssr[model]
+    : q.ssr ?? null;
+  const meanShift = model && q.model_mean_shift?.[model] !== undefined
+    ? q.model_mean_shift[model]
+    : q.mean_absolute_shift ?? null;
 
   return (
     <Link
@@ -48,23 +58,24 @@ export function QuestionCard({
           </div>
         </div>
         <div className="text-right shrink-0 space-y-1">
-          {q.ssr != null && (
+          {ssr != null && (
             <div className="flex items-center gap-1.5 justify-end">
               <span className="text-[10px] text-[var(--color-muted-foreground)]">SSR</span>
               <span className={`font-mono text-xs font-medium ${
-                q.ssr >= 2 ? "text-[var(--color-positive)]" :
-                q.ssr >= 1.5 ? "text-[var(--color-primary)]" :
+                ssr >= 2 ? "text-[var(--color-positive)]" :
+                ssr >= 1.5 ? "text-[var(--color-primary)]" :
+                ssr < 1 ? "text-orange-400" :
                 "text-[var(--color-muted-foreground)]"
               }`}>
-                {q.ssr.toFixed(1)}x
+                {ssr.toFixed(1)}x
               </span>
             </div>
           )}
-          {q.mean_absolute_shift != null && (
+          {meanShift != null && (
             <div className="flex items-center gap-1.5 justify-end">
               <span className="text-[10px] text-[var(--color-muted-foreground)]">Avg |Δ|</span>
               <span className="font-mono text-xs">
-                {(q.mean_absolute_shift * 100).toFixed(1)}pp
+                {(meanShift * 100).toFixed(1)}pp
               </span>
             </div>
           )}
