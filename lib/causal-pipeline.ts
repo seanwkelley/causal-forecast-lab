@@ -694,10 +694,15 @@ Respond with ONLY valid JSON: {"ratings": [{"factor_id": "...", "confidence": <1
 
     if (uncertParsed.ratings && Array.isArray(uncertParsed.ratings)) {
       // Compute value of information: high importance + low confidence = high VOI
-      const maxBetweenness = Math.max(
-        ...nodeMetrics.map((n) => n.betweenness),
-        0.001
-      );
+      // Use degree (in+out) as fallback when betweenness is 0 for all nodes
+      // (common in star-shaped networks where all factors point to outcome)
+      const factorMetrics = nodeMetrics.filter((n) => n.role !== "outcome");
+      const maxBetweenness = Math.max(...factorMetrics.map((n) => n.betweenness), 0);
+      const useDegree = maxBetweenness === 0;
+      const maxDegree = useDegree
+        ? Math.max(...factorMetrics.map((n) => n.in_degree + n.out_degree), 1)
+        : 1;
+
       epistemicRatings = uncertParsed.ratings.map(
         (r: { factor_id: string; confidence: number; reason: string }) => {
           const normalizedId = r.factor_id.replace(/\s+/g, "_").toLowerCase();
@@ -707,9 +712,11 @@ Respond with ONLY valid JSON: {"ratings": [{"factor_id": "...", "confidence": <1
                    n.node_id.replace(/\s+/g, "_").toLowerCase() === normalizedId
           );
           const betweenness = node?.betweenness ?? 0;
-          const normImportance = betweenness / maxBetweenness;
+          const importance = useDegree
+            ? (node ? (node.in_degree + node.out_degree) / maxDegree : 0)
+            : (maxBetweenness > 0 ? betweenness / maxBetweenness : 0);
           const uncertainty = (5 - r.confidence) / 4; // normalize to 0-1
-          const voi = normImportance * uncertainty;
+          const voi = importance * uncertainty;
           return {
             factor_id: r.factor_id,
             confidence: r.confidence,
