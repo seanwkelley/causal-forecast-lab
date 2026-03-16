@@ -855,7 +855,21 @@ Respond with ONLY valid JSON: {"ratings": [{"factor_id": "...", "confidence": <1
         controlShifts.length > 0
           ? controlShifts.filter((s) => s > 0.05).length / controlShifts.length
           : null,
-      importance_sensitivity_correlation: null, // Skip for live mode
+      importance_sensitivity_correlation: (() => {
+        const pairs = successful
+          .filter((r) => r.target_importance > 0 && r.absolute_shift != null)
+          .map((r) => ({ imp: r.target_importance, shift: r.absolute_shift! }));
+        if (pairs.length < 3) return null;
+        const rank = (arr: number[]) => {
+          const sorted = [...arr].sort((a, b) => a - b);
+          return arr.map((v) => sorted.indexOf(v) + 1);
+        };
+        const impRanks = rank(pairs.map((p) => p.imp));
+        const shiftRanks = rank(pairs.map((p) => p.shift));
+        const n = pairs.length;
+        const dSq = impRanks.reduce((sum, r, i) => sum + (r - shiftRanks[i]) ** 2, 0);
+        return 1 - (6 * dSq) / (n * (n * n - 1));
+      })()
     },
   };
 }
