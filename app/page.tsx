@@ -74,12 +74,12 @@ export default function Home() {
         <StatCard
           label="Probes per Question"
           value="~23"
-          sub="Symmetric negate + strengthen"
+          sub="Negate, strengthen, sever, reinforce, spurious, and irrelevant"
         />
         <StatCard
-          label="Total Probe Responses"
-          value="~9,200"
-          sub="Across all models and questions"
+          label="Probe Types"
+          value="6"
+          sub="Node, edge, and control probes at varying importance levels"
         />
       </div>
 
