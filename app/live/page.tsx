@@ -180,8 +180,30 @@ export default function LivePage() {
       <p className="text-sm text-[var(--color-muted-foreground)] mb-6">
         Enter a custom forecasting question, select one or more models, and
         generate causal networks with sensitivity probes in real-time via
-        OpenRouter.
+        OpenRouter. Requires your own{" "}
+        <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">
+          OpenRouter API key
+        </a>
+        {" "}(free to create, pay-per-use).
       </p>
+
+      {!apiKey && (
+        <div className="rounded-lg border border-orange-500/30 bg-orange-500/5 p-4 mb-6 flex items-center gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-orange-400 shrink-0">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
+          </svg>
+          <div>
+            <p className="text-sm font-medium text-orange-400">API key required</p>
+            <p className="text-xs text-[var(--color-muted-foreground)] mt-0.5">
+              Click the key icon in the top-right corner of the navigation bar to set your OpenRouter API key.
+              You can get one for free at{" "}
+              <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">
+                openrouter.ai/keys
+              </a>.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Question format guidance */}
       <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-secondary)]/50 p-4 mb-6">
@@ -261,13 +283,6 @@ export default function LivePage() {
               className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)] resize-y"
             />
           </div>
-          {!apiKey && (
-            <div className="rounded-md border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/5 p-3">
-              <p className="text-sm text-[var(--color-muted-foreground)]">
-                Set your OpenRouter API key using the key icon in the navigation bar.
-              </p>
-            </div>
-          )}
 
           {/* Model selection */}
           <div>
