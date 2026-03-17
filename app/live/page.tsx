@@ -209,7 +209,7 @@ export default function LivePage() {
       <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-secondary)]/50 p-4 mb-6">
         <h3 className="text-sm font-medium mb-2">Question Format</h3>
         <p className="text-xs text-[var(--color-muted-foreground)] leading-relaxed mb-2">
-          This tool is designed for{" "}
+          This tool currently supports{" "}
           <strong className="text-[var(--color-foreground)]">
             binary yes/no forecasting questions
           </strong>{" "}
