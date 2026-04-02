@@ -38,9 +38,9 @@ export default function Home() {
           counterfactual probes.
         </p>
         <p className="mt-2 text-sm text-[var(--color-muted-foreground)] max-w-xl mx-auto">
-          Designed for <strong className="text-[var(--color-foreground)]">binary yes/no forecasting questions</strong> with
-          a resolution date &mdash; the model estimates a single probability that
-          the event occurs.
+          Designed for <strong className="text-[var(--color-foreground)]">complex, multi-cause binary forecasting questions</strong> where
+          the outcome depends on multiple interacting causal factors &mdash; the regime where
+          LLM-assisted forecasting is most valuable.
         </p>
         <div className="mt-8 flex items-center justify-center gap-4">
           <Link
@@ -63,23 +63,23 @@ export default function Home() {
       <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-4">
         <StatCard
           label="Questions"
-          value="100"
-          sub="From ForecastBench"
+          value="116"
+          sub="High-complexity questions from ForecastBench"
         />
         <StatCard
           label="Models"
-          value="5"
-          sub="Llama 8B, 70B, DeepSeek V3, Qwen3, Gemini Flash"
+          value="7"
+          sub="Llama 8B/70B, DeepSeek V3, Qwen3 235B/32B, Gemini FL, GPT-OSS"
         />
         <StatCard
           label="Probes per Question"
-          value="~23"
-          sub="Negate, strengthen, sever, reinforce, spurious, and irrelevant"
+          value="~21"
+          sub="Strengthen, negate, structural challenge, and control"
         />
         <StatCard
           label="Probe Types"
-          value="6"
-          sub="Node, edge, and control probes at varying importance levels"
+          value="14"
+          sub="Node and edge probes across 4 categories at varying importance"
         />
       </div>
 
@@ -96,12 +96,12 @@ export default function Home() {
             {
               step: "2",
               title: "Network Analysis",
-              desc: "Betweenness centrality ranks which nodes and edges are structurally most important; path relevance flags elements on the critical path to the outcome.",
+              desc: "Betweenness centrality and outcome mediation rank which factors are structurally most important; probe targets are selected across the full importance spectrum.",
             },
             {
               step: "3",
               title: "Probe Experiments",
-              desc: "~23 targeted probes challenge and reinforce individual beliefs — negating and strengthening nodes, severing and reinforcing edges, introducing spurious connections — and measure the resulting probability shift.",
+              desc: "~21 targeted probes challenge and reinforce individual beliefs — negating and strengthening factors at varying importance levels, challenging edge relationships, proposing missing nodes, and introducing irrelevant information as controls — measuring the resulting probability shift.",
             },
           ].map((item) => (
             <div
@@ -165,9 +165,9 @@ export default function Home() {
       <div className="mt-16 rounded-lg border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-8 text-center">
         <h2 className="text-xl font-semibold mb-3">Try It on Your Own Question</h2>
         <p className="text-sm text-[var(--color-muted-foreground)] max-w-lg mx-auto mb-6">
-          Run the full pipeline live on any binary forecasting question. The model
-          generates a causal network, we analyze its structure, run ~20 probes, and
-          compute all sensitivity metrics in real time.
+          Run the full pipeline live on any complex binary forecasting question. The model
+          generates a causal network with 6&ndash;10 factors, we analyze its structure, run ~21 probes, and
+          compute all sensitivity metrics in real time. Works best with multi-cause questions.
         </p>
         <Link
           href="/live"
