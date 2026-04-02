@@ -16,20 +16,25 @@ export default function AboutPage() {
         </p>
 
         <p>
-          The pipeline works in three stages: the model first produces a
-          probability estimate together with an explicit causal network, graph
-          analysis then identifies structurally important nodes and edges, and
-          finally a battery of ~23 probes negate, strengthen, sever, or
-          fabricate individual causal beliefs to measure the resulting
+          The pipeline works in four stages: the model first produces a
+          probability estimate together with an explicit causal DAG (6&ndash;10
+          factor nodes), network analysis then computes betweenness centrality
+          and outcome mediation to rank structural importance, the model
+          generates ~21 targeted probes spanning four categories (strengthen,
+          negate, structural challenge, and control), and finally each probe is
+          presented in an independent conversation to measure the resulting
           probability shift.
         </p>
 
         <p>
-          Pre-computed results cover 100 binary forecasting questions from{" "}
+          Pre-computed results cover 116 high-complexity binary forecasting
+          questions from{" "}
           <strong className="text-[var(--color-foreground)]">ForecastBench</strong>,
-          evaluated across five models (Llama 3.1 8B, Llama 3.3 70B, DeepSeek
-          V3, Qwen3 235B, and Gemini 2.5 Flash Lite). You can also run the full
-          pipeline on any custom question in real time via the{" "}
+          filtered for questions whose outcomes depend on multiple interacting
+          causal factors across different domains. Results are evaluated across
+          seven models (Llama 3.1 8B, Llama 3.3 70B, DeepSeek V3, Qwen3 235B,
+          Qwen3 32B, Gemini 2.5 Flash Lite, and GPT-OSS 120B). You can also run
+          the full pipeline on any custom question in real time via the{" "}
           <Link href="/live" className="text-[var(--color-primary)] hover:underline">
             Ask Your Own Question
           </Link>{" "}
