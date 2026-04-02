@@ -1,0 +1,1168 @@
+{
+  "question_id": "1675",
+  "question_text": "Will the EU import at least 19 billion cubic meters of natural gas from Russia in the second half of 2025?",
+  "source": "infer",
+  "initial_probability": 0.22,
+  "nodes": [
+    {
+      "id": "russian_gas_production",
+      "description": "Russia's total natural gas output available for export",
+      "role": "factor"
+    },
+    {
+      "id": "eu_gas_demand",
+      "description": "Overall EU demand for natural gas in H2 2025",
+      "role": "factor"
+    },
+    {
+      "id": "alternative_energy_supply",
+      "description": "Availability of renewables, LNG, and other non‑Russian gas sources",
+      "role": "factor"
+    },
+    {
+      "id": "political_relations",
+      "description": "State of diplomatic relations between EU and Russia",
+      "role": "factor"
+    },
+    {
+      "id": "sanctions_intensity",
+      "description": "Severity of EU sanctions affecting Russian gas sector",
+      "role": "factor"
+    },
+    {
+      "id": "price_of_gas",
+      "description": "Market price of natural gas per MWh",
+      "role": "factor"
+    },
+    {
+      "id": "infrastructure_capacity",
+      "description": "EU pipeline and terminal capacity to receive Russian gas",
+      "role": "factor"
+    },
+    {
+      "id": "eu_imports_19bcm_russia_h2_2025",
+      "description": "EU imports ≥19 bcm of Russian gas in H2 2025",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "russian_gas_production",
+      "to": "price_of_gas",
+      "mechanism": "Lower Russian output tightens supply, pushing gas prices up"
+    },
+    {
+      "from": "price_of_gas",
+      "to": "eu_gas_demand",
+      "mechanism": "Higher prices suppress EU demand for gas"
+    },
+    {
+      "from": "eu_gas_demand",
+      "to": "eu_imports_19bcm_russia_h2_2025",
+      "mechanism": "Reduced overall demand lowers the volume that can be imported from Russia"
+    },
+    {
+      "from": "alternative_energy_supply",
+      "to": "eu_gas_demand",
+      "mechanism": "More renewables and LNG alternatives replace Russian gas, cutting demand"
+    },
+    {
+      "from": "political_relations",
+      "to": "sanctions_intensity",
+      "mechanism": "Worsening relations lead to stricter sanctions"
+    },
+    {
+      "from": "sanctions_intensity",
+      "to": "russian_gas_production",
+      "mechanism": "Stricter sanctions limit Russia's ability to produce and export gas"
+    },
+    {
+      "from": "infrastructure_capacity",
+      "to": "eu_imports_19bcm_russia_h2_2025",
+      "mechanism": "Limited pipelines/terminals constrain the maximum Russian gas that can be received"
+    }
+  ],
+  "reasoning": "EU policy and market trends point toward sharply reduced Russian gas imports by late 2025. Sanctions and deteriorating political ties are expected to curb Russian production, while expanding alternative supplies and higher gas prices suppress EU demand. Combined with limited infrastructure for Russian pipelines, these factors make achieving 19 bcm imports unlikely, giving a probability around 22%.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 7,
+    "density": 0.125,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "eu_imports_19bcm_russia_h2_2025",
+    "node_metrics": [
+      {
+        "node_id": "russian_gas_production",
+        "description": "Russia's total natural gas output available for export",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1429,
+        "closeness": 0.1905,
+        "pagerank": 0.1231,
+        "path_relevance": 0.2857
+      },
+      {
+        "node_id": "eu_gas_demand",
+        "description": "Overall EU demand for natural gas in H2 2025",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.119,
+        "closeness": 0.3247,
+        "pagerank": 0.2182,
+        "path_relevance": 0.7143
+      },
+      {
+        "node_id": "alternative_energy_supply",
+        "description": "Availability of renewables, LNG, and other non‑Russian gas sources",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0479,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "political_relations",
+        "description": "State of diplomatic relations between EU and Russia",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0479,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "sanctions_intensity",
+        "description": "Severity of EU sanctions affecting Russian gas sector",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0952,
+        "closeness": 0.1429,
+        "pagerank": 0.0885,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "price_of_gas",
+        "description": "Market price of natural gas per MWh",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.1429,
+        "closeness": 0.2143,
+        "pagerank": 0.1525,
+        "path_relevance": 0.4286
+      },
+      {
+        "node_id": "infrastructure_capacity",
+        "description": "EU pipeline and terminal capacity to receive Russian gas",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0479,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "eu_imports_19bcm_russia_h2_2025",
+        "description": "EU imports ≥19 bcm of Russian gas in H2 2025",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.3889,
+        "pagerank": 0.274,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "russian_gas_production",
+        "target": "price_of_gas",
+        "mechanism": "Lower Russian output tightens supply, pushing gas prices up",
+        "edge_betweenness": 0.1607,
+        "on_critical_path": true
+      },
+      {
+        "source": "eu_gas_demand",
+        "target": "eu_imports_19bcm_russia_h2_2025",
+        "mechanism": "Reduced overall demand lowers the volume that can be imported from Russia",
+        "edge_betweenness": 0.1071,
+        "on_critical_path": true
+      },
+      {
+        "source": "alternative_energy_supply",
+        "target": "eu_gas_demand",
+        "mechanism": "More renewables and LNG alternatives replace Russian gas, cutting demand",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_relations",
+        "target": "sanctions_intensity",
+        "mechanism": "Worsening relations lead to stricter sanctions",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": true
+      },
+      {
+        "source": "sanctions_intensity",
+        "target": "russian_gas_production",
+        "mechanism": "Stricter sanctions limit Russia's ability to produce and export gas",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "price_of_gas",
+        "target": "eu_gas_demand",
+        "mechanism": "Higher prices suppress EU demand for gas",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "infrastructure_capacity",
+        "target": "eu_imports_19bcm_russia_h2_2025",
+        "mechanism": "Limited pipelines/terminals constrain the maximum Russian gas that can be received",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "russian_gas_production",
+        "description": "Russia's total natural gas output available for export",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "price_of_gas",
+        "description": "Market price of natural gas per MWh",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "sanctions_intensity",
+        "description": "Severity of EU sanctions affecting Russian gas sector",
+        "importance": 0.0952,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "infrastructure_capacity",
+        "description": "EU pipeline and terminal capacity to receive Russian gas",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "russian_gas_production",
+        "description": "Russia's total natural gas output available for export",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "price_of_gas",
+        "description": "Market price of natural gas per MWh",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "sanctions_intensity",
+        "description": "Severity of EU sanctions affecting Russian gas sector",
+        "importance": 0.0952,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "infrastructure_capacity",
+        "description": "EU pipeline and terminal capacity to receive Russian gas",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "russian_gas_production->price_of_gas",
+        "description": "Lower Russian output tightens supply, pushing gas prices up",
+        "importance": 0.1607,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "sanctions_intensity->russian_gas_production",
+        "description": "Stricter sanctions limit Russia's ability to produce and export gas",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "infrastructure_capacity->eu_imports_19bcm_russia_h2_2025",
+        "description": "Limited pipelines/terminals constrain the maximum Russian gas that can be received",
+        "importance": 0.0179,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "russian_gas_production->price_of_gas",
+        "description": "Lower Russian output tightens supply, pushing gas prices up",
+        "importance": 0.1607,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "sanctions_intensity->russian_gas_production",
+        "description": "Stricter sanctions limit Russia's ability to produce and export gas",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "russian_gas_production->price_of_gas",
+        "description": "Lower Russian output tightens supply, pushing gas prices up",
+        "importance": 0.1607,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "eu_gas_demand->infrastructure_capacity",
+        "description": "Potential link: Overall EU demand for natural gas in H2 2025 -> EU pipeline and terminal capacity to receive Russian gas",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "russian_gas_production",
+      "description": "Russia's total natural gas output available for export",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "price_of_gas",
+      "description": "Market price of natural gas per MWh",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "sanctions_intensity",
+      "description": "Severity of EU sanctions affecting Russian gas sector",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "infrastructure_capacity",
+      "description": "EU pipeline and terminal capacity to receive Russian gas",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "russian_gas_production",
+      "description": "Russia's total natural gas output available for export",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "price_of_gas",
+      "description": "Market price of natural gas per MWh",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "sanctions_intensity",
+      "description": "Severity of EU sanctions affecting Russian gas sector",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "infrastructure_capacity",
+      "description": "EU pipeline and terminal capacity to receive Russian gas",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "russian_gas_production->price_of_gas",
+      "description": "Lower Russian output tightens supply, pushing gas prices up",
+      "importance": 0.1607,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "sanctions_intensity->russian_gas_production",
+      "description": "Stricter sanctions limit Russia's ability to produce and export gas",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "infrastructure_capacity->eu_imports_19bcm_russia_h2_2025",
+      "description": "Limited pipelines/terminals constrain the maximum Russian gas that can be received",
+      "importance": 0.0179,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "russian_gas_production->price_of_gas",
+      "description": "Lower Russian output tightens supply, pushing gas prices up",
+      "importance": 0.1607,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "sanctions_intensity->russian_gas_production",
+      "description": "Stricter sanctions limit Russia's ability to produce and export gas",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "russian_gas_production->price_of_gas",
+      "description": "Lower Russian output tightens supply, pushing gas prices up",
+      "importance": 0.1607,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "eu_gas_demand->infrastructure_capacity",
+      "description": "Potential link: Overall EU demand for natural gas in H2 2025 -> EU pipeline and terminal capacity to receive Russian gas",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Even if Russia's overall gas production falls, the EU could still import at least 19 bcm because long‑term contracts lock in export volumes and Russia may prioritize shipments abroad over domestic consumption. Additionally, existing pipeline and LNG infrastructure can be redirected to maintain the promised export levels despite a lower total output.",
+      "probe_type": "node_negate_high",
+      "target_id": "russian_gas_production",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Russia's total natural gas output available for export"
+    },
+    {
+      "probe_text": "Recent contracts for EU gas imports are largely fixed-price or indexed to long‑term benchmarks, so short‑term fluctuations in the spot price of natural gas have little impact on actual EU demand. Moreover, strategic stockpiles and mandatory reserve requirements mean that even if prices rise, the EU can meet its consumption without reducing imports from Russia. Thus, price may be a negligible driver of the import volume in H2 2025.",
+      "probe_type": "node_negate_high",
+      "target_id": "price_of_gas",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Market price of natural gas per MWh"
+    },
+    {
+      "probe_text": "Recent analyses of EU energy sanctions reveal that the sector is largely exempted, with over 85% of gas‑related transactions routed through third‑country intermediaries that are not covered by the sanctions regime. Moreover, satellite data from the past six months shows Russian gas production remaining stable despite the announced sanction packages, suggesting that the sanctions have negligible effect on Russia's ability to produce and export gas. Consequently, the assumed causal link from sanctions intensity to Russian gas production may be overstated or irrelevant for forecasting EU imports.",
+      "probe_type": "node_negate_medium",
+      "target_id": "sanctions_intensity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Severity of EU sanctions affecting Russian gas sector"
+    },
+    {
+      "probe_text": "Recent upgrades to the TurkStream pipeline and the commissioning of additional LNG terminals have already pushed the EU's aggregate receiving capacity well beyond 19 bcm, so physical infrastructure cannot be the bottleneck for Russian gas imports. Moreover, take‑or‑pay contracts and flexible routing options mean that short‑term capacity constraints are largely irrelevant for the volume that will be imported in H2 2025.",
+      "probe_type": "node_negate_low",
+      "target_id": "infrastructure_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "EU pipeline and terminal capacity to receive Russian gas"
+    },
+    {
+      "probe_text": "A recent report from Rosgazprom, released on March 28, 2026, indicates that Russia's newly commissioned Yuzhno-Urengoy Phase III field has added an extra 3 bcm of natural gas to its export‑ready production capacity, offsetting earlier declines caused by sanctions. The report also cites independent audits confirming that the country's overall gas output for the first quarter of 2026 is 7 % higher than the same period in 2025, suggesting that sanctions have had limited impact on actual production levels.",
+      "probe_type": "node_strengthen",
+      "target_id": "russian_gas_production",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Russia's total natural gas output available for export"
+    },
+    {
+      "probe_text": "The International Energy Agency released a mid‑2025 report showing that spot prices for European natural gas rose to €120 per MWh in July, a 35% increase over the same period in 2024, driven by a 15% drop in Russian gas output. In a webinar, senior analyst Dr. Elena Petrova of Bloomberg New Energy Finance warned that such price spikes will force EU utilities to curtail consumption and seek alternative supplies, directly reducing demand for Russian gas.",
+      "probe_type": "node_strengthen",
+      "target_id": "price_of_gas",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Market price of natural gas per MWh"
+    },
+    {
+      "probe_text": "EU policymakers have just approved a new package of sanctions that includes a ban on all new pipeline projects with Russian gas and a 30% tariff on existing Russian gas imports, effective from July 2025. The European Parliament's recent resolution also calls for immediate termination of the Nord Stream 2 contract, signaling a further escalation in punitive measures.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "sanctions_intensity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Severity of EU sanctions affecting Russian gas sector"
+    },
+    {
+      "probe_text": "Recent EU energy reports indicate that the new Nord Stream II bypass pipeline, slated to be operational by early 2025, will increase the EU's Russian gas reception capacity by 4 bcm per year. Additionally, the expansion of the Zeebrugge LNG terminal, completed in Q3 2024, adds another 1.5 bcm of throughput that can be redirected to Russian pipeline connections, further boosting overall infrastructure capacity for Russian imports.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "infrastructure_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "EU pipeline and terminal capacity to receive Russian gas"
+    },
+    {
+      "probe_text": "Recent expansion of EU LNG import capacity and the implementation of a European gas price cap reduce the sensitivity of spot prices to fluctuations in Russian output; even if Russian production falls, surplus supplies from the US and Qatar can fill the gap, keeping prices stable. Additionally, forward contracts and strategic gas reserves allow the market to decouple short‑term price movements from a single supplier's output, weakening the direct link between Russian production and price.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "russian_gas_production->price_of_gas",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1607,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Lower Russian output tightens supply, pushing gas prices up"
+    },
+    {
+      "probe_text": "Recent analyses show that EU sanctions mainly target financial transactions and technology transfers, not the physical extraction capacity of Russian gas fields. Russia has responded by investing in domestic drilling and using alternative financing, keeping production levels stable despite heightened sanctions. Moreover, historical data from 2022‑2024 indicate that production actually rose modestly as sanctions intensified, suggesting the link between sanctions intensity and Russian gas output is much weaker than assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "sanctions_intensity->russian_gas_production",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Stricter sanctions limit Russia's ability to produce and export gas"
+    },
+    {
+      "probe_text": "Recent EU investments in floating LNG terminals and flexible pipeline retrofits mean that physical pipeline capacity is no longer the bottleneck for Russian gas deliveries; the region can reroute gas through alternative corridors or use temporary storage to exceed nominal pipeline limits. Moreover, contractual take-or-pay clauses and spot market flexibility allow the EU to import larger volumes even if nominal infrastructure capacity appears constrained, calling into question the assumed direct constraint between infrastructure capacity and the 19 bcm import target.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "infrastructure_capacity->eu_imports_19bcm_russia_h2_2025",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0179,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Limited pipelines/terminals constrain the maximum Russian gas that can be received"
+    },
+    {
+      "probe_text": "Recent ENTSO‑E data shows that a 12% decline in Russian gas output in Q1 2025 coincided with a 18% surge in European gas spot prices, highlighting how even modest reductions in Russian supply sharply tighten the market and drive prices higher.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "russian_gas_production->price_of_gas",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1607,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Lower Russian output tightens supply, pushing gas prices up"
+    },
+    {
+      "probe_text": "In March 2025 the EU adopted a new sanctions package that bans the export of advanced drilling and compression equipment to Russia and blocks all financing for Russian gas field development. Within two months, Russia’s gas production fell by 12% year‑on‑year, the sharpest decline since 2014, as key offshore platforms were forced offline. This rapid drop directly links heightened sanctions intensity to a reduced ability of Russia to produce and export natural gas.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "sanctions_intensity->russian_gas_production",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Stricter sanctions limit Russia's ability to produce and export gas"
+    },
+    {
+      "probe_text": "Recent statements from Russian gas companies indicate that they adjust output levels in response to global gas price forecasts rather than the other way around; when international prices rise, they ramp up production to capture higher revenues, while low price expectations lead them to curtail output. Could this price‑driven production scheduling mean that price_of_gas actually drives russian_gas_production, reversing the intended causal arrow?",
+      "probe_type": "edge_reverse",
+      "target_id": "russian_gas_production->price_of_gas",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1607,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Lower Russian output tightens supply, pushing gas prices up"
+    },
+    {
+      "probe_text": "Recent EU energy planning documents show that anticipated high natural‑gas demand in H2 2025 is prompting accelerated upgrades to pipeline and terminal infrastructure, because higher demand justifies expanding capacity to handle larger volumes of Russian gas. If demand falls, those capacity expansions may be delayed or canceled, directly reducing the amount of Russian gas the EU can import. How does your model account for this demand‑driven effect on infrastructure?",
+      "probe_type": "edge_spurious",
+      "target_id": "eu_gas_demand->infrastructure_capacity",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Overall EU demand for natural gas in H2 2025 -> EU pipeline and terminal capacity to receive Russian gas"
+    },
+    {
+      "probe_text": "A key missing factor is the level of EU gas storage at the start of the second half of 2025. Higher inventories would lower the immediate demand for additional imports, while low inventories would increase pressure to secure Russian gas to meet consumption needs. This storage level directly influences EU gas demand and thus the likelihood of reaching the 19 bcm import threshold.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Recent climate forecasts predict an unusually mild winter across Europe in the second half of 2025, which would sharply reduce heating demand and thus lower overall EU gas consumption, potentially cutting Russian gas imports below 19 bcm.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent European Commission briefing announced that €1.2 billion will be earmarked for expanding high‑speed rail connections across the EU in 2025, with the goal of moving an additional 5 % of passenger travel from air to rail. The plan includes new funding mechanisms that tie railway upgrades to regional development goals. This initiative is expected to be implemented starting in early 2025 and will be monitored by the EU Transport Committee.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent Eurostat release shows that EU steel production in the first quarter of 2025 fell by 3 % compared to the same period last year, attributed to lower demand in the automotive sector. The report also notes a modest increase in the average carbon intensity of steel manufacturing due to a temporary suspension of a new emissions reporting rule.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Even if Russia's overall gas production falls, the EU could still import at least 19 bcm because long‑term contracts lock in export volumes and Russia may prioritize shipments abroad over domestic consumption. Additionally, existing pipeline and LNG infrastructure can be redirected to maintain the promised export levels despite a lower total output.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new information weakens the causal link from russian_gas_production to the outcome. Long‑term contracts and Russia's willingness to prioritize exports mean that import volumes can be maintained even if total production falls, reducing the negative impact of lower production on EU imports. This makes the EU securing ≥19 bcm more plausible, so the probability is raised from 0.22 to about 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new information weakens the causal link from russian_gas_production to the outcome. Long‑term contracts and Russia's willingness to prioritize exports mean that import volumes can be maintained even if total production falls, reducing the negative impact of lower production on EU imports. This makes the EU securing ≥19 bcm more plausible, so the probability is raised from 0.22 to about 0.38.\"}",
+      "target_id": "russian_gas_production",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent contracts for EU gas imports are largely fixed-price or indexed to long‑term benchmarks, so short‑term fluctuations in the spot price of natural gas have little impact on actual EU demand. Moreover, strategic stockpiles and mandatory reserve requirements mean that even if prices rise, the EU can meet its consumption without reducing imports from Russia. Thus, price may be a negligible driver of the import volume in H2 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.12999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information weakens the causal link from price_of_gas to eu_gas_demand, removing a mechanism that would suppress EU demand when spot prices rise. Since EU contracts are fixed‑price and strategic reserves cushion consumption, higher prices are less likely to reduce imports from Russia. Consequently, the probability that the EU will still import at least 19 bcm of Russian gas in H2 2025 rises relative to the original 0.22 estimate.",
+      "raw_response": "{\"updated_probability\":0.35,\"shift_direction\":\"increased\",\"reasoning\":\"The new information weakens the causal link from price_of_gas to eu_gas_demand, removing a mechanism that would suppress EU demand when spot prices rise. Since EU contracts are fixed‑price and strategic reserves cushion consumption, higher prices are less likely to reduce imports from Russia. Consequently, the probability that the EU will still import at least 19 bcm of Russian gas in H2 2025 rises relative to the original 0.22 estimate.\"}",
+      "target_id": "price_of_gas",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses of EU energy sanctions reveal that the sector is largely exempted, with over 85% of gas‑related transactions routed through third‑country intermediaries that are not covered by the sanctions regime. Moreover, satellite data from the past six months shows Russian gas production remaining stable despite the announced sanction packages, suggesting that the sanctions have negligible effect on Russia's ability to produce and export gas. Consequently, the assumed causal link from sanctions intensity to Russian gas production may be overstated or irrelevant for forecasting EU imports.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence shows that EU sanctions have little effect on Russian gas output, contradicting the previously assumed causal link where higher sanctions intensity reduced Russian_gas_production. With Russian production remaining stable, the supply side constraint is relaxed, making it more likely that the EU can secure ≥19 bcm from Russia in H2 2025, all else equal. This raises the forecast probability from the original 0.22 to roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence shows that EU sanctions have little effect on Russian gas output, contradicting the previously assumed causal link where higher sanctions intensity reduced Russian_gas_production. With Russian production remaining stable, the supply side constraint is relaxed, making it more likely that the EU can secure ≥19 bcm from Russia in H2 2025, all else equal. This raises the forecast probability from the original 0.22 to roughly 0.38.\"}",
+      "target_id": "sanctions_intensity",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent upgrades to the TurkStream pipeline and the commissioning of additional LNG terminals have already pushed the EU's aggregate receiving capacity well beyond 19 bcm, so physical infrastructure cannot be the bottleneck for Russian gas imports. Moreover, take‑or‑pay contracts and flexible routing options mean that short‑term capacity constraints are largely irrelevant for the volume that will be imported in H2 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new information removes the infrastructure_capacity bottleneck that previously capped the amount of Russian gas the EU could physically receive. Since the TurkStream upgrades and additional LNG terminals now provide capacity well above 19 bcm, the causal link from infrastructure_capacity to the outcome no longer suppresses the probability. All other upstream factors (russian_gas_production, political_relations, sanctions_intensity, alternative_energy_supply, price_of_gas) remain unchanged, so the overall chance of achieving the import target rises, though it remains limited by demand, sanctions and production constraints, leading to a moderate increase from 0.22 to about 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new information removes the infrastructure_capacity bottleneck that previously capped the amount of Russian gas the EU could physically receive. Since the TurkStream upgrades and additional LNG terminals now provide capacity well above 19 bcm, the causal link from infrastructure_capacity to the outcome no longer suppresses the probability. All other upstream factors (russian_gas_production, political_relations, sanctions_intensity, alternative_energy_supply, price_of_gas) remain unchanged, so the overall chance of achieving the import target rises, though it remains limited by demand, sanctions and production constraints, leading to a moderate increase from 0.22 to about 0.38.\"}",
+      "target_id": "infrastructure_capacity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent report from Rosgazprom, released on March 28, 2026, indicates that Russia's newly commissioned Yuzhno-Urengoy Phase III field has added an extra 3 bcm of natural gas to its export‑ready production capacity, offsetting earlier declines caused by sanctions. The report also cites independent audits confirming that the country's overall gas output for the first quarter of 2026 is 7 % higher than the same period in 2025, suggesting that sanctions have had limited impact on actual production levels.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The report shows a 3 bcm increase in export‑ready capacity and a 7 % rise in overall output, indicating that sanctions have not reduced Russian gas production as previously thought. Higher production lifts the supply side of the causal chain: it reduces pressure on gas prices, which can keep EU demand from falling, and it directly expands the amount of gas that could be shipped to the EU. Combined with unchanged infrastructure capacity, the likelihood that the EU can import at least 19 bcm from Russia in H2 2025 rises substantially, moving the forecast from 0.22 toward roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The report shows a 3 bcm increase in export‑ready capacity and a 7 % rise in overall output, indicating that sanctions have not reduced Russian gas production as previously thought. Higher production lifts the supply side of the causal chain: it reduces pressure on gas prices, which can keep EU demand from falling, and it directly expands the amount of gas that could be shipped to the EU. Combined with unchanged infrastructure capacity, the likelihood that the EU can import at least 19 bcm from Russia in H2 2025 rises substantially, moving the forecast from 0.22 toward roughly 0.38.\"}",
+      "target_id": "russian_gas_production",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The International Energy Agency released a mid‑2025 report showing that spot prices for European natural gas rose to €120 per MWh in July, a 35% increase over the same period in 2024, driven by a 15% drop in Russian gas output. In a webinar, senior analyst Dr. Elena Petrova of Bloomberg New Energy Finance warned that such price spikes will force EU utilities to curtail consumption and seek alternative supplies, directly reducing demand for Russian gas.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.09,
+      "shift_direction": "decreased",
+      "reasoning": "The IEA report shows a 35% jump in spot gas prices to €120/MWh, driven by a 15% fall in Russian gas output. Higher prices feed into the causal chain: price_of_gas ↑ → eu_gas_demand ↓ (utilities curtail consumption and chase alternatives) → eu_imports_19bcm_russia_h2_2025 ↓. This reinforces the negative impact of price on demand and thus on the likelihood of the EU reaching the 19 bcm import threshold. Consequently the probability is revised downward from the original 0.22 to roughly 0.13.",
+      "raw_response": "{\"updated_probability\":0.13,\"shift_direction\":\"decreased\",\"reasoning\":\"The IEA report shows a 35% jump in spot gas prices to €120/MWh, driven by a 15% fall in Russian gas output. Higher prices feed into the causal chain: price_of_gas ↑ → eu_gas_demand ↓ (utilities curtail consumption and chase alternatives) → eu_imports_19bcm_russia_h2_2025 ↓. This reinforces the negative impact of price on demand and thus on the likelihood of the EU reaching the 19 bcm import threshold. Consequently the probability is revised downward from the original 0.22 to roughly 0.13.\"}",
+      "target_id": "price_of_gas",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "EU policymakers have just approved a new package of sanctions that includes a ban on all new pipeline projects with Russian gas and a 30% tariff on existing Russian gas imports, effective from July 2025. The European Parliament's recent resolution also calls for immediate termination of the Nord Stream 2 contract, signaling a further escalation in punitive measures.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.11,
+      "shift_direction": "decreased",
+      "reasoning": "The new EU sanctions dramatically raise sanctions_intensity: a ban on new pipelines cuts future infrastructure capacity, a 30% tariff raises the effective price_of_gas for Russian supplies, and the termination of the Nord Stream 2 contract removes a major delivery route. Higher sanctions_intensity reduces russian_gas_production (through export limits) and raises price_of_gas, which together suppress eu_gas_demand for Russian gas. Combined with constrained infrastructure_capacity, the likelihood that the EU can still import ≥19 bcm from Russia in H2 2025 falls well below the original 22 % estimate.",
+      "raw_response": "{\"updated_probability\":0.11,\"shift_direction\":\"decreased\",\"reasoning\":\"The new EU sanctions dramatically raise sanctions_intensity: a ban on new pipelines cuts future infrastructure capacity, a 30% tariff raises the effective price_of_gas for Russian supplies, and the termination of the Nord Stream 2 contract removes a major delivery route. Higher sanctions_intensity reduces russian_gas_production (through export limits) and raises price_of_gas, which together suppress eu_gas_demand for Russian gas. Combined with constrained infrastructure_capacity, the likelihood that the EU can still import ≥19 bcm from Russia in H2 2025 falls well below the original 22 % estimate.\"}",
+      "target_id": "sanctions_intensity",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent EU energy reports indicate that the new Nord Stream II bypass pipeline, slated to be operational by early 2025, will increase the EU's Russian gas reception capacity by 4 bcm per year. Additionally, the expansion of the Zeebrugge LNG terminal, completed in Q3 2024, adds another 1.5 bcm of throughput that can be redirected to Russian pipeline connections, further boosting overall infrastructure capacity for Russian imports.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.46,
+      "absolute_shift": 0.24000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new Nord Stream II bypass adds 4 bcm/yr and the Zeebrugge LNG expansion adds 1.5 bcm/yr of usable capacity for Russian gas, raising the EU's overall infrastructure capacity by roughly 5.5 bcm. In the causal model, higher infrastructure_capacity directly increases the likelihood that the EU can receive ≥19 bcm from Russia, independent of demand‑side factors. Since capacity was a binding constraint in the original estimate (0.22), removing or relaxing that constraint shifts probability upward. A modest but substantial increase to about 0.46 reflects the now‑available physical ability to meet the 19 bcm target while still accounting for remaining demand, price, and political uncertainties.",
+      "raw_response": "{\"updated_probability\":0.46,\"shift_direction\":\"increased\",\"reasoning\":\"The new Nord Stream II bypass adds 4 bcm/yr and the Zeebrugge LNG expansion adds 1.5 bcm/yr of usable capacity for Russian gas, raising the EU's overall infrastructure capacity by roughly 5.5 bcm. In the causal model, higher infrastructure_capacity directly increases the likelihood that the EU can receive ≥19 bcm from Russia, independent of demand‑side factors. Since capacity was a binding constraint in the original estimate (0.22), removing or relaxing that constraint shifts probability upward. A modest but substantial increase to about 0.46 reflects the now‑available physical ability to meet the 19 bcm target while still accounting for remaining demand, price, and political uncertainties.\"}",
+      "target_id": "infrastructure_capacity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent expansion of EU LNG import capacity and the implementation of a European gas price cap reduce the sensitivity of spot prices to fluctuations in Russian output; even if Russian production falls, surplus supplies from the US and Qatar can fill the gap, keeping prices stable. Additionally, forward contracts and strategic gas reserves allow the market to decouple short‑term price movements from a single supplier's output, weakening the direct link between Russian production and price.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.1,
+      "shift_direction": "decreased",
+      "reasoning": "The statement shows that the link from Russian gas production to spot prices is much weaker because expanded EU LNG capacity, a European gas price cap, forward contracts and strategic reserves decouple price movements from Russian output. Consequently, a fall in Russian production will not drive gas prices up and therefore will not suppress EU demand for gas. At the same time, the additional LNG and other non‑Russian supplies can satisfy EU demand, reducing the need to import large volumes from Russia. With demand less price‑elastic and alternative sources readily available, the chance that the EU will still need (or be able to secure) at least 19 bcm of Russian gas in H2 2025 falls, leading to a lower probability than the original 0.22 estimate.",
+      "raw_response": "{\"updated_probability\":0.12,\"shift_direction\":\"decreased\",\"reasoning\":\"The statement shows that the link from Russian gas production to spot prices is much weaker because expanded EU LNG capacity, a European gas price cap, forward contracts and strategic reserves decouple price movements from Russian output. Consequently, a fall in Russian production will not drive gas prices up and therefore will not suppress EU demand for gas. At the same time, the additional LNG and other non‑Russian supplies can satisfy EU demand, reducing the need to import large volumes from Russia. With demand less price‑elastic and alternative sources readily available, the chance that the EU will still need (or be able to secure) at least 19 bcm of Russian gas in H2 2025 falls, leading to a lower probability than the original 0.22 estimate.\"}",
+      "target_id": "russian_gas_production->price_of_gas",
+      "target_type": "edge",
+      "target_importance": 0.1607,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses show that EU sanctions mainly target financial transactions and technology transfers, not the physical extraction capacity of Russian gas fields. Russia has responded by investing in domestic drilling and using alternative financing, keeping production levels stable despite heightened sanctions. Moreover, historical data from 2022‑2024 indicate that production actually rose modestly as sanctions intensified, suggesting the link between sanctions intensity and Russian gas output is much weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new analysis weakens the causal link that EU sanctions reduce Russia's gas production. If sanctions do not curtail extraction, Russian output remains stable or even rises, keeping the supply of Russian gas available for export. Stable/high production keeps market prices from spiking, which in turn lessens the suppressive effect on EU gas demand. With demand less constrained and infrastructure capacity unchanged, the likelihood that the EU can import at least 19 bcm of Russian gas in H2 2025 rises relative to the original 0.22 estimate.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new analysis weakens the causal link that EU sanctions reduce Russia's gas production. If sanctions do not curtail extraction, Russian output remains stable or even rises, keeping the supply of Russian gas available for export. Stable/high production keeps market prices from spiking, which in turn lessens the suppressive effect on EU gas demand. With demand less constrained and infrastructure capacity unchanged, the likelihood that the EU can import at least 19 bcm of Russian gas in H2 2025 rises relative to the original 0.22 estimate.\"}",
+      "target_id": "sanctions_intensity->russian_gas_production",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent EU investments in floating LNG terminals and flexible pipeline retrofits mean that physical pipeline capacity is no longer the bottleneck for Russian gas deliveries; the region can reroute gas through alternative corridors or use temporary storage to exceed nominal pipeline limits. Moreover, contractual take-or-pay clauses and spot market flexibility allow the EU to import larger volumes even if nominal infrastructure capacity appears constrained, calling into question the assumed direct constraint between infrastructure capacity and the 19 bcm import target.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new information weakens the assumed bottleneck of pipeline and terminal capacity. Investments in floating LNG terminals, flexible pipeline retrofits, and contractual mechanisms mean the EU can import Russian gas beyond the nominal infrastructure limits. Since the previous model treated infrastructure_capacity as a direct constraint on reaching the 19 bcm target, removing or reducing this constraint raises the likelihood of achieving the import level, while other factors (political relations, sanctions, Russian production, demand) remain unchanged. Consequently the probability is revised upward from 0.22 to around 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new information weakens the assumed bottleneck of pipeline and terminal capacity. Investments in floating LNG terminals, flexible pipeline retrofits, and contractual mechanisms mean the EU can import Russian gas beyond the nominal infrastructure limits. Since the previous model treated infrastructure_capacity as a direct constraint on reaching the 19 bcm target, removing or reducing this constraint raises the likelihood of achieving the import level, while other factors (political relations, sanctions, Russian production, demand) remain unchanged. Consequently the probability is revised upward from 0.22 to around 0.38.\"}",
+      "target_id": "infrastructure_capacity->eu_imports_19bcm_russia_h2_2025",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent ENTSO‑E data shows that a 12% decline in Russian gas output in Q1 2025 coincided with a 18% surge in European gas spot prices, highlighting how even modest reductions in Russian supply sharply tighten the market and drive prices higher.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The ENTSO‑E data confirms that a modest 12% drop in Russian output caused an 18% jump in European spot prices, indicating a strong sensitivity of price to Russian supply. In the causal model, lower Russian production raises price_of_gas, which in turn suppresses eu_gas_demand, and lower demand reduces the volume the EU can import from Russia. Strengthening this link means any shortfall in Russian output is more likely to translate into higher prices and lower demand, making it less probable that the EU will still import ≥19 bcm in H2 2025. Accordingly the probability is revised downward from 0.22 to about 0.15.",
+      "raw_response": "{\"updated_probability\":0.15,\"shift_direction\":\"decreased\",\"reasoning\":\"The ENTSO‑E data confirms that a modest 12% drop in Russian output caused an 18% jump in European spot prices, indicating a strong sensitivity of price to Russian supply. In the causal model, lower Russian production raises price_of_gas, which in turn suppresses eu_gas_demand, and lower demand reduces the volume the EU can import from Russia. Strengthening this link means any shortfall in Russian output is more likely to translate into higher prices and lower demand, making it less probable that the EU will still import ≥19 bcm in H2 2025. Accordingly the probability is revised downward from 0.22 to about 0.15.\"}",
+      "target_id": "russian_gas_production->price_of_gas",
+      "target_type": "edge",
+      "target_importance": 0.1607,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In March 2025 the EU adopted a new sanctions package that bans the export of advanced drilling and compression equipment to Russia and blocks all financing for Russian gas field development. Within two months, Russia’s gas production fell by 12% year‑on‑year, the sharpest decline since 2014, as key offshore platforms were forced offline. This rapid drop directly links heightened sanctions intensity to a reduced ability of Russia to produce and export natural gas.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.1,
+      "shift_direction": "decreased",
+      "reasoning": "The new sanctions package directly caused a 12% YoY drop in Russia's gas production, confirming a strong causal link from sanctions_intensity to russian_gas_production. Lower Russian output reduces the volume available for export, tightening supply and raising prices, which together lower EU demand and limit the amount the EU can import. Consequently the chance that the EU will still import ≥19 bcm from Russia in H2 2025 falls from the original 0.22 to roughly 0.12.",
+      "raw_response": "{\"updated_probability\":0.12,\"shift_direction\":\"decreased\",\"reasoning\":\"The new sanctions package directly caused a 12% YoY drop in Russia's gas production, confirming a strong causal link from sanctions_intensity to russian_gas_production. Lower Russian output reduces the volume available for export, tightening supply and raising prices, which together lower EU demand and limit the amount the EU can import. Consequently the chance that the EU will still import ≥19 bcm from Russia in H2 2025 falls from the original 0.22 to roughly 0.12.\"}",
+      "target_id": "sanctions_intensity->russian_gas_production",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent statements from Russian gas companies indicate that they adjust output levels in response to global gas price forecasts rather than the other way around; when international prices rise, they ramp up production to capture higher revenues, while low price expectations lead them to curtail output. Could this price‑driven production scheduling mean that price_of_gas actually drives russian_gas_production, reversing the intended causal arrow?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new information suggests that Russian gas output is responsive to price expectations rather than the reverse. When international gas prices are projected to rise, Russian firms will increase production to capture higher revenues. This creates a feedback loop: higher prices suppress EU demand, but Russia compensates by boosting supply. Consequently, the original pathway where abundant Russian production lowers prices and stimulates EU demand is weakened. The net effect is that even if Russia can supply more gas, the higher price environment will likely curb EU consumption, reducing the chance that the EU will import at least 19 bcm from Russia in H2 2025. Hence the probability is revised downward.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information suggests that Russian gas output is responsive to price expectations rather than the reverse. When international gas prices are projected to rise, Russian firms will increase production to capture higher revenues. This creates a feedback loop: higher prices suppress EU demand, but Russia compensates by boosting supply. Consequently, the original pathway where abundant Russian production lowers prices and stimulates EU demand is weakened. The net effect is that even if Russia can supply more gas, the higher price environment will likely curb EU consumption, reducing the chance that the EU will import at least 19 bcm from Russia in H2 2025. Hence the probability is revised downward.\"\n}",
+      "target_id": "russian_gas_production->price_of_gas",
+      "target_type": "edge",
+      "target_importance": 0.1607,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent EU energy planning documents show that anticipated high natural‑gas demand in H2 2025 is prompting accelerated upgrades to pipeline and terminal infrastructure, because higher demand justifies expanding capacity to handle larger volumes of Russian gas. If demand falls, those capacity expansions may be delayed or canceled, directly reducing the amount of Russian gas the EU can import. How does your model account for this demand‑driven effect on infrastructure?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new information adds a demand‑driven feedback loop: higher EU gas demand in H2 2025 will trigger accelerated upgrades to pipeline and terminal capacity. This means that the infrastructure constraint previously limiting imports is now more flexible when demand is high. Since higher demand already pushes the EU to import more gas, the added capacity further raises the feasible ceiling for Russian deliveries. The documents specifically cite anticipated high demand, so the capacity expansions are likely to materialise, making the 19 bcm target more attainable. Consequently the probability of the EU importing at least 19 bcm of Russian gas in H2 2025 rises from the original 0.22 to about 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new information adds a demand‑driven feedback loop: higher EU gas demand in H2 2025 will trigger accelerated upgrades to pipeline and terminal capacity. This means that the infrastructure constraint previously limiting imports is now more flexible when demand is high. Since higher demand already pushes the EU to import more gas, the added capacity further raises the feasible ceiling for Russian deliveries. The documents specifically cite anticipated high demand, so the capacity expansions are likely to materialise, making the 19 bcm target more attainable. Consequently the probability of the EU importing at least 19 bcm of Russian gas in H2 2025 rises from the original 0.22 to about 0.38.\"}",
+      "target_id": "eu_gas_demand->infrastructure_capacity",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A key missing factor is the level of EU gas storage at the start of the second half of 2025. Higher inventories would lower the immediate demand for additional imports, while low inventories would increase pressure to secure Russian gas to meet consumption needs. This storage level directly influences EU gas demand and thus the likelihood of reaching the 19 bcm import threshold.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.04000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "Introducing EU gas storage as a direct driver of EU gas demand adds a factor that can curb the need for additional imports. If inventories at the start of H2 2025 are moderate to high—as recent seasonal patterns suggest—the immediate demand for Russian gas falls, lowering the chance of reaching the 19 bcm threshold. Without concrete storage data, the safest adjustment is a modest downward revision to reflect this potential demand‑reducing effect.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"Introducing EU gas storage as a direct driver of EU gas demand adds a factor that can curb the need for additional imports. If inventories at the start of H2 2025 are moderate to high—as recent seasonal patterns suggest—the immediate demand for Russian gas falls, lowering the chance of reaching the 19 bcm threshold. Without concrete storage data, the safest adjustment is a modest downward revision to reflect this potential demand‑reducing effect.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent climate forecasts predict an unusually mild winter across Europe in the second half of 2025, which would sharply reduce heating demand and thus lower overall EU gas consumption, potentially cutting Russian gas imports below 19 bcm.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.1,
+      "shift_direction": "decreased",
+      "reasoning": "The mild winter directly lowers EU heating demand, which reduces overall gas consumption (eu_gas_demand). Lower demand feeds into the causal chain that diminishes the volume of Russian gas the EU can import, making the event of importing ≥19 bcm in H2 2025 less likely. Hence the probability is revised downward from 0.22 to about 0.12.",
+      "raw_response": "{\"updated_probability\":0.12,\"shift_direction\":\"decreased\",\"reasoning\":\"The mild winter directly lowers EU heating demand, which reduces overall gas consumption (eu_gas_demand). Lower demand feeds into the causal chain that diminishes the volume of Russian gas the EU can import, making the event of importing ≥19 bcm in H2 2025 less likely. Hence the probability is revised downward from 0.22 to about 0.12.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent European Commission briefing announced that €1.2 billion will be earmarked for expanding high‑speed rail connections across the EU in 2025, with the goal of moving an additional 5 % of passenger travel from air to rail. The plan includes new funding mechanisms that tie railway upgrades to regional development goals. This initiative is expected to be implemented starting in early 2025 and will be monitored by the EU Transport Committee.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.04000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The rail investment plan signals a broader EU push toward decarbonisation and reduced reliance on fossil‑fuel intensive transport modes. While the direct effect on natural‑gas demand is modest (air‑travel fuel is mainly jet fuel, not gas), the policy indicates heightened climate ambition that may translate into stronger political pressure to limit Russian energy imports. This can marginally increase sanctions intensity and encourage alternative energy supply, both of which lower EU gas demand and the feasible volume of Russian gas that can be imported. Consequently, the likelihood of the EU importing at least 19 bcm of Russian gas in H2 2025 is slightly reduced.",
+      "raw_response": "{\n  \"updated_probability\": 0.18,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The rail investment plan signals a broader EU push toward decarbonisation and reduced reliance on fossil‑fuel intensive transport modes. While the direct effect on natural‑gas demand is modest (air‑travel fuel is mainly jet fuel, not gas), the policy indicates heightened climate ambition that may translate into stronger political pressure to limit Russian energy imports. This can marginally increase sanctions intensity and encourage alternative energy supply, both of which lower EU gas demand and the feasible volume of Russian gas that can be imported. Consequently, the likelihood of the EU importing at least 19 bcm of Russian gas in H2 2025 is slightly reduced.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent Eurostat release shows that EU steel production in the first quarter of 2025 fell by 3 % compared to the same period last year, attributed to lower demand in the automotive sector. The report also notes a modest increase in the average carbon intensity of steel manufacturing due to a temporary suspension of a new emissions reporting rule.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.04000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The 3 % drop in EU steel production reduces a sector that is a notable consumer of natural gas for process heat, lowering overall EU gas demand. Although the temporary rise in carbon intensity means slightly more gas per tonne of steel, the net effect is a modest reduction in total gas consumption. In the causal network this translates to a downward pressure on the eu_gas_demand node, which propagates to a lower chance of reaching the 19 bcm import threshold from Russia. The impact is limited because steel accounts for only a fraction of total EU gas demand, so the probability is adjusted downward modestly from 0.22 to about 0.18.",
+      "raw_response": "{\"updated_probability\":0.18,\"shift_direction\":\"decreased\",\"reasoning\":\"The 3 % drop in EU steel production reduces a sector that is a notable consumer of natural gas for process heat, lowering overall EU gas demand. Although the temporary rise in carbon intensity means slightly more gas per tonne of steel, the net effect is a modest reduction in total gas consumption. In the causal network this translates to a downward pressure on the eu_gas_demand node, which propagates to a lower chance of reaching the 19 bcm import threshold from Russia. The impact is limited because steel accounts for only a fraction of total EU gas demand, so the probability is adjusted downward modestly from 0.22 to about 0.18.\"}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "1675",
+    "question_text": "Will the EU import at least 19 billion cubic meters of natural gas from Russia in the second half of 2025?",
+    "source": "infer",
+    "condition": "one-turn",
+    "initial_probability": 0.22,
+    "n_probes": 19,
+    "n_successful": 19,
+    "mean_absolute_shift": 0.11842105263157894,
+    "max_absolute_shift": 0.24000000000000002
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 0.0031000000000000003,
+  "aggregate_metrics": {
+    "ssr": 1.1249999999999996,
+    "mean_shift_high": 0.13499999999999998,
+    "mean_shift_low": 0.12000000000000002,
+    "asymmetry_index": 1.1465677179962896,
+    "mean_shift_negate": 0.14714285714285716,
+    "mean_shift_strengthen": 0.12833333333333333,
+    "fnar": 0.6666666666666666,
+    "n_accepted": 2,
+    "n_spurious": 3,
+    "critical_path_premium": 0.011071428571428552,
+    "mean_shift_on_path": 0.1225,
+    "mean_shift_off_path": 0.11142857142857145,
+    "importance_sensitivity_correlation": -0.24825174825174834,
+    "control_sensitivity": 0
+  }
+}

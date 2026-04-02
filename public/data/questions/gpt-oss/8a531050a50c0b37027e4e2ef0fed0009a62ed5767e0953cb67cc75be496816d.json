@@ -1,0 +1,1295 @@
+{
+  "question_id": "8a531050a50c0b37027e4e2ef0fed0009a62ed5767e0953cb67cc75be496816d",
+  "question_text": "Will there be more than ten times as many 'Protests' in Oman for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Protests' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.17,
+  "nodes": [
+    {
+      "id": "political_repression",
+      "description": "Level of governmental political repression and lack of civil liberties",
+      "role": "factor"
+    },
+    {
+      "id": "economic_grievances",
+      "description": "Public dissatisfaction due to economic hardship and perceived inequality",
+      "role": "factor"
+    },
+    {
+      "id": "youth_unemployment",
+      "description": "Share of unemployed individuals aged 15‑30",
+      "role": "factor"
+    },
+    {
+      "id": "regional_unrest",
+      "description": "Instability and protests in neighboring Gulf and Middle‑East countries",
+      "role": "factor"
+    },
+    {
+      "id": "security_measures",
+      "description": "Intensity of police, military presence and pre‑emptive arrests",
+      "role": "factor"
+    },
+    {
+      "id": "internet_censorship",
+      "description": "Degree of online content blocking and surveillance",
+      "role": "factor"
+    },
+    {
+      "id": "external_influence",
+      "description": "Foreign actors encouraging or supporting domestic dissent",
+      "role": "factor"
+    },
+    {
+      "id": "oil_price_volatility",
+      "description": "Fluctuations in global oil prices affecting state revenue",
+      "role": "factor"
+    },
+    {
+      "id": "pandemic_residuals",
+      "description": "Economic and health after‑effects of COVID‑19 pandemic",
+      "role": "factor"
+    },
+    {
+      "id": "protest_spike",
+      "description": "More than ten‑fold increase in protests in the 30‑day window before 2025‑12‑28",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "political_repression",
+      "to": "security_measures",
+      "mechanism": "Repression prompts the government to tighten security forces"
+    },
+    {
+      "from": "political_repression",
+      "to": "economic_grievances",
+      "mechanism": "Repressive policies exacerbate economic grievances by limiting business freedom"
+    },
+    {
+      "from": "oil_price_volatility",
+      "to": "economic_grievances",
+      "mechanism": "Lower oil revenues reduce public spending, raising economic discontent"
+    },
+    {
+      "from": "pandemic_residuals",
+      "to": "economic_grievances",
+      "mechanism": "Post‑pandemic slowdown worsens household incomes"
+    },
+    {
+      "from": "pandemic_residuals",
+      "to": "youth_unemployment",
+      "mechanism": "Health‑related disruptions limit job creation for young people"
+    },
+    {
+      "from": "economic_grievances",
+      "to": "protest_spike",
+      "mechanism": "Higher grievances increase the likelihood of mass protests"
+    },
+    {
+      "from": "youth_unemployment",
+      "to": "protest_spike",
+      "mechanism": "Unemployed youth are more prone to join protest movements"
+    },
+    {
+      "from": "regional_unrest",
+      "to": "protest_spike",
+      "mechanism": "Protests can spill over from nearby countries through media and networks"
+    },
+    {
+      "from": "external_influence",
+      "to": "protest_spike",
+      "mechanism": "Foreign actors may fund or encourage dissenting actions"
+    },
+    {
+      "from": "internet_censorship",
+      "to": "protest_spike",
+      "mechanism": "Censorship can both suppress organization and fuel anger, raising protest risk"
+    },
+    {
+      "from": "security_measures",
+      "to": "protest_spike",
+      "mechanism": "Heavy security can deter protests but may also provoke larger demonstrations if perceived as oppressive"
+    }
+  ],
+  "reasoning": "Oman has historically low protest levels and a strong security apparatus that limits large‑scale mobilization. While rising youth unemployment, lingering pandemic effects, and potential oil‑price shocks could increase economic grievances, the government’s tight security, political repression, and internet censorship are likely to contain protest growth. Regional unrest and external influence add upward pressure, but the net balance suggests a relatively low chance of a >10‑fold protest surge before the end of 2025.",
+  "network_analysis": {
+    "n_nodes": 10,
+    "n_edges": 11,
+    "density": 0.1222,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 10,
+    "outcome_node": "protest_spike",
+    "node_metrics": [
+      {
+        "node_id": "political_repression",
+        "description": "Level of governmental political repression and lack of civil liberties",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0505,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_grievances",
+        "description": "Public dissatisfaction due to economic hardship and perceived inequality",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.0278,
+        "closeness": 0.3333,
+        "pagerank": 0.1362,
+        "path_relevance": 0.2727
+      },
+      {
+        "node_id": "youth_unemployment",
+        "description": "Share of unemployed individuals aged 15‑30",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0069,
+        "closeness": 0.1111,
+        "pagerank": 0.0719,
+        "path_relevance": 0.0909
+      },
+      {
+        "node_id": "regional_unrest",
+        "description": "Instability and protests in neighboring Gulf and Middle‑East countries",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0505,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "security_measures",
+        "description": "Intensity of police, military presence and pre‑emptive arrests",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0069,
+        "closeness": 0.1111,
+        "pagerank": 0.0719,
+        "path_relevance": 0.0909
+      },
+      {
+        "node_id": "internet_censorship",
+        "description": "Degree of online content blocking and surveillance",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0505,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_influence",
+        "description": "Foreign actors encouraging or supporting domestic dissent",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0505,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "oil_price_volatility",
+        "description": "Fluctuations in global oil prices affecting state revenue",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0505,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "pandemic_residuals",
+        "description": "Economic and health after‑effects of COVID‑19 pandemic",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0505,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "protest_spike",
+        "description": "More than ten‑fold increase in protests in the 30‑day window before 2025‑12‑28",
+        "role": "outcome",
+        "in_degree": 6,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.75,
+        "pagerank": 0.4172,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "political_repression",
+        "target": "security_measures",
+        "mechanism": "Repression prompts the government to tighten security forces",
+        "edge_betweenness": 0.0167,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_repression",
+        "target": "economic_grievances",
+        "mechanism": "Repressive policies exacerbate economic grievances by limiting business freedom",
+        "edge_betweenness": 0.0167,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_grievances",
+        "target": "protest_spike",
+        "mechanism": "Higher grievances increase the likelihood of mass protests",
+        "edge_betweenness": 0.0333,
+        "on_critical_path": true
+      },
+      {
+        "source": "youth_unemployment",
+        "target": "protest_spike",
+        "mechanism": "Unemployed youth are more prone to join protest movements",
+        "edge_betweenness": 0.0167,
+        "on_critical_path": true
+      },
+      {
+        "source": "regional_unrest",
+        "target": "protest_spike",
+        "mechanism": "Protests can spill over from nearby countries through media and networks",
+        "edge_betweenness": 0.0111,
+        "on_critical_path": true
+      },
+      {
+        "source": "security_measures",
+        "target": "protest_spike",
+        "mechanism": "Heavy security can deter protests but may also provoke larger demonstrations if perceived as oppressive",
+        "edge_betweenness": 0.0167,
+        "on_critical_path": true
+      },
+      {
+        "source": "internet_censorship",
+        "target": "protest_spike",
+        "mechanism": "Censorship can both suppress organization and fuel anger, raising protest risk",
+        "edge_betweenness": 0.0111,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_influence",
+        "target": "protest_spike",
+        "mechanism": "Foreign actors may fund or encourage dissenting actions",
+        "edge_betweenness": 0.0111,
+        "on_critical_path": true
+      },
+      {
+        "source": "oil_price_volatility",
+        "target": "economic_grievances",
+        "mechanism": "Lower oil revenues reduce public spending, raising economic discontent",
+        "edge_betweenness": 0.0222,
+        "on_critical_path": true
+      },
+      {
+        "source": "pandemic_residuals",
+        "target": "economic_grievances",
+        "mechanism": "Post‑pandemic slowdown worsens household incomes",
+        "edge_betweenness": 0.0167,
+        "on_critical_path": true
+      },
+      {
+        "source": "pandemic_residuals",
+        "target": "youth_unemployment",
+        "mechanism": "Health‑related disruptions limit job creation for young people",
+        "edge_betweenness": 0.0167,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "economic_grievances",
+        "description": "Public dissatisfaction due to economic hardship and perceived inequality",
+        "importance": 0.0278,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "youth_unemployment",
+        "description": "Share of unemployed individuals aged 15‑30",
+        "importance": 0.0069,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "regional_unrest",
+        "description": "Instability and protests in neighboring Gulf and Middle‑East countries",
+        "importance": 0,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "pandemic_residuals",
+        "description": "Economic and health after‑effects of COVID‑19 pandemic",
+        "importance": 0,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_grievances",
+        "description": "Public dissatisfaction due to economic hardship and perceived inequality",
+        "importance": 0.0278,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "youth_unemployment",
+        "description": "Share of unemployed individuals aged 15‑30",
+        "importance": 0.0069,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "regional_unrest",
+        "description": "Instability and protests in neighboring Gulf and Middle‑East countries",
+        "importance": 0,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "pandemic_residuals",
+        "description": "Economic and health after‑effects of COVID‑19 pandemic",
+        "importance": 0,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_grievances->protest_spike",
+        "description": "Higher grievances increase the likelihood of mass protests",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "oil_price_volatility->economic_grievances",
+        "description": "Lower oil revenues reduce public spending, raising economic discontent",
+        "importance": 0.0222,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "external_influence->protest_spike",
+        "description": "Foreign actors may fund or encourage dissenting actions",
+        "importance": 0.0111,
+        "centrality_rank": 11,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_grievances->protest_spike",
+        "description": "Higher grievances increase the likelihood of mass protests",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "oil_price_volatility->economic_grievances",
+        "description": "Lower oil revenues reduce public spending, raising economic discontent",
+        "importance": 0.0222,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "economic_grievances->protest_spike",
+        "description": "Higher grievances increase the likelihood of mass protests",
+        "importance": 0.0333,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "security_measures->internet_censorship",
+        "description": "Potential link: Intensity of police, military presence and pre‑emptive arrests -> Degree of online content blocking and surveillance",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "security_measures->regional_unrest",
+        "description": "Potential link: Intensity of police, military presence and pre‑emptive arrests -> Instability and protests in neighboring Gulf and Middle‑East countries",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "economic_grievances",
+      "description": "Public dissatisfaction due to economic hardship and perceived inequality",
+      "importance": 0.0278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "youth_unemployment",
+      "description": "Share of unemployed individuals aged 15‑30",
+      "importance": 0.0069,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "regional_unrest",
+      "description": "Instability and protests in neighboring Gulf and Middle‑East countries",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "pandemic_residuals",
+      "description": "Economic and health after‑effects of COVID‑19 pandemic",
+      "importance": 0,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_grievances",
+      "description": "Public dissatisfaction due to economic hardship and perceived inequality",
+      "importance": 0.0278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "youth_unemployment",
+      "description": "Share of unemployed individuals aged 15‑30",
+      "importance": 0.0069,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "regional_unrest",
+      "description": "Instability and protests in neighboring Gulf and Middle‑East countries",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "pandemic_residuals",
+      "description": "Economic and health after‑effects of COVID‑19 pandemic",
+      "importance": 0,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_grievances->protest_spike",
+      "description": "Higher grievances increase the likelihood of mass protests",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "oil_price_volatility->economic_grievances",
+      "description": "Lower oil revenues reduce public spending, raising economic discontent",
+      "importance": 0.0222,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "external_influence->protest_spike",
+      "description": "Foreign actors may fund or encourage dissenting actions",
+      "importance": 0.0111,
+      "centrality_rank": 11,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_grievances->protest_spike",
+      "description": "Higher grievances increase the likelihood of mass protests",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "oil_price_volatility->economic_grievances",
+      "description": "Lower oil revenues reduce public spending, raising economic discontent",
+      "importance": 0.0222,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "economic_grievances->protest_spike",
+      "description": "Higher grievances increase the likelihood of mass protests",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "security_measures->internet_censorship",
+      "description": "Potential link: Intensity of police, military presence and pre‑emptive arrests -> Degree of online content blocking and surveillance",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "security_measures->regional_unrest",
+      "description": "Potential link: Intensity of police, military presence and pre‑emptive arrests -> Instability and protests in neighboring Gulf and Middle‑East countries",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent government stimulus packages and targeted subsidies have dramatically improved household incomes, making economic hardship an unlikely driver of unrest. Moreover, high levels of public trust in the state's welfare programs suggest that perceived inequality is actually decreasing, not fueling protests. If anything, the economy's resilience may dampen protest motivations rather than amplify them.",
+      "probe_type": "node_negate_high",
+      "target_id": "economic_grievances",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public dissatisfaction due to economic hardship and perceived inequality"
+    },
+    {
+      "probe_text": "Recent government initiatives have sharply lowered youth unemployment, and evidence shows that most protest organizers in Oman are older, established activists rather than unemployed youths. Moreover, higher youth employment may raise expectations for political participation, potentially increasing dissent even when jobs are plentiful.",
+      "probe_type": "node_negate_high",
+      "target_id": "youth_unemployment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0069,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Share of unemployed individuals aged 15‑30"
+    },
+    {
+      "probe_text": "Recent diplomatic agreements between Oman and its neighboring Gulf states have resulted in coordinated security cooperation, greatly limiting the spillover of unrest across borders. Additionally, Oman's strict border controls and media blackout have insulated domestic protest dynamics from regional events, as evidenced by the near‑zero correlation between Gulf protest counts and Omani protest counts over the past five years. Consequently, regional unrest is unlikely to be a significant driver of a protest spike in Oman.",
+      "probe_type": "node_negate_medium",
+      "target_id": "regional_unrest",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "Instability and protests in neighboring Gulf and Middle‑East countries"
+    },
+    {
+      "probe_text": "Recent data from Oman's health ministry shows COVID‑19 cases have remained at negligible levels since 2022, and the government's stimulus programs have already offset any pandemic‑related downturn, suggesting that lingering pandemic effects on the economy are minimal. Moreover, household consumption and employment trends have returned to pre‑pandemic trajectories, making pandemic_residuals an unlikely driver of future protest spikes.",
+      "probe_type": "node_negate_low",
+      "target_id": "pandemic_residuals",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Economic and health after‑effects of COVID‑19 pandemic"
+    },
+    {
+      "probe_text": "A recent IMF Country Report (July 2025) notes that Oman’s real GDP per capita has fallen 12% over the past year, while consumer‑price inflation has surged to 9% due to sharp declines in oil revenues and subsidy cuts. The report also highlights that household surveys show 68% of Omanis now consider the cost of living a major source of dissatisfaction, up from 42% a year earlier. Local economists cite these worsening economic conditions as a key driver of heightened protest risk.",
+      "probe_type": "node_strengthen",
+      "target_id": "economic_grievances",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0278,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Public dissatisfaction due to economic hardship and perceived inequality"
+    },
+    {
+      "probe_text": "A June 2024 report from Oman’s Ministry of Labour revealed that youth unemployment surged to 28% in Q2 2024, the highest level in a decade, and a concurrent Gallup poll found that 73% of unemployed Omanis aged 15‑30 said they would consider joining a protest if grievances were not addressed.  Dr. Leila Al‑Khalili, a senior economist at the Gulf Research Center, highlighted in a televised interview that such a sharp rise in joblessness among young Omanis has historically preceded the most intense protest waves in the region.  These findings directly reinforce the causal link between youth_unemployment and the likelihood of a protest_spike.",
+      "probe_type": "node_strengthen",
+      "target_id": "youth_unemployment",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0069,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Share of unemployed individuals aged 15‑30"
+    },
+    {
+      "probe_text": "Recent satellite imagery and on‑the‑ground reports confirm that large-scale demonstrations erupted in Bahrain and Saudi Arabia’s Eastern Province last month, with thousands protesting labor and political reforms. The protests have been coordinated via cross‑border social‑media channels, and several Gulf‑based activist groups have openly pledged to replicate similar actions in Oman within weeks.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "regional_unrest",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "Instability and protests in neighboring Gulf and Middle‑East countries"
+    },
+    {
+      "probe_text": "A 2025 IMF country report notes that Oman's GDP growth has lagged its Gulf peers by 1.8% due to lingering COVID‑19 supply‑chain disruptions and a prolonged slowdown in tourism, which together have deepened household debt and reduced consumer spending. Moreover, a Ministry of Health study released in March 2025 found that post‑COVID respiratory complications have increased long‑term sick leave among workers aged 20‑35, further depressing youth employment and household incomes.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "pandemic_residuals",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Economic and health after‑effects of COVID‑19 pandemic"
+    },
+    {
+      "probe_text": "Recent analyses of Omani unrest show that despite sharp rises in consumer price inflation and household debt, protest activity stayed flat, suggesting that deep patron‑client networks and tribal affiliations buffer economic grievances from translating into mass mobilization. Moreover, the government's swift rollout of targeted cash transfers in 2023 appears to have decoupled hardship from dissent, indicating that economic discontent alone may be insufficient to trigger a protest spike.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "economic_grievances->protest_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher grievances increase the likelihood of mass protests"
+    },
+    {
+      "probe_text": "Recent fiscal reforms in Oman have diversified revenue streams, with sovereign wealth fund payouts and non‑oil taxes offsetting oil‑price shocks, meaning that even sharp drops in oil prices have not led to noticeable cuts in public spending. Moreover, the government has maintained or increased subsidies during low‑price periods to preserve social stability, weakening the presumed link between oil price volatility and rising economic grievances. Evidence from the 2022‑2023 budget reports shows stable or rising public expenditure despite a 30% oil price decline, suggesting the causal pathway is much weaker than assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "oil_price_volatility->economic_grievances",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0222,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Lower oil revenues reduce public spending, raising economic discontent"
+    },
+    {
+      "probe_text": "Recent diplomatic crackdowns and heightened surveillance have severely limited foreign NGOs and intelligence services from operating in Oman, reducing their ability to fund or coordinate local dissent. Moreover, Oman's strong ties with regional allies make overt external meddling politically costly, suggesting external influence is unlikely to drive a protest surge.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "external_influence->protest_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0111,
+      "centrality_rank": 11,
+      "on_critical_path": true,
+      "description": "Foreign actors may fund or encourage dissenting actions"
+    },
+    {
+      "probe_text": "In March 2024 Oman’s Ministry of Planning reported a 35% rise in real‑wage stagnation and a 22% jump in the consumer‑price index, pushing household debt to record levels. During the same months, the Ministry of Interior documented a 48% increase in protest‑related incidents, especially in districts where the surge in economic grievances was highest. This tight temporal and geographic correlation provides strong new evidence that worsening economic grievances are directly amplifying the risk of a protest spike.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "economic_grievances->protest_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher grievances increase the likelihood of mass protests"
+    },
+    {
+      "probe_text": "Recent Omani government data released in March 2024 shows that the sharp decline in Brent crude prices from $85 to $62 per barrel in late 2023 forced a 12% cut in public‑sector wages and a 20% reduction in fuel subsidies, leading to a 35% rise in consumer‑price inflation and widespread dissatisfaction. Surveys by the Ministry of Social Development in April 2024 reported that 68% of households cite falling oil revenues as the main cause of their economic hardship. This concrete fiscal impact demonstrates that oil‑price volatility directly amplifies economic grievances, making the causal link far stronger than originally assumed.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "oil_price_volatility->economic_grievances",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0222,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Lower oil revenues reduce public spending, raising economic discontent"
+    },
+    {
+      "probe_text": "Recent data from Oman show that large protest gatherings have led to sudden spikes in consumer prices and disrupted supply chains, directly worsening household financial strain. Consequently, the surge in protests appears to be driving heightened economic grievances rather than the other way around. Could this reverse causality be the dominant mechanism?",
+      "probe_type": "edge_reverse",
+      "target_id": "economic_grievances->protest_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0333,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Higher grievances increase the likelihood of mass protests"
+    },
+    {
+      "probe_text": "Recent crackdowns in Oman have shown that when security forces increase pre‑emptive arrests, the government simultaneously expands online monitoring and blocks dissenting platforms to pre‑empt coordination. This suggests that heightened security measures directly drive more intensive internet censorship, creating a feedback loop that amplifies protest suppression. Ignoring this link may underestimate the regime's capacity to curb protest organization.",
+      "probe_type": "edge_spurious",
+      "target_id": "security_measures->internet_censorship",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Intensity of police, military presence and pre‑emptive arrests -> Degree of online content blocking and surveillance"
+    },
+    {
+      "probe_text": "Recent reports indicate that Oman's intensified security measures—such as heightened police patrols and pre‑emptive arrests—have been broadcast across Gulf media, prompting neighboring governments to respond with stricter crackdowns. Those reactions have fueled public backlash and sparked new protest waves in adjacent states, suggesting that Oman's security posture can directly influence regional unrest. Incorporating this feedback loop could materially affect the likelihood of a protest spike in Oman.",
+      "probe_type": "edge_spurious",
+      "target_id": "security_measures->regional_unrest",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Intensity of police, military presence and pre‑emptive arrests -> Instability and protests in neighboring Gulf and Middle‑East countries"
+    },
+    {
+      "probe_text": "Recent large‑scale labor reforms that cut subsidies for migrant workers have increased economic hardship among a sizable expatriate community, raising overall economic grievances and providing a new pool of potential protestors. This factor could amplify protest risk by adding to economic grievances and expanding the demographic base of discontent.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Recent analyses show a surge in social‑media activity, with platforms like Twitter and WhatsApp being used to coordinate gatherings and spread anti‑government messages. Introducing a node for 'social_media_mobilization'—the extent of online organization and information diffusion—could directly increase protest coordination and amplify grievances, thereby raising the chance of a protest spike.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "In early September 2025, Oman’s Ministry of Tourism announced the opening of a new luxury resort on the Al Jabal Al Akhdar mountain range, expected to attract high‑end international visitors. The project includes a series of cultural performances showcasing traditional Omani music and dance, scheduled to run throughout the winter months.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The Omani Ministry of Tourism announced that the historic Al Baleed Fort will host a week-long cultural exhibition in early December 2025, showcasing artifacts from the pre‑Islamic era. The event is expected to attract several thousand international visitors and includes a series of guided tours and local craft workshops.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent government stimulus packages and targeted subsidies have dramatically improved household incomes, making economic hardship an unlikely driver of unrest. Moreover, high levels of public trust in the state's welfare programs suggest that perceived inequality is actually decreasing, not fueling protests. If anything, the economy's resilience may dampen protest motivations rather than amplify them.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The stimulus packages and subsidies directly counteract the economic_grievances node, which is a primary causal driver of protest_spike in the network. By substantially improving household incomes and lowering perceived inequality, the strength of the edge from economic_grievances to protest_spike is weakened. Since no other nodes have been reinforced, the overall likelihood of a ten‑fold protest increase drops from the original 0.17 to a lower estimate.",
+      "raw_response": "{\"updated_probability\":0.09,\"shift_direction\":\"decreased\",\"reasoning\":\"The stimulus packages and subsidies directly counteract the economic_grievances node, which is a primary causal driver of protest_spike in the network. By substantially improving household incomes and lowering perceived inequality, the strength of the edge from economic_grievances to protest_spike is weakened. Since no other nodes have been reinforced, the overall likelihood of a ten‑fold protest increase drops from the original 0.17 to a lower estimate.\"}",
+      "target_id": "economic_grievances",
+      "target_type": "node",
+      "target_importance": 0.0278,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent government initiatives have sharply lowered youth unemployment, and evidence shows that most protest organizers in Oman are older, established activists rather than unemployed youths. Moreover, higher youth employment may raise expectations for political participation, potentially increasing dissent even when jobs are plentiful.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.12,
+      "absolute_shift": 0.05000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the previously assumed causal link between youth unemployment and protest spikes. Government initiatives that sharply lower youth unemployment directly reduce one of the key drivers (unemployed youth) that could fuel large‑scale protests, and evidence that most organizers are older activists further diminishes the relevance of this pathway. While higher youth employment could raise political expectations and potentially generate dissent, this effect is less direct and historically less potent than mass mobilization driven by joblessness. Consequently, the overall weight of the youth_unemployment node in the causal network is reduced, leading to a modest downward revision of the original 0.17 probability to about 0.12.",
+      "raw_response": "{\n  \"updated_probability\": 0.12,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information weakens the previously assumed causal link between youth unemployment and protest spikes. Government initiatives that sharply lower youth unemployment directly reduce one of the key drivers (unemployed youth) that could fuel large‑scale protests, and evidence that most organizers are older activists further diminishes the relevance of this pathway. While higher youth employment could raise political expectations and potentially generate dissent, this effect is less direct and historically less potent than mass mobilization driven by joblessness. Consequently, the overall weight of the youth_unemployment node in the causal network is reduced, leading to a modest downward revision of the original 0.17 probability to about 0.12.\"\n}",
+      "target_id": "youth_unemployment",
+      "target_type": "node",
+      "target_importance": 0.0069,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic agreements between Oman and its neighboring Gulf states have resulted in coordinated security cooperation, greatly limiting the spillover of unrest across borders. Additionally, Oman's strict border controls and media blackout have insulated domestic protest dynamics from regional events, as evidenced by the near‑zero correlation between Gulf protest counts and Omani protest counts over the past five years. Consequently, regional unrest is unlikely to be a significant driver of a protest spike in Oman.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.06000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows that regional unrest no longer contributes meaningfully to protest risk in Oman. In the causal network, regional_unrest was one of several upstream drivers of protest_spike. Removing or strongly down‑weighting this link reduces the cumulative pressure on the outcome. All other nodes (political_repression, economic_grievances, youth_unemployment, security_measures, internet_censorship, external_influence, oil_price_volatility, pandemic_residuals) remain unchanged, so the probability does not collapse to near zero but falls noticeably from the original 0.17 to roughly 0.11.",
+      "raw_response": "{\"updated_probability\":0.11,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows that regional unrest no longer contributes meaningfully to protest risk in Oman. In the causal network, regional_unrest was one of several upstream drivers of protest_spike. Removing or strongly down‑weighting this link reduces the cumulative pressure on the outcome. All other nodes (political_repression, economic_grievances, youth_unemployment, security_measures, internet_censorship, external_influence, oil_price_volatility, pandemic_residuals) remain unchanged, so the probability does not collapse to near zero but falls noticeably from the original 0.17 to roughly 0.11.\"}",
+      "target_id": "regional_unrest",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Oman's health ministry shows COVID‑19 cases have remained at negligible levels since 2022, and the government's stimulus programs have already offset any pandemic‑related downturn, suggesting that lingering pandemic effects on the economy are minimal. Moreover, household consumption and employment trends have returned to pre‑pandemic trajectories, making pandemic_residuals an unlikely driver of future protest spikes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows that COVID‑19 cases are negligible and stimulus measures have fully mitigated any pandemic‑related economic slowdown in Oman. Consequently, the pandemic_residuals node no longer contributes to economic_grievances or youth_unemployment, both of which feed into protest_spike. Removing this source of grievance lowers the overall risk of a ten‑fold protest increase, while the remaining drivers (political repression, oil price volatility, regional unrest, external influence, etc.) stay unchanged. Hence the probability is revised downward from 0.17 to about 0.10.",
+      "raw_response": "{\"updated_probability\":0.10,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows that COVID‑19 cases are negligible and stimulus measures have fully mitigated any pandemic‑related economic slowdown in Oman. Consequently, the pandemic_residuals node no longer contributes to economic_grievances or youth_unemployment, both of which feed into protest_spike. Removing this source of grievance lowers the overall risk of a ten‑fold protest increase, while the remaining drivers (political repression, oil price volatility, regional unrest, external influence, etc.) stay unchanged. Hence the probability is revised downward from 0.17 to about 0.10.\"}",
+      "target_id": "pandemic_residuals",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent IMF Country Report (July 2025) notes that Oman’s real GDP per capita has fallen 12% over the past year, while consumer‑price inflation has surged to 9% due to sharp declines in oil revenues and subsidy cuts. The report also highlights that household surveys show 68% of Omanis now consider the cost of living a major source of dissatisfaction, up from 42% a year earlier. Local economists cite these worsening economic conditions as a key driver of heightened protest risk.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.21,
+      "shift_direction": "increased",
+      "reasoning": "The IMF report shows a sharp 12% drop in real GDP per capita, 9% inflation, and a jump in cost‑of‑living dissatisfaction from 42% to 68%. These data markedly strengthen the 'economic_grievances' node, which directly feeds into the protest_spike outcome. Combined with existing pressures (political repression, youth unemployment, regional unrest, etc.), the heightened economic strain raises the likelihood of a ten‑fold protest surge, moving the probability from the original 0.17 to roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The IMF report shows a sharp 12% drop in real GDP per capita, 9% inflation, and a jump in cost‑of‑living dissatisfaction from 42% to 68%. These data markedly strengthen the 'economic_grievances' node, which directly feeds into the protest_spike outcome. Combined with existing pressures (political repression, youth unemployment, regional unrest, etc.), the heightened economic strain raises the likelihood of a ten‑fold protest surge, moving the probability from the original 0.17 to roughly 0.38.\"}",
+      "target_id": "economic_grievances",
+      "target_type": "node",
+      "target_importance": 0.0278,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A June 2024 report from Oman’s Ministry of Labour revealed that youth unemployment surged to 28% in Q2 2024, the highest level in a decade, and a concurrent Gallup poll found that 73% of unemployed Omanis aged 15‑30 said they would consider joining a protest if grievances were not addressed.  Dr. Leila Al‑Khalili, a senior economist at the Gulf Research Center, highlighted in a televised interview that such a sharp rise in joblessness among young Omanis has historically preceded the most intense protest waves in the region.  These findings directly reinforce the causal link between youth_unemployment and the likelihood of a protest_spike.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.21,
+      "shift_direction": "increased",
+      "reasoning": "The June 2024 labour report shows youth unemployment in Oman has risen to a decade‑high 28% and a Gallup poll indicates that 73% of unemployed 15‑30‑year‑olds would consider protesting. This directly strengthens the causal link from youth_unemployment to protest_spike in the model, adding a high‑impact, recent driver that was previously uncertain. Combined with existing factors (political repression, economic grievances, regional unrest, etc.), the heightened youth discontent substantially raises the chance of a ten‑fold protest surge, prompting an upward revision from the original 0.17 to roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The June 2024 labour report shows youth unemployment in Oman has risen to a decade‑high 28% and a Gallup poll indicates that 73% of unemployed 15‑30‑year‑olds would consider protesting. This directly strengthens the causal link from youth_unemployment to protest_spike in the model, adding a high‑impact, recent driver that was previously uncertain. Combined with existing factors (political repression, economic grievances, regional unrest, etc.), the heightened youth discontent substantially raises the chance of a ten‑fold protest surge, prompting an upward revision from the original 0.17 to roughly 0.38.\"}",
+      "target_id": "youth_unemployment",
+      "target_type": "node",
+      "target_importance": 0.0069,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery and on‑the‑ground reports confirm that large-scale demonstrations erupted in Bahrain and Saudi Arabia’s Eastern Province last month, with thousands protesting labor and political reforms. The protests have been coordinated via cross‑border social‑media channels, and several Gulf‑based activist groups have openly pledged to replicate similar actions in Oman within weeks.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.24999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence shows large‑scale, coordinated protests in neighboring Bahrain and Saudi Arabia’s Eastern Province, directly strengthening the 'regional_unrest' node. In the causal network, regional_unrest positively influences protest_spike. The confirmed cross‑border coordination and explicit pledges to replicate actions in Oman markedly raise the likelihood that similar unrest will spill over, outweighing any dampening effects from security measures. Consequently, the probability of a ten‑fold protest increase rises from the original 0.17 to roughly 0.42.",
+      "raw_response": "{\"updated_probability\":0.42,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence shows large‑scale, coordinated protests in neighboring Bahrain and Saudi Arabia’s Eastern Province, directly strengthening the 'regional_unrest' node. In the causal network, regional_unrest positively influences protest_spike. The confirmed cross‑border coordination and explicit pledges to replicate actions in Oman markedly raise the likelihood that similar unrest will spill over, outweighing any dampening effects from security measures. Consequently, the probability of a ten‑fold protest increase rises from the original 0.17 to roughly 0.42.\"}",
+      "target_id": "regional_unrest",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A 2025 IMF country report notes that Oman's GDP growth has lagged its Gulf peers by 1.8% due to lingering COVID‑19 supply‑chain disruptions and a prolonged slowdown in tourism, which together have deepened household debt and reduced consumer spending. Moreover, a Ministry of Health study released in March 2025 found that post‑COVID respiratory complications have increased long‑term sick leave among workers aged 20‑35, further depressing youth employment and household incomes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.15,
+      "shift_direction": "increased",
+      "reasoning": "The IMF report and Ministry of Health study give concrete evidence that pandemic‑related supply‑chain disruptions and lingering health effects are deepening economic grievances and youth unemployment in Oman. In the causal network pandemic_residuals feeds both economic_grievances and youth_unemployment, which are direct drivers of protest_spike. The 1.8% GDP lag behind Gulf peers and the rise in long‑term sick leave for workers aged 20‑35 indicate a stronger adverse impact than previously assumed, thus raising the overall risk of a ten‑fold protest increase. The probability is therefore revised upward from 0.17 to roughly 0.32.",
+      "raw_response": "{\"updated_probability\":0.32,\"shift_direction\":\"increased\",\"reasoning\":\"The IMF report and Ministry of Health study give concrete evidence that pandemic‑related supply‑chain disruptions and lingering health effects are deepening economic grievances and youth unemployment in Oman. In the causal network pandemic_residuals feeds both economic_grievances and youth_unemployment, which are direct drivers of protest_spike. The 1.8% GDP lag behind Gulf peers and the rise in long‑term sick leave for workers aged 20‑35 indicate a stronger adverse impact than previously assumed, thus raising the overall risk of a ten‑fold protest increase. The probability is therefore revised upward from 0.17 to roughly 0.32.\"}",
+      "target_id": "pandemic_residuals",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses of Omani unrest show that despite sharp rises in consumer price inflation and household debt, protest activity stayed flat, suggesting that deep patron‑client networks and tribal affiliations buffer economic grievances from translating into mass mobilization. Moreover, the government's swift rollout of targeted cash transfers in 2023 appears to have decoupled hardship from dissent, indicating that economic discontent alone may be insufficient to trigger a protest spike.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new analysis directly weakens the causal link from economic_grievances to protest_spike, showing that even substantial inflation and debt have not translated into more protests because patron‑client networks and targeted cash transfers buffer discontent. In the network this reduces the weight of the economic_grievances→protest_spike edge, lowering the overall probability that the combination of other factors (political repression, youth unemployment, regional unrest, etc.) will be sufficient to generate a ten‑fold protest increase. With the strongest driver now less effective, the forecast drops from 0.17 to roughly 0.09.",
+      "raw_response": "{\"updated_probability\":0.09,\"shift_direction\":\"decreased\",\"reasoning\":\"The new analysis directly weakens the causal link from economic_grievances to protest_spike, showing that even substantial inflation and debt have not translated into more protests because patron‑client networks and targeted cash transfers buffer discontent. In the network this reduces the weight of the economic_grievances→protest_spike edge, lowering the overall probability that the combination of other factors (political repression, youth unemployment, regional unrest, etc.) will be sufficient to generate a ten‑fold protest increase. With the strongest driver now less effective, the forecast drops from 0.17 to roughly 0.09.\"}",
+      "target_id": "economic_grievances->protest_spike",
+      "target_type": "edge",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent fiscal reforms in Oman have diversified revenue streams, with sovereign wealth fund payouts and non‑oil taxes offsetting oil‑price shocks, meaning that even sharp drops in oil prices have not led to noticeable cuts in public spending. Moreover, the government has maintained or increased subsidies during low‑price periods to preserve social stability, weakening the presumed link between oil price volatility and rising economic grievances. Evidence from the 2022‑2023 budget reports shows stable or rising public expenditure despite a 30% oil price decline, suggesting the causal pathway is much weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.06000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows that Oman’s fiscal reforms have insulated public finances from oil‑price swings, making the oil_price_volatility → economic_grievances link far weaker than originally modelled. Since economic_grievances is a primary driver of protest_spike, reducing this input lowers the overall likelihood of a ten‑fold protest surge. Other pathways (youth_unemployment, regional_unrest, external_influence, etc.) remain unchanged, so the probability is adjusted downward but not eliminated, moving from the original 0.17 to roughly 0.11.",
+      "raw_response": "{\"updated_probability\":0.11,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows that Oman’s fiscal reforms have insulated public finances from oil‑price swings, making the oil_price_volatility → economic_grievances link far weaker than originally modelled. Since economic_grievances is a primary driver of protest_spike, reducing this input lowers the overall likelihood of a ten‑fold protest surge. Other pathways (youth_unemployment, regional_unrest, external_influence, etc.) remain unchanged, so the probability is adjusted downward but not eliminated, moving from the original 0.17 to roughly 0.11.\"}",
+      "target_id": "oil_price_volatility->economic_grievances",
+      "target_type": "edge",
+      "target_importance": 0.0222,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic crackdowns and heightened surveillance have severely limited foreign NGOs and intelligence services from operating in Oman, reducing their ability to fund or coordinate local dissent. Moreover, Oman's strong ties with regional allies make overt external meddling politically costly, suggesting external influence is unlikely to drive a protest surge.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new information shows that diplomatic crackdowns and heightened surveillance have severely limited foreign NGOs and intelligence services in Oman, and strong regional ties make overt external meddling costly. This weakens the external_influence→protest_spike link, removing a previously plausible driver of a protest surge. While other drivers (economic grievances, youth unemployment, regional unrest, etc.) remain unchanged, the overall risk of a >10‑fold protest spike is lowered, leading to a decreased probability from the original 0.17 to about 0.10.",
+      "raw_response": "{\"updated_probability\":0.10,\"shift_direction\":\"decreased\",\"reasoning\":\"The new information shows that diplomatic crackdowns and heightened surveillance have severely limited foreign NGOs and intelligence services in Oman, and strong regional ties make overt external meddling costly. This weakens the external_influence→protest_spike link, removing a previously plausible driver of a protest surge. While other drivers (economic grievances, youth unemployment, regional unrest, etc.) remain unchanged, the overall risk of a >10‑fold protest spike is lowered, leading to a decreased probability from the original 0.17 to about 0.10.\"}",
+      "target_id": "external_influence->protest_spike",
+      "target_type": "edge",
+      "target_importance": 0.0111,
+      "target_centrality_rank": 11,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In March 2024 Oman’s Ministry of Planning reported a 35% rise in real‑wage stagnation and a 22% jump in the consumer‑price index, pushing household debt to record levels. During the same months, the Ministry of Interior documented a 48% increase in protest‑related incidents, especially in districts where the surge in economic grievances was highest. This tight temporal and geographic correlation provides strong new evidence that worsening economic grievances are directly amplifying the risk of a protest spike.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.34,
+      "absolute_shift": 0.17,
+      "shift_direction": "increased",
+      "reasoning": "The March 2024 data shows a sharp rise in real‑wage stagnation and consumer prices together with a 48% jump in protest‑related incidents, especially where economic grievances are highest. This concrete, contemporaneous correlation directly strengthens the causal link economic_grievances→protest_spike in the network, raising the overall likelihood of a ten‑fold protest spike before 2025‑12‑28. Consequently the forecast probability is revised upward from 0.17 to roughly 0.34.",
+      "raw_response": "{\"updated_probability\":0.34,\"shift_direction\":\"increased\",\"reasoning\":\"The March 2024 data shows a sharp rise in real‑wage stagnation and consumer prices together with a 48% jump in protest‑related incidents, especially where economic grievances are highest. This concrete, contemporaneous correlation directly strengthens the causal link economic_grievances→protest_spike in the network, raising the overall likelihood of a ten‑fold protest spike before 2025‑12‑28. Consequently the forecast probability is revised upward from 0.17 to roughly 0.34.\"}",
+      "target_id": "economic_grievances->protest_spike",
+      "target_type": "edge",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent Omani government data released in March 2024 shows that the sharp decline in Brent crude prices from $85 to $62 per barrel in late 2023 forced a 12% cut in public‑sector wages and a 20% reduction in fuel subsidies, leading to a 35% rise in consumer‑price inflation and widespread dissatisfaction. Surveys by the Ministry of Social Development in April 2024 reported that 68% of households cite falling oil revenues as the main cause of their economic hardship. This concrete fiscal impact demonstrates that oil‑price volatility directly amplifies economic grievances, making the causal link far stronger than originally assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.11000000000000001,
+      "shift_direction": "increased",
+      "reasoning": "The new government data confirms that the recent drop in Brent crude caused substantial fiscal tightening (12% wage cuts, 20% fuel‑subsidy cuts) and a 35% inflation surge, with 68% of households attributing hardship to falling oil revenues. This concrete evidence makes the oil_price_volatility → economic_grievances link much stronger than previously assumed, amplifying one of the key drivers of protest_spike. Strengthening this pathway raises the overall likelihood of a ten‑fold protest increase, moving the forecast upward from the original 0.17 to roughly 0.28.",
+      "raw_response": "{\"updated_probability\":0.28,\"shift_direction\":\"increased\",\"reasoning\":\"The new government data confirms that the recent drop in Brent crude caused substantial fiscal tightening (12% wage cuts, 20% fuel‑subsidy cuts) and a 35% inflation surge, with 68% of households attributing hardship to falling oil revenues. This concrete evidence makes the oil_price_volatility → economic_grievances link much stronger than previously assumed, amplifying one of the key drivers of protest_spike. Strengthening this pathway raises the overall likelihood of a ten‑fold protest increase, moving the forecast upward from the original 0.17 to roughly 0.28.\"}",
+      "target_id": "oil_price_volatility->economic_grievances",
+      "target_type": "edge",
+      "target_importance": 0.0222,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Oman show that large protest gatherings have led to sudden spikes in consumer prices and disrupted supply chains, directly worsening household financial strain. Consequently, the surge in protests appears to be driving heightened economic grievances rather than the other way around. Could this reverse causality be the dominant mechanism?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.09,
+      "shift_direction": "increased",
+      "reasoning": "The new data suggest that protests are driving economic grievances rather than the reverse. This weakens the original causal link from economic_grievances to protest_spike, reducing the predictive power of that pathway. However, the feedback loop (protests → higher consumer prices → greater household strain → further protests) creates a self‑reinforcing mechanism that can accelerate a protest surge once it begins. Combined with existing drivers (political repression, youth unemployment, regional unrest, etc.), this feedback modestly raises the chance of a >10‑fold spike. Therefore the probability is adjusted upward from 0.17 to about 0.26.",
+      "raw_response": "{\"updated_probability\":0.26,\"shift_direction\":\"increased\",\"reasoning\":\"The new data suggest that protests are driving economic grievances rather than the reverse. This weakens the original causal link from economic_grievances to protest_spike, reducing the predictive power of that pathway. However, the feedback loop (protests → higher consumer prices → greater household strain → further protests) creates a self‑reinforcing mechanism that can accelerate a protest surge once it begins. Combined with existing drivers (political repression, youth unemployment, regional unrest, etc.), this feedback modestly raises the chance of a >10‑fold spike. Therefore the probability is adjusted upward from 0.17 to about 0.26.\"}",
+      "target_id": "economic_grievances->protest_spike",
+      "target_type": "edge",
+      "target_importance": 0.0333,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent crackdowns in Oman have shown that when security forces increase pre‑emptive arrests, the government simultaneously expands online monitoring and blocks dissenting platforms to pre‑empt coordination. This suggests that heightened security measures directly drive more intensive internet censorship, creating a feedback loop that amplifies protest suppression. Ignoring this link may underestimate the regime's capacity to curb protest organization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.11,
+      "absolute_shift": 0.06000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence adds a causal link from security_measures to internet_censorship, indicating that heightened security is accompanied by tighter online monitoring and platform blocks. This feedback loop enhances the regime’s ability to suppress protest coordination, which counteracts the original security_measures→protest_spike pathway that could have provoked larger demonstrations. By strengthening the suppression side of the dynamic, the overall chance of a ten‑fold protest spike falls, so the probability is revised downward from 0.17 to about 0.11.",
+      "raw_response": "{\"updated_probability\":0.11,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence adds a causal link from security_measures to internet_censorship, indicating that heightened security is accompanied by tighter online monitoring and platform blocks. This feedback loop enhances the regime’s ability to suppress protest coordination, which counteracts the original security_measures→protest_spike pathway that could have provoked larger demonstrations. By strengthening the suppression side of the dynamic, the overall chance of a ten‑fold protest spike falls, so the probability is revised downward from 0.17 to about 0.11.\"}",
+      "target_id": "security_measures->internet_censorship",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Oman's intensified security measures—such as heightened police patrols and pre‑emptive arrests—have been broadcast across Gulf media, prompting neighboring governments to respond with stricter crackdowns. Those reactions have fueled public backlash and sparked new protest waves in adjacent states, suggesting that Oman's security posture can directly influence regional unrest. Incorporating this feedback loop could materially affect the likelihood of a protest spike in Oman.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The report introduces a feedback loop where Oman's intensified security measures provoke stricter crackdowns in neighboring states, creating regional unrest that can spill back into Oman. This adds an indirect pathway security_measures→regional_unrest→protest_spike, reinforcing the direct security_measures→protest_spike link. The amplified causal influence raises the chance of a ten‑fold protest spike, moving the estimate upward from the original 0.17 to roughly 0.27.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"increased\",\"reasoning\":\"The report introduces a feedback loop where Oman's intensified security measures provoke stricter crackdowns in neighboring states, creating regional unrest that can spill back into Oman. This adds an indirect pathway security_measures→regional_unrest→protest_spike, reinforcing the direct security_measures→protest_spike link. The amplified causal influence raises the chance of a ten‑fold protest spike, moving the estimate upward from the original 0.17 to roughly 0.27.\"}",
+      "target_id": "security_measures->regional_unrest",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent large‑scale labor reforms that cut subsidies for migrant workers have increased economic hardship among a sizable expatriate community, raising overall economic grievances and providing a new pool of potential protestors. This factor could amplify protest risk by adding to economic grievances and expanding the demographic base of discontent.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.33,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new labor reforms create a sizable new source of economic hardship among expatriate workers, directly raising the economic_grievances node in the causal network. Since economic_grievances is a strong driver of protest_spike, the added grievance pool raises the baseline risk. The reforms also expand the demographic base that can join protests, effectively amplifying the impact of existing drivers (youth_unemployment, regional_unrest, etc.). This strengthens the causal pathway to a protest spike, so the probability is revised upward from the original 0.17 to about 0.33.",
+      "raw_response": "{\"updated_probability\":0.33,\"shift_direction\":\"increased\",\"reasoning\":\"The new labor reforms create a sizable new source of economic hardship among expatriate workers, directly raising the economic_grievances node in the causal network. Since economic_grievances is a strong driver of protest_spike, the added grievance pool raises the baseline risk. The reforms also expand the demographic base that can join protests, effectively amplifying the impact of existing drivers (youth_unemployment, regional_unrest, etc.). This strengthens the causal pathway to a protest spike, so the probability is revised upward from the original 0.17 to about 0.33.\"}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses show a surge in social‑media activity, with platforms like Twitter and WhatsApp being used to coordinate gatherings and spread anti‑government messages. Introducing a node for 'social_media_mobilization'—the extent of online organization and information diffusion—could directly increase protest coordination and amplify grievances, thereby raising the chance of a protest spike.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.15,
+      "shift_direction": "increased",
+      "reasoning": "The identified surge in social‑media coordination adds a new node that directly boosts protest_spike and also amplifies existing drivers such as economic_grievances and youth_unemployment. This extra pathway raises the overall chance of a ten‑fold protest increase, moving the estimate upward from the original 0.17 to roughly 0.32.",
+      "raw_response": "{\"updated_probability\":0.32,\"shift_direction\":\"increased\",\"reasoning\":\"The identified surge in social‑media coordination adds a new node that directly boosts protest_spike and also amplifies existing drivers such as economic_grievances and youth_unemployment. This extra pathway raises the overall chance of a ten‑fold protest increase, moving the estimate upward from the original 0.17 to roughly 0.32.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "In early September 2025, Oman’s Ministry of Tourism announced the opening of a new luxury resort on the Al Jabal Al Akhdar mountain range, expected to attract high‑end international visitors. The project includes a series of cultural performances showcasing traditional Omani music and dance, scheduled to run throughout the winter months.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new luxury‑resort project is likely to raise tourism revenue and create seasonal jobs, especially for young workers, which eases youth unemployment and cushions the economy against oil‑price volatility. Higher income and employment reduce economic grievances, a key driver of protest_spike in the causal network. Moreover, the cultural programme may improve public sentiment toward the government, lowering the perceived need for dissent. These effects outweigh any minor increase in security presence that might accompany a high‑profile tourist zone, so the overall chance of a >10‑fold protest surge before 2025‑12‑28 is judged lower than the original 0.17 estimate.",
+      "raw_response": "{\"updated_probability\":0.09,\"shift_direction\":\"decreased\",\"reasoning\":\"The new luxury‑resort project is likely to raise tourism revenue and create seasonal jobs, especially for young workers, which eases youth unemployment and cushions the economy against oil‑price volatility. Higher income and employment reduce economic grievances, a key driver of protest_spike in the causal network. Moreover, the cultural programme may improve public sentiment toward the government, lowering the perceived need for dissent. These effects outweigh any minor increase in security presence that might accompany a high‑profile tourist zone, so the overall chance of a >10‑fold protest surge before 2025‑12‑28 is judged lower than the original 0.17 estimate.\"}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Omani Ministry of Tourism announced that the historic Al Baleed Fort will host a week-long cultural exhibition in early December 2025, showcasing artifacts from the pre‑Islamic era. The event is expected to attract several thousand international visitors and includes a series of guided tours and local craft workshops.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.04000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The announced cultural exhibition at Al Baleed Fort is a state‑sanctioned, tourism‑focused event that is likely to serve two main functions in the causal network. First, it can generate a modest boost in government revenue and a short‑term uplift in national pride, which tend to dampen economic grievances and reduce the appeal of large‑scale protest mobilization. Second, the event will attract international visitors and media attention, prompting the Omani authorities to heighten security measures around the venue and nearby areas to project stability. While the presence of foreign visitors could be interpreted as a slight increase in external influence, the dominant effect is expected to be a temporary tightening of security and a short‑term improvement in public mood, both of which lower the probability of a ten‑fold protest spike in the 30‑day window before 2025‑12‑28. Consequently, the forecast is adjusted downward from the original 0.17 to 0.13.",
+      "raw_response": "{\n  \"updated_probability\": 0.13,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announced cultural exhibition at Al Baleed Fort is a state‑sanctioned, tourism‑focused event that is likely to serve two main functions in the causal network. First, it can generate a modest boost in government revenue and a short‑term uplift in national pride, which tend to dampen economic grievances and reduce the appeal of large‑scale protest mobilization. Second, the event will attract international visitors and media attention, prompting the Omani authorities to heighten security measures around the venue and nearby areas to project stability. While the presence of foreign visitors could be interpreted as a slight increase in external influence, the dominant effect is expected to be a temporary tightening of security and a short‑term improvement in public mood, both of which lower the probability of a ten‑fold protest spike in the 30‑day window before 2025‑12‑28. Consequently, the forecast is adjusted downward from the original 0.17 to 0.13.\"\n",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "8a531050a50c0b37027e4e2ef0fed0009a62ed5767e0953cb67cc75be496816d",
+    "question_text": "Will there be more than ten times as many 'Protests' in Oman for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Protests' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Protests'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Protests' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Protests' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.17,
+    "n_probes": 20,
+    "n_successful": 20,
+    "mean_absolute_shift": 0.1125,
+    "max_absolute_shift": 0.24999999999999997
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 1,
+  "aggregate_metrics": {
+    "ssr": 1.6176470588235292,
+    "mean_shift_high": 0.1375,
+    "mean_shift_low": 0.08500000000000002,
+    "asymmetry_index": 0.3662337662337663,
+    "mean_shift_negate": 0.06714285714285716,
+    "mean_shift_strengthen": 0.18333333333333335,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.0010000000000000148,
+    "mean_shift_on_path": 0.11300000000000003,
+    "mean_shift_off_path": 0.11200000000000002,
+    "importance_sensitivity_correlation": 0.33333333333333337,
+    "control_sensitivity": 0.5
+  }
+}

@@ -1,0 +1,1215 @@
+{
+  "question_id": "9d4864773266c4a569d83762f1da3547a387adde920f67bf504071990bb39b3f",
+  "question_text": "Will there be more than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.4,
+  "nodes": [
+    {
+      "id": "political_instability",
+      "description": "Level of political instability in Ethiopia",
+      "role": "factor"
+    },
+    {
+      "id": "ethnic_tensions",
+      "description": "Intensity of ethnic conflicts",
+      "role": "factor"
+    },
+    {
+      "id": "government_actions",
+      "description": "Military or political interventions by the Ethiopian government",
+      "role": "factor"
+    },
+    {
+      "id": "international_intervention",
+      "description": "Foreign diplomatic or military involvement",
+      "role": "factor"
+    },
+    {
+      "id": "resource_scarcity",
+      "description": "Availability of land, water, and other resources",
+      "role": "factor"
+    },
+    {
+      "id": "humanitarian_crisis",
+      "description": "Extent of displacement and aid shortages",
+      "role": "factor"
+    },
+    {
+      "id": "economic_conditions",
+      "description": "Unemployment and poverty levels",
+      "role": "factor"
+    },
+    {
+      "id": "violence_against_civilians_exceeding_threshold",
+      "description": "Forecasted event: violence exceeding 10x baseline",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "political_instability",
+      "to": "ethnic_tensions",
+      "mechanism": "Political instability enables or exacerbates ethnic conflicts"
+    },
+    {
+      "from": "ethnic_tensions",
+      "to": "violence_against_civilians_exceeding_threshold",
+      "mechanism": "Ethnic conflicts directly increase violence against civilians"
+    },
+    {
+      "from": "government_actions",
+      "to": "violence_against_civilians_exceeding_threshold",
+      "mechanism": "Military operations can either reduce or escalate violence depending on implementation"
+    },
+    {
+      "from": "international_intervention",
+      "to": "government_actions",
+      "mechanism": "Diplomatic pressure influences government decision-making"
+    },
+    {
+      "from": "resource_scarcity",
+      "to": "ethnic_tensions",
+      "mechanism": "Competition over scarce resources intensifies ethnic divisions"
+    },
+    {
+      "from": "economic_conditions",
+      "to": "resource_scarcity",
+      "mechanism": "Poverty exacerbates resource competition and land disputes"
+    },
+    {
+      "from": "humanitarian_crisis",
+      "to": "violence_against_civilians_exceeding_threshold",
+      "mechanism": "Displacement and aid shortages increase vulnerability to violence"
+    }
+  ],
+  "reasoning": "Ethiopia's violence against civilians depends on complex interactions between political instability, ethnic tensions, and resource competition. Government actions and international interventions could mitigate or worsen outcomes. A tenfold increase is plausible if ethnic conflicts escalate due to political instability and resource scarcity, but unlikely without sustained humanitarian crises. Probability reflects moderate uncertainty due to variable international influence and potential for conflict resolution efforts.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 7,
+    "density": 0.125,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "violence_against_civilians_exceeding_threshold",
+    "node_metrics": [
+      {
+        "node_id": "political_instability",
+        "description": "Level of political instability in Ethiopia",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0573,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "ethnic_tensions",
+        "description": "Intensity of ethnic conflicts",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.3214,
+        "pagerank": 0.1961,
+        "path_relevance": 0.4286
+      },
+      {
+        "node_id": "government_actions",
+        "description": "Military or political interventions by the Ethiopian government",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.106,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "international_intervention",
+        "description": "Foreign diplomatic or military involvement",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0573,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "resource_scarcity",
+        "description": "Availability of land, water, and other resources",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0476,
+        "closeness": 0.1429,
+        "pagerank": 0.106,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "humanitarian_crisis",
+        "description": "Extent of displacement and aid shortages",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0573,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_conditions",
+        "description": "Unemployment and poverty levels",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0573,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "violence_against_civilians_exceeding_threshold",
+        "description": "Forecasted event: violence exceeding 10x baseline",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5833,
+        "pagerank": 0.3628,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "political_instability",
+        "target": "ethnic_tensions",
+        "mechanism": "Political instability enables or exacerbates ethnic conflicts",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "ethnic_tensions",
+        "target": "violence_against_civilians_exceeding_threshold",
+        "mechanism": "Ethnic conflicts directly increase violence against civilians",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "government_actions",
+        "target": "violence_against_civilians_exceeding_threshold",
+        "mechanism": "Military operations can either reduce or escalate violence depending on implementation",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "international_intervention",
+        "target": "government_actions",
+        "mechanism": "Diplomatic pressure influences government decision-making",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "resource_scarcity",
+        "target": "ethnic_tensions",
+        "mechanism": "Competition over scarce resources intensifies ethnic divisions",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "humanitarian_crisis",
+        "target": "violence_against_civilians_exceeding_threshold",
+        "mechanism": "Displacement and aid shortages increase vulnerability to violence",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_conditions",
+        "target": "resource_scarcity",
+        "mechanism": "Poverty exacerbates resource competition and land disputes",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "ethnic_tensions",
+        "description": "Intensity of ethnic conflicts",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "resource_scarcity",
+        "description": "Availability of land, water, and other resources",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_instability",
+        "description": "Level of political instability in Ethiopia",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_conditions",
+        "description": "Unemployment and poverty levels",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "ethnic_tensions",
+        "description": "Intensity of ethnic conflicts",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "resource_scarcity",
+        "description": "Availability of land, water, and other resources",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_instability",
+        "description": "Level of political instability in Ethiopia",
+        "importance": 0,
+        "centrality_rank": 4,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "economic_conditions",
+        "description": "Unemployment and poverty levels",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+        "description": "Ethnic conflicts directly increase violence against civilians",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "resource_scarcity->ethnic_tensions",
+        "description": "Competition over scarce resources intensifies ethnic divisions",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "humanitarian_crisis->violence_against_civilians_exceeding_threshold",
+        "description": "Displacement and aid shortages increase vulnerability to violence",
+        "importance": 0.0179,
+        "centrality_rank": 7,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+        "description": "Ethnic conflicts directly increase violence against civilians",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "resource_scarcity->ethnic_tensions",
+        "description": "Competition over scarce resources intensifies ethnic divisions",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+        "description": "Ethnic conflicts directly increase violence against civilians",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "ethnic_tensions->government_actions",
+        "description": "Potential link: Intensity of ethnic conflicts -> Military or political interventions by the Ethiopian government",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "ethnic_tensions->humanitarian_crisis",
+        "description": "Potential link: Intensity of ethnic conflicts -> Extent of displacement and aid shortages",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "ethnic_tensions",
+      "description": "Intensity of ethnic conflicts",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "resource_scarcity",
+      "description": "Availability of land, water, and other resources",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_instability",
+      "description": "Level of political instability in Ethiopia",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_conditions",
+      "description": "Unemployment and poverty levels",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "ethnic_tensions",
+      "description": "Intensity of ethnic conflicts",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "resource_scarcity",
+      "description": "Availability of land, water, and other resources",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_instability",
+      "description": "Level of political instability in Ethiopia",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "economic_conditions",
+      "description": "Unemployment and poverty levels",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "description": "Ethnic conflicts directly increase violence against civilians",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "resource_scarcity->ethnic_tensions",
+      "description": "Competition over scarce resources intensifies ethnic divisions",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "humanitarian_crisis->violence_against_civilians_exceeding_threshold",
+      "description": "Displacement and aid shortages increase vulnerability to violence",
+      "importance": 0.0179,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "description": "Ethnic conflicts directly increase violence against civilians",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "resource_scarcity->ethnic_tensions",
+      "description": "Competition over scarce resources intensifies ethnic divisions",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "description": "Ethnic conflicts directly increase violence against civilians",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "ethnic_tensions->government_actions",
+      "description": "Potential link: Intensity of ethnic conflicts -> Military or political interventions by the Ethiopian government",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "ethnic_tensions->humanitarian_crisis",
+      "description": "Potential link: Intensity of ethnic conflicts -> Extent of displacement and aid shortages",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent analyses indicate that the primary driver of violence against civilians in Ethiopia has shifted from ethnic tensions to resource-based disputes over agricultural land and water access. Additionally, increased government efforts at ethnic reconciliation have reduced intergroup hostilities in several regions. Finally, cross-ethnic alliances in pro-government militias suggest that violence is more often politically motivated than ethnically driven.",
+      "probe_type": "node_negate_high",
+      "target_id": "ethnic_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Intensity of ethnic conflicts"
+    },
+    {
+      "probe_text": "Ethiopia's recent investments in large-scale infrastructure projects, such as the Grand Ethiopian Renaissance Dam and expanded irrigation systems, have significantly increased water and resource availability in conflict-prone regions. These developments have reduced competition over scarce resources, suggesting that ethnic tensions may be more strongly influenced by political manipulation than by resource scarcity itself.",
+      "probe_type": "node_negate_high",
+      "target_id": "resource_scarcity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Availability of land, water, and other resources"
+    },
+    {
+      "probe_text": "Recent data shows that Ethiopia's political leadership has become more cohesive and stable following key power-sharing agreements in late 2024, despite external media narratives suggesting otherwise. This internal consolidation may actually reduce ethnic tensions by centralizing decision-making authority, contradicting the assumption that political instability directly exacerbates violence against civilians.",
+      "probe_type": "node_negate_medium",
+      "target_id": "political_instability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Level of political instability in Ethiopia"
+    },
+    {
+      "probe_text": "Ethiopia's resource scarcity is primarily driven by geographic and climatic factors (e.g., drought, land degradation) rather than economic conditions like unemployment or poverty. Effective governance and international aid could mitigate resource competition regardless of local economic factors.",
+      "probe_type": "node_negate_low",
+      "target_id": "economic_conditions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Unemployment and poverty levels"
+    },
+    {
+      "probe_text": "A new study by the Ethiopian Conflict Observatory found that in regions with high ethnic tensions, incidents of violence against civilians increased by 75% over the past year, even after controlling for other factors like government actions and resource scarcity. This suggests ethnic tensions are a more direct and dominant driver of violence than previously modeled, particularly in areas where intercommunal clashes are now occurring independently of broader political instability.",
+      "probe_type": "node_strengthen",
+      "target_id": "ethnic_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Intensity of ethnic conflicts"
+    },
+    {
+      "probe_text": "New satellite data from the UN Office for the Coordination of Humanitarian Affairs (OCHA) reveals a 40% decline in arable land availability and a 60% drop in accessible water sources in conflict-prone regions of Ethiopia since early 2024. This resource depletion coincides with expanded displacement due to recent ethnic conflicts and is now being cited by the World Bank as a critical driver of localizing violence against civilians.",
+      "probe_type": "node_strengthen",
+      "target_id": "resource_scarcity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Availability of land, water, and other resources"
+    },
+    {
+      "probe_text": "New evidence reveals the Ethiopian government's 'Unity for Stability Coalition' has collapsed entirely by late 2024, with regional leaders refusing to participate in national elections and openly declaring autonomy. This fragmentation has led to simultaneous military takeovers in three major cities, as reported by the African Union Conflict Early Warning System, directly increasing political instability scores by 40% according to the Political Instability Task Force's updated metrics.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "political_instability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 4,
+      "on_critical_path": false,
+      "description": "Level of political instability in Ethiopia"
+    },
+    {
+      "probe_text": "The World Bank reported that Ethiopia's unemployment rate has increased by 25% since the start of 2024, particularly affecting rural areas where livelihoods depend on agriculture. Concurrently, inflation has eroded purchasing power, pushing 20% more people into extreme poverty. These deteriorating economic conditions intensify competition for limited arable land and water, directly exacerbating ethnic tensions over resource allocation.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "economic_conditions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Unemployment and poverty levels"
+    },
+    {
+      "probe_text": "Recent evidence from Ethiopia's Tigray region shows that while ethnic tensions are high, violence against civilians has sometimes decreased during periods of negotiated local ceasefires, suggesting that ethnic tensions alone do not necessarily drive violence levels. Government control of information and media blackout policies may instead be masking the true extent of violence against civilians, making the observed correlation between ethnic tensions and violence potentially spurious. Alternative analysis of satellite imagery and indirect harm reports indicates civilian violence may be more closely linked to military logistics patterns than to ethnic divisions per se.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Ethnic conflicts directly increase violence against civilians"
+    },
+    {
+      "probe_text": "Recent evidence from Ethiopia's Tigray region shows that while resource scarcity existed, violence was primarily driven by pre-existing ethnic grievances and political power struggles rather than competition over resources. A UN report found that 75% of violent incidents were linked to military operations or ethnic cleansing campaigns, not resource disputes. This suggests the scarcity-to-ethnic-tensions link may be overstated in the model.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "resource_scarcity->ethnic_tensions",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Competition over scarce resources intensifies ethnic divisions"
+    },
+    {
+      "probe_text": "Consider that an escalating humanitarian crisis in Ethiopia might actually reduce violence against civilians if it leads to increased international aid and humanitarian efforts that protect vulnerable populations. Displacement and aid shortages could cause chaos, but greater aid inflows in response to a crisis might mitigate violence by stabilizing communities and providing safe havens for displaced people.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "humanitarian_crisis->violience_against_civilians_exceeding_threshold",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0179,
+      "centrality_rank": 7,
+      "on_critical_path": true,
+      "description": "Displacement and aid shortages increase vulnerability to violence"
+    },
+    {
+      "probe_text": "Recent reports indicate that inter-ethnic clashes in Ethiopia's Oromia and Somali regions have specifically targeted civilian populations, with over 60% of documented violence incidents in these areas directly tied to ethnic conflict. A 2024 Human Rights Watch analysis found that ethnic-based mobilization has led to systematic attacks on villages associated with rival groups, suggesting the direct escalation of ethnic tensions into civilian violence at a higher rate than previously estimated.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Ethnic conflicts directly increase violence against civilians"
+    },
+    {
+      "probe_text": "Recent reports indicate that Ethiopia's growing population and climate change have significantly reduced arable land availability in Tigray and Amhara regions. A 2024 study by the UN Food and Agriculture Organization found that resource competition over land and water in these areas has increased inter-ethnic conflict incidents by 40% compared to 2022 levels, with ethnic groups blaming each other for resource depletion. This suggests the resource scarcity to ethnic tensions link may be even stronger than currently modeled.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "resource_scarcity->ethnic_tensions",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Competition over scarce resources intensifies ethnic divisions"
+    },
+    {
+      "probe_text": "Recent data from regional conflict zones in Ethiopia shows that spikes in violence against civilians often precede and trigger heightened ethnic tensions, as communities retaliate against attacks perceived as ethnically motivated. For example, in Tigray in 2022, widespread atrocities against civilians led to increased ethnic mobilization and retaliatory violence, suggesting that violence can drive ethnic conflict rather than the reverse. This implies the causal link might run from violence against civilians to ethnic tensions, not the other way around.",
+      "probe_type": "edge_reverse",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Ethnic conflicts directly increase violence against civilians"
+    },
+    {
+      "probe_text": "Consider the possibility that the Ethiopian government may increase military or political interventions in response to rising ethnic tensions to quell unrest before it escalates to violence against civilians. For example, if ethnic tensions intensify in regions like the Tigray or Oromia, the government might deploy additional security forces or negotiate with local leaders to preempt violence, creating a direct causal link from ethnic tensions to government actions.",
+      "probe_type": "edge_missing",
+      "target_id": "ethnic_tensions->government_actions",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Intensity of ethnic conflicts -> Military or political interventions by the Ethiopian government"
+    },
+    {
+      "probe_text": "Recent data from Tigray shows that areas with heightened ethnic conflicts experienced significant displacement of over 2 million people and overwhelmed aid distribution networks. This suggests that ethnic tensions directly contribute to humanitarian crises by displacing populations and straining relief efforts. If ethnic tensions do not directly cause humanitarian crises, how do you explain the displacement and aid shortages observed in conflict hotspots without a pre-existing humanitarian crisis?",
+      "probe_type": "edge_missing",
+      "target_id": "ethnic_tensions->humanitarian_crisis",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Intensity of ethnic conflicts -> Extent of displacement and aid shortages"
+    },
+    {
+      "probe_text": "The network does not account for the role of armed group dynamics, such as the presence and activities of non-state armed groups. These groups often directly target civilians for recruitment, intimidation, or retaliation, which could independently increase violence against civilians. Their operational capacity and motives could be significantly influenced by factors like regional alliances, access to weapons, and local grievances not captured in the current model.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of regional alliances and military pacts between Ethiopia and neighboring countries. Increased cooperation or conflict with regional actors could directly influence the level of violence against civilians by either stabilizing the region through joint security efforts or escalating tensions through proxy conflicts and cross-border incursions.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Ethiopia has recently launched a nationwide initiative to promote traditional coffee ceremony cultural tourism, which has gained attention from international media and small-scale foreign investors.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Ethiopia recently launched a new satellite for agricultural monitoring, which is expected to improve crop yields by 20% over the next five years through better weather forecasting and soil analysis.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses indicate that the primary driver of violence against civilians in Ethiopia has shifted from ethnic tensions to resource-based disputes over agricultural land and water access. Additionally, increased government efforts at ethnic reconciliation have reduced intergroup hostilities in several regions. Finally, cross-ethnic alliances in pro-government militias suggest that violence is more often politically motivated than ethnically driven.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the causal link between ethnic tensions and violence against civilians, as the primary driver has shifted to resource-based disputes. Reduced intergroup hostilities and government ethnic reconciliation efforts lower the probability of violence spiking. While resource scarcity remains a factor, its indirect effect through ethnic tensions is diminished. Government actions may now be more effective in addressing politically motivated violence, further reducing the likelihood of exceeding the 10x threshold.",
+      "raw_response": "{  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information weakens the causal link between ethnic tensions and violence against civilians, as the primary driver has shifted to resource-based disputes. Reduced intergroup hostilities and government ethnic reconciliation efforts lower the probability of violence spiking. While resource scarcity remains a factor, its indirect effect through ethnic tensions is diminished. Government actions may now be more effective in addressing politically motivated violence, further reducing the likelihood of exceeding the 10x threshold.\"\n}",
+      "target_id": "ethnic_tensions",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Ethiopia's recent investments in large-scale infrastructure projects, such as the Grand Ethiopian Renaissance Dam and expanded irrigation systems, have significantly increased water and resource availability in conflict-prone regions. These developments have reduced competition over scarce resources, suggesting that ethnic tensions may be more strongly influenced by political manipulation than by resource scarcity itself.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the causal link between resource_scarcity and ethnic_tensions by demonstrating reduced resource competition in conflict-prone regions. This lowers the likelihood of resource-driven ethnic tensions, which in turn reduces one of the key drivers of violence against civilians. However, political manipulation remains a potential driver of ethnic tensions, so the probability is not drastically reduced. The overall model now places less weight on resource scarcity as a causal factor, leading to a slightly decreased forecast.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information weakens the causal link between resource_scarcity and ethnic_tensions by demonstrating reduced resource competition in conflict-prone regions. This lowers the likelihood of resource-driven ethnic tensions, which in turn reduces one of the key drivers of violence against civilians. However, political manipulation remains a potential driver of ethnic tensions, so the probability is not drastically reduced. The overall model now places less weight on resource scarcity as a causal factor, leading to a slightly decreased forecast.\"\n}",
+      "target_id": "resource_scarcity",
+      "target_type": "node",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that Ethiopia's political leadership has become more cohesive and stable following key power-sharing agreements in late 2024, despite external media narratives suggesting otherwise. This internal consolidation may actually reduce ethnic tensions by centralizing decision-making authority, contradicting the assumption that political instability directly exacerbates violence against civilians.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new information suggests Ethiopia's political leadership has become more cohesive and stable following late-2024 power-sharing agreements, contradicting assumptions about ongoing political instability. This reduced instability weakens the causal pathway from political_instability -> ethnic_tensions, which would otherwise feed into violence_against_civilians_exceeding_threshold. Centralized decision-making may also mitigate resource competition and humanitarian crisis dynamics, further reducing violence likelihood. The probability shift reflects diminished risk from this key driver of ethnic conflict escalation.",
+      "raw_response": "{  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information suggests Ethiopia's political leadership has become more cohesive and stable following late-2024 power-sharing agreements, contradicting assumptions about ongoing political instability. This reduced instability weakens the causal pathway from political_instability -> ethnic_tensions, which would otherwise feed into violence_against_civilians_exceeding_threshold. Centralized decision-making may also mitigate resource competition and humanitarian crisis dynamics, further reducing violence likelihood. The probability shift reflects diminished risk from this key driver of ethnic conflict escalation.\"\n}",
+      "target_id": "political_instability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Ethiopia's resource scarcity is primarily driven by geographic and climatic factors (e.g., drought, land degradation) rather than economic conditions like unemployment or poverty. Effective governance and international aid could mitigate resource competition regardless of local economic factors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the linkage between economic_conditions and resource_scarcity, reducing the indirect effect of poverty/unemployment on violence. However, it introduces the possibility that governance and international aid could mitigate resource competition independently of economic factors. Since effective governance and aid would lower ethnic tensions (a key driver of violence), and assuming moderate likelihood of these mitigating factors being operationalized, the overall probability of exceeding the violence threshold decreases.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information weakens the linkage between economic_conditions and resource_scarcity, reducing the indirect effect of poverty/unemployment on violence. However, it introduces the possibility that governance and international aid could mitigate resource competition independently of economic factors. Since effective governance and aid would lower ethnic tensions (a key driver of violence), and assuming moderate likelihood of these mitigating factors being operationalized, the overall probability of exceeding the violence threshold decreases.\"\n}",
+      "target_id": "economic_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A new study by the Ethiopian Conflict Observatory found that in regions with high ethnic tensions, incidents of violence against civilians increased by 75% over the past year, even after controlling for other factors like government actions and resource scarcity. This suggests ethnic tensions are a more direct and dominant driver of violence than previously modeled, particularly in areas where intercommunal clashes are now occurring independently of broader political instability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new study strengthens the causal link between ethnic tensions and violence against civilians, showing a 75% increase in violence tied to ethnic tensions even after controlling for other factors. This reinforces ethnic tensions as a dominant driver, making the outcome more likely. Since ethnic tensions are already a key node in the network, and their direct impact is now confirmed to be stronger than modeled, the probability of exceeding the 10x threshold increases. The effect is amplified by the independence of intercommunal clashes from broader political instability, reducing dampening factors previously assumed.",
+      "raw_response": "{  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new study strengthens the causal link between ethnic tensions and violence against civilians, showing a 75% increase in violence tied to ethnic tensions even after controlling for other factors. This reinforces ethnic tensions as a dominant driver, making the outcome more likely. Since ethnic tensions are already a key node in the network, and their direct impact is now confirmed to be stronger than modeled, the probability of exceeding the 10x threshold increases. The effect is amplified by the independence of intercommunal clashes from broader political instability, reducing dampening factors previously assumed.\"\n}",
+      "target_id": "ethnic_tensions",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "New satellite data from the UN Office for the Coordination of Humanitarian Affairs (OCHA) reveals a 40% decline in arable land availability and a 60% drop in accessible water sources in conflict-prone regions of Ethiopia since early 2024. This resource depletion coincides with expanded displacement due to recent ethnic conflicts and is now being cited by the World Bank as a critical driver of localizing violence against civilians.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new data significantly strengthens the 'resource_scarcity' node in the causal network, which directly increases ethnic tensions (via competition over land/water) and indirectly amplifies violence against civilians through two pathways: 1) heightened ethnic tensions -> increased violence, and 2) resource scarcity -> economic strain -> displacement -> vulnerability to violence. This creates a compounding effect on the outcome node. While government actions could mitigate this, the World Bank's characterization of resource depletion as a 'critical driver' suggests limited counterbalancing capacity currently.",
+      "raw_response": "{  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new data significantly strengthens the 'resource_scarcity' node in the causal network, which directly increases ethnic tensions (via competition over land/water) and indirectly amplifies violence against civilians through two pathways: 1) heightened ethnic tensions -> increased violence, and 2) resource scarcity -> economic strain -> displacement -> vulnerability to violence. This creates a compounding effect on the outcome node. While government actions could mitigate this, the World Bank's characterization of resource depletion as a 'critical driver' suggests limited counterbalancing capacity currently.\"\n}",
+      "target_id": "resource_scarcity",
+      "target_type": "node",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "New evidence reveals the Ethiopian government's 'Unity for Stability Coalition' has collapsed entirely by late 2024, with regional leaders refusing to participate in national elections and openly declaring autonomy. This fragmentation has led to simultaneous military takeovers in three major cities, as reported by the African Union Conflict Early Warning System, directly increasing political instability scores by 40% according to the Political Instability Task Force's updated metrics.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.6,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The collapse of the Unity for Stability Coalition and subsequent military takeovers directly amplify political instability, a key driver of ethnic tensions and government actions. Increased political instability (40% rise) strengthens the causal chain: 1) higher instability intensifies ethnic tensions, 2) weakens government control leading to less effective conflict mitigation, and 3) escalates humanitarian crises through displacement. These cascading effects significantly raise the likelihood of violence against civilians exceeding the 10x threshold.",
+      "raw_response": "{  \"updated_probability\": 0.60,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The collapse of the Unity for Stability Coalition and subsequent military takeovers directly amplify political instability, a key driver of ethnic tensions and government actions. Increased political instability (40% rise) strengthens the causal chain: 1) higher instability intensifies ethnic tensions, 2) weakens government control leading to less effective conflict mitigation, and 3) escalates humanitarian crises through displacement. These cascading effects significantly raise the likelihood of violence against civilians exceeding the 10x threshold.\"\n}",
+      "target_id": "political_instability",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "The World Bank reported that Ethiopia's unemployment rate has increased by 25% since the start of 2024, particularly affecting rural areas where livelihoods depend on agriculture. Concurrently, inflation has eroded purchasing power, pushing 20% more people into extreme poverty. These deteriorating economic conditions intensify competition for limited arable land and water, directly exacerbating ethnic tensions over resource allocation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The reported deterioration in Ethiopia's economic conditions (25% unemployment rise and 20% more people in extreme poverty) directly strengthens the 'economic_conditions -> resource_scarcity' link. This exacerbates competition for land and water, which in turn amplifies ethnic tensions (resource_scarcity -> ethnic_tensions). Heightened ethnic tensions then increase the likelihood of violence against civilians. These reinforcing causal pathways raise the probability of exceeding the 10x baseline threshold.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The reported deterioration in Ethiopia's economic conditions (25% unemployment rise and 20% more people in extreme poverty) directly strengthens the 'economic_conditions -> resource_scarcity' link. This exacerbates competition for land and water, which in turn amplifies ethnic tensions (resource_scarcity -> ethnic_tensions). Heightened ethnic tensions then increase the likelihood of violence against civilians. These reinforcing causal pathways raise the probability of exceeding the 10x baseline threshold.\"\n}",
+      "target_id": "economic_conditions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent evidence from Ethiopia's Tigray region shows that while ethnic tensions are high, violence against civilians has sometimes decreased during periods of negotiated local ceasefires, suggesting that ethnic tensions alone do not necessarily drive violence levels. Government control of information and media blackout policies may instead be masking the true extent of violence against civilians, making the observed correlation between ethnic tensions and violence potentially spurious. Alternative analysis of satellite imagery and indirect harm reports indicates civilian violence may be more closely linked to military logistics patterns than to ethnic divisions per se.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.3,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence indicates that the direct causal link between ethnic tensions and violence against civilians is weaker than previously assumed, as violence has decreased during ceasefires despite high tensions. This suggests ethnic tensions alone are not a deterministic driver of violence, and alternative factors (e.g., government information control, military logistics) may be more proximate causes. Weakening this key causal pathway in the model reduces the estimated probability of exceeding the threshold. However, other factors like government actions and resource scarcity remain influential, preventing a larger downward adjustment.",
+      "raw_response": "{  \"updated_probability\": 0.30,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new evidence indicates that the direct causal link between ethnic tensions and violence against civilians is weaker than previously assumed, as violence has decreased during ceasefires despite high tensions. This suggests ethnic tensions alone are not a deterministic driver of violence, and alternative factors (e.g., government information control, military logistics) may be more proximate causes. Weakening this key causal pathway in the model reduces the estimated probability of exceeding the threshold. However, other factors like government actions and resource scarcity remain influential, preventing a larger downward adjustment.\"\n}",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent evidence from Ethiopia's Tigray region shows that while resource scarcity existed, violence was primarily driven by pre-existing ethnic grievances and political power struggles rather than competition over resources. A UN report found that 75% of violent incidents were linked to military operations or ethnic cleansing campaigns, not resource disputes. This suggests the scarcity-to-ethnic-tensions link may be overstated in the model.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence weakens the causal link between resource scarcity and ethnic tensions, reducing resource scarcity's contribution to ethnic tensions. While political instability and pre-existing ethnic grievances remain key drivers, the diminished role of resource competition slightly lowers the projected intensity of ethnic tensions. This reduces the likelihood of violence against civilians exceeding the 10x threshold, warranting a decrease from 0.40 to 0.35.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new evidence weakens the causal link between resource scarcity and ethnic tensions, reducing resource scarcity's contribution to ethnic tensions. While political instability and pre-existing ethnic grievances remain key drivers, the diminished role of resource competition slightly lowers the projected intensity of ethnic tensions. This reduces the likelihood of violence against civilians exceeding the 10x threshold, warranting a decrease from 0.40 to 0.35.\"\n}",
+      "target_id": "resource_scarcity->ethnic_tensions",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Consider that an escalating humanitarian crisis in Ethiopia might actually reduce violence against civilians if it leads to increased international aid and humanitarian efforts that protect vulnerable populations. Displacement and aid shortages could cause chaos, but greater aid inflows in response to a crisis might mitigate violence by stabilizing communities and providing safe havens for displaced people.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The new information challenges the assumption that humanitarian crises directly increase violence against civilians. If humanitarian crises could reduce violence via increased international aid and stabilization efforts, the causal link is weakened. This suggests a lower probability of exceeding the violence threshold compared to the original forecast.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information challenges the assumption that humanitarian crises directly increase violence against civilians. If humanitarian crises could reduce violence via increased international aid and stabilization efforts, the causal link is weakened. This suggests a lower probability of exceeding the violence threshold compared to the original forecast.\"\n}",
+      "target_id": "humanitarian_crisis->violience_against_civilians_exceeding_threshold",
+      "target_type": "edge",
+      "target_importance": 0.0179,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that inter-ethnic clashes in Ethiopia's Oromia and Somali regions have specifically targeted civilian populations, with over 60% of documented violence incidents in these areas directly tied to ethnic conflict. A 2024 Human Rights Watch analysis found that ethnic-based mobilization has led to systematic attacks on villages associated with rival groups, suggesting the direct escalation of ethnic tensions into civilian violence at a higher rate than previously estimated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the causal link between ethnic tensions and violence against civilians by demonstrating a direct, systematic escalation in targeted civilian attacks (60% of incidents) driven by ethnic mobilization. This reinforces the pathway in the causal network where higher ethnic tensions directly increase the likelihood of exceeding the violence threshold, warranting an upward revision of the probability.",
+      "raw_response": "{  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the causal link between ethnic tensions and violence against civilians by demonstrating a direct, systematic escalation in targeted civilian attacks (60% of incidents) driven by ethnic mobilization. This reinforces the pathway in the causal network where higher ethnic tensions directly increase the likelihood of exceeding the violence threshold, warranting an upward revision of the probability.\"\n}",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Ethiopia's growing population and climate change have significantly reduced arable land availability in Tigray and Amhara regions. A 2024 study by the UN Food and Agriculture Organization found that resource competition over land and water in these areas has increased inter-ethnic conflict incidents by 40% compared to 2022 levels, with ethnic groups blaming each other for resource depletion. This suggests the resource scarcity to ethnic tensions link may be even stronger than currently modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.15000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new information strengthens the 'resource_scarcity -> ethnic_tensions' causal link by showing a 40% increase in inter-ethnic conflict due to land/water scarcity in Tigray and Amhara. This strengthens the chain of causality leading to violence against civilians (via ethnic tensions -> violence). The UN study's empirical validation of this relationship increases confidence in the model's prediction, warranting a 15% upward adjustment in probability from the original 40% estimate.",
+      "raw_response": "{  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information strengthens the 'resource_scarcity -> ethnic_tensions' causal link by showing a 40% increase in inter-ethnic conflict due to land/water scarcity in Tigray and Amhara. This strengthens the chain of causality leading to violence against civilians (via ethnic tensions -> violence). The UN study's empirical validation of this relationship increases confidence in the model's prediction, warranting a 15% upward adjustment in probability from the original 40% estimate.\"\n}",
+      "target_id": "resource_scarcity->ethnic_tensions",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent data from regional conflict zones in Ethiopia shows that spikes in violence against civilians often precede and trigger heightened ethnic tensions, as communities retaliate against attacks perceived as ethnically motivated. For example, in Tigray in 2022, widespread atrocities against civilians led to increased ethnic mobilization and retaliatory violence, suggesting that violence can drive ethnic conflict rather than the reverse. This implies the causal link might run from violence against civilians to ethnic tensions, not the other way around.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The new information challenges the assumption that ethnic tensions directly cause violence against civilians, suggesting instead that violence drives ethnic tensions. This reverses a key causal link in the model, reducing the predictive weight of ethnic tensions as an upstream driver. While other factors like government actions and humanitarian crises still influence the outcome, the weakened direct pathway from ethnic tensions to violence lowers overall confidence in the original 0.40 probability estimate.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information challenges the assumption that ethnic tensions directly cause violence against civilians, suggesting instead that violence drives ethnic tensions. This reverses a key causal link in the model, reducing the predictive weight of ethnic tensions as an upstream driver. While other factors like government actions and humanitarian crises still influence the outcome, the weakened direct pathway from ethnic tensions to violence lowers overall confidence in the original 0.40 probability estimate.\"\n}",
+      "target_id": "ethnic_tensions->violence_against_civilians_exceeding_threshold",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_missing",
+      "target_reason_id": null,
+      "probe_text": "Consider the possibility that the Ethiopian government may increase military or political interventions in response to rising ethnic tensions to quell unrest before it escalates to violence against civilians. For example, if ethnic tensions intensify in regions like the Tigray or Oromia, the government might deploy additional security forces or negotiate with local leaders to preempt violence, creating a direct causal link from ethnic tensions to government actions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.3,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The new information introduces a direct causal link from ethnic tensions to government actions, where increased ethnic tensions prompt preemptive government interventions (e.g., security deployments, negotiations) to prevent violence. This creates a mitigating pathway: higher ethnic tensions both directly increase violence against civilians and indirectly reduce it via government actions. The net effect lowers the probability of exceeding the 10x threshold, as government responses act as a buffer against escalation. While government actions could theoretically escalate violence, the scenario emphasizes their preventive role, which outweighs the original model's assumptions.",
+      "raw_response": "{  \"updated_probability\": 0.30,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information introduces a direct causal link from ethnic tensions to government actions, where increased ethnic tensions prompt preemptive government interventions (e.g., security deployments, negotiations) to prevent violence. This creates a mitigating pathway: higher ethnic tensions both directly increase violence against civilians and indirectly reduce it via government actions. The net effect lowers the probability of exceeding the 10x threshold, as government responses act as a buffer against escalation. While government actions could theoretically escalate violence, the scenario emphasizes their preventive role, which outweighs the original model's assumptions.\"\n}",
+      "target_id": "ethnic_tensions->government_actions",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "edge_missing",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Tigray shows that areas with heightened ethnic conflicts experienced significant displacement of over 2 million people and overwhelmed aid distribution networks. This suggests that ethnic tensions directly contribute to humanitarian crises by displacing populations and straining relief efforts. If ethnic tensions do not directly cause humanitarian crises, how do you explain the displacement and aid shortages observed in conflict hotspots without a pre-existing humanitarian crisis?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information highlights a direct causal link between ethnic tensions and humanitarian crises (displacement/aid shortages), which was not explicitly modeled in the original network. Adding this pathway strengthens the mechanism by which ethnic tensions contribute to violence against civilians. Since ethnic tensions already directly influence the outcome and now also amplify humanitarian crises (which themselves drive the outcome), the cumulative effect of ethnic tensions on the forecasted event is heightened. This reinforces the likelihood of exceeding the violence threshold, warranting an increased probability.",
+      "raw_response": "{  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information highlights a direct causal link between ethnic tensions and humanitarian crises (displacement/aid shortages), which was not explicitly modeled in the original network. Adding this pathway strengthens the mechanism by which ethnic tensions contribute to violence against civilians. Since ethnic tensions already directly influence the outcome and now also amplify humanitarian crises (which themselves drive the outcome), the cumulative effect of ethnic tensions on the forecasted event is heightened. This reinforces the likelihood of exceeding the violence threshold, warranting an increased probability.\"\n}",
+      "target_id": "ethnic_tensions->humanitarian_crisis",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "The network does not account for the role of armed group dynamics, such as the presence and activities of non-state armed groups. These groups often directly target civilians for recruitment, intimidation, or retaliation, which could independently increase violence against civilians. Their operational capacity and motives could be significantly influenced by factors like regional alliances, access to weapons, and local grievances not captured in the current model.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information introduces armed group dynamics as an independent driver of violence against civilians, which was absent in the original model. Non-state armed groups can directly escalate violence through targeted actions (recruitment, retaliation) and are influenced by regional alliances/weapon access not captured in existing nodes. This adds a parallel causal pathway to the outcome node 'violence_against_civilians_exceeding_threshold', increasing the systemic risk beyond the previously modeled factors. While the original model accounted for ethnic tensions and government actions, armed groups represent an additional volatility source that could independently trigger the event, warranting a moderate probability increase.",
+      "raw_response": "{  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information introduces armed group dynamics as an independent driver of violence against civilians, which was absent in the original model. Non-state armed groups can directly escalate violence through targeted actions (recruitment, retaliation) and are influenced by regional alliances/weapon access not captured in existing nodes. This adds a parallel causal pathway to the outcome node 'violence_against_civilians_exceeding_threshold', increasing the systemic risk beyond the previously modeled factors. While the original model accounted for ethnic tensions and government actions, armed groups represent an additional volatility source that could independently trigger the event, warranting a moderate probability increase.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of regional alliances and military pacts between Ethiopia and neighboring countries. Increased cooperation or conflict with regional actors could directly influence the level of violence against civilians by either stabilizing the region through joint security efforts or escalating tensions through proxy conflicts and cross-border incursions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of regional alliances/military pacts adds a new causal factor that can either stabilize or destabilize the region. Given Ethiopia's complex geopolitical environment (e.g., tensions with Eritrea, Somalia, and Sudan), increased regional conflict through proxy wars or cross-border incursions could directly escalate violence against civilians. This introduces an additional pathway to the outcome not fully captured in the original model, slightly increasing the probability of exceeding the 10x threshold.",
+      "raw_response": "{  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The introduction of regional alliances/military pacts adds a new causal factor that can either stabilize or destabilize the region. Given Ethiopia's complex geopolitical environment (e.g., tensions with Eritrea, Somalia, and Sudan), increased regional conflict through proxy wars or cross-border incursions could directly escalate violence against civilians. This introduces an additional pathway to the outcome not fully captured in the original model, slightly increasing the probability of exceeding the 10x threshold.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Ethiopia has recently launched a nationwide initiative to promote traditional coffee ceremony cultural tourism, which has gained attention from international media and small-scale foreign investors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The coffee ceremony tourism initiative may reduce ethnic tensions and political instability by improving economic conditions through foreign investment and media attention. Increased cultural tourism could enhance Ethiopia's international image, potentially encouraging more stable governance and resource allocation, which indirectly lowers the risk of violence against civilians.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The coffee ceremony tourism initiative may reduce ethnic tensions and political instability by improving economic conditions through foreign investment and media attention. Increased cultural tourism could enhance Ethiopia's international image, potentially encouraging more stable governance and resource allocation, which indirectly lowers the risk of violence against civilians.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Ethiopia recently launched a new satellite for agricultural monitoring, which is expected to improve crop yields by 20% over the next five years through better weather forecasting and soil analysis.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "decreased",
+      "reasoning": "The satellite launch addresses resource scarcity through agricultural improvements, which cascades through the causal network to reduce ethnic tensions and humanitarian crisis factors. Improved crop yields (20% increase) could mitigate resource competition over 5 years, but as the forecast period is only by 2025 (4 years), we expect partial realization of benefits. This structural intervention weakens the pathways from resource scarcity → ethnic tensions → violence, while also reducing displacement pressures. However, political instability and government actions remain significant drivers. The 15% probability reduction reflects the satellite's moderate long-term impact on reducing violence drivers.",
+      "raw_response": "{  \"updated_probability\": 0.35,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The satellite launch addresses resource scarcity through agricultural improvements, which cascades through the causal network to reduce ethnic tensions and humanitarian crisis factors. Improved crop yields (20% increase) could mitigate resource competition over 5 years, but as the forecast period is only by 2025 (4 years), we expect partial realization of benefits. This structural intervention weakens the pathways from resource scarcity → ethnic tensions → violence, while also reducing displacement pressures. However, political instability and government actions remain significant drivers. The 15% probability reduction reflects the satellite's moderate long-term impact on reducing violence drivers.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "9d4864773266c4a569d83762f1da3547a387adde920f67bf504071990bb39b3f",
+    "question_text": "Will there be more than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.4,
+    "n_probes": 20,
+    "n_successful": 20,
+    "mean_absolute_shift": 0.09250000000000003,
+    "max_absolute_shift": 0.19999999999999996
+  },
+  "model": "qwen-32b",
+  "model_label": "Qwen3 32B",
+  "market_probability": 1,
+  "aggregate_metrics": {
+    "ssr": 1.666666666666666,
+    "mean_shift_high": 0.12500000000000003,
+    "mean_shift_low": 0.07500000000000004,
+    "asymmetry_index": 0.605042016806723,
+    "mean_shift_negate": 0.08571428571428576,
+    "mean_shift_strengthen": 0.14166666666666666,
+    "fnar": 0,
+    "n_accepted": 0,
+    "n_spurious": 2,
+    "critical_path_premium": 0.0049999999999999906,
+    "mean_shift_on_path": 0.09500000000000003,
+    "mean_shift_off_path": 0.09000000000000004,
+    "importance_sensitivity_correlation": 0.5515151515151515,
+    "control_sensitivity": 1
+  }
+}

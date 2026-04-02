@@ -1,0 +1,1274 @@
+{
+  "question_id": "9d4864773266c4a569d83762f1da3547a387adde920f67bf504071990bb39b3f",
+  "question_text": "Will there be more than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.35,
+  "nodes": [
+    {
+      "id": "ethnic_tensions",
+      "description": "Level of ethnic friction and competition over resources",
+      "role": "factor"
+    },
+    {
+      "id": "armed_group_activity",
+      "description": "Frequency and intensity of attacks by rebel or militia groups",
+      "role": "factor"
+    },
+    {
+      "id": "government_security_policy",
+      "description": "Government's security measures, crackdowns, and militarization",
+      "role": "factor"
+    },
+    {
+      "id": "humanitarian_aid_constraints",
+      "description": "Limitations in aid delivery and assistance to civilians",
+      "role": "factor"
+    },
+    {
+      "id": "economic_inflation",
+      "description": "Rising prices and economic stress affecting livelihoods",
+      "role": "factor"
+    },
+    {
+      "id": "climate_stress",
+      "description": "Droughts, floods, and other climate shocks reducing resource availability",
+      "role": "factor"
+    },
+    {
+      "id": "international_intervention",
+      "description": "External diplomatic, military, or aid actions influencing the conflict",
+      "role": "factor"
+    },
+    {
+      "id": "violence_spike",
+      "description": "More than ten times the baseline civilian violence in the 30‑day window before 2025‑12‑28",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ethnic_tensions",
+      "to": "armed_group_activity",
+      "mechanism": "Heightened ethnic friction fuels recruitment and attacks by armed groups"
+    },
+    {
+      "from": "armed_group_activity",
+      "to": "violence_spike",
+      "mechanism": "Increased attacks directly raise civilian casualties"
+    },
+    {
+      "from": "government_security_policy",
+      "to": "armed_group_activity",
+      "mechanism": "Harsh security measures can provoke retaliatory attacks"
+    },
+    {
+      "from": "humanitarian_aid_constraints",
+      "to": "violence_spike",
+      "mechanism": "Aid shortages leave civilians vulnerable, increasing casualty counts"
+    },
+    {
+      "from": "economic_inflation",
+      "to": "humanitarian_aid_constraints",
+      "mechanism": "Inflation raises aid costs and reduces effective distribution"
+    },
+    {
+      "from": "climate_stress",
+      "to": "ethnic_tensions",
+      "mechanism": "Resource scarcity from climate shocks amplifies ethnic competition"
+    },
+    {
+      "from": "international_intervention",
+      "to": "government_security_policy",
+      "mechanism": "External pressure shapes the government's security approach"
+    },
+    {
+      "from": "international_intervention",
+      "to": "violence_spike",
+      "mechanism": "Intervention can either deter or unintentionally escalate violence"
+    }
+  ],
+  "reasoning": "Ethiopia continues to experience volatile ethnic tensions, active rebel groups, and economic strain. Climate‑driven resource scarcity and limited humanitarian aid further aggravate civilian vulnerability. While international actors may moderate the situation, their influence is inconsistent. These interacting drivers make a ten‑fold surge in civilian violence possible but not highly likely, leading to an estimated 35% chance.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 8,
+    "density": 0.1429,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "violence_spike",
+    "node_metrics": [
+      {
+        "node_id": "ethnic_tensions",
+        "description": "Level of ethnic friction and competition over resources",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0476,
+        "closeness": 0.1429,
+        "pagerank": 0.1021,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "armed_group_activity",
+        "description": "Frequency and intensity of attacks by rebel or militia groups",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.381,
+        "pagerank": 0.2088,
+        "path_relevance": 0.4286
+      },
+      {
+        "node_id": "government_security_policy",
+        "description": "Government's security measures, crackdowns, and militarization",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.0786,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "humanitarian_aid_constraints",
+        "description": "Limitations in aid delivery and assistance to civilians",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.1021,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "economic_inflation",
+        "description": "Rising prices and economic stress affecting livelihoods",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0552,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "climate_stress",
+        "description": "Droughts, floods, and other climate shocks reducing resource availability",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0552,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "international_intervention",
+        "description": "External diplomatic, military, or aid actions influencing the conflict",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0552,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "violence_spike",
+        "description": "More than ten times the baseline civilian violence in the 30‑day window before 2025‑12‑28",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5833,
+        "pagerank": 0.3429,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "ethnic_tensions",
+        "target": "armed_group_activity",
+        "mechanism": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "armed_group_activity",
+        "target": "violence_spike",
+        "mechanism": "Increased attacks directly raise civilian casualties",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "government_security_policy",
+        "target": "armed_group_activity",
+        "mechanism": "Harsh security measures can provoke retaliatory attacks",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "humanitarian_aid_constraints",
+        "target": "violence_spike",
+        "mechanism": "Aid shortages leave civilians vulnerable, increasing casualty counts",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "economic_inflation",
+        "target": "humanitarian_aid_constraints",
+        "mechanism": "Inflation raises aid costs and reduces effective distribution",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "climate_stress",
+        "target": "ethnic_tensions",
+        "mechanism": "Resource scarcity from climate shocks amplifies ethnic competition",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "international_intervention",
+        "target": "government_security_policy",
+        "mechanism": "External pressure shapes the government's security approach",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "international_intervention",
+        "target": "violence_spike",
+        "mechanism": "Intervention can either deter or unintentionally escalate violence",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "armed_group_activity",
+        "description": "Frequency and intensity of attacks by rebel or militia groups",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "ethnic_tensions",
+        "description": "Level of ethnic friction and competition over resources",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "humanitarian_aid_constraints",
+        "description": "Limitations in aid delivery and assistance to civilians",
+        "importance": 0.0238,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "international_intervention",
+        "description": "External diplomatic, military, or aid actions influencing the conflict",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "armed_group_activity",
+        "description": "Frequency and intensity of attacks by rebel or militia groups",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "ethnic_tensions",
+        "description": "Level of ethnic friction and competition over resources",
+        "importance": 0.0476,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "humanitarian_aid_constraints",
+        "description": "Limitations in aid delivery and assistance to civilians",
+        "importance": 0.0238,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "international_intervention",
+        "description": "External diplomatic, military, or aid actions influencing the conflict",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ethnic_tensions->armed_group_activity",
+        "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "armed_group_activity->violence_spike",
+        "description": "Increased attacks directly raise civilian casualties",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "international_intervention->government_security_policy",
+        "description": "External pressure shapes the government's security approach",
+        "importance": 0.0357,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ethnic_tensions->armed_group_activity",
+        "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "armed_group_activity->violence_spike",
+        "description": "Increased attacks directly raise civilian casualties",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "international_intervention->government_security_policy",
+        "description": "External pressure shapes the government's security approach",
+        "importance": 0.0357,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_strengthen_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "ethnic_tensions->armed_group_activity",
+        "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+        "importance": 0.0714,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "international_intervention->humanitarian_aid_constraints",
+        "description": "Potential link: External diplomatic, military, or aid actions influencing the conflict -> Limitations in aid delivery and assistance to civilians",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "international_intervention->armed_group_activity",
+        "description": "Potential link: External diplomatic, military, or aid actions influencing the conflict -> Frequency and intensity of attacks by rebel or militia groups",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "armed_group_activity",
+      "description": "Frequency and intensity of attacks by rebel or militia groups",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "ethnic_tensions",
+      "description": "Level of ethnic friction and competition over resources",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "humanitarian_aid_constraints",
+      "description": "Limitations in aid delivery and assistance to civilians",
+      "importance": 0.0238,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "international_intervention",
+      "description": "External diplomatic, military, or aid actions influencing the conflict",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "armed_group_activity",
+      "description": "Frequency and intensity of attacks by rebel or militia groups",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "ethnic_tensions",
+      "description": "Level of ethnic friction and competition over resources",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "humanitarian_aid_constraints",
+      "description": "Limitations in aid delivery and assistance to civilians",
+      "importance": 0.0238,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "international_intervention",
+      "description": "External diplomatic, military, or aid actions influencing the conflict",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "armed_group_activity->violence_spike",
+      "description": "Increased attacks directly raise civilian casualties",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "international_intervention->government_security_policy",
+      "description": "External pressure shapes the government's security approach",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "armed_group_activity->violence_spike",
+      "description": "Increased attacks directly raise civilian casualties",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "international_intervention->government_security_policy",
+      "description": "External pressure shapes the government's security approach",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_strengthen_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "international_intervention->humanitarian_aid_constraints",
+      "description": "Potential link: External diplomatic, military, or aid actions influencing the conflict -> Limitations in aid delivery and assistance to civilians",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "international_intervention->armed_group_activity",
+      "description": "Potential link: External diplomatic, military, or aid actions influencing the conflict -> Frequency and intensity of attacks by rebel or militia groups",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent intelligence reports suggest that rebel and militia groups have shifted their tactics to focus exclusively on strategic military targets, deliberately avoiding civilian areas to gain international legitimacy. Moreover, heightened armed group activity has prompted a surge in protective measures by local communities and NGOs, effectively shielding civilians and reducing overall casualty numbers. Consequently, the frequency and intensity of attacks may actually correlate with lower civilian violence rather than higher.",
+      "probe_type": "node_negate_high",
+      "target_id": "armed_group_activity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Frequency and intensity of attacks by rebel or militia groups"
+    },
+    {
+      "probe_text": "Recent field reports indicate that ethnic identities have become less salient in the region, with many communities now forming cross‑ethnic coalitions to address shared economic hardships, suggesting that ethnic friction is actually declining rather than driving conflict. Moreover, the primary drivers of recent violence appear to be competition over dwindling natural resources caused by climate stress, which cuts across ethnic lines, implying that ethnic tensions may have little impact on civilian casualty spikes.",
+      "probe_type": "node_negate_high",
+      "target_id": "ethnic_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Level of ethnic friction and competition over resources"
+    },
+    {
+      "probe_text": "Recent satellite imagery and NGO reports show that humanitarian supply routes into Ethiopia have been fully restored and aid deliveries have increased by 40% over the past month, contradicting the notion that aid constraints are limiting civilian protection. Moreover, a UN audit found no significant bottlenecks or funding shortfalls affecting aid distribution, suggesting that humanitarian aid constraints are unlikely to drive a spike in civilian violence.",
+      "probe_type": "node_negate_medium",
+      "target_id": "humanitarian_aid_constraints",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Limitations in aid delivery and assistance to civilians"
+    },
+    {
+      "probe_text": "Recent diplomatic efforts by neighboring states have been limited to statements without concrete actions, and no foreign military forces have been deployed to Ethiopia. Moreover, aid packages pledged by international donors have been delayed and remain unallocated, suggesting that external intervention is unlikely to affect the conflict dynamics. Therefore, the assumed causal link between international intervention and violence spikes may be overstated.",
+      "probe_type": "node_negate_low",
+      "target_id": "international_intervention",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "External diplomatic, military, or aid actions influencing the conflict"
+    },
+    {
+      "probe_text": "A recent UN report released on March 15, 2026 documented a 70% increase in coordinated attacks by the Oromo Liberation Front in the Amhara region over the past two months, with casualty counts doubling compared to the previous quarter. The report also cites intercepted communications confirming that the group has acquired new heavy weaponry supplied by neighboring conflicts, indicating a significant escalation in armed group activity.",
+      "probe_type": "node_strengthen",
+      "target_id": "armed_group_activity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Frequency and intensity of attacks by rebel or militia groups"
+    },
+    {
+      "probe_text": "A March 2025 report from the International Crisis Group documents a surge in inter‑ethnic clashes in the Amhara and Oromo regions, recording 27 incidents in the past month driven by competition over grazing lands after a severe drought. The report cites local officials who attribute the clashes to escalating ethnic grievances over resource allocation and notes that the violence has spurred increased recruitment by armed groups, amplifying overall conflict intensity.",
+      "probe_type": "node_strengthen",
+      "target_id": "ethnic_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0476,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Level of ethnic friction and competition over resources"
+    },
+    {
+      "probe_text": "A UN OCHA report released in March 2024 revealed that recent sanctions on several humanitarian NGOs have cut funding for aid operations in Ethiopia by roughly 30%, while new government access restrictions have blocked many aid convoys from reaching conflict‑affected zones. The resulting shortages of food and essential medicines in the Amhara and Tigray regions have left civilians far more vulnerable, heightening the risk of large‑scale casualties.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "humanitarian_aid_constraints",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0238,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Limitations in aid delivery and assistance to civilians"
+    },
+    {
+      "probe_text": "A UN Security Council resolution passed in March 2025 authorized a multinational peacekeeping force to be deployed in Ethiopia’s conflict zones, and the first battalions arrived in April, markedly increasing foreign military presence. At the same time, the EU announced a new $500 million aid package conditioned on a cease‑fire, intensifying diplomatic pressure on the Ethiopian government.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "international_intervention",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "External diplomatic, military, or aid actions influencing the conflict"
+    },
+    {
+      "probe_text": "Recent field reports from the Amhara and Oromia regions show that armed groups have increasingly recruited along economic grievances rather than ethnic lines, with many fighters citing unemployment and inflation as primary motivators. Moreover, a 2023 UN panel found that cross‑ethnic coalitions have formed to combat shared security threats, indicating that ethnic tension is not a reliable driver of recruitment. This suggests the link between ethnic friction and armed‑group activity may be spurious or far weaker than assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups"
+    },
+    {
+      "probe_text": "Recent satellite imagery and NGO reports show that many armed groups have shifted their tactics to avoid civilian areas, focusing instead on strategic infrastructure and using remote weapons that limit direct civilian casualties. Moreover, a new peace corridor negotiated by local leaders has restricted armed group movements through densely populated zones, weakening the assumed direct link between increased armed activity and a spike in civilian violence. These observations suggest that higher levels of armed group activity may not translate into proportionally higher civilian casualties as the model assumes.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "armed_group_activity->violence_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Increased attacks directly raise civilian casualties"
+    },
+    {
+      "probe_text": "Recent analyses show that international actors have limited leverage over Ethiopia's internal security decisions, as the government often prioritizes sovereignty and domestic political considerations over external diplomatic pressure. Moreover, past interventions have sometimes been ignored or have even hardened the regime's stance, suggesting that international pressure may not reliably shape security policy.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "international_intervention->government_security_policy",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "External pressure shapes the government's security approach"
+    },
+    {
+      "probe_text": "A June 2024 UN Human Rights report documented that the disputed resettlement of pastoralists in the Oromia region sparked a sharp rise in ethnic clashes, after which the Tigray People's Liberation Front recruited 1,200 new fighters in just two weeks, a 45% surge in its ranks. This rapid recruitment directly followed the spike in inter‑ethnic violence, confirming that heightened ethnic friction dramatically fuels armed group activity.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups"
+    },
+    {
+      "probe_text": "A UN Human Rights Office report released on March 15 2025 documented that the recent surge in attacks by the Tigray People's Liberation Front in the Amhara region led to a 12‑fold increase in civilian deaths over a 30‑day period, directly correlating the number of armed engagements with casualty spikes. This evidence shows that each additional armed operation translates into a proportional rise in civilian violence, making the armed_group_activity→violence_spike link far stronger than previously assumed.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "armed_group_activity->violence_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Increased attacks directly raise civilian casualties"
+    },
+    {
+      "probe_text": "Recent UN Security Council resolutions have imposed targeted sanctions on Ethiopian officials, prompting the government to increase militarized checkpoints and curfews in contested regions. Additionally, a new U.S. diplomatic mission delivering conditional aid has led Addis Ababa to adopt a more aggressive counter‑insurgency policy. These actions illustrate how external pressure directly reshapes the government’s security approach.",
+      "probe_type": "edge_strengthen_peripheral",
+      "target_id": "international_intervention->government_security_policy",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0357,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "External pressure shapes the government's security approach"
+    },
+    {
+      "probe_text": "Recent intelligence indicates that spikes in armed group attacks often trigger heightened ethnic tensions, as affected communities blame rival ethnic groups for the violence, escalating friction. In this view, the attacks themselves are the primary driver of rising ethnic tension, reversing the assumed causal direction.",
+      "probe_type": "edge_reverse",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Heightened ethnic friction fuels recruitment and attacks by armed groups"
+    },
+    {
+      "probe_text": "Recent UN sanctions on foreign arms shipments to Ethiopia have delayed the arrival of humanitarian convoys, as NGOs must reroute through contested zones, increasing aid bottlenecks. This shows that international intervention can directly constrain aid delivery, creating a causal path from intervention to humanitarian aid constraints.",
+      "probe_type": "edge_spurious",
+      "target_id": "international_intervention->humanitarian_aid_constraints",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: External diplomatic, military, or aid actions influencing the conflict -> Limitations in aid delivery and assistance to civilians"
+    },
+    {
+      "probe_text": "Recent UN peacekeeping deployments have supplied weapons and training to local militias, directly boosting their capacity and willingness to launch attacks. In addition, foreign sanctions on the Ethiopian government have weakened its ability to suppress rebel groups, prompting a surge in armed‑group activity.",
+      "probe_type": "edge_spurious",
+      "target_id": "international_intervention->armed_group_activity",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: External diplomatic, military, or aid actions influencing the conflict -> Frequency and intensity of attacks by rebel or militia groups"
+    },
+    {
+      "probe_text": "Recent reports indicate that large‑scale displacement of populations due to conflict and climate‑driven migration has created densely populated IDP camps in Ethiopia. Such camps concentrate civilians and limit mobility, making them easy targets for armed groups and amplifying civilian casualties, which could push violence well above the ten‑fold baseline. Including a node for \"mass_displacement\" that feeds into both armed_group_activity and humanitarian_aid_constraints would test whether the forecaster updates the probability.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Recent reports indicate that a high‑level peace negotiation between the federal government and major rebel coalitions is scheduled for early 2025, with a strong chance of a cease‑fire agreement. If such an agreement is reached, it would likely curb armed_group_activity and reduce civilian casualties, undermining the projected ten‑fold violence spike.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A popular Ethiopian singer announced a nationwide concert tour beginning in early December 2025, with tickets sold out across major cities. The tour is expected to attract large crowds and generate significant revenue for local vendors.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "The Ethiopian national football team qualified for the upcoming African Cup of Nations, and a celebratory parade is planned in Addis Ababa next week. Additionally, a well‑known Ethiopian pop star announced a new album release slated for early 2025.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports suggest that rebel and militia groups have shifted their tactics to focus exclusively on strategic military targets, deliberately avoiding civilian areas to gain international legitimacy. Moreover, heightened armed group activity has prompted a surge in protective measures by local communities and NGOs, effectively shielding civilians and reducing overall casualty numbers. Consequently, the frequency and intensity of attacks may actually correlate with lower civilian violence rather than higher.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.21,
+      "absolute_shift": 0.13999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new intelligence directly undermines the previously assumed causal link that higher armed group activity drives a spike in civilian violence. If rebel and militia groups are deliberately targeting only military objectives and local communities, NGOs, and residents are implementing effective protective measures, the net effect of armed group activity on civilian casualties is likely negative or neutral rather than positive. This weakens the primary pathway (armed_group_activity → violence_spike) in the causal network, reducing the overall likelihood that the 30‑day window before 2025‑12‑28 will see civilian violence exceeding ten times the baseline. While other nodes (ethnic tensions, climate stress, economic inflation, etc.) still pose risk, their influence is now less amplified by armed group dynamics. Consequently, the probability of a violence spike drops from the original 0.35 to roughly 0.21.",
+      "raw_response": "{\n  \"updated_probability\": 0.21,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new intelligence directly undermines the previously assumed causal link that higher armed group activity drives a spike in civilian violence. If rebel and militia groups are deliberately targeting only military objectives and local communities, NGOs, and residents are implementing effective protective measures, the net effect of armed group activity on civilian casualties is likely negative or neutral rather than positive. This weakens the primary pathway (armed_group_activity → violence_spike) in the causal network, reducing the overall likelihood that the 30‑day window before 2025‑12‑28 will see civilian violence exceeding ten times the baseline. While other nodes (ethnic tensions, climate stress, economic inflation, etc.) still pose risk, their influence is now less amplified by armed group dynamics. Consequently, the probability of a violence spike drops from the original 0.35 to roughly 0.21.\"\n}",
+      "target_id": "armed_group_activity",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent field reports indicate that ethnic identities have become less salient in the region, with many communities now forming cross‑ethnic coalitions to address shared economic hardships, suggesting that ethnic friction is actually declining rather than driving conflict. Moreover, the primary drivers of recent violence appear to be competition over dwindling natural resources caused by climate stress, which cuts across ethnic lines, implying that ethnic tensions may have little impact on civilian casualty spikes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The new field reports weaken the ethnic_tensions → armed_group_activity → violence_spike pathway that underpinned part of the original 0.35 estimate. With ethnic friction declining, the primary driver of civilian casualties shifts to climate‑induced resource competition, which in the current causal graph only influences violence indirectly (via ethnic_tensions). Since that indirect link is now considered marginal, the overall chance of a >10‑fold spike in civilian violence is reduced, though not eliminated because climate stress remains a concern. Hence the probability is adjusted downwards.",
+      "raw_response": "{\"updated_probability\":0.28,\"shift_direction\":\"decreased\",\"reasoning\":\"The new field reports weaken the ethnic_tensions → armed_group_activity → violence_spike pathway that underpinned part of the original 0.35 estimate. With ethnic friction declining, the primary driver of civilian casualties shifts to climate‑induced resource competition, which in the current causal graph only influences violence indirectly (via ethnic_tensions). Since that indirect link is now considered marginal, the overall chance of a >10‑fold spike in civilian violence is reduced, though not eliminated because climate stress remains a concern. Hence the probability is adjusted downwards.\"}",
+      "target_id": "ethnic_tensions",
+      "target_type": "node",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery and NGO reports show that humanitarian supply routes into Ethiopia have been fully restored and aid deliveries have increased by 40% over the past month, contradicting the notion that aid constraints are limiting civilian protection. Moreover, a UN audit found no significant bottlenecks or funding shortfalls affecting aid distribution, suggesting that humanitarian aid constraints are unlikely to drive a spike in civilian violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.22,
+      "absolute_shift": 0.12999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows that humanitarian supply routes are fully restored and aid deliveries have risen 40%, and a UN audit found no bottlenecks. This weakens the humanitarian_aid_constraints node, which previously contributed positively to the violence_spike outcome via its direct edge and indirect effect through economic_inflation. With this causal link effectively removed, the overall likelihood of a >10‑fold spike in civilian violence declines. Assuming the other nodes remain unchanged, the probability is adjusted downward from 0.35 to roughly 0.22.",
+      "raw_response": "{\"updated_probability\":0.22,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows that humanitarian supply routes are fully restored and aid deliveries have risen 40%, and a UN audit found no bottlenecks. This weakens the humanitarian_aid_constraints node, which previously contributed positively to the violence_spike outcome via its direct edge and indirect effect through economic_inflation. With this causal link effectively removed, the overall likelihood of a >10‑fold spike in civilian violence declines. Assuming the other nodes remain unchanged, the probability is adjusted downward from 0.35 to roughly 0.22.\"}",
+      "target_id": "humanitarian_aid_constraints",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic efforts by neighboring states have been limited to statements without concrete actions, and no foreign military forces have been deployed to Ethiopia. Moreover, aid packages pledged by international donors have been delayed and remain unallocated, suggesting that external intervention is unlikely to affect the conflict dynamics. Therefore, the assumed causal link between international intervention and violence spikes may be overstated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information indicates that international diplomatic statements and aid pledges have not translated into concrete actions or deployments, effectively nullifying the previously assumed influence of international_intervention on both government_security_policy and directly on violence_spike. In the causal network, the absence of external pressure likely allows the Ethiopian government to pursue security policies with fewer constraints, which can provoke retaliatory armed_group_activity and raise civilian casualties. While the potential escalation effect of foreign military involvement is also removed, the net impact of removing a moderating (deterrent) influence is judged to increase the risk of a violence spike. Consequently, the probability of observing more than ten times the baseline civilian violence in the 30‑day window before 2025‑12‑28 is adjusted upward from 0.35 to approximately 0.45.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information indicates that international diplomatic statements and aid pledges have not translated into concrete actions or deployments, effectively nullifying the previously assumed influence of international_intervention on both government_security_policy and directly on violence_spike. In the causal network, the absence of external pressure likely allows the Ethiopian government to pursue security policies with fewer constraints, which can provoke retaliatory armed_group_activity and raise civilian casualties. While the potential escalation effect of foreign military involvement is also removed, the net impact of removing a moderating (deterrent) influence is judged to increase the risk of a violence spike. Consequently, the probability of observing more than ten times the baseline civilian violence in the 30‑day window before 2025‑12‑28 is adjusted upward from 0.35 to approximately 0.45.\"\n}",
+      "target_id": "international_intervention",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent UN report released on March 15, 2026 documented a 70% increase in coordinated attacks by the Oromo Liberation Front in the Amhara region over the past two months, with casualty counts doubling compared to the previous quarter. The report also cites intercepted communications confirming that the group has acquired new heavy weaponry supplied by neighboring conflicts, indicating a significant escalation in armed group activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The UN report provides strong evidence that armed_group_activity – a key upstream driver of the violence_spike outcome – has risen sharply (70% more coordinated attacks and doubled casualties) and that the group now possesses heavy weaponry. In the causal network, armed_group_activity directly feeds into violence_spike, and the increase is likely to translate into a substantially higher civilian casualty count in the 30‑day window before 2025‑12‑28. This new information also reinforces the link from government_security_policy (potentially harsher crackdowns) and humanitarian_aid_constraints (greater aid needs), further amplifying the risk. Consequently, the probability of exceeding ten times the baseline rises from the original 0.35 to roughly 0.58.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The UN report provides strong evidence that armed_group_activity – a key upstream driver of the violence_spike outcome – has risen sharply (70% more coordinated attacks and doubled casualties) and that the group now possesses heavy weaponry. In the causal network, armed_group_activity directly feeds into violence_spike, and the increase is likely to translate into a substantially higher civilian casualty count in the 30‑day window before 2025‑12‑28. This new information also reinforces the link from government_security_policy (potentially harsher crackdowns) and humanitarian_aid_constraints (greater aid needs), further amplifying the risk. Consequently, the probability of exceeding ten times the baseline rises from the original 0.35 to roughly 0.58.\"}",
+      "target_id": "armed_group_activity",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A March 2025 report from the International Crisis Group documents a surge in inter‑ethnic clashes in the Amhara and Oromo regions, recording 27 incidents in the past month driven by competition over grazing lands after a severe drought. The report cites local officials who attribute the clashes to escalating ethnic grievances over resource allocation and notes that the violence has spurred increased recruitment by armed groups, amplifying overall conflict intensity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The March 2025 ICG report documents a clear surge in inter‑ethnic clashes (27 incidents in one month) linked to drought‑driven resource competition. This directly raises the ethnic_tensions node, which causally amplifies armed_group_activity and, via the network, the violence_spike outcome. The reported recruitment boost for armed groups further strengthens the pathway from ethnic_tensions to violence_spike. Given this strong new evidence, the chance of exceeding ten‑times the baseline civilian violence in the 30‑day window before 2025‑12‑28 is substantially higher than the original 0.35, leading to an updated estimate of roughly 0.58.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The March 2025 ICG report documents a clear surge in inter‑ethnic clashes (27 incidents in one month) linked to drought‑driven resource competition. This directly raises the ethnic_tensions node, which causally amplifies armed_group_activity and, via the network, the violence_spike outcome. The reported recruitment boost for armed groups further strengthens the pathway from ethnic_tensions to violence_spike. Given this strong new evidence, the chance of exceeding ten‑times the baseline civilian violence in the 30‑day window before 2025‑12‑28 is substantially higher than the original 0.35, leading to an updated estimate of roughly 0.58.\"}",
+      "target_id": "ethnic_tensions",
+      "target_type": "node",
+      "target_importance": 0.0476,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "A UN OCHA report released in March 2024 revealed that recent sanctions on several humanitarian NGOs have cut funding for aid operations in Ethiopia by roughly 30%, while new government access restrictions have blocked many aid convoys from reaching conflict‑affected zones. The resulting shortages of food and essential medicines in the Amhara and Tigray regions have left civilians far more vulnerable, heightening the risk of large‑scale casualties.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The UN OCHA report confirms a substantial worsening of humanitarian aid constraints: funding cuts of ~30% and new government access restrictions. In the causal network, humanitarian_aid_constraints has a direct positive link to the violence_spike outcome. Strengthening this driver raises the likelihood that civilian casualties will surge dramatically, pushing the probability of a >10‑fold increase above the baseline estimate of 0.35. Consequently, the forecast is revised upward.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The UN OCHA report confirms a substantial worsening of humanitarian aid constraints: funding cuts of ~30% and new government access restrictions. In the causal network, humanitarian_aid_constraints has a direct positive link to the violence_spike outcome. Strengthening this driver raises the likelihood that civilian casualties will surge dramatically, pushing the probability of a >10‑fold increase above the baseline estimate of 0.35. Consequently, the forecast is revised upward.\"}",
+      "target_id": "humanitarian_aid_constraints",
+      "target_type": "node",
+      "target_importance": 0.0238,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A UN Security Council resolution passed in March 2025 authorized a multinational peacekeeping force to be deployed in Ethiopia’s conflict zones, and the first battalions arrived in April, markedly increasing foreign military presence. At the same time, the EU announced a new $500 million aid package conditioned on a cease‑fire, intensifying diplomatic pressure on the Ethiopian government.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.22,
+      "absolute_shift": 0.12999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new UN Security Council resolution authorizing a multinational peacekeeping force and the EU’s conditional aid package constitute a stronger international_intervention. In the causal network, international_intervention can directly lower the chance of a violence_spike and can also influence government_security_policy toward restraint to avoid diplomatic penalties. The presence of peacekeepers and the prospect of aid tied to a cease‑fire are likely to deter armed_group_activity and reduce civilian casualties, outweighing any potential escalation effects. Consequently, the probability of more than ten‑fold increase in civilian violence drops from the original 0.35 to roughly 0.22.",
+      "raw_response": "{\"updated_probability\":0.22,\"shift_direction\":\"decreased\",\"reasoning\":\"The new UN Security Council resolution authorizing a multinational peacekeeping force and the EU’s conditional aid package constitute a stronger international_intervention. In the causal network, international_intervention can directly lower the chance of a violence_spike and can also influence government_security_policy toward restraint to avoid diplomatic penalties. The presence of peacekeepers and the prospect of aid tied to a cease‑fire are likely to deter armed_group_activity and reduce civilian casualties, outweighing any potential escalation effects. Consequently, the probability of more than ten‑fold increase in civilian violence drops from the original 0.35 to roughly 0.22.\"}",
+      "target_id": "international_intervention",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent field reports from the Amhara and Oromia regions show that armed groups have increasingly recruited along economic grievances rather than ethnic lines, with many fighters citing unemployment and inflation as primary motivators. Moreover, a 2023 UN panel found that cross‑ethnic coalitions have formed to combat shared security threats, indicating that ethnic tension is not a reliable driver of recruitment. This suggests the link between ethnic friction and armed‑group activity may be spurious or far weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The new field reports indicate that recruitment is now driven more by economic grievances such as unemployment and inflation rather than ethnic friction, and cross‑ethnic coalitions are forming. This weakens the causal link ethnic_tensions→armed_group_activity that contributed to the original 0.35 estimate. While other pathways (economic_inflation→humanitarian_aid_constraints→violence_spike, armed_group_activity driven by other factors, etc.) still exist, the reduction in one major driver lowers the overall chance of a ten‑fold violence spike. Therefore the probability is revised downward to about 0.28.",
+      "raw_response": "{\"updated_probability\":0.28,\"shift_direction\":\"decreased\",\"reasoning\":\"The new field reports indicate that recruitment is now driven more by economic grievances such as unemployment and inflation rather than ethnic friction, and cross‑ethnic coalitions are forming. This weakens the causal link ethnic_tensions→armed_group_activity that contributed to the original 0.35 estimate. While other pathways (economic_inflation→humanitarian_aid_constraints→violence_spike, armed_group_activity driven by other factors, etc.) still exist, the reduction in one major driver lowers the overall chance of a ten‑fold violence spike. Therefore the probability is revised downward to about 0.28.\"}",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery and NGO reports show that many armed groups have shifted their tactics to avoid civilian areas, focusing instead on strategic infrastructure and using remote weapons that limit direct civilian casualties. Moreover, a new peace corridor negotiated by local leaders has restricted armed group movements through densely populated zones, weakening the assumed direct link between increased armed activity and a spike in civilian violence. These observations suggest that higher levels of armed group activity may not translate into proportionally higher civilian casualties as the model assumes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.22,
+      "absolute_shift": 0.12999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new satellite and NGO reports indicate that armed groups are deliberately avoiding civilian areas and using tactics that limit direct civilian casualties, while a negotiated peace corridor further restricts their movement through densely populated zones. This weakens the previously assumed strong causal pathway from armed_group_activity to violence_spike. Although other factors (ethnic tensions, government policy, aid constraints, etc.) could still generate a spike, the reduced effectiveness of armed_group_activity as a driver lowers the overall likelihood of a ten‑fold increase in civilian violence, prompting a downward revision from the original 0.35 to about 0.22.",
+      "raw_response": "{\"updated_probability\":0.22,\"shift_direction\":\"decreased\",\"reasoning\":\"The new satellite and NGO reports indicate that armed groups are deliberately avoiding civilian areas and using tactics that limit direct civilian casualties, while a negotiated peace corridor further restricts their movement through densely populated zones. This weakens the previously assumed strong causal pathway from armed_group_activity to violence_spike. Although other factors (ethnic tensions, government policy, aid constraints, etc.) could still generate a spike, the reduced effectiveness of armed_group_activity as a driver lowers the overall likelihood of a ten‑fold increase in civilian violence, prompting a downward revision from the original 0.35 to about 0.22.\"}",
+      "target_id": "armed_group_activity->violence_spike",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses show that international actors have limited leverage over Ethiopia's internal security decisions, as the government often prioritizes sovereignty and domestic political considerations over external diplomatic pressure. Moreover, past interventions have sometimes been ignored or have even hardened the regime's stance, suggesting that international pressure may not reliably shape security policy.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence weakens the causal link from international_intervention to government_security_policy, reducing the likelihood that external pressure will temper or alter security measures. Consequently, the mitigating effect of potential diplomatic pressure (which could lower civilian violence) is diminished, leaving internal drivers—ethnic tensions, armed group activity, and economic/humanitarian stresses—as the dominant forces. With one pathway that could have suppressed a large violence spike removed, the chance of a >10‑fold increase in civilian violence rises modestly from the original 0.35 to about 0.42.",
+      "raw_response": "{\"updated_probability\":0.42,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence weakens the causal link from international_intervention to government_security_policy, reducing the likelihood that external pressure will temper or alter security measures. Consequently, the mitigating effect of potential diplomatic pressure (which could lower civilian violence) is diminished, leaving internal drivers—ethnic tensions, armed group activity, and economic/humanitarian stresses—as the dominant forces. With one pathway that could have suppressed a large violence spike removed, the chance of a >10‑fold increase in civilian violence rises modestly from the original 0.35 to about 0.42.\"}",
+      "target_id": "international_intervention->government_security_policy",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A June 2024 UN Human Rights report documented that the disputed resettlement of pastoralists in the Oromia region sparked a sharp rise in ethnic clashes, after which the Tigray People's Liberation Front recruited 1,200 new fighters in just two weeks, a 45% surge in its ranks. This rapid recruitment directly followed the spike in inter‑ethnic violence, confirming that heightened ethnic friction dramatically fuels armed group activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.20000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The UN report provides concrete evidence that a surge in ethnic clashes directly led to a rapid 45% increase in TPLF recruitment, confirming the causal pathway ethnic_tensions → armed_group_activity. This strengthens the chain that drives the outcome violence_spike, making a large escalation of civilian violence more likely than previously estimated (0.35). Therefore the probability is adjusted upward to reflect the heightened risk.",
+      "raw_response": "{\"updated_probability\":0.55,\"shift_direction\":\"increased\",\"reasoning\":\"The UN report provides concrete evidence that a surge in ethnic clashes directly led to a rapid 45% increase in TPLF recruitment, confirming the causal pathway ethnic_tensions → armed_group_activity. This strengthens the chain that drives the outcome violence_spike, making a large escalation of civilian violence more likely than previously estimated (0.35). Therefore the probability is adjusted upward to reflect the heightened risk.\"}",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A UN Human Rights Office report released on March 15 2025 documented that the recent surge in attacks by the Tigray People's Liberation Front in the Amhara region led to a 12‑fold increase in civilian deaths over a 30‑day period, directly correlating the number of armed engagements with casualty spikes. This evidence shows that each additional armed operation translates into a proportional rise in civilian violence, making the armed_group_activity→violence_spike link far stronger than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The UN Human Rights Office report provides concrete evidence that a surge in armed engagements by the TPLF produced a 12‑fold rise in civilian deaths over a 30‑day window. This directly confirms and quantifies the causal link armed_group_activity→violence_spike, showing it is far stronger than previously modeled. Strengthening this key pathway raises the overall likelihood that the combined drivers (ethnic tensions, climate stress, etc.) will generate the required ten‑fold spike in civilian violence before 2025‑12‑28. Consequently, the probability estimate is revised upward from 0.35 to roughly 0.58.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The UN Human Rights Office report provides concrete evidence that a surge in armed engagements by the TPLF produced a 12‑fold rise in civilian deaths over a 30‑day window. This directly confirms and quantifies the causal link armed_group_activity→violence_spike, showing it is far stronger than previously modeled. Strengthening this key pathway raises the overall likelihood that the combined drivers (ethnic tensions, climate stress, etc.) will generate the required ten‑fold spike in civilian violence before 2025‑12‑28. Consequently, the probability estimate is revised upward from 0.35 to roughly 0.58.\"}",
+      "target_id": "armed_group_activity->violence_spike",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent UN Security Council resolutions have imposed targeted sanctions on Ethiopian officials, prompting the government to increase militarized checkpoints and curfews in contested regions. Additionally, a new U.S. diplomatic mission delivering conditional aid has led Addis Ababa to adopt a more aggressive counter‑insurgency policy. These actions illustrate how external pressure directly reshapes the government’s security approach.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new UN sanctions and U.S. conditional aid have prompted the Ethiopian government to tighten security with more checkpoints and curfews, a clear example of international_intervention directly influencing government_security_policy. According to the causal network, a tougher security posture tends to provoke retaliatory armed_group_activity, which in turn raises civilian casualties. The strengthened link therefore raises the likelihood of a violence_spike, moving the probability from 0.35 to roughly 0.58.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The new UN sanctions and U.S. conditional aid have prompted the Ethiopian government to tighten security with more checkpoints and curfews, a clear example of international_intervention directly influencing government_security_policy. According to the causal network, a tougher security posture tends to provoke retaliatory armed_group_activity, which in turn raises civilian casualties. The strengthened link therefore raises the likelihood of a violence_spike, moving the probability from 0.35 to roughly 0.58.\"}",
+      "target_id": "international_intervention->government_security_policy",
+      "target_type": "edge",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence indicates that spikes in armed group attacks often trigger heightened ethnic tensions, as affected communities blame rival ethnic groups for the violence, escalating friction. In this view, the attacks themselves are the primary driver of rising ethnic tension, reversing the assumed causal direction.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new intelligence reverses the assumed direction between ethnic tensions and armed‑group attacks, turning ethnic tension from a primary driver into a secondary response. This weakens the original pathway (ethnic_tensions → armed_group_activity → violence_spike) that supported a modest 0.35 probability. However, the feedback loop – attacks raising ethnic tensions, which can later fuel further attacks – creates a positive‑feedback dynamic that can amplify violence over time. Because armed‑group activity still directly feeds the outcome and the feedback can accelerate spikes, the net effect is a higher chance of a >10‑fold violence spike, raising the estimate to roughly 0.45.",
+      "raw_response": "{\"updated_probability\":0.45,\"shift_direction\":\"increased\",\"reasoning\":\"The new intelligence reverses the assumed direction between ethnic tensions and armed‑group attacks, turning ethnic tension from a primary driver into a secondary response. This weakens the original pathway (ethnic_tensions → armed_group_activity → violence_spike) that supported a modest 0.35 probability. However, the feedback loop – attacks raising ethnic tensions, which can later fuel further attacks – creates a positive‑feedback dynamic that can amplify violence over time. Because armed‑group activity still directly feeds the outcome and the feedback can accelerate spikes, the net effect is a higher chance of a >10‑fold violence spike, raising the estimate to roughly 0.45.\"}",
+      "target_id": "ethnic_tensions->armed_group_activity",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent UN sanctions on foreign arms shipments to Ethiopia have delayed the arrival of humanitarian convoys, as NGOs must reroute through contested zones, increasing aid bottlenecks. This shows that international intervention can directly constrain aid delivery, creating a causal path from intervention to humanitarian aid constraints.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13,
+      "shift_direction": "increased",
+      "reasoning": "The new report shows that UN sanctions (a form of international intervention) are directly causing humanitarian aid bottlenecks by forcing NGOs to reroute through contested zones. This adds a causal link international_intervention → humanitarian_aid_constraints, which was absent in the original network. Since humanitarian_aid_constraints feed into violence_spike, the intervention now has two pathways to increase civilian violence (directly and via aid constraints). Strengthening these pathways raises the likelihood of a >10‑fold spike in civilian violence, so the probability is adjusted upward from the original 0.35 to about 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The new report shows that UN sanctions (a form of international intervention) are directly causing humanitarian aid bottlenecks by forcing NGOs to reroute through contested zones. This adds a causal link international_intervention → humanitarian_aid_constraints, which was absent in the original network. Since humanitarian_aid_constraints feed into violence_spike, the intervention now has two pathways to increase civilian violence (directly and via aid constraints). Strengthening these pathways raises the likelihood of a >10‑fold spike in civilian violence, so the probability is adjusted upward from the original 0.35 to about 0.48.\"}",
+      "target_id": "international_intervention->humanitarian_aid_constraints",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent UN peacekeeping deployments have supplied weapons and training to local militias, directly boosting their capacity and willingness to launch attacks. In addition, foreign sanctions on the Ethiopian government have weakened its ability to suppress rebel groups, prompting a surge in armed‑group activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.22999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new information adds a direct positive causal link from international_intervention to armed_group_activity, indicating that UN peacekeeping deployments are arming and training local militias while sanctions are weakening the government's capacity to suppress them. This reinforces the pathway: international_intervention → armed_group_activity → violence_spike. The original model only allowed international_intervention to affect the outcome indirectly via government_security_policy or directly to violence_spike, which limited its impact. By explicitly boosting armed_group_activity, the likelihood of a large surge in civilian violence within the 30‑day window rises substantially, shifting the forecast upward from the initial 0.35 to roughly 0.58.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information adds a direct positive causal link from international_intervention to armed_group_activity, indicating that UN peacekeeping deployments are arming and training local militias while sanctions are weakening the government's capacity to suppress them. This reinforces the pathway: international_intervention → armed_group_activity → violence_spike. The original model only allowed international_intervention to affect the outcome indirectly via government_security_policy or directly to violence_spike, which limited its impact. By explicitly boosting armed_group_activity, the likelihood of a large surge in civilian violence within the 30‑day window rises substantially, shifting the forecast upward from the initial 0.35 to roughly 0.58.\"\n",
+      "target_id": "international_intervention->armed_group_activity",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that large‑scale displacement of populations due to conflict and climate‑driven migration has created densely populated IDP camps in Ethiopia. Such camps concentrate civilians and limit mobility, making them easy targets for armed groups and amplifying civilian casualties, which could push violence well above the ten‑fold baseline. Including a node for \"mass_displacement\" that feeds into both armed_group_activity and humanitarian_aid_constraints would test whether the forecaster updates the probability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.21999999999999997,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence of large‑scale displacement creates densely populated IDP camps that are vulnerable to attacks. Adding a mass_displacement node that feeds into armed_group_activity (more targets) and humanitarian_aid_constraints (strained aid) strengthens two major pathways to the violence_spike outcome. This amplifies the causal impact of existing drivers (ethnic_tensions, climate_stress, etc.) and raises the likelihood of a ten‑fold surge in civilian violence, so the probability is revised upward from 0.35 to roughly 0.57.",
+      "raw_response": "{\"updated_probability\":0.57,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence of large‑scale displacement creates densely populated IDP camps that are vulnerable to attacks. Adding a mass_displacement node that feeds into armed_group_activity (more targets) and humanitarian_aid_constraints (strained aid) strengthens two major pathways to the violence_spike outcome. This amplifies the causal impact of existing drivers (ethnic_tensions, climate_stress, etc.) and raises the likelihood of a ten‑fold surge in civilian violence, so the probability is revised upward from 0.35 to roughly 0.57.\"}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that a high‑level peace negotiation between the federal government and major rebel coalitions is scheduled for early 2025, with a strong chance of a cease‑fire agreement. If such an agreement is reached, it would likely curb armed_group_activity and reduce civilian casualties, undermining the projected ten‑fold violence spike.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.16999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The upcoming high‑level peace negotiation and possible cease‑fire directly target the armed_group_activity node, which is the primary driver of the violence_spike outcome. A cease‑fire would likely suppress attacks, weaken the causal link from armed_group_activity to violence_spike, and also reduce government security crackdowns that could otherwise provoke retaliation. While other factors (ethnic tensions, climate stress, economic inflation) remain, the dominant pathway is mitigated, making a ten‑fold increase far less likely. Accordingly the probability is revised downward from 0.35 to about 0.18.",
+      "raw_response": "{\"updated_probability\":0.18,\"shift_direction\":\"decreased\",\"reasoning\":\"The upcoming high‑level peace negotiation and possible cease‑fire directly target the armed_group_activity node, which is the primary driver of the violence_spike outcome. A cease‑fire would likely suppress attacks, weaken the causal link from armed_group_activity to violence_spike, and also reduce government security crackdowns that could otherwise provoke retaliation. While other factors (ethnic tensions, climate stress, economic inflation) remain, the dominant pathway is mitigated, making a ten‑fold increase far less likely. Accordingly the probability is revised downward from 0.35 to about 0.18.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A popular Ethiopian singer announced a nationwide concert tour beginning in early December 2025, with tickets sold out across major cities. The tour is expected to attract large crowds and generate significant revenue for local vendors.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The concert tour introduces large, high‑profile public gatherings that are attractive targets for armed groups seeking to maximize publicity and destabilise the government. This directly raises the risk that armed_group_activity will spike in the weeks surrounding the events, feeding into the violence_spike outcome. At the same time, the tour generates economic activity and vendor revenue, which could modestly alleviate economic_inflation and humanitarian_aid_constraints, slightly dampening baseline violence. In the Ethiopian context, the security implications of mass‑gathering attacks historically outweigh the modest economic benefits, leading to a net increase in the likelihood of a ten‑fold civilian‑violence spike in the 30‑day window before 2025‑12‑28. Therefore the probability is adjusted upward from the original 0.35 to approximately 0.45.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The concert tour introduces large, high‑profile public gatherings that are attractive targets for armed groups seeking to maximize publicity and destabilise the government. This directly raises the risk that armed_group_activity will spike in the weeks surrounding the events, feeding into the violence_spike outcome. At the same time, the tour generates economic activity and vendor revenue, which could modestly alleviate economic_inflation and humanitarian_aid_constraints, slightly dampening baseline violence. In the Ethiopian context, the security implications of mass‑gathering attacks historically outweigh the modest economic benefits, leading to a net increase in the likelihood of a ten‑fold civilian‑violence spike in the 30‑day window before 2025‑12‑28. Therefore the probability is adjusted upward from the original 0.35 to approximately 0.45.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Ethiopian national football team qualified for the upcoming African Cup of Nations, and a celebratory parade is planned in Addis Ababa next week. Additionally, a well‑known Ethiopian pop star announced a new album release slated for early 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The announced celebratory parade for the football team's African Cup of Nations qualification and the upcoming pop‑star album are positive, unifying cultural events that can temporarily ease ethnic tensions and improve public morale. In the causal network, reduced ethnic_tensions lower armed_group_activity, which directly diminishes the risk of a violence_spike. While the events do not directly affect government_security_policy or economic_inflation, the short‑term social cohesion they generate is likely to dampen recruitment and attacks by armed groups, leading to a modest downward revision of the original 0.35 probability.",
+      "raw_response": "{\"updated_probability\":0.24,\"shift_direction\":\"decreased\",\"reasoning\":\"The announced celebratory parade for the football team's African Cup of Nations qualification and the upcoming pop‑star album are positive, unifying cultural events that can temporarily ease ethnic tensions and improve public morale. In the causal network, reduced ethnic_tensions lower armed_group_activity, which directly diminishes the risk of a violence_spike. While the events do not directly affect government_security_policy or economic_inflation, the short‑term social cohesion they generate is likely to dampen recruitment and attacks by armed groups, leading to a modest downward revision of the original 0.35 probability.\"}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "9d4864773266c4a569d83762f1da3547a387adde920f67bf504071990bb39b3f",
+    "question_text": "Will there be more than ten times as many 'Violence against civilians' in Ethiopia for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Violence against civilians' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Violence against civilians'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Violence against civilians' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Violence against civilians' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.35,
+    "n_probes": 21,
+    "n_successful": 21,
+    "mean_absolute_shift": 0.15476190476190477,
+    "max_absolute_shift": 0.22999999999999998
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 1,
+  "aggregate_metrics": {
+    "ssr": 1.5227272727272723,
+    "mean_shift_high": 0.16749999999999998,
+    "mean_shift_low": 0.11000000000000001,
+    "asymmetry_index": 0.47972972972972966,
+    "mean_shift_negate": 0.10142857142857142,
+    "mean_shift_strengthen": 0.21142857142857144,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.01100000000000001,
+    "mean_shift_on_path": 0.15999999999999998,
+    "mean_shift_off_path": 0.14899999999999997,
+    "importance_sensitivity_correlation": 0.4340659340659341,
+    "control_sensitivity": 1
+  }
+}

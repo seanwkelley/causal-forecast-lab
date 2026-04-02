@@ -1,0 +1,1302 @@
+{
+  "question_id": "1564",
+  "question_text": "Will the EU import at least 15 billion cubic meters of natural gas from Russia in any quarter of 2025?",
+  "source": "infer",
+  "initial_probability": 0.15,
+  "nodes": [
+    {
+      "id": "russia_gas_production",
+      "description": "Russia's capacity to produce natural gas for export",
+      "role": "factor"
+    },
+    {
+      "id": "eu_sanctions",
+      "description": "EU sanctions limiting Russian energy trade",
+      "role": "factor"
+    },
+    {
+      "id": "pipeline_availability",
+      "description": "Operational capacity of pipelines linking Russia to the EU",
+      "role": "factor"
+    },
+    {
+      "id": "alternative_energy",
+      "description": "Availability and competitiveness of non‑Russian energy sources for the EU",
+      "role": "factor"
+    },
+    {
+      "id": "seasonal_demand",
+      "description": "EU's natural gas demand driven by seasonal weather patterns",
+      "role": "factor"
+    },
+    {
+      "id": "geopolitical_tension",
+      "description": "Political friction between Russia and the EU affecting energy policy",
+      "role": "factor"
+    },
+    {
+      "id": "gas_price",
+      "description": "International market price of natural gas",
+      "role": "factor"
+    },
+    {
+      "id": "eu_import_regulation",
+      "description": "EU regulatory framework governing energy imports",
+      "role": "factor"
+    },
+    {
+      "id": "russian_gas_import_q2025",
+      "description": "EU imports ≥15 bcm of Russian gas in any 2025 quarter",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "russia_gas_production",
+      "to": "pipeline_availability",
+      "mechanism": "Higher production gives more gas that can be sent through pipelines"
+    },
+    {
+      "from": "eu_sanctions",
+      "to": "pipeline_availability",
+      "mechanism": "Sanctions restrict the flow of gas on existing pipelines"
+    },
+    {
+      "from": "geopolitical_tension",
+      "to": "eu_sanctions",
+      "mechanism": "Rising tensions prompt the EU to tighten sanctions"
+    },
+    {
+      "from": "pipeline_availability",
+      "to": "russian_gas_import_q2025",
+      "mechanism": "Available pipelines are a prerequisite for large‑scale imports"
+    },
+    {
+      "from": "gas_price",
+      "to": "alternative_energy",
+      "mechanism": "Higher gas prices make alternative energy sources more attractive"
+    },
+    {
+      "from": "alternative_energy",
+      "to": "seasonal_demand",
+      "mechanism": "More alternatives reduce EU's reliance on Russian gas, lowering demand"
+    },
+    {
+      "from": "seasonal_demand",
+      "to": "russian_gas_import_q2025",
+      "mechanism": "Higher seasonal demand raises the chance of large imports"
+    },
+    {
+      "from": "eu_import_regulation",
+      "to": "russian_gas_import_q2025",
+      "mechanism": "Regulatory approvals or restrictions directly affect import volumes"
+    },
+    {
+      "from": "geopolitical_tension",
+      "to": "gas_price",
+      "mechanism": "Tensions can spike market gas prices"
+    }
+  ],
+  "reasoning": "EU sanctions, geopolitical tensions, and limited pipeline capacity all suppress Russian gas flows, while rising alternative energy and moderate seasonal demand further reduce the need for large imports. Although price spikes could temporarily boost demand, the combined constraints make it unlikely that the EU will import at least 15 bcm from Russia in any quarter of 2025, leading to a modest probability estimate of about 15%.",
+  "network_analysis": {
+    "n_nodes": 9,
+    "n_edges": 9,
+    "density": 0.125,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 9,
+    "outcome_node": "russian_gas_import_q2025",
+    "node_metrics": [
+      {
+        "node_id": "russia_gas_production",
+        "description": "Russia's capacity to produce natural gas for export",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0478,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "eu_sanctions",
+        "description": "EU sanctions limiting Russian energy trade",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0357,
+        "closeness": 0.125,
+        "pagerank": 0.0682,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "pipeline_availability",
+        "description": "Operational capacity of pipelines linking Russia to the EU",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0536,
+        "closeness": 0.2812,
+        "pagerank": 0.1465,
+        "path_relevance": 0.375
+      },
+      {
+        "node_id": "alternative_energy",
+        "description": "Availability and competitiveness of non‑Russian energy sources for the EU",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0536,
+        "closeness": 0.1667,
+        "pagerank": 0.1058,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "seasonal_demand",
+        "description": "EU's natural gas demand driven by seasonal weather patterns",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0357,
+        "closeness": 0.1875,
+        "pagerank": 0.1378,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "geopolitical_tension",
+        "description": "Political friction between Russia and the EU affecting energy policy",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0478,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "gas_price",
+        "description": "International market price of natural gas",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0357,
+        "closeness": 0.125,
+        "pagerank": 0.0682,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "eu_import_regulation",
+        "description": "EU regulatory framework governing energy imports",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0478,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "russian_gas_import_q2025",
+        "description": "EU imports ≥15 bcm of Russian gas in any 2025 quarter",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5333,
+        "pagerank": 0.3301,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "russia_gas_production",
+        "target": "pipeline_availability",
+        "mechanism": "Higher production gives more gas that can be sent through pipelines",
+        "edge_betweenness": 0.0278,
+        "on_critical_path": true
+      },
+      {
+        "source": "eu_sanctions",
+        "target": "pipeline_availability",
+        "mechanism": "Sanctions restrict the flow of gas on existing pipelines",
+        "edge_betweenness": 0.0556,
+        "on_critical_path": true
+      },
+      {
+        "source": "pipeline_availability",
+        "target": "russian_gas_import_q2025",
+        "mechanism": "Available pipelines are a prerequisite for large‑scale imports",
+        "edge_betweenness": 0.0556,
+        "on_critical_path": true
+      },
+      {
+        "source": "alternative_energy",
+        "target": "seasonal_demand",
+        "mechanism": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+        "edge_betweenness": 0.0694,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_demand",
+        "target": "russian_gas_import_q2025",
+        "mechanism": "Higher seasonal demand raises the chance of large imports",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "geopolitical_tension",
+        "target": "eu_sanctions",
+        "mechanism": "Rising tensions prompt the EU to tighten sanctions",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "geopolitical_tension",
+        "target": "gas_price",
+        "mechanism": "Tensions can spike market gas prices",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": false
+      },
+      {
+        "source": "gas_price",
+        "target": "alternative_energy",
+        "mechanism": "Higher gas prices make alternative energy sources more attractive",
+        "edge_betweenness": 0.0694,
+        "on_critical_path": true
+      },
+      {
+        "source": "eu_import_regulation",
+        "target": "russian_gas_import_q2025",
+        "mechanism": "Regulatory approvals or restrictions directly affect import volumes",
+        "edge_betweenness": 0.0139,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "pipeline_availability",
+        "description": "Operational capacity of pipelines linking Russia to the EU",
+        "importance": 0.0536,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "alternative_energy",
+        "description": "Availability and competitiveness of non‑Russian energy sources for the EU",
+        "importance": 0.0536,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "gas_price",
+        "description": "International market price of natural gas",
+        "importance": 0.0357,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "eu_import_regulation",
+        "description": "EU regulatory framework governing energy imports",
+        "importance": 0,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "pipeline_availability",
+        "description": "Operational capacity of pipelines linking Russia to the EU",
+        "importance": 0.0536,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "alternative_energy",
+        "description": "Availability and competitiveness of non‑Russian energy sources for the EU",
+        "importance": 0.0536,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "gas_price",
+        "description": "International market price of natural gas",
+        "importance": 0.0357,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "eu_import_regulation",
+        "description": "EU regulatory framework governing energy imports",
+        "importance": 0,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "alternative_energy->seasonal_demand",
+        "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+        "importance": 0.0694,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "gas_price->alternative_energy",
+        "description": "Higher gas prices make alternative energy sources more attractive",
+        "importance": 0.0694,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "geopolitical_tension->gas_price",
+        "description": "Tensions can spike market gas prices",
+        "importance": 0.0417,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "alternative_energy->seasonal_demand",
+        "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+        "importance": 0.0694,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "gas_price->alternative_energy",
+        "description": "Higher gas prices make alternative energy sources more attractive",
+        "importance": 0.0694,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "geopolitical_tension->gas_price",
+        "description": "Tensions can spike market gas prices",
+        "importance": 0.0417,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_strengthen_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "alternative_energy->seasonal_demand",
+        "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+        "importance": 0.0694,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "pipeline_availability->seasonal_demand",
+        "description": "Potential link: Operational capacity of pipelines linking Russia to the EU -> EU's natural gas demand driven by seasonal weather patterns",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "pipeline_availability->eu_import_regulation",
+        "description": "Potential link: Operational capacity of pipelines linking Russia to the EU -> EU regulatory framework governing energy imports",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "pipeline_availability",
+      "description": "Operational capacity of pipelines linking Russia to the EU",
+      "importance": 0.0536,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "alternative_energy",
+      "description": "Availability and competitiveness of non‑Russian energy sources for the EU",
+      "importance": 0.0536,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "gas_price",
+      "description": "International market price of natural gas",
+      "importance": 0.0357,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "eu_import_regulation",
+      "description": "EU regulatory framework governing energy imports",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "pipeline_availability",
+      "description": "Operational capacity of pipelines linking Russia to the EU",
+      "importance": 0.0536,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "alternative_energy",
+      "description": "Availability and competitiveness of non‑Russian energy sources for the EU",
+      "importance": 0.0536,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "gas_price",
+      "description": "International market price of natural gas",
+      "importance": 0.0357,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "eu_import_regulation",
+      "description": "EU regulatory framework governing energy imports",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "alternative_energy->seasonal_demand",
+      "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+      "importance": 0.0694,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "gas_price->alternative_energy",
+      "description": "Higher gas prices make alternative energy sources more attractive",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "geopolitical_tension->gas_price",
+      "description": "Tensions can spike market gas prices",
+      "importance": 0.0417,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "alternative_energy->seasonal_demand",
+      "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+      "importance": 0.0694,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "gas_price->alternative_energy",
+      "description": "Higher gas prices make alternative energy sources more attractive",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "geopolitical_tension->gas_price",
+      "description": "Tensions can spike market gas prices",
+      "importance": 0.0417,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_strengthen_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "alternative_energy->seasonal_demand",
+      "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand",
+      "importance": 0.0694,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "pipeline_availability->seasonal_demand",
+      "description": "Potential link: Operational capacity of pipelines linking Russia to the EU -> EU's natural gas demand driven by seasonal weather patterns",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "pipeline_availability->eu_import_regulation",
+      "description": "Potential link: Operational capacity of pipelines linking Russia to the EU -> EU regulatory framework governing energy imports",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent expansions of LNG terminals in Europe and the deployment of floating storage units mean that the volume of Russian gas imported no longer depends on the physical capacity of the pipelines. Even if pipeline capacity is reduced, Russia can ship the same amount via LNG carriers, making pipeline availability irrelevant for the 2025‑quarter imports.",
+      "probe_type": "node_negate_high",
+      "target_id": "pipeline_availability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0536,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Operational capacity of pipelines linking Russia to the EU"
+    },
+    {
+      "probe_text": "Recent EU policy reviews suggest that the EU's reliance on renewable and alternative energy sources is largely symbolic, with many projects delayed or underfunded, meaning that alternative energy will not significantly offset Russian gas demand. Moreover, the EU's grid infrastructure cannot yet integrate large volumes of alternative energy, so the competitiveness of these sources is unlikely to affect import levels.",
+      "probe_type": "node_negate_high",
+      "target_id": "alternative_energy",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0536,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Availability and competitiveness of non‑Russian energy sources for the EU"
+    },
+    {
+      "probe_text": "Recent analysis of the 2024 European gas market shows that long‑term contracts have locked in prices well below spot levels, making short‑term gas price spikes largely irrelevant for EU import decisions. Moreover, the EU's strategic reserves and price caps effectively decouple market price fluctuations from actual import volumes. Consequently, the assumed causal link between gas_price and alternative_energy may be overstated or even nonexistent.",
+      "probe_type": "node_negate_medium",
+      "target_id": "gas_price",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0357,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "International market price of natural gas"
+    },
+    {
+      "probe_text": "Recent EU legislation has actually liberalized energy imports, making regulatory constraints negligible. Moreover, the imports are decided by bilateral contracts that bypass EU‑level regulation, so eu_import_regulation may not affect the 2025 quarter imports.",
+      "probe_type": "node_negate_low",
+      "target_id": "eu_import_regulation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "EU regulatory framework governing energy imports"
+    },
+    {
+      "probe_text": "According to a joint statement released by Gazprom and the European Commission on March 15, 2026, a major refurbishment of the Yamal–Europe pipeline was completed ahead of schedule, increasing its maximum throughput by 20% and guaranteeing uninterrupted flow through the winter season. The report also cites an independent audit confirming that all safety and regulatory checks have been passed, effectively removing previous capacity constraints.",
+      "probe_type": "node_strengthen",
+      "target_id": "pipeline_availability",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0536,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Operational capacity of pipelines linking Russia to the EU"
+    },
+    {
+      "probe_text": "Recent data from the European Commission shows that in Q2 2024 the EU’s renewable electricity generation hit a record 45% of the total electricity mix, and newly approved subsidies for green hydrogen have cut hydrogen costs by roughly 30% versus 2023. Additionally, a senior analyst at the International Energy Agency testified that the accelerated rollout of offshore wind farms and large‑scale battery storage is expected to reduce the EU’s reliance on imported gas by an extra 5 bcm per quarter beginning in 2025.",
+      "probe_type": "node_strengthen",
+      "target_id": "alternative_energy",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0536,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Availability and competitiveness of non‑Russian energy sources for the EU"
+    },
+    {
+      "probe_text": "Recent reports from the International Energy Agency indicate that natural gas prices have surged to a three‑year high due to unexpected supply disruptions in North Africa and heightened geopolitical risk in the Middle East. This price spike is projected to persist through 2025, making Russian gas comparatively cheaper and more attractive to EU buyers despite sanctions. Consequently, the elevated market price is likely to intensify EU demand for Russian imports, especially in high‑demand winter quarters.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "gas_price",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0357,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "International market price of natural gas"
+    },
+    {
+      "probe_text": "The European Commission announced on March 15, 2025 a fast‑track licensing procedure that reduces the approval time for large‑scale gas imports from non‑EU sources, explicitly including Russian pipelines, to just two weeks. This regulatory change is aimed at bolstering energy security amid a predicted harsh winter, effectively lowering bureaucratic barriers and making higher import volumes more feasible.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "eu_import_regulation",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "EU regulatory framework governing energy imports"
+    },
+    {
+      "probe_text": "Recent analyses show that the surge in renewable capacity often coincides with higher overall electricity consumption due to lower marginal costs, a rebound effect that can increase total energy demand in winter months. Moreover, many alternative sources (e.g., wind and solar) are intermittent and insufficient for heating, so EU utilities still rely on gas to meet seasonal peaks, weakening the presumed inverse link. Consequently, the causal chain from alternative_energy to reduced seasonal_demand may be far weaker or even neutral.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "alternative_energy->seasonal_demand",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand"
+    },
+    {
+      "probe_text": "Recent EU energy market data indicate that a 30% rise in natural gas prices during Q2 2024 did not lead to increased investment in alternative energy, as supply‑chain bottlenecks and regulatory delays kept alternative capacity flat. This evidence suggests that higher gas prices may not make alternative sources substantially more attractive, weakening the assumed causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "gas_price->alternative_energy",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher gas prices make alternative energy sources more attractive"
+    },
+    {
+      "probe_text": "Recent data shows that global gas prices have remained stable despite heightened geopolitical tensions between the EU and Russia, due to long‑term contracts and ample storage levels that dampen short‑term market reactions. Moreover, the price benchmarks are increasingly driven by Asian demand and LNG supply dynamics rather than European‑Russia political frictions. Consequently, the assumed direct link from geopolitical tension to higher gas prices may be overstated.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "geopolitical_tension->gas_price",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0417,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Tensions can spike market gas prices"
+    },
+    {
+      "probe_text": "A recent EU Commission report released in March 2024 shows that the rapid expansion of offshore wind capacity, which added 12 GW to the grid last year, cut the EU’s peak winter gas demand by 8 % compared to 2023 levels. The report attributes this reduction directly to the increased availability of renewable alternatives, indicating that higher alternative energy supply substantially lowers seasonal demand for Russian gas.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "alternative_energy->seasonal_demand",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand"
+    },
+    {
+      "probe_text": "Recent EU market data shows that after the sharp rise in natural gas prices in Q1 2024, investments in offshore wind and solar projects accelerated by 27%, and electricity spot prices fell, indicating a rapid shift toward alternative energy. Moreover, the European Commission's emergency funding program for renewables, announced in March 2024, was triggered specifically by the gas price spike, further confirming that higher gas prices make alternative sources more attractive.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "gas_price->alternative_energy",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher gas prices make alternative energy sources more attractive"
+    },
+    {
+      "probe_text": "Recent escalations in the Ukraine conflict have led the EU to threaten a complete ban on Russian energy, causing market participants to price in a significant supply risk. Spot gas prices on European exchanges have risen 30% in the past month purely on geopolitical headlines, suggesting that tensions have a far larger impact on price than previously modeled.",
+      "probe_type": "edge_strengthen_peripheral",
+      "target_id": "geopolitical_tension->gas_price",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0417,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Tensions can spike market gas prices"
+    },
+    {
+      "probe_text": "Recent EU energy reports suggest that spikes in seasonal natural‑gas demand during cold winters prompt policymakers to accelerate investment in alternative energy sources, rather than alternatives curbing demand. In this view, higher seasonal demand creates political and market pressure that expands the alternative_energy portfolio, indicating the causal arrow runs from seasonal_demand to alternative_energy. Could the model be updated to reflect this reverse direction?",
+      "probe_type": "edge_reverse",
+      "target_id": "alternative_energy->seasonal_demand",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "More alternatives reduce EU's reliance on Russian gas, lowering demand"
+    },
+    {
+      "probe_text": "Recent data shows that when pipeline capacity is constrained, the EU often experiences higher spot prices, prompting utilities to increase consumption to fill storage before winter, effectively raising seasonal demand. Conversely, ample pipeline throughput smooths supply, allowing demand to align with typical seasonal patterns rather than being driven by storage concerns. This suggests a direct causal pathway from pipeline availability to seasonal demand that the current network omits.",
+      "probe_type": "edge_spurious",
+      "target_id": "pipeline_availability->seasonal_demand",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Operational capacity of pipelines linking Russia to the EU -> EU's natural gas demand driven by seasonal weather patterns"
+    },
+    {
+      "probe_text": "Recent EU energy policy reviews have tied pipeline capacity approvals to import quotas, so when pipeline availability is limited regulators often impose stricter import limits. Could this regulatory response to pipeline constraints materially affect the likelihood of importing ≥15 bcm of Russian gas in a 2025 quarter?",
+      "probe_type": "edge_spurious",
+      "target_id": "pipeline_availability->eu_import_regulation",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Operational capacity of pipelines linking Russia to the EU -> EU regulatory framework governing energy imports"
+    },
+    {
+      "probe_text": "Consider the recent expansion of liquefied natural gas (LNG) import terminals in the EU, which increases the EU's ability to source gas from non‑Russian suppliers. This new capacity could reduce reliance on Russian pipeline gas, thereby lowering the probability of importing ≥15 bcm from Russia in any 2025 quarter. How does the inclusion of EU LNG import capacity change your assessment?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "A key factor not represented is the EU's LNG import capacity, i.e., the availability and operational readiness of liquefied natural gas terminals that could receive Russian gas shipped by sea. Increased LNG capacity would allow the EU to import large volumes of Russian gas even if pipeline availability is limited, directly raising the probability of meeting the 15 bcm threshold in a quarter. Conversely, constraints on LNG infrastructure would lower that probability, independent of pipeline constraints.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The European Union announced a new €2 billion funding program for research into hydrogen fuel cells, targeting automotive manufacturers and aiming to cut fossil‑fuel use by 2030. The initiative is scheduled to roll out over the next five years and includes grants for pilot projects in several member states. This development does not influence the current natural‑gas import dynamics for 2025.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recent EU report highlighted that the average temperature in Warsaw during the summer of 2025 was 1.2°C higher than the 30-year average, prompting local officials to schedule an outdoor music festival in early July. The report also noted that the EU's agricultural subsidy program for wheat farmers was expanded to include an additional €200 million for the 2025 fiscal year.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent expansions of LNG terminals in Europe and the deployment of floating storage units mean that the volume of Russian gas imported no longer depends on the physical capacity of the pipelines. Even if pipeline capacity is reduced, Russia can ship the same amount via LNG carriers, making pipeline availability irrelevant for the 2025‑quarter imports.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.17,
+      "shift_direction": "increased",
+      "reasoning": "The new information weakens the causal link between pipeline_availability and the outcome. Previously, limited pipeline capacity was a major barrier to importing ≥15 bcm of Russian gas in a quarter, keeping the probability low (0.15). With expanded LNG terminals and floating storage, Russian gas can reach the EU via LNG regardless of pipeline constraints, effectively removing a key bottleneck. Although sanctions and geopolitical tension still affect LNG shipments, the removal of the pipeline constraint raises the overall likelihood of achieving the import level, leading to a modest upward revision to about 0.32.",
+      "raw_response": "{\"updated_probability\":0.32,\"shift_direction\":\"increased\",\"reasoning\":\"The new information weakens the causal link between pipeline_availability and the outcome. Previously, limited pipeline capacity was a major barrier to importing ≥15 bcm of Russian gas in a quarter, keeping the probability low (0.15). With expanded LNG terminals and floating storage, Russian gas can reach the EU via LNG regardless of pipeline constraints, effectively removing a key bottleneck. Although sanctions and geopolitical tension still affect LNG shipments, the removal of the pipeline constraint raises the overall likelihood of achieving the import level, leading to a modest upward revision to about 0.32.\"}",
+      "target_id": "pipeline_availability",
+      "target_type": "node",
+      "target_importance": 0.0536,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent EU policy reviews suggest that the EU's reliance on renewable and alternative energy sources is largely symbolic, with many projects delayed or underfunded, meaning that alternative energy will not significantly offset Russian gas demand. Moreover, the EU's grid infrastructure cannot yet integrate large volumes of alternative energy, so the competitiveness of these sources is unlikely to affect import levels.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.22,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "The new information weakens the 'alternative_energy' node: EU renewable projects are delayed, funding is limited, and grid capacity is insufficient. In the causal network, 'alternative_energy' previously reduced 'seasonal_demand', which in turn lowered the chance of the outcome. With a less effective alternative‑energy sector, seasonal demand remains higher, raising the likelihood of large Russian gas imports. The other upstream factors (sanctions, pipeline availability, geopolitical tension) are unchanged, so the increase is modest rather than dramatic. Consequently the probability rises from the original 0.15 to roughly 0.22.",
+      "raw_response": "{\"updated_probability\":0.22,\"shift_direction\":\"increased\",\"reasoning\":\"The new information weakens the 'alternative_energy' node: EU renewable projects are delayed, funding is limited, and grid capacity is insufficient. In the causal network, 'alternative_energy' previously reduced 'seasonal_demand', which in turn lowered the chance of the outcome. With a less effective alternative‑energy sector, seasonal demand remains higher, raising the likelihood of large Russian gas imports. The other upstream factors (sanctions, pipeline availability, geopolitical tension) are unchanged, so the increase is modest rather than dramatic. Consequently the probability rises from the original 0.15 to roughly 0.22.\"}",
+      "target_id": "alternative_energy",
+      "target_type": "node",
+      "target_importance": 0.0536,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent analysis of the 2024 European gas market shows that long‑term contracts have locked in prices well below spot levels, making short‑term gas price spikes largely irrelevant for EU import decisions. Moreover, the EU's strategic reserves and price caps effectively decouple market price fluctuations from actual import volumes. Consequently, the assumed causal link between gas_price and alternative_energy may be overstated or even nonexistent.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.13000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence argues that short‑term gas price spikes are muted for EU import decisions because long‑term contracts keep contract prices low and EU mechanisms (strategic reserves, price caps) buffer the market. In the original causal model, higher gas_price boosted the attractiveness of alternative_energy, which in turn reduced seasonal_demand for Russian gas and lowered the chance of a ≥15 bcm import in a quarter. If the gas_price → alternative_energy link is essentially removed, alternative_energy will not become more competitive during price spikes, leaving the EU more dependent on existing Russian supply. Consequently, the pathway that previously dampened imports is weakened, raising the likelihood of a large quarterly import. The adjustment is modest because other factors (sanctions, pipeline availability, geopolitical tension, seasonal demand) still constrain imports, but the probability moves upward from the initial 0.15 to roughly 0.28.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new evidence argues that short‑term gas price spikes are muted for EU import decisions because long‑term contracts keep contract prices low and EU mechanisms (strategic reserves, price caps) buffer the market. In the original causal model, higher gas_price boosted the attractiveness of alternative_energy, which in turn reduced seasonal_demand for Russian gas and lowered the chance of a ≥15 bcm import in a quarter. If the gas_price → alternative_energy link is essentially removed, alternative_energy will not become more competitive during price spikes, leaving the EU more dependent on existing Russian supply. Consequently, the pathway that previously dampened imports is weakened, raising the likelihood of a large quarterly import. The adjustment is modest because other factors (sanctions, pipeline availability, geopolitical tension, seasonal demand) still constrain imports, but the probability moves upward from the initial 0.15 to roughly 0.28.\"\n}",
+      "target_id": "gas_price",
+      "target_type": "node",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent EU legislation has actually liberalized energy imports, making regulatory constraints negligible. Moreover, the imports are decided by bilateral contracts that bypass EU‑level regulation, so eu_import_regulation may not affect the 2025 quarter imports.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.09,
+      "shift_direction": "increased",
+      "reasoning": "The new information removes the EU import regulation node as a meaningful constraint on the outcome. In the original network eu_import_regulation could have limited the volume of Russian gas that could be imported, acting as a negative influence on russian_gas_import_q2025. With regulations now liberalized and bilateral contracts bypassing EU‑level rules, that negative pathway is effectively eliminated, leaving only the other determinants (production, pipeline capacity, sanctions, demand, etc.). Since the regulatory barrier is no longer present, the chance of achieving ≥15 bcm in a quarter rises modestly, moving the forecast upward from the initial 0.15 to roughly 0.24.",
+      "raw_response": "{\"updated_probability\":0.24,\"shift_direction\":\"increased\",\"reasoning\":\"The new information removes the EU import regulation node as a meaningful constraint on the outcome. In the original network eu_import_regulation could have limited the volume of Russian gas that could be imported, acting as a negative influence on russian_gas_import_q2025. With regulations now liberalized and bilateral contracts bypassing EU‑level rules, that negative pathway is effectively eliminated, leaving only the other determinants (production, pipeline capacity, sanctions, demand, etc.). Since the regulatory barrier is no longer present, the chance of achieving ≥15 bcm in a quarter rises modestly, moving the forecast upward from the initial 0.15 to roughly 0.24.\"}",
+      "target_id": "eu_import_regulation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "According to a joint statement released by Gazprom and the European Commission on March 15, 2026, a major refurbishment of the Yamal–Europe pipeline was completed ahead of schedule, increasing its maximum throughput by 20% and guaranteeing uninterrupted flow through the winter season. The report also cites an independent audit confirming that all safety and regulatory checks have been passed, effectively removing previous capacity constraints.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.17,
+      "shift_direction": "increased",
+      "reasoning": "The refurbishment of the Yamal‑Europe pipeline removes a major bottleneck in the causal chain. Pipeline_availability directly feeds into russian_gas_import_q2025, and a 20% increase in throughput plus guaranteed winter flow substantially raises the likelihood that the EU can receive large volumes of Russian gas in a quarter. This improvement also mitigates the impact of sanctions and geopolitical tension on physical delivery, shifting the overall probability upward from the original 0.15 to roughly 0.32.",
+      "raw_response": "{\"updated_probability\":0.32,\"shift_direction\":\"increased\",\"reasoning\":\"The refurbishment of the Yamal‑Europe pipeline removes a major bottleneck in the causal chain. Pipeline_availability directly feeds into russian_gas_import_q2025, and a 20% increase in throughput plus guaranteed winter flow substantially raises the likelihood that the EU can receive large volumes of Russian gas in a quarter. This improvement also mitigates the impact of sanctions and geopolitical tension on physical delivery, shifting the overall probability upward from the original 0.15 to roughly 0.32.\"}",
+      "target_id": "pipeline_availability",
+      "target_type": "node",
+      "target_importance": 0.0536,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent data from the European Commission shows that in Q2 2024 the EU’s renewable electricity generation hit a record 45% of the total electricity mix, and newly approved subsidies for green hydrogen have cut hydrogen costs by roughly 30% versus 2023. Additionally, a senior analyst at the International Energy Agency testified that the accelerated rollout of offshore wind farms and large‑scale battery storage is expected to reduce the EU’s reliance on imported gas by an extra 5 bcm per quarter beginning in 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.06,
+      "absolute_shift": 0.09,
+      "shift_direction": "decreased",
+      "reasoning": "The new EU data dramatically strengthens the 'alternative_energy' node: record renewable electricity generation, cheaper green hydrogen, and an offshore‑wind/battery rollout that will cut gas demand by an additional 5 bcm per quarter from 2025. In the causal network, higher alternative_energy lowers seasonal_demand, which directly reduces the chance of the EU needing ≥15 bcm of Russian gas in any quarter. Combined with existing sanctions and pipeline constraints, this pushes the probability well below the original 0.15, to roughly 0.06.",
+      "raw_response": "{\"updated_probability\":0.06,\"shift_direction\":\"decreased\",\"reasoning\":\"The new EU data dramatically strengthens the 'alternative_energy' node: record renewable electricity generation, cheaper green hydrogen, and an offshore‑wind/battery rollout that will cut gas demand by an additional 5 bcm per quarter from 2025. In the causal network, higher alternative_energy lowers seasonal_demand, which directly reduces the chance of the EU needing ≥15 bcm of Russian gas in any quarter. Combined with existing sanctions and pipeline constraints, this pushes the probability well below the original 0.15, to roughly 0.06.\"}",
+      "target_id": "alternative_energy",
+      "target_type": "node",
+      "target_importance": 0.0536,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports from the International Energy Agency indicate that natural gas prices have surged to a three‑year high due to unexpected supply disruptions in North Africa and heightened geopolitical risk in the Middle East. This price spike is projected to persist through 2025, making Russian gas comparatively cheaper and more attractive to EU buyers despite sanctions. Consequently, the elevated market price is likely to intensify EU demand for Russian imports, especially in high‑demand winter quarters.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.33,
+      "absolute_shift": 0.18000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The IEA report adds a strong exogenous shock to the gas_price node: global natural‑gas prices are at a three‑year high, while Russian gas remains relatively cheap because of sanctions‑related discounts. In the original model a higher gas_price increased the attractiveness of alternative_energy, which would lower EU demand for Russian gas. The new information reverses this pathway: the price spike makes non‑Russian alternatives less competitive, reducing the alternative_energy node and thereby raising seasonal_demand for Russian gas. Additionally, the higher market price raises overall EU demand (seasonal_demand) and makes the cost advantage of Russian gas more pronounced, strengthening the causal link from gas_price directly to russian_gas_import_q2025. These combined effects shift the probability upward from the initial 0.15 to roughly 0.33, indicating a modest but notable increase in the chance that the EU will import at least 15 bcm of Russian gas in a 2025 quarter.",
+      "raw_response": "{\n  \"updated_probability\": 0.33,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The IEA report adds a strong exogenous shock to the gas_price node: global natural‑gas prices are at a three‑year high, while Russian gas remains relatively cheap because of sanctions‑related discounts. In the original model a higher gas_price increased the attractiveness of alternative_energy, which would lower EU demand for Russian gas. The new information reverses this pathway: the price spike makes non‑Russian alternatives less competitive, reducing the alternative_energy node and thereby raising seasonal_demand for Russian gas. Additionally, the higher market price raises overall EU demand (seasonal_demand) and makes the cost advantage of Russian gas more pronounced, strengthening the causal link from gas_price directly to russian_gas_import_q2025. These combined effects shift the probability upward from the initial 0.15 to roughly 0.33, indicating a modest but notable increase in the chance that the EU will import at least 15 bcm of Russian gas in a 2025 quarter.\"\n}",
+      "target_id": "gas_price",
+      "target_type": "node",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "The European Commission announced on March 15, 2025 a fast‑track licensing procedure that reduces the approval time for large‑scale gas imports from non‑EU sources, explicitly including Russian pipelines, to just two weeks. This regulatory change is aimed at bolstering energy security amid a predicted harsh winter, effectively lowering bureaucratic barriers and making higher import volumes more feasible.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.17,
+      "shift_direction": "increased",
+      "reasoning": "The fast‑track licensing procedure announced on 15 Mar 2025 directly weakens the eu_import_regulation node, removing a major bureaucratic bottleneck for large‑scale gas imports from Russia. In the causal network, eu_import_regulation feeds positively into the outcome node (russian_gas_import_q2025). By lowering approval times to two weeks, the regulatory environment now actively facilitates higher import volumes, especially given the context of a predicted harsh winter that will raise seasonal_demand. While other constraints (sanctions, pipeline capacity, Russian production) remain unchanged, the removal of a key barrier roughly doubles the baseline probability from 0.15 to about 0.32, reflecting a moderate but notable increase in the likelihood of the EU importing ≥15 bcm of Russian gas in any quarter of 2025.",
+      "raw_response": "{\n  \"updated_probability\": 0.32,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The fast‑track licensing procedure announced on 15 Mar 2025 directly weakens the eu_import_regulation node, removing a major bureaucratic bottleneck for large‑scale gas imports from Russia. In the causal network, eu_import_regulation feeds positively into the outcome node (russian_gas_import_q2025). By lowering approval times to two weeks, the regulatory environment now actively facilitates higher import volumes, especially given the context of a predicted harsh winter that will raise seasonal_demand. While other constraints (sanctions, pipeline capacity, Russian production) remain unchanged, the removal of a key barrier roughly doubles the baseline probability from 0.15 to about 0.32, reflecting a moderate but notable increase in the likelihood of the EU importing ≥15 bcm of Russian gas in any quarter of 2025.\"\n}",
+      "target_id": "eu_import_regulation",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses show that the surge in renewable capacity often coincides with higher overall electricity consumption due to lower marginal costs, a rebound effect that can increase total energy demand in winter months. Moreover, many alternative sources (e.g., wind and solar) are intermittent and insufficient for heating, so EU utilities still rely on gas to meet seasonal peaks, weakening the presumed inverse link. Consequently, the causal chain from alternative_energy to reduced seasonal_demand may be far weaker or even neutral.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.09,
+      "shift_direction": "increased",
+      "reasoning": "The new analysis weakens the assumed inverse link between alternative energy and seasonal gas demand. If renewable growth does not lower winter gas needs—and may even raise overall energy consumption—the EU remains more reliant on gas imports during peak seasons. This reduces the mitigating effect previously attributed to alternative_energy, raising the likelihood of a quarter in 2025 where the EU imports at least 15 bcm of Russian gas. The probability is therefore adjusted upward from 0.15 to roughly 0.24, reflecting a modest increase while still considering other limiting factors such as sanctions, pipeline capacity, and geopolitical tension.",
+      "raw_response": "{\"updated_probability\":0.24,\"shift_direction\":\"increased\",\"reasoning\":\"The new analysis weakens the assumed inverse link between alternative energy and seasonal gas demand. If renewable growth does not lower winter gas needs—and may even raise overall energy consumption—the EU remains more reliant on gas imports during peak seasons. This reduces the mitigating effect previously attributed to alternative_energy, raising the likelihood of a quarter in 2025 where the EU imports at least 15 bcm of Russian gas. The probability is therefore adjusted upward from 0.15 to roughly 0.24, reflecting a modest increase while still considering other limiting factors such as sanctions, pipeline capacity, and geopolitical tension.\"}",
+      "target_id": "alternative_energy->seasonal_demand",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent EU energy market data indicate that a 30% rise in natural gas prices during Q2 2024 did not lead to increased investment in alternative energy, as supply‑chain bottlenecks and regulatory delays kept alternative capacity flat. This evidence suggests that higher gas prices may not make alternative sources substantially more attractive, weakening the assumed causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.12000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence shows that a 30% rise in gas prices did not increase alternative‑energy capacity, weakening the gas_price→alternative_energy link. Without the expected boost in alternatives, higher gas prices no longer suppress EU seasonal demand for Russian gas, reducing a key negative pressure on imports. This raises the chance that the EU will import ≥15 bcm of Russian gas in a 2025 quarter, moving the forecast up from 0.15 to roughly 0.27.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence shows that a 30% rise in gas prices did not increase alternative‑energy capacity, weakening the gas_price→alternative_energy link. Without the expected boost in alternatives, higher gas prices no longer suppress EU seasonal demand for Russian gas, reducing a key negative pressure on imports. This raises the chance that the EU will import ≥15 bcm of Russian gas in a 2025 quarter, moving the forecast up from 0.15 to roughly 0.27.\"}",
+      "target_id": "gas_price->alternative_energy",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that global gas prices have remained stable despite heightened geopolitical tensions between the EU and Russia, due to long‑term contracts and ample storage levels that dampen short‑term market reactions. Moreover, the price benchmarks are increasingly driven by Asian demand and LNG supply dynamics rather than European‑Russia political frictions. Consequently, the assumed direct link from geopolitical tension to higher gas prices may be overstated.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.12000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new information shows that heightened EU‑Russia geopolitical tension does not translate into higher international gas prices because long‑term contracts and ample storage buffer market movements and Asian LNG dynamics dominate price formation. In the original network, geopolitical tension raised gas_price, which then made alternative_energy more attractive, reducing seasonal_demand and thus lowering the chance of a ≥15 bcm Russian import in a quarter. Removing or strongly attenuating the tension→price link means gas prices are likely to stay stable or lower than previously assumed, limiting the stimulus for alternative energy uptake. Consequently, the reduction in EU reliance on alternatives persists, keeping seasonal demand for Russian gas higher. The other pathways (tension→sanctions, sanctions→pipeline availability, etc.) remain unchanged, so the net effect is an increased probability of a large Russian gas import. Hence the forecast is revised upward.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"increased\",\"reasoning\":\"The new information shows that heightened EU‑Russia geopolitical tension does not translate into higher international gas prices because long‑term contracts and ample storage buffer market movements and Asian LNG dynamics dominate price formation. In the original network, geopolitical tension raised gas_price, which then made alternative_energy more attractive, reducing seasonal_demand and thus lowering the chance of a ≥15 bcm Russian import in a quarter. Removing or strongly attenuating the tension→price link means gas prices are likely to stay stable or lower than previously assumed, limiting the stimulus for alternative energy uptake. Consequently, the reduction in EU reliance on alternatives persists, keeping seasonal demand for Russian gas higher. The other pathways (tension→sanctions, sanctions→pipeline availability, etc.) remain unchanged, so the net effect is an increased probability of a large Russian gas import. Hence the forecast is revised upward.\"}",
+      "target_id": "geopolitical_tension->gas_price",
+      "target_type": "edge",
+      "target_importance": 0.0417,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent EU Commission report released in March 2024 shows that the rapid expansion of offshore wind capacity, which added 12 GW to the grid last year, cut the EU’s peak winter gas demand by 8 % compared to 2023 levels. The report attributes this reduction directly to the increased availability of renewable alternatives, indicating that higher alternative energy supply substantially lowers seasonal demand for Russian gas.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The EU Commission report quantifies a clear 8% drop in peak winter gas demand due to a 12 GW increase in offshore wind capacity, directly confirming that greater alternative‑energy supply reduces seasonal demand. Since seasonal_demand is a primary positive driver of the outcome (russian_gas_import_q2025), strengthening the alternative_energy→seasonal_demand link lowers the chance that demand will be high enough to trigger imports of ≥15 bcm in any quarter of 2025. This new evidence therefore shifts the forecast downward, revising the probability from 0.15 to roughly 0.09.",
+      "raw_response": "{\"updated_probability\":0.09,\"shift_direction\":\"decreased\",\"reasoning\":\"The EU Commission report quantifies a clear 8% drop in peak winter gas demand due to a 12 GW increase in offshore wind capacity, directly confirming that greater alternative‑energy supply reduces seasonal demand. Since seasonal_demand is a primary positive driver of the outcome (russian_gas_import_q2025), strengthening the alternative_energy→seasonal_demand link lowers the chance that demand will be high enough to trigger imports of ≥15 bcm in any quarter of 2025. This new evidence therefore shifts the forecast downward, revising the probability from 0.15 to roughly 0.09.\"}",
+      "target_id": "alternative_energy->seasonal_demand",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent EU market data shows that after the sharp rise in natural gas prices in Q1 2024, investments in offshore wind and solar projects accelerated by 27%, and electricity spot prices fell, indicating a rapid shift toward alternative energy. Moreover, the European Commission's emergency funding program for renewables, announced in March 2024, was triggered specifically by the gas price spike, further confirming that higher gas prices make alternative sources more attractive.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.06999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new data confirms that spikes in gas prices strongly accelerate investment in renewables, making alternative energy more attractive. This strengthens the causal link gas_price->alternative_energy, which reduces EU seasonal demand for Russian gas and lowers the chance of importing ≥15 bcm in any 2025 quarter. Hence the probability is revised down from 0.15 to about 0.08.",
+      "raw_response": "{\"updated_probability\":0.08,\"shift_direction\":\"decreased\",\"reasoning\":\"The new data confirms that spikes in gas prices strongly accelerate investment in renewables, making alternative energy more attractive. This strengthens the causal link gas_price->alternative_energy, which reduces EU seasonal demand for Russian gas and lowers the chance of importing ≥15 bcm in any 2025 quarter. Hence the probability is revised down from 0.15 to about 0.08.\"}",
+      "target_id": "gas_price->alternative_energy",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent escalations in the Ukraine conflict have led the EU to threaten a complete ban on Russian energy, causing market participants to price in a significant supply risk. Spot gas prices on European exchanges have risen 30% in the past month purely on geopolitical headlines, suggesting that tensions have a far larger impact on price than previously modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.07,
+      "absolute_shift": 0.07999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new information shows that geopolitical tension now drives a much larger rise in gas prices (30% jump). In the causal network higher gas_price increases the attractiveness of alternative_energy, which in turn lowers seasonal_demand for Russian gas. The threat of a complete EU ban also suggests tighter eu_sanctions and stricter eu_import_regulation, further reducing pipeline_availability and the legal ability to import. Both pathways lower the chance that the EU will import ≥15 bcm of Russian gas in any 2025 quarter, so the probability is revised downwards from 0.15 to about 0.07.",
+      "raw_response": "{\"updated_probability\":0.07,\"shift_direction\":\"decreased\",\"reasoning\":\"The new information shows that geopolitical tension now drives a much larger rise in gas prices (30% jump). In the causal network higher gas_price increases the attractiveness of alternative_energy, which in turn lowers seasonal_demand for Russian gas. The threat of a complete EU ban also suggests tighter eu_sanctions and stricter eu_import_regulation, further reducing pipeline_availability and the legal ability to import. Both pathways lower the chance that the EU will import ≥15 bcm of Russian gas in any 2025 quarter, so the probability is revised downwards from 0.15 to about 0.07.\"}",
+      "target_id": "geopolitical_tension->gas_price",
+      "target_type": "edge",
+      "target_importance": 0.0417,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent EU energy reports suggest that spikes in seasonal natural‑gas demand during cold winters prompt policymakers to accelerate investment in alternative energy sources, rather than alternatives curbing demand. In this view, higher seasonal demand creates political and market pressure that expands the alternative_energy portfolio, indicating the causal arrow runs from seasonal_demand to alternative_energy. Could the model be updated to reflect this reverse direction?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.22,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "Reversing the arrow between seasonal_demand and alternative_energy removes the direct negative feedback that previously let higher alternative‑energy availability blunt seasonal spikes in demand. Now a cold winter first raises seasonal demand, which may later stimulate investment in alternatives, but that response is lagged and does not immediately curb the demand surge. Consequently, the pathway from high seasonal_demand to a large import volume (via pipeline_availability and limited sanctions) becomes stronger, raising the chance that the EU will need to import ≥15 bcm of Russian gas in a 2025 quarter. The other causal links remain unchanged, so the net effect is a modest upward revision from the original 0.15 to about 0.22.",
+      "raw_response": "{\"updated_probability\":0.22,\"shift_direction\":\"increased\",\"reasoning\":\"Reversing the arrow between seasonal_demand and alternative_energy removes the direct negative feedback that previously let higher alternative‑energy availability blunt seasonal spikes in demand. Now a cold winter first raises seasonal demand, which may later stimulate investment in alternatives, but that response is lagged and does not immediately curb the demand surge. Consequently, the pathway from high seasonal_demand to a large import volume (via pipeline_availability and limited sanctions) becomes stronger, raising the chance that the EU will need to import ≥15 bcm of Russian gas in a 2025 quarter. The other causal links remain unchanged, so the net effect is a modest upward revision from the original 0.15 to about 0.22.\"}",
+      "target_id": "alternative_energy->seasonal_demand",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that when pipeline capacity is constrained, the EU often experiences higher spot prices, prompting utilities to increase consumption to fill storage before winter, effectively raising seasonal demand. Conversely, ample pipeline throughput smooths supply, allowing demand to align with typical seasonal patterns rather than being driven by storage concerns. This suggests a direct causal pathway from pipeline availability to seasonal demand that the current network omits.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.2,
+      "absolute_shift": 0.05000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence adds a direct causal link from pipeline_availability to seasonal_demand. When pipeline capacity is tight, spot prices rise, prompting utilities to stock‑up and thereby lift seasonal demand. Higher demand makes it more likely that any available pipeline capacity will be used to import large volumes, partially offsetting the negative effect of reduced capacity on imports. This additional pathway raises the overall chance that the EU will reach the 15 bcm threshold in a quarter, moving the estimate upward from the original 0.15 to about 0.20.",
+      "raw_response": "{\"updated_probability\":0.20,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence adds a direct causal link from pipeline_availability to seasonal_demand. When pipeline capacity is tight, spot prices rise, prompting utilities to stock‑up and thereby lift seasonal demand. Higher demand makes it more likely that any available pipeline capacity will be used to import large volumes, partially offsetting the negative effect of reduced capacity on imports. This additional pathway raises the overall chance that the EU will reach the 15 bcm threshold in a quarter, moving the estimate upward from the original 0.15 to about 0.20.\"}",
+      "target_id": "pipeline_availability->seasonal_demand",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent EU energy policy reviews have tied pipeline capacity approvals to import quotas, so when pipeline availability is limited regulators often impose stricter import limits. Could this regulatory response to pipeline constraints materially affect the likelihood of importing ≥15 bcm of Russian gas in a 2025 quarter?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.09,
+      "absolute_shift": 0.06,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence adds a causal link from pipeline_availability to eu_import_regulation: when pipeline capacity is constrained, regulators are likely to impose tighter import quotas. This creates a double‑hit on the outcome—limited pipelines already reduce the physical ability to ship gas, and the regulatory response further caps the volume that can be imported. Both effects lower the chance that the EU can reach the 15 bcm threshold in any quarter of 2025, so the probability is revised downward from the original 0.15 to about 0.09.",
+      "raw_response": "{\"updated_probability\":0.09,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence adds a causal link from pipeline_availability to eu_import_regulation: when pipeline capacity is constrained, regulators are likely to impose tighter import quotas. This creates a double‑hit on the outcome—limited pipelines already reduce the physical ability to ship gas, and the regulatory response further caps the volume that can be imported. Both effects lower the chance that the EU can reach the 15 bcm threshold in any quarter of 2025, so the probability is revised downward from the original 0.15 to about 0.09.\"}",
+      "target_id": "pipeline_availability->eu_import_regulation",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the recent expansion of liquefied natural gas (LNG) import terminals in the EU, which increases the EU's ability to source gas from non‑Russian suppliers. This new capacity could reduce reliance on Russian pipeline gas, thereby lowering the probability of importing ≥15 bcm from Russia in any 2025 quarter. How does the inclusion of EU LNG import capacity change your assessment?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.08,
+      "absolute_shift": 0.06999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The added LNG terminals strengthen the alternative_energy node, making non‑Russian gas more available and cheaper, which lowers seasonal_demand for Russian pipeline gas and reduces the impact of pipeline_availability on the outcome. This downstream effect cuts the chance of reaching the 15 bcm threshold in any quarter of 2025, so the probability drops from 0.15 to about 0.08.",
+      "raw_response": "{\"updated_probability\":0.08,\"shift_direction\":\"decreased\",\"reasoning\":\"The added LNG terminals strengthen the alternative_energy node, making non‑Russian gas more available and cheaper, which lowers seasonal_demand for Russian pipeline gas and reduces the impact of pipeline_availability on the outcome. This downstream effect cuts the chance of reaching the 15 bcm threshold in any quarter of 2025, so the probability drops from 0.15 to about 0.08.\"}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A key factor not represented is the EU's LNG import capacity, i.e., the availability and operational readiness of liquefied natural gas terminals that could receive Russian gas shipped by sea. Increased LNG capacity would allow the EU to import large volumes of Russian gas even if pipeline availability is limited, directly raising the probability of meeting the 15 bcm threshold in a quarter. Conversely, constraints on LNG infrastructure would lower that probability, independent of pipeline constraints.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.12000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The original causal network tied large Russian gas imports to pipeline availability, which is heavily constrained by sanctions and geopolitical tension. Introducing EU LNG import capacity adds an independent pathway for Russian gas to reach the EU by sea, mitigating the pipeline bottleneck. Even if pipelines are limited, sufficient LNG terminal capacity and operational readiness allow the EU to receive large volumes of Russian LNG, raising the chance of reaching the 15 bcm threshold in a quarter. While sanctions may still restrict Russian LNG shipments, the added flexibility modestly improves the odds, prompting an upward adjustment from 0.15 to roughly 0.27.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"increased\",\"reasoning\":\"The original causal network tied large Russian gas imports to pipeline availability, which is heavily constrained by sanctions and geopolitical tension. Introducing EU LNG import capacity adds an independent pathway for Russian gas to reach the EU by sea, mitigating the pipeline bottleneck. Even if pipelines are limited, sufficient LNG terminal capacity and operational readiness allow the EU to receive large volumes of Russian LNG, raising the chance of reaching the 15 bcm threshold in a quarter. While sanctions may still restrict Russian LNG shipments, the added flexibility modestly improves the odds, prompting an upward adjustment from 0.15 to roughly 0.27.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The European Union announced a new €2 billion funding program for research into hydrogen fuel cells, targeting automotive manufacturers and aiming to cut fossil‑fuel use by 2030. The initiative is scheduled to roll out over the next five years and includes grants for pilot projects in several member states. This development does not influence the current natural‑gas import dynamics for 2025.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The EU's €2 billion hydrogen fuel‑cell research program is aimed at long‑term decarbonisation of transport and is scheduled to be implemented over the next five years. The description explicitly states that this initiative does not influence the current natural‑gas import dynamics for 2025. Consequently, none of the nodes or causal pathways in the existing network—such as seasonal demand, pipeline availability, sanctions, or geopolitical tension—are affected by this new information. Therefore, the probability estimate for the EU importing at least 15 bcm of Russian gas in any quarter of 2025 remains unchanged at the original 0.15.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The EU's €2 billion hydrogen fuel‑cell research program is aimed at long‑term decarbonisation of transport and is scheduled to be implemented over the next five years. The description explicitly states that this initiative does not influence the current natural‑gas import dynamics for 2025. Consequently, none of the nodes or causal pathways in the existing network—such as seasonal demand, pipeline availability, sanctions, or geopolitical tension—are affected by this new information. Therefore, the probability estimate for the EU importing at least 15 bcm of Russian gas in any quarter of 2025 remains unchanged at the original 0.15.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent EU report highlighted that the average temperature in Warsaw during the summer of 2025 was 1.2°C higher than the 30-year average, prompting local officials to schedule an outdoor music festival in early July. The report also noted that the EU's agricultural subsidy program for wheat farmers was expanded to include an additional €200 million for the 2025 fiscal year.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.1,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The 1.2 °C above‑average summer temperature in Warsaw signals lower heating demand across the EU during the warm months, which directly reduces the seasonal_demand node that feeds into the russian_gas_import_q2025 outcome. With weaker summer demand, the likelihood that any quarter—especially the summer quarter—reaches the 15 bcm threshold falls. The agricultural subsidy for wheat farmers does not affect any of the causal pathways (production, sanctions, pipeline capacity, alternative energy, price, or regulation), so it has essentially no impact on the import probability. Consequently the overall chance of the EU importing ≥15 bcm of Russian gas in any 2025 quarter is revised downward from 0.15 to about 0.10.",
+      "raw_response": "{\"updated_probability\":0.10,\"shift_direction\":\"decreased\",\"reasoning\":\"The 1.2 °C above‑average summer temperature in Warsaw signals lower heating demand across the EU during the warm months, which directly reduces the seasonal_demand node that feeds into the russian_gas_import_q2025 outcome. With weaker summer demand, the likelihood that any quarter—especially the summer quarter—reaches the 15 bcm threshold falls. The agricultural subsidy for wheat farmers does not affect any of the causal pathways (production, sanctions, pipeline capacity, alternative energy, price, or regulation), so it has essentially no impact on the import probability. Consequently the overall chance of the EU importing ≥15 bcm of Russian gas in any 2025 quarter is revised downward from 0.15 to about 0.10.\"}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "1564",
+    "question_text": "Will the EU import at least 15 billion cubic meters of natural gas from Russia in any quarter of 2025?",
+    "source": "infer",
+    "condition": "one-turn",
+    "initial_probability": 0.15,
+    "n_probes": 21,
+    "n_successful": 21,
+    "mean_absolute_shift": 0.09666666666666668,
+    "max_absolute_shift": 0.18000000000000002
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 0.0079,
+  "aggregate_metrics": {
+    "ssr": 1.6129032258064517,
+    "mean_shift_high": 0.125,
+    "mean_shift_low": 0.0775,
+    "asymmetry_index": 0.9634146341463415,
+    "mean_shift_negate": 0.11285714285714286,
+    "mean_shift_strengthen": 0.11714285714285715,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.0077777777777777585,
+    "mean_shift_on_path": 0.1011111111111111,
+    "mean_shift_off_path": 0.09333333333333334,
+    "importance_sensitivity_correlation": -0.34615384615384626,
+    "control_sensitivity": 0
+  }
+}

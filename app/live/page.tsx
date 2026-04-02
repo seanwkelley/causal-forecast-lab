@@ -209,30 +209,32 @@ export default function LivePage() {
       <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-secondary)]/50 p-4 mb-6">
         <h3 className="text-sm font-medium mb-2">Question Format</h3>
         <p className="text-xs text-[var(--color-muted-foreground)] leading-relaxed mb-2">
-          This tool currently supports{" "}
+          This tool works best with{" "}
           <strong className="text-[var(--color-foreground)]">
-            binary yes/no forecasting questions
+            complex, multi-cause binary questions
           </strong>{" "}
-          with a specific resolution date. The model estimates a single
-          probability (0&ndash;100%) that the event occurs. Multi-outcome or
-          open-ended questions are not supported.
+          where the outcome depends on multiple interacting factors across
+          different domains (e.g., geopolitical conflicts, multi-stakeholder
+          policy decisions, technology ecosystem dynamics). The model builds a
+          causal DAG with 6&ndash;10 factor nodes, so questions need enough
+          causal structure to produce a meaningful network. Simple questions
+          with one or two drivers won&apos;t generate useful sensitivity
+          profiles.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           <div>
             <p className="text-[var(--color-positive)] font-medium mb-1">
-              Good examples
+              Good examples (complex, multi-cause)
             </p>
             <ul className="space-y-1 text-[var(--color-muted-foreground)]">
               <li>
-                &ldquo;Will the Fed cut interest rates before July 2026?&rdquo;
+                &ldquo;Will the U.S. enter a recession in Trump&apos;s second term?&rdquo;
               </li>
               <li>
-                &ldquo;Will SpaceX land Starship successfully by Dec
-                2026?&rdquo;
+                &ldquo;Will China attempt to invade Taiwan by 2027?&rdquo;
               </li>
               <li>
-                &ldquo;Will global average temperature in 2026 exceed 1.5&#176;C
-                above pre-industrial levels?&rdquo;
+                &ldquo;Will a new pandemic emerge in 2026?&rdquo;
               </li>
             </ul>
           </div>
@@ -248,7 +250,7 @@ export default function LivePage() {
                 &ldquo;Who will win the 2028 election?&rdquo; (multi-outcome)
               </li>
               <li>
-                &ldquo;Rank these policies by impact&rdquo; (not a forecast)
+                &ldquo;Will AAPL close above $200 on Friday?&rdquo; (single-factor)
               </li>
             </ul>
           </div>

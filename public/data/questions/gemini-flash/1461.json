@@ -1,0 +1,1334 @@
+{
+  "question_id": "1461",
+  "question_text": "Will Egypt experience an economic collapse (as defined by any of the listed scenarios) in the next 12 months?",
+  "source": "infer",
+  "initial_probability": 0.35,
+  "nodes": [
+    {
+      "id": "foreign_currency_reserves",
+      "description": "Egypt's available foreign currency reserves",
+      "role": "factor"
+    },
+    {
+      "id": "external_debt_servicing",
+      "description": "Egypt's ability to service its external debt obligations",
+      "role": "factor"
+    },
+    {
+      "id": "inflation_rate",
+      "description": "The rate at which prices are increasing in Egypt",
+      "role": "factor"
+    },
+    {
+      "id": "currency_devaluation_pressure",
+      "description": "The pressure on the Egyptian Pound to lose value against foreign currencies",
+      "role": "factor"
+    },
+    {
+      "id": "political_stability",
+      "description": "The stability of the Egyptian government and its policies",
+      "role": "factor"
+    },
+    {
+      "id": "geopolitical_instability_region",
+      "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)",
+      "role": "factor"
+    },
+    {
+      "id": "imf_program_adherence",
+      "description": "Egypt's adherence to the conditions and reforms agreed upon with the International Monetary Fund",
+      "role": "factor"
+    },
+    {
+      "id": "economic_collapse",
+      "description": "Egypt experiencing an economic collapse (as defined by any of the listed scenarios) in the next 12 months",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "foreign_currency_reserves",
+      "to": "external_debt_servicing",
+      "mechanism": "Low reserves make it harder to meet debt payments."
+    },
+    {
+      "from": "foreign_currency_reserves",
+      "to": "currency_devaluation_pressure",
+      "mechanism": "Depleting reserves increase pressure to devalue the currency to conserve them."
+    },
+    {
+      "from": "external_debt_servicing",
+      "to": "economic_collapse",
+      "mechanism": "Inability to service debt can trigger default and economic collapse."
+    },
+    {
+      "from": "inflation_rate",
+      "to": "economic_collapse",
+      "mechanism": "Hyperinflation erodes purchasing power and can lead to social unrest and economic breakdown."
+    },
+    {
+      "from": "currency_devaluation_pressure",
+      "to": "inflation_rate",
+      "mechanism": "A weaker currency makes imports more expensive, driving up inflation."
+    },
+    {
+      "from": "currency_devaluation_pressure",
+      "to": "economic_collapse",
+      "mechanism": "Severe and rapid devaluation can destabilize the economy and lead to collapse."
+    },
+    {
+      "from": "political_stability",
+      "to": "imf_program_adherence",
+      "mechanism": "Political instability can hinder the implementation of necessary reforms for IMF programs."
+    },
+    {
+      "from": "political_stability",
+      "to": "economic_collapse",
+      "mechanism": "Widespread political instability can disrupt economic activity and lead to collapse."
+    },
+    {
+      "from": "geopolitical_instability_region",
+      "to": "foreign_currency_reserves",
+      "mechanism": "Regional instability can deter tourism and foreign investment, reducing foreign currency inflows."
+    },
+    {
+      "from": "geopolitical_instability_region",
+      "to": "currency_devaluation_pressure",
+      "mechanism": "Regional conflicts can increase risk aversion, leading to capital flight and currency pressure."
+    },
+    {
+      "from": "imf_program_adherence",
+      "to": "foreign_currency_reserves",
+      "mechanism": "Adherence to IMF programs often unlocks financial support, boosting reserves."
+    },
+    {
+      "from": "imf_program_adherence",
+      "to": "political_stability",
+      "mechanism": "Successful IMF reforms can improve economic conditions, indirectly enhancing political stability."
+    },
+    {
+      "from": "imf_program_adherence",
+      "to": "economic_collapse",
+      "mechanism": "Failure to adhere to IMF programs can lead to withdrawal of support and increased economic distress."
+    }
+  ],
+  "reasoning": "Egypt faces significant economic challenges, including dwindling foreign currency reserves and high inflation, exacerbated by regional geopolitical instability impacting tourism and investment. While adherence to the IMF program is a crucial mitigating factor, its success is contingent on political stability. The combination of potentially unsustainable external debt servicing, ongoing currency devaluation pressures, and the risk of failing IMF commitments creates a non-negligible, though not dominant, probability of economic collapse within the next 12 months.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 13,
+    "density": 0.2321,
+    "is_dag": false,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 7,
+    "outcome_node": "economic_collapse",
+    "node_metrics": [
+      {
+        "node_id": "foreign_currency_reserves",
+        "description": "Egypt's available foreign currency reserves",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.1667,
+        "closeness": 0.3214,
+        "pagerank": 0.1038,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_debt_servicing",
+        "description": "Egypt's ability to service its external debt obligations",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0119,
+        "closeness": 0.2857,
+        "pagerank": 0.0992,
+        "path_relevance": 0.125
+      },
+      {
+        "node_id": "inflation_rate",
+        "description": "The rate at which prices are increasing in Egypt",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.2976,
+        "pagerank": 0.1072,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "currency_devaluation_pressure",
+        "description": "The pressure on the Egyptian Pound to lose value against foreign currencies",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.131,
+        "closeness": 0.3265,
+        "pagerank": 0.1227,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "political_stability",
+        "description": "The stability of the Egyptian government and its policies",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0.1429,
+        "pagerank": 0.0804,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "geopolitical_instability_region",
+        "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0551,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "imf_program_adherence",
+        "description": "Egypt's adherence to the conditions and reforms agreed upon with the International Monetary Fund",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 3,
+        "betweenness": 0.0952,
+        "closeness": 0.1429,
+        "pagerank": 0.0893,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "economic_collapse",
+        "description": "Egypt experiencing an economic collapse (as defined by any of the listed scenarios) in the next 12 months",
+        "role": "outcome",
+        "in_degree": 5,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.7778,
+        "pagerank": 0.3422,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "foreign_currency_reserves",
+        "target": "external_debt_servicing",
+        "mechanism": "Low reserves make it harder to meet debt payments.",
+        "edge_betweenness": 0.0804,
+        "on_critical_path": true
+      },
+      {
+        "source": "foreign_currency_reserves",
+        "target": "currency_devaluation_pressure",
+        "mechanism": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+        "edge_betweenness": 0.1161,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_debt_servicing",
+        "target": "economic_collapse",
+        "mechanism": "Inability to service debt can trigger default and economic collapse.",
+        "edge_betweenness": 0.0268,
+        "on_critical_path": true
+      },
+      {
+        "source": "inflation_rate",
+        "target": "economic_collapse",
+        "mechanism": "Hyperinflation erodes purchasing power and can lead to social unrest and economic breakdown.",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "currency_devaluation_pressure",
+        "target": "inflation_rate",
+        "mechanism": "A weaker currency makes imports more expensive, driving up inflation.",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": false
+      },
+      {
+        "source": "currency_devaluation_pressure",
+        "target": "economic_collapse",
+        "mechanism": "Severe and rapid devaluation can destabilize the economy and lead to collapse.",
+        "edge_betweenness": 0.0446,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_stability",
+        "target": "imf_program_adherence",
+        "mechanism": "Political instability can hinder the implementation of necessary reforms for IMF programs.",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": false
+      },
+      {
+        "source": "political_stability",
+        "target": "economic_collapse",
+        "mechanism": "Widespread political instability can disrupt economic activity and lead to collapse.",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      },
+      {
+        "source": "geopolitical_instability_region",
+        "target": "foreign_currency_reserves",
+        "mechanism": "Regional instability can deter tourism and foreign investment, reducing foreign currency inflows.",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "geopolitical_instability_region",
+        "target": "currency_devaluation_pressure",
+        "mechanism": "Regional conflicts can increase risk aversion, leading to capital flight and currency pressure.",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      },
+      {
+        "source": "imf_program_adherence",
+        "target": "foreign_currency_reserves",
+        "mechanism": "Adherence to IMF programs often unlocks financial support, boosting reserves.",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": false
+      },
+      {
+        "source": "imf_program_adherence",
+        "target": "political_stability",
+        "mechanism": "Successful IMF reforms can improve economic conditions, indirectly enhancing political stability.",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": false
+      },
+      {
+        "source": "imf_program_adherence",
+        "target": "economic_collapse",
+        "mechanism": "Failure to adhere to IMF programs can lead to withdrawal of support and increased economic distress.",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "foreign_currency_reserves",
+        "description": "Egypt's available foreign currency reserves",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "currency_devaluation_pressure",
+        "description": "The pressure on the Egyptian Pound to lose value against foreign currencies",
+        "importance": 0.131,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "external_debt_servicing",
+        "description": "Egypt's ability to service its external debt obligations",
+        "importance": 0.0119,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "geopolitical_instability_region",
+        "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "foreign_currency_reserves",
+        "description": "Egypt's available foreign currency reserves",
+        "importance": 0.1667,
+        "centrality_rank": 1,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "currency_devaluation_pressure",
+        "description": "The pressure on the Egyptian Pound to lose value against foreign currencies",
+        "importance": 0.131,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "external_debt_servicing",
+        "description": "Egypt's ability to service its external debt obligations",
+        "importance": 0.0119,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "geopolitical_instability_region",
+        "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+        "description": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+        "importance": 0.1161,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_currency_reserves->external_debt_servicing",
+        "description": "Low reserves make it harder to meet debt payments.",
+        "importance": 0.0804,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "imf_program_adherence->foreign_currency_reserves",
+        "description": "Adherence to IMF programs often unlocks financial support, boosting reserves.",
+        "importance": 0.1429,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+        "description": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+        "importance": 0.1161,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_currency_reserves->external_debt_servicing",
+        "description": "Low reserves make it harder to meet debt payments.",
+        "importance": 0.0804,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "imf_program_adherence->foreign_currency_reserves",
+        "description": "Adherence to IMF programs often unlocks financial support, boosting reserves.",
+        "importance": 0.1429,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_strengthen_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+        "description": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+        "importance": 0.1161,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "external_debt_servicing->political_stability",
+        "description": "Potential link: Egypt's ability to service its external debt obligations -> The stability of the Egyptian government and its policies",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "external_debt_servicing->imf_program_adherence",
+        "description": "Potential link: Egypt's ability to service its external debt obligations -> Egypt's adherence to the conditions and reforms agreed upon with the International Monetary Fund",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "foreign_currency_reserves",
+      "description": "Egypt's available foreign currency reserves",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "currency_devaluation_pressure",
+      "description": "The pressure on the Egyptian Pound to lose value against foreign currencies",
+      "importance": 0.131,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "external_debt_servicing",
+      "description": "Egypt's ability to service its external debt obligations",
+      "importance": 0.0119,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "geopolitical_instability_region",
+      "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "foreign_currency_reserves",
+      "description": "Egypt's available foreign currency reserves",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "currency_devaluation_pressure",
+      "description": "The pressure on the Egyptian Pound to lose value against foreign currencies",
+      "importance": 0.131,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "external_debt_servicing",
+      "description": "Egypt's ability to service its external debt obligations",
+      "importance": 0.0119,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "geopolitical_instability_region",
+      "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "description": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_currency_reserves->external_debt_servicing",
+      "description": "Low reserves make it harder to meet debt payments.",
+      "importance": 0.0804,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "imf_program_adherence->foreign_currency_reserves",
+      "description": "Adherence to IMF programs often unlocks financial support, boosting reserves.",
+      "importance": 0.1429,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "description": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_currency_reserves->external_debt_servicing",
+      "description": "Low reserves make it harder to meet debt payments.",
+      "importance": 0.0804,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "imf_program_adherence->foreign_currency_reserves",
+      "description": "Adherence to IMF programs often unlocks financial support, boosting reserves.",
+      "importance": 0.1429,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_strengthen_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "description": "Depleting reserves increase pressure to devalue the currency to conserve them.",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "external_debt_servicing->political_stability",
+      "description": "Potential link: Egypt's ability to service its external debt obligations -> The stability of the Egyptian government and its policies",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "external_debt_servicing->imf_program_adherence",
+      "description": "Potential link: Egypt's ability to service its external debt obligations -> Egypt's adherence to the conditions and reforms agreed upon with the International Monetary Fund",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Suppose Egypt has recently secured a massive, previously undisclosed, long-term loan from a bloc of friendly nations that will significantly bolster its foreign currency reserves for the next five years, far exceeding any short-term needs for debt servicing or import cover. In this scenario, how much would you adjust your probability of economic collapse, given that this new influx effectively insulates Egypt from immediate reserve-related pressures?",
+      "probe_type": "node_negate_high",
+      "target_id": "foreign_currency_reserves",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "Egypt's available foreign currency reserves"
+    },
+    {
+      "probe_text": "Recent reports indicate that the Egyptian central bank has successfully implemented new capital controls and has secured significant forward agreements for foreign currency, effectively stabilizing the Egyptian Pound. Given these strong interventions, what is the likelihood that 'currency_devaluation_pressure' will actually be minimal or even reversed in the coming 12 months, despite other pressures?",
+      "probe_type": "node_negate_high",
+      "target_id": "currency_devaluation_pressure",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.131,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The pressure on the Egyptian Pound to lose value against foreign currencies"
+    },
+    {
+      "probe_text": "Recent reports indicate that Egypt has successfully renegotiated the terms of a significant portion of its external debt, pushing back maturity dates and securing extended grace periods. This suggests that the immediate pressure from external debt servicing obligations might be less severe than previously assumed, potentially weakening its direct causal link to economic collapse in the short term.",
+      "probe_type": "node_negate_medium",
+      "target_id": "external_debt_servicing",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0119,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Egypt's ability to service its external debt obligations"
+    },
+    {
+      "probe_text": "Recent developments suggest a significant de-escalation in regional conflicts, particularly in the Gaza and Red Sea areas. Diplomatic breakthroughs have led to a substantial decrease in geopolitical tensions. Given this improved regional stability, how does this affect your assessment of Egypt's foreign currency reserves and currency devaluation pressure?",
+      "probe_type": "node_negate_low",
+      "target_id": "geopolitical_instability_region",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)"
+    },
+    {
+      "probe_text": "A recent report from a major international financial institution highlights that Egypt's foreign currency reserves have fallen to critically low levels, barely covering three months of essential imports. This report also emphasizes that upcoming debt repayments are exceptionally high, making the current reserve levels insufficient to meet even immediate obligations without significant new inflows.",
+      "probe_type": "node_strengthen",
+      "target_id": "foreign_currency_reserves",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1667,
+      "centrality_rank": 1,
+      "on_critical_path": false,
+      "description": "Egypt's available foreign currency reserves"
+    },
+    {
+      "probe_text": "A recent report from a reputable financial institution highlights that Egypt's central bank has been forced to intervene heavily in currency markets to prop up the Egyptian Pound against significant speculative attacks. This intervention has depleted foreign reserves at an accelerated rate, intensifying the underlying pressure for a substantial devaluation and signaling a critical juncture for the currency's stability.",
+      "probe_type": "node_strengthen",
+      "target_id": "currency_devaluation_pressure",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.131,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "The pressure on the Egyptian Pound to lose value against foreign currencies"
+    },
+    {
+      "probe_text": "Egypt's debt servicing obligations have recently become more burdensome due to a significant increase in global interest rates, which are now higher than initially projected. This rise in rates directly impacts the cost of servicing Egypt's variable-rate external debt, making it considerably more challenging to meet upcoming payments.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "external_debt_servicing",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0119,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Egypt's ability to service its external debt obligations"
+    },
+    {
+      "probe_text": "Recent escalations in the Red Sea, including direct attacks on shipping lanes and naval vessels by Houthi forces, have led to a significant rerouting of global trade. Major shipping companies are now avoiding the Suez Canal entirely, citing extreme security risks. This disruption is expected to have a prolonged negative impact on Egypt's crucial Suez Canal revenue, a primary source of foreign currency.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "geopolitical_instability_region",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "The level of instability in Egypt's surrounding regions (e.g., Gaza, Red Sea)"
+    },
+    {
+      "probe_text": "While depleting foreign currency reserves typically increases devaluation pressure, the Egyptian government has recently implemented capital controls and prioritized maintaining a fixed exchange rate, even at the cost of further draining reserves. This policy suggests that the direct link between reserve levels and the *pressure* to devalue might be suppressed or overridden by explicit government intervention aimed at currency stability, at least in the short to medium term.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Depleting reserves increase pressure to devalue the currency to conserve them."
+    },
+    {
+      "probe_text": "While lower foreign currency reserves generally make debt servicing harder, Egypt has recently secured significant bilateral loan rollovers and restructured some of its short-term debt. This suggests that external debt servicing might be less directly dependent on the immediate level of foreign currency reserves and more influenced by the success of ongoing debt management strategies and negotiations, potentially weakening the direct link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "foreign_currency_reserves->external_debt_servicing",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0804,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Low reserves make it harder to meet debt payments."
+    },
+    {
+      "probe_text": "While IMF program adherence is typically associated with financial inflows, recent geopolitical events have severely disrupted global financial markets. This has led to a situation where even countries adhering to IMF programs are struggling to attract the expected levels of foreign investment and aid, meaning adherence may not translate into the usual boost in foreign currency reserves.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "imf_program_adherence->foreign_currency_reserves",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Adherence to IMF programs often unlocks financial support, boosting reserves."
+    },
+    {
+      "probe_text": "Recent reports indicate that Egypt's central bank has been actively intervening in the foreign exchange market, selling significant amounts of its dwindling foreign currency reserves to prop up the Egyptian Pound. This direct action, a desperate measure to stave off further devaluation, highlights just how acutely sensitive the currency is to even marginal drops in reserves, suggesting the 'pressure' is more immediate and severe than a simple gradual increase. This intervention itself is consuming reserves, creating a feedback loop that intensifies devaluation pressure.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Depleting reserves increase pressure to devalue the currency to conserve them."
+    },
+    {
+      "probe_text": "Recent reports indicate that Egypt has been forced to delay payments on some of its short-term debt obligations due to critically low foreign currency reserves. This situation highlights that even before a formal default, a shortage of reserves directly and immediately impedes the *ability* to service debt, suggesting the link between low reserves and external debt servicing difficulties is more direct and potentially more severe than initially modeled.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "foreign_currency_reserves->external_debt_servicing",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0804,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Low reserves make it harder to meet debt payments."
+    },
+    {
+      "probe_text": "Recent reports indicate that Egypt's adherence to the IMF program has been exceptionally strong, leading to a faster-than-anticipated disbursement of funds. This suggests that the link between successful IMF program adherence and the inflow of foreign currency reserves is perhaps more direct and potent than typically modeled, potentially accelerating reserve growth beyond initial expectations.",
+      "probe_type": "edge_strengthen_peripheral",
+      "target_id": "imf_program_adherence->foreign_currency_reserves",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Adherence to IMF programs often unlocks financial support, boosting reserves."
+    },
+    {
+      "probe_text": "We've been reviewing the causal links and have a question about the relationship between foreign currency reserves and currency devaluation pressure. While it's generally understood that dwindling reserves can lead to devaluation pressure, could it also be that significant pressure to devalue the currency, perhaps due to market speculation or a desire to boost exports, actually *drives* the depletion of foreign currency reserves as the central bank intervenes to defend the currency or as capital flees in anticipation of devaluation? In essence, is the pressure to devalue a *cause* of reserve depletion, rather than just a consequence?",
+      "probe_type": "edge_reverse",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1161,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Depleting reserves increase pressure to devalue the currency to conserve them."
+    },
+    {
+      "probe_text": "Consider the recent news that Egypt has struggled to meet some of its external debt servicing obligations, leading to increased borrowing costs and a downgrade by a major credit rating agency. How might this difficulty in servicing its debt directly impact the government's stability and its ability to implement consistent economic policies, potentially leading to social unrest or political challenges?",
+      "probe_type": "edge_missing",
+      "target_id": "external_debt_servicing->political_stability",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Egypt's ability to service its external debt obligations -> The stability of the Egyptian government and its policies"
+    },
+    {
+      "probe_text": "While the IMF program is designed to improve Egypt's economic standing, a crucial factor often overlooked is how Egypt's *current* ability to service its existing external debt directly impacts its capacity to implement painful, but necessary, IMF-mandated reforms. If Egypt is struggling significantly to meet its immediate debt payments, it may lack the fiscal space or political will to enact austerity measures or other reforms required by the IMF, potentially jeopardizing program adherence.",
+      "probe_type": "edge_missing",
+      "target_id": "external_debt_servicing->imf_program_adherence",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Egypt's ability to service its external debt obligations -> Egypt's adherence to the conditions and reforms agreed upon with the International Monetary Fund"
+    },
+    {
+      "probe_text": "Imagine that Egypt experiences a sudden and severe drought, significantly impacting its agricultural output and increasing food prices. How would this event, independent of other factors, alter your assessment of the probability of an economic collapse in Egypt over the next 12 months?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "A significant factor influencing Egypt's economic stability is the global price of oil. Given that Egypt is a net importer of oil, how would a sustained increase in global oil prices, to over $120 per barrel for Brent crude, affect your assessment of Egypt experiencing an economic collapse in the next 12 months?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "Egypt recently hosted a major international film festival, attracting significant global media attention and cultural exchange. While this boosted the country's cultural profile, it had no direct impact on the availability of foreign currency reserves, the nation's debt servicing capacity, or the adherence to IMF program conditions.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "Egypt has recently announced a significant increase in its budget for cultural heritage preservation and tourism promotion, allocating substantial funds towards restoring ancient sites and launching new marketing campaigns aimed at attracting international visitors. This initiative is independent of any current economic reform programs or debt management strategies.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Suppose Egypt has recently secured a massive, previously undisclosed, long-term loan from a bloc of friendly nations that will significantly bolster its foreign currency reserves for the next five years, far exceeding any short-term needs for debt servicing or import cover. In this scenario, how much would you adjust your probability of economic collapse, given that this new influx effectively insulates Egypt from immediate reserve-related pressures?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.19999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about a massive, undisclosed loan significantly bolsters Egypt's foreign currency reserves. This directly impacts the 'foreign_currency_reserves' node, making it a much less significant risk factor for 'external_debt_servicing' and 'currency_devaluation_pressure'. Since depleted reserves were a key pathway to economic collapse, especially through debt servicing issues and currency devaluation leading to inflation, this new information substantially reduces the probability of economic collapse. The loan's five-year duration and exceeding short-term needs further solidify this reduced risk.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about a massive, undisclosed loan significantly bolsters Egypt's foreign currency reserves. This directly impacts the 'foreign_currency_reserves' node, making it a much less significant risk factor for 'external_debt_servicing' and 'currency_devaluation_pressure'. Since depleted reserves were a key pathway to economic collapse, especially through debt servicing issues and currency devaluation leading to inflation, this new information substantially reduces the probability of economic collapse. The loan's five-year duration and exceeding short-term needs further solidify this reduced risk.\"\n}",
+      "target_id": "foreign_currency_reserves",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that the Egyptian central bank has successfully implemented new capital controls and has secured significant forward agreements for foreign currency, effectively stabilizing the Egyptian Pound. Given these strong interventions, what is the likelihood that 'currency_devaluation_pressure' will actually be minimal or even reversed in the coming 12 months, despite other pressures?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new information directly challenges the 'currency_devaluation_pressure' node, suggesting that interventions have been successful in stabilizing the Egyptian Pound. This significantly reduces the likelihood of a key driver of economic collapse. While other pressures remain, mitigating this specific risk lowers the overall probability of economic collapse. The causal links from 'currency_devaluation_pressure' to 'inflation_rate' and 'economic_collapse' are now less likely to be activated.",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information directly challenges the 'currency_devaluation_pressure' node, suggesting that interventions have been successful in stabilizing the Egyptian Pound. This significantly reduces the likelihood of a key driver of economic collapse. While other pressures remain, mitigating this specific risk lowers the overall probability of economic collapse. The causal links from 'currency_devaluation_pressure' to 'inflation_rate' and 'economic_collapse' are now less likely to be activated.\"\n}",
+      "target_id": "currency_devaluation_pressure",
+      "target_type": "node",
+      "target_importance": 0.131,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Egypt has successfully renegotiated the terms of a significant portion of its external debt, pushing back maturity dates and securing extended grace periods. This suggests that the immediate pressure from external debt servicing obligations might be less severe than previously assumed, potentially weakening its direct causal link to economic collapse in the short term.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The new information suggests that Egypt has successfully renegotiated a significant portion of its external debt, pushing back maturity dates and securing extended grace periods. This directly weakens the causal link from 'external_debt_servicing' to 'economic_collapse'. While external debt remains a concern, the immediate pressure is reduced, making a collapse directly driven by debt servicing less likely in the short term. This leads to a decrease in the overall probability of economic collapse.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information suggests that Egypt has successfully renegotiated a significant portion of its external debt, pushing back maturity dates and securing extended grace periods. This directly weakens the causal link from 'external_debt_servicing' to 'economic_collapse'. While external debt remains a concern, the immediate pressure is reduced, making a collapse directly driven by debt servicing less likely in the short term. This leads to a decrease in the overall probability of economic collapse.\"\n}",
+      "target_id": "external_debt_servicing",
+      "target_type": "node",
+      "target_importance": 0.0119,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent developments suggest a significant de-escalation in regional conflicts, particularly in the Gaza and Red Sea areas. Diplomatic breakthroughs have led to a substantial decrease in geopolitical tensions. Given this improved regional stability, how does this affect your assessment of Egypt's foreign currency reserves and currency devaluation pressure?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.06999999999999995,
+      "shift_direction": "decreased",
+      "reasoning": "The de-escalation in regional conflicts directly impacts the 'geopolitical_instability_region' node. According to the causal network, this node positively influences both 'foreign_currency_reserves' and 'currency_devaluation_pressure'. Therefore, a decrease in geopolitical instability is expected to lead to an increase in foreign currency reserves (due to improved tourism and investment prospects) and a decrease in currency devaluation pressure (due to reduced risk aversion and capital flight). These improvements in turn reduce the likelihood of 'external_debt_servicing' issues and 'currency_devaluation_pressure' directly contributing to 'economic_collapse'. This leads to a decrease in the overall probability of economic collapse.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The de-escalation in regional conflicts directly impacts the 'geopolitical_instability_region' node. According to the causal network, this node positively influences both 'foreign_currency_reserves' and 'currency_devaluation_pressure'. Therefore, a decrease in geopolitical instability is expected to lead to an increase in foreign currency reserves (due to improved tourism and investment prospects) and a decrease in currency devaluation pressure (due to reduced risk aversion and capital flight). These improvements in turn reduce the likelihood of 'external_debt_servicing' issues and 'currency_devaluation_pressure' directly contributing to 'economic_collapse'. This leads to a decrease in the overall probability of economic collapse.\"\n}",
+      "target_id": "geopolitical_instability_region",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent report from a major international financial institution highlights that Egypt's foreign currency reserves have fallen to critically low levels, barely covering three months of essential imports. This report also emphasizes that upcoming debt repayments are exceptionally high, making the current reserve levels insufficient to meet even immediate obligations without significant new inflows.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.65,
+      "absolute_shift": 0.30000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly impacts the 'foreign_currency_reserves' node, indicating a critical decline to levels barely covering three months of essential imports. This exacerbates the existing concern about 'external_debt_servicing' as upcoming debt repayments are highlighted as exceptionally high and insufficient with current reserves. This directly strengthens the causal link from 'foreign_currency_reserves' to 'external_debt_servicing' and subsequently to 'economic_collapse'. The information also implies increased 'currency_devaluation_pressure' due to depleted reserves. Therefore, the probability of economic collapse has significantly increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.65,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly impacts the 'foreign_currency_reserves' node, indicating a critical decline to levels barely covering three months of essential imports. This exacerbates the existing concern about 'external_debt_servicing' as upcoming debt repayments are highlighted as exceptionally high and insufficient with current reserves. This directly strengthens the causal link from 'foreign_currency_reserves' to 'external_debt_servicing' and subsequently to 'economic_collapse'. The information also implies increased 'currency_devaluation_pressure' due to depleted reserves. Therefore, the probability of economic collapse has significantly increased.\"\n}",
+      "target_id": "foreign_currency_reserves",
+      "target_type": "node",
+      "target_importance": 0.1667,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent report from a reputable financial institution highlights that Egypt's central bank has been forced to intervene heavily in currency markets to prop up the Egyptian Pound against significant speculative attacks. This intervention has depleted foreign reserves at an accelerated rate, intensifying the underlying pressure for a substantial devaluation and signaling a critical juncture for the currency's stability.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.20000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly challenges the stability of the Egyptian Pound by indicating significant speculative attacks and heavy central bank intervention. This intervention is depleting foreign reserves at an accelerated rate, which, according to the causal network, directly increases currency_devaluation_pressure. This increased pressure on the currency, in turn, has a strong positive causal link to both inflation_rate and economic_collapse. The report suggests a critical juncture, implying a higher likelihood of a substantial devaluation occurring, thereby increasing the probability of economic collapse.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly challenges the stability of the Egyptian Pound by indicating significant speculative attacks and heavy central bank intervention. This intervention is depleting foreign reserves at an accelerated rate, which, according to the causal network, directly increases currency_devaluation_pressure. This increased pressure on the currency, in turn, has a strong positive causal link to both inflation_rate and economic_collapse. The report suggests a critical juncture, implying a higher likelihood of a substantial devaluation occurring, thereby increasing the probability of economic collapse.\"\n}",
+      "target_id": "currency_devaluation_pressure",
+      "target_type": "node",
+      "target_importance": 0.131,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Egypt's debt servicing obligations have recently become more burdensome due to a significant increase in global interest rates, which are now higher than initially projected. This rise in rates directly impacts the cost of servicing Egypt's variable-rate external debt, making it considerably more challenging to meet upcoming payments.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly challenges the 'external_debt_servicing' node, indicating that servicing Egypt's external debt has become significantly more burdensome than previously anticipated due to higher-than-projected global interest rates. This directly strengthens the causal link from 'external_debt_servicing' to 'economic_collapse'. A more difficult debt servicing environment increases the risk of default or severe financial strain, thereby increasing the overall probability of economic collapse.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly challenges the 'external_debt_servicing' node, indicating that servicing Egypt's external debt has become significantly more burdensome than previously anticipated due to higher-than-projected global interest rates. This directly strengthens the causal link from 'external_debt_servicing' to 'economic_collapse'. A more difficult debt servicing environment increases the risk of default or severe financial strain, thereby increasing the overall probability of economic collapse.\"\n}",
+      "target_id": "external_debt_servicing",
+      "target_type": "node",
+      "target_importance": 0.0119,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Recent escalations in the Red Sea, including direct attacks on shipping lanes and naval vessels by Houthi forces, have led to a significant rerouting of global trade. Major shipping companies are now avoiding the Suez Canal entirely, citing extreme security risks. This disruption is expected to have a prolonged negative impact on Egypt's crucial Suez Canal revenue, a primary source of foreign currency.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly and significantly impacts the 'geopolitical_instability_region' node. The escalation in the Red Sea and the rerouting of shipping away from the Suez Canal will likely lead to a substantial decrease in Egypt's foreign currency reserves, as Suez Canal revenues are a major source of foreign currency. This decrease in 'foreign_currency_reserves' will negatively affect 'external_debt_servicing' and increase 'currency_devaluation_pressure'. Both of these are direct causal factors leading to 'economic_collapse'. Therefore, the probability of economic collapse has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly and significantly impacts the 'geopolitical_instability_region' node. The escalation in the Red Sea and the rerouting of shipping away from the Suez Canal will likely lead to a substantial decrease in Egypt's foreign currency reserves, as Suez Canal revenues are a major source of foreign currency. This decrease in 'foreign_currency_reserves' will negatively affect 'external_debt_servicing' and increase 'currency_devaluation_pressure'. Both of these are direct causal factors leading to 'economic_collapse'. Therefore, the probability of economic collapse has increased.\"\n}",
+      "target_id": "geopolitical_instability_region",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "While depleting foreign currency reserves typically increases devaluation pressure, the Egyptian government has recently implemented capital controls and prioritized maintaining a fixed exchange rate, even at the cost of further draining reserves. This policy suggests that the direct link between reserve levels and the *pressure* to devalue might be suppressed or overridden by explicit government intervention aimed at currency stability, at least in the short to medium term.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information suggests that the direct causal link between 'foreign_currency_reserves' and 'currency_devaluation_pressure' might be weaker than initially modeled. The government's intervention through capital controls and a commitment to a fixed exchange rate, even with depleting reserves, indicates a deliberate effort to suppress devaluation. This could temporarily mitigate the immediate pressure on the currency. However, this policy also implies that reserves are being drained to maintain an unsustainable peg, which could lead to a more abrupt and severe devaluation if reserves fall below a critical threshold or if the government is forced to abandon the peg. While the direct pressure might be suppressed, the underlying vulnerability is arguably increasing, and the eventual outcome of such a policy could be more extreme. This warrants an increase in the probability of economic collapse, as the situation becomes more precarious due to the artificial stabilization.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information suggests that the direct causal link between 'foreign_currency_reserves' and 'currency_devaluation_pressure' might be weaker than initially modeled. The government's intervention through capital controls and a commitment to a fixed exchange rate, even with depleting reserves, indicates a deliberate effort to suppress devaluation. This could temporarily mitigate the immediate pressure on the currency. However, this policy also implies that reserves are being drained to maintain an unsustainable peg, which could lead to a more abrupt and severe devaluation if reserves fall below a critical threshold or if the government is forced to abandon the peg. While the direct pressure might be suppressed, the underlying vulnerability is arguably increasing, and the eventual outcome of such a policy could be more extreme. This warrants an increase in the probability of economic collapse, as the situation becomes more precarious due to the artificial stabilization.\"\n}",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "target_type": "edge",
+      "target_importance": 0.1161,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "While lower foreign currency reserves generally make debt servicing harder, Egypt has recently secured significant bilateral loan rollovers and restructured some of its short-term debt. This suggests that external debt servicing might be less directly dependent on the immediate level of foreign currency reserves and more influenced by the success of ongoing debt management strategies and negotiations, potentially weakening the direct link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.31,
+      "absolute_shift": 0.03999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new information suggests that the direct causal link between foreign_currency_reserves and external_debt_servicing might be weaker than initially assumed. The successful rollover of bilateral loans and debt restructuring indicate that Egypt has found alternative ways to manage its debt obligations, mitigating the immediate impact of lower reserves. This reduces the probability of external_debt_servicing directly leading to economic_collapse through this specific pathway. While foreign currency reserves remain important, their immediate impact on the ability to service debt appears to be buffered by these debt management strategies. Therefore, the overall probability of economic collapse has decreased slightly.",
+      "raw_response": "{\n  \"updated_probability\": 0.31,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information suggests that the direct causal link between foreign_currency_reserves and external_debt_servicing might be weaker than initially assumed. The successful rollover of bilateral loans and debt restructuring indicate that Egypt has found alternative ways to manage its debt obligations, mitigating the immediate impact of lower reserves. This reduces the probability of external_debt_servicing directly leading to economic_collapse through this specific pathway. While foreign currency reserves remain important, their immediate impact on the ability to service debt appears to be buffered by these debt management strategies. Therefore, the overall probability of economic collapse has decreased slightly.\"\n}",
+      "target_id": "foreign_currency_reserves->external_debt_servicing",
+      "target_type": "edge",
+      "target_importance": 0.0804,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "While IMF program adherence is typically associated with financial inflows, recent geopolitical events have severely disrupted global financial markets. This has led to a situation where even countries adhering to IMF programs are struggling to attract the expected levels of foreign investment and aid, meaning adherence may not translate into the usual boost in foreign currency reserves.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.4,
+      "absolute_shift": 0.050000000000000044,
+      "shift_direction": "increased",
+      "reasoning": "The new information challenges the direct positive impact of IMF program adherence on foreign currency reserves. If adherence to IMF programs is less effective in boosting reserves due to broader geopolitical and market disruptions, then a key mechanism for shoring up Egypt's financial stability is weakened. This implies that even if Egypt adheres to its IMF commitments, its foreign currency reserves might not improve as expected, increasing the risk of not being able to service external debt and potentially triggering economic collapse. Therefore, the probability of economic collapse has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.40,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information challenges the direct positive impact of IMF program adherence on foreign currency reserves. If adherence to IMF programs is less effective in boosting reserves due to broader geopolitical and market disruptions, then a key mechanism for shoring up Egypt's financial stability is weakened. This implies that even if Egypt adheres to its IMF commitments, its foreign currency reserves might not improve as expected, increasing the risk of not being able to service external debt and potentially triggering economic collapse. Therefore, the probability of economic collapse has increased.\"\n}",
+      "target_id": "imf_program_adherence->foreign_currency_reserves",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Egypt's central bank has been actively intervening in the foreign exchange market, selling significant amounts of its dwindling foreign currency reserves to prop up the Egyptian Pound. This direct action, a desperate measure to stave off further devaluation, highlights just how acutely sensitive the currency is to even marginal drops in reserves, suggesting the 'pressure' is more immediate and severe than a simple gradual increase. This intervention itself is consuming reserves, creating a feedback loop that intensifies devaluation pressure.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly challenges the assumed gradual nature of the 'foreign_currency_reserves -> currency_devaluation_pressure' link. The report indicates active, significant intervention by the central bank to defend the currency, consuming reserves at an accelerated rate. This suggests that the pressure on the currency is more immediate and severe than previously modeled, and the intervention itself creates a detrimental feedback loop. This heightened and more rapid pressure on the currency, driven by the depletion of reserves, increases the likelihood of cascading negative effects, including higher inflation and ultimately a greater risk of economic collapse. Therefore, the probability has been increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly challenges the assumed gradual nature of the 'foreign_currency_reserves -> currency_devaluation_pressure' link. The report indicates active, significant intervention by the central bank to defend the currency, consuming reserves at an accelerated rate. This suggests that the pressure on the currency is more immediate and severe than previously modeled, and the intervention itself creates a detrimental feedback loop. This heightened and more rapid pressure on the currency, driven by the depletion of reserves, increases the likelihood of cascading negative effects, including higher inflation and ultimately a greater risk of economic collapse. Therefore, the probability has been increased.\"\n}",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "target_type": "edge",
+      "target_importance": 0.1161,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Egypt has been forced to delay payments on some of its short-term debt obligations due to critically low foreign currency reserves. This situation highlights that even before a formal default, a shortage of reserves directly and immediately impedes the *ability* to service debt, suggesting the link between low reserves and external debt servicing difficulties is more direct and potentially more severe than initially modeled.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly confirms and strengthens the causal link between 'foreign_currency_reserves' and 'external_debt_servicing'. The report of delayed short-term debt payments indicates that low reserves are already actively hindering debt servicing, not just creating a potential future risk. This suggests the pathway to 'economic_collapse' through debt default is more immediate and probable. Therefore, the overall probability of economic collapse has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly confirms and strengthens the causal link between 'foreign_currency_reserves' and 'external_debt_servicing'. The report of delayed short-term debt payments indicates that low reserves are already actively hindering debt servicing, not just creating a potential future risk. This suggests the pathway to 'economic_collapse' through debt default is more immediate and probable. Therefore, the overall probability of economic collapse has increased.\"\n}",
+      "target_id": "foreign_currency_reserves->external_debt_servicing",
+      "target_type": "edge",
+      "target_importance": 0.0804,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that Egypt's adherence to the IMF program has been exceptionally strong, leading to a faster-than-anticipated disbursement of funds. This suggests that the link between successful IMF program adherence and the inflow of foreign currency reserves is perhaps more direct and potent than typically modeled, potentially accelerating reserve growth beyond initial expectations.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new information highlights a stronger than expected positive impact of IMF program adherence on foreign currency reserves. This strengthens a mitigating factor against economic collapse, as higher reserves directly improve external debt servicing ability and reduce currency devaluation pressure. While the link is now understood to be more potent, the overall impact on the probability of collapse is a decrease because this information directly counteracts a key driver of potential collapse (low reserves and debt servicing issues).",
+      "raw_response": "{\n  \"updated_probability\": 0.25,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information highlights a stronger than expected positive impact of IMF program adherence on foreign currency reserves. This strengthens a mitigating factor against economic collapse, as higher reserves directly improve external debt servicing ability and reduce currency devaluation pressure. While the link is now understood to be more potent, the overall impact on the probability of collapse is a decrease because this information directly counteracts a key driver of potential collapse (low reserves and debt servicing issues).\"\n}",
+      "target_id": "imf_program_adherence->foreign_currency_reserves",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "We've been reviewing the causal links and have a question about the relationship between foreign currency reserves and currency devaluation pressure. While it's generally understood that dwindling reserves can lead to devaluation pressure, could it also be that significant pressure to devalue the currency, perhaps due to market speculation or a desire to boost exports, actually *drives* the depletion of foreign currency reserves as the central bank intervenes to defend the currency or as capital flees in anticipation of devaluation? In essence, is the pressure to devalue a *cause* of reserve depletion, rather than just a consequence?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.030000000000000027,
+      "shift_direction": "increased",
+      "reasoning": "The user's query suggests a bidirectional causal link between currency devaluation pressure and foreign currency reserves. Previously, the model only considered foreign_currency_reserves -> currency_devaluation_pressure. Introducing the reverse causality (currency_devaluation_pressure -> foreign_currency_reserves) means that increased devaluation pressure, whether from speculation or export promotion, can actively deplete reserves through central bank intervention or capital flight. This creates a potentially reinforcing negative feedback loop where devaluation pressure leads to reserve depletion, which in turn increases devaluation pressure. This strengthens the overall pathway to economic collapse, thus increasing the probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The user's query suggests a bidirectional causal link between currency devaluation pressure and foreign currency reserves. Previously, the model only considered foreign_currency_reserves -> currency_devaluation_pressure. Introducing the reverse causality (currency_devaluation_pressure -> foreign_currency_reserves) means that increased devaluation pressure, whether from speculation or export promotion, can actively deplete reserves through central bank intervention or capital flight. This creates a potentially reinforcing negative feedback loop where devaluation pressure leads to reserve depletion, which in turn increases devaluation pressure. This strengthens the overall pathway to economic collapse, thus increasing the probability.\"\n}",
+      "target_id": "foreign_currency_reserves->currency_devaluation_pressure",
+      "target_type": "edge",
+      "target_importance": 0.1161,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_missing",
+      "target_reason_id": null,
+      "probe_text": "Consider the recent news that Egypt has struggled to meet some of its external debt servicing obligations, leading to increased borrowing costs and a downgrade by a major credit rating agency. How might this difficulty in servicing its debt directly impact the government's stability and its ability to implement consistent economic policies, potentially leading to social unrest or political challenges?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.20000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The new information directly impacts the 'external_debt_servicing' node, indicating a worsening situation. The prompt also explicitly links this difficulty to potential impacts on 'political_stability' and the ability to implement economic policies, which are already nodes in the causal network that can lead to 'economic_collapse'. The downgrade by a credit rating agency further reinforces the severity of the debt servicing issues and increases borrowing costs, exacerbating the problem. This strengthens the causal chain from 'external_debt_servicing' to 'economic_collapse' and introduces a more direct link between debt servicing issues and political instability, both of which are significant drivers of the outcome.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information directly impacts the 'external_debt_servicing' node, indicating a worsening situation. The prompt also explicitly links this difficulty to potential impacts on 'political_stability' and the ability to implement economic policies, which are already nodes in the causal network that can lead to 'economic_collapse'. The downgrade by a credit rating agency further reinforces the severity of the debt servicing issues and increases borrowing costs, exacerbating the problem. This strengthens the causal chain from 'external_debt_servicing' to 'economic_collapse' and introduces a more direct link between debt servicing issues and political instability, both of which are significant drivers of the outcome.\"\n}",
+      "target_id": "external_debt_servicing->political_stability",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "edge_missing",
+      "target_reason_id": null,
+      "probe_text": "While the IMF program is designed to improve Egypt's economic standing, a crucial factor often overlooked is how Egypt's *current* ability to service its existing external debt directly impacts its capacity to implement painful, but necessary, IMF-mandated reforms. If Egypt is struggling significantly to meet its immediate debt payments, it may lack the fiscal space or political will to enact austerity measures or other reforms required by the IMF, potentially jeopardizing program adherence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "The new information highlights a critical feedback loop where the current ability to service external debt directly impedes the capacity to adhere to IMF programs. Previously, the link was primarily modeled as IMF adherence improving economic conditions, which would then help debt servicing. This new information emphasizes that severe debt servicing difficulties can actively *prevent* successful IMF program adherence. This strengthens the pathway from external_debt_servicing to economic_collapse, as it now directly influences imf_program_adherence, making it more likely that adherence fails, which in turn increases the risk of economic collapse. Therefore, the probability of economic collapse has increased.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information highlights a critical feedback loop where the current ability to service external debt directly impedes the capacity to adhere to IMF programs. Previously, the link was primarily modeled as IMF adherence improving economic conditions, which would then help debt servicing. This new information emphasizes that severe debt servicing difficulties can actively *prevent* successful IMF program adherence. This strengthens the pathway from external_debt_servicing to economic_collapse, as it now directly influences imf_program_adherence, making it more likely that adherence fails, which in turn increases the risk of economic collapse. Therefore, the probability of economic collapse has increased.\"\n}",
+      "target_id": "external_debt_servicing->imf_program_adherence",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Imagine that Egypt experiences a sudden and severe drought, significantly impacting its agricultural output and increasing food prices. How would this event, independent of other factors, alter your assessment of the probability of an economic collapse in Egypt over the next 12 months?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.07,
+      "shift_direction": "increased",
+      "reasoning": "A severe drought directly impacts agricultural output, leading to increased food prices. This contributes to higher inflation (inflation_rate node). Higher inflation, especially for essential goods like food, can erode purchasing power, increase social unrest, and directly contribute to the likelihood of economic collapse (economic_collapse node). While not explicitly in the current causal network, a significant agricultural shock can also indirectly affect foreign currency reserves by impacting exports and potentially increasing the need for food imports, further straining reserves and increasing currency devaluation pressure. Therefore, this event increases the probability of economic collapse.",
+      "raw_response": "{\n  \"updated_probability\": 0.42,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"A severe drought directly impacts agricultural output, leading to increased food prices. This contributes to higher inflation (inflation_rate node). Higher inflation, especially for essential goods like food, can erode purchasing power, increase social unrest, and directly contribute to the likelihood of economic collapse (economic_collapse node). While not explicitly in the current causal network, a significant agricultural shock can also indirectly affect foreign currency reserves by impacting exports and potentially increasing the need for food imports, further straining reserves and increasing currency devaluation pressure. Therefore, this event increases the probability of economic collapse.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A significant factor influencing Egypt's economic stability is the global price of oil. Given that Egypt is a net importer of oil, how would a sustained increase in global oil prices, to over $120 per barrel for Brent crude, affect your assessment of Egypt experiencing an economic collapse in the next 12 months?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "increased",
+      "reasoning": "A sustained increase in global oil prices to over $120 per barrel significantly impacts Egypt, a net oil importer. This would directly increase Egypt's import bill for oil, straining its foreign currency reserves. Consequently, this would exacerbate currency devaluation pressure and inflation, as higher energy costs translate to higher prices for goods and services. The increased economic strain also raises the risk of failing to meet external debt servicing obligations. While not explicitly in the original causal network, the global oil price is a crucial exogenous factor that amplifies existing vulnerabilities. Therefore, the probability of economic collapse increases.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"A sustained increase in global oil prices to over $120 per barrel significantly impacts Egypt, a net oil importer. This would directly increase Egypt's import bill for oil, straining its foreign currency reserves. Consequently, this would exacerbate currency devaluation pressure and inflation, as higher energy costs translate to higher prices for goods and services. The increased economic strain also raises the risk of failing to meet external debt servicing obligations. While not explicitly in the original causal network, the global oil price is a crucial exogenous factor that amplifies existing vulnerabilities. Therefore, the probability of economic collapse increases.\"\n}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Egypt recently hosted a major international film festival, attracting significant global media attention and cultural exchange. While this boosted the country's cultural profile, it had no direct impact on the availability of foreign currency reserves, the nation's debt servicing capacity, or the adherence to IMF program conditions.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The new information about Egypt hosting an international film festival, while positive for its cultural profile, explicitly states it had no direct impact on the key economic variables in the causal model (foreign currency reserves, debt servicing, or IMF adherence). Therefore, this information does not alter the existing causal relationships or the probability of economic collapse based on the current model.",
+      "raw_response": "{\n  \"updated_probability\": 0.35,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The new information about Egypt hosting an international film festival, while positive for its cultural profile, explicitly states it had no direct impact on the key economic variables in the causal model (foreign currency reserves, debt servicing, or IMF adherence). Therefore, this information does not alter the existing causal relationships or the probability of economic collapse based on the current model.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "Egypt has recently announced a significant increase in its budget for cultural heritage preservation and tourism promotion, allocating substantial funds towards restoring ancient sites and launching new marketing campaigns aimed at attracting international visitors. This initiative is independent of any current economic reform programs or debt management strategies.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.33,
+      "absolute_shift": 0.019999999999999962,
+      "shift_direction": "decreased",
+      "reasoning": "The new information about increased spending on cultural heritage preservation and tourism promotion is a positive development for Egypt's economy. While independent of current reform programs, successful tourism promotion can lead to increased foreign currency inflows, which directly impacts 'foreign_currency_reserves'. Higher reserves would likely improve 'external_debt_servicing' capabilities and reduce 'currency_devaluation_pressure'. This, in turn, would lessen the likelihood of 'economic_collapse'. Therefore, the probability of economic collapse is slightly decreased.",
+      "raw_response": "{\n  \"updated_probability\": 0.33,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information about increased spending on cultural heritage preservation and tourism promotion is a positive development for Egypt's economy. While independent of current reform programs, successful tourism promotion can lead to increased foreign currency inflows, which directly impacts 'foreign_currency_reserves'. Higher reserves would likely improve 'external_debt_servicing' capabilities and reduce 'currency_devaluation_pressure'. This, in turn, would lessen the likelihood of 'economic_collapse'. Therefore, the probability of economic collapse is slightly decreased.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "1461",
+    "question_text": "Will Egypt experience an economic collapse (as defined by any of the listed scenarios) in the next 12 months?",
+    "source": "infer",
+    "condition": "one-turn",
+    "initial_probability": 0.35,
+    "n_probes": 21,
+    "n_successful": 21,
+    "mean_absolute_shift": 0.10238095238095239,
+    "max_absolute_shift": 0.30000000000000004
+  },
+  "model": "gemini-flash",
+  "model_label": "Gemini 2.5 Flash Lite",
+  "market_probability": 0.0159,
+  "aggregate_metrics": {
+    "ssr": 4.210526315789475,
+    "mean_shift_high": 0.2,
+    "mean_shift_low": 0.04749999999999999,
+    "asymmetry_index": 0.6299999999999996,
+    "mean_shift_negate": 0.08999999999999998,
+    "mean_shift_strengthen": 0.14285714285714293,
+    "fnar": 1,
+    "n_accepted": 2,
+    "n_spurious": 2,
+    "critical_path_premium": -0.015833333333333324,
+    "mean_shift_on_path": 0.09333333333333337,
+    "mean_shift_off_path": 0.10916666666666669,
+    "importance_sensitivity_correlation": 0.4862637362637363,
+    "control_sensitivity": 0
+  }
+}

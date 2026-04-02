@@ -1,0 +1,1286 @@
+{
+  "question_id": "7c7f4bb8e6b6eaaaffcf8397ba1e99c30c5ed1be3676dede2c72a20cdae104c1",
+  "question_text": "Will there be more than ten times as many 'Strategic developments' in Central African Republic for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Strategic developments' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Strategic developments'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.22,
+  "nodes": [
+    {
+      "id": "internal_conflict_intensity",
+      "description": "Level of armed clashes and rebel activity within CAR",
+      "role": "factor"
+    },
+    {
+      "id": "foreign_military_involvement",
+      "description": "Presence and actions of foreign troops or mercenaries in CAR",
+      "role": "factor"
+    },
+    {
+      "id": "peacekeeping_operations",
+      "description": "Scale of UN or regional peacekeeping missions",
+      "role": "factor"
+    },
+    {
+      "id": "political_transition",
+      "description": "Upcoming elections or changes in government authority",
+      "role": "factor"
+    },
+    {
+      "id": "regional_security_dynamics",
+      "description": "Instability in neighboring countries that can spill over",
+      "role": "factor"
+    },
+    {
+      "id": "international_aid_funding",
+      "description": "Amount of external financial and logistical support",
+      "role": "factor"
+    },
+    {
+      "id": "media_coverage_intensity",
+      "description": "Volume of domestic and international reporting on CAR",
+      "role": "factor"
+    },
+    {
+      "id": "strategic_developments_spike",
+      "description": "Occurrence of >10× baseline strategic developments in the target 30‑day window",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "internal_conflict_intensity",
+      "to": "foreign_military_involvement",
+      "mechanism": "Higher conflict draws foreign forces seeking influence or security"
+    },
+    {
+      "from": "internal_conflict_intensity",
+      "to": "peacekeeping_operations",
+      "mechanism": "Escalating clashes prompt UN/ regional peacekeepers to expand mandates"
+    },
+    {
+      "from": "political_transition",
+      "to": "internal_conflict_intensity",
+      "mechanism": "Election cycles often trigger power struggles and violence"
+    },
+    {
+      "from": "regional_security_dynamics",
+      "to": "internal_conflict_intensity",
+      "mechanism": "Cross‑border rebel movements raise domestic fighting"
+    },
+    {
+      "from": "international_aid_funding",
+      "to": "peacekeeping_operations",
+      "mechanism": "More funding enables larger or more active peacekeeping deployments"
+    },
+    {
+      "from": "foreign_military_involvement",
+      "to": "strategic_developments_spike",
+      "mechanism": "Foreign operations are counted as strategic developments"
+    },
+    {
+      "from": "peacekeeping_operations",
+      "to": "strategic_developments_spike",
+      "mechanism": "Peacekeeper actions (e.g., cease‑fire agreements) are strategic events"
+    },
+    {
+      "from": "media_coverage_intensity",
+      "to": "political_transition",
+      "mechanism": "Intense reporting can pressure authorities and shape transition dynamics"
+    },
+    {
+      "from": "media_coverage_intensity",
+      "to": "strategic_developments_spike",
+      "mechanism": "Higher reporting raises the likelihood that events are recorded as strategic developments"
+    }
+  ],
+  "reasoning": "CAR’s recent history shows a modest baseline of strategic developments (≈1‑2 per month). While an upcoming election in 2025 could increase internal conflict and attract foreign actors, the combined effect of regional spill‑over, peacekeeping, and aid is unlikely to generate the ten‑fold surge required. The probability of such an extreme spike is therefore judged low, around 22%.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 9,
+    "density": 0.1607,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "strategic_developments_spike",
+    "node_metrics": [
+      {
+        "node_id": "internal_conflict_intensity",
+        "description": "Level of armed clashes and rebel activity within CAR",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 2,
+        "betweenness": 0.1905,
+        "closeness": 0.3214,
+        "pagerank": 0.1611,
+        "path_relevance": 0.4
+      },
+      {
+        "node_id": "foreign_military_involvement",
+        "description": "Presence and actions of foreign troops or mercenaries in CAR",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0357,
+        "closeness": 0.2857,
+        "pagerank": 0.1211,
+        "path_relevance": 0.3
+      },
+      {
+        "node_id": "peacekeeping_operations",
+        "description": "Scale of UN or regional peacekeeping missions",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0595,
+        "closeness": 0.3968,
+        "pagerank": 0.1659,
+        "path_relevance": 0.4
+      },
+      {
+        "node_id": "political_transition",
+        "description": "Upcoming elections or changes in government authority",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.1429,
+        "pagerank": 0.075,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "regional_security_dynamics",
+        "description": "Instability in neighboring countries that can spill over",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0526,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "international_aid_funding",
+        "description": "Amount of external financial and logistical support",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0526,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "media_coverage_intensity",
+        "description": "Volume of domestic and international reporting on CAR",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0526,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "strategic_developments_spike",
+        "description": "Occurrence of >10× baseline strategic developments in the target 30‑day window",
+        "role": "outcome",
+        "in_degree": 3,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.5385,
+        "pagerank": 0.3189,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "internal_conflict_intensity",
+        "target": "foreign_military_involvement",
+        "mechanism": "Higher conflict draws foreign forces seeking influence or security",
+        "edge_betweenness": 0.0982,
+        "on_critical_path": true
+      },
+      {
+        "source": "internal_conflict_intensity",
+        "target": "peacekeeping_operations",
+        "mechanism": "Escalating clashes prompt UN/ regional peacekeepers to expand mandates",
+        "edge_betweenness": 0.0982,
+        "on_critical_path": true
+      },
+      {
+        "source": "foreign_military_involvement",
+        "target": "strategic_developments_spike",
+        "mechanism": "Foreign operations are counted as strategic developments",
+        "edge_betweenness": 0.0446,
+        "on_critical_path": true
+      },
+      {
+        "source": "peacekeeping_operations",
+        "target": "strategic_developments_spike",
+        "mechanism": "Peacekeeper actions (e.g., cease‑fire agreements) are strategic events",
+        "edge_betweenness": 0.0625,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_transition",
+        "target": "internal_conflict_intensity",
+        "mechanism": "Election cycles often trigger power struggles and violence",
+        "edge_betweenness": 0.125,
+        "on_critical_path": true
+      },
+      {
+        "source": "regional_security_dynamics",
+        "target": "internal_conflict_intensity",
+        "mechanism": "Cross‑border rebel movements raise domestic fighting",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "international_aid_funding",
+        "target": "peacekeeping_operations",
+        "mechanism": "More funding enables larger or more active peacekeeping deployments",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": true
+      },
+      {
+        "source": "media_coverage_intensity",
+        "target": "political_transition",
+        "mechanism": "Intense reporting can pressure authorities and shape transition dynamics",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": false
+      },
+      {
+        "source": "media_coverage_intensity",
+        "target": "strategic_developments_spike",
+        "mechanism": "Higher reporting raises the likelihood that events are recorded as strategic developments",
+        "edge_betweenness": 0.0179,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "internal_conflict_intensity",
+        "description": "Level of armed clashes and rebel activity within CAR",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_transition",
+        "description": "Upcoming elections or changes in government authority",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "foreign_military_involvement",
+        "description": "Presence and actions of foreign troops or mercenaries in CAR",
+        "importance": 0.0357,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "media_coverage_intensity",
+        "description": "Volume of domestic and international reporting on CAR",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "internal_conflict_intensity",
+        "description": "Level of armed clashes and rebel activity within CAR",
+        "importance": 0.1905,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "political_transition",
+        "description": "Upcoming elections or changes in government authority",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "foreign_military_involvement",
+        "description": "Presence and actions of foreign troops or mercenaries in CAR",
+        "importance": 0.0357,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "media_coverage_intensity",
+        "description": "Volume of domestic and international reporting on CAR",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_transition->internal_conflict_intensity",
+        "description": "Election cycles often trigger power struggles and violence",
+        "importance": 0.125,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "internal_conflict_intensity->foreign_military_involvement",
+        "description": "Higher conflict draws foreign forces seeking influence or security",
+        "importance": 0.0982,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "media_coverage_intensity->political_transition",
+        "description": "Intense reporting can pressure authorities and shape transition dynamics",
+        "importance": 0.0714,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_transition->internal_conflict_intensity",
+        "description": "Election cycles often trigger power struggles and violence",
+        "importance": 0.125,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "internal_conflict_intensity->foreign_military_involvement",
+        "description": "Higher conflict draws foreign forces seeking influence or security",
+        "importance": 0.0982,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "media_coverage_intensity->political_transition",
+        "description": "Intense reporting can pressure authorities and shape transition dynamics",
+        "importance": 0.0714,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_strengthen_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "political_transition->internal_conflict_intensity",
+        "description": "Election cycles often trigger power struggles and violence",
+        "importance": 0.125,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "media_coverage_intensity->foreign_military_involvement",
+        "description": "Potential link: Volume of domestic and international reporting on CAR -> Presence and actions of foreign troops or mercenaries in CAR",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "media_coverage_intensity->peacekeeping_operations",
+        "description": "Potential link: Volume of domestic and international reporting on CAR -> Scale of UN or regional peacekeeping missions",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "internal_conflict_intensity",
+      "description": "Level of armed clashes and rebel activity within CAR",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_transition",
+      "description": "Upcoming elections or changes in government authority",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "foreign_military_involvement",
+      "description": "Presence and actions of foreign troops or mercenaries in CAR",
+      "importance": 0.0357,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "media_coverage_intensity",
+      "description": "Volume of domestic and international reporting on CAR",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "internal_conflict_intensity",
+      "description": "Level of armed clashes and rebel activity within CAR",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "political_transition",
+      "description": "Upcoming elections or changes in government authority",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "foreign_military_involvement",
+      "description": "Presence and actions of foreign troops or mercenaries in CAR",
+      "importance": 0.0357,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "media_coverage_intensity",
+      "description": "Volume of domestic and international reporting on CAR",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "description": "Election cycles often trigger power struggles and violence",
+      "importance": 0.125,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "internal_conflict_intensity->foreign_military_involvement",
+      "description": "Higher conflict draws foreign forces seeking influence or security",
+      "importance": 0.0982,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "media_coverage_intensity->political_transition",
+      "description": "Intense reporting can pressure authorities and shape transition dynamics",
+      "importance": 0.0714,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "description": "Election cycles often trigger power struggles and violence",
+      "importance": 0.125,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "internal_conflict_intensity->foreign_military_involvement",
+      "description": "Higher conflict draws foreign forces seeking influence or security",
+      "importance": 0.0982,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "media_coverage_intensity->political_transition",
+      "description": "Intense reporting can pressure authorities and shape transition dynamics",
+      "importance": 0.0714,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_strengthen_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "description": "Election cycles often trigger power struggles and violence",
+      "importance": 0.125,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "media_coverage_intensity->foreign_military_involvement",
+      "description": "Potential link: Volume of domestic and international reporting on CAR -> Presence and actions of foreign troops or mercenaries in CAR",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "media_coverage_intensity->peacekeeping_operations",
+      "description": "Potential link: Volume of domestic and international reporting on CAR -> Scale of UN or regional peacekeeping missions",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent intelligence suggests that most strategic developments in CAR are driven by diplomatic negotiations and external funding agreements rather than the level of on‑ground fighting. Even when armed clashes are low, high‑level peace talks and foreign military deployments can generate a surge of reported strategic events. Moreover, a lull in violence often creates a window for coordinated political maneuvers that are counted as strategic developments, contradicting the assumption that intense internal conflict is the primary catalyst.",
+      "probe_type": "node_negate_high",
+      "target_id": "internal_conflict_intensity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Level of armed clashes and rebel activity within CAR"
+    },
+    {
+      "probe_text": "Recent analyses show that the upcoming elections in the Central African Republic have been repeatedly postponed and lack credible participation, rendering the political transition largely symbolic. Consequently, the transition is unlikely to trigger power struggles or affect conflict dynamics, and may even dampen violence as factions wait for a definitive outcome that never materializes.",
+      "probe_type": "node_negate_high",
+      "target_id": "political_transition",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Upcoming elections or changes in government authority"
+    },
+    {
+      "probe_text": "Recent satellite imagery and UN reports show that no foreign troops or mercenary groups have entered CAR since mid‑2023, and the government has signed a bilateral agreement restricting foreign military presence. Without any foreign forces on the ground, the supposed causal link to strategic‑development spikes lacks a mechanism; any reported \"foreign\" actions are likely misattributed to local actors. Therefore, foreign_military_involvement may be irrelevant to the outcome.",
+      "probe_type": "node_negate_medium",
+      "target_id": "foreign_military_involvement",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0357,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Presence and actions of foreign troops or mercenaries in CAR"
+    },
+    {
+      "probe_text": "Recent analyses of CAR reporting show that international journalists have been largely barred, and local media outlets are state‑controlled, resulting in severely under‑reported events. Consequently, the volume of coverage does not reflect actual on‑the‑ground activity and cannot reliably drive the count of strategic developments. Moreover, many strategic events are recorded by satellite and intelligence sources independent of media output, making media coverage intensity largely irrelevant for forecasting spikes.",
+      "probe_type": "node_negate_low",
+      "target_id": "media_coverage_intensity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Volume of domestic and international reporting on CAR"
+    },
+    {
+      "probe_text": "A recent UN field report released on March 15, 2026 documents a 73% surge in armed clashes across the northern provinces of CAR, with over 1,200 combat incidents logged in the past month—double the rate of the previous quarter. Additionally, a senior analyst at the International Crisis Group, Dr. Amina N'Dour, stated that this escalation is directly linked to the fragmentation of rebel coalitions, dramatically increasing the overall conflict intensity in the country.",
+      "probe_type": "node_strengthen",
+      "target_id": "internal_conflict_intensity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1905,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Level of armed clashes and rebel activity within CAR"
+    },
+    {
+      "probe_text": "The African Union's election observation team announced that a national presidential election is slated for October 2024, the first since the 2015 transition, and that the UN's latest political briefing warns this contest will intensify power struggles among rebel factions. Analysts from the International Crisis Group note that such a high‑stakes political transition historically triggers a surge in coordinated strategic actions, making a spike in strategic developments highly probable.",
+      "probe_type": "node_strengthen",
+      "target_id": "political_transition",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": false,
+      "description": "Upcoming elections or changes in government authority"
+    },
+    {
+      "probe_text": "Recent satellite imagery released by a monitoring NGO shows a rapid expansion of a foreign mercenary training camp near Bangui, with dozens of armored vehicles and new barracks constructed over the past month. Additionally, leaked diplomatic cables reveal that a neighboring country's defense ministry has signed a covert agreement to deploy up to 500 troops to assist the CAR government against rebel groups.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "foreign_military_involvement",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0357,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Presence and actions of foreign troops or mercenaries in CAR"
+    },
+    {
+      "probe_text": "A new partnership between the African Union and major international news agencies has established a 24‑hour live‑feed from the Central African Republic, resulting in a 300% increase in articles and broadcasts about CAR over the past month. Additionally, a recent UN press release highlighted a surge in foreign troop deployments, which has been widely covered by both regional and global media outlets.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "media_coverage_intensity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "Volume of domestic and international reporting on CAR"
+    },
+    {
+      "probe_text": "Recent elections in CAR have been mediated by inclusive power‑sharing agreements, leading to a drop in armed clashes rather than an increase. Data from 2022‑2023 shows that after the 2023 presidential election, internal conflict intensity fell by about 30% despite heightened political activity, suggesting that elections can stabilize rather than destabilize the country. Additionally, international observers imposed cease‑fire arrangements during the transition, further weakening the assumed causal link.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.125,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Election cycles often trigger power struggles and violence"
+    },
+    {
+      "probe_text": "Recent diplomatic agreements have limited foreign military deployments in the CAR, as neighboring states and the UN imposed a joint embargo on external combatants regardless of internal conflict levels. Moreover, intelligence reports show that foreign mercenaries are now primarily motivated by resource contracts rather than reacting to spikes in violence, suggesting the link between internal conflict intensity and foreign military involvement is weak or broken.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "internal_conflict_intensity->foreign_military_involvement",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0982,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher conflict draws foreign forces seeking influence or security"
+    },
+    {
+      "probe_text": "Recent analyses suggest that political transitions in CAR are primarily driven by elite negotiations and external power balances rather than domestic media narratives, which are limited in reach and often censored. Moreover, the government's tight control over broadcast outlets means intensified reporting rarely translates into pressure capable of altering election timing or outcomes.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "media_coverage_intensity->political_transition",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Intense reporting can pressure authorities and shape transition dynamics"
+    },
+    {
+      "probe_text": "A recent International Crisis Group report (June 2025) documents that the 2023 CAR presidential election triggered a 45% surge in armed clashes within three weeks, as rival factions contested the results and mobilized militias. This sharp rise in internal conflict directly follows the political transition, confirming that election cycles dramatically amplify violence.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.125,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Election cycles often trigger power struggles and violence"
+    },
+    {
+      "probe_text": "Satellite imagery released in March 2024 revealed a rapid influx of foreign‑linked armed convoys crossing into CAR from neighboring Rwanda, timed precisely with a documented spike in internal rebel clashes in the north. This coordinated deployment was announced by the Rwandan defence ministry as a response to the escalating conflict, underscoring that higher internal conflict intensity directly attracts foreign military involvement.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "internal_conflict_intensity->foreign_military_involvement",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0982,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Higher conflict draws foreign forces seeking influence or security"
+    },
+    {
+      "probe_text": "International investigative reports over the past month have exposed alleged electoral fraud in CAR, sparking nationwide protests that forced the government to delay the upcoming elections. This surge in media coverage appears to have directly pressured authorities to alter the political transition timeline. How does this evidence affect your view of the strength of the media_coverage_intensity → political_transition link?",
+      "probe_type": "edge_strengthen_peripheral",
+      "target_id": "media_coverage_intensity->political_transition",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Intense reporting can pressure authorities and shape transition dynamics"
+    },
+    {
+      "probe_text": "Recent analyses of CAR suggest that surges in armed clashes often force incumbent leaders to accelerate or alter election timelines, making internal conflict intensity a driver of political transition rather than its consequence. When rebel activity spikes, pressure from both domestic constituencies and international actors compels the government to negotiate power‑sharing deals or call early elections, thereby reshaping the political transition landscape.",
+      "probe_type": "edge_reverse",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.125,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Election cycles often trigger power struggles and violence"
+    },
+    {
+      "probe_text": "Recent international news coverage highlighting escalating human rights abuses in CAR has prompted several foreign governments to dispatch troops and private security contractors to protect their interests and citizens. If media reports intensify, these external actors are more likely to intervene, suggesting a direct causal pathway from media_coverage_intensity to foreign_military_involvement. Does your model account for this mechanism?",
+      "probe_type": "edge_spurious",
+      "target_id": "media_coverage_intensity->foreign_military_involvement",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Volume of domestic and international reporting on CAR -> Presence and actions of foreign troops or mercenaries in CAR"
+    },
+    {
+      "probe_text": "Recent UN statements indicate that heightened media attention on civilian casualties in CAR has prompted the Security Council to authorize additional troops. If reporting volume doubles, the peacekeeping mission is likely to expand its mandate and resources within weeks. This suggests a direct causal pathway from media_coverage_intensity to peacekeeping_operations that the current network omits.",
+      "probe_type": "edge_spurious",
+      "target_id": "media_coverage_intensity->peacekeeping_operations",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Volume of domestic and international reporting on CAR -> Scale of UN or regional peacekeeping missions"
+    },
+    {
+      "probe_text": "A key missing factor is the competition over natural resources, especially mining and timber extraction, which can trigger armed groups to contest control and generate strategic events. Increased resource disputes can intensify internal conflict, attract foreign mercenaries, and lead to high‑profile agreements or clashes that would be recorded as strategic developments, potentially driving a spike beyond the baseline.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the role of major natural resource extraction projects (e.g., mining or oil concessions) in the CAR. Large-scale resource contracts can attract both domestic militia and foreign actors, creating a surge of coordinated strategic actions that are recorded as strategic developments, independent of the current conflict intensity or peacekeeping presence.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A new coffee chain announced plans to open three cafés in Bangui, aiming to boost local employment and provide a meeting place for entrepreneurs. The chain expects to source beans from regional farms and will host weekly cultural events featuring local musicians.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A new French-language radio station launched in Bangui, broadcasting primarily music and entertainment programs, and has quickly attracted a sizable youth audience. The station’s funding comes from a private media company and it does not feature political or security-related content.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence suggests that most strategic developments in CAR are driven by diplomatic negotiations and external funding agreements rather than the level of on‑ground fighting. Even when armed clashes are low, high‑level peace talks and foreign military deployments can generate a surge of reported strategic events. Moreover, a lull in violence often creates a window for coordinated political maneuvers that are counted as strategic developments, contradicting the assumption that intense internal conflict is the primary catalyst.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.35,
+      "absolute_shift": 0.12999999999999998,
+      "shift_direction": "increased",
+      "reasoning": "The new intelligence downplays internal_conflict_intensity as the primary driver of strategic developments and highlights diplomatic negotiations, external funding agreements, and foreign deployments as key triggers. In the causal model, this weakens the link from internal_conflict_intensity to strategic_developments_spike and strengthens the indirect paths through foreign_military_involvement, international_aid_funding, and political_transition. Because strategic events can now arise even during low‑intensity fighting, the overall chance of a >10× spike in the 30‑day window rises relative to the original 0.22 estimate.",
+      "raw_response": "{\"updated_probability\":0.35,\"shift_direction\":\"increased\",\"reasoning\":\"The new intelligence downplays internal_conflict_intensity as the primary driver of strategic developments and highlights diplomatic negotiations, external funding agreements, and foreign deployments as key triggers. In the causal model, this weakens the link from internal_conflict_intensity to strategic_developments_spike and strengthens the indirect paths through foreign_military_involvement, international_aid_funding, and political_transition. Because strategic events can now arise even during low‑intensity fighting, the overall chance of a >10× spike in the 30‑day window rises relative to the original 0.22 estimate.\"}",
+      "target_id": "internal_conflict_intensity",
+      "target_type": "node",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses show that the upcoming elections in the Central African Republic have been repeatedly postponed and lack credible participation, rendering the political transition largely symbolic. Consequently, the transition is unlikely to trigger power struggles or affect conflict dynamics, and may even dampen violence as factions wait for a definitive outcome that never materializes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.14,
+      "absolute_shift": 0.07999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new analysis indicates that the scheduled elections in CAR are being repeatedly postponed and are viewed as largely symbolic, with little credible participation. In the causal network, political_transition was a driver of internal_conflict_intensity (by triggering power struggles) and media_coverage_intensity (by drawing reporting attention). If the transition is effectively inert, those downstream effects are weakened: internal conflict is less likely to be amplified by election‑related rivalries, and media coverage of a stalled transition will be lower, reducing the chance that events are recorded as strategic developments. Consequently, the pathways that could lead to a >10× spike in strategic developments become less active, lowering the overall probability of the outcome. The original estimate of 0.22 is therefore revised downward to reflect the diminished role of political transition.",
+      "raw_response": "{\n  \"updated_probability\": 0.14,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new analysis indicates that the scheduled elections in CAR are being repeatedly postponed and are viewed as largely symbolic, with little credible participation. In the causal network, political_transition was a driver of internal_conflict_intensity (by triggering power struggles) and media_coverage_intensity (by drawing reporting attention). If the transition is effectively inert, those downstream effects are weakened: internal conflict is less likely to be amplified by election‑related rivalries, and media coverage of a stalled transition will be lower, reducing the chance that events are recorded as strategic developments. Consequently, the pathways that could lead to a >10× spike in strategic developments become less active, lowering the overall probability of the outcome. The original estimate of 0.22 is therefore revised downward to reflect the diminished role of political transition.\"\n}",
+      "target_id": "political_transition",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery and UN reports show that no foreign troops or mercenary groups have entered CAR since mid‑2023, and the government has signed a bilateral agreement restricting foreign military presence. Without any foreign forces on the ground, the supposed causal link to strategic‑development spikes lacks a mechanism; any reported \"foreign\" actions are likely misattributed to local actors. Therefore, foreign_military_involvement may be irrelevant to the outcome.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.13,
+      "absolute_shift": 0.09,
+      "shift_direction": "decreased",
+      "reasoning": "The new satellite and UN evidence shows that no foreign troops or mercenaries have entered CAR since mid‑2023 and a bilateral agreement now restricts foreign military presence. This eliminates the foreign_military_involvement node, which was a direct causal driver of strategic_developments_spike. Although other nodes (internal conflict, peacekeeping, regional security, political transition, aid, media) still operate, the loss of the foreign‑military pathway substantially reduces the chance of a >10× baseline spike. Consequently the probability is revised downward from 0.22 to roughly 0.13.",
+      "raw_response": "{\"updated_probability\":0.13,\"shift_direction\":\"decreased\",\"reasoning\":\"The new satellite and UN evidence shows that no foreign troops or mercenaries have entered CAR since mid‑2023 and a bilateral agreement now restricts foreign military presence. This eliminates the foreign_military_involvement node, which was a direct causal driver of strategic_developments_spike. Although other nodes (internal conflict, peacekeeping, regional security, political transition, aid, media) still operate, the loss of the foreign‑military pathway substantially reduces the chance of a >10× baseline spike. Consequently the probability is revised downward from 0.22 to roughly 0.13.\"}",
+      "target_id": "foreign_military_involvement",
+      "target_type": "node",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses of CAR reporting show that international journalists have been largely barred, and local media outlets are state‑controlled, resulting in severely under‑reported events. Consequently, the volume of coverage does not reflect actual on‑the‑ground activity and cannot reliably drive the count of strategic developments. Moreover, many strategic events are recorded by satellite and intelligence sources independent of media output, making media coverage intensity largely irrelevant for forecasting spikes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows that media coverage intensity no longer reflects on‑the‑ground activity and does not influence the recording of strategic events. In the causal network, media_coverage_intensity had two positive links: it could amplify political_transition dynamics and directly increase the likelihood of a strategic_developments_spike. Removing or greatly weakening these links eliminates a source of upward pressure on the outcome. The remaining drivers (internal conflict intensity, foreign military involvement, peacekeeping operations, regional security dynamics, and international aid) still operate, but without the additional boost from media reporting the overall chance of exceeding the >10× baseline threshold is reduced. Consequently the forecast is adjusted downward from the original 0.22 to roughly 0.17.",
+      "raw_response": "{\"updated_probability\":0.17,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows that media coverage intensity no longer reflects on‑the‑ground activity and does not influence the recording of strategic events. In the causal network, media_coverage_intensity had two positive links: it could amplify political_transition dynamics and directly increase the likelihood of a strategic_developments_spike. Removing or greatly weakening these links eliminates a source of upward pressure on the outcome. The remaining drivers (internal conflict intensity, foreign military involvement, peacekeeping operations, regional security dynamics, and international aid) still operate, but without the additional boost from media reporting the overall chance of exceeding the >10× baseline threshold is reduced. Consequently the forecast is adjusted downward from the original 0.22 to roughly 0.17.\"}",
+      "target_id": "media_coverage_intensity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent UN field report released on March 15, 2026 documents a 73% surge in armed clashes across the northern provinces of CAR, with over 1,200 combat incidents logged in the past month—double the rate of the previous quarter. Additionally, a senior analyst at the International Crisis Group, Dr. Amina N'Dour, stated that this escalation is directly linked to the fragmentation of rebel coalitions, dramatically increasing the overall conflict intensity in the country.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.26,
+      "shift_direction": "increased",
+      "reasoning": "The UN field report shows a 73% surge in armed clashes, doubling the incident rate from the previous quarter, and an expert links this to fragmentation of rebel coalitions, indicating a sharp rise in internal_conflict_intensity. In the causal network, higher internal_conflict_intensity boosts foreign_military_involvement and expands peacekeeping_operations, both of which directly increase the likelihood of a strategic_developments_spike. Media coverage is also expected to rise, further raising the chance that events are recorded as strategic developments. These reinforcing effects raise the probability of >10× baseline strategic developments in the target 30‑day window from 0.22 to about 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The UN field report shows a 73% surge in armed clashes, doubling the incident rate from the previous quarter, and an expert links this to fragmentation of rebel coalitions, indicating a sharp rise in internal_conflict_intensity. In the causal network, higher internal_conflict_intensity boosts foreign_military_involvement and expands peacekeeping_operations, both of which directly increase the likelihood of a strategic_developments_spike. Media coverage is also expected to rise, further raising the chance that events are recorded as strategic developments. These reinforcing effects raise the probability of >10× baseline strategic developments in the target 30‑day window from 0.22 to about 0.48.\"}",
+      "target_id": "internal_conflict_intensity",
+      "target_type": "node",
+      "target_importance": 0.1905,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "The African Union's election observation team announced that a national presidential election is slated for October 2024, the first since the 2015 transition, and that the UN's latest political briefing warns this contest will intensify power struggles among rebel factions. Analysts from the International Crisis Group note that such a high‑stakes political transition historically triggers a surge in coordinated strategic actions, making a spike in strategic developments highly probable.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.26,
+      "shift_direction": "increased",
+      "reasoning": "The announcement of a presidential election in October 2024 and the UN briefing that it will intensify rebel power struggles directly strengthen the political_transition node. In the causal network political_transition drives higher internal_conflict_intensity, which in turn raises foreign_military_involvement and peacekeeping_operations—both of which feed into strategic_developments_spike. The analyst comment that high‑stakes transitions historically trigger coordinated strategic actions further confirms a strong upward pressure on the outcome. Consequently the chance of a >10× spike in strategic developments rises substantially from the original 0.22 to roughly 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The announcement of a presidential election in October 2024 and the UN briefing that it will intensify rebel power struggles directly strengthen the political_transition node. In the causal network political_transition drives higher internal_conflict_intensity, which in turn raises foreign_military_involvement and peacekeeping_operations—both of which feed into strategic_developments_spike. The analyst comment that high‑stakes transitions historically trigger coordinated strategic actions further confirms a strong upward pressure on the outcome. Consequently the chance of a >10× spike in strategic developments rises substantially from the original 0.22 to roughly 0.48.\"}",
+      "target_id": "political_transition",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent satellite imagery released by a monitoring NGO shows a rapid expansion of a foreign mercenary training camp near Bangui, with dozens of armored vehicles and new barracks constructed over the past month. Additionally, leaked diplomatic cables reveal that a neighboring country's defense ministry has signed a covert agreement to deploy up to 500 troops to assist the CAR government against rebel groups.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.33000000000000007,
+      "shift_direction": "increased",
+      "reasoning": "The satellite imagery and leaked cables provide concrete evidence that foreign mercenary forces are rapidly expanding near Bangui and that a neighbouring state is preparing to send up to 500 troops. This directly boosts the 'foreign_military_involvement' node, which the causal model links to the outcome 'strategic_developments_spike'. The magnitude of the deployment (dozens of armored vehicles, new barracks, and a covert troop commitment) suggests a substantial increase in recorded strategic events such as joint operations, training exercises, and cease‑fire negotiations. Secondary effects—greater media attention and possible scaling up of peacekeeping missions—further reinforce the spike. Consequently, the likelihood of exceeding the ten‑fold baseline in the 30‑day window rises markedly from the original 0.22 to roughly 0.55.",
+      "raw_response": "{\"updated_probability\":0.55,\"shift_direction\":\"increased\",\"reasoning\":\"The satellite imagery and leaked cables provide concrete evidence that foreign mercenary forces are rapidly expanding near Bangui and that a neighbouring state is preparing to send up to 500 troops. This directly boosts the 'foreign_military_involvement' node, which the causal model links to the outcome 'strategic_developments_spike'. The magnitude of the deployment (dozens of armored vehicles, new barracks, and a covert troop commitment) suggests a substantial increase in recorded strategic events such as joint operations, training exercises, and cease‑fire negotiations. Secondary effects—greater media attention and possible scaling up of peacekeeping missions—further reinforce the spike. Consequently, the likelihood of exceeding the ten‑fold baseline in the 30‑day window rises markedly from the original 0.22 to roughly 0.55.\"}",
+      "target_id": "foreign_military_involvement",
+      "target_type": "node",
+      "target_importance": 0.0357,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "A new partnership between the African Union and major international news agencies has established a 24‑hour live‑feed from the Central African Republic, resulting in a 300% increase in articles and broadcasts about CAR over the past month. Additionally, a recent UN press release highlighted a surge in foreign troop deployments, which has been widely covered by both regional and global media outlets.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.46,
+      "absolute_shift": 0.24000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The 300% surge in media coverage directly strengthens the 'media_coverage_intensity' node, which has two pathways to the outcome. First, higher coverage raises the likelihood that strategic events are recorded and reported, directly boosting the 'strategic_developments_spike' probability. Second, intense reporting amplifies pressure on political actors, increasing the 'political_transition' node; this can fuel internal conflict, attract more foreign military involvement and peacekeeping activity, all of which further raise the chance of a >10× baseline spike in strategic developments. The combined effect of these reinforced causal routes makes the original 0.22 estimate too low, leading to an updated probability of roughly 0.46.",
+      "raw_response": "{\n  \"updated_probability\": 0.46,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The 300% surge in media coverage directly strengthens the 'media_coverage_intensity' node, which has two pathways to the outcome. First, higher coverage raises the likelihood that strategic events are recorded and reported, directly boosting the 'strategic_developments_spike' probability. Second, intense reporting amplifies pressure on political actors, increasing the 'political_transition' node; this can fuel internal conflict, attract more foreign military involvement and peacekeeping activity, all of which further raise the chance of a >10× baseline spike in strategic developments. The combined effect of these reinforced causal routes makes the original 0.22 estimate too low, leading to an updated probability of roughly 0.46.\"\n",
+      "target_id": "media_coverage_intensity",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent elections in CAR have been mediated by inclusive power‑sharing agreements, leading to a drop in armed clashes rather than an increase. Data from 2022‑2023 shows that after the 2023 presidential election, internal conflict intensity fell by about 30% despite heightened political activity, suggesting that elections can stabilize rather than destabilize the country. Additionally, international observers imposed cease‑fire arrangements during the transition, further weakening the assumed causal link.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows that the 2023 presidential election, rather than intensifying fighting, actually reduced internal conflict by about 30% thanks to inclusive power‑sharing and observer‑enforced cease‑fires. This weakens the causal link from political_transition to internal_conflict_intensity, lowering the downstream drivers (foreign military involvement, peacekeeping expansions) that could generate a strategic‑developments spike. With a less volatile conflict environment, the chance of exceeding the >10× baseline threshold in the next 30‑day window drops from the original 0.22 to roughly 0.15.",
+      "raw_response": "{\"updated_probability\":0.15,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows that the 2023 presidential election, rather than intensifying fighting, actually reduced internal conflict by about 30% thanks to inclusive power‑sharing and observer‑enforced cease‑fires. This weakens the causal link from political_transition to internal_conflict_intensity, lowering the downstream drivers (foreign military involvement, peacekeeping expansions) that could generate a strategic‑developments spike. With a less volatile conflict environment, the chance of exceeding the >10× baseline threshold in the next 30‑day window drops from the original 0.22 to roughly 0.15.\"}",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "target_type": "edge",
+      "target_importance": 0.125,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent diplomatic agreements have limited foreign military deployments in the CAR, as neighboring states and the UN imposed a joint embargo on external combatants regardless of internal conflict levels. Moreover, intelligence reports show that foreign mercenaries are now primarily motivated by resource contracts rather than reacting to spikes in violence, suggesting the link between internal conflict intensity and foreign military involvement is weak or broken.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new diplomatic embargo and shift in mercenary motives weaken the causal link from internal conflict intensity to foreign military involvement. Since foreign forces are a major source of counted strategic developments, reducing their responsiveness to conflict lowers the overall likelihood of a >10× spike. Other pathways (peacekeeping, media, regional dynamics) remain unchanged, so the probability falls but does not vanish.",
+      "raw_response": "{\"updated_probability\":0.15,\"shift_direction\":\"decreased\",\"reasoning\":\"The new diplomatic embargo and shift in mercenary motives weaken the causal link from internal conflict intensity to foreign military involvement. Since foreign forces are a major source of counted strategic developments, reducing their responsiveness to conflict lowers the overall likelihood of a >10× spike. Other pathways (peacekeeping, media, regional dynamics) remain unchanged, so the probability falls but does not vanish.\"}",
+      "target_id": "internal_conflict_intensity->foreign_military_involvement",
+      "target_type": "edge",
+      "target_importance": 0.0982,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses suggest that political transitions in CAR are primarily driven by elite negotiations and external power balances rather than domestic media narratives, which are limited in reach and often censored. Moreover, the government's tight control over broadcast outlets means intensified reporting rarely translates into pressure capable of altering election timing or outcomes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new analysis weakens the causal link from media_coverage_intensity to political_transition. In the original network, heightened media coverage could accelerate or destabilise a transition, raising internal conflict intensity and thereby increasing the chance of a strategic‑developments spike. If media reporting no longer meaningfully pressures the elite, that pathway contributes less to conflict escalation and to foreign or peacekeeper actions that count as strategic events. All other links remain unchanged, so the overall likelihood of >10× the baseline strategic developments falls, but not to zero, leading to a modest downward revision from 0.22 to about 0.15.",
+      "raw_response": "{\"updated_probability\":0.15,\"shift_direction\":\"decreased\",\"reasoning\":\"The new analysis weakens the causal link from media_coverage_intensity to political_transition. In the original network, heightened media coverage could accelerate or destabilise a transition, raising internal conflict intensity and thereby increasing the chance of a strategic‑developments spike. If media reporting no longer meaningfully pressures the elite, that pathway contributes less to conflict escalation and to foreign or peacekeeper actions that count as strategic events. All other links remain unchanged, so the overall likelihood of >10× the baseline strategic developments falls, but not to zero, leading to a modest downward revision from 0.22 to about 0.15.\"}",
+      "target_id": "media_coverage_intensity->political_transition",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent International Crisis Group report (June 2025) documents that the 2023 CAR presidential election triggered a 45% surge in armed clashes within three weeks, as rival factions contested the results and mobilized militias. This sharp rise in internal conflict directly follows the political transition, confirming that election cycles dramatically amplify violence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The ICG report provides concrete evidence that the 2023 presidential election caused a 45% surge in armed clashes, directly confirming the causal link political_transition→internal_conflict_intensity. Higher internal conflict raises the probability of foreign military involvement, expanded peacekeeping operations, and heightened media coverage, all of which feed into the strategic_developments_spike node. Strengthening this key pathway therefore raises the chance that the 30‑day window will see >10× the baseline strategic developments, moving the forecast upward from the original 0.22.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The ICG report provides concrete evidence that the 2023 presidential election caused a 45% surge in armed clashes, directly confirming the causal link political_transition→internal_conflict_intensity. Higher internal conflict raises the probability of foreign military involvement, expanded peacekeeping operations, and heightened media coverage, all of which feed into the strategic_developments_spike node. Strengthening this key pathway therefore raises the chance that the 30‑day window will see >10× the baseline strategic developments, moving the forecast upward from the original 0.22.\"}",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "target_type": "edge",
+      "target_importance": 0.125,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Satellite imagery released in March 2024 revealed a rapid influx of foreign‑linked armed convoys crossing into CAR from neighboring Rwanda, timed precisely with a documented spike in internal rebel clashes in the north. This coordinated deployment was announced by the Rwandan defence ministry as a response to the escalating conflict, underscoring that higher internal conflict intensity directly attracts foreign military involvement.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The satellite imagery showing a coordinated influx of foreign‑linked convoys from Rwanda that coincides with a spike in rebel clashes directly confirms the causal link internal_conflict_intensity → foreign_military_involvement. This strengthens the pathway that higher internal conflict leads to more foreign military activity, which feeds into the strategic_developments_spike node. With the link now empirically supported, the chance that the 30‑day window will see >10× the baseline number of strategic developments rises substantially from the original 0.22 to roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The satellite imagery showing a coordinated influx of foreign‑linked convoys from Rwanda that coincides with a spike in rebel clashes directly confirms the causal link internal_conflict_intensity → foreign_military_involvement. This strengthens the pathway that higher internal conflict leads to more foreign military activity, which feeds into the strategic_developments_spike node. With the link now empirically supported, the chance that the 30‑day window will see >10× the baseline number of strategic developments rises substantially from the original 0.22 to roughly 0.38.\"}",
+      "target_id": "internal_conflict_intensity->foreign_military_involvement",
+      "target_type": "edge",
+      "target_importance": 0.0982,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "International investigative reports over the past month have exposed alleged electoral fraud in CAR, sparking nationwide protests that forced the government to delay the upcoming elections. This surge in media coverage appears to have directly pressured authorities to alter the political transition timeline. How does this evidence affect your view of the strength of the media_coverage_intensity → political_transition link?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence shows that heightened media coverage is directly prompting the government to alter the election timeline, confirming a strong media_coverage_intensity → political_transition link. A delayed or contested transition is likely to raise internal conflict intensity, which in turn raises foreign military involvement and peacekeeping activity—both drivers of strategic developments. Moreover, the media surge also directly raises the chance that events are recorded as strategic developments. Together these reinforced pathways raise the chance of a >10× spike, so the forecast probability is revised upward.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence shows that heightened media coverage is directly prompting the government to alter the election timeline, confirming a strong media_coverage_intensity → political_transition link. A delayed or contested transition is likely to raise internal conflict intensity, which in turn raises foreign military involvement and peacekeeping activity—both drivers of strategic developments. Moreover, the media surge also directly raises the chance that events are recorded as strategic developments. Together these reinforced pathways raise the chance of a >10× spike, so the forecast probability is revised upward.\"}",
+      "target_id": "media_coverage_intensity->political_transition",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses of CAR suggest that surges in armed clashes often force incumbent leaders to accelerate or alter election timelines, making internal conflict intensity a driver of political transition rather than its consequence. When rebel activity spikes, pressure from both domestic constituencies and international actors compels the government to negotiate power‑sharing deals or call early elections, thereby reshaping the political transition landscape.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.17,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new analysis reverses the assumed direction of the political_transition → internal_conflict_intensity link, indicating that elections are more often a response to rising violence rather than a cause of it. This weakens a key pathway in the original network (political transition → conflict → foreign military involvement/peacekeeping → strategic_developments_spike). While internal conflict can still arise from other drivers (regional security dynamics, rebel activity) and still generate strategic spikes, the removal of political transition as an independent trigger reduces the overall expected frequency of spikes, lowering the forecast probability from 0.22 to about 0.17.",
+      "raw_response": "{\"updated_probability\":0.17,\"shift_direction\":\"decreased\",\"reasoning\":\"The new analysis reverses the assumed direction of the political_transition → internal_conflict_intensity link, indicating that elections are more often a response to rising violence rather than a cause of it. This weakens a key pathway in the original network (political transition → conflict → foreign military involvement/peacekeeping → strategic_developments_spike). While internal conflict can still arise from other drivers (regional security dynamics, rebel activity) and still generate strategic spikes, the removal of political transition as an independent trigger reduces the overall expected frequency of spikes, lowering the forecast probability from 0.22 to about 0.17.\"}",
+      "target_id": "political_transition->internal_conflict_intensity",
+      "target_type": "edge",
+      "target_importance": 0.125,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent international news coverage highlighting escalating human rights abuses in CAR has prompted several foreign governments to dispatch troops and private security contractors to protect their interests and citizens. If media reports intensify, these external actors are more likely to intervene, suggesting a direct causal pathway from media_coverage_intensity to foreign_military_involvement. Does your model account for this mechanism?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.32,
+      "absolute_shift": 0.1,
+      "shift_direction": "increased",
+      "reasoning": "The new information adds a direct causal link from media_coverage_intensity to foreign_military_involvement. Since foreign_military_involvement already feeds into strategic_developments_spike, this creates an additional pathway by which heightened media coverage can raise the number of strategic developments. The extra route amplifies the overall effect of media intensity on the outcome, making a spike more likely than originally estimated. Consequently the probability is revised upward from 0.22 to about 0.32.",
+      "raw_response": "{\"updated_probability\":0.32,\"shift_direction\":\"increased\",\"reasoning\":\"The new information adds a direct causal link from media_coverage_intensity to foreign_military_involvement. Since foreign_military_involvement already feeds into strategic_developments_spike, this creates an additional pathway by which heightened media coverage can raise the number of strategic developments. The extra route amplifies the overall effect of media intensity on the outcome, making a spike more likely than originally estimated. Consequently the probability is revised upward from 0.22 to about 0.32.\"}",
+      "target_id": "media_coverage_intensity->foreign_military_involvement",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent UN statements indicate that heightened media attention on civilian casualties in CAR has prompted the Security Council to authorize additional troops. If reporting volume doubles, the peacekeeping mission is likely to expand its mandate and resources within weeks. This suggests a direct causal pathway from media_coverage_intensity to peacekeeping_operations that the current network omits.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence adds a strong causal link from media_coverage_intensity to peacekeeping_operations. Higher media attention now directly triggers an expansion of the UN peacekeeping mandate, which in turn raises the number of peacekeeping‑related strategic events. Since peacekeeping_operations feed into strategic_developments_spike, the overall likelihood of a >10× baseline spike rises. Incorporating this reinforced pathway shifts the forecast upward from the original 0.22 to roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence adds a strong causal link from media_coverage_intensity to peacekeeping_operations. Higher media attention now directly triggers an expansion of the UN peacekeeping mandate, which in turn raises the number of peacekeeping‑related strategic events. Since peacekeeping_operations feed into strategic_developments_spike, the overall likelihood of a >10× baseline spike rises. Incorporating this reinforced pathway shifts the forecast upward from the original 0.22 to roughly 0.38.\"}",
+      "target_id": "media_coverage_intensity->peacekeeping_operations",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A key missing factor is the competition over natural resources, especially mining and timber extraction, which can trigger armed groups to contest control and generate strategic events. Increased resource disputes can intensify internal conflict, attract foreign mercenaries, and lead to high‑profile agreements or clashes that would be recorded as strategic developments, potentially driving a spike beyond the baseline.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0.16,
+      "shift_direction": "increased",
+      "reasoning": "The added node ‘resource_competition’ links to internal_conflict_intensity, foreign_military_involvement and strategic_developments_spike. Resource disputes in the CAR are a strong driver of armed group activity and attract foreign mercenaries seeking access to lucrative mines and timber. This amplifies internal conflict intensity, which in turn raises foreign military involvement and peacekeeping activity—both of which directly feed the strategic_developments_spike node. The extra causal pathways increase the overall weight of factors that generate a >10× baseline spike, shifting the likelihood upward from the original 0.22 to roughly 0.38.",
+      "raw_response": "{\"updated_probability\":0.38,\"shift_direction\":\"increased\",\"reasoning\":\"The added node ‘resource_competition’ links to internal_conflict_intensity, foreign_military_involvement and strategic_developments_spike. Resource disputes in the CAR are a strong driver of armed group activity and attract foreign mercenaries seeking access to lucrative mines and timber. This amplifies internal conflict intensity, which in turn raises foreign military involvement and peacekeeping activity—both of which directly feed the strategic_developments_spike node. The extra causal pathways increase the overall weight of factors that generate a >10× baseline spike, shifting the likelihood upward from the original 0.22 to roughly 0.38.\"}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the role of major natural resource extraction projects (e.g., mining or oil concessions) in the CAR. Large-scale resource contracts can attract both domestic militia and foreign actors, creating a surge of coordinated strategic actions that are recorded as strategic developments, independent of the current conflict intensity or peacekeeping presence.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.34,
+      "absolute_shift": 0.12000000000000002,
+      "shift_direction": "increased",
+      "reasoning": "The introduction of major natural resource extraction projects adds a direct causal pathway to strategic_developments_spike that bypasses internal conflict and peacekeeping. Such projects attract domestic militia and foreign actors, creating coordinated actions recorded as strategic developments. This independent driver raises the baseline chance of a >10× spike, especially if large contracts are slated for 2025. While the original 0.22 estimate relied on conflict‑driven mechanisms, the new factor increases likelihood, though uncertainty about project timing and scale moderates the rise, leading to an adjusted probability of about 0.34.",
+      "raw_response": "{\"updated_probability\":0.34,\"shift_direction\":\"increased\",\"reasoning\":\"The introduction of major natural resource extraction projects adds a direct causal pathway to strategic_developments_spike that bypasses internal conflict and peacekeeping. Such projects attract domestic militia and foreign actors, creating coordinated actions recorded as strategic developments. This independent driver raises the baseline chance of a >10× spike, especially if large contracts are slated for 2025. While the original 0.22 estimate relied on conflict‑driven mechanisms, the new factor increases likelihood, though uncertainty about project timing and scale moderates the rise, leading to an adjusted probability of about 0.34.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A new coffee chain announced plans to open three cafés in Bangui, aiming to boost local employment and provide a meeting place for entrepreneurs. The chain expects to source beans from regional farms and will host weekly cultural events featuring local musicians.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.15,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The announcement of a new coffee chain opening three cafés in Bangui introduces a modest, positive economic development. In the causal network, this primarily influences *media_coverage_intensity* (through increased local reporting on business activity) and could slightly lower *internal_conflict_intensity* by creating employment opportunities and community gathering spaces. Neither of these effects directly amplifies the drivers of large strategic events (foreign military involvement, peacekeeping expansions, or major political transitions). While heightened media coverage could marginally raise the chance that events are recorded as \"strategic developments,\" the expected reduction in conflict pressure and the limited scope of the economic activity together suggest a net decrease in the likelihood of a >10× baseline spike in strategic developments. Consequently, the probability is revised downward from the original 0.22 to approximately 0.15.",
+      "raw_response": "{\n  \"updated_probability\": 0.15,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The announcement of a new coffee chain opening three cafés in Bangui introduces a modest, positive economic development. In the causal network, this primarily influences *media_coverage_intensity* (through increased local reporting on business activity) and could slightly lower *internal_conflict_intensity* by creating employment opportunities and community gathering spaces. Neither of these effects directly amplifies the drivers of large strategic events (foreign military involvement, peacekeeping expansions, or major political transitions). While heightened media coverage could marginally raise the chance that events are recorded as \\\"strategic developments,\\\" the expected reduction in conflict pressure and the limited scope of the economic activity together suggest a net decrease in the likelihood of a >10× baseline spike in strategic developments. Consequently, the probability is revised downward from the original 0.22 to approximately 0.15.\"\n}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A new French-language radio station launched in Bangui, broadcasting primarily music and entertainment programs, and has quickly attracted a sizable youth audience. The station’s funding comes from a private media company and it does not feature political or security-related content.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.18,
+      "absolute_shift": 0.04000000000000001,
+      "shift_direction": "decreased",
+      "reasoning": "The new radio station adds entertainment content but no political or security reporting. In the causal network, media_coverage_intensity influences strategic_developments_spike only through political reporting and pressure on political transition. Since this outlet does not increase political coverage, it does not raise the drivers of strategic developments. At most it marginally dilutes the share of political reporting, slightly lowering the effective media pressure on political transition and strategic events. Consequently the probability of a >10× spike in strategic developments is modestly reduced.",
+      "raw_response": "{\"updated_probability\":0.18,\"shift_direction\":\"decreased\",\"reasoning\":\"The new radio station adds entertainment content but no political or security reporting. In the causal network, media_coverage_intensity influences strategic_developments_spike only through political reporting and pressure on political transition. Since this outlet does not increase political coverage, it does not raise the drivers of strategic developments. At most it marginally dilutes the share of political reporting, slightly lowering the effective media pressure on political transition and strategic events. Consequently the probability of a >10× spike in strategic developments is modestly reduced.\"}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "7c7f4bb8e6b6eaaaffcf8397ba1e99c30c5ed1be3676dede2c72a20cdae104c1",
+    "question_text": "Will there be more than ten times as many 'Strategic developments' in Central African Republic for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Strategic developments' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Strategic developments'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Strategic developments' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Strategic developments' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.22,
+    "n_probes": 21,
+    "n_successful": 21,
+    "mean_absolute_shift": 0.13476190476190478,
+    "max_absolute_shift": 0.33000000000000007
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 1,
+  "aggregate_metrics": {
+    "ssr": 1.825,
+    "mean_shift_high": 0.1825,
+    "mean_shift_low": 0.1,
+    "asymmetry_index": 0.35668789808917195,
+    "mean_shift_negate": 0.07999999999999999,
+    "mean_shift_strengthen": 0.22428571428571425,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.020833333333333343,
+    "mean_shift_on_path": 0.14666666666666667,
+    "mean_shift_off_path": 0.12583333333333332,
+    "importance_sensitivity_correlation": -0.1785714285714286,
+    "control_sensitivity": 0.5
+  }
+}

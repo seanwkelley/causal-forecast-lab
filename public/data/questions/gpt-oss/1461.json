@@ -1,0 +1,1286 @@
+{
+  "question_id": "1461",
+  "question_text": "Will Egypt experience an economic collapse (as defined by any of the listed scenarios) in the next 12 months?",
+  "source": "infer",
+  "initial_probability": 0.34,
+  "nodes": [
+    {
+      "id": "external_debt_service",
+      "description": "Annual external debt repayments relative to export earnings",
+      "role": "factor"
+    },
+    {
+      "id": "foreign_exchange_reserves",
+      "description": "Central bank reserves available to defend the currency",
+      "role": "factor"
+    },
+    {
+      "id": "tourism_revenue",
+      "description": "Foreign currency earned from tourism sector",
+      "role": "factor"
+    },
+    {
+      "id": "inflation_rate",
+      "description": "Annual consumer price inflation",
+      "role": "factor"
+    },
+    {
+      "id": "government_budget_deficit",
+      "description": "Fiscal gap between revenues and expenditures",
+      "role": "factor"
+    },
+    {
+      "id": "political_stability",
+      "description": "Degree of internal security and governance continuity",
+      "role": "factor"
+    },
+    {
+      "id": "global_energy_prices",
+      "description": "World prices for oil and gas, affecting import bills",
+      "role": "factor"
+    },
+    {
+      "id": "egypt_economic_collapse",
+      "description": "Occurrence of a severe economic collapse as defined by the scenarios",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "global_energy_prices",
+      "to": "external_debt_service",
+      "mechanism": "Higher energy import costs raise foreign‑currency debt service"
+    },
+    {
+      "from": "external_debt_service",
+      "to": "foreign_exchange_reserves",
+      "mechanism": "Larger debt payments drain reserves"
+    },
+    {
+      "from": "global_energy_prices",
+      "to": "inflation_rate",
+      "mechanism": "Import‑price pass‑through fuels consumer‑price inflation"
+    },
+    {
+      "from": "foreign_exchange_reserves",
+      "to": "inflation_rate",
+      "mechanism": "Dwindling reserves weaken the pound, raising import prices"
+    },
+    {
+      "from": "inflation_rate",
+      "to": "government_budget_deficit",
+      "mechanism": "Rising prices increase public spending and reduce real tax revenues"
+    },
+    {
+      "from": "tourism_revenue",
+      "to": "foreign_exchange_reserves",
+      "mechanism": "Tourist dollars replenish reserves"
+    },
+    {
+      "from": "tourism_revenue",
+      "to": "government_budget_deficit",
+      "mechanism": "Tourism earnings lower the fiscal gap"
+    },
+    {
+      "from": "political_stability",
+      "to": "tourism_revenue",
+      "mechanism": "Stability attracts visitors, boosting tourism income"
+    },
+    {
+      "from": "government_budget_deficit",
+      "to": "egypt_economic_collapse",
+      "mechanism": "A widening deficit can trigger sovereign default or abrupt devaluation"
+    }
+  ],
+  "reasoning": "Egypt faces a confluence of stressors: high external debt service erodes foreign‑exchange reserves, while volatile global energy prices and persistent inflation pressure the fiscal balance. Tourism, a key source of hard currency, remains vulnerable to political instability. If reserves fall too low and the budget deficit widens, the risk of a sudden devaluation or default rises. Considering current macro‑data and the mitigating effect of modest tourism recovery, the chance of a full economic collapse within 12 months is assessed at roughly 34%.",
+  "network_analysis": {
+    "n_nodes": 8,
+    "n_edges": 9,
+    "density": 0.1607,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 8,
+    "outcome_node": "egypt_economic_collapse",
+    "node_metrics": [
+      {
+        "node_id": "external_debt_service",
+        "description": "Annual external debt repayments relative to export earnings",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0238,
+        "closeness": 0.1429,
+        "pagerank": 0.0625,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "foreign_exchange_reserves",
+        "description": "Central bank reserves available to defend the currency",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.119,
+        "closeness": 0.381,
+        "pagerank": 0.1315,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "tourism_revenue",
+        "description": "Foreign currency earned from tourism sector",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 2,
+        "betweenness": 0.0952,
+        "closeness": 0.1429,
+        "pagerank": 0.0811,
+        "path_relevance": 0.1429
+      },
+      {
+        "node_id": "inflation_rate",
+        "description": "Annual consumer price inflation",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1429,
+        "closeness": 0.3968,
+        "pagerank": 0.1743,
+        "path_relevance": 0.4286
+      },
+      {
+        "node_id": "government_budget_deficit",
+        "description": "Fiscal gap between revenues and expenditures",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.1429,
+        "closeness": 0.4675,
+        "pagerank": 0.2265,
+        "path_relevance": 0.8571
+      },
+      {
+        "node_id": "political_stability",
+        "description": "Degree of internal security and governance continuity",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0439,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "global_energy_prices",
+        "description": "World prices for oil and gas, affecting import bills",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0439,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "egypt_economic_collapse",
+        "description": "Occurrence of a severe economic collapse as defined by the scenarios",
+        "role": "outcome",
+        "in_degree": 1,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.3889,
+        "pagerank": 0.2364,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "external_debt_service",
+        "target": "foreign_exchange_reserves",
+        "mechanism": "Larger debt payments drain reserves",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": true
+      },
+      {
+        "source": "foreign_exchange_reserves",
+        "target": "inflation_rate",
+        "mechanism": "Dwindling reserves weaken the pound, raising import prices",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "tourism_revenue",
+        "target": "foreign_exchange_reserves",
+        "mechanism": "Tourist dollars replenish reserves",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": false
+      },
+      {
+        "source": "tourism_revenue",
+        "target": "government_budget_deficit",
+        "mechanism": "Tourism earnings lower the fiscal gap",
+        "edge_betweenness": 0.0714,
+        "on_critical_path": true
+      },
+      {
+        "source": "inflation_rate",
+        "target": "government_budget_deficit",
+        "mechanism": "Rising prices increase public spending and reduce real tax revenues",
+        "edge_betweenness": 0.1429,
+        "on_critical_path": true
+      },
+      {
+        "source": "government_budget_deficit",
+        "target": "egypt_economic_collapse",
+        "mechanism": "A widening deficit can trigger sovereign default or abrupt devaluation",
+        "edge_betweenness": 0.125,
+        "on_critical_path": true
+      },
+      {
+        "source": "political_stability",
+        "target": "tourism_revenue",
+        "mechanism": "Stability attracts visitors, boosting tourism income",
+        "edge_betweenness": 0.0893,
+        "on_critical_path": true
+      },
+      {
+        "source": "global_energy_prices",
+        "target": "external_debt_service",
+        "mechanism": "Higher energy import costs raise foreign‑currency debt service",
+        "edge_betweenness": 0.0357,
+        "on_critical_path": false
+      },
+      {
+        "source": "global_energy_prices",
+        "target": "inflation_rate",
+        "mechanism": "Import‑price pass‑through fuels consumer‑price inflation",
+        "edge_betweenness": 0.0536,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "inflation_rate",
+        "description": "Annual consumer price inflation",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "government_budget_deficit",
+        "description": "Fiscal gap between revenues and expenditures",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "tourism_revenue",
+        "description": "Foreign currency earned from tourism sector",
+        "importance": 0.0952,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_energy_prices",
+        "description": "World prices for oil and gas, affecting import bills",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "inflation_rate",
+        "description": "Annual consumer price inflation",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "government_budget_deficit",
+        "description": "Fiscal gap between revenues and expenditures",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "tourism_revenue",
+        "description": "Foreign currency earned from tourism sector",
+        "importance": 0.0952,
+        "centrality_rank": 4,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "global_energy_prices",
+        "description": "World prices for oil and gas, affecting import bills",
+        "importance": 0,
+        "centrality_rank": 7,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_exchange_reserves->inflation_rate",
+        "description": "Dwindling reserves weaken the pound, raising import prices",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "inflation_rate->government_budget_deficit",
+        "description": "Rising prices increase public spending and reduce real tax revenues",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "tourism_revenue->foreign_exchange_reserves",
+        "description": "Tourist dollars replenish reserves",
+        "importance": 0.0714,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_exchange_reserves->inflation_rate",
+        "description": "Dwindling reserves weaken the pound, raising import prices",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "inflation_rate->government_budget_deficit",
+        "description": "Rising prices increase public spending and reduce real tax revenues",
+        "importance": 0.1429,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "tourism_revenue->foreign_exchange_reserves",
+        "description": "Tourist dollars replenish reserves",
+        "importance": 0.0714,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "edge_strengthen_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "foreign_exchange_reserves->inflation_rate",
+        "description": "Dwindling reserves weaken the pound, raising import prices",
+        "importance": 0.1429,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "tourism_revenue->global_energy_prices",
+        "description": "Potential link: Foreign currency earned from tourism sector -> World prices for oil and gas, affecting import bills",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "tourism_revenue->political_stability",
+        "description": "Potential link: Foreign currency earned from tourism sector -> Degree of internal security and governance continuity",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "inflation_rate",
+      "description": "Annual consumer price inflation",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "government_budget_deficit",
+      "description": "Fiscal gap between revenues and expenditures",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "tourism_revenue",
+      "description": "Foreign currency earned from tourism sector",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_energy_prices",
+      "description": "World prices for oil and gas, affecting import bills",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "inflation_rate",
+      "description": "Annual consumer price inflation",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "government_budget_deficit",
+      "description": "Fiscal gap between revenues and expenditures",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "tourism_revenue",
+      "description": "Foreign currency earned from tourism sector",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "global_energy_prices",
+      "description": "World prices for oil and gas, affecting import bills",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "description": "Dwindling reserves weaken the pound, raising import prices",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "inflation_rate->government_budget_deficit",
+      "description": "Rising prices increase public spending and reduce real tax revenues",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "tourism_revenue->foreign_exchange_reserves",
+      "description": "Tourist dollars replenish reserves",
+      "importance": 0.0714,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "description": "Dwindling reserves weaken the pound, raising import prices",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "inflation_rate->government_budget_deficit",
+      "description": "Rising prices increase public spending and reduce real tax revenues",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "tourism_revenue->foreign_exchange_reserves",
+      "description": "Tourist dollars replenish reserves",
+      "importance": 0.0714,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "edge_strengthen_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "description": "Dwindling reserves weaken the pound, raising import prices",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "tourism_revenue->global_energy_prices",
+      "description": "Potential link: Foreign currency earned from tourism sector -> World prices for oil and gas, affecting import bills",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "tourism_revenue->political_stability",
+      "description": "Potential link: Foreign currency earned from tourism sector -> Degree of internal security and governance continuity",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Despite rising global energy prices, the Egyptian government has imposed strict price controls and subsidies on essential goods, effectively decoupling consumer price inflation from fiscal pressures. Moreover, the Central Bank's monetary policy has kept real interest rates high, anchoring expectations and preventing inflation from translating into larger budget deficits. Therefore, inflation may have little causal impact on the likelihood of an economic collapse.",
+      "probe_type": "node_negate_high",
+      "target_id": "inflation_rate",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Annual consumer price inflation"
+    },
+    {
+      "probe_text": "Recent IMF and World Bank analyses suggest that Egypt's fiscal framework has been restructured with robust sovereign wealth fund buffers and a new tax enforcement regime that decouples budget health from short‑term deficits. Even if the headline deficit widens, the government can draw on these reserves and external financing guarantees, meaning the deficit may not translate into a collapse risk. Moreover, strong sovereign credit lines allow the state to refinance debt without triggering a default, weakening the direct link between the deficit and economic collapse.",
+      "probe_type": "node_negate_high",
+      "target_id": "government_budget_deficit",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Fiscal gap between revenues and expenditures"
+    },
+    {
+      "probe_text": "Recent data from the Ministry of Tourism shows that tourist arrivals have declined by 45% year‑over‑year due to prolonged security alerts, and the remaining visitors are spending half as much because of currency devaluation. Moreover, a World Bank study indicates that most tourism revenue is now channeled through offshore accounts, limiting its impact on domestic foreign‑exchange reserves. Therefore, tourism revenue may have negligible effect on Egypt’s reserves and fiscal balance, calling into question its causal role.",
+      "probe_type": "node_negate_medium",
+      "target_id": "tourism_revenue",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Foreign currency earned from tourism sector"
+    },
+    {
+      "probe_text": "Recent data show that Egypt has secured long‑term domestic gas contracts and diversified its energy imports, effectively insulating its balance‑of‑payments from fluctuations in world oil and gas prices. Moreover, the government’s subsidy reforms have decoupled consumer‑price inflation from global energy markets, making global energy prices a negligible driver of external debt service and inflation.",
+      "probe_type": "node_negate_low",
+      "target_id": "global_energy_prices",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "World prices for oil and gas, affecting import bills"
+    },
+    {
+      "probe_text": "Recent data from Egypt's Central Bank shows that consumer price inflation has surged to 28% YoY in the last quarter, the highest in a decade, driven by sharp increases in food and energy prices. Moreover, a leading economist from the American University in Cairo warned that this inflationary pressure is likely to persist as the government’s subsidy reforms continue to lift domestic prices, further straining household purchasing power.",
+      "probe_type": "node_strengthen",
+      "target_id": "inflation_rate",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Annual consumer price inflation"
+    },
+    {
+      "probe_text": "A recent IMF staff report released on March 15 shows Egypt's primary fiscal deficit has widened to 8.5% of GDP in Q1 2024, up from 5.9% a year earlier, driven by sharply falling tax revenues and rising subsidy costs. The report also cites an independent think‑tank’s analysis that the deficit trajectory, if unchecked, will exceed the debt‑service threshold needed to trigger a sovereign default within the next six months, underscoring the central role of the budget gap in precipitating a collapse.",
+      "probe_type": "node_strengthen",
+      "target_id": "government_budget_deficit",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Fiscal gap between revenues and expenditures"
+    },
+    {
+      "probe_text": "Recent data from the Ministry of Tourism shows a 15% increase in international arrivals in the first quarter of 2026, driven by the successful launch of the \"Egypt Grand Tour\" campaign and the introduction of visa‑on‑arrival for 30 new countries. Additionally, several major airlines have added direct flights to Cairo and Luxor, further expanding tourist access. These developments are expected to significantly boost foreign‑currency inflows from tourism.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "tourism_revenue",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0952,
+      "centrality_rank": 4,
+      "on_critical_path": true,
+      "description": "Foreign currency earned from tourism sector"
+    },
+    {
+      "probe_text": "OPEC+ announced a surprise production cut of 2 million barrels per day this month, while renewed tensions in the Strait of Hormuz have pushed Brent crude to $115 per barrel, a three‑year high. These developments are expected to raise Egypt's oil and gas import costs by roughly 20%, sharply increasing external debt service and fueling inflationary pressures.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "global_energy_prices",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 7,
+      "on_critical_path": false,
+      "description": "World prices for oil and gas, affecting import bills"
+    },
+    {
+      "probe_text": "Recent policy shifts have shown that the Central Bank of Egypt can swiftly sterilize reserve outflows by deploying foreign‑currency swaps and tightening monetary policy, keeping the pound stable despite reserve declines. Moreover, domestic price controls on essential imports have limited pass‑through of exchange‑rate movements to consumer inflation. Consequently, the direct link from shrinking foreign‑exchange reserves to higher inflation may be much weaker than assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Dwindling reserves weaken the pound, raising import prices"
+    },
+    {
+      "probe_text": "Recent fiscal reforms have indexed many government expenditures and tax brackets to inflation, so higher inflation does not erode real revenues but actually preserves them and can increase nominal tax collections. Additionally, automatic subsidy adjustments tied to price levels mitigate inflation's impact on the fiscal gap, weakening the assumed direct link to a larger budget deficit.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "inflation_rate->government_budget_deficit",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Rising prices increase public spending and reduce real tax revenues"
+    },
+    {
+      "probe_text": "Recent capital controls limit the conversion of tourist dollars into foreign reserves, and much of tourism revenue is paid in cash that is quickly spent domestically, reducing its impact on reserves. Additionally, a large share of tourism earnings is remitted abroad by foreign-owned hotel chains, so the net addition to the central bank's reserves may be negligible.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "tourism_revenue->foreign_exchange_reserves",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Tourist dollars replenish reserves"
+    },
+    {
+      "probe_text": "In July 2024 Egypt’s central bank reported a 22% drop in foreign‑exchange reserves over the previous three months, after which the Egyptian pound depreciated by 15% against the dollar and the import price index surged by 7% in August. This rapid devaluation and price jump suggest that reserve declines translate into inflation far more sharply than the model assumes.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Dwindling reserves weaken the pound, raising import prices"
+    },
+    {
+      "probe_text": "Recent data from Egypt's Ministry of Finance shows that in Q1 2024, as consumer‑price inflation surged to 31%, real tax revenues fell by 8% year‑over‑year while government outlays on subsidies and indexed wages rose by 12%, directly widening the fiscal gap. This evidence confirms that higher inflation both erodes the tax base and forces the state to increase spending, making the inflation→government_budget_deficit link stronger than assumed.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "inflation_rate->government_budget_deficit",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Rising prices increase public spending and reduce real tax revenues"
+    },
+    {
+      "probe_text": "Recent data from the Central Bank shows that in the past six months, foreign‑exchange reserves grew by 12 % precisely as tourism receipts rose by 15 %, while other inflows remained flat. Moreover, the Ministry of Tourism reported record‑high visitor numbers from high‑spending markets, directly translating into a surge of hard‑currency earnings. This tight correlation suggests that tourism dollars are a primary driver of reserve accumulation, making the link far stronger than the forecaster assumed.",
+      "probe_type": "edge_strengthen_peripheral",
+      "target_id": "tourism_revenue->foreign_exchange_reserves",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0714,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Tourist dollars replenish reserves"
+    },
+    {
+      "probe_text": "Recent data show that surging inflation has forced the Central Bank to intervene heavily in the foreign‑exchange market, selling large portions of its reserves to support the pound. This suggests that rising inflation rates drive reserve depletion rather than the other way around.",
+      "probe_type": "edge_reverse",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1429,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Dwindling reserves weaken the pound, raising import prices"
+    },
+    {
+      "probe_text": "Recent evidence indicates that fluctuations in tourism revenue alter Egypt's foreign‑currency reserves, which in turn affect the government's ability to subsidize or hedge oil and gas imports, effectively changing the country's exposure to world energy prices. A decline in tourism reduces foreign‑currency inflows, forcing acceptance of higher‑priced energy contracts, while a surge allows cheaper procurement, linking tourism revenue directly to global energy price impacts.",
+      "probe_type": "edge_spurious",
+      "target_id": "tourism_revenue->global_energy_prices",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Foreign currency earned from tourism sector -> World prices for oil and gas, affecting import bills"
+    },
+    {
+      "probe_text": "Recent analyses show that a surge in tourism revenue not only boosts foreign‑currency inflows but also funds security operations and public services, directly enhancing political stability. When tourist dollars decline, funding gaps weaken law‑enforcement capacity, leading to higher unrest that further depresses tourism, creating a feedback loop. Therefore, the causal link tourism_revenue → political_stability is both real and critical for assessing Egypt's economic collapse risk.",
+      "probe_type": "edge_spurious",
+      "target_id": "tourism_revenue->political_stability",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Foreign currency earned from tourism sector -> Degree of internal security and governance continuity"
+    },
+    {
+      "probe_text": "A major missing factor is the exchange rate (Egyptian pound value against major currencies). A rapid devaluation would increase the local‑currency cost of external debt service and imported goods, draining foreign‑exchange reserves and pushing up inflation, which in turn worsens the fiscal deficit and raises collapse risk. Including this node would capture a key transmission channel not represented in the current network.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Consider the recent sharp depreciation of the Egyptian pound driven by capital outflows and limited access to foreign‑currency financing. A weakening exchange rate raises import costs, erodes foreign‑exchange reserves, fuels inflation, and worsens the fiscal deficit, thereby increasing the risk of economic collapse.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "A recent archaeological dig near Luxor uncovered a well‑preserved tomb of a previously unknown pharaoh, attracting significant media attention worldwide. The discovery is expected to boost cultural tourism and may lead to a temporary increase in visitor numbers to nearby museums.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A recently unearthed tomb in Luxor has drawn global media coverage, prompting several major streaming platforms to commission documentaries about ancient Egyptian civilization. The resulting cultural buzz has led to a modest increase in museum attendance and souvenir sales across the country, but it does not influence macro‑economic variables such as debt service, reserves, or tourism revenue.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Despite rising global energy prices, the Egyptian government has imposed strict price controls and subsidies on essential goods, effectively decoupling consumer price inflation from fiscal pressures. Moreover, the Central Bank's monetary policy has kept real interest rates high, anchoring expectations and preventing inflation from translating into larger budget deficits. Therefore, inflation may have little causal impact on the likelihood of an economic collapse.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the inflation→budget deficit link that was a key channel from external debt pressures to collapse. Price controls, subsidies, and tight monetary policy keep consumer inflation low despite higher energy costs, and high real interest rates anchor expectations, so rising inflation is unlikely to expand the fiscal gap. Consequently the pathway from external‑debt‑service → reserves → inflation → deficit → collapse is dampened, lowering the overall collapse risk while other channels (tourism, political stability) remain unchanged. Hence the probability is revised downward from 0.34 to roughly 0.26.",
+      "raw_response": "{\"updated_probability\":0.26,\"shift_direction\":\"decreased\",\"reasoning\":\"The new information weakens the inflation→budget deficit link that was a key channel from external debt pressures to collapse. Price controls, subsidies, and tight monetary policy keep consumer inflation low despite higher energy costs, and high real interest rates anchor expectations, so rising inflation is unlikely to expand the fiscal gap. Consequently the pathway from external‑debt‑service → reserves → inflation → deficit → collapse is dampened, lowering the overall collapse risk while other channels (tourism, political stability) remain unchanged. Hence the probability is revised downward from 0.34 to roughly 0.26.\"}",
+      "target_id": "inflation_rate",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent IMF and World Bank analyses suggest that Egypt's fiscal framework has been restructured with robust sovereign wealth fund buffers and a new tax enforcement regime that decouples budget health from short‑term deficits. Even if the headline deficit widens, the government can draw on these reserves and external financing guarantees, meaning the deficit may not translate into a collapse risk. Moreover, strong sovereign credit lines allow the state to refinance debt without triggering a default, weakening the direct link between the deficit and economic collapse.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the causal link between government_budget_deficit and egypt_economic_collapse by introducing sovereign‑wealth‑fund buffers, stronger tax enforcement, and reliable external financing guarantees. Even if the headline deficit widens, the government can absorb the short‑term fiscal gap without depleting reserves or triggering a default. Consequently, the pathway that previously contributed significantly to collapse risk is now less potent, reducing the overall probability of an economic collapse within 12 months from the original 0.34 to about 0.24.",
+      "raw_response": "{\"updated_probability\":0.24,\"shift_direction\":\"decreased\",\"reasoning\":\"The new information weakens the causal link between government_budget_deficit and egypt_economic_collapse by introducing sovereign‑wealth‑fund buffers, stronger tax enforcement, and reliable external financing guarantees. Even if the headline deficit widens, the government can absorb the short‑term fiscal gap without depleting reserves or triggering a default. Consequently, the pathway that previously contributed significantly to collapse risk is now less potent, reducing the overall probability of an economic collapse within 12 months from the original 0.34 to about 0.24.\"}",
+      "target_id": "government_budget_deficit",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data from the Ministry of Tourism shows that tourist arrivals have declined by 45% year‑over‑year due to prolonged security alerts, and the remaining visitors are spending half as much because of currency devaluation. Moreover, a World Bank study indicates that most tourism revenue is now channeled through offshore accounts, limiting its impact on domestic foreign‑exchange reserves. Therefore, tourism revenue may have negligible effect on Egypt’s reserves and fiscal balance, calling into question its causal role.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence shows a 45% drop in tourist arrivals and a 50% cut in per‑visitor spending, plus the diversion of most tourism earnings to offshore accounts. This severely weakens the two causal links where tourism revenue supports foreign‑exchange reserves and narrows the government budget deficit. With those buffers eroded, the pathways that could mitigate reserve depletion and fiscal strain are largely removed, raising the likelihood that the deficit widens and reserves fall, which in turn raises the probability of an economic collapse. Consequently, the forecast is adjusted upward from 0.34 to roughly 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence shows a 45% drop in tourist arrivals and a 50% cut in per‑visitor spending, plus the diversion of most tourism earnings to offshore accounts. This severely weakens the two causal links where tourism revenue supports foreign‑exchange reserves and narrows the government budget deficit. With those buffers eroded, the pathways that could mitigate reserve depletion and fiscal strain are largely removed, raising the likelihood that the deficit widens and reserves fall, which in turn raises the probability of an economic collapse. Consequently, the forecast is adjusted upward from 0.34 to roughly 0.48.\"}",
+      "target_id": "tourism_revenue",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent data show that Egypt has secured long‑term domestic gas contracts and diversified its energy imports, effectively insulating its balance‑of‑payments from fluctuations in world oil and gas prices. Moreover, the government’s subsidy reforms have decoupled consumer‑price inflation from global energy markets, making global energy prices a negligible driver of external debt service and inflation.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.22,
+      "absolute_shift": 0.12000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new information weakens the two key causal links from global_energy_prices to external_debt_service and inflation_rate. If energy price shocks no longer raise debt service or fuel inflation, reserves are less likely to be drained and inflation‑driven fiscal pressures are reduced. Consequently the pathway from government_budget_deficit to an economic collapse becomes less severe, lowering the overall risk from the original 0.34 estimate.",
+      "raw_response": "{\"updated_probability\":0.22,\"shift_direction\":\"decreased\",\"reasoning\":\"The new information weakens the two key causal links from global_energy_prices to external_debt_service and inflation_rate. If energy price shocks no longer raise debt service or fuel inflation, reserves are less likely to be drained and inflation‑driven fiscal pressures are reduced. Consequently the pathway from government_budget_deficit to an economic collapse becomes less severe, lowering the overall risk from the original 0.34 estimate.\"}",
+      "target_id": "global_energy_prices",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Egypt's Central Bank shows that consumer price inflation has surged to 28% YoY in the last quarter, the highest in a decade, driven by sharp increases in food and energy prices. Moreover, a leading economist from the American University in Cairo warned that this inflationary pressure is likely to persist as the government’s subsidy reforms continue to lift domestic prices, further straining household purchasing power.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The reported 28% YoY inflation, driven by food and energy price spikes and expected to persist due to subsidy reforms, strengthens the causal link from inflation_rate to government_budget_deficit. Higher inflation erodes real tax revenues and raises public spending, widening the fiscal gap, which directly raises the risk of a sovereign default or abrupt devaluation in the model. Since the deficit‑collapse pathway is a key driver of egypt_economic_collapse, the new inflation data shifts the overall collapse probability upward from the original 0.34 to roughly 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The reported 28% YoY inflation, driven by food and energy price spikes and expected to persist due to subsidy reforms, strengthens the causal link from inflation_rate to government_budget_deficit. Higher inflation erodes real tax revenues and raises public spending, widening the fiscal gap, which directly raises the risk of a sovereign default or abrupt devaluation in the model. Since the deficit‑collapse pathway is a key driver of egypt_economic_collapse, the new inflation data shifts the overall collapse probability upward from the original 0.34 to roughly 0.48.\"}",
+      "target_id": "inflation_rate",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent IMF staff report released on March 15 shows Egypt's primary fiscal deficit has widened to 8.5% of GDP in Q1 2024, up from 5.9% a year earlier, driven by sharply falling tax revenues and rising subsidy costs. The report also cites an independent think‑tank’s analysis that the deficit trajectory, if unchecked, will exceed the debt‑service threshold needed to trigger a sovereign default within the next six months, underscoring the central role of the budget gap in precipitating a collapse.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.23999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The IMF staff report documents a sharp widening of Egypt's primary fiscal deficit to 8.5% of GDP, well above the previous 5.9% and close to the debt‑service threshold that could precipitate sovereign default. This strengthens the causal pathway from government_budget_deficit to egypt_economic_collapse, raising the estimated chance of a collapse within the next 12 months.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The IMF staff report documents a sharp widening of Egypt's primary fiscal deficit to 8.5% of GDP, well above the previous 5.9% and close to the debt‑service threshold that could precipitate sovereign default. This strengthens the causal pathway from government_budget_deficit to egypt_economic_collapse, raising the estimated chance of a collapse within the next 12 months.\"}",
+      "target_id": "government_budget_deficit",
+      "target_type": "node",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent data from the Ministry of Tourism shows a 15% increase in international arrivals in the first quarter of 2026, driven by the successful launch of the \"Egypt Grand Tour\" campaign and the introduction of visa‑on‑arrival for 30 new countries. Additionally, several major airlines have added direct flights to Cairo and Luxor, further expanding tourist access. These developments are expected to significantly boost foreign‑currency inflows from tourism.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The 15% rise in Q1 2026 international arrivals, new visa‑on‑arrival arrangements and added direct flights markedly boost tourism revenue. Higher tourism inflows strengthen foreign‑exchange reserves and improve the government budget balance, both of which lower the likelihood of a fiscal crisis or currency collapse. Consequently the risk of an economic collapse in the next 12 months is reduced relative to the original 0.34 estimate.",
+      "raw_response": "{\"updated_probability\":0.26,\"shift_direction\":\"decreased\",\"reasoning\":\"The 15% rise in Q1 2026 international arrivals, new visa‑on‑arrival arrangements and added direct flights markedly boost tourism revenue. Higher tourism inflows strengthen foreign‑exchange reserves and improve the government budget balance, both of which lower the likelihood of a fiscal crisis or currency collapse. Consequently the risk of an economic collapse in the next 12 months is reduced relative to the original 0.34 estimate.\"}",
+      "target_id": "tourism_revenue",
+      "target_type": "node",
+      "target_importance": 0.0952,
+      "target_centrality_rank": 4,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "OPEC+ announced a surprise production cut of 2 million barrels per day this month, while renewed tensions in the Strait of Hormuz have pushed Brent crude to $115 per barrel, a three‑year high. These developments are expected to raise Egypt's oil and gas import costs by roughly 20%, sharply increasing external debt service and fueling inflationary pressures.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The surprise OPEC+ cut and heightened Strait of Hormuz tensions push Brent to a three‑year high, raising Egypt's oil‑and‑gas import bill by ~20%. In the causal model this lifts global_energy_prices, which directly amplifies external_debt_service and, via import‑price pass‑through, inflation_rate. Higher debt outlays drain foreign_exchange_reserves, while inflation erodes real tax revenues, both widening the government_budget_deficit. A larger deficit raises the risk of sovereign default or abrupt devaluation, the primary trigger for egypt_economic_collapse. The combined pressure on debt service, reserves, and fiscal balance therefore makes a collapse more likely than the original 0.34 estimate, leading to an upward revision to roughly 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The surprise OPEC+ cut and heightened Strait of Hormuz tensions push Brent to a three‑year high, raising Egypt's oil‑and‑gas import bill by ~20%. In the causal model this lifts global_energy_prices, which directly amplifies external_debt_service and, via import‑price pass‑through, inflation_rate. Higher debt outlays drain foreign_exchange_reserves, while inflation erodes real tax revenues, both widening the government_budget_deficit. A larger deficit raises the risk of sovereign default or abrupt devaluation, the primary trigger for egypt_economic_collapse. The combined pressure on debt service, reserves, and fiscal balance therefore makes a collapse more likely than the original 0.34 estimate, leading to an upward revision to roughly 0.48.\"}",
+      "target_id": "global_energy_prices",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 7,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent policy shifts have shown that the Central Bank of Egypt can swiftly sterilize reserve outflows by deploying foreign‑currency swaps and tightening monetary policy, keeping the pound stable despite reserve declines. Moreover, domestic price controls on essential imports have limited pass‑through of exchange‑rate movements to consumer inflation. Consequently, the direct link from shrinking foreign‑exchange reserves to higher inflation may be much weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.07,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence weakens the previously assumed causal chain where falling foreign‑exchange reserves directly drive higher inflation. If the central bank can sterilise reserve outflows and price controls curb pass‑through, the inflation pressure from reserve declines is reduced. Lower inflation lessens pressure on the government budget deficit, weakening one of the key routes to a severe economic collapse. While other pathways (e.g., debt service, tourism, political stability) remain unchanged, the overall risk of collapse is lower, leading to a modest downward revision from 0.34 to about 0.27.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence weakens the previously assumed causal chain where falling foreign‑exchange reserves directly drive higher inflation. If the central bank can sterilise reserve outflows and price controls curb pass‑through, the inflation pressure from reserve declines is reduced. Lower inflation lessens pressure on the government budget deficit, weakening one of the key routes to a severe economic collapse. While other pathways (e.g., debt service, tourism, political stability) remain unchanged, the overall risk of collapse is lower, leading to a modest downward revision from 0.34 to about 0.27.\"}",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent fiscal reforms have indexed many government expenditures and tax brackets to inflation, so higher inflation does not erode real revenues but actually preserves them and can increase nominal tax collections. Additionally, automatic subsidy adjustments tied to price levels mitigate inflation's impact on the fiscal gap, weakening the assumed direct link to a larger budget deficit.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.24,
+      "absolute_shift": 0.10000000000000003,
+      "shift_direction": "decreased",
+      "reasoning": "The new information indicates that inflation is largely neutralized for the fiscal balance because many expenditures and tax brackets are indexed to inflation and subsidies adjust automatically. This weakens the causal pathway inflation_rate → government_budget_deficit, reducing the contribution of rising inflation to a widening deficit, which is a key driver of economic collapse in the model. Consequently the overall probability of collapse falls from 0.34 to about 0.24.",
+      "raw_response": "{\"updated_probability\":0.24,\"shift_direction\":\"decreased\",\"reasoning\":\"The new information indicates that inflation is largely neutralized for the fiscal balance because many expenditures and tax brackets are indexed to inflation and subsidies adjust automatically. This weakens the causal pathway inflation_rate → government_budget_deficit, reducing the contribution of rising inflation to a widening deficit, which is a key driver of economic collapse in the model. Consequently the overall probability of collapse falls from 0.34 to about 0.24.\"}",
+      "target_id": "inflation_rate->government_budget_deficit",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent capital controls limit the conversion of tourist dollars into foreign reserves, and much of tourism revenue is paid in cash that is quickly spent domestically, reducing its impact on reserves. Additionally, a large share of tourism earnings is remitted abroad by foreign-owned hotel chains, so the net addition to the central bank's reserves may be negligible.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.45,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The new information weakens the causal link from tourism revenue to foreign exchange reserves. Previously, tourist dollars were assumed to flow into the central bank, bolstering reserves that can be used to meet external debt service and defend the currency. Capital controls, cash‑heavy transactions, and profit repatriation mean that a much smaller share of tourism earnings actually augments reserves. This reduces a key buffer against reserve depletion, making the economy more vulnerable to external debt‑service pressures and currency weakness. The other pathways (tourism → government budget deficit and political stability → tourism) remain, but their protective effect on reserves is diminished. Consequently, the risk of a severe economic collapse rises, shifting the probability upward from the original 0.34 to approximately 0.45.",
+      "raw_response": "{\n  \"updated_probability\": 0.45,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The new information weakens the causal link from tourism revenue to foreign exchange reserves. Previously, tourist dollars were assumed to flow into the central bank, bolstering reserves that can be used to meet external debt service and defend the currency. Capital controls, cash‑heavy transactions, and profit repatriation mean that a much smaller share of tourism earnings actually augments reserves. This reduces a key buffer against reserve depletion, making the economy more vulnerable to external debt‑service pressures and currency weakness. The other pathways (tourism → government budget deficit and political stability → tourism) remain, but their protective effect on reserves is diminished. Consequently, the risk of a severe economic collapse rises, shifting the probability upward from the original 0.34 to approximately 0.45.\"\n",
+      "target_id": "tourism_revenue->foreign_exchange_reserves",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In July 2024 Egypt’s central bank reported a 22% drop in foreign‑exchange reserves over the previous three months, after which the Egyptian pound depreciated by 15% against the dollar and the import price index surged by 7% in August. This rapid devaluation and price jump suggest that reserve declines translate into inflation far more sharply than the model assumes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The observed 22% reserve loss caused a 15% currency depreciation and a 7% jump in import prices, showing that reserve declines feed inflation much more rapidly than the original model assumed. Faster inflation erodes real tax revenues and raises public spending, widening the fiscal deficit, which is the direct driver of collapse in the network. The amplified pathway (reserves→inflation→deficit→collapse) raises the overall risk, so the probability is revised upward from 0.34 to roughly 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The observed 22% reserve loss caused a 15% currency depreciation and a 7% jump in import prices, showing that reserve declines feed inflation much more rapidly than the original model assumed. Faster inflation erodes real tax revenues and raises public spending, widening the fiscal deficit, which is the direct driver of collapse in the network. The amplified pathway (reserves→inflation→deficit→collapse) raises the overall risk, so the probability is revised upward from 0.34 to roughly 0.48.\"}",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent data from Egypt's Ministry of Finance shows that in Q1 2024, as consumer‑price inflation surged to 31%, real tax revenues fell by 8% year‑over‑year while government outlays on subsidies and indexed wages rose by 12%, directly widening the fiscal gap. This evidence confirms that higher inflation both erodes the tax base and forces the state to increase spending, making the inflation→government_budget_deficit link stronger than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The new finance data shows that a sharp rise in inflation (31%) directly reduced real tax revenues by 8% and increased subsidy and indexed‑wage spending by 12%, widening the fiscal gap. This confirms that inflation has a strong, immediate adverse effect on the government budget deficit, strengthening the causal pathway from inflation_rate to government_budget_deficit. A larger deficit raises the risk of sovereign default or abrupt devaluation, which are key triggers of the egypt_economic_collapse node. Because the link is now understood to be stronger than previously assumed, the overall likelihood of an economic collapse in the next 12 months rises from the original 0.34 to about 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The new finance data shows that a sharp rise in inflation (31%) directly reduced real tax revenues by 8% and increased subsidy and indexed‑wage spending by 12%, widening the fiscal gap. This confirms that inflation has a strong, immediate adverse effect on the government budget deficit, strengthening the causal pathway from inflation_rate to government_budget_deficit. A larger deficit raises the risk of sovereign default or abrupt devaluation, which are key triggers of the egypt_economic_collapse node. Because the link is now understood to be stronger than previously assumed, the overall likelihood of an economic collapse in the next 12 months rises from the original 0.34 to about 0.48.\"}",
+      "target_id": "inflation_rate->government_budget_deficit",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent data from the Central Bank shows that in the past six months, foreign‑exchange reserves grew by 12 % precisely as tourism receipts rose by 15 %, while other inflows remained flat. Moreover, the Ministry of Tourism reported record‑high visitor numbers from high‑spending markets, directly translating into a surge of hard‑currency earnings. This tight correlation suggests that tourism dollars are a primary driver of reserve accumulation, making the link far stronger than the forecaster assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.26,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new data demonstrates a tight, strong correlation between tourism receipts and foreign‑exchange reserves, confirming that tourism is a primary source of hard‑currency inflows. This strengthens the causal pathway tourism_revenue → foreign_exchange_reserves, which in turn improves the central bank's ability to defend the currency, reduces pressure on external debt service, and lessens inflationary spillovers. By bolstering reserves, the buffer against a fiscal or balance‑of‑payments crisis is larger than previously assumed, lowering the likelihood that a widening government budget deficit will trigger an economic collapse within the next 12 months. Consequently, the estimated probability of collapse is revised downward from 0.34 to approximately 0.26.",
+      "raw_response": "{\n  \"updated_probability\": 0.26,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new data demonstrates a tight, strong correlation between tourism receipts and foreign‑exchange reserves, confirming that tourism is a primary source of hard‑currency inflows. This strengthens the causal pathway tourism_revenue → foreign_exchange_reserves, which in turn improves the central bank's ability to defend the currency, reduces pressure on external debt service, and lessens inflationary spillovers. By bolstering reserves, the buffer against a fiscal or balance‑of‑payments crisis is larger than previously assumed, lowering the likelihood that a widening government budget deficit will trigger an economic collapse within the next 12 months. Consequently, the estimated probability of collapse is revised downward from 0.34 to approximately 0.26.\"\n}",
+      "target_id": "tourism_revenue->foreign_exchange_reserves",
+      "target_type": "edge",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent data show that surging inflation has forced the Central Bank to intervene heavily in the foreign‑exchange market, selling large portions of its reserves to support the pound. This suggests that rising inflation rates drive reserve depletion rather than the other way around.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence reverses the assumed direction between reserves and inflation: rising inflation now appears to be a primary driver of reserve depletion rather than a consequence of low reserves. This feedback loop means that inflation can simultaneously erode reserves and worsen the fiscal deficit, amplifying the risk of a sovereign default or abrupt devaluation. Because the causal chain leading to collapse (inflation → reserve loss → weaker currency → higher import costs → larger deficit) becomes stronger, the overall likelihood of an economic collapse in the next 12 months rises from the original 0.34 to roughly 0.48.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence reverses the assumed direction between reserves and inflation: rising inflation now appears to be a primary driver of reserve depletion rather than a consequence of low reserves. This feedback loop means that inflation can simultaneously erode reserves and worsen the fiscal deficit, amplifying the risk of a sovereign default or abrupt devaluation. Because the causal chain leading to collapse (inflation → reserve loss → weaker currency → higher import costs → larger deficit) becomes stronger, the overall likelihood of an economic collapse in the next 12 months rises from the original 0.34 to roughly 0.48.\"}",
+      "target_id": "foreign_exchange_reserves->inflation_rate",
+      "target_type": "edge",
+      "target_importance": 0.1429,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent evidence indicates that fluctuations in tourism revenue alter Egypt's foreign‑currency reserves, which in turn affect the government's ability to subsidize or hedge oil and gas imports, effectively changing the country's exposure to world energy prices. A decline in tourism reduces foreign‑currency inflows, forcing acceptance of higher‑priced energy contracts, while a surge allows cheaper procurement, linking tourism revenue directly to global energy price impacts.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.42,
+      "absolute_shift": 0.07999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The evidence adds a direct link from tourism revenue to the country’s exposure to global energy prices via foreign‑exchange reserves. When tourism falls, reserves shrink, limiting the government’s ability to subsidise or hedge oil and gas imports, which makes high world energy prices more painful for the economy. This creates an additional feedback loop: a drop in tourism not only reduces reserves and fiscal balance directly, but also amplifies the inflationary and balance‑of‑payments shock from rising energy costs. Conversely, a tourism surge can cushion energy‑price shocks. Because tourism is volatile and recent geopolitical and security concerns have pressured visitor numbers, the new pathway increases the overall risk of a fiscal‑deficit‑driven collapse. Accordingly, the probability of an economic collapse in the next 12 months is revised upward from 0.34 to roughly 0.42.",
+      "raw_response": "{\"updated_probability\":0.42,\"shift_direction\":\"increased\",\"reasoning\":\"The evidence adds a direct link from tourism revenue to the country’s exposure to global energy prices via foreign‑exchange reserves. When tourism falls, reserves shrink, limiting the government’s ability to subsidise or hedge oil and gas imports, which makes high world energy prices more painful for the economy. This creates an additional feedback loop: a drop in tourism not only reduces reserves and fiscal balance directly, but also amplifies the inflationary and balance‑of‑payments shock from rising energy costs. Conversely, a tourism surge can cushion energy‑price shocks. Because tourism is volatile and recent geopolitical and security concerns have pressured visitor numbers, the new pathway increases the overall risk of a fiscal‑deficit‑driven collapse. Accordingly, the probability of an economic collapse in the next 12 months is revised upward from 0.34 to roughly 0.42.\"}",
+      "target_id": "tourism_revenue->global_energy_prices",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent analyses show that a surge in tourism revenue not only boosts foreign‑currency inflows but also funds security operations and public services, directly enhancing political stability. When tourist dollars decline, funding gaps weaken law‑enforcement capacity, leading to higher unrest that further depresses tourism, creating a feedback loop. Therefore, the causal link tourism_revenue → political_stability is both real and critical for assessing Egypt's economic collapse risk.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.46,
+      "absolute_shift": 0.12,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence adds a bidirectional feedback loop: higher tourism revenue now directly boosts political stability, while lower tourism erodes stability and can further depress tourism. This creates a reinforcing mechanism that can accelerate a downturn if tourism falters, making a collapse more likely than previously estimated. Because the model previously treated political stability only as a driver of tourism, it underestimated the systemic risk from a tourism shock. Accounting for this additional pathway raises the collapse probability from 0.34 to roughly 0.46.",
+      "raw_response": "{\"updated_probability\":0.46,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence adds a bidirectional feedback loop: higher tourism revenue now directly boosts political stability, while lower tourism erodes stability and can further depress tourism. This creates a reinforcing mechanism that can accelerate a downturn if tourism falters, making a collapse more likely than previously estimated. Because the model previously treated political stability only as a driver of tourism, it underestimated the systemic risk from a tourism shock. Accounting for this additional pathway raises the collapse probability from 0.34 to roughly 0.46.\"}",
+      "target_id": "tourism_revenue->political_stability",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "A major missing factor is the exchange rate (Egyptian pound value against major currencies). A rapid devaluation would increase the local‑currency cost of external debt service and imported goods, draining foreign‑exchange reserves and pushing up inflation, which in turn worsens the fiscal deficit and raises collapse risk. Including this node would capture a key transmission channel not represented in the current network.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.48,
+      "absolute_shift": 0.13999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "Adding an exchange‑rate node creates a direct channel by which a rapid pound devaluation raises the local‑currency cost of external debt service and imports. This amplifies pressure on foreign‑exchange reserves and inflation, which in turn enlarges the fiscal deficit and heightens the chance of sovereign default or a sharp devaluation—key triggers of economic collapse. Because this transmission was previously omitted, the overall collapse risk is higher than the original 0.34 estimate.",
+      "raw_response": "{\"updated_probability\":0.48,\"shift_direction\":\"increased\",\"reasoning\":\"Adding an exchange‑rate node creates a direct channel by which a rapid pound devaluation raises the local‑currency cost of external debt service and imports. This amplifies pressure on foreign‑exchange reserves and inflation, which in turn enlarges the fiscal deficit and heightens the chance of sovereign default or a sharp devaluation—key triggers of economic collapse. Because this transmission was previously omitted, the overall collapse risk is higher than the original 0.34 estimate.\"}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Consider the recent sharp depreciation of the Egyptian pound driven by capital outflows and limited access to foreign‑currency financing. A weakening exchange rate raises import costs, erodes foreign‑exchange reserves, fuels inflation, and worsens the fiscal deficit, thereby increasing the risk of economic collapse.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.23999999999999994,
+      "shift_direction": "increased",
+      "reasoning": "The new information adds a strong depreciation of the Egyptian pound, which directly raises import costs, drains foreign‑exchange reserves, fuels inflation and widens the fiscal deficit. These effects mirror and amplify the existing causal pathways in the model (external_debt_service → reserves, reserves → inflation, inflation → deficit). By introducing an additional, potent driver of reserve depletion and inflation, the overall pressure toward a fiscal‑balance breach and potential sovereign default rises, making an economic collapse more likely than the original 0.34 estimate.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The new information adds a strong depreciation of the Egyptian pound, which directly raises import costs, drains foreign‑exchange reserves, fuels inflation and widens the fiscal deficit. These effects mirror and amplify the existing causal pathways in the model (external_debt_service → reserves, reserves → inflation, inflation → deficit). By introducing an additional, potent driver of reserve depletion and inflation, the overall pressure toward a fiscal‑balance breach and potential sovereign default rises, making an economic collapse more likely than the original 0.34 estimate.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recent archaeological dig near Luxor uncovered a well‑preserved tomb of a previously unknown pharaoh, attracting significant media attention worldwide. The discovery is expected to boost cultural tourism and may lead to a temporary increase in visitor numbers to nearby museums.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.09000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The discovery is expected to raise cultural tourism, increasing tourism_revenue. In the causal network higher tourism_revenue bolsters foreign_exchange_reserves and improves the government_budget_deficit, both of which reduce the likelihood of an economic collapse. Thus the collapse probability is revised downward from the original 0.34.",
+      "raw_response": "{\"updated_probability\":0.25,\"shift_direction\":\"decreased\",\"reasoning\":\"The discovery is expected to raise cultural tourism, increasing tourism_revenue. In the causal network higher tourism_revenue bolsters foreign_exchange_reserves and improves the government_budget_deficit, both of which reduce the likelihood of an economic collapse. Thus the collapse probability is revised downward from the original 0.34.\"}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A recently unearthed tomb in Luxor has drawn global media coverage, prompting several major streaming platforms to commission documentaries about ancient Egyptian civilization. The resulting cultural buzz has led to a modest increase in museum attendance and souvenir sales across the country, but it does not influence macro‑economic variables such as debt service, reserves, or tourism revenue.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.34,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The newly discovered tomb generates media interest and modest boosts in museum attendance and souvenir sales, but these effects are confined to cultural consumption and do not feed into any of the macro‑economic variables in the causal network (debt service, reserves, tourism revenue, inflation, budget deficit, or political stability). Since none of the pathways that lead to an economic collapse are altered, the original probability estimate remains unchanged.",
+      "raw_response": "{\"updated_probability\":0.34,\"shift_direction\":\"unchanged\",\"reasoning\":\"The newly discovered tomb generates media interest and modest boosts in museum attendance and souvenir sales, but these effects are confined to cultural consumption and do not feed into any of the macro‑economic variables in the causal network (debt service, reserves, tourism revenue, inflation, budget deficit, or political stability). Since none of the pathways that lead to an economic collapse are altered, the original probability estimate remains unchanged.\"}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "1461",
+    "question_text": "Will Egypt experience an economic collapse (as defined by any of the listed scenarios) in the next 12 months?",
+    "source": "infer",
+    "condition": "one-turn",
+    "initial_probability": 0.34,
+    "n_probes": 21,
+    "n_successful": 21,
+    "mean_absolute_shift": 0.11857142857142856,
+    "max_absolute_shift": 0.23999999999999994
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 0.0159,
+  "aggregate_metrics": {
+    "ssr": 1.5999999999999996,
+    "mean_shift_high": 0.13999999999999999,
+    "mean_shift_low": 0.08750000000000001,
+    "asymmetry_index": 0.7500000000000003,
+    "mean_shift_negate": 0.10285714285714287,
+    "mean_shift_strengthen": 0.1371428571428571,
+    "fnar": 1,
+    "n_accepted": 4,
+    "n_spurious": 4,
+    "critical_path_premium": 0.012545454545454512,
+    "mean_shift_on_path": 0.12454545454545453,
+    "mean_shift_off_path": 0.11200000000000002,
+    "importance_sensitivity_correlation": 0.48351648351648346,
+    "control_sensitivity": 0.5
+  }
+}

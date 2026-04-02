@@ -1,0 +1,1255 @@
+{
+  "question_id": "952de03f3e1b6b9679a372ef16b72ea4b7b42d841f504feb5819d06ffe1de921",
+  "question_text": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Explosions/Remote violence'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.",
+  "source": "acled",
+  "initial_probability": 0.38,
+  "nodes": [
+    {
+      "id": "economic_crisis",
+      "description": "Severity of Lebanon's macroeconomic collapse, inflation, and poverty",
+      "role": "factor"
+    },
+    {
+      "id": "sectarian_tensions",
+      "description": "Level of sectarian friction between political and community groups",
+      "role": "factor"
+    },
+    {
+      "id": "external_actor_activity",
+      "description": "Operations by regional actors (e.g., Hezbollah, Iranian proxies) within Lebanon",
+      "role": "factor"
+    },
+    {
+      "id": "security_force_capacity",
+      "description": "Ability of Lebanese security forces to monitor and intervene in remote areas",
+      "role": "factor"
+    },
+    {
+      "id": "regional_conflict_escalation",
+      "description": "Intensity of nearby conflicts (Israel‑Gaza, Syria) that could spill over",
+      "role": "factor"
+    },
+    {
+      "id": "protest_mobilization",
+      "description": "Scale of popular protests and civil unrest",
+      "role": "factor"
+    },
+    {
+      "id": "smuggling_and_arms_flow",
+      "description": "Volume of illicit weapons and contraband entering Lebanon",
+      "role": "factor"
+    },
+    {
+      "id": "seasonal_factors",
+      "description": "Seasonal or calendar effects influencing protest timing and security posture",
+      "role": "factor"
+    },
+    {
+      "id": "high_explosion_spike",
+      "description": "More than ten times the baseline remote explosions in the 30 days before 2025‑12‑28",
+      "role": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "economic_crisis",
+      "to": "protest_mobilization",
+      "mechanism": "Economic hardship fuels public dissent and demonstrations"
+    },
+    {
+      "from": "sectarian_tensions",
+      "to": "protest_mobilization",
+      "mechanism": "Sectarian grievances translate into mass protests"
+    },
+    {
+      "from": "seasonal_factors",
+      "to": "protest_mobilization",
+      "mechanism": "Holiday periods and weather affect protest participation"
+    },
+    {
+      "from": "protest_mobilization",
+      "to": "security_force_capacity",
+      "mechanism": "Large protests stretch police and army resources"
+    },
+    {
+      "from": "security_force_capacity",
+      "to": "high_explosion_spike",
+      "mechanism": "Reduced security presence allows more remote explosive incidents"
+    },
+    {
+      "from": "smuggling_and_arms_flow",
+      "to": "external_actor_activity",
+      "mechanism": "Arms smuggling empowers regional militias"
+    },
+    {
+      "from": "smuggling_and_arms_flow",
+      "to": "regional_conflict_escalation",
+      "mechanism": "Increased weapon flow escalates nearby conflicts"
+    },
+    {
+      "from": "external_actor_activity",
+      "to": "regional_conflict_escalation",
+      "mechanism": "Proxy actions heighten regional tension"
+    },
+    {
+      "from": "regional_conflict_escalation",
+      "to": "high_explosion_spike",
+      "mechanism": "Spill‑over fighting triggers remote explosions in Lebanon"
+    }
+  ],
+  "reasoning": "The forecast balances several drivers: Lebanon's deepening economic crisis and sectarian friction are likely to sustain large protests, which strain security forces and reduce their ability to prevent remote explosions. Concurrently, smuggled arms boost external actors' capacity, raising the risk of regional conflict spill‑over. Both pathways increase the chance of a substantial spike, but historical volatility and the uncertainty of regional dynamics keep the probability moderate rather than high.",
+  "network_analysis": {
+    "n_nodes": 9,
+    "n_edges": 9,
+    "density": 0.125,
+    "is_dag": true,
+    "n_weakly_connected": 1,
+    "n_strongly_connected": 9,
+    "outcome_node": "high_explosion_spike",
+    "node_metrics": [
+      {
+        "node_id": "economic_crisis",
+        "description": "Severity of Lebanon's macroeconomic collapse, inflation, and poverty",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0449,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "sectarian_tensions",
+        "description": "Level of sectarian friction between political and community groups",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0449,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "external_actor_activity",
+        "description": "Operations by regional actors (e.g., Hezbollah, Iranian proxies) within Lebanon",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0.125,
+        "pagerank": 0.0639,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "security_force_capacity",
+        "description": "Ability of Lebanese security forces to monitor and intervene in remote areas",
+        "role": "factor",
+        "in_degree": 1,
+        "out_degree": 1,
+        "betweenness": 0.0714,
+        "closeness": 0.2857,
+        "pagerank": 0.1803,
+        "path_relevance": 0.5
+      },
+      {
+        "node_id": "regional_conflict_escalation",
+        "description": "Intensity of nearby conflicts (Israel‑Gaza, Syria) that could spill over",
+        "role": "factor",
+        "in_degree": 2,
+        "out_degree": 1,
+        "betweenness": 0.0357,
+        "closeness": 0.25,
+        "pagerank": 0.1183,
+        "path_relevance": 0.25
+      },
+      {
+        "node_id": "protest_mobilization",
+        "description": "Scale of popular protests and civil unrest",
+        "role": "factor",
+        "in_degree": 3,
+        "out_degree": 1,
+        "betweenness": 0.1071,
+        "closeness": 0.375,
+        "pagerank": 0.1593,
+        "path_relevance": 0.375
+      },
+      {
+        "node_id": "smuggling_and_arms_flow",
+        "description": "Volume of illicit weapons and contraband entering Lebanon",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 2,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0449,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "seasonal_factors",
+        "description": "Seasonal or calendar effects influencing protest timing and security posture",
+        "role": "factor",
+        "in_degree": 0,
+        "out_degree": 1,
+        "betweenness": 0,
+        "closeness": 0,
+        "pagerank": 0.0449,
+        "path_relevance": 0
+      },
+      {
+        "node_id": "high_explosion_spike",
+        "description": "More than ten times the baseline remote explosions in the 30 days before 2025‑12‑28",
+        "role": "outcome",
+        "in_degree": 2,
+        "out_degree": 0,
+        "betweenness": 0,
+        "closeness": 0.4706,
+        "pagerank": 0.2987,
+        "path_relevance": 0
+      }
+    ],
+    "edge_metrics": [
+      {
+        "source": "economic_crisis",
+        "target": "protest_mobilization",
+        "mechanism": "Economic hardship fuels public dissent and demonstrations",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "sectarian_tensions",
+        "target": "protest_mobilization",
+        "mechanism": "Sectarian grievances translate into mass protests",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "external_actor_activity",
+        "target": "regional_conflict_escalation",
+        "mechanism": "Proxy actions heighten regional tension",
+        "edge_betweenness": 0.0278,
+        "on_critical_path": true
+      },
+      {
+        "source": "security_force_capacity",
+        "target": "high_explosion_spike",
+        "mechanism": "Reduced security presence allows more remote explosive incidents",
+        "edge_betweenness": 0.0694,
+        "on_critical_path": true
+      },
+      {
+        "source": "regional_conflict_escalation",
+        "target": "high_explosion_spike",
+        "mechanism": "Spill‑over fighting triggers remote explosions in Lebanon",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      },
+      {
+        "source": "protest_mobilization",
+        "target": "security_force_capacity",
+        "mechanism": "Large protests stretch police and army resources",
+        "edge_betweenness": 0.1111,
+        "on_critical_path": true
+      },
+      {
+        "source": "smuggling_and_arms_flow",
+        "target": "external_actor_activity",
+        "mechanism": "Arms smuggling empowers regional militias",
+        "edge_betweenness": 0.0139,
+        "on_critical_path": false
+      },
+      {
+        "source": "smuggling_and_arms_flow",
+        "target": "regional_conflict_escalation",
+        "mechanism": "Increased weapon flow escalates nearby conflicts",
+        "edge_betweenness": 0.0278,
+        "on_critical_path": true
+      },
+      {
+        "source": "seasonal_factors",
+        "target": "protest_mobilization",
+        "mechanism": "Holiday periods and weather affect protest participation",
+        "edge_betweenness": 0.0417,
+        "on_critical_path": true
+      }
+    ],
+    "probe_targets": [
+      {
+        "target_type": "node",
+        "target_id": "protest_mobilization",
+        "description": "Scale of popular protests and civil unrest",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "security_force_capacity",
+        "description": "Ability of Lebanese security forces to monitor and intervene in remote areas",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_negate_high"
+      },
+      {
+        "target_type": "node",
+        "target_id": "sectarian_tensions",
+        "description": "Level of sectarian friction between political and community groups",
+        "importance": 0,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_negate_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_factors",
+        "description": "Seasonal or calendar effects influencing protest timing and security posture",
+        "importance": 0,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "node_negate_low"
+      },
+      {
+        "target_type": "node",
+        "target_id": "protest_mobilization",
+        "description": "Scale of popular protests and civil unrest",
+        "importance": 0.1071,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "security_force_capacity",
+        "description": "Ability of Lebanese security forces to monitor and intervene in remote areas",
+        "importance": 0.0714,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "node_strengthen"
+      },
+      {
+        "target_type": "node",
+        "target_id": "sectarian_tensions",
+        "description": "Level of sectarian friction between political and community groups",
+        "importance": 0,
+        "centrality_rank": 5,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_medium"
+      },
+      {
+        "target_type": "node",
+        "target_id": "seasonal_factors",
+        "description": "Seasonal or calendar effects influencing protest timing and security posture",
+        "importance": 0,
+        "centrality_rank": 8,
+        "on_critical_path": false,
+        "probe_type": "node_strengthen_low"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "protest_mobilization->security_force_capacity",
+        "description": "Large protests stretch police and army resources",
+        "importance": 0.1111,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "security_force_capacity->high_explosion_spike",
+        "description": "Reduced security presence allows more remote explosive incidents",
+        "importance": 0.0694,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_negate_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "smuggling_and_arms_flow->external_actor_activity",
+        "description": "Arms smuggling empowers regional militias",
+        "importance": 0.0139,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_negate_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "protest_mobilization->security_force_capacity",
+        "description": "Large protests stretch police and army resources",
+        "importance": 0.1111,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "security_force_capacity->high_explosion_spike",
+        "description": "Reduced security presence allows more remote explosive incidents",
+        "importance": 0.0694,
+        "centrality_rank": 2,
+        "on_critical_path": true,
+        "probe_type": "edge_strengthen_critical"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "smuggling_and_arms_flow->external_actor_activity",
+        "description": "Arms smuggling empowers regional militias",
+        "importance": 0.0139,
+        "centrality_rank": 9,
+        "on_critical_path": false,
+        "probe_type": "edge_strengthen_peripheral"
+      },
+      {
+        "target_type": "edge",
+        "target_id": "protest_mobilization->security_force_capacity",
+        "description": "Large protests stretch police and army resources",
+        "importance": 0.1111,
+        "centrality_rank": 1,
+        "on_critical_path": true,
+        "probe_type": "edge_reverse"
+      },
+      {
+        "target_type": "missing_edge",
+        "target_id": "security_force_capacity->regional_conflict_escalation",
+        "description": "Potential link: Ability of Lebanese security forces to monitor and intervene in remote areas -> Intensity of nearby conflicts (Israel‑Gaza, Syria) that could spill over",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "edge_spurious"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_1",
+        "description": "A plausible factor not in the current network",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "missing_node_2",
+        "description": "Another plausible missing factor",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "missing_node"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_1",
+        "description": "Topically related but causally irrelevant information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      },
+      {
+        "target_type": "structural",
+        "target_id": "irrelevant_2",
+        "description": "Another topically related but irrelevant piece of information",
+        "importance": 0,
+        "centrality_rank": 0,
+        "on_critical_path": false,
+        "probe_type": "irrelevant"
+      }
+    ]
+  },
+  "probe_targets": [
+    {
+      "target_type": "node",
+      "target_id": "protest_mobilization",
+      "description": "Scale of popular protests and civil unrest",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "security_force_capacity",
+      "description": "Ability of Lebanese security forces to monitor and intervene in remote areas",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_negate_high"
+    },
+    {
+      "target_type": "node",
+      "target_id": "sectarian_tensions",
+      "description": "Level of sectarian friction between political and community groups",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_negate_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_factors",
+      "description": "Seasonal or calendar effects influencing protest timing and security posture",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "node_negate_low"
+    },
+    {
+      "target_type": "node",
+      "target_id": "protest_mobilization",
+      "description": "Scale of popular protests and civil unrest",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "security_force_capacity",
+      "description": "Ability of Lebanese security forces to monitor and intervene in remote areas",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "node_strengthen"
+    },
+    {
+      "target_type": "node",
+      "target_id": "sectarian_tensions",
+      "description": "Level of sectarian friction between political and community groups",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_medium"
+    },
+    {
+      "target_type": "node",
+      "target_id": "seasonal_factors",
+      "description": "Seasonal or calendar effects influencing protest timing and security posture",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "probe_type": "node_strengthen_low"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "description": "Large protests stretch police and army resources",
+      "importance": 0.1111,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "security_force_capacity->high_explosion_spike",
+      "description": "Reduced security presence allows more remote explosive incidents",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_negate_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "smuggling_and_arms_flow->external_actor_activity",
+      "description": "Arms smuggling empowers regional militias",
+      "importance": 0.0139,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_negate_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "description": "Large protests stretch police and army resources",
+      "importance": 0.1111,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "security_force_capacity->high_explosion_spike",
+      "description": "Reduced security presence allows more remote explosive incidents",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "probe_type": "edge_strengthen_critical"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "smuggling_and_arms_flow->external_actor_activity",
+      "description": "Arms smuggling empowers regional militias",
+      "importance": 0.0139,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "probe_type": "edge_strengthen_peripheral"
+    },
+    {
+      "target_type": "edge",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "description": "Large protests stretch police and army resources",
+      "importance": 0.1111,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "probe_type": "edge_reverse"
+    },
+    {
+      "target_type": "missing_edge",
+      "target_id": "security_force_capacity->regional_conflict_escalation",
+      "description": "Potential link: Ability of Lebanese security forces to monitor and intervene in remote areas -> Intensity of nearby conflicts (Israel‑Gaza, Syria) that could spill over",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "edge_spurious"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_1",
+      "description": "A plausible factor not in the current network",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "missing_node_2",
+      "description": "Another plausible missing factor",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "missing_node"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_1",
+      "description": "Topically related but causally irrelevant information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    },
+    {
+      "target_type": "structural",
+      "target_id": "irrelevant_2",
+      "description": "Another topically related but irrelevant piece of information",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "probe_type": "irrelevant"
+    }
+  ],
+  "probes": [
+    {
+      "probe_text": "Recent intelligence suggests that protests in Lebanon have been largely confined to urban centers and have been met with rapid deployment of crowd‑control units, limiting any spillover to remote areas. Moreover, many demonstrators focus on economic grievances rather than armed action, reducing the likelihood that protest size translates into increased remote explosions. Therefore, the scale of popular protests may have little impact on the frequency of remote violent incidents.",
+      "probe_type": "node_negate_high",
+      "target_id": "protest_mobilization",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Scale of popular protests and civil unrest"
+    },
+    {
+      "probe_text": "Even if Lebanese security forces increase their presence, remote areas remain largely inaccessible due to rugged terrain and lack of infrastructure, so their capacity to monitor does not significantly limit explosive incidents. Moreover, many of the remote explosions are carried out by well‑concealed external actors who operate autonomously, rendering the security force's ability to intervene largely irrelevant.",
+      "probe_type": "node_negate_high",
+      "target_id": "security_force_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Ability of Lebanese security forces to monitor and intervene in remote areas"
+    },
+    {
+      "probe_text": "Recent surveys indicate that sectarian identities have been largely dormant since the 2020 cease‑fire, with most protests now driven by economic grievances rather than sectarian demands. Additionally, intelligence reports show militia groups coordinating across sectarian lines, suggesting reduced friction as a catalyst for unrest. Consequently, sectarian_tensions may be irrelevant to protest_mobilization in the forecast horizon.",
+      "probe_type": "node_negate_medium",
+      "target_id": "sectarian_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "Level of sectarian friction between political and community groups"
+    },
+    {
+      "probe_text": "Recent data shows that remote explosions in Lebanon have not correlated with any seasonal patterns, and the timing of past spikes aligns more closely with political events than calendar effects. Moreover, security force deployments remain relatively constant throughout the year, suggesting that seasonal variations have negligible impact on protest timing or security posture. Therefore, the assumed influence of seasonal_factors on the outcome appears unfounded.",
+      "probe_type": "node_negate_low",
+      "target_id": "seasonal_factors",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Seasonal or calendar effects influencing protest timing and security posture"
+    },
+    {
+      "probe_text": "A UN‑commissioned report released on March 15 2025 documented that daily protest turnout in Beirut and Tripoli has risen to an average of 15,000 participants—over twice the level recorded in the same period last year—driven primarily by soaring food prices and power cuts. Moreover, Dr. Lina Haddad, a senior analyst at the Lebanese Institute for Policy Studies, warned that the deepening macro‑economic collapse is likely to trigger a wave of nationwide civil unrest over the next months, amplifying the scale of protest mobilization.",
+      "probe_type": "node_strengthen",
+      "target_id": "protest_mobilization",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.1071,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Scale of popular protests and civil unrest"
+    },
+    {
+      "probe_text": "A recent UN security assessment released on March 15, 2025 revealed that due to severe fuel shortages and budget cuts, the Lebanese police have lost 35% of their patrol vehicles and have reduced remote-area patrols by half over the past six months. Additionally, Dr. Rami Haddad, senior analyst at the Lebanese Ministry of Interior, warned that the force's capacity to monitor mountainous regions is now critically compromised, increasing the likelihood of undetected explosive activities.",
+      "probe_type": "node_strengthen",
+      "target_id": "security_force_capacity",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0.0714,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Ability of Lebanese security forces to monitor and intervene in remote areas"
+    },
+    {
+      "probe_text": "Leaked recordings of a recent meeting between senior Hezbollah officials and leaders of a major Sunni political party reveal coordinated plans to stage protests over perceived resource allocation biases. Moreover, a prominent Sunni cleric publicly accused the Shia‑dominated government of discriminatory aid distribution, triggering nationwide sectarian rallies.",
+      "probe_type": "node_strengthen_medium",
+      "target_id": "sectarian_tensions",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 5,
+      "on_critical_path": false,
+      "description": "Level of sectarian friction between political and community groups"
+    },
+    {
+      "probe_text": "Historical data show that Lebanon’s remote explosion spikes consistently peak during the summer months, especially July and August, when school holidays and extreme heat reduce public presence in urban centers and stretch security forces thin. Moreover, during Ramadan in the past five years, protest participation surged by an average of 45%, leading to a measurable dip in police patrols in remote regions and a corresponding 60% rise in remote explosive incidents. These patterns suggest that seasonal calendar effects strongly amplify both protest activity and the likelihood of high‑explosion spikes.",
+      "probe_type": "node_strengthen_low",
+      "target_id": "seasonal_factors",
+      "generated": true,
+      "target_type": "node",
+      "importance": 0,
+      "centrality_rank": 8,
+      "on_critical_path": false,
+      "description": "Seasonal or calendar effects influencing protest timing and security posture"
+    },
+    {
+      "probe_text": "Recent security reforms have created dedicated rapid‑response units that operate independently of regular police, so even massive street protests do not significantly diminish capacity to monitor remote areas. Moreover, the Lebanese army routinely reallocates forces to remote zones during protest peaks, maintaining or even increasing presence. Evidence from the 2023 Beirut protests shows no drop in patrols in the Bekaa Valley, contradicting the assumed resource strain.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1111,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large protests stretch police and army resources"
+    },
+    {
+      "probe_text": "Recent intelligence reports indicate that Lebanon's security forces have increasingly relied on automated surveillance drones and community informant networks, which continue to detect and neutralize remote explosive plots even when personnel numbers are low. Moreover, many remote explosions are orchestrated by external actors who operate in areas beyond the reach of any local security presence, suggesting that reduced force capacity may not significantly affect spike rates. Consequently, the link between security_force_capacity and high_explosion_spike may be much weaker than assumed.",
+      "probe_type": "edge_negate_critical",
+      "target_id": "security_force_capacity->high_explosion_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Reduced security presence allows more remote explosive incidents"
+    },
+    {
+      "probe_text": "Recent intelligence reports indicate that regional militias like Hezbollah have secured substantial weapon stockpiles through state-sponsored channels and existing caches, reducing their reliance on illicit smuggling networks. Moreover, heightened border controls and international pressure have sharply curtailed cross‑border arms trafficking, making it unlikely that increased smuggling would significantly boost external actor activity in Lebanon.",
+      "probe_type": "edge_negate_peripheral",
+      "target_id": "smuggling_and_arms_flow->external_actor_activity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0139,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Arms smuggling empowers regional militias"
+    },
+    {
+      "probe_text": "In February 2024, the Lebanese army reported that the nationwide protests over fuel shortages forced the redeployment of 40% of its operational units to crowd‑control duties, leaving only 60% of patrols available for remote area monitoring. This redeployment coincided with a 45% rise in reported remote explosions in the same month, suggesting that protest mobilization directly depleted security force capacity and amplified explosive incidents.",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1111,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large protests stretch police and army resources"
+    },
+    {
+      "probe_text": "A recent UN security assessment released in March 2025 documented that, because of severe budget cuts, Lebanese security forces withdrew roughly 40% of their patrol units from the Bekaa Valley, and within two weeks the region experienced a 250% surge in remote explosive incidents. This rapid rise follows the reduced security presence, indicating a much stronger causal effect than previously assumed. Could this evidence imply that the link between security force capacity and high‑explosion spikes is significantly stronger?",
+      "probe_type": "edge_strengthen_critical",
+      "target_id": "security_force_capacity->high_explosion_spike",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0694,
+      "centrality_rank": 2,
+      "on_critical_path": true,
+      "description": "Reduced security presence allows more remote explosive incidents"
+    },
+    {
+      "probe_text": "Recent intercepted shipments show that 85% of the weapons seized in Lebanese ports were destined for Hezbollah‑affiliated groups, and intelligence reports indicate that these groups have used the smuggled arms to launch cross‑border attacks in the past month. This demonstrates that increased smuggling directly boosts the operational capacity of regional actors, making the smuggling→external_actor_activity link much stronger than previously assumed.",
+      "probe_type": "edge_strengthen_peripheral",
+      "target_id": "smuggling_and_arms_flow->external_actor_activity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.0139,
+      "centrality_rank": 9,
+      "on_critical_path": false,
+      "description": "Arms smuggling empowers regional militias"
+    },
+    {
+      "probe_text": "Recent intelligence suggests that when Lebanese security forces are stretched thin, they prioritize maintaining order in urban centers, inadvertently allowing larger, coordinated protests to emerge in peripheral areas. Conversely, a well‑resourced security apparatus can pre‑emptively deter mass gatherings through visible patrols and rapid response, meaning that security_force_capacity actually drives protest_mobilization rather than the reverse. Could this reverse causality explain fluctuations in protest intensity?",
+      "probe_type": "edge_reverse",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "generated": true,
+      "target_type": "edge",
+      "importance": 0.1111,
+      "centrality_rank": 1,
+      "on_critical_path": true,
+      "description": "Large protests stretch police and army resources"
+    },
+    {
+      "probe_text": "Recent intelligence reports indicate that when Lebanese security forces are stretched thin in remote areas, they are less able to monitor cross‑border movements, allowing external combatants to infiltrate and intensify clashes along the Israel‑Gaza and Syrian fronts. This reduced surveillance directly fuels the escalation of nearby conflicts, creating a feedback loop that increases spill‑over violence in Lebanon. Ignoring this pathway underestimates how domestic security capacity can amplify regional conflict dynamics.",
+      "probe_type": "edge_spurious",
+      "target_id": "security_force_capacity->regional_conflict_escalation",
+      "generated": true,
+      "target_type": "missing_edge",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Potential link: Ability of Lebanese security forces to monitor and intervene in remote areas -> Intensity of nearby conflicts (Israel‑Gaza, Syria) that could spill over"
+    },
+    {
+      "probe_text": "Recent reports indicate that major international humanitarian aid to Lebanon has been suspended, sharply reducing funding for security forces and border control. This loss could further weaken security_force_capacity and enable greater smuggling_and_arms_flow, increasing the risk of a high_explosion_spike. How would this missing factor affect your forecast?",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "A plausible factor not in the current network"
+    },
+    {
+      "probe_text": "Recent massive arrivals of Syrian refugees and internally displaced persons have created densely populated informal settlements near Lebanon's borders, straining local resources and complicating security monitoring. These settlements can serve as cover for illicit arms smuggling and increase competition over scarce services, heightening sectarian tensions and reducing the effectiveness of security forces, thereby raising the risk of remote explosive incidents.",
+      "probe_type": "missing_node",
+      "target_id": "missing_node_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another plausible missing factor"
+    },
+    {
+      "probe_text": "The Lebanese Ministry of Culture announced that a major art exhibition featuring contemporary Middle‑Eastern artists will open in Beirut in June 2025, drawing thousands of visitors from across the region.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_1",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Topically related but causally irrelevant information"
+    },
+    {
+      "probe_text": "A new Lebanese television drama set in the 19th‑century Ottoman era premiered its latest season, quickly becoming the most‑watched series in the region. The producers announced that the show’s soundtrack will include a collaboration with a well‑known Arab pop star, sparking a surge in online streaming activity.",
+      "probe_type": "irrelevant",
+      "target_id": "irrelevant_2",
+      "generated": true,
+      "target_type": "structural",
+      "importance": 0,
+      "centrality_rank": 0,
+      "on_critical_path": false,
+      "description": "Another topically related but irrelevant piece of information"
+    }
+  ],
+  "condition": "one-turn",
+  "probe_results": [
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence suggests that protests in Lebanon have been largely confined to urban centers and have been met with rapid deployment of crowd‑control units, limiting any spillover to remote areas. Moreover, many demonstrators focus on economic grievances rather than armed action, reducing the likelihood that protest size translates into increased remote explosions. Therefore, the scale of popular protests may have little impact on the frequency of remote violent incidents.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.25,
+      "absolute_shift": 0.13,
+      "shift_direction": "decreased",
+      "reasoning": "The intelligence report weakens the link protest_mobilization → security_force_capacity, showing protests are urban, quickly contained, and non‑violent. Consequently the chain that protest size reduces security capacity and permits remote explosions is less credible. With this key pathway attenuated, the overall likelihood of a >10‑fold explosion spike drops relative to the original 0.38 estimate.",
+      "raw_response": "{\"updated_probability\":0.25,\"shift_direction\":\"decreased\",\"reasoning\":\"The intelligence report weakens the link protest_mobilization → security_force_capacity, showing protests are urban, quickly contained, and non‑violent. Consequently the chain that protest size reduces security capacity and permits remote explosions is less credible. With this key pathway attenuated, the overall likelihood of a >10‑fold explosion spike drops relative to the original 0.38 estimate.\"}",
+      "target_id": "protest_mobilization",
+      "target_type": "node",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_high",
+      "target_reason_id": null,
+      "probe_text": "Even if Lebanese security forces increase their presence, remote areas remain largely inaccessible due to rugged terrain and lack of infrastructure, so their capacity to monitor does not significantly limit explosive incidents. Moreover, many of the remote explosions are carried out by well‑concealed external actors who operate autonomously, rendering the security force's ability to intervene largely irrelevant.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.28,
+      "absolute_shift": 0.09999999999999998,
+      "shift_direction": "decreased",
+      "reasoning": "The new information directly weakens the causal link between security_force_capacity and the high_explosion_spike outcome. If security forces cannot effectively monitor remote areas, then the pathway protest_mobilization → security_force_capacity → high_explosion_spike contributes little to the risk of a spike. Consequently, the overall probability that a >10‑fold increase in remote explosions will occur relies more on the remaining pathways (external_actor_activity, regional_conflict_escalation, smuggling_and_arms_flow). While these pathways still present risk, the removal of a potentially amplifying factor lowers the overall likelihood compared to the original 0.38 estimate. Hence the forecast is adjusted downward.",
+      "raw_response": "{\n  \"updated_probability\": 0.28,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new information directly weakens the causal link between security_force_capacity and the high_explosion_spike outcome. If security forces cannot effectively monitor remote areas, then the pathway protest_mobilization → security_force_capacity → high_explosion_spike contributes little to the risk of a spike. Consequently, the overall probability that a >10‑fold increase in remote explosions will occur relies more on the remaining pathways (external_actor_activity, regional_conflict_escalation, smuggling_and_arms_flow). While these pathways still present risk, the removal of a potentially amplifying factor lowers the overall likelihood compared to the original 0.38 estimate. Hence the forecast is adjusted downward.\"\n}",
+      "target_id": "security_force_capacity",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_medium",
+      "target_reason_id": null,
+      "probe_text": "Recent surveys indicate that sectarian identities have been largely dormant since the 2020 cease‑fire, with most protests now driven by economic grievances rather than sectarian demands. Additionally, intelligence reports show militia groups coordinating across sectarian lines, suggesting reduced friction as a catalyst for unrest. Consequently, sectarian_tensions may be irrelevant to protest_mobilization in the forecast horizon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.3,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new intelligence suggests sectarian tensions no longer fuel protest mobilization. In the causal graph, sectarian_tensions was a positive driver of protest_mobilization, which cascades to reduced security_force_capacity and higher chances of a remote‑explosion spike. Removing this link lowers the overall probability of a large explosion surge. However, the remaining dominant drivers—severe economic crisis, ongoing external‑actor activity, smuggling of arms, and the risk of regional conflict spill‑over—still sustain a non‑trivial risk of protests and security strain. Consequently, the forecast probability is revised downward from 0.38 to roughly 0.30, reflecting a modest but meaningful reduction in the likelihood of a >10× explosion spike.",
+      "raw_response": "{\n  \"updated_probability\": 0.30,\n  \"shift_direction\": \"decreased\",\n  \"reasoning\": \"The new intelligence suggests sectarian tensions no longer fuel protest mobilization. In the causal graph, sectarian_tensions was a positive driver of protest_mobilization, which cascades to reduced security_force_capacity and higher chances of a remote‑explosion spike. Removing this link lowers the overall probability of a large explosion surge. However, the remaining dominant drivers—severe economic crisis, ongoing external‑actor activity, smuggling of arms, and the risk of regional conflict spill‑over—still sustain a non‑trivial risk of protests and security strain. Consequently, the forecast probability is revised downward from 0.38 to roughly 0.30, reflecting a modest but meaningful reduction in the likelihood of a >10× explosion spike.\"\n}",
+      "target_id": "sectarian_tensions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_negate_low",
+      "target_reason_id": null,
+      "probe_text": "Recent data shows that remote explosions in Lebanon have not correlated with any seasonal patterns, and the timing of past spikes aligns more closely with political events than calendar effects. Moreover, security force deployments remain relatively constant throughout the year, suggesting that seasonal variations have negligible impact on protest timing or security posture. Therefore, the assumed influence of seasonal_factors on the outcome appears unfounded.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.3,
+      "absolute_shift": 0.08000000000000002,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence shows seasonal_factors do not influence protest timing or security force deployment, removing the seasonal_factors→protest_mobilization link in the network. This eliminates one upstream driver of reduced security capacity and thus lowers the chance of a >10‑fold explosion spike. All other causal pathways remain unchanged, so the probability is revised downward from 0.38 to about 0.30.",
+      "raw_response": "{\"updated_probability\":0.30,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence shows seasonal_factors do not influence protest timing or security force deployment, removing the seasonal_factors→protest_mobilization link in the network. This eliminates one upstream driver of reduced security capacity and thus lowers the chance of a >10‑fold explosion spike. All other causal pathways remain unchanged, so the probability is revised downward from 0.38 to about 0.30.\"}",
+      "target_id": "seasonal_factors",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A UN‑commissioned report released on March 15 2025 documented that daily protest turnout in Beirut and Tripoli has risen to an average of 15,000 participants—over twice the level recorded in the same period last year—driven primarily by soaring food prices and power cuts. Moreover, Dr. Lina Haddad, a senior analyst at the Lebanese Institute for Policy Studies, warned that the deepening macro‑economic collapse is likely to trigger a wave of nationwide civil unrest over the next months, amplifying the scale of protest mobilization.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.18999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The UN report documents a doubling of daily protest turnout to ~15,000 participants, driven by worsening economic conditions. This directly strengthens the protest_mobilization node in the causal network, which in turn strains security_force_capacity and creates a more permissive environment for remote explosions. The heightened unrest also raises the likelihood of external actors exploiting the chaos. Consequently, the chance of a >10‑fold explosion spike before 2025‑12‑28 rises from the original 0.38 to roughly 0.57.",
+      "raw_response": "{\"updated_probability\":0.57,\"shift_direction\":\"increased\",\"reasoning\":\"The UN report documents a doubling of daily protest turnout to ~15,000 participants, driven by worsening economic conditions. This directly strengthens the protest_mobilization node in the causal network, which in turn strains security_force_capacity and creates a more permissive environment for remote explosions. The heightened unrest also raises the likelihood of external actors exploiting the chaos. Consequently, the chance of a >10‑fold explosion spike before 2025‑12‑28 rises from the original 0.38 to roughly 0.57.\"}",
+      "target_id": "protest_mobilization",
+      "target_type": "node",
+      "target_importance": 0.1071,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen",
+      "target_reason_id": null,
+      "probe_text": "A recent UN security assessment released on March 15, 2025 revealed that due to severe fuel shortages and budget cuts, the Lebanese police have lost 35% of their patrol vehicles and have reduced remote-area patrols by half over the past six months. Additionally, Dr. Rami Haddad, senior analyst at the Lebanese Ministry of Interior, warned that the force's capacity to monitor mountainous regions is now critically compromised, increasing the likelihood of undetected explosive activities.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The UN assessment shows a 35% loss of patrol vehicles and a 50% cut in remote‑area patrols, and an expert warns that mountainous monitoring is now critically compromised. In the causal network, reduced security_force_capacity directly raises the risk of a high_explosion_spike. This substantial capacity loss shifts the forecast upward from the original 0.38 to about 0.58, indicating a moderate‑high increase in the likelihood of the outcome.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The UN assessment shows a 35% loss of patrol vehicles and a 50% cut in remote‑area patrols, and an expert warns that mountainous monitoring is now critically compromised. In the causal network, reduced security_force_capacity directly raises the risk of a high_explosion_spike. This substantial capacity loss shifts the forecast upward from the original 0.38 to about 0.58, indicating a moderate‑high increase in the likelihood of the outcome.\"}",
+      "target_id": "security_force_capacity",
+      "target_type": "node",
+      "target_importance": 0.0714,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_medium",
+      "target_reason_id": null,
+      "probe_text": "Leaked recordings of a recent meeting between senior Hezbollah officials and leaders of a major Sunni political party reveal coordinated plans to stage protests over perceived resource allocation biases. Moreover, a prominent Sunni cleric publicly accused the Shia‑dominated government of discriminatory aid distribution, triggering nationwide sectarian rallies.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The leaked recordings and public accusations dramatically raise sectarian_tensions, a key driver of protest_mobilization in the causal network. Heightened sectarian rallies are likely to expand the scale and geographic spread of protests, straining security_force_capacity. Reduced security capacity increases the vulnerability of remote areas to explosive incidents, and the coordinated planning between Hezbollah and a Sunni party suggests a willingness to use protests as cover for violent actions. These dynamics collectively raise the likelihood of a >10‑fold spike in remote explosions, justifying an upward revision from the original 0.38 to about 0.55.",
+      "raw_response": "{\"updated_probability\":0.55,\"shift_direction\":\"increased\",\"reasoning\":\"The leaked recordings and public accusations dramatically raise sectarian_tensions, a key driver of protest_mobilization in the causal network. Heightened sectarian rallies are likely to expand the scale and geographic spread of protests, straining security_force_capacity. Reduced security capacity increases the vulnerability of remote areas to explosive incidents, and the coordinated planning between Hezbollah and a Sunni party suggests a willingness to use protests as cover for violent actions. These dynamics collectively raise the likelihood of a >10‑fold spike in remote explosions, justifying an upward revision from the original 0.38 to about 0.55.\"}",
+      "target_id": "sectarian_tensions",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 5,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "node_strengthen_low",
+      "target_reason_id": null,
+      "probe_text": "Historical data show that Lebanon’s remote explosion spikes consistently peak during the summer months, especially July and August, when school holidays and extreme heat reduce public presence in urban centers and stretch security forces thin. Moreover, during Ramadan in the past five years, protest participation surged by an average of 45%, leading to a measurable dip in police patrols in remote regions and a corresponding 60% rise in remote explosive incidents. These patterns suggest that seasonal calendar effects strongly amplify both protest activity and the likelihood of high‑explosion spikes.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The new evidence shows that seasonal calendar effects (summer holidays and Ramadan) markedly raise protest participation and reduce security presence in remote areas, which directly strengthens the causal pathway protest_mobilization → security_force_capacity → high_explosion_spike. Since the original model already linked seasonal_factors to protest_mobilization, the documented magnitude of these effects (45% protest surge, 60% rise in remote explosions) implies a substantially higher chance of a >10× explosion spike than the initial 0.38 estimate. Incorporating this stronger seasonal driver raises the forecast probability to roughly 0.58.",
+      "raw_response": "{\"updated_probability\":0.58,\"shift_direction\":\"increased\",\"reasoning\":\"The new evidence shows that seasonal calendar effects (summer holidays and Ramadan) markedly raise protest participation and reduce security presence in remote areas, which directly strengthens the causal pathway protest_mobilization → security_force_capacity → high_explosion_spike. Since the original model already linked seasonal_factors to protest_mobilization, the documented magnitude of these effects (45% protest surge, 60% rise in remote explosions) implies a substantially higher chance of a >10× explosion spike than the initial 0.38 estimate. Incorporating this stronger seasonal driver raises the forecast probability to roughly 0.58.\"}",
+      "target_id": "seasonal_factors",
+      "target_type": "node",
+      "target_importance": 0,
+      "target_centrality_rank": 8,
+      "target_on_critical_path": false,
+      "probe_category": "node"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent security reforms have created dedicated rapid‑response units that operate independently of regular police, so even massive street protests do not significantly diminish capacity to monitor remote areas. Moreover, the Lebanese army routinely reallocates forces to remote zones during protest peaks, maintaining or even increasing presence. Evidence from the 2023 Beirut protests shows no drop in patrols in the Bekaa Valley, contradicting the assumed resource strain.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The new evidence weakens the assumed causal chain protest_mobilization→security_force_capacity→high_explosion_spike. If large protests no longer strain security forces, the pathway by which domestic unrest translates into reduced monitoring of remote areas is less effective. This reduces the overall likelihood that a surge in protests will produce the security gap needed for a ten‑fold explosion spike. Other pathways (regional conflict escalation, external actor activity, smuggling) remain unchanged, so the probability is lowered but not eliminated.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"decreased\",\"reasoning\":\"The new evidence weakens the assumed causal chain protest_mobilization→security_force_capacity→high_explosion_spike. If large protests no longer strain security forces, the pathway by which domestic unrest translates into reduced monitoring of remote areas is less effective. This reduces the overall likelihood that a surge in protests will produce the security gap needed for a ten‑fold explosion spike. Other pathways (regional conflict escalation, external actor activity, smuggling) remain unchanged, so the probability is lowered but not eliminated.\"}",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "target_type": "edge",
+      "target_importance": 0.1111,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_critical",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that Lebanon's security forces have increasingly relied on automated surveillance drones and community informant networks, which continue to detect and neutralize remote explosive plots even when personnel numbers are low. Moreover, many remote explosions are orchestrated by external actors who operate in areas beyond the reach of any local security presence, suggesting that reduced force capacity may not significantly affect spike rates. Consequently, the link between security_force_capacity and high_explosion_spike may be much weaker than assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.27,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The intelligence briefing weakens the causal link from security_force_capacity to high_explosion_spike by showing that drones, informant networks, and external‑actor autonomy mitigate the impact of reduced police numbers. Since this pathway contributed to the original 0.38 estimate, downgrading its influence lowers the overall likelihood of a >10× spike. The remaining pathways (regional conflict escalation, external actor activity, smuggling, sectarian‑driven protests, etc.) still pose risk, so the probability does not drop to near‑zero, but the best revised estimate is around 0.27.",
+      "raw_response": "{\"updated_probability\":0.27,\"shift_direction\":\"decreased\",\"reasoning\":\"The intelligence briefing weakens the causal link from security_force_capacity to high_explosion_spike by showing that drones, informant networks, and external‑actor autonomy mitigate the impact of reduced police numbers. Since this pathway contributed to the original 0.38 estimate, downgrading its influence lowers the overall likelihood of a >10× spike. The remaining pathways (regional conflict escalation, external actor activity, smuggling, sectarian‑driven protests, etc.) still pose risk, so the probability does not drop to near‑zero, but the best revised estimate is around 0.27.\"}",
+      "target_id": "security_force_capacity->high_explosion_spike",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_negate_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that regional militias like Hezbollah have secured substantial weapon stockpiles through state-sponsored channels and existing caches, reducing their reliance on illicit smuggling networks. Moreover, heightened border controls and international pressure have sharply curtailed cross‑border arms trafficking, making it unlikely that increased smuggling would significantly boost external actor activity in Lebanon.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.33,
+      "absolute_shift": 0.04999999999999999,
+      "shift_direction": "decreased",
+      "reasoning": "The intelligence indicates that Hezbollah and similar militias are now obtaining weapons through state‑sponsored channels and existing caches, and that cross‑border smuggling has been sharply curtailed. This weakens the causal link from smuggling_and_arms_flow to external_actor_activity, reducing the contribution of the smuggling → external_actor → regional_conflict → high_explosion_spike pathway. While external actors can still act via other supply lines, the overall likelihood of a ten‑fold explosion spike is somewhat lower, leading to a modest downward revision of the original 0.38 estimate.",
+      "raw_response": "{\"updated_probability\":0.33,\"shift_direction\":\"decreased\",\"reasoning\":\"The intelligence indicates that Hezbollah and similar militias are now obtaining weapons through state‑sponsored channels and existing caches, and that cross‑border smuggling has been sharply curtailed. This weakens the causal link from smuggling_and_arms_flow to external_actor_activity, reducing the contribution of the smuggling → external_actor → regional_conflict → high_explosion_spike pathway. While external actors can still act via other supply lines, the overall likelihood of a ten‑fold explosion spike is somewhat lower, leading to a modest downward revision of the original 0.38 estimate.\"}",
+      "target_id": "smuggling_and_arms_flow->external_actor_activity",
+      "target_type": "edge",
+      "target_importance": 0.0139,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "In February 2024, the Lebanese army reported that the nationwide protests over fuel shortages forced the redeployment of 40% of its operational units to crowd‑control duties, leaving only 60% of patrols available for remote area monitoring. This redeployment coincided with a 45% rise in reported remote explosions in the same month, suggesting that protest mobilization directly depleted security force capacity and amplified explosive incidents.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.58,
+      "absolute_shift": 0.19999999999999996,
+      "shift_direction": "increased",
+      "reasoning": "The February 2024 data provides concrete evidence that large‑scale protests directly reduce the Lebanese army's capacity to monitor remote areas (40% of units redeployed) and that this reduction coincided with a substantial (45%) rise in remote explosions. This empirically validates the previously hypothesised causal pathway protest_mobilization → security_force_capacity → high_explosion_spike. Strengthening this key link raises the overall likelihood that a similar combination of protest pressure and limited security presence could generate a spike of >10× the baseline in the 30‑day window before 2025‑12‑28. While other factors (external actors, regional escalation) remain uncertain, the reinforced causal mechanism justifies moving the probability upward from the original 0.38 to a moderate level.",
+      "raw_response": "{\n  \"updated_probability\": 0.58,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The February 2024 data provides concrete evidence that large‑scale protests directly reduce the Lebanese army's capacity to monitor remote areas (40% of units redeployed) and that this reduction coincided with a substantial (45%) rise in remote explosions. This empirically validates the previously hypothesised causal pathway protest_mobilization → security_force_capacity → high_explosion_spike. Strengthening this key link raises the overall likelihood that a similar combination of protest pressure and limited security presence could generate a spike of >10× the baseline in the 30‑day window before 2025‑12‑28. While other factors (external actors, regional escalation) remain uncertain, the reinforced causal mechanism justifies moving the probability upward from the original 0.38 to a moderate level.\"\n}",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "target_type": "edge",
+      "target_importance": 0.1111,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_critical",
+      "target_reason_id": null,
+      "probe_text": "A recent UN security assessment released in March 2025 documented that, because of severe budget cuts, Lebanese security forces withdrew roughly 40% of their patrol units from the Bekaa Valley, and within two weeks the region experienced a 250% surge in remote explosive incidents. This rapid rise follows the reduced security presence, indicating a much stronger causal effect than previously assumed. Could this evidence imply that the link between security force capacity and high‑explosion spikes is significantly stronger?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.18999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The UN assessment shows that a 40% cut in patrols caused a 250% jump in remote explosions, demonstrating a much stronger causal pathway from security_force_capacity to high_explosion_spike than previously modelled. This evidence raises the weight of that link, making a large spike more likely even without changes in other nodes, so the probability of >10× the baseline rises from 0.38 to roughly 0.57.",
+      "raw_response": "{\"updated_probability\":0.57,\"shift_direction\":\"increased\",\"reasoning\":\"The UN assessment shows that a 40% cut in patrols caused a 250% jump in remote explosions, demonstrating a much stronger causal pathway from security_force_capacity to high_explosion_spike than previously modelled. This evidence raises the weight of that link, making a large spike more likely even without changes in other nodes, so the probability of >10× the baseline rises from 0.38 to roughly 0.57.\"}",
+      "target_id": "security_force_capacity->high_explosion_spike",
+      "target_type": "edge",
+      "target_importance": 0.0694,
+      "target_centrality_rank": 2,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_strengthen_peripheral",
+      "target_reason_id": null,
+      "probe_text": "Recent intercepted shipments show that 85% of the weapons seized in Lebanese ports were destined for Hezbollah‑affiliated groups, and intelligence reports indicate that these groups have used the smuggled arms to launch cross‑border attacks in the past month. This demonstrates that increased smuggling directly boosts the operational capacity of regional actors, making the smuggling→external_actor_activity link much stronger than previously assumed.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The new intelligence shows that 85% of seized weapons are destined for Hezbollah‑affiliated groups and have already been used in cross‑border attacks, confirming that smuggling directly fuels external actor activity. In the causal network this strengthens the smuggling_and_arms_flow → external_actor_activity link, which in turn amplifies regional_conflict_escalation and ultimately the high_explosion_spike outcome. With a stronger upstream driver, the chance of a >10‑fold explosion spike rises from the original 0.38 to roughly 0.55, reflecting a moderate upward shift while keeping the estimate within plausible bounds.",
+      "raw_response": "{\"updated_probability\":0.55,\"shift_direction\":\"increased\",\"reasoning\":\"The new intelligence shows that 85% of seized weapons are destined for Hezbollah‑affiliated groups and have already been used in cross‑border attacks, confirming that smuggling directly fuels external actor activity. In the causal network this strengthens the smuggling_and_arms_flow → external_actor_activity link, which in turn amplifies regional_conflict_escalation and ultimately the high_explosion_spike outcome. With a stronger upstream driver, the chance of a >10‑fold explosion spike rises from the original 0.38 to roughly 0.55, reflecting a moderate upward shift while keeping the estimate within plausible bounds.\"}",
+      "target_id": "smuggling_and_arms_flow->external_actor_activity",
+      "target_type": "edge",
+      "target_importance": 0.0139,
+      "target_centrality_rank": 9,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_reverse",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence suggests that when Lebanese security forces are stretched thin, they prioritize maintaining order in urban centers, inadvertently allowing larger, coordinated protests to emerge in peripheral areas. Conversely, a well‑resourced security apparatus can pre‑emptively deter mass gatherings through visible patrols and rapid response, meaning that security_force_capacity actually drives protest_mobilization rather than the reverse. Could this reverse causality explain fluctuations in protest intensity?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The new intelligence reverses the causal arrow between protest_mobilization and security_force_capacity. Instead of protests eroding security capacity, a weak security apparatus now actively encourages larger peripheral protests while also being less able to deter remote explosive attacks. Given Lebanon’s ongoing economic crisis and likely under‑resourced security forces, this reversal amplifies the pathway to a high_explosion_spike: low security capacity → higher protest intensity → further strain on forces (original link) and directly reduced deterrence of remote explosions. The combined effect raises the chance of exceeding the ten‑fold threshold, so the forecast is adjusted upward from 0.38 to roughly 0.55.",
+      "raw_response": "{\"updated_probability\":0.55,\"shift_direction\":\"increased\",\"reasoning\":\"The new intelligence reverses the causal arrow between protest_mobilization and security_force_capacity. Instead of protests eroding security capacity, a weak security apparatus now actively encourages larger peripheral protests while also being less able to deter remote explosive attacks. Given Lebanon’s ongoing economic crisis and likely under‑resourced security forces, this reversal amplifies the pathway to a high_explosion_spike: low security capacity → higher protest intensity → further strain on forces (original link) and directly reduced deterrence of remote explosions. The combined effect raises the chance of exceeding the ten‑fold threshold, so the forecast is adjusted upward from 0.38 to roughly 0.55.\"}",
+      "target_id": "protest_mobilization->security_force_capacity",
+      "target_type": "edge",
+      "target_importance": 0.1111,
+      "target_centrality_rank": 1,
+      "target_on_critical_path": true,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "edge_spurious",
+      "target_reason_id": null,
+      "probe_text": "Recent intelligence reports indicate that when Lebanese security forces are stretched thin in remote areas, they are less able to monitor cross‑border movements, allowing external combatants to infiltrate and intensify clashes along the Israel‑Gaza and Syrian fronts. This reduced surveillance directly fuels the escalation of nearby conflicts, creating a feedback loop that increases spill‑over violence in Lebanon. Ignoring this pathway underestimates how domestic security capacity can amplify regional conflict dynamics.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.57,
+      "absolute_shift": 0.18999999999999995,
+      "shift_direction": "increased",
+      "reasoning": "The new intelligence adds a direct feedback loop: when security forces are stretched thin they cannot monitor cross‑border movements, which lets external combatants intensify nearby conflicts. This creates an additional pathway (security_force_capacity → regional_conflict_escalation → high_explosion_spike) that amplifies the impact of reduced security capacity on the outcome. Strengthening this causal chain raises the likelihood of a large spike in remote explosions, so the probability is revised upward from the original 0.38 to about 0.57.",
+      "raw_response": "{\"updated_probability\":0.57,\"shift_direction\":\"increased\",\"reasoning\":\"The new intelligence adds a direct feedback loop: when security forces are stretched thin they cannot monitor cross‑border movements, which lets external combatants intensify nearby conflicts. This creates an additional pathway (security_force_capacity → regional_conflict_escalation → high_explosion_spike) that amplifies the impact of reduced security capacity on the outcome. Strengthening this causal chain raises the likelihood of a large spike in remote explosions, so the probability is revised upward from the original 0.38 to about 0.57.\"}",
+      "target_id": "security_force_capacity->regional_conflict_escalation",
+      "target_type": "missing_edge",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "edge"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent reports indicate that major international humanitarian aid to Lebanon has been suspended, sharply reducing funding for security forces and border control. This loss could further weaken security_force_capacity and enable greater smuggling_and_arms_flow, increasing the risk of a high_explosion_spike. How would this missing factor affect your forecast?",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The suspension of major international humanitarian aid directly reduces funding for Lebanon's security forces and border control. This weakens the 'security_force_capacity' node, making it harder to monitor and intervene in remote areas, and simultaneously increases 'smuggling_and_arms_flow' by lowering border enforcement. Both of these nodes have direct causal links to the outcome 'high_explosion_spike' (weaker security allows more remote explosions; greater smuggling supplies more weapons to actors who can carry out such attacks). Adding this new, strong upstream driver raises the overall likelihood of a spike beyond the baseline estimate, shifting the probability upward from the original 0.38 to around 0.55.",
+      "raw_response": "{\n  \"updated_probability\": 0.55,\n  \"shift_direction\": \"increased\",\n  \"reasoning\": \"The suspension of major international humanitarian aid directly reduces funding for Lebanon's security forces and border control. This weakens the 'security_force_capacity' node, making it harder to monitor and intervene in remote areas, and simultaneously increases 'smuggling_and_arms_flow' by lowering border enforcement. Both of these nodes have direct causal links to the outcome 'high_explosion_spike' (weaker security allows more remote explosions; greater smuggling supplies more weapons to actors who can carry out such attacks). Adding this new, strong upstream driver raises the overall likelihood of a spike beyond the baseline estimate, shifting the probability upward from the original 0.38 to around 0.55.\"\n}",
+      "target_id": "missing_node_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "missing_node",
+      "target_reason_id": null,
+      "probe_text": "Recent massive arrivals of Syrian refugees and internally displaced persons have created densely populated informal settlements near Lebanon's borders, straining local resources and complicating security monitoring. These settlements can serve as cover for illicit arms smuggling and increase competition over scarce services, heightening sectarian tensions and reducing the effectiveness of security forces, thereby raising the risk of remote explosive incidents.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.55,
+      "absolute_shift": 0.17000000000000004,
+      "shift_direction": "increased",
+      "reasoning": "The new information adds a concrete mechanism that amplifies several upstream drivers in the causal network. Densely populated informal settlements near the border raise sectarian tensions (sectarian_tensions) and strain local resources, which in turn boost protest mobilization and weaken security force capacity. The settlements also provide cover for illicit arms smuggling, increasing smuggling_and_arms_flow, which feeds external_actor_activity and regional_conflict_escalation. All of these pathways converge on the outcome node high_explosion_spike, making a large spike more likely. Consequently the original 0.38 estimate is revised upward to about 0.55.",
+      "raw_response": "{\"updated_probability\":0.55,\"shift_direction\":\"increased\",\"reasoning\":\"The new information adds a concrete mechanism that amplifies several upstream drivers in the causal network. Densely populated informal settlements near the border raise sectarian tensions (sectarian_tensions) and strain local resources, which in turn boost protest mobilization and weaken security force capacity. The settlements also provide cover for illicit arms smuggling, increasing smuggling_and_arms_flow, which feeds external_actor_activity and regional_conflict_escalation. All of these pathways converge on the outcome node high_explosion_spike, making a large spike more likely. Consequently the original 0.38 estimate is revised upward to about 0.55.\"}",
+      "target_id": "missing_node_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "structural"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "The Lebanese Ministry of Culture announced that a major art exhibition featuring contemporary Middle‑Eastern artists will open in Beirut in June 2025, drawing thousands of visitors from across the region.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.49,
+      "absolute_shift": 0.10999999999999999,
+      "shift_direction": "increased",
+      "reasoning": "The June 2025 art exhibition is a high‑profile gathering that is likely to attract regional actors and increase sectarian sensitivities. It may cause security forces to allocate resources to protect the venue, reducing capacity elsewhere, and could serve as a symbolic target for proxy groups, raising the chance of remote explosive attacks. These pathways strengthen the causal links from external_actor_activity and sectarian_tensions to regional_conflict_escalation and ultimately to high_explosion_spike, making a spike more probable than the original 0.38 estimate.",
+      "raw_response": "{\"updated_probability\":0.49,\"shift_direction\":\"increased\",\"reasoning\":\"The June 2025 art exhibition is a high‑profile gathering that is likely to attract regional actors and increase sectarian sensitivities. It may cause security forces to allocate resources to protect the venue, reducing capacity elsewhere, and could serve as a symbolic target for proxy groups, raising the chance of remote explosive attacks. These pathways strengthen the causal links from external_actor_activity and sectarian_tensions to regional_conflict_escalation and ultimately to high_explosion_spike, making a spike more probable than the original 0.38 estimate.\"}",
+      "target_id": "irrelevant_1",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    },
+    {
+      "probe_type": "irrelevant",
+      "target_reason_id": null,
+      "probe_text": "A new Lebanese television drama set in the 19th‑century Ottoman era premiered its latest season, quickly becoming the most‑watched series in the region. The producers announced that the show’s soundtrack will include a collaboration with a well‑known Arab pop star, sparking a surge in online streaming activity.",
+      "probe_generated": true,
+      "success": true,
+      "updated_probability": 0.38,
+      "absolute_shift": 0,
+      "shift_direction": "unchanged",
+      "reasoning": "The television drama and pop star collaboration pertain to cultural entertainment and online streaming activity, which are not represented in the causal network linking economic crisis, sectarian tensions, external actors, security capacity, regional conflict, protest mobilization, smuggling, or seasonal factors to the outcome of a high explosion spike. While increased media consumption could marginally distract the public or shift attention away from protests, this effect is indirect and likely negligible compared to the dominant drivers in the model. Consequently, the new information does not materially alter the estimated probability.",
+      "raw_response": "{\n  \"updated_probability\": 0.38,\n  \"shift_direction\": \"unchanged\",\n  \"reasoning\": \"The television drama and pop star collaboration pertain to cultural entertainment and online streaming activity, which are not represented in the causal network linking economic crisis, sectarian tensions, external actors, security capacity, regional conflict, protest mobilization, smuggling, or seasonal factors to the outcome of a high explosion spike. While increased media consumption could marginally distract the public or shift attention away from protests, this effect is indirect and likely negligible compared to the dominant drivers in the model. Consequently, the new information does not materially alter the estimated probability.\"\n}",
+      "target_id": "irrelevant_2",
+      "target_type": "structural",
+      "target_importance": 0,
+      "target_centrality_rank": 0,
+      "target_on_critical_path": false,
+      "probe_category": "control"
+    }
+  ],
+  "summary": {
+    "question_id": "952de03f3e1b6b9679a372ef16b72ea4b7b42d841f504feb5819d06ffe1de921",
+    "question_text": "Will there be more than ten times as many 'Explosions/Remote violence' in Lebanon for the 30 days before 2025-12-28 compared to one plus the 30-day average of 'Explosions/Remote violence' over the 360 days preceding ?\n\ne.g. If the forecast due date is 2024-01-01 and we have the following data:\nDate,'Explosions/Remote violence'\n2023-11-11,1\n2023-10-10,2\nto calculate one plus the 30-day average of 'Explosions/Remote violence' over the preceding 360 days, we’d have: 1+(1+2)/12=1.25.\n\nIn this example, for the question to resolve positively, 13 (10 x 1.25) or more 'Explosions/Remote violence' would need to occur in the 30 days leading up to the resolution.",
+    "source": "acled",
+    "condition": "one-turn",
+    "initial_probability": 0.38,
+    "n_probes": 20,
+    "n_successful": 20,
+    "mean_absolute_shift": 0.1395,
+    "max_absolute_shift": 0.19999999999999996
+  },
+  "model": "gpt-oss",
+  "model_label": "GPT-OSS 120B",
+  "market_probability": 1,
+  "aggregate_metrics": {
+    "ssr": 1.5897435897435896,
+    "mean_shift_high": 0.15499999999999997,
+    "mean_shift_low": 0.09749999999999999,
+    "asymmetry_index": 0.5,
+    "mean_shift_negate": 0.09428571428571428,
+    "mean_shift_strengthen": 0.18857142857142856,
+    "fnar": 1,
+    "n_accepted": 3,
+    "n_spurious": 3,
+    "critical_path_premium": 0.029191919191919186,
+    "mean_shift_on_path": 0.15555555555555556,
+    "mean_shift_off_path": 0.12636363636363637,
+    "importance_sensitivity_correlation": 0.38636363636363635,
+    "control_sensitivity": 0.5
+  }
+}

@@ -78,11 +78,13 @@ interface QuestionJSON {
 const CAUSAL_BASE = path.resolve(__dirname, "../../outputs/sensitivity/causal");
 
 const MODELS: Record<string, { dir: string; label: string }> = {
-  "llama-8b": { dir: "llama_one_turn", label: "Llama 3.1 8B" },
-  "llama-70b": { dir: "70b_one_turn", label: "Llama 3.3 70B" },
-  "deepseek-v3": { dir: "deepseek_one_turn", label: "DeepSeek V3" },
-  "qwen-235b": { dir: "qwen_one_turn", label: "Qwen3 235B" },
-  "gemini-flash": { dir: "gemini_flash_lite_one_turn", label: "Gemini 2.5 Flash Lite" },
+  "llama-8b": { dir: "llama_neutral", label: "Llama 3.1 8B" },
+  "llama-70b": { dir: "llama_70b_neutral", label: "Llama 3.3 70B" },
+  "deepseek-v3": { dir: "deepseek_neutral", label: "DeepSeek V3" },
+  "qwen-235b": { dir: "qwen_neutral", label: "Qwen3 235B" },
+  "gemini-flash": { dir: "gemini_fl_neutral", label: "Gemini 2.5 Flash Lite" },
+  "gpt-oss": { dir: "gpt_oss_neutral", label: "GPT-OSS 120B" },
+  "qwen-32b": { dir: "qwen_32b_neutral", label: "Qwen3 32B" },
 };
 
 // ------------------------------------------------------------------
@@ -113,18 +115,14 @@ function loadMarketProbabilities(): Record<string, number> {
 // Metric computation (matches analysis_causal.py)
 // ------------------------------------------------------------------
 
-// H and L sets for SSR (matches Python analysis_causal.py)
+// Node-only SSR sets (matches Python analysis_causal.py)
 const HIGH_TYPES = new Set([
   "node_negate_high",
   "node_strengthen",
-  "edge_negate_critical",
-  "edge_strengthen_critical",
 ]);
 const LOW_TYPES = new Set([
   "node_negate_low",
   "node_strengthen_low",
-  "edge_negate_peripheral",
-  "edge_strengthen_peripheral",
   "irrelevant",
 ]);
 
