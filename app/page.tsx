@@ -133,9 +133,9 @@ export default function Home() {
               interpretation: "SSR > 1 means the model differentiates between structurally important and peripheral challenges. SSR near 1 suggests undifferentiated updating.",
             },
             {
-              name: "Importance-Sensitivity ρ",
-              definition: "Spearman rank correlation between a node's betweenness centrality and the absolute probability shift its probe causes.",
-              interpretation: "Positive ρ means structurally central nodes produce larger belief revisions, indicating the model tracks causal importance.",
+              name: "Strengthen / Negate Ratio",
+              definition: "Ratio of mean probability shift from strengthen probes to negate probes.",
+              interpretation: "Ratio > 1 means the model shifts more on confirmatory evidence than disconfirmatory. Reveals directional asymmetry in updating.",
             },
             {
               name: "Control Sensitivity",
