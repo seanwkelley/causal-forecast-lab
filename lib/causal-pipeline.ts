@@ -490,9 +490,11 @@ const PROBE_GEN_PROMPT = `You are generating a probe to test a forecaster's sens
 
 Respond with JSON: {"probe_text": "..."}`;
 
-const PROBED_FORECAST_PROMPT = `You are a superforecaster who previously estimated a probability for a question based on a causal model. Now consider this new information and update your estimate.
+const PROBED_FORECAST_PROMPT = `You are an expert forecaster updating your estimate in light of new information about your causal model.
 
-Respond with JSON: {"updated_probability": <0.01-0.99>, "shift_direction": "increased"|"decreased"|"unchanged", "reasoning": "brief explanation of how this changes your causal model"}`;
+When presented with new information, consider how it affects your causal network and update your probability estimate accordingly.
+
+Respond with JSON: {"updated_probability": <0.01-0.99>, "shift_direction": "increased"|"decreased"|"unchanged", "reasoning": "explanation of how this new information affects your estimate"}`;
 
 export interface PipelineProgress {
   stage: string;
@@ -567,7 +569,7 @@ export async function runFullPipeline(
         { role: "system", content: PROBED_FORECAST_PROMPT },
         {
           role: "user",
-          content: `Question: ${question}\n\nYour baseline estimate: ${forecast.probability}\n\nYour causal model:\nNodes: ${forecast.nodes.map((n) => `${n.id}: ${n.description}`).join("\n")}\nEdges: ${forecast.edges.map((e) => `${e.from} → ${e.to}: ${e.mechanism}`).join("\n")}\n\nNew information:\n${genParsed.probe_text}\n\nUpdate your probability:`,
+          content: `Question: ${question}\n\nYour baseline estimate: ${forecast.probability}\n\nYour causal model:\nNodes: ${forecast.nodes.map((n) => `${n.id}: ${n.description}`).join("\n")}\nEdges: ${forecast.edges.map((e) => `${e.from} → ${e.to}: ${e.mechanism}`).join("\n")}\n\nNew information (challenge to '${target.target_id}'):\n${genParsed.probe_text}\n\nUpdate your probability:`,
         },
       ];
 
@@ -746,7 +748,6 @@ Respond with ONLY valid JSON: {"ratings": [{"factor_id": "...", "confidence": <1
   const LOW_TYPES = new Set([
     "node_negate_low", "node_strengthen_low",
     "edge_negate_peripheral", "edge_strengthen_peripheral",
-    "irrelevant",
   ]);
   const ALL_NEGATE = new Set([
     "node_negate_high", "node_negate_medium", "node_negate_low",

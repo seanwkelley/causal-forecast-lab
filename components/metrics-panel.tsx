@@ -63,21 +63,8 @@ export function MetricsPanel({
           }
           warning={
             metrics.ssr != null && metrics.ssr < 1
-              ? "Below 1: model is more sensitive to low-importance probes than high-importance ones"
+              ? "Below 1: model shifts more on low-importance probes"
               : undefined
-          }
-        />
-        <MetricCard
-          label="Importance–Shift ρ"
-          value={
-            metrics.importance_sensitivity_correlation != null
-              ? metrics.importance_sensitivity_correlation.toFixed(3)
-              : "—"
-          }
-          description={
-            metrics.importance_sensitivity_correlation != null
-              ? "Spearman: betweenness centrality vs |shift|"
-              : "Needs ≥3 nodes with varying importance"
           }
         />
         <MetricCard
@@ -91,6 +78,24 @@ export function MetricsPanel({
             metrics.control_sensitivity != null
               ? "Frac. irrelevant probes with |shift| > 5pp"
               : "No irrelevant probes available"
+          }
+        />
+        <MetricCard
+          label="Str / Neg Ratio"
+          value={
+            metrics.asymmetry_index != null
+              ? (1 / metrics.asymmetry_index).toFixed(2) + "×"
+              : "—"
+          }
+          valueColor={
+            metrics.asymmetry_index != null && metrics.asymmetry_index < 1
+              ? "text-[var(--color-primary)]"
+              : ""
+          }
+          description={
+            metrics.mean_shift_strengthen != null && metrics.mean_shift_negate != null
+              ? `Str: ${(metrics.mean_shift_strengthen * 100).toFixed(1)}pp / Neg: ${(metrics.mean_shift_negate * 100).toFixed(1)}pp`
+              : "Needs both strengthen and negate probes"
           }
         />
       </div>

@@ -115,15 +115,14 @@ function loadMarketProbabilities(): Record<string, number> {
 // Metric computation (matches analysis_causal.py)
 // ------------------------------------------------------------------
 
-// Node-only SSR sets (matches Python analysis_causal.py)
+// SSR sets: high vs low importance (node + edge)
 const HIGH_TYPES = new Set([
-  "node_negate_high",
-  "node_strengthen",
+  "node_negate_high", "node_strengthen",
+  "edge_negate_critical", "edge_strengthen_critical",
 ]);
 const LOW_TYPES = new Set([
-  "node_negate_low",
-  "node_strengthen_low",
-  "irrelevant",
+  "node_negate_low", "node_strengthen_low",
+  "edge_negate_peripheral", "edge_strengthen_peripheral",
 ]);
 
 // Negate vs strengthen (matched importance levels)
