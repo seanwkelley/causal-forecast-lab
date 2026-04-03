@@ -98,22 +98,22 @@ export default function LivePage() {
     };
 
     const probeEvidenceA = (runA.result.probe_results || [])
-      .filter((p: Record<string, unknown>) => p.success && p.absolute_shift != null)
-      .map((p: Record<string, unknown>) => ({
-        probe_type: p.probe_type as string,
-        target_id: p.target_id as string,
-        target_importance: p.target_importance as number,
-        absolute_shift: p.absolute_shift as number,
-        probe_text: (p.probe_text as string) || "",
+      .filter((p) => p.success && p.absolute_shift != null)
+      .map((p) => ({
+        probe_type: p.probe_type,
+        target_id: p.target_id,
+        target_importance: p.target_importance,
+        absolute_shift: p.absolute_shift!,
+        probe_text: p.probe_text || "",
       }));
     const probeEvidenceB = (runB.result.probe_results || [])
-      .filter((p: Record<string, unknown>) => p.success && p.absolute_shift != null)
-      .map((p: Record<string, unknown>) => ({
-        probe_type: p.probe_type as string,
-        target_id: p.target_id as string,
-        target_importance: p.target_importance as number,
-        absolute_shift: p.absolute_shift as number,
-        probe_text: (p.probe_text as string) || "",
+      .filter((p) => p.success && p.absolute_shift != null)
+      .map((p) => ({
+        probe_type: p.probe_type,
+        target_id: p.target_id,
+        target_importance: p.target_importance,
+        absolute_shift: p.absolute_shift!,
+        probe_text: p.probe_text || "",
       }));
 
     let prevCritiqueOfA: string | undefined;
