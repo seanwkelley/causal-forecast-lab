@@ -67,8 +67,8 @@ export default function QuestionDetailPage() {
   }, [id]);
 
   // Load question data for active model
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    // Only show full loading spinner on initial load, not model switches
     if (!data) setLoading(true);
     setSwitching(true);
     fetch(`/data/questions/${activeModel}/${id}.json`)
