@@ -1,6 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import type { DebateRound } from "@/lib/debate-pipeline";
+import type { NodeMetrics, EdgeMetrics } from "@/lib/types";
+import { CausalNetwork } from "@/components/causal-network";
 
 interface DebatePanelProps {
   rounds: DebateRound[];
@@ -12,7 +15,9 @@ interface DebatePanelProps {
   currentRound: number;
 }
 
-function ProbabilityTrack({
+// ── SVG Line Graph ──────────────────────────────────────────────────
+
+function ProbabilityLineGraph({
   rounds,
   initialA,
   initialB,
@@ -27,44 +32,145 @@ function ProbabilityTrack({
 }) {
   const probsA = [initialA, ...rounds.map((r) => r.modelA.revisedProbability)];
   const probsB = [initialB, ...rounds.map((r) => r.modelB.revisedProbability)];
+  const n = probsA.length;
+
+  const W = 500;
+  const H = 200;
+  const PAD_L = 45;
+  const PAD_R = 15;
+  const PAD_T = 20;
+  const PAD_B = 30;
+  const plotW = W - PAD_L - PAD_R;
+  const plotH = H - PAD_T - PAD_B;
+
+  const allProbs = [...probsA, ...probsB];
+  const minP = Math.max(0, Math.min(...allProbs) - 0.05);
+  const maxP = Math.min(1, Math.max(...allProbs) + 0.05);
+  const range = maxP - minP || 0.1;
+
+  const x = (i: number) => PAD_L + (i / (n - 1 || 1)) * plotW;
+  const y = (p: number) => PAD_T + plotH - ((p - minP) / range) * plotH;
+
+  const pathA = probsA.map((p, i) => `${i === 0 ? "M" : "L"}${x(i)},${y(p)}`).join(" ");
+  const pathB = probsB.map((p, i) => `${i === 0 ? "M" : "L"}${x(i)},${y(p)}`).join(" ");
+
+  const labels = ["Init", ...rounds.map((_, i) => `R${i + 1}`)];
 
   return (
     <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
       <h4 className="text-xs font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider mb-3">
-        Probability Convergence
+        Probability Over Rounds
       </h4>
-      <div className="flex items-end gap-1 h-24">
-        {probsA.map((p, i) => (
-          <div key={`a-${i}`} className="flex-1 flex flex-col items-center gap-1">
-            <div className="text-[10px] text-[var(--color-muted-foreground)]">
-              {i === 0 ? "Init" : `R${i}`}
-            </div>
-            <div className="w-full flex gap-0.5">
-              <div
-                className="flex-1 rounded-sm bg-blue-500/70"
-                style={{ height: `${p * 80}px` }}
-                title={`${labelA}: ${(p * 100).toFixed(0)}%`}
-              />
-              <div
-                className="flex-1 rounded-sm bg-orange-500/70"
-                style={{ height: `${(probsB[i] ?? 0) * 80}px` }}
-                title={`${labelB}: ${((probsB[i] ?? 0) * 100).toFixed(0)}%`}
-              />
-            </div>
-          </div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" style={{ maxHeight: 220 }}>
+        {/* Grid lines */}
+        {[0.25, 0.5, 0.75].filter((v) => v >= minP && v <= maxP).map((v) => (
+          <g key={v}>
+            <line x1={PAD_L} x2={W - PAD_R} y1={y(v)} y2={y(v)} stroke="#444" strokeWidth={0.5} strokeDasharray="4,4" />
+            <text x={PAD_L - 5} y={y(v) + 4} textAnchor="end" fill="#888" fontSize={10}>{(v * 100).toFixed(0)}%</text>
+          </g>
         ))}
-      </div>
-      <div className="flex gap-4 mt-2 text-[10px] text-[var(--color-muted-foreground)]">
-        <span className="flex items-center gap-1">
-          <span className="w-2 h-2 rounded-sm bg-blue-500/70" /> {labelA}
+
+        {/* Axis labels */}
+        {labels.map((label, i) => (
+          <text key={i} x={x(i)} y={H - 5} textAnchor="middle" fill="#888" fontSize={10}>{label}</text>
+        ))}
+
+        {/* Lines */}
+        <path d={pathA} fill="none" stroke="#3b82f6" strokeWidth={2.5} />
+        <path d={pathB} fill="none" stroke="#f97316" strokeWidth={2.5} />
+
+        {/* Dots + values */}
+        {probsA.map((p, i) => (
+          <g key={`a-${i}`}>
+            <circle cx={x(i)} cy={y(p)} r={4} fill="#3b82f6" />
+            <text x={x(i)} y={y(p) - 8} textAnchor="middle" fill="#3b82f6" fontSize={9} fontWeight="bold">
+              {(p * 100).toFixed(0)}%
+            </text>
+          </g>
+        ))}
+        {probsB.map((p, i) => (
+          <g key={`b-${i}`}>
+            <circle cx={x(i)} cy={y(p)} r={4} fill="#f97316" />
+            <text x={x(i)} y={y(p) + 14} textAnchor="middle" fill="#f97316" fontSize={9} fontWeight="bold">
+              {(p * 100).toFixed(0)}%
+            </text>
+          </g>
+        ))}
+      </svg>
+      <div className="flex gap-6 mt-2 text-xs text-[var(--color-muted-foreground)]">
+        <span className="flex items-center gap-1.5">
+          <span className="w-3 h-0.5 rounded bg-blue-500" /> {labelA}
         </span>
-        <span className="flex items-center gap-1">
-          <span className="w-2 h-2 rounded-sm bg-orange-500/70" /> {labelB}
+        <span className="flex items-center gap-1.5">
+          <span className="w-3 h-0.5 rounded bg-orange-500" /> {labelB}
         </span>
       </div>
     </div>
   );
 }
+
+// ── DAG Viewer for a round ──────────────────────────────────────────
+
+function RoundDAGs({
+  round,
+  modelALabel,
+  modelBLabel,
+}: {
+  round: DebateRound;
+  modelALabel: string;
+  modelBLabel: string;
+}) {
+  function toNodeMetrics(nodes: { id: string; description: string; role: "factor" | "outcome" }[]): NodeMetrics[] {
+    return nodes.map((n) => ({
+      node_id: n.id,
+      description: n.description,
+      role: n.role,
+      in_degree: 0,
+      out_degree: 0,
+      betweenness: 0,
+      closeness: 0,
+      pagerank: 0,
+      path_relevance: 0,
+    }));
+  }
+
+  function toEdgeMetrics(edges: { from: string; to: string; mechanism: string }[]): EdgeMetrics[] {
+    return edges.map((e) => ({
+      source: e.from,
+      target: e.to,
+      mechanism: e.mechanism,
+      edge_betweenness: 0,
+      on_critical_path: false,
+    }));
+  }
+
+  return (
+    <div className="grid grid-cols-2 gap-4">
+      <div>
+        <p className="text-xs font-medium text-blue-400 mb-2">{modelALabel} — Round {round.round}</p>
+        <div className="h-[300px] rounded-lg border border-[var(--color-border)] bg-[var(--color-secondary)]/30">
+          <CausalNetwork
+            nodes={toNodeMetrics(round.modelA.revisedNodes)}
+            edges={toEdgeMetrics(round.modelA.revisedEdges)}
+            height={300}
+          />
+        </div>
+      </div>
+      <div>
+        <p className="text-xs font-medium text-orange-400 mb-2">{modelBLabel} — Round {round.round}</p>
+        <div className="h-[300px] rounded-lg border border-[var(--color-border)] bg-[var(--color-secondary)]/30">
+          <CausalNetwork
+            nodes={toNodeMetrics(round.modelB.revisedNodes)}
+            edges={toEdgeMetrics(round.modelB.revisedEdges)}
+            height={300}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Round Card ──────────────────────────────────────────────────────
 
 function RoundCard({
   round,
@@ -75,9 +181,19 @@ function RoundCard({
   modelALabel: string;
   modelBLabel: string;
 }) {
+  const [showDAGs, setShowDAGs] = useState(false);
+
   return (
-    <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4 space-y-4">
-      <h4 className="text-sm font-semibold">Round {round.round}</h4>
+    <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4 space-y-3">
+      <div className="flex items-center justify-between">
+        <h4 className="text-sm font-semibold">Round {round.round}</h4>
+        <button
+          onClick={() => setShowDAGs(!showDAGs)}
+          className="text-xs text-[var(--color-primary)] hover:underline"
+        >
+          {showDAGs ? "Hide DAGs" : "Show DAGs"}
+        </button>
+      </div>
 
       <div className="grid grid-cols-2 gap-4">
         {/* Model A's critique of B */}
@@ -90,17 +206,17 @@ function RoundCard({
             {round.modelA.critique}
           </p>
           <div className="text-xs">
-            <span className="text-[var(--color-muted-foreground)]">Updated estimate: </span>
+            <span className="text-[var(--color-muted-foreground)]">Updated: </span>
             <span className="font-mono font-bold">
               {(round.modelA.revisedProbability * 100).toFixed(0)}%
+            </span>
+            <span className="text-[var(--color-muted-foreground)] ml-2">
+              ({round.modelA.revisedNodes.length}N / {round.modelA.revisedEdges.length}E)
             </span>
           </div>
           <p className="text-[10px] text-[var(--color-muted-foreground)] italic">
             {round.modelA.reasoning}
           </p>
-          <div className="text-[10px] text-[var(--color-muted-foreground)]">
-            {round.modelA.revisedNodes.length} nodes, {round.modelA.revisedEdges.length} edges
-          </div>
         </div>
 
         {/* Model B's critique of A */}
@@ -113,22 +229,28 @@ function RoundCard({
             {round.modelB.critique}
           </p>
           <div className="text-xs">
-            <span className="text-[var(--color-muted-foreground)]">Updated estimate: </span>
+            <span className="text-[var(--color-muted-foreground)]">Updated: </span>
             <span className="font-mono font-bold">
               {(round.modelB.revisedProbability * 100).toFixed(0)}%
+            </span>
+            <span className="text-[var(--color-muted-foreground)] ml-2">
+              ({round.modelB.revisedNodes.length}N / {round.modelB.revisedEdges.length}E)
             </span>
           </div>
           <p className="text-[10px] text-[var(--color-muted-foreground)] italic">
             {round.modelB.reasoning}
           </p>
-          <div className="text-[10px] text-[var(--color-muted-foreground)]">
-            {round.modelB.revisedNodes.length} nodes, {round.modelB.revisedEdges.length} edges
-          </div>
         </div>
       </div>
+
+      {showDAGs && (
+        <RoundDAGs round={round} modelALabel={modelALabel} modelBLabel={modelBLabel} />
+      )}
     </div>
   );
 }
+
+// ── Main Panel ──────────────────────────────────────────────────────
 
 export function DebatePanel({
   rounds,
@@ -139,6 +261,8 @@ export function DebatePanel({
   loading,
   currentRound,
 }: DebatePanelProps) {
+  const lastRound = rounds[rounds.length - 1];
+
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -152,7 +276,7 @@ export function DebatePanel({
         )}
       </div>
 
-      <ProbabilityTrack
+      <ProbabilityLineGraph
         rounds={rounds}
         initialA={initialProbA}
         initialB={initialProbB}
@@ -171,35 +295,45 @@ export function DebatePanel({
         ))}
       </div>
 
-      {rounds.length >= 5 && (
-        <div className="rounded-lg border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-4">
-          <h4 className="text-sm font-semibold mb-2">Debate Summary</h4>
-          <div className="grid grid-cols-2 gap-4 text-xs">
-            <div>
-              <span className="text-[var(--color-muted-foreground)]">{modelALabel}: </span>
-              <span className="font-mono">
-                {(initialProbA * 100).toFixed(0)}% → {(rounds[rounds.length - 1].modelA.revisedProbability * 100).toFixed(0)}%
-              </span>
-              <span className="text-[var(--color-muted-foreground)]">
-                {" "}(Δ = {((rounds[rounds.length - 1].modelA.revisedProbability - initialProbA) * 100).toFixed(1)}pp)
-              </span>
+      {/* Final DAGs (always shown after debate completes) */}
+      {rounds.length >= 5 && lastRound && (
+        <>
+          <div className="rounded-lg border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-4">
+            <h4 className="text-sm font-semibold mb-2">Debate Summary</h4>
+            <div className="grid grid-cols-2 gap-4 text-xs">
+              <div>
+                <span className="text-[var(--color-muted-foreground)]">{modelALabel}: </span>
+                <span className="font-mono">
+                  {(initialProbA * 100).toFixed(0)}% → {(lastRound.modelA.revisedProbability * 100).toFixed(0)}%
+                </span>
+                <span className="text-[var(--color-muted-foreground)]">
+                  {" "}({((lastRound.modelA.revisedProbability - initialProbA) * 100) >= 0 ? "+" : ""}
+                  {((lastRound.modelA.revisedProbability - initialProbA) * 100).toFixed(1)}pp)
+                </span>
+              </div>
+              <div>
+                <span className="text-[var(--color-muted-foreground)]">{modelBLabel}: </span>
+                <span className="font-mono">
+                  {(initialProbB * 100).toFixed(0)}% → {(lastRound.modelB.revisedProbability * 100).toFixed(0)}%
+                </span>
+                <span className="text-[var(--color-muted-foreground)]">
+                  {" "}({((lastRound.modelB.revisedProbability - initialProbB) * 100) >= 0 ? "+" : ""}
+                  {((lastRound.modelB.revisedProbability - initialProbB) * 100).toFixed(1)}pp)
+                </span>
+              </div>
             </div>
-            <div>
-              <span className="text-[var(--color-muted-foreground)]">{modelBLabel}: </span>
-              <span className="font-mono">
-                {(initialProbB * 100).toFixed(0)}% → {(rounds[rounds.length - 1].modelB.revisedProbability * 100).toFixed(0)}%
-              </span>
-              <span className="text-[var(--color-muted-foreground)]">
-                {" "}(Δ = {((rounds[rounds.length - 1].modelB.revisedProbability - initialProbB) * 100).toFixed(1)}pp)
-              </span>
+            <div className="mt-2 text-xs text-[var(--color-muted-foreground)]">
+              Convergence: |gap| went from{" "}
+              {(Math.abs(initialProbA - initialProbB) * 100).toFixed(1)}pp to{" "}
+              {(Math.abs(lastRound.modelA.revisedProbability - lastRound.modelB.revisedProbability) * 100).toFixed(1)}pp
             </div>
           </div>
-          <div className="mt-2 text-xs text-[var(--color-muted-foreground)]">
-            Convergence: |gap| went from{" "}
-            {(Math.abs(initialProbA - initialProbB) * 100).toFixed(1)}pp to{" "}
-            {(Math.abs(rounds[rounds.length - 1].modelA.revisedProbability - rounds[rounds.length - 1].modelB.revisedProbability) * 100).toFixed(1)}pp
+
+          <div>
+            <h4 className="text-sm font-semibold mb-3">Final DAGs</h4>
+            <RoundDAGs round={lastRound} modelALabel={modelALabel} modelBLabel={modelBLabel} />
           </div>
-        </div>
+        </>
       )}
     </div>
   );
