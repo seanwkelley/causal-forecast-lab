@@ -13,6 +13,7 @@ interface CausalNetworkProps {
   selectedNodeId?: string | null;
   width?: number;
   height?: number;
+  frozen?: boolean;
 }
 
 interface SimNode extends d3.SimulationNodeDatum {
@@ -40,6 +41,7 @@ export function CausalNetwork({
   selectedNodeId,
   width: propWidth,
   height: propHeight,
+  frozen = false,
 }: CausalNetworkProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -232,25 +234,27 @@ export function CausalNetwork({
       .attr("dy", (d) => nodeRadius(d) + 12)
       .attr("pointer-events", "none");
 
-    // Drag
-    const drag = d3
-      .drag<SVGCircleElement, SimNode>()
-      .on("start", (event, d) => {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
-        d.fx = d.x;
-        d.fy = d.y;
-      })
-      .on("drag", (event, d) => {
-        d.fx = event.x;
-        d.fy = event.y;
-      })
-      .on("end", (event, d) => {
-        if (!event.active) simulation.alphaTarget(0);
-        d.fx = d.x;
-        d.fy = d.y;
-      });
+    // Drag (disabled when frozen)
+    if (!frozen) {
+      const drag = d3
+        .drag<SVGCircleElement, SimNode>()
+        .on("start", (event, d) => {
+          if (!event.active) simulation.alphaTarget(0.3).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        })
+        .on("drag", (event, d) => {
+          d.fx = event.x;
+          d.fy = event.y;
+        })
+        .on("end", (event, d) => {
+          if (!event.active) simulation.alphaTarget(0);
+          d.fx = d.x;
+          d.fy = d.y;
+        });
 
-    node.call(drag);
+      node.call(drag);
+    }
     nodeSelRef.current = node;
 
     // Simulation
@@ -266,7 +270,7 @@ export function CausalNetwork({
       .force("charge", d3.forceManyBody().strength(-500))
       .force("center", d3.forceCenter(width / 2, height / 2))
       .force("collision", d3.forceCollide<SimNode>().radius((d) => nodeRadius(d) + 25))
-      .alphaDecay(0.05)
+      .alphaDecay(frozen ? 1 : 0.05)
       .on("tick", () => {
         link
           .attr("x1", (d) => (d.source as SimNode).x!)
@@ -289,7 +293,7 @@ export function CausalNetwork({
     return () => {
       simulation.stop();
     };
-  }, [nodes, edges, dimensions, nodeSensitivity]);
+  }, [nodes, edges, dimensions, nodeSensitivity, frozen]);
 
   return (
     <div ref={containerRef} className="relative w-full" style={{ minHeight: propHeight || 650 }}>

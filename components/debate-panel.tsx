@@ -153,6 +153,7 @@ function RoundDAGs({
             nodes={toNodeMetrics(round.modelA.revisedNodes)}
             edges={toEdgeMetrics(round.modelA.revisedEdges)}
             height={300}
+            frozen
           />
         </div>
       </div>
@@ -163,6 +164,7 @@ function RoundDAGs({
             nodes={toNodeMetrics(round.modelB.revisedNodes)}
             edges={toEdgeMetrics(round.modelB.revisedEdges)}
             height={300}
+            frozen
           />
         </div>
       </div>
