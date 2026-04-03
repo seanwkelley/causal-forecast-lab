@@ -67,7 +67,6 @@ export default function QuestionDetailPage() {
   }, [id]);
 
   // Load question data for active model
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!data) setLoading(true);
     setSwitching(true);
@@ -98,6 +97,7 @@ export default function QuestionDetailPage() {
             setSwitching(false);
           });
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, activeModel]);
 
   // Determine selected target type and description
