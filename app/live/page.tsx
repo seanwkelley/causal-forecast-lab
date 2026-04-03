@@ -667,6 +667,7 @@ export default function LivePage() {
       )}
 
       {/* Per-model results */}
+      <div className={debateEnabled && completedRuns.length === 2 ? "grid grid-cols-2 gap-4" : ""}>
       {runs
         .filter((r) => r.result || r.error)
         .map((run) => (
@@ -700,6 +701,7 @@ export default function LivePage() {
             )}
           </div>
         ))}
+      </div>
 
       {/* Debate section */}
       {debateEnabled && completedRuns.length === 2 && (
