@@ -11,6 +11,8 @@ import { InteractiveProbe } from "@/components/interactive-probe";
 import { useApiKey } from "@/lib/api-key-context";
 import { InformationPriorities } from "@/components/information-priorities";
 import { formatProbability, probToColor } from "@/lib/utils";
+import { DebatePanel } from "@/components/debate-panel";
+import type { DebateRound } from "@/lib/debate-pipeline";
 
 interface DetailWithMetrics extends QuestionDetail {
   aggregate_metrics: AggregateMetrics;
@@ -56,15 +58,112 @@ export default function LivePage() {
   const [showCustom, setShowCustom] = useState(false);
   const { apiKey } = useApiKey();
   const [runs, setRuns] = useState<ModelRun[]>([]);
+  const [debateEnabled, setDebateEnabled] = useState(false);
+  const [debateRounds, setDebateRounds] = useState<DebateRound[]>([]);
+  const [debateLoading, setDebateLoading] = useState(false);
+  const [debateCurrentRound, setDebateCurrentRound] = useState(0);
 
   function toggleModel(value: string) {
     setSelectedModels((prev) => {
       if (prev.includes(value)) {
         return prev.filter((m) => m !== value);
       }
-      if (prev.length >= 4) return prev; // max 4
+      const maxModels = debateEnabled ? 2 : 4;
+      if (prev.length >= maxModels) return prev;
       return [...prev, value];
     });
+  }
+
+  async function handleDebate() {
+    if (selectedModels.length !== 2 || !apiKey.trim()) return;
+    const completedRuns = runs.filter((r) => r.result != null);
+    if (completedRuns.length < 2) return;
+
+    const runA = completedRuns.find((r) => r.model === selectedModels[0]);
+    const runB = completedRuns.find((r) => r.model === selectedModels[1]);
+    if (!runA?.result || !runB?.result) return;
+
+    setDebateLoading(true);
+    setDebateRounds([]);
+
+    let stateA = {
+      probability: runA.result.initial_probability,
+      nodes: runA.result.nodes,
+      edges: runA.result.edges,
+    };
+    let stateB = {
+      probability: runB.result.initial_probability,
+      nodes: runB.result.nodes,
+      edges: runB.result.edges,
+    };
+
+    const probeEvidenceA = (runA.result.probe_results || [])
+      .filter((p: Record<string, unknown>) => p.success && p.absolute_shift != null)
+      .map((p: Record<string, unknown>) => ({
+        probe_type: p.probe_type as string,
+        target_id: p.target_id as string,
+        target_importance: p.target_importance as number,
+        absolute_shift: p.absolute_shift as number,
+        probe_text: (p.probe_text as string) || "",
+      }));
+    const probeEvidenceB = (runB.result.probe_results || [])
+      .filter((p: Record<string, unknown>) => p.success && p.absolute_shift != null)
+      .map((p: Record<string, unknown>) => ({
+        probe_type: p.probe_type as string,
+        target_id: p.target_id as string,
+        target_importance: p.target_importance as number,
+        absolute_shift: p.absolute_shift as number,
+        probe_text: (p.probe_text as string) || "",
+      }));
+
+    let prevCritiqueOfA: string | undefined;
+    let prevCritiqueOfB: string | undefined;
+    const allRounds: DebateRound[] = [];
+
+    for (let round = 1; round <= 5; round++) {
+      setDebateCurrentRound(round);
+      try {
+        const resp = await fetch("/api/debate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            question,
+            roundNum: round,
+            modelAId: selectedModels[0],
+            modelBId: selectedModels[1],
+            apiKey,
+            stateA,
+            stateB,
+            probeEvidenceA,
+            probeEvidenceB,
+            previousCritiqueOfA: prevCritiqueOfA,
+            previousCritiqueOfB: prevCritiqueOfB,
+          }),
+        });
+        const roundResult: DebateRound = await resp.json();
+        allRounds.push(roundResult);
+        setDebateRounds([...allRounds]);
+
+        // Update state for next round
+        stateA = {
+          probability: roundResult.modelA.revisedProbability,
+          nodes: roundResult.modelA.revisedNodes,
+          edges: roundResult.modelA.revisedEdges,
+        };
+        stateB = {
+          probability: roundResult.modelB.revisedProbability,
+          nodes: roundResult.modelB.revisedNodes,
+          edges: roundResult.modelB.revisedEdges,
+        };
+        prevCritiqueOfA = roundResult.modelB.critique;
+        prevCritiqueOfB = roundResult.modelA.critique;
+      } catch (err) {
+        console.error(`Debate round ${round} failed:`, err);
+        break;
+      }
+    }
+
+    setDebateLoading(false);
   }
 
   const anyLoading = runs.some((r) => r.loading);
@@ -291,16 +390,36 @@ export default function LivePage() {
             <label className="block text-sm font-medium mb-1">
               Models
             </label>
-            <p className="text-xs text-[var(--color-muted-foreground)] mb-2">
-              Click to toggle models. Select up to 4 to run them in parallel and compare results side-by-side.
-              <span className="ml-1 font-mono text-[var(--color-primary)]">
-                {selectedModels.length}/4 selected
-              </span>
-            </p>
+            <div className="flex items-center justify-between mb-2">
+              <p className="text-xs text-[var(--color-muted-foreground)]">
+                {debateEnabled
+                  ? "Select exactly 2 models for debate."
+                  : "Select up to 4 models to compare."}
+                <span className="ml-1 font-mono text-[var(--color-primary)]">
+                  {selectedModels.length}/{debateEnabled ? 2 : 4} selected
+                </span>
+              </p>
+              <label className="flex items-center gap-2 text-xs cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={debateEnabled}
+                  onChange={(e) => {
+                    setDebateEnabled(e.target.checked);
+                    setDebateRounds([]);
+                    if (e.target.checked && selectedModels.length > 2) {
+                      setSelectedModels(selectedModels.slice(0, 2));
+                    }
+                  }}
+                  className="rounded"
+                />
+                <span className="font-medium text-[var(--color-primary)]">Multi-model debate</span>
+              </label>
+            </div>
             <div className="flex flex-wrap gap-2">
               {MODELS.map((m) => {
                 const selected = selectedModels.includes(m.value);
-                const atMax = selectedModels.length >= 4 && !selected;
+                const maxModels = debateEnabled ? 2 : 4;
+                const atMax = selectedModels.length >= maxModels && !selected;
                 return (
                   <button
                     key={m.value}
@@ -581,6 +700,38 @@ export default function LivePage() {
             )}
           </div>
         ))}
+
+      {/* Debate section */}
+      {debateEnabled && completedRuns.length === 2 && (
+        <div className="mt-8">
+          {debateRounds.length === 0 && !debateLoading && (
+            <div className="rounded-lg border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-6 text-center">
+              <h3 className="text-lg font-semibold mb-2">Start Debate</h3>
+              <p className="text-sm text-[var(--color-muted-foreground)] mb-4">
+                Both models have completed their independent analysis. Start a 5-round debate
+                where they critique each other&apos;s causal networks using probe evidence.
+              </p>
+              <button
+                onClick={handleDebate}
+                className="inline-flex items-center gap-2 rounded-md bg-[var(--color-primary)] px-6 py-2.5 text-sm font-medium text-white hover:bg-[var(--color-primary)]/90 transition-colors"
+              >
+                Start 5-Round Debate
+              </button>
+            </div>
+          )}
+          {(debateRounds.length > 0 || debateLoading) && (
+            <DebatePanel
+              rounds={debateRounds}
+              modelALabel={runs.find((r) => r.model === selectedModels[0])?.label ?? selectedModels[0]}
+              modelBLabel={runs.find((r) => r.model === selectedModels[1])?.label ?? selectedModels[1]}
+              initialProbA={completedRuns[0]?.result?.initial_probability ?? 0.5}
+              initialProbB={completedRuns[1]?.result?.initial_probability ?? 0.5}
+              loading={debateLoading}
+              currentRound={debateCurrentRound}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }
