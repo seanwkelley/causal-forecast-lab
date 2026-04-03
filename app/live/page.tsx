@@ -415,6 +415,18 @@ export default function LivePage() {
                 <span className="font-medium text-[var(--color-primary)]">Multi-model debate</span>
               </label>
             </div>
+            {debateEnabled && (
+              <div className="rounded-lg border border-[var(--color-primary)]/20 bg-[var(--color-primary)]/5 p-3 mb-3">
+                <p className="text-xs text-[var(--color-muted-foreground)] leading-relaxed">
+                  <strong className="text-[var(--color-foreground)]">Debate mode:</strong>{" "}
+                  Two models independently build causal networks and get probed, then engage in
+                  5 rounds of structured critique. Each round, they see the other&apos;s DAG and probe
+                  evidence, identify structural weaknesses, and revise their own network and
+                  probability estimate. This tests whether models can improve their causal reasoning
+                  through adversarial feedback grounded in empirical evidence.
+                </p>
+              </div>
+            )}
             <div className="flex flex-wrap gap-2">
               {MODELS.map((m) => {
                 const selected = selectedModels.includes(m.value);
@@ -692,13 +704,15 @@ export default function LivePage() {
               </div>
             )}
 
-            {run.result && (
+            {run.result && debateEnabled ? (
+              <DebateInitialPanel result={run.result} />
+            ) : run.result ? (
               <LiveResultPanel
                 result={run.result}
                 apiKey={apiKey}
                 model={run.model}
               />
-            )}
+            ) : null}
           </div>
         ))}
       </div>
@@ -734,6 +748,42 @@ export default function LivePage() {
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function DebateInitialPanel({ result }: { result: DetailWithMetrics }) {
+  return (
+    <div className="space-y-4">
+      {/* Probability + reasoning */}
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+        <ProbabilityBar probability={result.initial_probability} label="Initial Estimate" />
+        <p className="mt-2 text-xs text-[var(--color-muted-foreground)] leading-relaxed">
+          {result.reasoning}
+        </p>
+      </div>
+
+      {/* DAG */}
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+        <h3 className="text-xs font-semibold mb-2">Causal Network</h3>
+        <CausalNetwork
+          nodes={result.network_analysis.node_metrics}
+          edges={result.network_analysis.edge_metrics}
+          probeResults={result.probe_results}
+          height={300}
+        />
+      </div>
+
+      {/* Probe results summary */}
+      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
+        <h3 className="text-xs font-semibold mb-2">
+          Probe Results ({result.probe_results.filter((p) => p.success).length} probes)
+        </h3>
+        <DeltaBarChart
+          results={result.probe_results}
+          initialProbability={result.initial_probability}
+        />
+      </div>
     </div>
   );
 }
