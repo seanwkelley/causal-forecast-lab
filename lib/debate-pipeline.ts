@@ -17,14 +17,14 @@ export interface DebateRound {
   modelA: {
     critique: string;
     revisedProbability: number;
-    revisedNodes: { id: string; description: string; role: string }[];
+    revisedNodes: { id: string; description: string; role: "factor" | "outcome" }[];
     revisedEdges: { from: string; to: string; mechanism: string }[];
     reasoning: string;
   };
   modelB: {
     critique: string;
     revisedProbability: number;
-    revisedNodes: { id: string; description: string; role: string }[];
+    revisedNodes: { id: string; description: string; role: "factor" | "outcome" }[];
     revisedEdges: { from: string; to: string; mechanism: string }[];
     reasoning: string;
   };
@@ -234,14 +234,14 @@ export async function runDebateRound(
     modelA: {
       critique: parsedA.critique,
       revisedProbability: Math.max(0.01, Math.min(0.99, parsedA.revised_probability)),
-      revisedNodes: parsedA.revised_nodes,
+      revisedNodes: parsedA.revised_nodes.map((n) => ({ ...n, role: n.role as "factor" | "outcome" })),
       revisedEdges: parsedA.revised_edges,
       reasoning: parsedA.reasoning,
     },
     modelB: {
       critique: parsedB.critique,
       revisedProbability: Math.max(0.01, Math.min(0.99, parsedB.revised_probability)),
-      revisedNodes: parsedB.revised_nodes,
+      revisedNodes: parsedB.revised_nodes.map((n) => ({ ...n, role: n.role as "factor" | "outcome" })),
       revisedEdges: parsedB.revised_edges,
       reasoning: parsedB.reasoning,
     },
