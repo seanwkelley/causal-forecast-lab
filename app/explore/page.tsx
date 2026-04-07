@@ -37,9 +37,8 @@ interface SummaryData {
 const CATEGORY_ORDER = [
   "Conflict & Security",
   "Politics & Governance",
-  "Finance & Markets",
-  "Economics",
-  "Climate & Weather",
+  "Finance & Economics",
+  "Climate & Energy",
   "Health & Science",
   "Technology",
   "Society & Culture",

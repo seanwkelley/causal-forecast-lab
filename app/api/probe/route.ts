@@ -3,11 +3,11 @@ import { callOpenRouter, parseJsonResponse, type ChatMessage } from "@/lib/openr
 
 export const maxDuration = 60;
 
-const PROBED_FORECAST_PROMPT = `You are a superforecaster who previously estimated a probability for a question based on a causal model. Now consider this new information and update your estimate.
+const PROBED_FORECAST_PROMPT = `You are an expert forecaster updating your estimate in light of new information about your causal model.
 
-Important: Think carefully about which causal paths in your model are affected by this new information. Only shift your probability if the information genuinely changes the causal reasoning.
+When presented with new information, consider how it affects your causal network and update your probability estimate accordingly.
 
-Respond with JSON: {"updated_probability": <0.01-0.99>, "shift_direction": "increased"|"decreased"|"unchanged", "reasoning": "explanation of how this new information affects your causal model and estimate"}`;
+Respond with JSON: {"updated_probability": <0.01-0.99>, "shift_direction": "increased"|"decreased"|"unchanged", "reasoning": "explanation of how this new information affects your estimate"}`;
 
 export async function POST(request: NextRequest) {
   try {

@@ -262,49 +262,25 @@ function computeMetrics(results: ProbeResult[]) {
 }
 
 // ------------------------------------------------------------------
-// Topic classification
+// Topic classification — loaded from precomputed high_complexity_questions.json
+// (Topics are assigned by GPT-4o-mini in forecast_bench/classify_question_topic.py)
 // ------------------------------------------------------------------
 
-function classifyTopic(questionText: string, source: string): string {
-  const t = questionText.toLowerCase();
-  const s = source.toLowerCase();
-
-  // Source-based shortcuts
-  if (s === "yfinance") return "Finance & Markets";
-  if (s === "fred") return "Economics";
-  if (s === "acled") return "Conflict & Security";
-  if (s === "dbnomics" && t.includes("temperature")) return "Climate & Energy";
-  if (s === "dbnomics") return "Economics";
-
-  // Keyword-based classification
-  if (/\b(nato|war|military|troops|conflict|invasion|attack|weapon|nuclear|missile|army|defense|violen|invade|uprising|ceasefire|capture|combat|carrier|forces|deploy|control.*taiwan)/i.test(t))
-    return "Conflict & Security";
-  if (/\b(protest|refugee|migration|humanitarian|human rights|sanction|khamenei|supreme leader|impeach|sudan|rapid support)/i.test(t))
-    return "Conflict & Security";
-  if (/\b(strikes?\s+\w+\s+by\s+december|engagement\s+by)/i.test(t))
-    return "Conflict & Security";
-  if (/\b(election|president|congress|senate|governor|vote|poll|party|democrat|republican|parliament|minister|trump|nominate|fed chair)/i.test(t))
-    return "Politics & Governance";
-  if (/\b(fertility|birth rate|ubi|universal basic income|immigration|breakaway.*league)/i.test(t))
-    return "Politics & Governance";
-  if (/\b(usmca|staffing standard|export control|coalition of the willing|multilateral.*agreement|classify.*research|european.*commit)/i.test(t))
-    return "Politics & Governance";
-  if (/\b(stock|market|price|bitcoin|crypto|s&p|nasdaq|yield|bond|index|trading|investor|tesla|ceo|step down)/i.test(t))
-    return "Finance & Markets";
-  if (/\b(gdp|inflation|unemployment|interest rate|federal reserve|import|export|tariff|trade|econom|recession)/i.test(t))
-    return "Economics";
-  if (/\b(temperature|climate|weather|hurricane|flood|drought|emission|carbon|solar power|renewable|energy consumption|electric vehicle|electric.*car|electric\b.*\bsold)/i.test(t))
-    return "Climate & Energy";
-  if (/\b(vaccine|virus|disease|health|medical|fda|drug|pharma|pandemic|cancer|treatment|diagnosis|dna|embryo|brain emulation|roundup|newborn|hiv|aids|influenza|avian|extinct|mirror.*biology)/i.test(t))
-    return "Health & Science";
-  if (/\b(ai\b|artificial intelligence|agi|machine learning|openai|google|apple|microsoft|tech|software|browser|chromium|driverless|robot|digital intelligence|lithograph|fab\b|semiconductor|compute|satellite|huawei|open ran)/i.test(t))
-    return "Technology";
-  if (/\b(wikipedia|fide|ranking|chess|oscar|academy|award|sport|champion|tournament|world cup|olympic|nba|nascar|nfl|box office|film|movie|pokemon|agent 007|drake|colbert|embiid|soccer|league|mlb|baseball|anime)/i.test(t))
-    return "Society & Culture";
-  if (/\b(research fund|ngo|non-governmental)/i.test(t))
-    return "Politics & Governance";
-
-  return "Other";
+function loadTopicMap(): Record<string, string> {
+  const hcPath = path.resolve(
+    __dirname,
+    "../../forecast_bench/high_complexity_questions.json"
+  );
+  if (!fs.existsSync(hcPath)) {
+    console.log("  high_complexity_questions.json not found, topics will be 'Other'");
+    return {};
+  }
+  const questions = JSON.parse(fs.readFileSync(hcPath, "utf-8"));
+  const map: Record<string, string> = {};
+  for (const q of questions) {
+    if (q.id && q.topic) map[q.id] = q.topic;
+  }
+  return map;
 }
 
 // ------------------------------------------------------------------
@@ -317,6 +293,9 @@ function main() {
 
   const marketProbs = loadMarketProbabilities();
   console.log(`Loaded ${Object.keys(marketProbs).length} market probabilities`);
+
+  const topicMap = loadTopicMap();
+  console.log(`Loaded ${Object.keys(topicMap).length} question topics`);
 
   // Track all questions across models for the summary
   const allQuestionIds = new Set<string>();
@@ -417,7 +396,7 @@ function main() {
             question_id: q.question_id,
             question_text: q.question_text,
             source: q.source,
-            category: classifyTopic(q.question_text, q.source),
+            category: topicMap[q.question_id] ?? "Other",
             market_probability: mktProb,
             models: [],
             model_probabilities: {},
