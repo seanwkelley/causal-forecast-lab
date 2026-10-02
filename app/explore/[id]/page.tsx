@@ -1,310 +1,209 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { QuestionDetail, AggregateMetrics } from "@/lib/types";
-import { CausalNetwork } from "@/components/causal-network";
-import { ProbeTable } from "@/components/probe-table";
-import { DeltaBarChart } from "@/components/probe-chart";
-import { MetricsPanel } from "@/components/metrics-panel";
-import { ProbabilityBar } from "@/components/probability-bar";
-import { InteractiveProbe } from "@/components/interactive-probe";
-import { formatProbability, probToColor } from "@/lib/utils";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { BaselineCard, QuestionAnalysis, type AnalysisData } from "@/components/question-analysis";
+import { ForecastStrip, ModelPicker } from "@/components/forecast-strip";
+import { DEFAULT_MODEL_KEY, getModel, modelLabel, sortModelKeys } from "@/lib/models";
+import { type QuestionEntry, type SummaryData, loadSummary, marketForecast, sourceLabel, TOPIC_ORDER } from "@/lib/questions";
+import { truncate } from "@/lib/utils";
 
-interface DetailWithMetrics extends QuestionDetail {
-  aggregate_metrics: AggregateMetrics;
+interface DetailWithMeta extends AnalysisData {
   model?: string;
   model_label?: string;
 }
 
-const MODEL_LABELS: Record<string, string> = {
-  "llama-8b": "Llama 3.1 8B",
-  "llama-70b": "Llama 3.3 70B",
-  "deepseek-v3": "DeepSeek V3",
-  "qwen-235b": "Qwen3 235B",
-  "gemini-flash": "Gemini 2.5 Flash Lite",
-};
-
-const MODEL_IDS: Record<string, string> = {
-  "llama-8b": "meta-llama/llama-3.1-8b-instruct",
-  "llama-70b": "meta-llama/llama-3.3-70b-instruct",
-  "deepseek-v3": "deepseek/deepseek-chat-v3-0324",
-  "qwen-235b": "qwen/qwen3-235b-a22b-2507",
-  "gemini-flash": "google/gemini-2.5-flash-lite",
-};
-
 export default function QuestionDetailPage() {
   const params = useParams();
   const searchParams = useSearchParams();
+  const router = useRouter();
   const id = params.id as string;
-  const initialModel = searchParams.get("model") || "llama-70b";
+  const modelParam = searchParams.get("model");
 
-  const [activeModel, setActiveModel] = useState(initialModel);
-  const [data, setData] = useState<DetailWithMetrics | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [summary, setSummary] = useState<SummaryData | null>(null);
+  const [data, setData] = useState<DetailWithMeta | null>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "missing">("loading");
   const [switching, setSwitching] = useState(false);
-  const [availableModels, setAvailableModels] = useState<string[]>([]);
-  const [modelProbabilities, setModelProbabilities] = useState<Record<string, number>>({});
-  const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null);
 
-  // Load available models for this question
   useEffect(() => {
-    fetch("/data/summary.json")
-      .then((r) => r.json())
-      .then((summary) => {
-        const q = summary.questions?.find(
-          (q: { question_id: string }) => q.question_id === id
-        );
-        if (q?.models) {
-          setAvailableModels(q.models);
-        }
-        if (q?.model_probabilities) {
-          setModelProbabilities(q.model_probabilities);
-        }
-      })
-      .catch(() => {});
-  }, [id]);
+    loadSummary().then(setSummary).catch(() => {});
+  }, []);
 
-  // Load question data for active model
+  const entry: QuestionEntry | undefined = summary?.questions.find((q) => q.question_id === id);
+  const available = useMemo(() => sortModelKeys(entry?.models ?? []), [entry]);
+  const activeModel =
+    modelParam && (available.length === 0 || available.includes(modelParam))
+      ? modelParam
+      : available.includes(DEFAULT_MODEL_KEY) || available.length === 0
+        ? DEFAULT_MODEL_KEY
+        : available[0];
+
   useEffect(() => {
-    // Only show full loading spinner on initial load, not model switches
-    if (!data) setLoading(true);
+    let cancelled = false;
     setSwitching(true);
     fetch(`/data/questions/${activeModel}/${id}.json`)
       .then((r) => {
         if (!r.ok) throw new Error("Not found");
         return r.json();
       })
-      .then((d) => {
+      .then((d: DetailWithMeta) => {
+        if (cancelled) return;
         setData(d);
-        setLoading(false);
-        setSwitching(false);
+        setStatus("ready");
       })
-      .catch(() => {
-        // Fallback: try old flat structure
-        fetch(`/data/questions/${id}.json`)
-          .then((r) => {
-            if (!r.ok) throw new Error("Not found");
-            return r.json();
-          })
-          .then((d) => {
-            setData(d);
-            setLoading(false);
-            setSwitching(false);
-          })
-          .catch(() => {
-            setLoading(false);
-            setSwitching(false);
-          });
-      });
+      .catch(() => !cancelled && setStatus((s) => (s === "ready" ? s : "missing")))
+      .finally(() => !cancelled && setSwitching(false));
+    return () => {
+      cancelled = true;
+    };
   }, [id, activeModel]);
 
-  // Determine selected target type and description
-  const selectedInfo = useMemo(() => {
-    if (!data || !selectedTargetId) return { type: null, description: null };
-
-    const node = data.network_analysis.node_metrics.find(
-      (n) => n.node_id === selectedTargetId
+  // Previous / next question in the list's default (topic) order
+  const neighbours = useMemo(() => {
+    if (!summary) return { prev: undefined, next: undefined };
+    const ordered = [...summary.questions].sort(
+      (a, b) => TOPIC_ORDER.indexOf(a.category ?? "Other") - TOPIC_ORDER.indexOf(b.category ?? "Other")
     );
-    if (node) {
-      return { type: "node" as const, description: node.description };
-    }
+    const i = ordered.findIndex((q) => q.question_id === id);
+    return { prev: i > 0 ? ordered[i - 1] : undefined, next: i >= 0 ? ordered[i + 1] : undefined };
+  }, [summary, id]);
 
-    const edge = data.network_analysis.edge_metrics.find(
-      (e) => `${e.source}->${e.target}` === selectedTargetId
-    );
-    if (edge) {
-      return { type: "edge" as const, description: edge.mechanism };
-    }
+  useEffect(() => {
+    if (data?.question_text) document.title = `${truncate(data.question_text, 70)} · Causal Forecast Lab`;
+  }, [data?.question_text]);
 
-    return { type: null, description: null };
-  }, [data, selectedTargetId]);
+  const selectModel = (key: string) => {
+    router.replace(`/explore/${encodeURIComponent(id)}?model=${key}`, { scroll: false });
+  };
 
-  if (loading) {
+  if (status === "loading") {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-16 text-center">
-        <div className="animate-pulse text-[var(--color-muted-foreground)]">
-          Loading question detail...
-        </div>
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+        <div className="h-4 w-40 animate-pulse rounded bg-surface-2" />
+        <div className="mt-6 h-10 w-3/4 animate-pulse rounded bg-surface-2" />
+        <div className="mt-10 h-28 animate-pulse rounded-xl bg-surface-2" />
+        <div className="mt-6 h-96 animate-pulse rounded-xl bg-surface-2" />
       </div>
     );
   }
 
-  if (!data) {
+  if (status === "missing" || !data) {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-16 text-center">
-        <h1 className="text-2xl font-bold mb-4">Question Not Found</h1>
-        <p className="text-[var(--color-muted-foreground)]">
-          Could not find question with ID: {id}
+      <div className="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6">
+        <h1 className="font-display text-3xl text-ink">Question not found</h1>
+        <p className="mt-3 text-sm text-ink-2">
+          There are no results for question <span className="num">{id}</span>
+          {modelParam ? ` with model ${modelParam}` : ""}.
         </p>
-        <Link
-          href="/explore"
-          className="mt-4 inline-block text-[var(--color-primary)] hover:underline"
-        >
-          Back to Explore
+        <Link href="/explore" className="mt-6 inline-block text-sm font-medium text-accent hover:underline">
+          Back to all questions
         </Link>
       </div>
     );
   }
 
-  const modelLabel = data.model_label || MODEL_LABELS[activeModel] || activeModel;
+  const topic = entry?.category;
+  const market = entry ? marketForecast(entry) : null;
+  const probabilities = entry?.model_probabilities ?? { [activeModel]: data.initial_probability };
+  const modelName = data.model_label || modelLabel(activeModel);
+  const openRouterId = getModel(activeModel)?.openrouter ?? "meta-llama/llama-3.3-70b-instruct";
 
   return (
-    <div className={`mx-auto max-w-7xl px-4 py-6 transition-opacity duration-150 ${switching ? "opacity-50 pointer-events-none" : "opacity-100"}`}>
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-[var(--color-muted-foreground)] mb-4">
-        <Link href="/explore" className="hover:text-[var(--color-foreground)]">
-          ForecastBench Examples
+    <div className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6">
+      <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-xs text-ink-3">
+        <Link href="/explore" className="hover:text-ink">
+          Questions
         </Link>
-        <span>/</span>
-        <span className="text-[var(--color-foreground)]">{id}</span>
-      </div>
+        {topic && (
+          <>
+            <span aria-hidden>/</span>
+            <Link href={`/explore?topic=${encodeURIComponent(topic)}`} className="hover:text-ink">
+              {topic}
+            </Link>
+          </>
+        )}
+      </nav>
 
-      {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-xl font-bold leading-snug">{data.question_text}</h1>
-        <div className="mt-2 flex items-center gap-3 text-sm text-[var(--color-muted-foreground)]">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-secondary)] px-2 py-0.5 text-xs">
-            {data.source}
+      <header className="max-w-4xl">
+        <h1 className="font-display text-3xl leading-[1.15] tracking-tight text-ink sm:text-[2.6rem]">
+          {data.question_text}
+        </h1>
+        <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-3">
+          <span>
+            Source: <span className="text-ink-2">{sourceLabel(data.source)}</span>
           </span>
-          <span className="font-mono text-xs">{data.condition}</span>
-        </div>
+          {topic && <span>Topic: <span className="text-ink-2">{topic}</span></span>}
+          <span className="num">ID {truncate(id, 18)}</span>
+        </p>
+      </header>
 
-        {/* Model switcher */}
-        {availableModels.length > 1 && (
-          <div className="mt-3 flex items-center gap-2">
-            <span className="text-xs text-[var(--color-muted-foreground)]">
-              Model:
-            </span>
-            {availableModels.map((m) => (
-              <button
-                key={m}
-                onClick={() => setActiveModel(m)}
-                className={`px-3 py-1 text-xs rounded-md transition-colors ${
-                  activeModel === m
-                    ? "bg-[var(--color-primary)] text-white"
-                    : "bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)]"
-                }`}
-              >
-                {MODEL_LABELS[m] || m}
-              </button>
-            ))}
-          </div>
-        )}
-        {availableModels.length <= 1 && (
-          <div className="mt-2">
-            <span className="inline-flex items-center gap-1 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary)] px-2 py-0.5 text-xs font-medium">
-              {modelLabel}
-            </span>
-          </div>
-        )}
-      </div>
-
-      {/* Probability Estimate + Cross-Model Comparison */}
-      <div className="mb-4">
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-[var(--color-muted-foreground)]">Probability Estimate:</span>
-          <span
-            className="text-2xl font-mono font-bold"
-            style={{ color: probToColor(data.initial_probability) }}
-          >
-            {formatProbability(data.initial_probability)}
-          </span>
-        </div>
-        <div className="mt-1.5 max-w-xs">
-          <ProbabilityBar probability={data.initial_probability} showValue={false} size="sm" />
-        </div>
-        {Object.keys(modelProbabilities).length > 1 && (
-          <div className="mt-2 flex items-center gap-4 text-xs text-[var(--color-muted-foreground)]">
-            {Object.entries(modelProbabilities).map(([m, prob]) => (
-              <span
-                key={m}
-                className={`font-mono ${m === activeModel ? "text-[var(--color-foreground)] font-medium" : ""}`}
-              >
-                {MODEL_LABELS[m] || m}: {formatProbability(prob)}
-              </span>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Reasoning */}
-      {data.reasoning && (
-        <div className="mb-6 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-          <h3 className="text-sm font-semibold mb-2">Original Reasoning</h3>
-          <p className="text-sm text-[var(--color-muted-foreground)] leading-relaxed whitespace-pre-wrap">
-            {data.reasoning}
+      <section aria-labelledby="forecasts-heading" className="mt-8 rounded-xl border border-rule bg-surface p-4 sm:p-5">
+        <div className="mb-1 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h2 id="forecasts-heading" className="font-display text-xl text-ink">
+            Forecasts by model
+          </h2>
+          <p className="text-xs text-ink-3">
+            ● baseline forecast per model{market != null && <> · ◆ market forecast at the question source</>}
           </p>
         </div>
+        <ForecastStrip
+          probabilities={probabilities}
+          activeModel={activeModel}
+          marketProbability={market}
+          onSelectModel={selectModel}
+        />
+        <p className="mb-2 mt-1 text-xs text-ink-2">Choose a model to see its causal network and probe results:</p>
+        <ModelPicker
+          probabilities={probabilities}
+          available={available.length ? available : [activeModel]}
+          activeModel={activeModel}
+          onSelectModel={selectModel}
+        />
+      </section>
+
+      <div className={switching ? "pointer-events-none opacity-50 transition-opacity" : "transition-opacity"}>
+        <div className="mt-6">
+          <BaselineCard probability={data.initial_probability} reasoning={data.reasoning} modelName={modelName} />
+        </div>
+        <div className="mt-6">
+          <QuestionAnalysis key={`${id}-${activeModel}`} data={data} modelId={openRouterId} />
+        </div>
+      </div>
+
+      {(neighbours.prev || neighbours.next) && (
+        <nav aria-label="More questions" className="mt-14 grid gap-3 border-t border-rule pt-6 sm:grid-cols-2">
+          {neighbours.prev ? (
+            <Link
+              href={`/explore/${encodeURIComponent(neighbours.prev.question_id)}?model=${activeModel}`}
+              className="group rounded-lg border border-rule bg-surface p-4 hover:border-rule-strong"
+            >
+              <span className="flex items-center gap-1.5 text-xs text-ink-3">
+                <ArrowLeft size={13} aria-hidden /> Previous question
+              </span>
+              <span className="mt-1 block text-sm text-ink group-hover:text-accent-ink">
+                {truncate(neighbours.prev.question_text, 110)}
+              </span>
+            </Link>
+          ) : (
+            <span />
+          )}
+          {neighbours.next && (
+            <Link
+              href={`/explore/${encodeURIComponent(neighbours.next.question_id)}?model=${activeModel}`}
+              className="group rounded-lg border border-rule bg-surface p-4 text-right hover:border-rule-strong"
+            >
+              <span className="flex items-center justify-end gap-1.5 text-xs text-ink-3">
+                Next question <ArrowRight size={13} aria-hidden />
+              </span>
+              <span className="mt-1 block text-sm text-ink group-hover:text-accent-ink">
+                {truncate(neighbours.next.question_text, 110)}
+              </span>
+            </Link>
+          )}
+        </nav>
       )}
-
-      {/* Top row: network + sidebar */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 mb-6">
-        {/* Causal Network */}
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-          <div className="mb-3">
-            <h3 className="text-sm font-semibold">Causal Network</h3>
-          </div>
-          <CausalNetwork
-            nodes={data.network_analysis.node_metrics}
-            edges={data.network_analysis.edge_metrics}
-            probeResults={data.probe_results}
-            selectedNodeId={selectedTargetId}
-            onNodeClick={(nodeId) => {
-              // Don't allow selecting the outcome node as a probe target
-              const node = data.network_analysis.node_metrics.find((n) => n.node_id === nodeId);
-              if (node?.role === "outcome") return;
-              setSelectedTargetId(nodeId);
-            }}
-          />
-        </div>
-
-        {/* Sidebar */}
-        <div className="space-y-4">
-          {/* Interactive Probe Panel */}
-          <div className="rounded-lg border border-[var(--color-primary)]/30 bg-[var(--color-card)] p-4">
-            <InteractiveProbe
-              questionText={data.question_text}
-              initialProbability={data.initial_probability}
-              reasoning={data.reasoning}
-              nodes={data.nodes}
-              edges={data.edges}
-              selectedTargetId={selectedTargetId}
-              selectedTargetType={selectedInfo.type}
-              selectedTargetDescription={selectedInfo.description}
-              defaultModel={MODEL_IDS[activeModel] || "meta-llama/llama-3.3-70b-instruct"}
-            />
-          </div>
-
-          {/* Metrics */}
-          <MetricsPanel
-            metrics={data.aggregate_metrics}
-            network={data.network_analysis}
-          />
-        </div>
-      </div>
-
-      {/* Chart */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-        <h3 className="text-sm font-semibold mb-3">Probability Shift by Probe</h3>
-        <DeltaBarChart
-          results={data.probe_results}
-          initialProbability={data.initial_probability}
-        />
-      </div>
-
-      {/* Probe Table */}
-      <div className="mt-6 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-        <h3 className="text-sm font-semibold mb-3">Probe Results</h3>
-        <ProbeTable
-          results={data.probe_results}
-          initialProbability={data.initial_probability}
-          onSelectProbe={(id) => setSelectedTargetId(id)}
-          selectedTargetId={selectedTargetId}
-        />
-      </div>
-
     </div>
   );
 }

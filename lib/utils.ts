@@ -5,65 +5,46 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+const MINUS = "−";
+
+/** 0.12 -> "12%", 0.125 -> "12.5%" */
 export function formatProbability(p: number): string {
-  return `${(p * 100).toFixed(1)}%`;
+  const pct = p * 100;
+  const rounded = Math.round(pct * 10) / 10;
+  return `${Number.isInteger(rounded) ? rounded.toFixed(0) : rounded.toFixed(1)}%`;
 }
 
-export function formatDelta(delta: number): string {
-  const sign = delta >= 0 ? "+" : "";
-  return `${sign}${(delta * 100).toFixed(1)}pp`;
+/** Signed percentage-point change: +12pp, −3.5pp, 0pp */
+export function formatDelta(delta: number, digits = 1): string {
+  const pp = delta * 100;
+  if (Math.abs(pp) < 0.05) return "0pp";
+  const abs = Math.abs(pp);
+  const text = Number.isInteger(Math.round(abs * 10) / 10) ? abs.toFixed(0) : abs.toFixed(digits);
+  return `${pp > 0 ? "+" : MINUS}${text}pp`;
 }
 
-export function deltaColor(delta: number): string {
-  if (Math.abs(delta) < 0.01) return "text-[var(--color-neutral-shift)]";
-  return delta > 0 ? "text-[var(--color-positive)]" : "text-[var(--color-negative)]";
+/** Unsigned percentage points: 9.3pp */
+export function formatPp(value: number, digits = 1): string {
+  return `${(value * 100).toFixed(digits)}pp`;
 }
 
-export function probToColor(p: number): string {
-  if (p < 0.3) return "#22c55e";
-  if (p < 0.5) return "#eab308";
-  if (p < 0.7) return "#f97316";
-  return "#ef4444";
+export function formatSigned(value: number, digits = 2): string {
+  if (Math.abs(value) < 0.5 * 10 ** -digits) return (0).toFixed(digits);
+  return `${value > 0 ? "+" : MINUS}${Math.abs(value).toFixed(digits)}`;
 }
 
-export function importanceToColor(importance: number): string {
-  if (importance < 0.2) return "#6b7280";
-  if (importance < 0.4) return "#3b82f6";
-  if (importance < 0.6) return "#8b5cf6";
-  return "#ec4899";
+/** Text colour class for a signed probability change. */
+export function deltaClass(delta: number): string {
+  if (Math.abs(delta) < 0.005) return "text-ink-3";
+  return delta > 0 ? "text-up" : "text-down";
 }
 
 export function truncate(str: string, maxLen: number): string {
   if (str.length <= maxLen) return str;
-  return str.slice(0, maxLen - 1) + "…";
+  return str.slice(0, maxLen - 1).trimEnd() + "…";
 }
 
-export function probeTypeLabel(type: string): string {
-  const labels: Record<string, string> = {
-    node_negate_high: "Negate Node (High)",
-    node_negate_medium: "Negate Node (Med)",
-    node_negate_low: "Negate Node (Low)",
-    node_strengthen: "Strengthen Node (High)",
-    node_strengthen_medium: "Strengthen Node (Med)",
-    node_strengthen_low: "Strengthen Node (Low)",
-    edge_negate_critical: "Negate Edge (Critical)",
-    edge_negate_peripheral: "Negate Edge (Peripheral)",
-    edge_strengthen_critical: "Strengthen Edge (Critical)",
-    edge_strengthen_peripheral: "Strengthen Edge (Peripheral)",
-    edge_reverse: "Reverse Edge",
-    edge_spurious: "Spurious Edge",
-    missing_node: "Missing Node",
-    irrelevant: "Irrelevant (Control)",
-  };
-  return labels[type] || type;
-}
-
-export function probeCategoryLabel(cat: string): string {
-  const labels: Record<string, string> = {
-    node: "Node Probes",
-    edge: "Edge Probes",
-    structural: "Structural Probes",
-    control: "Control Probes",
-  };
-  return labels[cat] || cat;
+export function mean(values: number[]): number | null {
+  if (values.length === 0) return null;
+  return values.reduce((a, b) => a + b, 0) / values.length;
 }

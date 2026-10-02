@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { ProbabilityBar } from "./probability-bar";
-import { formatProbability, formatDelta, deltaColor } from "@/lib/utils";
+import { useEffect, useState } from "react";
 import { useApiKey } from "@/lib/api-key-context";
+import { OTHER_LIVE_MODELS, PAPER_MODELS, openRouterLabel } from "@/lib/models";
+import { cn, deltaClass, formatDelta, formatProbability } from "@/lib/utils";
+import { ApiKeyField } from "./api-key-settings";
 
 interface InteractiveProbeProps {
   questionText: string;
@@ -13,14 +14,23 @@ interface InteractiveProbeProps {
   edges: Array<{ from: string; to: string; mechanism: string }>;
   selectedTargetId: string | null;
   selectedTargetType: "node" | "edge" | null;
-  selectedTargetDescription: string | null;
-  defaultModel?: string;
+  /** Readable name of the selected factor or link */
+  selectedTargetLabel: string | null;
+  /** OpenRouter model ID used for the original forecast */
+  defaultModel: string;
 }
 
 interface ProbeResponse {
   updated_probability: number;
   shift_direction: string;
   reasoning: string;
+}
+
+interface HistoryItem {
+  target: string;
+  model: string;
+  probeText: string;
+  response: ProbeResponse;
 }
 
 export function InteractiveProbe({
@@ -31,30 +41,25 @@ export function InteractiveProbe({
   edges,
   selectedTargetId,
   selectedTargetType,
-  selectedTargetDescription,
+  selectedTargetLabel,
   defaultModel,
 }: InteractiveProbeProps) {
   const { apiKey } = useApiKey();
   const [probeText, setProbeText] = useState("");
-  const [model, setModel] = useState(defaultModel ?? "meta-llama/llama-3.3-70b-instruct");
+  const [model, setModel] = useState(defaultModel);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<ProbeResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [history, setHistory] = useState<
-    Array<{
-      targetId: string;
-      probeText: string;
-      response: ProbeResponse;
-    }>
-  >([]);
+  const [history, setHistory] = useState<HistoryItem[]>([]);
+
+  useEffect(() => setModel(defaultModel), [defaultModel]);
+
+  const knownModel =
+    PAPER_MODELS.some((m) => m.openrouter === model) || OTHER_LIVE_MODELS.some((m) => m.openrouter === model);
 
   async function handleProbe() {
     if (!probeText.trim() || !apiKey.trim()) return;
-
     setLoading(true);
     setError(null);
-    setResult(null);
-
     try {
       const res = await fetch("/api/probe", {
         method: "POST",
@@ -72,20 +77,13 @@ export function InteractiveProbe({
           api_key: apiKey,
         }),
       });
-
       if (!res.ok) {
         const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.error || `HTTP ${res.status}`);
+        throw new Error(errData.error || `Request failed (HTTP ${res.status})`);
       }
-
       const data: ProbeResponse = await res.json();
-      setResult(data);
       setHistory((prev) => [
-        {
-          targetId: selectedTargetId || "general",
-          probeText: probeText.trim(),
-          response: data,
-        },
+        { target: selectedTargetLabel ?? "Whole network", model, probeText: probeText.trim(), response: data },
         ...prev,
       ]);
     } catch (err) {
@@ -95,128 +93,118 @@ export function InteractiveProbe({
     }
   }
 
+  const latest = history[0];
+
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold">Interactive Probe</h3>
-        {selectedTargetId && (
-          <span className="text-xs text-[var(--color-primary)] font-mono">
-            Target: {selectedTargetId}
-          </span>
-        )}
+    <div className="space-y-3">
+      <div>
+        <p className="eyebrow mb-1">Write your own probe</p>
+        <p className="text-xs leading-relaxed text-ink-2">
+          {selectedTargetLabel ? (
+            <>
+              Aimed at <span className="font-cond font-semibold text-ink">{selectedTargetLabel}</span>. The model
+              sees its original network and your text, then gives a new probability.
+            </>
+          ) : (
+            "Select a factor or link first, or write a probe about the network as a whole. The model sees its original network and your text, then gives a new probability."
+          )}
+        </p>
       </div>
 
-      {selectedTargetDescription && (
-        <p className="text-xs text-[var(--color-muted-foreground)] italic">
-          {selectedTargetDescription}
-        </p>
-      )}
-
-      {/* Model selector */}
-      <select
-        value={model}
-        onChange={(e) => setModel(e.target.value)}
-        className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-2 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
-      >
-        <option value="meta-llama/llama-3.3-70b-instruct">Llama 3.3 70B</option>
-        <option value="deepseek/deepseek-chat-v3-0324">DeepSeek V3</option>
-        <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet</option>
-        <option value="openai/gpt-4o">GPT-4o</option>
-      </select>
-
-      {!apiKey && (
-        <p className="text-[10px] text-[var(--color-muted-foreground)]">
-          Set your OpenRouter API key using the key icon in the navigation bar.
-        </p>
-      )}
-
-      {/* Probe input */}
-      <textarea
-        value={probeText}
-        onChange={(e) => setProbeText(e.target.value)}
-        placeholder={
-          selectedTargetId
-            ? `Write a counterfactual challenging "${selectedTargetId}"...\n\nExample: "What if this factor actually had the opposite effect..."`
-            : "Select a node or edge in the network, then write a counterfactual here..."
-        }
-        rows={3}
-        className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)] resize-y placeholder:text-[var(--color-muted-foreground)]/60"
-      />
-
-      <button
-        onClick={handleProbe}
-        disabled={loading || !probeText.trim() || !apiKey.trim()}
-        className="w-full rounded-md bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white hover:bg-[var(--color-primary)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {loading ? "Probing..." : "Run Probe"}
-      </button>
-
-      {/* Error */}
-      {error && (
-        <div className="rounded-md border border-[var(--color-destructive)]/30 bg-[var(--color-destructive)]/10 p-3">
-          <p className="text-xs text-[var(--color-destructive)]">{error}</p>
+      {!apiKey ? (
+        <div className="rounded-md border border-rule bg-paper p-3">
+          <ApiKeyField compact />
         </div>
-      )}
-
-      {/* Current result */}
-      {result && (
-        <div className="rounded-md border border-[var(--color-border)] bg-[var(--color-background)] p-3 space-y-2">
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-[var(--color-muted-foreground)]">
-              Updated Probability
-            </span>
-            <span className="font-mono text-sm font-bold">
-              {formatProbability(result.updated_probability)}
-            </span>
-          </div>
-          <ProbabilityBar
-            probability={result.updated_probability}
-            showValue={false}
-            size="sm"
+      ) : (
+        <>
+          <textarea
+            value={probeText}
+            onChange={(e) => setProbeText(e.target.value)}
+            placeholder={
+              selectedTargetLabel
+                ? `e.g. New evidence suggests ${selectedTargetLabel} matters far less than assumed, because…`
+                : "e.g. A new report finds that…"
+            }
+            rows={4}
+            className="w-full resize-y rounded-md border border-rule bg-paper px-3 py-2 text-sm leading-relaxed text-ink placeholder:text-ink-3 focus:border-accent focus:outline-none"
           />
-          <div className="flex items-center justify-between text-xs">
-            <span className="text-[var(--color-muted-foreground)]">
-              Baseline: {formatProbability(initialProbability)}
-            </span>
-            <span
-              className={`font-mono font-medium ${deltaColor(result.updated_probability - initialProbability)}`}
+          <div className="flex gap-2">
+            <select
+              value={model}
+              onChange={(e) => setModel(e.target.value)}
+              aria-label="Model"
+              className="min-w-0 flex-1 rounded-md border border-rule bg-paper px-2 py-1.5 text-xs text-ink focus:border-accent focus:outline-none"
             >
-              {formatDelta(result.updated_probability - initialProbability)}
+              {!knownModel && <option value={model}>{openRouterLabel(model)}</option>}
+              <optgroup label="Models from the paper">
+                {PAPER_MODELS.map((m) => (
+                  <option key={m.key} value={m.openrouter}>
+                    {m.label}
+                    {m.openrouter === defaultModel ? " (original)" : ""}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Other models">
+                {OTHER_LIVE_MODELS.map((m) => (
+                  <option key={m.openrouter} value={m.openrouter}>
+                    {m.label}
+                  </option>
+                ))}
+              </optgroup>
+            </select>
+            <button
+              onClick={handleProbe}
+              disabled={loading || !probeText.trim()}
+              className="shrink-0 rounded-md bg-ink px-4 py-1.5 text-sm font-medium text-paper transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              {loading ? "Running…" : "Run probe"}
+            </button>
+          </div>
+          {model !== defaultModel && (
+            <p className="text-[11px] text-ink-3">
+              Note: this network was built by a different model. Results show how {openRouterLabel(model)} reads it.
+            </p>
+          )}
+        </>
+      )}
+
+      {error && (
+        <p role="alert" className="rounded-md border border-up/30 bg-up-soft px-3 py-2 text-xs text-up">
+          {error}
+        </p>
+      )}
+
+      {latest && (
+        <div className="rounded-md border border-rule bg-paper p-3">
+          <div className="flex items-baseline justify-between gap-3">
+            <span className="num text-sm text-ink">
+              {formatProbability(initialProbability)} → <strong>{formatProbability(latest.response.updated_probability)}</strong>
+            </span>
+            <span className={cn("num text-sm font-medium", deltaClass(latest.response.updated_probability - initialProbability))}>
+              {formatDelta(latest.response.updated_probability - initialProbability)}
             </span>
           </div>
-          <p className="text-xs text-[var(--color-muted-foreground)] leading-relaxed mt-2">
-            {result.reasoning}
-          </p>
+          <p className="mt-2 text-xs leading-relaxed text-ink-2">{latest.response.reasoning}</p>
         </div>
       )}
 
-      {/* History */}
       {history.length > 1 && (
-        <div className="space-y-2">
-          <h4 className="text-xs font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider">
-            Probe History
-          </h4>
-          {history.slice(1).map((h, i) => {
-            const delta = h.response.updated_probability - initialProbability;
-            return (
-              <div
-                key={i}
-                className="rounded-md border border-[var(--color-border)] bg-[var(--color-background)] p-2"
-              >
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-mono text-[var(--color-primary)]">
-                    {h.targetId}
-                  </span>
-                  <span className={`font-mono font-medium ${deltaColor(delta)}`}>
-                    {formatDelta(delta)}
-                  </span>
-                </div>
-                <p className="text-[10px] text-[var(--color-muted-foreground)] mt-1 line-clamp-2">
-                  {h.probeText}
-                </p>
-              </div>
-            );
-          })}
+        <div>
+          <p className="eyebrow mb-1.5">Earlier probes</p>
+          <ul className="space-y-1.5">
+            {history.slice(1).map((h, i) => {
+              const d = h.response.updated_probability - initialProbability;
+              return (
+                <li key={i} className="rounded-md border border-rule px-2.5 py-2 text-xs">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="truncate font-cond text-ink">{h.target}</span>
+                    <span className={cn("num shrink-0", deltaClass(d))}>{formatDelta(d)}</span>
+                  </div>
+                  <p className="mt-0.5 line-clamp-2 text-ink-3">{h.probeText}</p>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       )}
     </div>

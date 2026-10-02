@@ -22,21 +22,22 @@ The key DV is the **absolute log-odds shift** |Δlogit| from initial to probed e
 
 ## Modes
 
-### Explore (pre-computed results)
+### Home
 
-Browse the 116 high-complexity ForecastBench questions × 7 models from the paper. Each question shows:
-- The elicited causal DAG (D3 force-directed)
-- All ~21 probes with their text, target, importance tier, and resulting shift
-- Per-question metrics (SSR, asymmetry, control sensitivity)
-- Cross-model comparison: same question across all 7 models side-by-side
+Opens with a real example (Qwen3 235B on US unemployment) comparing a central-factor probe, a peripheral one, and an irrelevant control, followed by a ~40-second animated walkthrough of the method (`components/method-video.tsx`) with chapters, captions and a transcript. Both are drawn from `public/data` at build time.
 
-### Live Mode
+### Questions (pre-computed results)
 
-Enter any forecasting question, select 1–4 models, and run the full pipeline in real time via OpenRouter. Useful for testing arbitrary questions outside the ForecastBench set.
+Browse the 116 high-complexity ForecastBench questions × 7 models from the paper. The list shows every model's baseline forecast on one strip (with the market forecast where the source is a market), and can be sorted by model disagreement, average shift, or SSR. Each question page shows:
+- **Forecasts by model:** all seven baseline forecasts plus the market forecast; pick a model to inspect
+- **The model's causal network:** a layered layout in which causes flow into the outcome (left to right, or top to bottom when the network is deep). Factors can be shaded by betweenness, outcome mediation, or the forecast shift their probes produced. Cycles and factors with no path to the outcome are marked explicitly
+- **Selection panel:** click a factor or link for its description, centrality, and the probes that targeted it, then write your own probe against it
+- **What moved the forecast:** SSR, strengthen vs. negate, and control probes, each with the underlying averages
+- **Probe ledger:** every probe grouped by the paper's four categories (strengthen, negate, structural challenge, control), with a forest-plot track from baseline to new forecast, the change in pp and in log-odds, and the probe text and model response on expand
 
-### Compare
+### Run your own (live mode)
 
-Run the same question through two models side-by-side and compare their causal structures and sensitivity metrics.
+Enter any yes/no question, select 1–4 models, and run the full pipeline in real time via OpenRouter. Results use the same views as the question pages, with a side-by-side table and a tab per model.
 
 ### Multi-Model Debate (`debate-feature` branch)
 
@@ -48,10 +49,10 @@ Two models build their DAG and probe results independently, then conduct 5 round
 
 | Metric | Description |
 |---|---|
-| **SSR** (Structural Sensitivity Ratio) | Mean |Δ| from high-importance probes ÷ mean |Δ| from low-importance probes. SSR > 1 means the model updates more for structurally central elements. |
-| **Asymmetry Index** | Mean |Δ| from negate probes ÷ mean |Δ| from strengthen probes at matched importance. |
-| **Control Sensitivity** | Fraction of irrelevant control probes producing |Δ| > 5pp. Lower is better — high values indicate the model is swayed by topically related but logically irrelevant claims. |
-| **Strengthen/Negate Ratio** | Per-direction shift asymmetry. |
+| **Forecast shift** | Updated minus baseline probability, shown in pp and in log-odds (the paper's DV is the absolute log-odds shift). |
+| **SSR** (structural sensitivity ratio) | Mean \|Δ\| from probes on central targets (two highest-betweenness factors, shortest-path links) ÷ mean \|Δ\| from probes on peripheral targets (lowest-betweenness factor, peripheral links). Above 1× means central targets moved the forecast more. |
+| **Strengthen vs. negate** | Mean \|Δ\| from strengthen probes ÷ mean \|Δ\| from negate probes. |
+| **Control probes** | Number of irrelevant-information probes that moved the forecast by more than 5pp. |
 
 The paper's main statistical analysis (LME with topological predictors) is reported in the paper rather than the explorer.
 
@@ -59,24 +60,24 @@ The paper's main statistical analysis (LME with topological predictors) is repor
 
 ## Models
 
-### Paper models (Explore mode, 7 total)
+### Paper models (7)
 
 Llama 3.1 8B · Llama 3.3 70B · Qwen3 32B · Qwen3 235B · DeepSeek V3 · Gemini 2.5 Flash Lite · GPT-OSS 120B
 
-### Live Mode (via OpenRouter)
+### Additional live-mode models (via OpenRouter)
 
-Llama 3.3 70B · Qwen3 235B · DeepSeek V3 · Claude 3.5 Sonnet · GPT-4o · Gemini 2.0 Flash · Mistral Large
+Claude Sonnet 4.6 · GPT-4o · Gemini 2.5 Flash · Mistral Large 3, plus any OpenRouter model ID. Model names and IDs live in `lib/models.ts`.
 
-You can supply your own OpenRouter API key in Live Mode, or the deployed instance falls back to a server-side default.
+Live mode and custom probes need an OpenRouter API key, which is stored only in the browser. The API routes also accept a server-side `OPENROUTER_API_KEY`.
 
 ---
 
 ## Tech Stack
 
 - **Framework:** Next.js 15 (App Router) + TypeScript
-- **Styling:** Tailwind CSS v4
-- **Graph visualization:** D3.js (force-directed causal networks, frozen-layout for debate rounds)
-- **Charts:** Recharts
+- **Styling:** Tailwind CSS v4 with light/dark design tokens in `app/globals.css`
+- **Causal networks:** custom layered layout (`lib/graph-layout.ts`) rendered as SVG
+- **Type:** Newsreader, IBM Plex Sans / Sans Condensed / Mono (via `next/font`)
 - **LLM API:** OpenRouter
 
 ---

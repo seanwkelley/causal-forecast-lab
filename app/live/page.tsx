@@ -1,37 +1,17 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import type { QuestionDetail, AggregateMetrics } from "@/lib/types";
-import { CausalNetwork } from "@/components/causal-network";
-import { ProbeTable } from "@/components/probe-table";
-import { DeltaBarChart } from "@/components/probe-chart";
-import { MetricsPanel } from "@/components/metrics-panel";
-import { ProbabilityBar } from "@/components/probability-bar";
-import { InteractiveProbe } from "@/components/interactive-probe";
+import { useState } from "react";
+import { Check, Download, Plus } from "lucide-react";
 import { useApiKey } from "@/lib/api-key-context";
-import { InformationPriorities } from "@/components/information-priorities";
-import { formatProbability, probToColor } from "@/lib/utils";
+import { OTHER_LIVE_MODELS, PAPER_MODELS, openRouterLabel } from "@/lib/models";
+import { ApiKeyField } from "@/components/api-key-settings";
+import { BaselineCard, QuestionAnalysis, type AnalysisData } from "@/components/question-analysis";
+import { InformationPriorities, type EpistemicRating } from "@/components/information-priorities";
+import { cn, formatPp, formatProbability } from "@/lib/utils";
 
-interface DetailWithMetrics extends QuestionDetail {
-  aggregate_metrics: AggregateMetrics;
-  epistemic_ratings?: Array<{
-    factor_id: string;
-    confidence: number;
-    reason: string;
-    betweenness: number;
-    value_of_information: number;
-  }>;
+interface LiveResult extends AnalysisData {
+  epistemic_ratings?: EpistemicRating[];
 }
-
-const MODELS = [
-  { value: "meta-llama/llama-3.3-70b-instruct", label: "Llama 3.3 70B" },
-  { value: "qwen/qwen3-235b-a22b-2507", label: "Qwen3 235B" },
-  { value: "deepseek/deepseek-chat-v3-0324", label: "DeepSeek V3" },
-  { value: "anthropic/claude-3.5-sonnet", label: "Claude 3.5 Sonnet" },
-  { value: "openai/gpt-4o", label: "GPT-4o" },
-  { value: "google/gemini-2.0-flash-001", label: "Gemini 2.0 Flash" },
-  { value: "mistralai/mistral-large-2411", label: "Mistral Large" },
-];
 
 interface ModelProgress {
   stage: string;
@@ -42,665 +22,503 @@ interface ModelProgress {
 interface ModelRun {
   model: string;
   label: string;
-  result: DetailWithMetrics | null;
+  result: LiveResult | null;
   loading: boolean;
   error: string | null;
   progress: ModelProgress | null;
 }
 
+const MAX_MODELS = 4;
+
+const EXAMPLES_GOOD = [
+  "Will the U.S. enter a recession before the end of 2027?",
+  "Will China attempt to invade Taiwan by 2027?",
+  "Will a new pandemic be declared by the WHO in 2026?",
+];
+const EXAMPLES_BAD = [
+  ["What will Trump do about tariffs?", "open-ended, not yes/no"],
+  ["Who will win the 2028 election?", "more than two outcomes"],
+  ["Will AAPL close above $200 on Friday?", "one dominant driver"],
+];
+
+/** Rough overall progress from the pipeline's stage messages. */
+function progressPercent(p: ModelProgress | null): number {
+  if (!p) return 2;
+  if (p.current != null && p.total) return Math.round(15 + (p.current / p.total) * 73);
+  if (p.stage.includes("Computing")) return 96;
+  if (p.stage.includes("Rating")) return 90;
+  if (p.stage.includes("Analyzing")) return 14;
+  if (p.stage.includes("generated")) return 12;
+  if (p.stage.includes("Generating")) return 5;
+  return 2;
+}
+
 export default function LivePage() {
+  const { apiKey } = useApiKey();
   const [question, setQuestion] = useState("");
   const [background, setBackground] = useState("");
-  const [selectedModels, setSelectedModels] = useState<string[]>([]);
+  const [selectedModels, setSelectedModels] = useState<string[]>([PAPER_MODELS[1].openrouter]);
   const [customModel, setCustomModel] = useState("");
   const [showCustom, setShowCustom] = useState(false);
-  const { apiKey } = useApiKey();
   const [runs, setRuns] = useState<ModelRun[]>([]);
-
-  function toggleModel(value: string) {
-    setSelectedModels((prev) => {
-      if (prev.includes(value)) {
-        return prev.filter((m) => m !== value);
-      }
-      if (prev.length >= 4) return prev; // max 4
-      return [...prev, value];
-    });
-  }
+  const [activeTab, setActiveTab] = useState<string | null>(null);
 
   const anyLoading = runs.some((r) => r.loading);
+  const atMax = selectedModels.length >= MAX_MODELS;
 
-  async function handleAnalyze() {
-    if (!question.trim() || selectedModels.length === 0 || !apiKey.trim()) return;
+  function toggleModel(value: string) {
+    setSelectedModels((prev) =>
+      prev.includes(value) ? prev.filter((m) => m !== value) : prev.length >= MAX_MODELS ? prev : [...prev, value]
+    );
+  }
 
-    const newRuns: ModelRun[] = selectedModels.map((m) => ({
-      model: m,
-      label: MODELS.find((mod) => mod.value === m)?.label ?? m,
-      result: null,
-      loading: true,
-      error: null,
-      progress: null,
-    }));
-    setRuns(newRuns);
+  function updateRun(model: string, patch: Partial<ModelRun>) {
+    setRuns((prev) => prev.map((r) => (r.model === model ? { ...r, ...patch } : r)));
+  }
 
-    // Run all models in parallel via SSE streams
-    for (let i = 0; i < selectedModels.length; i++) {
-      const model = selectedModels[i];
-      (async () => {
+  async function runModel(model: string) {
+    try {
+      const res = await fetch("/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: question.trim(),
+          background: background.trim() || undefined,
+          model,
+          api_key: apiKey.trim(),
+        }),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        let message = `Request failed (HTTP ${res.status})`;
         try {
-          const res = await fetch("/api/analyze", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              question: question.trim(),
-              background: background.trim() || undefined,
-              model,
-              api_key: apiKey.trim(),
-            }),
-          });
-
-          if (!res.ok) {
-            const text = await res.text();
-            let errorMsg = `HTTP ${res.status}`;
-            try {
-              const errData = JSON.parse(text);
-              if (errData.error) errorMsg = errData.error;
-            } catch { /* use default */ }
-            throw new Error(errorMsg);
-          }
-
-          const reader = res.body?.getReader();
-          if (!reader) throw new Error("No response body");
-
-          const decoder = new TextDecoder();
-          let buffer = "";
-
-          while (true) {
-            const { done, value } = await reader.read();
-            if (done) break;
-
-            buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split("\n\n");
-            buffer = lines.pop() ?? "";
-
-            for (const chunk of lines) {
-              const line = chunk.trim();
-              if (!line.startsWith("data: ")) continue;
-              const json = line.slice(6);
-              let parsed;
-              try {
-                parsed = JSON.parse(json);
-              } catch {
-                // Skip malformed SSE chunks (partial data, split packets)
-                continue;
-              }
-              if (parsed.error) {
-                throw new Error(parsed.error);
-              }
-              if (parsed.done && parsed.result) {
-                setRuns((prev) =>
-                  prev.map((r) =>
-                    r.model === model
-                      ? { ...r, result: parsed.result, loading: false, progress: null }
-                      : r
-                  )
-                );
-              } else if (parsed.stage) {
-                setRuns((prev) =>
-                  prev.map((r) =>
-                    r.model === model ? { ...r, progress: parsed } : r
-                  )
-                );
-              }
-            }
-          }
-        } catch (err) {
-          setRuns((prev) =>
-            prev.map((r) =>
-              r.model === model
-                ? {
-                    ...r,
-                    error: err instanceof Error ? err.message : "Unknown error",
-                    loading: false,
-                    progress: null,
-                  }
-                : r
-            )
-          );
+          const errData = JSON.parse(text);
+          if (errData.error) message = errData.error;
+        } catch {
+          /* keep default */
         }
-      })();
+        throw new Error(message);
+      }
+      const reader = res.body?.getReader();
+      if (!reader) throw new Error("The server returned no data.");
+      const decoder = new TextDecoder();
+      let buffer = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const chunks = buffer.split("\n\n");
+        buffer = chunks.pop() ?? "";
+        for (const chunk of chunks) {
+          const line = chunk.trim();
+          if (!line.startsWith("data: ")) continue;
+          let parsed;
+          try {
+            parsed = JSON.parse(line.slice(6));
+          } catch {
+            continue; // partial packet
+          }
+          if (parsed.error) throw new Error(parsed.error);
+          if (parsed.done && parsed.result) updateRun(model, { result: parsed.result, loading: false, progress: null });
+          else if (parsed.stage) updateRun(model, { progress: parsed });
+        }
+      }
+    } catch (err) {
+      updateRun(model, {
+        error: err instanceof Error ? err.message : "Unknown error",
+        loading: false,
+        progress: null,
+      });
     }
   }
 
-  // Completed runs for comparison table
-  const completedRuns = runs.filter((r) => r.result != null);
+  function handleAnalyze() {
+    if (!question.trim() || selectedModels.length === 0 || !apiKey.trim()) return;
+    setRuns(
+      selectedModels.map((m) => ({
+        model: m,
+        label: openRouterLabel(m),
+        result: null,
+        loading: true,
+        error: null,
+        progress: null,
+      }))
+    );
+    setActiveTab(selectedModels[0]);
+    selectedModels.forEach((m) => void runModel(m));
+  }
+
+  const completed = runs.filter((r) => r.result != null);
+  const shown = runs.find((r) => r.model === activeTab) ?? runs[0];
+  const canRun = !anyLoading && question.trim() && apiKey.trim() && selectedModels.length > 0;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
-      <h1 className="text-2xl font-bold mb-2">Live Analysis Mode</h1>
-      <p className="text-sm text-[var(--color-muted-foreground)] mb-6">
-        Enter a custom forecasting question, select one or more models, and
-        generate causal networks with sensitivity probes in real-time via
-        OpenRouter. Requires your own{" "}
-        <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">
-          OpenRouter API key
-        </a>
-        {" "}(free to create, pay-per-use).
-      </p>
-
-      {!apiKey && (
-        <div className="rounded-lg border border-orange-500/30 bg-orange-500/5 p-4 mb-6 flex items-center gap-3">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-orange-400 shrink-0">
-            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4" />
-          </svg>
-          <div>
-            <p className="text-sm font-medium text-orange-400">API key required</p>
-            <p className="text-xs text-[var(--color-muted-foreground)] mt-0.5">
-              Click the key icon in the top-right corner of the navigation bar to set your OpenRouter API key.
-              You can get one for free at{" "}
-              <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] hover:underline">
-                openrouter.ai/keys
-              </a>.
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Question format guidance */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-secondary)]/50 p-4 mb-6">
-        <h3 className="text-sm font-medium mb-2">Question Format</h3>
-        <p className="text-xs text-[var(--color-muted-foreground)] leading-relaxed mb-2">
-          This tool works best with{" "}
-          <strong className="text-[var(--color-foreground)]">
-            complex, multi-cause binary questions
-          </strong>{" "}
-          where the outcome depends on multiple interacting factors across
-          different domains (e.g., geopolitical conflicts, multi-stakeholder
-          policy decisions, technology ecosystem dynamics). The model builds a
-          causal DAG with 6&ndash;10 factor nodes, so questions need enough
-          causal structure to produce a meaningful network. Simple questions
-          with one or two drivers won&apos;t generate useful sensitivity
-          profiles.
+    <div className="mx-auto max-w-7xl px-4 pb-24 pt-10 sm:px-6">
+      <header className="max-w-3xl">
+        <h1 className="font-display text-4xl tracking-tight text-ink sm:text-5xl">Run your own question</h1>
+        <p className="mt-3 text-[15px] leading-relaxed text-ink-2">
+          Enter a yes/no forecasting question and pick up to four models. Each one builds a causal network, writes
+          and answers up to 16 probes, and reports the same measures as the question pages. Calls go through
+          OpenRouter with your own API key.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-          <div>
-            <p className="text-[var(--color-positive)] font-medium mb-1">
-              Good examples (complex, multi-cause)
-            </p>
-            <ul className="space-y-1 text-[var(--color-muted-foreground)]">
-              <li>
-                &ldquo;Will the U.S. enter a recession in Trump&apos;s second term?&rdquo;
-              </li>
-              <li>
-                &ldquo;Will China attempt to invade Taiwan by 2027?&rdquo;
-              </li>
-              <li>
-                &ldquo;Will a new pandemic emerge in 2026?&rdquo;
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-[var(--color-destructive)] font-medium mb-1">
-              Won&apos;t work well
-            </p>
-            <ul className="space-y-1 text-[var(--color-muted-foreground)]">
-              <li>
-                &ldquo;What will Trump do about tariffs?&rdquo; (open-ended)
-              </li>
-              <li>
-                &ldquo;Who will win the 2028 election?&rdquo; (multi-outcome)
-              </li>
-              <li>
-                &ldquo;Will AAPL close above $200 on Friday?&rdquo; (single-factor)
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </header>
 
-      {/* Input form */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-6 mb-6">
-        <div className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Question{" "}
-              <span className="text-[var(--color-destructive)]">*</span>
-            </label>
-            <input
-              type="text"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Will [event] happen before [date]?"
-              className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Background Context
-            </label>
-            <textarea
-              value={background}
-              onChange={(e) => setBackground(e.target.value)}
-              placeholder="Additional context about the question..."
-              rows={3}
-              className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)] resize-y"
-            />
-          </div>
-
-          {/* Model selection */}
-          <div>
-            <label className="block text-sm font-medium mb-1">
-              Models
-            </label>
-            <p className="text-xs text-[var(--color-muted-foreground)] mb-2">
-              Click to toggle models. Select up to 4 to run them in parallel and compare results side-by-side.
-              <span className="ml-1 font-mono text-[var(--color-primary)]">
-                {selectedModels.length}/4 selected
-              </span>
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {MODELS.map((m) => {
-                const selected = selectedModels.includes(m.value);
-                const atMax = selectedModels.length >= 4 && !selected;
-                return (
-                  <button
-                    key={m.value}
-                    onClick={() => toggleModel(m.value)}
-                    disabled={atMax}
-                    className={`px-3 py-1.5 text-xs rounded-md border transition-colors ${
-                      selected
-                        ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium"
-                        : atMax
-                          ? "border-[var(--color-border)] bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] opacity-40 cursor-not-allowed"
-                          : "border-[var(--color-border)] bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] hover:border-[var(--color-muted-foreground)]"
-                    }`}
-                  >
-                    {selected ? <span className="mr-1">✓</span> : <span className="mr-1 opacity-40">○</span>}
-                    {m.label}
-                  </button>
-                );
-              })}
-              {/* Custom models already added */}
-              {selectedModels
-                .filter((m) => !MODELS.some((mod) => mod.value === m))
-                .map((m) => (
-                  <button
-                    key={m}
-                    onClick={() => toggleModel(m)}
-                    className="px-3 py-1.5 text-xs rounded-md border border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium"
-                  >
-                    <span className="mr-1">✓</span>
-                    {m.split("/").pop()}
-                  </button>
-                ))}
-              <button
-                onClick={() => setShowCustom(!showCustom)}
-                className={`px-3 py-1.5 text-xs rounded-md border transition-colors ${
-                  showCustom
-                    ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium"
-                    : "border-[var(--color-border)] bg-[var(--color-secondary)] text-[var(--color-muted-foreground)] hover:text-[var(--color-foreground)] hover:border-[var(--color-muted-foreground)]"
-                }`}
-              >
-                Other...
-              </button>
+      <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <section className="rounded-xl border border-rule bg-surface p-5 sm:p-6">
+          <div className="space-y-5">
+            <div>
+              <label htmlFor="q" className="block text-sm font-medium text-ink">
+                Question
+              </label>
+              <input
+                id="q"
+                type="text"
+                value={question}
+                onChange={(e) => setQuestion(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && canRun && handleAnalyze()}
+                placeholder="Will [event] happen before [date]?"
+                className="mt-1.5 w-full rounded-md border border-rule bg-paper px-3 py-2.5 text-[15px] text-ink placeholder:text-ink-3 focus:border-accent focus:outline-none"
+              />
             </div>
-            {showCustom && (
-              <div className="flex items-center gap-2 mt-2">
-                <input
-                  type="text"
-                  value={customModel}
-                  onChange={(e) => setCustomModel(e.target.value)}
-                  placeholder="OpenRouter model ID (e.g. anthropic/claude-sonnet-4)"
-                  className="flex-1 rounded-md border border-[var(--color-border)] bg-[var(--color-background)] px-3 py-1.5 text-xs focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)]"
-                />
+            <div>
+              <label htmlFor="bg" className="block text-sm font-medium text-ink">
+                Background <span className="font-normal text-ink-3">(optional)</span>
+              </label>
+              <textarea
+                id="bg"
+                value={background}
+                onChange={(e) => setBackground(e.target.value)}
+                placeholder="Context the model should know, such as recent events or how the question resolves."
+                rows={3}
+                className="mt-1.5 w-full resize-y rounded-md border border-rule bg-paper px-3 py-2 text-sm leading-relaxed text-ink placeholder:text-ink-3 focus:border-accent focus:outline-none"
+              />
+            </div>
+
+            <fieldset>
+              <legend className="flex w-full items-baseline justify-between text-sm font-medium text-ink">
+                Models
+                <span className="num text-xs font-normal text-ink-3">
+                  {selectedModels.length} of {MAX_MODELS}
+                </span>
+              </legend>
+              <p className="eyebrow mb-1.5 mt-3">From the paper</p>
+              <div className="flex flex-wrap gap-1.5">
+                {PAPER_MODELS.map((m) => (
+                  <ModelChip
+                    key={m.key}
+                    label={m.label}
+                    selected={selectedModels.includes(m.openrouter)}
+                    disabled={atMax && !selectedModels.includes(m.openrouter)}
+                    onClick={() => toggleModel(m.openrouter)}
+                  />
+                ))}
+              </div>
+              <p className="eyebrow mb-1.5 mt-3">Other models</p>
+              <div className="flex flex-wrap gap-1.5">
+                {OTHER_LIVE_MODELS.map((m) => (
+                  <ModelChip
+                    key={m.openrouter}
+                    label={m.label}
+                    selected={selectedModels.includes(m.openrouter)}
+                    disabled={atMax && !selectedModels.includes(m.openrouter)}
+                    onClick={() => toggleModel(m.openrouter)}
+                  />
+                ))}
+                {selectedModels
+                  .filter((m) => !PAPER_MODELS.some((p) => p.openrouter === m) && !OTHER_LIVE_MODELS.some((o) => o.openrouter === m))
+                  .map((m) => (
+                    <ModelChip key={m} label={m} selected onClick={() => toggleModel(m)} />
+                  ))}
                 <button
-                  onClick={() => {
-                    const id = customModel.trim();
-                    if (id && !selectedModels.includes(id) && selectedModels.length < 4) {
-                      setSelectedModels((prev) => [...prev, id]);
-                      setCustomModel("");
-                      setShowCustom(false);
-                    }
-                  }}
-                  disabled={!customModel.trim() || selectedModels.length >= 4}
-                  className="px-3 py-1.5 text-xs rounded-md bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary)]/90 disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="button"
+                  onClick={() => setShowCustom(!showCustom)}
+                  className="inline-flex items-center gap-1 rounded-full border border-dashed border-rule-strong px-3 py-1 text-xs text-ink-2 hover:text-ink"
                 >
-                  Add
+                  <Plus size={12} aria-hidden /> Another OpenRouter model
                 </button>
               </div>
-            )}
-          </div>
+              {showCustom && (
+                <div className="mt-2 flex gap-2">
+                  <input
+                    type="text"
+                    value={customModel}
+                    onChange={(e) => setCustomModel(e.target.value)}
+                    placeholder="OpenRouter model ID, e.g. moonshotai/kimi-k2"
+                    aria-label="OpenRouter model ID"
+                    className="min-w-0 flex-1 rounded-md border border-rule bg-paper px-2.5 py-1.5 text-xs text-ink placeholder:text-ink-3 focus:border-accent focus:outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const id = customModel.trim();
+                      if (id && !selectedModels.includes(id) && !atMax) {
+                        setSelectedModels((prev) => [...prev, id]);
+                        setCustomModel("");
+                        setShowCustom(false);
+                      }
+                    }}
+                    disabled={!customModel.trim() || atMax}
+                    className="rounded-md bg-ink px-3 text-xs font-medium text-paper disabled:opacity-40"
+                  >
+                    Add
+                  </button>
+                </div>
+              )}
+            </fieldset>
 
-          <button
-            onClick={handleAnalyze}
-            disabled={anyLoading || !question.trim() || !apiKey.trim() || selectedModels.length === 0}
-            className="inline-flex items-center gap-2 rounded-md bg-[var(--color-primary)] px-5 py-2.5 text-sm font-medium text-white hover:bg-[var(--color-primary)]/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {anyLoading
-              ? "Analyzing..."
-              : selectedModels.length > 1
-                ? `Analyze with ${selectedModels.length} Models`
-                : "Analyze"}
-          </button>
-        </div>
+            {!apiKey && (
+              <div className="rounded-lg border border-accent/30 bg-accent-soft/50 p-4">
+                <ApiKeyField compact />
+              </div>
+            )}
+
+            <div className="flex flex-wrap items-center gap-3 border-t border-rule pt-5">
+              <button
+                onClick={handleAnalyze}
+                disabled={!canRun}
+                className="rounded-md bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                {anyLoading
+                  ? "Running…"
+                  : selectedModels.length > 1
+                    ? `Run with ${selectedModels.length} models`
+                    : "Run analysis"}
+              </button>
+              {!question.trim() && <span className="text-xs text-ink-3">Enter a question to start.</span>}
+            </div>
+          </div>
+        </section>
+
+        <aside className="self-start rounded-xl border border-rule bg-paper p-5 text-sm">
+          <h2 className="font-display text-lg text-ink">What works well</h2>
+          <p className="mt-2 text-xs leading-relaxed text-ink-2">
+            Yes/no questions whose outcome depends on several interacting causes. The model builds a network of 6–10
+            factors, so a question with one or two drivers gives little to probe.
+          </p>
+          <p className="eyebrow mb-1.5 mt-4">Good questions</p>
+          <ul className="space-y-1.5">
+            {EXAMPLES_GOOD.map((q) => (
+              <li key={q}>
+                <button
+                  type="button"
+                  onClick={() => setQuestion(q)}
+                  className="text-left text-xs leading-snug text-ink hover:text-accent-ink"
+                  title="Use this question"
+                >
+                  “{q}”
+                </button>
+              </li>
+            ))}
+          </ul>
+          <p className="eyebrow mb-1.5 mt-4">Less useful</p>
+          <ul className="space-y-1.5 text-xs leading-snug text-ink-2">
+            {EXAMPLES_BAD.map(([q, why]) => (
+              <li key={q}>
+                “{q}” <span className="text-ink-3">· {why}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
 
-      {/* Loading indicators */}
-      {runs.some((r) => r.loading) && (
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4 mb-6">
-          <div className="space-y-4">
+      {runs.length > 0 && (
+        <section aria-label="Run status" className="mt-8 rounded-xl border border-rule bg-surface p-4 sm:p-5">
+          <ul className="space-y-3">
             {runs.map((r) => {
-              const pct =
-                r.progress?.current != null && r.progress?.total
-                  ? Math.round((r.progress.current / r.progress.total) * 100)
-                  : null;
-              // Estimate percentage for non-probe stages
-              const displayPct = r.result
-                ? 100
-                : pct != null
-                  ? pct
-                  : r.progress?.stage?.includes("Computing")
-                    ? 95
-                    : r.progress?.stage?.includes("Analyzing")
-                      ? 15
-                      : r.progress?.stage?.includes("generated")
-                        ? 12
-                        : r.progress?.stage?.includes("Generating")
-                          ? 5
-                          : 0;
-
+              const pct = r.result ? 100 : progressPercent(r.progress);
               return (
-                <div key={r.model}>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-sm font-medium">
+                <li key={r.model}>
+                  <div className="flex items-baseline justify-between gap-3 text-sm">
+                    <span className="flex items-center gap-2 text-ink">
                       {r.result ? (
-                        <span className="text-[var(--color-positive)]">&#10003;</span>
+                        <Check size={14} className="text-[#2f9e6b]" aria-hidden />
                       ) : r.error ? (
-                        <span className="text-[var(--color-destructive)]">&#10007;</span>
+                        <span className="text-up" aria-hidden>
+                          ✕
+                        </span>
                       ) : (
-                        <span className="text-[var(--color-muted-foreground)]">&#9676;</span>
+                        <span className="h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden />
                       )}
-                    </span>
-                    <span
-                      className={`text-sm font-medium ${r.loading ? "text-[var(--color-foreground)]" : "text-[var(--color-muted-foreground)]"}`}
-                    >
                       {r.label}
                     </span>
-                    {r.result && (
-                      <span className="text-xs ml-auto font-mono" style={{ color: probToColor(r.result.initial_probability) }}>
-                        {formatProbability(r.result.initial_probability)}
-                      </span>
-                    )}
-                    {r.error && (
-                      <span className="text-xs text-[var(--color-destructive)] ml-auto">
-                        Failed
-                      </span>
-                    )}
-                    {r.loading && displayPct != null && (
-                      <span className="text-xs text-[var(--color-muted-foreground)] ml-auto font-mono">
-                        {displayPct}%
-                      </span>
-                    )}
+                    <span className="num text-xs text-ink-2">
+                      {r.result
+                        ? `forecast ${formatProbability(r.result.initial_probability)}`
+                        : r.error
+                          ? "failed"
+                          : `${pct}%`}
+                    </span>
                   </div>
                   {r.loading && (
-                    <div className="ml-6">
-                      <div className="h-1.5 w-full bg-[var(--color-secondary)] rounded-full overflow-hidden mb-1">
-                        <div
-                          className="h-full bg-[var(--color-primary)] rounded-full transition-all duration-500 ease-out"
-                          style={{ width: `${displayPct ?? 0}%` }}
-                        />
+                    <>
+                      <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-surface-2">
+                        <div className="h-full rounded-full bg-accent transition-all duration-500" style={{ width: `${pct}%` }} />
                       </div>
-                      <p className="text-xs text-[var(--color-muted-foreground)]">
-                        {r.progress?.stage ?? "Starting pipeline..."}
+                      <p className="mt-1 text-xs text-ink-3">
+                        {r.progress?.stage ?? "Starting…"}
                         {r.progress?.current != null && r.progress?.total != null && (
-                          <span className="font-mono ml-1">
+                          <span className="num ml-1">
                             ({r.progress.current}/{r.progress.total})
                           </span>
                         )}
                       </p>
-                    </div>
+                    </>
                   )}
-                </div>
+                  {r.error && <p className="mt-1 text-xs text-up">{r.error}</p>}
+                </li>
               );
             })}
-          </div>
-        </div>
+          </ul>
+        </section>
       )}
 
-      {/* Multi-model comparison table */}
-      {completedRuns.length > 1 && (
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4 mb-6">
-          <h3 className="text-xs font-semibold text-[var(--color-muted-foreground)] uppercase tracking-wider mb-3">
-            Model Comparison
-          </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-xs text-[var(--color-muted-foreground)]">
-                  <th className="text-left py-1 pr-4">Metric</th>
-                  {completedRuns.map((r) => (
-                    <th key={r.model} className="text-right py-1 px-3">
-                      {r.label}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="font-mono text-xs">
-                <tr className="border-t border-[var(--color-border)]">
-                  <td className="py-1.5 pr-4 text-[var(--color-muted-foreground)]">Baseline P</td>
-                  {completedRuns.map((r) => (
-                    <td
-                      key={r.model}
-                      className="py-1.5 px-3 text-right"
-                      style={{ color: probToColor(r.result!.initial_probability) }}
-                    >
-                      {formatProbability(r.result!.initial_probability)}
+      {completed.length > 1 && (
+        <section aria-labelledby="compare-heading" className="mt-6 overflow-x-auto rounded-xl border border-rule bg-surface p-4 sm:p-5">
+          <h2 id="compare-heading" className="font-display text-xl text-ink">
+            Side by side
+          </h2>
+          <table className="mt-3 w-full min-w-[520px] text-sm">
+            <thead>
+              <tr className="border-b border-rule">
+                <th className="eyebrow py-2 pr-4 text-left font-semibold">Measure</th>
+                {completed.map((r) => (
+                  <th key={r.model} className="py-2 pl-3 text-right text-xs font-medium text-ink">
+                    {r.label}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="num text-xs">
+              {(
+                [
+                  ["Baseline forecast", (r: LiveResult) => formatProbability(r.initial_probability)],
+                  ["Factors / links", (r: LiveResult) => `${r.network_analysis.n_nodes - 1} / ${r.network_analysis.n_edges}`],
+                  [
+                    "Average shift",
+                    (r: LiveResult) => (r.summary.mean_absolute_shift != null ? formatPp(r.summary.mean_absolute_shift) : "—"),
+                  ],
+                  ["Structural sensitivity ratio", (r: LiveResult) => (r.aggregate_metrics.ssr != null ? `${r.aggregate_metrics.ssr.toFixed(2)}×` : "—")],
+                  [
+                    "Strengthen vs. negate",
+                    (r: LiveResult) =>
+                      r.aggregate_metrics.mean_shift_negate > 0
+                        ? `${(r.aggregate_metrics.mean_shift_strengthen / r.aggregate_metrics.mean_shift_negate).toFixed(2)}×`
+                        : "—",
+                  ],
+                  [
+                    "Control probes > 5pp",
+                    (r: LiveResult) =>
+                      r.aggregate_metrics.control_sensitivity != null
+                        ? `${Math.round(r.aggregate_metrics.control_sensitivity * 100)}%`
+                        : "—",
+                  ],
+                ] as Array<[string, (r: LiveResult) => string]>
+              ).map(([label, fn]) => (
+                <tr key={label} className="border-b border-rule last:border-b-0">
+                  <td className="py-2 pr-4 font-sans text-ink-2">{label}</td>
+                  {completed.map((r) => (
+                    <td key={r.model} className="py-2 pl-3 text-right text-ink">
+                      {fn(r.result!)}
                     </td>
                   ))}
                 </tr>
-                <tr className="border-t border-[var(--color-border)]">
-                  <td className="py-1.5 pr-4 text-[var(--color-muted-foreground)]">Nodes / Edges</td>
-                  {completedRuns.map((r) => (
-                    <td key={r.model} className="py-1.5 px-3 text-right">
-                      {r.result!.network_analysis.n_nodes} / {r.result!.network_analysis.n_edges}
-                    </td>
-                  ))}
-                </tr>
-                <tr className="border-t border-[var(--color-border)]">
-                  <td className="py-1.5 pr-4 text-[var(--color-muted-foreground)]">SSR</td>
-                  {completedRuns.map((r) => (
-                    <td key={r.model} className="py-1.5 px-3 text-right">
-                      {r.result!.aggregate_metrics.ssr?.toFixed(2) ?? "N/A"}
-                    </td>
-                  ))}
-                </tr>
-                <tr className="border-t border-[var(--color-border)]">
-                  <td className="py-1.5 pr-4 text-[var(--color-muted-foreground)]">Mean |Δ|</td>
-                  {completedRuns.map((r) => (
-                    <td key={r.model} className="py-1.5 px-3 text-right">
-                      {r.result!.summary.mean_absolute_shift != null
-                        ? (r.result!.summary.mean_absolute_shift * 100).toFixed(1) + "pp"
-                        : "N/A"}
-                    </td>
-                  ))}
-                </tr>
-                <tr className="border-t border-[var(--color-border)]">
-                  <td className="py-1.5 pr-4 text-[var(--color-muted-foreground)]">Asymmetry</td>
-                  {completedRuns.map((r) => (
-                    <td key={r.model} className="py-1.5 px-3 text-right">
-                      {r.result!.aggregate_metrics.asymmetry_index?.toFixed(2) ?? "N/A"}
-                    </td>
-                  ))}
-                </tr>
-                <tr className="border-t border-[var(--color-border)]">
-                  <td className="py-1.5 pr-4 text-[var(--color-muted-foreground)]">FNAR</td>
-                  {completedRuns.map((r) => (
-                    <td key={r.model} className="py-1.5 px-3 text-right">
-                      {r.result!.aggregate_metrics.fnar != null
-                        ? (r.result!.aggregate_metrics.fnar * 100).toFixed(0) + "%"
-                        : "N/A"}
-                    </td>
-                  ))}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+              ))}
+            </tbody>
+          </table>
+        </section>
       )}
 
-      {/* Per-model results */}
-      {runs
-        .filter((r) => r.result || r.error)
-        .map((run) => (
-          <div key={run.model} className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <h2 className="text-lg font-semibold">{run.label}</h2>
-              {run.result && (
-                <span
-                  className="text-lg font-mono font-bold"
-                  style={{ color: probToColor(run.result.initial_probability) }}
+      {runs.some((r) => r.result) && shown && (
+        <section className="mt-10">
+          {runs.length > 1 && (
+            <div role="tablist" aria-label="Model results" className="mb-6 flex gap-1 overflow-x-auto border-b border-rule">
+              {runs.map((r) => (
+                <button
+                  key={r.model}
+                  role="tab"
+                  aria-selected={r.model === shown.model}
+                  disabled={!r.result}
+                  onClick={() => setActiveTab(r.model)}
+                  className={cn(
+                    "-mb-px shrink-0 border-b-2 px-3 py-2 text-sm transition-colors disabled:opacity-40",
+                    r.model === shown.model ? "border-accent text-ink" : "border-transparent text-ink-2 hover:text-ink"
+                  )}
                 >
-                  {formatProbability(run.result.initial_probability)}
-                </span>
-              )}
+                  {r.label}
+                  {r.result && <span className="num ml-2 text-xs text-ink-3">{formatProbability(r.result.initial_probability)}</span>}
+                </button>
+              ))}
             </div>
-
-            {run.error && (
-              <div className="rounded-lg border border-[var(--color-destructive)]/30 bg-[var(--color-destructive)]/10 p-4">
-                <p className="text-sm text-[var(--color-destructive)]">
-                  {run.error}
-                </p>
+          )}
+          {shown.result && (
+            <div key={shown.model}>
+              <div className="mb-4 flex justify-end">
+                <button
+                  onClick={() => {
+                    const blob = new Blob([JSON.stringify(shown.result, null, 2)], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = `causal-forecast-${shown.model.replace(/\//g, "_")}.json`;
+                    a.click();
+                    URL.revokeObjectURL(url);
+                  }}
+                  className="inline-flex items-center gap-1.5 rounded-md border border-rule px-3 py-1.5 text-xs text-ink-2 hover:text-ink"
+                >
+                  <Download size={13} aria-hidden /> Download results (JSON)
+                </button>
               </div>
-            )}
-
-            {run.result && (
-              <LiveResultPanel
-                result={run.result}
-                apiKey={apiKey}
-                model={run.model}
+              <BaselineCard
+                probability={shown.result.initial_probability}
+                reasoning={shown.result.reasoning}
+                modelName={shown.label}
               />
-            )}
-          </div>
-        ))}
+              <div className="mt-6">
+                <QuestionAnalysis
+                  data={shown.result}
+                  modelId={shown.model}
+                  sidebarExtra={
+                    shown.result.epistemic_ratings?.length ? (
+                      <InformationPriorities ratings={shown.result.epistemic_ratings} />
+                    ) : undefined
+                  }
+                />
+              </div>
+            </div>
+          )}
+        </section>
+      )}
     </div>
   );
 }
 
-function LiveResultPanel({
-  result,
-  apiKey,
-  model,
+function ModelChip({
+  label,
+  selected,
+  disabled,
+  onClick,
 }: {
-  result: DetailWithMetrics;
-  apiKey: string;
-  model: string;
+  label: string;
+  selected: boolean;
+  disabled?: boolean;
+  onClick: () => void;
 }) {
-  const [selectedNode, setSelectedNode] = useState<string | null>(null);
-
-  const selectedInfo = useMemo(() => {
-    if (!selectedNode) return { type: null, description: null };
-    const node = result.network_analysis.node_metrics.find(
-      (n) => n.node_id === selectedNode
-    );
-    if (node) return { type: "node" as const, description: node.description };
-    const edge = result.network_analysis.edge_metrics.find(
-      (e) => `${e.source}->${e.target}` === selectedNode
-    );
-    if (edge) return { type: "edge" as const, description: edge.mechanism };
-    return { type: null, description: null };
-  }, [result, selectedNode]);
-
   return (
-    <div className="space-y-6">
-      {/* Baseline */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-        <ProbabilityBar probability={result.initial_probability} label="Baseline" />
-        <p className="mt-3 text-sm text-[var(--color-muted-foreground)] leading-relaxed">
-          {result.reasoning}
-        </p>
-      </div>
-
-      {/* Network + Interactive Probe + Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6">
-        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-          <h3 className="text-sm font-semibold mb-3">
-            Causal Network
-            <span className="font-normal text-[var(--color-muted-foreground)] ml-2">
-              Click a node to probe it
-            </span>
-          </h3>
-          <CausalNetwork
-            nodes={result.network_analysis.node_metrics}
-            edges={result.network_analysis.edge_metrics}
-            probeResults={result.probe_results}
-            onNodeClick={setSelectedNode}
-            selectedNodeId={selectedNode}
-            height={400}
-          />
-        </div>
-
-        <div className="space-y-6">
-          <div className="rounded-lg border border-[var(--color-primary)]/30 bg-[var(--color-card)] p-4">
-            <InteractiveProbe
-              questionText={result.question_text}
-              initialProbability={result.initial_probability}
-              reasoning={result.reasoning}
-              nodes={result.nodes}
-              edges={result.edges}
-              selectedTargetId={selectedNode}
-              selectedTargetType={selectedInfo.type}
-              selectedTargetDescription={selectedInfo.description}
-              defaultModel={model}
-            />
-          </div>
-
-          <MetricsPanel
-            metrics={result.aggregate_metrics}
-            network={result.network_analysis}
-          />
-
-          {result.epistemic_ratings && result.epistemic_ratings.length > 0 && (
-            <InformationPriorities ratings={result.epistemic_ratings} />
-          )}
-        </div>
-      </div>
-
-      {/* Chart */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-        <h3 className="text-sm font-semibold mb-3">Delta Distribution</h3>
-        <DeltaBarChart
-          results={result.probe_results}
-          initialProbability={result.initial_probability}
-        />
-      </div>
-
-      {/* Probes */}
-      <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-semibold">Automated Probe Results</h3>
-          <button
-            onClick={() => {
-              const blob = new Blob([JSON.stringify(result, null, 2)], {
-                type: "application/json",
-              });
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement("a");
-              a.href = url;
-              a.download = `live-${result.question_id}.json`;
-              a.click();
-              URL.revokeObjectURL(url);
-            }}
-            className="text-xs text-[var(--color-primary)] hover:underline"
-          >
-            Export JSON
-          </button>
-        </div>
-        <ProbeTable
-          results={result.probe_results}
-          initialProbability={result.initial_probability}
-          onSelectProbe={setSelectedNode}
-          selectedTargetId={selectedNode}
-        />
-      </div>
-    </div>
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-pressed={selected}
+      className={cn(
+        "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs transition-colors",
+        selected
+          ? "border-accent bg-accent-soft font-medium text-accent-ink"
+          : "border-rule bg-paper text-ink-2 hover:border-rule-strong hover:text-ink",
+        disabled && "cursor-not-allowed opacity-40"
+      )}
+    >
+      {selected && <Check size={12} aria-hidden />}
+      {label}
+    </button>
   );
 }
